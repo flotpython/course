@@ -2,3 +2,4 @@
 *.pyc
 daily_14*
 forecast_canonical*
+.du
