@@ -3,3 +3,10 @@
 daily_14*
 forecast_canonical*
 .du
+# ipython private area
+.ipynb_checkpoints
+# local stuff in folders named zz-*
+zz-*
+scratch*
+TAGS
+connect.html
