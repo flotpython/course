@@ -22,7 +22,7 @@ sera raisonnable. La réponse est presque toujours oui.
 Ouvrons maintenant un terminal interactif pour évaluer la
 performance de Python. 
 
->>>>>>>>>> INCLUDE CO12AL-W7-VIDEO03-EXO01.py (5 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W7-S3-exo1.py (5 minutes) <<<<<<<<<<
 
 
 

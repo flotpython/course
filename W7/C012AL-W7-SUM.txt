@@ -5,7 +5,7 @@
 
 ## Vidéo 1 (Méthodes statiques et de classe)
 
-CO12AL-W7-VIDEO01.txt
+C012AL-W7-S1.txt
 
 ## Compléments Vidéo 1
 
@@ -18,7 +18,7 @@ CO12AL-W7-VIDEO01.txt
 
 ## Vidéo 2 (Les décorateurs)
 
-CO12AL-W7-VIDEO02.txt
+C012AL-W7-S2.txt
 
 ## Compléments Vidéo 2
 
