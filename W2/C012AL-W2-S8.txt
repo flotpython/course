@@ -32,7 +32,7 @@ s[i:j:k]
 passons dans un terminal pour commencer à jouer avec les chaînes
 de caractères...
 
->>>>>>>>>>  CO12AL-W2-VIDEO08-EXO01.py  <<<<<<<<<<
+>>>>>>>>>>  C012AL-W2-S8-exo1.py  <<<<<<<<<<
 
 Il existe beaucoup d'autres fonctions sur les chaînes de caractères, 
 nous en verrons de nouvelles dans les exercices et n'hésitez pas
