@@ -27,9 +27,9 @@ Mais est-ce qu'il y a des limitations à l'utilisation des types
 séquences. 
 Ouvrons un terminal interactif pour répondre à cette question...
 
->>>>>>>>>> CO12AL-W3-VIDEO01-EXO01.py <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S1-exo1.py <<<<<<<<<<
 
->>>>>>>>>> CO12AL-W3-VIDEO01-SLIDE01.pptx (5 minutes) <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S1-slide1.pptx (5 minutes) <<<<<<<<<<
 
 Comme la fonction de hash fait un calcul sur la valeur de la clef
 et que pour une même clef, elle doit toujours donner

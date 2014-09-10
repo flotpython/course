@@ -34,7 +34,7 @@ set mutable
 frozenset immuable
 ]]
 
->>>>>>>>>> CO12AL-W3-VIDEO03-EXO01.py <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S3-exo1.py <<<<<<<<<<
 
 Nous avons fini la présentation des principaux type de base en Python.
 On a vu que ces types étaient riches et très puissants. Ils constituent

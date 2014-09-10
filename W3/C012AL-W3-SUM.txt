@@ -5,7 +5,7 @@
 
 ## Vidéo 1 (Tables de hash)
 
-CO12AL-W3-VIDEO01.txt 
+C012AL-W3-S1.txt 
 
 ## Compléments Vidéo 1 
 pas de complement ni exercice sur ce topic tres abstrait
@@ -17,7 +17,7 @@ pas de complement ni exercice sur ce topic tres abstrait
 
 ## Vidéo 2 (Les dictionnaires)
 
-CO12AL-W3-VIDEO02.txt 
+C012AL-W3-S2.txt 
 
 ## Compléments Vidéo 2
 OK dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
@@ -32,7 +32,7 @@ OK dict-as-struct.ipynb - une utilisation standard du dicctionnaire pour faire u
 
 ## Vidéo 3 (Les ensembles)
 
-CO12AL-W3-VIDEO03.txt 
+C012AL-W3-S3.txt 
 
 ## Compléments Vidéo 3
 TODO set-extras.ipynb : autre fonctions sur les sets (e.g., <=, <, discard, pop, clear)
@@ -63,7 +63,7 @@ probleme posé...
 
 ## Vidéo 4 (Les références partagées)
 
-CO12AL-W3-VIDEO04.txt 
+C012AL-W3-S4.txt 
 
 ## Compléments Vidéo 4
 TODO recapitulatif shallow/deep copy sur les diff'erents types - copy() sur dict et set
@@ -101,7 +101,7 @@ grace au tuple unpacking qui crée la variable temporaire)
 
 ## Vidéo 5 (Introduction aux modules)
 
-CO12AL-W3-VIDEO05.txt
+C012AL-W3-S5.txt
 # import - dir - help
 
 ## Compléments Vidéo 5
@@ -118,7 +118,7 @@ https://docs.python.org/2/library/index.html
 
 ## Vidéo 6 (L'indentation comme syntaxe de base)
 
-CO12AL-W3-VIDEO06.txt
+C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
 TODO parler des coupures de ligne - les parentheses et autres crochets
@@ -139,7 +139,7 @@ http://legacy.python.org/dev/peps/pep-0008/
 # if avec resultat non booleen
 # operateurs booleens - priorites..
 
-CO12AL-W3-VIDEO07.txt
+C012AL-W3-S7.txt
 
 ## Compléments Vidéo 7
 
@@ -165,7 +165,7 @@ tôt maintenant)
 
 ## Vidéo 8 (Les boucles for et les itérateurs)
 
-CO12AL-W3-VIDEO08.txt
+C012AL-W3-S8.txt
 # for sur une sequence - for sur un objet qui a un iterateur -
 # __iter__  / next / StopIteration
 

@@ -25,7 +25,7 @@ longue et fastidieuse à écrire. Ouvrons un terminal interactif
 pour commencer à jouer avec les dictionnaires. 
 
 
->>>>>>>>>> CO12AL-W3-VIDEO02-EXO01.py <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S2-exo1.py <<<<<<<<<<
 
 Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, 
 et on imagine facilement la puissance de ce type. Créer un agenda

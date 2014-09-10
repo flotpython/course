@@ -46,7 +46,7 @@ des boucles for et explorer le concept
 d'itérateur. Ouvrons un terminal pour commencer à
 jouer avec les boucles for et les itérateurs...
 
->>>>>>>>>> CO12AL-W3-VIDEO08-EXO01.py <<<<<<<<<< (3 minutes)
+>>>>>>>>>> C012AL-W3-S8-exo1.py <<<<<<<<<< (3 minutes)
 
 ## différence entre un objet qui a un itérateur 
 ## et un itérateur  (1 minutes 50 seconde)
@@ -96,7 +96,7 @@ dans les deux cas, la boucle for pourra l'utiliser.
 
 Ouvrons de nouveau un terminal ...
 
->>>>>>>>>> CO12AL-W3-VIDEO08-EXO02.py <<<<<<<<<< (3 minutes 30)
+>>>>>>>>>> C012AL-W3-S8-exo2.py <<<<<<<<<< (3 minutes 30)
 
 Nous venons de voir que le concept d'itérateurs est à
 la fois très puissant et très simple. Nous verrons

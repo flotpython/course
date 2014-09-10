@@ -13,7 +13,7 @@
 On a vu la semaine dernière une rapide introduction à l'instruction
 if else. On va voir dans cette vidéo tous les détails. 
 
->>>>>>>>>> CO12AL-W3-VIDEO07-SLIDE01.pptx <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S7-slide1.pptx <<<<<<<<<<
 
 
 

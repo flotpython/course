@@ -46,7 +46,7 @@ graphiques, communiquer sur Internet, et bien plus encore.
 
 Ouvrons un terminal pour commencer à jouer avec les modules...
 
->>>>>>>>>> INCLUDE CO12AL-W3-VIDEO05-EXO01.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W3-S5-exo1.py <<<<<<<<<<
 
 On a vu une introduction rapide à l'utilisation des modules de la
 librairie standard. 

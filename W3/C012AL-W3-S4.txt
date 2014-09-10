@@ -22,12 +22,12 @@ Regardons le fonctionnement des références partagées sur
 les mutables et les immuables. 
 
 
->>>>>>>>>> CO12AL-W3-VIDEO04-SLIDE01.pptx <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S4-slide1.pptx <<<<<<<<<<
 
 Pour finir, nous allons aborder quelques derniers point à connaître sur les références 
 partagées. Pour cela, ouvrons un terminal interactif...
 
->>>>>>>>>> CO12AL-W3-VIDEO04-EXO01.py <<<<<<<<<<
+>>>>>>>>>> C012AL-W3-S4-exo1.py <<<<<<<<<<
 
 
 En résumé, il vaut se rappeler que les références partagées sur un immutable
