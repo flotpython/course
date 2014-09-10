@@ -21,7 +21,7 @@ possibilités.
 Ouvrons un terminal pour jouer avec l'instruction while...
 
 
->>>>>>>>>> CO12AL-W4-VIDEO02-EXO01.py <<<<<<<<<< ()
+>>>>>>>>>> C012AL-W4-S2-exo1.py <<<<<<<<<< ()
 
 L'instruction while ne présente pas de difficultés particulières
 et son utilisation est limitée à la répétition d'un bloc d'instruction 

@@ -51,7 +51,7 @@ Ouvrons un éditeur IDLE pour commencer à jouer avec la
 notion de scope. 
 
 
->>>>>>>>>> CO12AL-W4-VIDEO06-EXO01.py <<<<<<<<<< (7 minutes 30)
+>>>>>>>>>> C012AL-W4-S6-exo1.py <<<<<<<<<< (7 minutes 30)
 
 
 ## conclusion ()

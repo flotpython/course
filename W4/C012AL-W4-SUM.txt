@@ -7,7 +7,7 @@
 # open('w') - close - write - "\n
 # je suggere de mentionner 'with'
 
-CO12AL-W4-VIDEO01.txt
+C012AL-W4-S1.txt
 
 ## Compléments Vidéo 1
 
@@ -44,7 +44,7 @@ et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 
 ## Vidéo 2 (Boucle while)
 
-CO12AL-W4-VIDEO02.txt
+C012AL-W4-S2.txt
 
 ## Compléments Vidéo 2
 -voir le break et le continue (déjà vu pour for, mais
@@ -73,7 +73,7 @@ while x:
 # ce qui est bien dans l'exo est que pour la premiere fois on manipule
 # des objets fonction, ca ca vaut le coup de le garder
 
-CO12AL-W4-VIDEO03.txt
+C012AL-W4-S3.txt
 
 ## Compléments Vidéo 3
 
@@ -104,7 +104,7 @@ IMHO ce qui reste a expliquer la-dedans c'est
 
 ## Vidéo 4 (Compréhension de listes, sets et dictionnaires)
 
-CO12AL-W4-VIDEO04.txt
+C012AL-W4-S4.txt
 
 ## Compléments Vidéo 4
 
@@ -142,7 +142,7 @@ Expliquer que la compréhension sur plusieurs variables est difficile
 
 ## Vidéo 5 (Les fonctions)
 
-CO12AL-W4-VIDEO05.txt
+C012AL-W4-S5.txt
 
 ## Compléments Vidéo 5
 
@@ -235,7 +235,7 @@ UnboundLocalError: local variable 'var' referenced before assignment
 
 ## Vidéo 7 (Portée des variables dans les fonctions et références partagées)
 
-CO12AL-W4-VIDEO07.txt
+C012AL-W4-S7.txt
 
 ## Compléments Vidéo 7
 

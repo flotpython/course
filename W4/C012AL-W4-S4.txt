@@ -22,7 +22,7 @@ de listes peut totalement remplacer les fonction map et filter.
 Ouvrons un terminal pour commencer à jouer avec la compréhension
 de listes...
 
->>>>>>>>>> CO12AL-W4-VIDEO04-EXO01.py <<<<<<<<<< (2 minutes)
+>>>>>>>>>> C012AL-W4-S4-exo1.py <<<<<<<<<< (2 minutes)
 
 ## résumé et transition vers compréhension de set et dict (40 secondes)
 
@@ -46,7 +46,7 @@ dictionnaires ont été introduites à partir de Python 2.7
 Ouvrons un terminal pour jouer avec la compréhension de sets 
 et de dictionnaires. 
 
->>>>>>>>>> CO12AL-W4-VIDEO04-EXO02.py <<<<<<<<<< (4 minutes)
+>>>>>>>>>> C012AL-W4-S4-exo2.py <<<<<<<<<< (4 minutes)
 
 ## conclusion (20 secondes)
 

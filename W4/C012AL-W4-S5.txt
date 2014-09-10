@@ -18,7 +18,7 @@ fonction.
 
 ouvrons un terminal pour jouer avec les fonctions...
 
->>>>>>>>>> CO12AL-W4-VIDEO05-EXO01.py <<<<<<<<<< ()
+>>>>>>>>>> C012AL-W4-S5-exo1.py <<<<<<<<<< ()
 
 
 ## conclusion ()
