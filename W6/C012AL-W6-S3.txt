@@ -27,11 +27,6 @@ Deuxièmement, les exceptions
 sont très [performantes] en Python, c'est d'ailleurs pour cela 
 que l'exception StopIteration est utilisé par les itérateurs. 
 
-[[
-[On peut capturer les exceptions]
-[Les exceptions sont performantes]
-]]
-
  
 Ouvrons maintenant un éditeur IDLE pour commencer à jouer 
 avec les exceptions...

@@ -55,14 +55,6 @@ la structure de votre programme en exploitant pleinement les classes
 et l'héritage. 
 
 
-[[
-Multiples instances
-Héritage
-[effacer]
-Boîte à outils -> modules
-Instances multiples -> classes
-]]
-
 ## Conclusion ()
 
 

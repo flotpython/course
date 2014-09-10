@@ -13,11 +13,8 @@ Il est possible, et même recommandé, de créer des exceptions
 personnalisée pour votre propre code. Nous allons voir que c'est
 très simple en Python. Les exceptions sont des classes qui 
 forment un arbre d'héritage. Toutes les exceptions créées
-par les développeurs doivent hériter de la classe [Exception]
+par les développeurs doivent hériter de la classe Exception
 
-[[
-Exception
-]]
 
 Ouvrons un éditeur IDLE pour jouer avec la conception des
 exceptions...

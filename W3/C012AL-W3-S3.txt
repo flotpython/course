@@ -24,15 +24,10 @@ immuables (nombre, chaîne de caractères, tuple d'immuable).
 Par contre, contrairement au dictionnaire, on ne peut pas stocker
 de valeur associée à une clef. 
 
-Les [sets] sont des objets mutables et il existe un type [frozenset]
+Les sets sont des objets mutables et il existe un type frozenset
 qui a les mêmes caractéristiques qu'un set, mais qui est immuable. 
 
 Ouvrons un terminal interactif pour jouer avec les set. 
-
-[[
-set mutable
-frozenset immuable
-]]
 
 >>>>>>>>>> C012AL-W3-S3-exo1.py <<<<<<<<<<
 

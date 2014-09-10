@@ -45,7 +45,7 @@ tous les programmes (on appelle cela des processus)
 qui accèdent aux fichiers et de gérer les accès de ces
 processus aux fichiers. Lorsqu'un programme n'a plus
 besoin d'un fichier, le système d'exploitation n'a
-aucun moyen de le savoir si on n'appelle pas [close()]
+aucun moyen de le savoir si on n'appelle pas close()
 sur le fichier.  Un fichier qui n'est pas libéré par
 un programme, c'est-à-dire un fichier sur lequel on ne
 fait pas de close, consomme des ressources pour rien
@@ -67,9 +67,9 @@ fonctionnement risque d'être faux.  Il est cependant
 possible de forcer l'écriture synchrone c'est-à-dire
 que l'écriture dans le fichier sur le disque dur soit
 faite au moment ou l'on écrit dans le programme.  On
-peut soit ajouter un retour chariot (le [\n]) à la fin
+peut soit ajouter un retour chariot (le \n) à la fin
 de la chaîne de caractère que l'on passe à write, soit
-on peut utiliser la fonction [flush()] sur le fichier
+on peut utiliser la fonction flush() sur le fichier
 qui force l'écriture synchrone sur le disque dur.  Il
 faut faire attention cependant de ne pas abuser de
 flush qui ne doit être utilisé que si l'écriture
@@ -86,12 +86,6 @@ perdu. Ce problème est courant lorsque l'on débugge un
 programme à partir d'un fichier de log, mais que l'on
 ne fait pas de flush (ou de retour chariot)
 régulièrement.
-
-[[
-close()
-'\n'
-flush()
-]]
 
 Ouvrons de nouveau un terminal et regardons comment
 lire et modifier un fichier.
