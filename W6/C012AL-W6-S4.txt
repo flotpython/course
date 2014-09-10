@@ -22,7 +22,7 @@ Exception
 Ouvrons un éditeur IDLE pour jouer avec la conception des
 exceptions...
 
->>>>>>>>>> INCLUDE CO12AL-W6-VIDEO04-EXO01.py () <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W6-S4-exo1.py () <<<<<<<<<<
 
 
 ## Conclusion ()

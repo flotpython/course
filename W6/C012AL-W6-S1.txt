@@ -28,7 +28,7 @@ successifs.
 Une fonction génératrice se comporte différemment. Ouvrons un 
 terminal pour commencer à jouer avec des fonction génératrices...
 
->>>>>>>>>> INCLUDE CO12AL-W6-VIDEO01-EXO01.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W6-S1-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 

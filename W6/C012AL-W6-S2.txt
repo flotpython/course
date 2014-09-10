@@ -32,7 +32,7 @@ dire que vous pourrez exploiter toute la puissance
 des itérateurs pour vos objets.  Ouvrons un éditeur
 IDLE pour commencer à jouer avec les itérateurs...
 
->>>>>>>>>> INCLUDE CO12AL-W6-VIDEO02-EXO01.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W6-S2-exo1.py <<<<<<<<<<
 
 
 ## Conclusion ()

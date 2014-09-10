@@ -5,7 +5,7 @@
 
 ## Vidéo 1 (Fonctions génératrices)
 
-CO12AL-W6-VIDEO01.txt
+C012AL-W6-S1.txt
 
 ## Compléments Vidéo 1
 
@@ -28,7 +28,7 @@ expressions génératrices sont un peu plus lente que les compréhensions
 
 ## Vidéo 2 (Conception d'itérateurs)
 
-CO12AL-W6-VIDEO02.txt
+C012AL-W6-S2.txt
 
 ## Compléments Vidéo 2
 
@@ -49,7 +49,7 @@ Donnes des exos pratiques de création d'objets avec des itérateurs
 
 ## Vidéo 3 (Exceptions)
 
-CO12AL-W6-VIDEO03.txt
+C012AL-W6-S3.txt
 
 ## Compléments Vidéo 3
 
@@ -76,7 +76,7 @@ du print_exc()
 
 ## Vidéo 4 (Conception d'exceptions personnalisées)
 
-CO12AL-W6-VIDEO04.txt
+C012AL-W6-S4.txt
 
 ## Compléments Vidéo 4
 
@@ -89,7 +89,7 @@ CO12AL-W6-VIDEO04.txt
 
 ## Vidéo 5 (Context manager)
 
-CO12AL-W6-VIDEO05.txt
+C012AL-W6-S5.txt
 
 ## Compléments Vidéo 5
 

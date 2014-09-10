@@ -60,7 +60,7 @@ Context manager
 
 Ouvrons un terminal pour jouer avec les context manager...
 
->>>>>>>>>> INCLUDE CO12AL-W6-VIDEO05-EXO01.py () <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W6-S5-exo1.py () <<<<<<<<<<
 
 
 ## Conclusion ()
