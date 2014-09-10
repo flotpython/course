@@ -1,0 +1,63 @@
+Types numériques
+=====
+
+Comment calculer la 16-ème puissance de 2
+
+( ) 2 & 16
+(x) 2 ** 16
+( ) 2 && 16
+( ) 2 | 16
+
+[explanation]
+Le signe puissance en python est **
+[/explanation]
+
+Comment entrer la valeur du complexe 3 + 2i
+
+( ) 3 + 2i
+(x) 3 + 2j
+( ) 3 + 2 * i
+( ) 3 + 2 * j
+
+[explanation]
+Les anglais utilisent 'j' plutôt que notre 'i'
+Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
+[explanation]
+
+Que retourne la formule
+
+type ( 2 ** 16 ) == type ( 2 ** 8 )
+
+(x) True
+( ) False
+
+[explanation]
+Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
+[explanation]
+
+Que retourne la formule
+
+type ( 2 ** 200 ) == type ( 2 ** 8 )
+
+( ) True
+(x) False
+
+[explanation]
+Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
+[explanation]
+
+Que retourne la formule (avancé)
+
+(2 ** 200) >> 196 == 2 ** 4
+
+(x) True
+( ) False
+
+[explanation]
+On a vu que le décalage vers la droite représente une division entière par 2 ** n
+
+Donc 2 puissance 200, décalé à droite de 196 vaut bien 2 puissance 4
+
+Par ailleurs, la comparaison d'un entier long et d'un entier simple de même valeur retourne - heureusement - True
+[explanation]
+

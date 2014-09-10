@@ -1,0 +1,13 @@
+# tout ceci sans doute dans les compléments
+. debugger
+. module re et expressions régulières 
+. argparse
+. framework de tests
+. accents
+. python3 à partir de python2
+
+-- intrduire rapidement (essentiellement mentionner et montrer des exemples)
+. django
+. matplotlib
+. numpy
+. sage

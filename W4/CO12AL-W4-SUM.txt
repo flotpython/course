@@ -1,0 +1,327 @@
+
+# TITRE SEMAINE 4 : Fonctions 
+
+###################################################################
+
+## Vidéo 1 (Les fichiers)
+# open('w') - close - write - "\n
+# je suggere de mentionner 'with'
+
+CO12AL-W4-VIDEO01.txt
+
+## Compléments Vidéo 1
+
+*donner le lien vers https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+*exemple de flush()
+*voire read, tell, seek, writelines
+*introduire json et pickle
+*inroduire le mode b pour ouvrir des fichiers binaires et les autres
+modes utilise (e.g., a, r+)
+*expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs
+comme les autres types built-in (c'est lié à la manières des OS de gérer
+les accès aux fichiers). 
+*introduire sys.stdout (comparer avec print), sys.stdin (comparer 
+sys.stdin.readline() avec raw_input), et sys.stderr
+*montrer que sys.stdout n'est q'une variable qui peut référencer un 
+autre fichier. Comme print écrit dans sys.stdout, c'est un moyen simple
+de rediriger les print vers un fichier. 
+*en complément introduire le module logging (ça va bien ici, mais
+si ça fait trop de compléments, on peut le bouger en semaine 6 ou 7)
+avec les références https://docs.python.org/2/library/logging.html
+et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
+
+
+
+## Quizz Vidéo 1
+
+## Exercices Vidéo 1
+
+# pour creer un ou plusieurs fichiers exemple je vais devoir publier un module qui
+  cree des fichires dans l'espace des apprenants pour qu'ils puissent
+  l'ouvrir ensuite
+
+###################################################################
+
+## Vidéo 2 (Boucle while)
+
+CO12AL-W4-VIDEO02.txt
+
+## Compléments Vidéo 2
+-voir le break et le continue (déjà vu pour for, mais
+à revoir dans le contexte du while)
+-voir le else du while 
+XXX OMG! and I thought I knew a lot about python!!  :)
+xxx je suggere de zapper le else du while completement
+
+## Quizz Vidéo 2
+
+## Exercices Vidéo 2
+
+x='spam'
+while x:
+    print x
+    x = x[1:]
+
+
+
+
+###################################################################
+
+## Vidéo 3 (Fonction lambda, programmation fonctionnelle)
+# xxx je suggere d'enlever carrement cette video et de la remplacer
+# par des complements aux comprehensions
+# ce qui est bien dans l'exo est que pour la premiere fois on manipule
+# des objets fonction, ca ca vaut le coup de le garder
+
+CO12AL-W4-VIDEO03.txt
+
+## Compléments Vidéo 3
+
+*voir reduce 
+*voir exec et eval. Ça n'est pas en lien direct, mais il faut
+le voir et il y a peu de compléments pour cette vidéo alors
+autant le placer ici. 
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+
+*faire de beaux exemples pratiques d'application de map et filter
+
+xxx map et filter ne servent plus a rien avec les comprehensions de
+liste, et du coup lambda sert a peine.
+j'ai deja un complement for-comprehension qui touche a ca
+il faut lur apprendre a coder proprement avec les comprehensions, et
+leur dire ensuite que oui ya aussi map et filter et que dans certains
+cas ils peuvent esperer gagner un peu de performance..
+
+IMHO ce qui reste a expliquer la-dedans c'est 
+* reduce, qui lui reste tres utile
+* eval et exec 
+
+
+###################################################################
+
+## Vidéo 4 (Compréhension de listes, sets et dictionnaires)
+
+CO12AL-W4-VIDEO04.txt
+
+## Compléments Vidéo 4
+
+*Comparer la performance des boucles for, de map, de la compréhension. 
+S'inspirer de :
+http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
+
+*Donner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
+pour une discussion intéressante sur la compréhension, les expression
+génératrice et Python 2 et 3.
+
+*montrer le cas d'une compréhension sur plusieurs variables et montrer
+comment lire cette expression, par exemple, 
+[(x,y) for x in range(5) if x % 2 == 0 
+	     for y in range(5) if y % 2 == 1]
+
+
+L = []
+for x in range(5):
+    if x % 2 == 0:
+        for y in range(5):
+            if y % 2 == 1:
+                L.append((x,y))
+
+
+Expliquer que la compréhension sur plusieurs variables est difficile
+à lire et que c'est par conséquent une mauvaise idée en général.
+
+## Quizz Vidéo 4
+
+## Exercices Vidéo 4
+
+
+###################################################################
+
+## Vidéo 5 (Les fonctions)
+
+CO12AL-W4-VIDEO05.txt
+
+## Compléments Vidéo 5
+
+* cas pratique de plusieurs return 
+* effet de bord du passage par ref de mutable (illustration de la video)
+* expliquer comment ne pas modifier un mutable passé en argument:
+reprendre l'exemple de la video
+
+L = []
+def h(a):
+	a.append(1)
+
+Comment ne pas modifier L. Trois possibilités:
+-à l'appel h(L[:]) on passe une shallow copy, ça permet
+de choisir la modification par effect de bord à l'appel
+(peut-être utile lorsque la fonction fait autre chose avec L)
+-à l'appel si on veut une exception en cas de tentative
+de modification (utile pour les librairies) h(tuple(L))
+-dans h en ajoutant a = a[:] avant le append pour garantir
+que h ne modifiera jamais L. 
+-parler de la documentation automatique sur les fonctions 
+et de l'argument __doc__ utilisé par help()
+def func(a, b, c, d):
+    """
+    Cette fonction imprime 4 parametres a la suite
+    """
+    print a, b, c, d
+	
+>>>print func.__doc__
+ Cette fonction imprime 4 parametres a la suite
+>>>help(func)
+Help on function func in module __main__:
+
+func(a, b, c, d)
+    Cette fonction imprime 4 parametres a la suite
+
+peut-etre l'occasion de reparler de isinstance en complement de la
+    video qui parle de polymorphisme
+
+## Quizz Vidéo 5
+
+## Exercices Vidéo 5
+
+
+###################################################################
+
+## Vidéo 6 (Portée des variables dans les fonctions : règle LEG)
+
+CO12AL-W4-VIDEO006.txt
+
+## Compléments Vidéo 6
+
+-parler du scope built-in et montrer le module built-in. 
+-expliquer que les variables dans l'entête des fonctions sont
+aussi des variables locales. 
+-montrer que l'on peut redéfinir un nom built-in et que c'est
+une mauvaise idée. 
+-rappeler qu'il faut utiliser des bons noms de variables et qu'il
+faut éviter d'utiliser localement un nom de variable globales
+(ça peut conduire à des erreurs ou a des comportement étranges
+que j'expliquerai plus tard dans les vidéos). 
+-montrer est expliquer l'erreur UnboundLocalError
+var = 0
+def func():
+    print var
+
+def func2():
+    print var
+    var = 1
+
+func()
+func2()
+>>> 
+0
+
+Traceback (most recent call last):
+  File "C:/Users/alegout/Desktop/test.py", line 12, in <module>
+    func2()
+  File "C:/Users/alegout/Desktop/test.py", line 8, in func2
+    print var
+UnboundLocalError: local variable 'var' referenced before assignment
+
+## Quizz Vidéo 6
+
+## Exercices Vidéo 6
+
+-nombreux exemple de scope avec fonctions englobantes. 
+
+###################################################################
+
+## Vidéo 7 (Portée des variables dans les fonctions et références partagées)
+
+CO12AL-W4-VIDEO07.txt
+
+## Compléments Vidéo 7
+
+*montrer que global crée une variable global si elle n'existe
+pas encore. 
+x = 1
+def f():
+    global y
+	y = x + 1
+print y # n'existe pas encore
+f()
+print y # existe dans le scope global. 
+
+*revenir sur les bonnes pratiques de programmation avec global (en 
+limitant son usage et en favorisant les retours explicite de fonction). 
+
+## Quizz Vidéo 7
+
+## Exercices Vidéo 7
+
+
+###################################################################
+
+## Vidéo 8 (Passage d'arguments et appel de fonctions)
+
+CO12AL-W4-VIDEO008.txt
+
+## Compléments Vidéo 8
+
+*introduire sys.argv en remarquant que c'est une forme *Targs
+et introduire le module argparse. 
+*donner des exemples pratiques de forme * et ** (si tu en as)
+*montrer un exemple de mélange des 4 déclarations d'arguments
+def f(a, c = 3, *d, **e)
+*montrer l'erreur qu'il peut se produire lorsque l'on combine
+des formes positionnelles et des formes nommés lors de l'appel.
+def func(a, b, c, d):
+    print a, b, c, d
+func(1, c = 3, *(2,), **{'d':4})
+>>>
+1 2 3 4
+>>> func(1, b = 3, *(2,), **{'d':4})
+Traceback (most recent call last):
+  File "<pyshell#170>", line 1, in <module>
+    func(1, b = 3, *(2,), **{'d':4})
+TypeError: func() got multiple values for keyword argument 'b'
+
+Expliquer que les arguments ne sont pas pris dans l'ordre 
+de l'appel, mais les arguments positionnel sont utilisé en premier. 
+les arguments ordonnés et *args, ne donnent pas le nom des arguments, donc ils ne peut être que positionnel. Par contre, les arguments nommés et **args fournissent le nom. Ils sont donc traités en dernier. 
+C'est expliqué dans Dans Python Language Reference: 5.3.4. Calls
+https://docs.python.org/2/reference/expressions.html#calls
+
+*montrer le piège des arguments par défaut qui ne sont initialisé
+qu'une fois à la création de l'objet fonction, donc problème avec 
+les mutables
+https://docs.python.org/2/tutorial/controlflow.html#default-argument-values
+def f(a, L = []):
+    L.append(a)
+    print L
+f(1)
+f(2)
+f(3)
+>>>
+[1]
+[1, 2]
+[1, 2, 3]
+
+Solutions
+def f(a, L = None):
+    if L is None:
+        L = []
+    L.append(a)
+    print L
+f(1)
+f(2)
+f(3)
+>>>
+[1]
+[2]
+[3]
+
+
+
+
+## Quizz Vidéo 8
+
+## Exercices Vidéo 8
+

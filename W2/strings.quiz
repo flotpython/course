@@ -1,0 +1,85 @@
+Exercice 2.8.1 - strings
+=====
+
+
+On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on veut écrire dans la case du milieu un caractère "-", c'est-à-dire que par exemple
+
+chaine = ""  => chaine = ""
+chaine = "a"  => chaine = "-"
+chaine = "abcde"  => chaine = "ab-de"
+
+Comment peut-on faire (plusieurs réponses possibles)
+
+[ ] chaine [ len(chaine)/2 ] = "-"
+[ ] chaine = chaine [:len(chaine)/2] + "-" + chaine [-len(chaine)/2:]
+[ ] chaine = chaine [:len(chaine)/2] + "-" + chaine [-len(chaine)/2+1:]
+[x] chaine = "" if not chaine else chaine [:len(chaine)/2] + "-" + chaine [-len(chaine)/2+1:]
+
+[explanation]
+Le premier choix n'est pas valide car le type chaîne n'est pas mutable
+
+Le second choix n'est pas correct, car le résultat contient un caractere de trop
+
+Le troisieme choix est presque correct, sauf pour la chaine vide, ce qui est corrigé dans le quatrième choix, qui est le seul correct ici
+
+[explanation]
+
+
+Exercice 2.8.2 - strings
+=====
+
+
+À partir d'une chaine, on veut calculer une chaine dérivée où le caractère '-' est inséré entre les caractères de la chaine originelle, c'est-à-dire que par exemple
+
+chaine = ""  => resultat = ""
+chaine = "a"  => resultat = "a"
+chaine = "abcd"  => resultat = "a-b-c-d"
+
+Comment peut-on faire (plusieurs réponses possibles)
+
+[x] "-".join ( chaine )
+[x] "-".join ( list (chaine) )
+[ ] "".join([ x+y for (x,y) in zip(chaine, (len(chaine)-1)*"-") ] )
+[x] "".join([ x+y for (x,y) in zip(chaine, len(chaine)*"-") ] )[:-1]
+
+
+[explanation]
+La première clause est correcte, c'est bien sûr le plus simple
+
+La seconde est correcte également, et reste acceptable car elle convertit la chaine en liste; si on n'est plus très sûr de savoir si "join" se comporte correctement avec une chaine en argument, au moins comme ceci on est sûr de son coup.
+
+La troisième est presque correcte; cependant zip recoit en argument 1 la chaine entiere, et en argument 2 une chaine moins longue de 1 caractère. Dans ce cas zip tronque le résultat et en sortie de cette expression il manque le dernier caractère de la chaîne en entrée.
+
+La quatrième est correcte également, on construit d'abord "a-b-c-d-" puis on élimine le dernier "-". Elle fonctionne aussi pour une chaîne à 0 ou 1 caractère.
+
+[explanation]
+
+
+Exercice 2.8.3 - formattage
+=====
+
+
+Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
+
+nom = "Dupont",  no_secu="1975787", age="25" => message = "Dupont, 25 ans, 1975787"
+
+nom = "Durand",  no_secu=None, age="12" => message = "Durand, 12 ans, pas de no de SS"
+
+Faut-il écrire (plusieurs réponses possibles)
+
+[x] message = "{nom}, {age} ans, {secu}".format(nom=nom, age=age, secu = no_secu if no_secu else "pas de no de SS")
+[x] message = "{}, {} ans, {}".format(nom, age, no_secu if no_secu else "pas de no de SS")
+[ ] message = "%s, %s ans, %s".format(nom, age, no_secu if no_secu else "pas de no de SS")
+[x] message = nom + ", " + age + " ans, " + no_secu if no_secu else "pas de no de SS" 
+[ ] message = "%s, %s, %s" % (nom, age, no_secu if no_secu else "pas de no de SS" )
+
+[explanation]
+Les clauses 1, 2 et 4 sont correctes - on voit cependant que la clause 4 est plus difficile à relire et donc à modifier
+
+La clause 3 est erronée, elle mélange les '%s' de l'opérateur % avec la méthode format
+
+La dernière clause, quoique correcte, est à éviter dans du nouveau code.
+
+[explanation]
+
+

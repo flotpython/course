@@ -1,0 +1,55 @@
+###################################################################
+
+## Vidéo 1 (Organisation du MOOC)
+
+C012AL-W1-S1.txt 
+
+## Compléments Vidéo 1
+OK install-standard.ipynb quelques ressources pour l'installation de python
+
+## Quizz Vidéo 1
+
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (la distribution standard)
+
+## Compléments Vidéo 2
+TODO shebang & coding: -- commencer à parler des accents
+
+## Quizz Vidéo 2
+
+###################################################################
+
+## Vidéo 3 (les notebooks - ipython)
+
+## Compléments Vidéo 3
+OK notebooks.ipynb : expliquer le fonctionnement des notebooks
+OK notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
+
+OK fibonacci_prompt.py & .ipynb : un notebook qui calcule et affiche fibonacci avec raw_input  
+OK fibonacci.py & .ipynb : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
+OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et a jouer sur son ordi
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+
+
+###################################################################
+
+## Vidéo 4 (Pourquoi python)
+
+## Compléments Vidéo 4
+ONGOING resources.ipynb : collection de liens utiles 
+ONGOING type-checking.ipynb:  typage dynamique / typage statique / inference de type 
+TODO garbage-collector.ipynb
+
+## Quizz Vidéo 5
+
+## Exercices Vidéo 5
+
+###################################################################
+

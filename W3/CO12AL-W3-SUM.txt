@@ -1,0 +1,207 @@
+
+# TITRE SEMAINE 3 : Références partagées et itérateurs 
+
+###################################################################
+
+## Vidéo 1 (Tables de hash)
+
+CO12AL-W3-VIDEO01.txt 
+
+## Compléments Vidéo 1 
+pas de complement ni exercice sur ce topic tres abstrait
+## Quizz Vidéo 1
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (Les dictionnaires)
+
+CO12AL-W3-VIDEO02.txt 
+
+## Compléments Vidéo 2
+OK dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
+OK dict-key-immutable.ipynb - types immuables et clés globalement immuables
+OK dict-as-struct.ipynb - une utilisation standard du dicctionnaire pour faire un struct
+
+## Quizz Vidéo 2
+
+## Exercices Vidéo 2
+
+###################################################################
+
+## Vidéo 3 (Les ensembles)
+
+CO12AL-W3-VIDEO03.txt 
+
+## Compléments Vidéo 3
+TODO set-extras.ipynb : autre fonctions sur les sets (e.g., <=, <, discard, pop, clear)
+citer https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset  
+TODO set-immuable: montrer que les éléments doivent être immuables globalement comme les clés de dictionnaire
+
+BOF *test de performance sur le test d'appartenance entre list et set
+pour expliquer qu'il faut toujours utiliser des sets
+>>> timeit.timeit(setup= "x = range(2)", stmt = '"c" in x', number = 6000000)
+1.042163089558322
+>>> timeit.timeit(setup= "x = set(range(2))", stmt = '"c" in x', number = 6000000)
+0.32964897792466274
+
+>>> timeit.timeit(setup= "x = range(2)", stmt = '0 in x', number = 6000000)
+0.3086782596151636
+>>> timeit.timeit(setup= "x = set(range(2))", stmt = '0 in x', number = 6000000)
+0.3819173343944584
+
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+
+Mettre l'accent sur le choix judicieux du type de base en fonction du
+probleme posé...
+
+###################################################################
+
+## Vidéo 4 (Les références partagées)
+
+CO12AL-W3-VIDEO04.txt 
+
+## Compléments Vidéo 4
+TODO recapitulatif shallow/deep copy sur les diff'erents types - copy() sur dict et set
+OK references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+OK is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+TODO del.ipynb pour annuler une affectation 
+
+
+* introduire http://pythontutor.com 
+[[construire des exemples montrant des problèmes de ref partagées sur des mutables, e.g., 
+a = [ 1, [2, 3], 4]
+b = a[:]           #shallow copy
+a[0] = 'x'        #ok
+a[1][1] = 'y'     #ref partagée
+]]
+
+* voir copy.copy() pour faire les shallows copies et copy.deepcopy() pour les deep copy 
+* voir sys.getrefcount(1) et expliquer le résultat 
+*assignation: a, b = 1, 2 (tuple unpacking, expliquer que ce sont
+des tuples et qu'il faut le même nombre d'éléments à gauche et à droite) et a=b='spam' avec le problèmes des reférences multiples
+sur un mutable a=b=[1] puis a[0] = 2, et aussi a, b = b, a (et pourquoi ca marche,
+grace au tuple unpacking qui crée la variable temporaire)
+*del a, del L[i:j:k], del d[clef]
+
+
+## Quizz Vidéo 4
+
+## Exercices Vidéo 4
+
+*montrer le problème suivant L=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées
+
+* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) Python arrête de faire des références partagées pour optimiser la mémoire. 
+
+###################################################################
+
+## Vidéo 5 (Introduction aux modules)
+
+CO12AL-W3-VIDEO05.txt
+# import - dir - help
+
+## Compléments Vidéo 5
+
+-ajouter un lien vers la Python Standard Library
+https://docs.python.org/2/library/index.html
+
+## Quizz Vidéo 5
+
+## Exercices Vidéo 5
+
+
+###################################################################
+
+## Vidéo 6 (L'indentation comme syntaxe de base)
+
+CO12AL-W3-VIDEO06.txt
+
+## Compléments Vidéo 6
+TODO parler des coupures de ligne - les parentheses et autres crochets
+   # indentation - syntaxe minimale - presentation unifiee - 79 cars
+
+-ajouter un lien vers la PEP 008 (sur les conventions de codage)
+http://legacy.python.org/dev/peps/pep-0008/
+-ajouter un lien vers cette FAQ https://docs.python.org/2/faq/design.html#why-are-colons-required-for-the-if-while-def-class-statements
+
+## Quizz Vidéo 6
+
+## Exercices Vidéo 6
+
+
+###################################################################
+
+## Vidéo 7 (Les tests if/elif/else et les opérateurs booléens)
+# if avec resultat non booleen
+# operateurs booleens - priorites..
+
+CO12AL-W3-VIDEO07.txt
+
+## Compléments Vidéo 7
+
+## Quizz Vidéo 7
+
+## Exercices Vidéo 7
+
+-opérateurs de tests booléens and, or, not (vu en cours, montrer
+d'autres exemples)
+-insister sur le fait qu'il vaut mieux mettre des paranthèses que 
+de compter sur les priorités. 
+-opération shortcircuit and et or. Montrer des exemples pour les 2.
+-discuter de == : quand peut-on comparer des objets de types différents
+(seulement les numériques, et les set et frozenset, str/unicode, mais
+(1, 2) n'est pas égal à [1, 2])
+-quel sens à des comparaisons (avec < ou >) de listes ou dicts. 
+-parler de bool (qui permet de connaitre le résultat d'un test) 
+(je rajoute __nonzero__ lorsque l'on parlera de surcharge, c'est trop
+tôt maintenant)
+
+
+###################################################################
+
+## Vidéo 8 (Les boucles for et les itérateurs)
+
+CO12AL-W3-VIDEO08.txt
+# for sur une sequence - for sur un objet qui a un iterateur -
+# __iter__  / next / StopIteration
+
+## Compléments Vidéo 8
+
+- expliquer l'intérêt au niveau occupation mémoire des itérateurs
+des types built-in.
+-présenter break
+-présenter continue (en expliquant que, comme pour les goto, les sauts
+dans le code nuisent à la compréhension, il faut donc l'éviter)
+-présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
+de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
+-voir le else du for
+-présenter enumerate, zip, et les itérateurs des dictionnaires
+-présenter xrange() et sont avantage par rapport à range() (pas 
+d'occupation mémoire). Dans le même esprit expliquer l'avantage
+des itérateurs sur des dict (iteritems/itervalues/iterkeys) par rapport
+aux listes. 
+-présenter la méthode built-in iter() en expliquant que comme
+__iter__() est une méthode Python privée, on ne doit pas l'appeler
+directement dans un programme, on doit utiliser la built-in iter()
+à la place.
+
+
+
+Ici, sinon on a une boucle infinie.
+
+## Quizz Vidéo 8
+
+## Exercices Vidéo 8
+
+Il ne faut pas modifier l'objet sur lequel on itère dans boucle for.
+Si on modifie l'objet, il faut itérer sur copie
+>>> L = ['a', 'b' , 'c']
+>>> for i in L[:]:
+	if i == 'c':
+		L.append(i)	
+
+
