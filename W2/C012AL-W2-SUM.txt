@@ -6,7 +6,7 @@
 
 ## Vidéo 1 (Introduction au typage dynamique)
 
-CO12AL-W2-VIDEO01.txt
+C012AL-W2-S1.txt
 
 ## Compléments Vidéo 1
 
@@ -26,7 +26,7 @@ OK identifiants.quiz
 
 ## Vidéo 2 (Les types numériques)
 
-CO12AL-W2-VIDEO02.txt
+C012AL-W2-S2.txt
 
 ## Compléments Vidéo 2
 
@@ -45,7 +45,7 @@ OK exo-flottants-min.ipynb : exercice pour trouver la valeur approximative du + 
 
 ## Vidéo 3 (Les séquences)
 
-CO12AL-W2-VIDEO03.txt
+C012AL-W2-S3.txt
 
 ## Compléments Vidéo 3 
 
@@ -62,7 +62,7 @@ OK exo-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing ave
 
 ## Vidéo 4 (Les listes)
 
-CO12AL-W2-VIDEO04.txt (9 minutes)
+C012AL-W2-S4.txt (9 minutes)
 
 ## Compléments Vidéo 4 
 OK: listes-methodes.ipynb: un complément sur les méthodes des listes
@@ -97,7 +97,7 @@ OK tuples.quiz
 
 ## Vidéo 6 (Introduction aux tests if/else et aux expressions conditionnelles)
 
-CO12AL-W2-VIDEO06.txt (5 minutes 40 secondes)
+C012AL-W2-S6.txt (5 minutes 40 secondes)
 
 ## Compléments Vidéo 6
 OK bool-expressions.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
@@ -116,7 +116,7 @@ OK if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 
 ## Vidéo 7 (Introduction aux boucles for et aux fonctions)
 
-CO12AL-W2-VIDEO07.txt 
+C012AL-W2-S7.txt 
 
 ## Compléments Vidéo 7 
 OK for-multi.ipynb: affectation a,b dans un for, la fonction zip
@@ -139,7 +139,7 @@ XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 
 ## Vidéo 8 (Les chaînes de caractères )
 
-CO12AL-W2-VIDEO08.txt 
+C012AL-W2-S8.txt 
 
 ## Compléments Vidéo 8 
 TODO raw-strings.ipynb - backslashes - \n \t 
