@@ -5,7 +5,7 @@
 
 ## Vidéo 1 (Modules et espaces de nommage)
 
-CO12AL-W5-VIDEO01.txt
+C012AL-W5-S1.txt
 
 ## Compléments Vidéo 1
 
@@ -32,7 +32,7 @@ http://stackoverflow.com/questions/4877290/what-is-the-dict-dict-attribute-of-a-
 
 ## Vidéo 2 (Processus d'importation des modules)
 
-CO12AL-W5-VIDEO02.txt
+C012AL-W5-S2.txt
 
 ## Compléments Vidéo 2
 
@@ -64,7 +64,7 @@ cas-la il n'est pas toujours facile de savoir quel est exactement le repertoire 
 
 ## Vidéo 3 (Importation de modules et espace de nommage)
 
-CO12AL-W5-VIDEO03.txt
+C012AL-W5-S3.txt
 
 ## Compléments Vidéo 3
 
@@ -93,7 +93,7 @@ un import *
 
 ## Vidéo 4 (Classes, instances et méthodes)
 
-CO12AL-W5-VIDEO04.txt
+C012AL-W5-S4.txt
 
 ## Compléments Vidéo 4
 
@@ -109,7 +109,7 @@ CO12AL-W5-VIDEO04.txt
 
 ## Vidéo 5 (Héritage)
 
-CO12AL-W5-VIDEO05.txt
+C012AL-W5-S5.txt
 
 ## Compléments Vidéo 5
 
@@ -134,7 +134,7 @@ http://docs.python.org/2/reference/lexical_analysis.html#reserved-classes-of-ide
 
 ## Vidéo 6 (Surcharge d'opérateurs)
 
-CO12AL-W5-VIDEO06.txt
+C012AL-W5-S6.txt
 
 ## Compléments Vidéo 6
 
@@ -168,7 +168,7 @@ Plus rapide d'utiliser un opérateur que l'appel direct sur le méthode
 
 ## Vidéo 7 (Quand utiliser fonctions, modules ou classes ?)
 
-CO12AL-W5-VIDEO07.txt
+C012AL-W5-S7.txt
 
 ## Compléments Vidéo 7
 
@@ -181,7 +181,7 @@ CO12AL-W5-VIDEO07.txt
 
 ## Vidéo 8 (Assignation et référencement des variables et des attributs)
 
-CO12AL-W5-VIDEO08.txt
+C012AL-W5-S8.txt
 
 ## Compléments Vidéo 8
 citer: 

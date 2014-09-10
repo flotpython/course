@@ -31,7 +31,7 @@ en Python l'opérateur + ou l'opérateur in.
 
 Ouvrons un éditeur IDLE pour commencer à jouer avec les opérateurs...
 
->>>>>>>>>> INCLUDE CO12AL-W5-VIDEO06-EXO01.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W5-S6-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 

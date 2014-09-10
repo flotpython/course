@@ -15,7 +15,7 @@ programmation objet, l'héritage. Python supporte l'héritage
 et même d'héritage multiple. 
 Regardons le fonctionnement de l'héritage...
 
->>>>>>>>>> INCLUDE CO12AL-W5-VIDEO05-SLIDE01.pptx <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W5-S5-slide1.pptx <<<<<<<<<<
 
 On voit donc que l'héritage construit un arbre d'héritage partant
 de l'instance et allant jusqu'à la plus haute super classe dans
@@ -30,7 +30,7 @@ exception.
 Ouvrons un éditeur IDLE pour jouer avec l'héritage et les espaces 
 de nommage...
 
->>>>>>>>>> INCLUDE CO12AL-W5-VIDEO05-EXO01.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE C012AL-W5-S5-exo1.py <<<<<<<<<<
 
 L'héritage est une notion importante de la programmation objet qui, 
 même si vous ne l'utilisez pas directement dans la conception de vos
