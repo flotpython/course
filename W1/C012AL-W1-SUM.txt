@@ -17,7 +17,8 @@ OK install-standard.ipynb quelques ressources pour l'installation de python
 ## Vidéo 2 (la distribution standard)
 
 ## Compléments Vidéo 2
-TODO shebang & coding: -- commencer à parler des accents
+OK accents.ipynb -- commencer à parler des accents
+TODO shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 2
 
