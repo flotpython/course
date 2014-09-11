@@ -105,9 +105,11 @@ C012AL-W3-S5.txt
 # import - dir - help
 
 ## Compléments Vidéo 5
-
--ajouter un lien vers la Python Standard Library
+TODO ajouter un lien vers la Python Standard Library
 https://docs.python.org/2/library/index.html
+
+TODO montrer comment ajouter des chemins de recherche des modules
+* tripoter sys.path pour ajouter des librairies (follow-up de shebang.py) - parler de PYTHONPATH
 
 ## Quizz Vidéo 5
 

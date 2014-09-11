@@ -5,7 +5,7 @@
 C012AL-W1-S1.txt 
 
 ## Compléments Vidéo 1
-OK install-standard.ipynb quelques ressources pour l'installation de python
+OK install.ipynb quelques ressources pour l'installation de python
 
 ## Quizz Vidéo 1
 
@@ -18,7 +18,6 @@ OK install-standard.ipynb quelques ressources pour l'installation de python
 
 ## Compléments Vidéo 2
 OK accents.ipynb -- commencer à parler des accents
-TODO shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 2
 
@@ -33,6 +32,7 @@ OK notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous i
 OK fibonacci_prompt.py & .ipynb : un notebook qui calcule et affiche fibonacci avec raw_input  
 OK fibonacci.py & .ipynb : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
 OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et a jouer sur son ordi
+OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 3
 
