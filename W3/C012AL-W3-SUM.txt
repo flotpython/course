@@ -115,7 +115,7 @@ TODO montrer comment ajouter des chemins de recherche des modules
 ## Quizz Vidéo 5
 
 ## Exercices Vidéo 5
-
+TODO decode-zen.ipynb : décoder le zen de python à partir de this (de import this)
 
 ###################################################################
 
