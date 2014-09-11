@@ -1,3 +1,4 @@
+# -*- eval: (auto-fill-mode 0) -*-
 
 # TITRE SEMAINE 7 : 
 
