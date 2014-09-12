@@ -48,6 +48,7 @@ OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 OK lectures.ipynb : collection de liens utiles 
 ONGOING type-checking.ipynb:  typage dynamique / typage statique / inference de type 
 TODO garbage-collector.ipynb
+OK python3-print.ipynb - sans doute a deplacer + tard
 
 ## Quizz Vidéo 5
 
