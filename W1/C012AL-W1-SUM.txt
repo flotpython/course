@@ -30,15 +30,16 @@ OK accents.ipynb -- commencer à parler des accents
 OK notebooks.ipynb : expliquer le fonctionnement des notebooks
 OK notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
 
-OK fibonacci_prompt.py & .ipynb : un notebook qui calcule et affiche fibonacci avec raw_input  
-OK fibonacci.py & .ipynb : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
-OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et a jouer sur son ordi
 OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-
+OK fibonacci_prompt.py & .ipynb : un notebook qui calcule et affiche fibonacci avec raw_input  
+OK fibonacci.py & .ipynb : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
+OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et a jouer sur son ordi 
+OK turtle_squares.py : un petit bout de code turtle un peu plus élaboré 
+   		       	  	    ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
 
 ###################################################################
 
@@ -47,11 +48,11 @@ OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 ## Compléments Vidéo 4
 OK lectures.ipynb : collection de liens utiles 
 OK type-checking.ipynb:  typage dynamique / typage statique / inference de type 
-TODO garbage-collector.ipynb
+OK garbage-collector.ipynb
 OK python3-print.ipynb - sans doute a deplacer + tard
 
-## Quizz Vidéo 5
+## Quizz Vidéo 4
 
-## Exercices Vidéo 5
+## Exercices Vidéo 4
 
 ###################################################################
