@@ -23,7 +23,7 @@ C012AL-W3-S2.txt
 ## Compléments Vidéo 2
 OK dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
 OK dict-key-immutable.ipynb - types immuables et clés globalement immuables
-OK dict-as-struct.ipynb - une utilisation standard du dicctionnaire pour faire un struct
+OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
 
