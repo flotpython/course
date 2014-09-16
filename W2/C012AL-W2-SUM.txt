@@ -15,9 +15,6 @@ OK noms-variables.ipynb : noms de variables
 OK mots-cles.ipynb: liste des mots clés
 OK fonction-type.ipynb: type() et premier contact avec isinstance ()
 
-XXX AL : parler du GC (basic, juste noter que l'on ne s'occupe jamais
-de libérer la mémoire des objets non référencés). 
-
 ## Quizz Vidéo 1 
 OK identifiants.quiz
 
