@@ -36,9 +36,8 @@ OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un
 C012AL-W3-S3.txt 
 
 ## Compléments Vidéo 3
-TODO set-extras.ipynb : autre fonctions sur les sets (e.g., <=, <, discard, pop, clear)
+OK set-extras.ipynb : autre fonctions sur les sets (e.g., <=, <, discard, pop, clear)
 citer https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset  
-TODO set-immuable: montrer que les éléments doivent être immuables globalement comme les clés de dictionnaire
 
 BOF *test de performance sur le test d'appartenance entre list et set
 pour expliquer qu'il faut toujours utiliser des sets
