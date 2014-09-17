@@ -22,7 +22,7 @@ C012AL-W3-S2.txt
 
 ## Compléments Vidéo 2
 OK dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
-OK dict-key-immutable.ipynb - types immuables et clés globalement immuables
+OK dict-key-immuable.ipynb - types immuables et clés globalement immuables
 OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
@@ -36,8 +36,7 @@ OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un
 C012AL-W3-S3.txt 
 
 ## Compléments Vidéo 3
-OK set-extras.ipynb : autre fonctions sur les sets (e.g., <=, <, discard, pop, clear)
-citer https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset  
+OK set-extras.ipynb : recap. fonctions/methodes sur les ensembles
 
 BOF *test de performance sur le test d'appartenance entre list et set
 pour expliquer qu'il faut toujours utiliser des sets
@@ -56,7 +55,7 @@ pour expliquer qu'il faut toujours utiliser des sets
 
 ## Exercices Vidéo 3
 
-Mettre l'accent sur le choix judicieux du type de base en fonction du
+TODO : Mettre l'accent sur le choix judicieux du type de base en fonction du
 probleme posé...
 
 ###################################################################
@@ -66,10 +65,20 @@ probleme posé...
 C012AL-W3-S4.txt 
 
 ## Compléments Vidéo 4
-TODO recapitulatif shallow/deep copy sur les diff'erents types - copy() sur dict et set
-OK references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
 OK is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
-TODO del.ipynb pour annuler une affectation 
+OK references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+
+OK copy.ipynb - make sure this comes after is-id 
+
+TODO del.ipynb *del a;  del L[i:j:k]; del d[clef]
+
+TODO gc.ipynb 
+* simultaneous assignement a = b = something (illustrate w/ 1 None and a mutable of some kind)
+* sys.getrefcount()
+* mention pythontutor
+
+a=b='spam' avec le problèmes des reférences multiples
+sur un mutable a=b=[1] puis a[0] = 2
 
 
 * introduire http://pythontutor.com 
@@ -79,15 +88,6 @@ b = a[:]           #shallow copy
 a[0] = 'x'        #ok
 a[1][1] = 'y'     #ref partagée
 ]]
-
-* voir copy.copy() pour faire les shallows copies et copy.deepcopy() pour les deep copy 
-* voir sys.getrefcount(1) et expliquer le résultat 
-*assignation: a, b = 1, 2 (tuple unpacking, expliquer que ce sont
-des tuples et qu'il faut le même nombre d'éléments à gauche et à droite) et a=b='spam' avec le problèmes des reférences multiples
-sur un mutable a=b=[1] puis a[0] = 2, et aussi a, b = b, a (et pourquoi ca marche,
-grace au tuple unpacking qui crée la variable temporaire)
-*del a, del L[i:j:k], del d[clef]
-
 
 ## Quizz Vidéo 4
 
