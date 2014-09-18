@@ -105,9 +105,5 @@ def inspect_data (cities):
     print ("there are a total of {} mesures (extrapolated was {})"\
            .format(total_mesures,extrapolated))
 
-def meteo_data ():
-    meteo_data = find_data ()
-    print (40*'=', 'meteo_data ready')
-    return meteo_data
-
-meteo_data()
+meteo_data = find_data()
+print (40*'=', 'meteo_data ready')
