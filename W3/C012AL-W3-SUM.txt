@@ -70,7 +70,7 @@ OK references-circulaires.ipynb : une liste infinie; un exemple + utile de refer
 
 OK copy.ipynb - make sure this comes after is-id 
 
-TODO del.ipynb *del a;  del L[i:j:k]; del d[clef]
+OK del.ipynb *del a;  del L[i:j:k]; del d[clef]
 
 TODO gc.ipynb 
 * simultaneous assignement a = b = something (illustrate w/ 1 None and a mutable of some kind)
