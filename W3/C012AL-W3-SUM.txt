@@ -67,35 +67,21 @@ C012AL-W3-S4.txt
 ## Compléments Vidéo 4
 OK is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
 OK references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
-
 OK copy.ipynb - make sure this comes after is-id 
-
 OK del.ipynb *del a;  del L[i:j:k]; del d[clef]
+OK assign-simultaneous.ipynb simultaneous assignement a = b = []
 
-TODO gc.ipynb 
-* simultaneous assignement a = b = something (illustrate w/ 1 None and a mutable of some kind)
+BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
+en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
 * sys.getrefcount()
-* mention pythontutor
-
-a=b='spam' avec le problèmes des reférences multiples
-sur un mutable a=b=[1] puis a[0] = 2
-
-
-* introduire http://pythontutor.com 
-[[construire des exemples montrant des problèmes de ref partagées sur des mutables, e.g., 
-a = [ 1, [2, 3], 4]
-b = a[:]           #shallow copy
-a[0] = 'x'        #ok
-a[1][1] = 'y'     #ref partagée
-]]
 
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
 
-*montrer le problème suivant L=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées
-
-* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) Python arrête de faire des références partagées pour optimiser la mémoire. 
+BOF * montrer le problème suivant L=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées
+TODO * exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) Python arrête de faire des références partagées pour optimiser la mémoire. 
+TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
 
 ###################################################################
 
