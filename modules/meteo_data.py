@@ -105,43 +105,9 @@ def inspect_data (cities):
     print ("there are a total of {} mesures (extrapolated was {})"\
            .format(total_mesures,extrapolated))
 
-def main ():
-    data_cities = find_data ()
+def meteo_data ():
+    meteo_data = find_data ()
+    print (40*'=', 'meteo_data ready')
+    return meteo_data
 
-    inspect_data (data_cities)
-
-main()
-
-exit()
-
-# visualiser l'ensemble des positions lon/lat
-print ("Les points de relèvement en Europe")
-LON_s = [ entry['city']['coord']['lon'] for entry in all_cities ]
-LAT_s = [ entry['city']['coord']['lat'] for entry in all_cities ]
-# mettre une taille et une couleur particuliere pour ceux qu'on a retenus
-for entry in europe_cities: entry['selected']=True
-# les entrées dans la zone d'intérêt en rouge
-colors = [ 'r' if  'selected' in entry else 'b' for entry in all_cities ]
-# et un peu plus grosses
-sizes = [ 30 if 'selected' in entry else 1 for entry in all_cities ]
-plt.scatter(LON_s, LAT_s, c=colors, s=sizes)
-
-print (40*'=')
-plt.show()
-
-# pour faire simple on va visualiser la pression observee dans la zone le premier jour
-day=0
-dt=xpath(europe_cities[0],('data',day,'dt'))
-date=time.strftime(date_format,time.localtime(dt))
-print ("Visualisation de la pression observée le ",date)
-fig = plt.figure()
-ax = fig.gca(projection='3d')
-X = [ xpath (entry, ('city','coord','lon')) for entry in europe_cities ]
-Y = [ xpath (entry, ('city','coord','lat')) for entry in europe_cities ]
-T_celsius = [ xpath (entry, ('data',day,'temp','day')) - KELVIN for entry in europe_cities ]
-ax.plot_trisurf(X,Y,T_celsius, cmap=cm.jet, linewidth=0.2, label="Température le %s"%date)
-ax.set_title ("Pression en Europe relevee le %s"%date)
-
-print (40*'=')
-plt.show()
-
+meteo_data()
