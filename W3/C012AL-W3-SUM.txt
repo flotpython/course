@@ -26,8 +26,10 @@ OK dict-key-immuable.ipynb - types immuables et clés globalement immuables
 OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
+TODO: un quiz sur les dictionnaires
 
 ## Exercices Vidéo 2
+
 
 ###################################################################
 
@@ -88,18 +90,19 @@ TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'e
 ## Vidéo 5 (Introduction aux modules)
 
 C012AL-W3-S5.txt
-# import - dir - help
 
 ## Compléments Vidéo 5
-TODO ajouter un lien vers la Python Standard Library
-https://docs.python.org/2/library/index.html
-
-TODO montrer comment ajouter des chemins de recherche des modules
-* tripoter sys.path pour ajouter des librairies (follow-up de shebang.py) - parler de PYTHONPATH
+ONGOING: packages.ipynb
+ONGOING: modules-and-path.ipynb: 
+  * où sont installées les librairies standard
+  * comment ajouter un directory dans le chemin de recherche - parler de sys.path et PYTHONPATH
+      (c'est un follow-up de shebang.py mais shebang était seulement pour linux et mac)
+  * mentionner Python Standard Library https://docs.python.org/2/library/index.html
 
 ## Quizz Vidéo 5
 
 ## Exercices Vidéo 5
+
 TODO decode-zen.ipynb : décoder le zen de python à partir de this (de import this)
 
 ###################################################################
