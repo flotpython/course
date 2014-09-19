@@ -1,8 +1,10 @@
 import sys
 
+"not the nicest code ever, but it does the job"
+
 def show_module (module, beg=None, end=None):
     """
-    display the source code for a module
+    display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
     if end is provided, listing ends with the first matching line (excluded)
     """
@@ -12,11 +14,13 @@ def show_module (module, beg=None, end=None):
         return
     try:
         name = module.__name__
-        file = module.__file__
+        # use .py instead of .pyc if that's what we get
+        file = module.__file__.replace(".pyc",".py")
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
-        with open(module.__file__) as input:
-            print "Fichier {}".format(module.__file__)
+        with open(file) as input:
+            print "Fichier {}".format(file)
+            print 40*"-"
             if not showing: 
                 print "<...>"
             for line in input.readlines():
@@ -36,3 +40,5 @@ def show_module (module, beg=None, end=None):
         print "show_module: Could not show module {}".format(name)
         import traceback
         traceback.print_exc()
+
+show_package=show_module

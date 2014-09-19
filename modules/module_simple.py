@@ -3,5 +3,5 @@
 ma_description = "un module simple, pas dans un package"
 
 def spam (n):
-    "The (n+1)*(n-3) polynom"
+    "Le polynome (n+1)*(n-3)"
     return n**2 - 2*n - 3
