@@ -1,3 +1,7 @@
-print "chargement du package 'package_jouet'"
+# -*- coding: iso-8859-15 -*-
 
-all = [ 'module_jouet' ]
+print "chargement du package", __name__
+
+spam = range(3)
+
+__all__ = [ 'module_jouet' ]

@@ -1,4 +1,5 @@
-# -*- coding:
-print "Chargement du module 'module_jouet' dans le package 'package_jouet'"
+# -*- coding: iso-8859-15 -*-
+
+print "Chargement du module",__name__,"dans le package 'package_jouet'"
 
 spam = 2**10

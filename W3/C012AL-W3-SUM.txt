@@ -92,7 +92,7 @@ TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'e
 C012AL-W3-S5.txt
 
 ## Compléments Vidéo 5
-ONGOING: packages.ipynb
+OK: packages.ipynb
 ONGOING: modules-and-path.ipynb: 
   * où sont installées les librairies standard
   * comment ajouter un directory dans le chemin de recherche - parler de sys.path et PYTHONPATH

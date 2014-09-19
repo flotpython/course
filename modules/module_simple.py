@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-15 -*-
 
-ma_description = "un module simple, pas dans un package"
+print "Chargement du module",__name__
 
 def spam (n):
     "Le polynome (n+1)*(n-3)"
