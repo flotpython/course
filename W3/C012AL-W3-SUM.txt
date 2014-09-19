@@ -94,10 +94,7 @@ C012AL-W3-S5.txt
 ## Compléments Vidéo 5
 OK: packages.ipynb
 ONGOING: modules-and-path.ipynb: 
-  * où sont installées les librairies standard
-  * comment ajouter un directory dans le chemin de recherche - parler de sys.path et PYTHONPATH
-      (c'est un follow-up de shebang.py mais shebang était seulement pour linux et mac)
-  * mentionner Python Standard Library https://docs.python.org/2/library/index.html
+TODO: no-import-star.ipynb : pourquoi il ne faut pas utiliser import *
 
 ## Quizz Vidéo 5
 
