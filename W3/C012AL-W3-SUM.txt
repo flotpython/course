@@ -21,9 +21,9 @@ pas de complement ni exercice sur ce topic tres abstrait
 C012AL-W3-S2.txt 
 
 ## Compléments Vidéo 2
-OK dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
-OK dict-key-immuable.ipynb - types immuables et clés globalement immuables
-OK dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
+OK C012AL-W3-S2-C1-dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
+OK C012AL-W3-S2-C2-dict-key-immuable.ipynb - types immuables et clés globalement immuables
+OK C012AL-W3-S2-C3-dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
 TODO: un quiz sur les dictionnaires
@@ -38,7 +38,7 @@ TODO: un quiz sur les dictionnaires
 C012AL-W3-S3.txt 
 
 ## Compléments Vidéo 3
-OK set-extras.ipynb : recap. fonctions/methodes sur les ensembles
+OK C012AL-W3-S3-C1-set-extras.ipynb : recap. fonctions/methodes sur les ensembles
 
 BOF *test de performance sur le test d'appartenance entre list et set
 pour expliquer qu'il faut toujours utiliser des sets
@@ -67,10 +67,10 @@ probleme posé...
 C012AL-W3-S4.txt 
 
 ## Compléments Vidéo 4
-OK is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
-OK references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
-OK copy.ipynb - make sure this comes after is-id 
-OK del.ipynb *del a;  del L[i:j:k]; del d[clef]
+OK C012AL-W3-S4-C1-is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+OK C012AL-W3-S4-C2-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+OK C012AL-W3-S4-C3-copy.ipynb - make sure this comes after is-id 
+OK C012AL-W3-S4-C4-del.ipynb *del a;  del L[i:j:k]; del d[clef]
 OK assign-simultaneous.ipynb simultaneous assignement a = b = []
 
 BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
@@ -92,8 +92,8 @@ TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'e
 C012AL-W3-S5.txt
 
 ## Compléments Vidéo 5
-OK: packages.ipynb
-ONGOING: modules-and-path.ipynb: 
+OK: C012AL-W3-S5-C1-packages.ipynb
+ONGOING: C012AL-W3-S5-C2-modules-and-path.ipynb: 
 TODO: no-import-star.ipynb : pourquoi il ne faut pas utiliser import *
 
 ## Quizz Vidéo 5
