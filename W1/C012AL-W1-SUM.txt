@@ -18,7 +18,7 @@ OK C012AL-W1-S1-C1-install.ipynb quelques ressources pour l'installation de pyth
 ## Vidéo 2 (la distribution standard)
 
 ## Compléments Vidéo 2
-OK accents.ipynb -- commencer à parler des accents
+OK C012AL-W1-S2-C1-accents.ipynb -- commencer à parler des accents
 
 ## Quizz Vidéo 2
 
@@ -27,18 +27,19 @@ OK accents.ipynb -- commencer à parler des accents
 ## Vidéo 3 (les notebooks - ipython)
 
 ## Compléments Vidéo 3
-OK notebooks.ipynb : expliquer le fonctionnement des notebooks
-OK notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
-OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
+OK C012AL-W1-S3-C1-notebooks.ipynb : expliquer le fonctionnement des notebooks
+OK C012AL-W1-S3-C2-notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
+OK C012AL-W1-S3-C3-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-OK fibonacci_prompt.py & .ipynb : un notebook qui calcule et affiche fibonacci avec raw_input  
-OK fibonacci.py & .ipynb : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
-OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et a jouer sur son ordi 
+OK C012AL-W1-S3-C4-fibonacci_prompt.ipynb & .py : un notebook qui calcule et affiche fibonacci avec raw_input  
+OK C012AL-W1-S3-C5-fibonacci.ipynb & .py : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
+OK C012AL-W1-S3-C6-turtle_square.ipynb & .py : un notebook pour publier du code a telecharger et a jouer sur son ordi 
 ONGOING turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
 			       	     	      ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
+ONGOING turtle_fractal.py : arranger les differentes versions de turtle_fractal de semainex-a-ranger et exposer ici avec turtle_squares
 
 TODO debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuvre sur un exemple
 
@@ -47,10 +48,10 @@ TODO debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuv
 ## Vidéo 4 (Pourquoi python)
 
 ## Compléments Vidéo 4
-OK lectures.ipynb : collection de liens utiles 
-OK type-checking.ipynb:  typage dynamique / typage statique / inference de type 
-OK garbage-collector.ipynb
-OK python3-print.ipynb - sans doute a deplacer + tard
+OK C012AL-W1-S4-C1-lectures.ipynb : collection de liens utiles 
+OK C012AL-W1-S4-C2-type-checking.ipynb:  typage dynamique / typage statique / inference de type 
+OK C012AL-W1-S4-C3-garbage-collector.ipynb
+OK C012AL-W1-S4-C4-python3-print.ipynb - sans doute a deplacer + tard
 
 ## Quizz Vidéo 4
 
