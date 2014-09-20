@@ -11,9 +11,9 @@ C012AL-W2-S1.txt
 
 ## Compléments Vidéo 1
 
-OK noms-variables.ipynb : noms de variables
-OK mots-cles.ipynb: liste des mots clés
-OK fonction-type.ipynb: type() et premier contact avec isinstance ()
+OK C012AL-W2-S1-C1-noms-variables.ipynb : noms de variables
+OK C012AL-W2-S1-C2-mots-cles.ipynb: liste des mots clés
+OK C012AL-W2-S1-C3-fonction-type.ipynb: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 1 
 OK identifiants.quiz
@@ -28,10 +28,10 @@ C012AL-W2-S2.txt
 
 ## Compléments Vidéo 2
 
-OK calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
-OK assign-and-op.ipynb : illustrer += et les autres variantes, mentionner les autres types  
-OK precision-flottants.ipynb : limitation de la précision des floats  
-OK entiers-bitwise.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
+OK C012AL-W2-S2-C1-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
+OK C012AL-W2-S2-C2-assign-and-op.ipynb : illustrer += et les autres variantes, mentionner les autres types  
+OK C012AL-W2-S2-C3-precision-flottants.ipynb : limitation de la précision des floats  
+OK C012AL-W2-S2-C4-entiers-bitwise.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 2 
 OK types-numeriques.quiz
@@ -47,7 +47,7 @@ C012AL-W2-S3.txt
 
 ## Compléments Vidéo 3 
 
-OK slicing.ipynb : reprend le slicing 
+OK C012AL-W2-S3-C1-slicing.ipynb : reprend le slicing 
 
 ## Quizz Vidéo 3 
 
@@ -63,8 +63,8 @@ OK exo-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing ave
 C012AL-W2-S4.txt (9 minutes)
 
 ## Compléments Vidéo 4 
-OK: listes-methodes.ipynb: un complément sur les méthodes des listes
-OK listes-sort.ipynb : sort avec les paramètres reverse, et sur des strings 
+OK: C012AL-W2-S4-C1-listes-methodes.ipynb: un complément sur les méthodes des listes
+OK C012AL-W2-S4-C2-listes-sort.ipynb : sort avec les paramètres reverse, et sur des strings 
 
 ## Quizz Vidéo 4 
 OK listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
@@ -80,11 +80,8 @@ CO12AL-W2-VIDEO05 ()
 
 ## Compléments Vidéo 5  
 
-OK tuple-commas : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
-                               le cas des tuples à un élément; la fonction tuple pour convertir une liste 
-			       digression sur les noms de fonctions prédéfinies
-
-OK assign-multiple : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
+OK C012AL-W2-S5-C1-tuple-commas.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+OK C012AL-W2-S5-C2-assign-multiple.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 5 
 OK tuples.quiz
@@ -98,10 +95,10 @@ OK tuples.quiz
 C012AL-W2-S6.txt (5 minutes 40 secondes)
 
 ## Compléments Vidéo 6
-OK bool-expressions.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
-OK indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
-OK elif.ipynb : if elif else - évaluation paresseuse
-OK if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
+OK C012AL-W2-S6-C1-bool-expressions.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
+OK C012AL-W2-S6-C2-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
+OK C012AL-W2-S6-C3-elif.ipynb : if elif else - évaluation paresseuse
+OK C012AL-W2-S6-C4-if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 
 ## Quizz Vidéo 6
 # J'arrive un peu à la limite du quiz car je ne sais pas si je peux mettre des réponses
@@ -117,10 +114,10 @@ OK if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 C012AL-W2-S7.txt 
 
 ## Compléments Vidéo 7 
-OK for-multi.ipynb: affectation a,b dans un for, la fonction zip
-OK for-comprehension.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
-OK listes-sort-functions.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
-OK function-return.ipynb : il nous faut 'return' pour les exercices please 
+OK C012AL-W2-S7-C1-for-multi.ipynb: affectation a,b dans un for, la fonction zip
+OK C012AL-W2-S7-C2-for-comprehension.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
+OK C012AL-W2-S7-C3-listes-sort-functions.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
+OK C012AL-W2-S7-C4-function-return.ipynb : il nous faut 'return' pour les exe rcices please 
 XXX Arnaud : ajouter sur les conventions de style: un espace après les
 virgules, en espace avant et après les opérateurs
 (a = f(1, 2) + g(3, 4)), un saut
@@ -140,10 +137,10 @@ XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 C012AL-W2-S8.txt 
 
 ## Compléments Vidéo 8 
-TODO raw-strings.ipynb - backslashes - \n \t 
-OK string-formatting.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
-OK string-tools.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
-OK raw_input.ipynb
+BOF raw-strings.ipynb - backslashes - \n \t 
+OK C012AL-W2-S8-C1-string-formatting.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
+OK C012AL-W2-S8-C2-string-tools.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
+OK C012AL-W2-S8-C3-raw-input.ipynb
 
 TODO:pending-unicode.ipynb : je propose de bouger ça carrément en semaine 7
 
