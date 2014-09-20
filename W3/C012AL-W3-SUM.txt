@@ -110,7 +110,7 @@ C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
 BOF parler des coupures de ligne - les parentheses et autres crochets
-   # indentation - syntaxe minimale - presentation unifiee - 79 cars
+# indentation - syntaxe minimale - presentation unifiee - 79 cars
 
 -ajouter un lien vers la PEP 008 (sur les conventions de codage)
 http://legacy.python.org/dev/peps/pep-0008/
@@ -137,7 +137,7 @@ C012AL-W3-S7.txt
 
 -opérateurs de tests booléens and, or, not (vu en cours, montrer
 d'autres exemples)
--insister sur le fait qu'il vaut mieux mettre des paranthèses que 
+-insister sur le fait qu'il vaut mieux mettre des parenthèses que 
 de compter sur les priorités. 
 -opération shortcircuit and et or. Montrer des exemples pour les 2.
 -discuter de == : quand peut-on comparer des objets de types différents
@@ -158,6 +158,10 @@ C012AL-W3-S8.txt
 # __iter__  / next / StopIteration
 
 ## Compléments Vidéo 8
+
+OK C012AL-W3-S8-C1-break-continue.ipynb
+TODO C012AL-W3-S8-C2-iterateur-memoire.ipynb: un iterateur sur les permutations
+TODO C012AL-W3-S8-C3-keep-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
 
 - expliquer l'intérêt au niveau occupation mémoire des itérateurs
 des types built-in.
