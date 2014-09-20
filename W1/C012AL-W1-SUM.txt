@@ -6,7 +6,7 @@
 C012AL-W1-S1.txt 
 
 ## Compléments Vidéo 1
-OK install.ipynb quelques ressources pour l'installation de python
+OK C012AL-W1-S1-C1-install.ipynb quelques ressources pour l'installation de python
 
 ## Quizz Vidéo 1
 
@@ -29,7 +29,6 @@ OK accents.ipynb -- commencer à parler des accents
 ## Compléments Vidéo 3
 OK notebooks.ipynb : expliquer le fonctionnement des notebooks
 OK notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
-
 OK shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 3
@@ -41,7 +40,7 @@ OK turtle_square.py & .ipynb : un notebook pour publier du code a telecharger et
 ONGOING turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
 			       	     	      ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
 
-TODO debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oauvre sur un exemple
+TODO debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuvre sur un exemple
 
 ###################################################################
 
