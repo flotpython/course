@@ -109,7 +109,7 @@ TODO decode-zen.ipynb : décoder le zen de python à partir de this (de import thi
 C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
-TODO parler des coupures de ligne - les parentheses et autres crochets
+BOF parler des coupures de ligne - les parentheses et autres crochets
    # indentation - syntaxe minimale - presentation unifiee - 79 cars
 
 -ajouter un lien vers la PEP 008 (sur les conventions de codage)
