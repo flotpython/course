@@ -92,9 +92,9 @@ TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'e
 C012AL-W3-S5.txt
 
 ## Compléments Vidéo 5
-OK: C012AL-W3-S5-C1-packages.ipynb
-ONGOING: C012AL-W3-S5-C2-modules-and-path.ipynb: 
-TODO: no-import-star.ipynb : pourquoi il ne faut pas utiliser import *
+OK C012AL-W3-S5-C1-packages.ipynb
+OK C012AL-W3-S5-C2-modules-and-path.ipynb: 
+OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import *
 
 ## Quizz Vidéo 5
 
