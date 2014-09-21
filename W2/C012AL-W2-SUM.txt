@@ -37,7 +37,7 @@ OK C012AL-W2-S2-C4-entiers-bitwise.ipynb : opérations bitwise : et/ou/ou exclusi
 OK types-numeriques.quiz
 
 ## Exercices Vidéo 2 
-OK exo-flottants-min.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
+OK exo-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
 
 ###################################################################
 
