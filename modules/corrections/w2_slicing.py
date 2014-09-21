@@ -6,4 +6,3 @@ def correction_slicing (composite, connue, inconnue):
     def right_answer (): 
         return composite
     return correction_as_table (regroup, right_answer, [()])
-    

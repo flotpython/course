@@ -1,7 +1,6 @@
 from corrections.tools import correction_as_table 
 
-# ou plus simplement
-def divisible_right (a,b): 
+def divisible (a,b): 
     return a%b==0 or b%a==0
 
 divisible_inputs = [
@@ -19,5 +18,5 @@ divisible_inputs = [
     (-12,-8),
 ]
 
-def correction_divisible (divisible):
-    return correction_as_table (divisible, divisible_right, divisible_inputs)
+def correction_divisible (divisible_student):
+    return correction_as_table (divisible_student, divisible, divisible_inputs)

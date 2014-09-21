@@ -7,8 +7,8 @@ def multi_tri (listes):
     return listes
 
 def multi_tri_reverse (listes, reverses):
-    """tries toutes les sous listes, dans une direction
-    precisee par le second argument"""
+    """trie toutes les sous listes, dans une direction
+    precisée par le second argument"""
     for liste, reverse in zip(listes, reverses):
         liste.sort(reverse=reverse)
     return listes
