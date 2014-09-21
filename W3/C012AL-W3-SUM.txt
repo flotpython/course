@@ -71,7 +71,7 @@ OK C012AL-W3-S4-C1-is-id.ipynb : function id(), operateur is,  les entiers imple
 OK C012AL-W3-S4-C2-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
 OK C012AL-W3-S4-C3-copy.ipynb - make sure this comes after is-id 
 OK C012AL-W3-S4-C4-del.ipynb *del a;  del L[i:j:k]; del d[clef]
-OK assign-simultaneous.ipynb simultaneous assignement a = b = []
+OK C012AL-W3-S4-C5-assign-simultaneous.ipynb   a = b = []
 
 BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
 en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
