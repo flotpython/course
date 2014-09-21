@@ -1,4 +1,4 @@
-from corrections import correction_as_table 
+from corrections.tools import correction_as_table 
 
 def correction_slicing (composite, connue, inconnue):
     def regroup ():

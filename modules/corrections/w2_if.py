@@ -1,4 +1,4 @@
-from corrections import correction_as_table 
+from corrections.tools import correction_as_table 
 
 # ou plus simplement
 def divisible_right (a,b): 

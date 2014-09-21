@@ -1,4 +1,4 @@
-from corrections import correction_as_table
+from corrections.tools import correction_as_table
 
 # example how to use
 # 
