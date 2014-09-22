@@ -22,6 +22,8 @@ def clone_dataset (dataset, copy_mode):
     else:
         return dataset
 
+font_style='font-family:monospace;'
+
 ok_style='background-color:#66CC66;'
 ko_style='background-color:#CC3300;color:#e8e8e8;'
 default_table_columns = (20, 20, 30)
@@ -37,7 +39,7 @@ def correction_as_table (student_function,
     """
     c1,c2,c3 = columns
     html = ""
-    html += u"<table>"
+    html += u"<table style='{}'>".format(font_style)
     html += u"<tr><th>Entrée</th><th>Attendu</th><th>Obtenu</th><th></th></tr>"
 
     for dataset in datasets:
@@ -79,8 +81,8 @@ def exemple_as_table (function_name,
     columns = columns[:2]
     c1,c2 = columns
     html = ""
-    html += u"<table>"
-    html += u"<tr><th>Entrée</th><th>Attendu</th></tr>"
+    html += u"<table style='{}'>".format(font_style)
+    html += u"<tr><th>Appel</th><th>Résultat attendu</th></tr>"
     
     for dataset in datasets [:how_many]:
         sample_dataset = clone_dataset (dataset, copy_mode)
