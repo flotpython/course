@@ -34,10 +34,10 @@ OK C012AL-W2-S2-C3-precision-flottants.ipynb : limitation de la précision des fl
 OK C012AL-W2-S2-C4-entiers-bitwise.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 2 
-OK types-numeriques.quiz
+OK C012AL-W2-S2-E1-type-numeriques.quiz
 
 ## Exercices Vidéo 2 
-OK exo-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
+OK C012AL-W2-S2-E2-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
 
 ###################################################################
 
@@ -51,10 +51,10 @@ OK C012AL-W2-S3-C1-slicing.ipynb : reprend le slicing
 
 ## Quizz Vidéo 3 
 
-OK generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
+OK C012AL-W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
 
 ## Exercices Vidéo 3 
-OK exo-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
+OK C012AL-W2-S3-E2-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
 
 ###################################################################
 
@@ -67,7 +67,7 @@ OK: C012AL-W2-S4-C1-listes-methodes.ipynb: un complément sur les méthodes des li
 OK C012AL-W2-S4-C2-listes-sort.ipynb : sort avec les paramètres reverse, et sur des strings 
 
 ## Quizz Vidéo 4 
-OK listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
+OK C012AL-W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
 xxx -- ?? comparer l.insert (i,shmol) avec l[i:i] = [ shmol ]
 
 ## Exercices Vidéo 4 
@@ -84,7 +84,7 @@ OK C012AL-W2-S5-C1-tuple-commas.ipynb : les différentes syntaxes (avec ou sans p
 OK C012AL-W2-S5-C2-assign-multiple.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 5 
-OK tuples.quiz
+OK C012AL-W2-S5-E1-tuples.quiz
 
 ## Exercices Vidéo 5 
 
@@ -126,8 +126,8 @@ de ligne pour séparer les bloc d'instructions et les fonctions.
 ## Quizz Vidéo 7
 
 ## Exercices Vidéo 7 
-OK exo-if.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
-OK exo-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
+OK C012AL-W2-S7-E1-if.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
+OK C012AL-W2-S7-E2-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
 XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 
 ###################################################################
@@ -148,7 +148,7 @@ TODO:pending-unicode.ipynb : je propose de bouger ça carrément en semaine 7
 
 
 ## Quizz Vidéo 8
-OK strings.quiz - le quiz se prete bien surement aux basiques des strings
+OK C012AL-W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
 
 ## Exercices Vidéo 8
 TODO? exo-strings.ipynb il serait peut-être bien de faire faire quelques exos plus construits, mais le quiz est assez limité avec les réponses sur une seule ligne
