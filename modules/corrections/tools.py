@@ -3,13 +3,14 @@ from IPython.display import HTML
 import traceback
 import copy
 
+########## helpers
 def truncate (data, max_size=10):
-    message = "{}".format(data)
+    message = "{}".format(repr(data))
     return message if len(message) <= max_size \
         else message [:max_size-3]+'...'
 
 def truncate_list (data_list, max_size=10):
-    message = ", ".join(["{}".format(x) for x in data_list])
+    message = ", ".join(["{}".format(repr(x)) for x in data_list])
     return message if len(message) <= max_size \
         else message [:max_size-3]+'...'
 
@@ -22,17 +23,27 @@ def clone_dataset (dataset, copy_mode):
     else:
         return dataset
 
+########## 
+# when the function only has one arg it is much easier to give a list of inputs instead
+# of a list of tuples or arguments - especially as this results in 1-arg tuple
+# so the comma is required
+def correction_table_1arg (student_function, correct_function, args, *l, **k):
+    datasets = [ (arg,) for arg in args ]
+    return correction_table (student_function, correct_function, datasets, *l, **k)
+
+
+########## styles in html output
 font_style='font-family:monospace;'
 
 ok_style='background-color:#66CC66;'
 ko_style='background-color:#CC3300;color:#e8e8e8;'
-default_table_columns = (20, 20, 30)
+default_table_columns = (30, 40, 40)
 
 def correction_table (student_function,
-                         correct_function,
-                         datasets,
-                         columns = default_table_columns,
-                         copy_mode = 'deep'):
+                      correct_function,
+                      datasets,
+                      columns = default_table_columns,
+                      copy_mode = 'deep'):
     """
     colums should be a 3-tuple for the 3 columns widths
     copy_mode can be either None, 'shallow', or 'deep' (default)
@@ -69,13 +80,21 @@ def correction_table (student_function,
     html += "</table>"
     return HTML(html)
 
+# like with correction_table_1arg: pass a list of the arguments, not tuples
+def exemple_table_1arg (function_name, correct_function, args, *l, **kwds):
+    datasets = [ (arg,) for arg in args ]
+    return exemple_table (function_name, correct_function, datasets, *l, **kwds)
+
 # see how to use in exo_rendering.py
 def exemple_table (function_name,
-                      correct_function,
-                      datasets,
-                      columns = default_table_columns,
-                      copy_mode = 'deep',
-                      how_many=1):
+                   correct_function,
+                   datasets,
+                   columns = default_table_columns,
+                   copy_mode = 'deep',
+                   how_many=1):
+
+    if how_many == 0:
+        how_many=len(datasets)
 
     # can provide 3 args (convenient when it's the same as correction) or just 2
     columns = columns[:2]

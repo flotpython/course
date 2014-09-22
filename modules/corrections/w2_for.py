@@ -8,19 +8,19 @@ def multi_tri (listes):
         liste.sort()
     return listes
 
-multi_tri_inputs = [
-    [ [ [ 40, 12, 25], [ 'spam', 'egg', 'bacon' ], ], ],
-    [ [ [ 32, 45], [ 200, 12 ], [-25, 37] ], ],
-    [ [ [ ], range(10) ] ],
+multi_tri_input_args = [
+    [ [ 40, 12, 25], [ 'spam', 'egg', 'bacon' ], ], 
+    [ [ 32, 45], [ 200, 12 ], [-25, 37] ], 
+    [ [ ], range(10) ],
 ]
 
 def correction_multi_tri (multi_tri_student):
-    return correction_table (multi_tri_student, multi_tri, multi_tri_inputs,
-                                columns = (40,40,40))
+    return correction_table_1arg (multi_tri_student, multi_tri, multi_tri_input_args,
+                                  columns = (40,40,40))
 
 
 def exemple_multi_tri ():
-    return exemple_table ('multi_tri',multi_tri, multi_tri_inputs, columns = (60,60))
+    return exemple_table_1arg ('multi_tri',multi_tri, multi_tri_input_args, columns = (60,60))
 
 ####################
 def multi_tri_reverse (listes, reverses):
@@ -31,12 +31,12 @@ def multi_tri_reverse (listes, reverses):
     return listes
 
 multi_tri_reverse_inputs = [ 
-    [ [ [1,2], [3,4] ], [ True, False] ],
-    [ [ [1,2], [3,4] ], ( True, True ) ],
-    [ [ [1,3,2], [3,4] ], [ False, True] ],
-    [ [ [1,2], [3,5,4] ], [ False, False] ],
-    [ [ [ 1,3], [ 9,5 ], [4,2] ], (True, False, True) ],
-    [ [ [ ], ['a', 'z', 'c' ] ], [False, True ], ],
+    ( [ [1,2], [3,4] ], [ True, False] ),
+    ( [ [1,2], [3,4] ], ( True, True ) ),
+    ( [ [1,3,2], [3,4] ], [ False, True] ),
+    ( [ [1,2], [3,5,4] ], [ False, False] ),
+    ( [ [ 1,3], [ 9,5 ], [4,2] ], (True, False, True) ),
+    ( [ [ ], ['a', 'z', 'c' ] ], [False, True ], ),
 ]
 
 def correction_multi_tri_reverse (multi_tri_reverse_student):
@@ -57,15 +57,11 @@ def liste_racines (p):
         #resultat.append(n*(n+1)/2)
     return resultat
 
-liste_racine_inputs = [
-    [2,],
-    [3,],
-    [4,],
-]
+liste_racine_input_args = [ 2,3,4 ] 
 
 def correction_liste_racines (liste_racines_student):
-    return correction_table (liste_racines_student, liste_racines, liste_racine_inputs, 
-                                columns=(7,40,40))
+    return correction_table_1arg (liste_racines_student, liste_racines, liste_racine_input_args, 
+                                  columns=(7,40,40))
 
 ####################
 def produit_scalaire (X,Y):
@@ -85,10 +81,10 @@ from fractions import Fraction
 produit_scalaire_inputs = [
     ( range(3,13), range (5,15) ),
     ( [ -2, 10] , [20, 4]),
-    ( [ Fraction (2,15), Fraction (3,4) ], [ Fraction (-7,19), Fraction (4,13) ], ),
+    ( [ Fraction (2,15), Fraction (3,4) ], [ Fraction (-7,19), Fraction (4,13) ] ),
 ]
 
 def correction_produit_scalaire (produit_scalaire_student):
     return correction_table (produit_scalaire_student, produit_scalaire, produit_scalaire_inputs,
-                                columns=(40,10,10))
+                             columns=(40,10,10))
 

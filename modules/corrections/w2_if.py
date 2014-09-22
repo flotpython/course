@@ -31,17 +31,17 @@ def spam (l):
         l.pop()
     return l
 
-spam_inputs = [
-    [ [] ],
-    [ ['spam'] ],
-    [ ['spam', 'eggs' ] ],
-    [ ['spam', 'eggs', 'bacon' ] ],
-    [ [1,2,3,4 ] ],
-    [ [1,2,3,4,5] ] ,
+spam_input_args = [
+    [],
+    ['spam'],
+    ['spam', 'eggs' ],
+    ['spam', 'eggs', 'bacon' ],
+    [1,2,3,4 ],
+    [1,2,3,4,5],
 ]
 
 def correction_spam (spam_student):
-    return correction_table (spam_student, spam, spam_inputs)
+    return correction_table_1arg (spam_student, spam, spam_input_args)
 
 def exemple_spam ():
-    return exemple_table ('spam', spam, spam_inputs, how_many=4)
+    return exemple_table_1arg ('spam', spam, spam_input_args, how_many=4)

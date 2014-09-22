@@ -151,5 +151,4 @@ TODO:pending-unicode.ipynb : je propose de bouger ça carrément en semaine 7
 OK C012AL-W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
 
 ## Exercices Vidéo 8
-TODO? exo-strings.ipynb il serait peut-être bien de faire faire quelques exos plus construits, mais le quiz est assez limité avec les réponses sur une seule ligne
-pour travailler les méthodes du module string principalement
+OK C012AL-W2-S8-E2-strings.ipynb - split, replace, format...
