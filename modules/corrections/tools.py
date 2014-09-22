@@ -28,7 +28,7 @@ ok_style='background-color:#66CC66;'
 ko_style='background-color:#CC3300;color:#e8e8e8;'
 default_table_columns = (20, 20, 30)
 
-def correction_as_table (student_function,
+def correction_table (student_function,
                          correct_function,
                          datasets,
                          columns = default_table_columns,
@@ -70,7 +70,7 @@ def correction_as_table (student_function,
     return HTML(html)
 
 # see how to use in exo_rendering.py
-def exemple_as_table (function_name,
+def exemple_table (function_name,
                       correct_function,
                       datasets,
                       columns = default_table_columns,

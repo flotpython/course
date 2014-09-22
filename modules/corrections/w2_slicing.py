@@ -1,8 +1,8 @@
-from corrections.tools import correction_as_table 
+from corrections.tools import correction_table 
 
-def correction_slicing (composite, connue, inconnue):
+def correction_inconnue (composite, connue, inconnue):
     def regroup ():
         return connue + inconnue + connue
     def right_answer (): 
         return composite
-    return correction_as_table (regroup, right_answer, [()])
+    return correction_table (regroup, right_answer, [()])

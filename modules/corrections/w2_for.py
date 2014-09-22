@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-15 -*-
 
-from corrections.tools import correction_as_table, exemple_as_table
+from corrections.tools import correction_table, exemple_table
 
 def multi_tri (listes):
     "trie toutes les sous-listes"
@@ -15,12 +15,12 @@ multi_tri_inputs = [
 ]
 
 def correction_multi_tri (multi_tri_student):
-    return correction_as_table (multi_tri_student, multi_tri, multi_tri_inputs,
+    return correction_table (multi_tri_student, multi_tri, multi_tri_inputs,
                                 columns = (40,40,40))
 
 
 def exemple_multi_tri ():
-    return exemple_as_table ('multi_tri',multi_tri, multi_tri_inputs, columns = (60,60))
+    return exemple_table ('multi_tri',multi_tri, multi_tri_inputs, columns = (60,60))
 
 ####################
 def multi_tri_reverse (listes, reverses):
@@ -33,18 +33,18 @@ def multi_tri_reverse (listes, reverses):
 multi_tri_reverse_inputs = [ 
     [ [ [1,2], [3,4] ], [ True, False] ],
     [ [ [1,2], [3,4] ], ( True, True ) ],
-    [ [ [1,2], [3,4] ], [ False, True] ],
-    [ [ [1,2], [3,4] ], [ False, False] ],
-    [ [ [ 32, 45], [ 200, 12 ], [-25, 37] ], [ True, False, True] ],
-    [ [ [ ], range(10) ], [False, True ], ],
+    [ [ [1,3,2], [3,4] ], [ False, True] ],
+    [ [ [1,2], [3,5,4] ], [ False, False] ],
+    [ [ [ 1,3], [ 9,5 ], [4,2] ], (True, False, True) ],
+    [ [ [ ], ['a', 'z', 'c' ] ], [False, True ], ],
 ]
 
 def correction_multi_tri_reverse (multi_tri_reverse_student):
-    return correction_as_table (multi_tri_reverse_student, multi_tri_reverse, multi_tri_reverse_inputs,
-                                columns = (40,40,40))
+    return correction_table (multi_tri_reverse_student, multi_tri_reverse, multi_tri_reverse_inputs,
+                                columns = (50,40,40))
 
 def exemple_multi_tri_reverse ():
-    return exemple_as_table ('multi_tri_reverse',multi_tri_reverse, multi_tri_reverse_inputs, columns = (60,60), how_many=2)
+    return exemple_table ('multi_tri_reverse',multi_tri_reverse, multi_tri_reverse_inputs, columns = (60,60), how_many=2)
 
 ####################
 from math import e, pi
@@ -64,7 +64,7 @@ liste_racine_inputs = [
 ]
 
 def correction_liste_racines (liste_racines_student):
-    return correction_as_table (liste_racines_student, liste_racines, liste_racine_inputs, 
+    return correction_table (liste_racines_student, liste_racines, liste_racine_inputs, 
                                 columns=(7,40,40))
 
 ####################
@@ -89,6 +89,6 @@ produit_scalaire_inputs = [
 ]
 
 def correction_produit_scalaire (produit_scalaire_student):
-    return correction_as_table (produit_scalaire_student, produit_scalaire, produit_scalaire_inputs,
+    return correction_table (produit_scalaire_student, produit_scalaire, produit_scalaire_inputs,
                                 columns=(40,10,10))
 
