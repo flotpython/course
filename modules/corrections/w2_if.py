@@ -1,4 +1,4 @@
-from corrections.tools import correction_table, exemple_table
+from corrections.tools import correction_table, correction_table_1arg, exemple_table_1arg
 
 def divisible (a,b): 
     return a%b==0 or b%a==0
@@ -33,9 +33,9 @@ def spam (l):
 
 spam_input_args = [
     [],
-    ['spam'],
-    ['spam', 'eggs' ],
-    ['spam', 'eggs', 'bacon' ],
+    [1],
+    ['spam', 2 ],
+    ['spam', 2, 'bacon' ],
     [1,2,3,4 ],
     [1,2,3,4,5],
 ]

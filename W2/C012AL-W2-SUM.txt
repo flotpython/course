@@ -16,7 +16,7 @@ OK C012AL-W2-S1-C2-mots-cles.ipynb: liste des mots clés
 OK C012AL-W2-S1-C3-fonction-type.ipynb: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 1 
-OK identifiants.quiz
+OK C012AL-W2-S1-E1-identifiants.quiz
 
 ## Exercices Vidéo 1
 
