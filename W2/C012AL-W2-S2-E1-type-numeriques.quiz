@@ -1,4 +1,5 @@
-Types numériques
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Types numériques (1)
 =====
 
 Comment calculer la 16-ème puissance de 2
@@ -12,6 +13,10 @@ Comment calculer la 16-ème puissance de 2
 Le signe puissance en python est **
 [explanation]
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Types numériques (2)
+=====
+
 Comment entrer la valeur du complexe 3 + 2i
 
 ( ) 3 + 2i
@@ -24,6 +29,10 @@ Les anglais utilisent 'j' plutôt que notre 'i'
 Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
 [explanation]
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Types numériques (3)
+=====
+
 Que retourne la formule
 
 type ( 2 ** 16 ) == type ( 2 ** 8 )
@@ -35,6 +44,10 @@ type ( 2 ** 16 ) == type ( 2 ** 8 )
 Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
 [explanation]
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Types numériques (4)
+=====
+
 Que retourne la formule
 
 type ( 2 ** 200 ) == type ( 2 ** 8 )
@@ -45,6 +58,10 @@ type ( 2 ** 200 ) == type ( 2 ** 8 )
 [explanation]
 Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
 [explanation]
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Types numériques (5)
+=====
 
 Que retourne la formule (avancé)
 

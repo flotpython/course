@@ -1,0 +1,82 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dictionnaires (1)
+=====
+
+Le type dictionnaire en python est un type
+[ ] immuable
+[x] mutable
+
+[explanation]
+On peut ajouter ou enlever des couples (clé,valeur) dans un dictionnaire
+[explanation]
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dictionnaires (2)
+=====
+
+Dans un dictionnaire les couples (clé,valeur), peut-on connaître l'ordre dans lequel les clés ont été insérées:
+
+[ ] oui
+[x] non
+
+[explanation]
+Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
+Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+[explanation]
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dictionnaires (3)
+=====
+
+Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire
+
+[x] 1
+[ ] [ 1,2 ]
+[x] (1, 2)
+[ ] ( [1,2], [3,4] )
+
+[explanation]
+Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé
+[explanation]
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dictionnaires (4)
+=====
+
+Pour modifier la valeur de la clé 'marc' dont on sait qu'elle est dans le dictionnaire 'annuaire', on peut faire
+
+[x] annuaire ['marc'] = 50
+[ ] d.get('marc',50)
+[ ] d.setdefault('marc',50)
+
+[explanation]
+La seconde forme retourne la valeur pour 'marc' si elle existe, et sinon 50, mais ne modifie pas la valeur.
+
+La troisième forme ne créé la clé 'marc' que si elle n'est pas encore présente
+[explanation]
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dictionnaires (5)
+=====
+
+Pour accéder à la valeur de la clé 'marc' dont on ne sait pas si elle est dans le dictionnaire 'annuaire', on peut faire
+
+[ ] annuaire ['marc']
+[x] d.get('marc')
+[x] d.get('marc',None)
+[ ] get(d,'marc)
+[x] 'marc' in annuaire and annuaire['marc']
+
+[explanation]
+La première forme lève une exception si 'marc' n'est pas présent
+
+Les formes 2 et 3 sont exactement équivalentes: on obtient la valeur, ou None si la clé n'est pas présente
+
+La forme 4 est fantaisiste, il n'y a pas de fonction "built-in" get
+
+La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne False - et non pas None - si la clé n'est pas présente
+[explanation]
+
+

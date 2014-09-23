@@ -1,6 +1,6 @@
-Tuples 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Tuples (1)
 =====
-
 
 On se donne en entrée triple = (1,2,3,)
 
@@ -18,7 +18,9 @@ La troisième expression n'est pas valable, "index out of range", triple n'a pas 
 L'affection en quatrième place n'est pas autorisée, un tuple est immuable 
 [explanation]
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Tuples (2)
+=====
 
 Quelles sont les expressions qui renvoient True
 
@@ -34,7 +36,9 @@ Dans la troisième expression, on a une liste contenant un tuple contenant le str
 Dans la quatrième expression, la virgule n'est pas correctement placée et la parenthèse ne crée pas un tuple.
 [explanation]
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Tuples (3)
+=====
 
 On pose quadruple = (1, [2, 3], 'spam', [[(4,)]])
 
@@ -53,8 +57,9 @@ Dans la troisième forme, 'one' est inclus dans un tuple, ce qui empêche l'affect
 La dernière forme est correcte, malgré la présence d'une liste à gauche et d'un tuple à droite au dernier niveau de profondeur.
 [explanation]
 
-
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Tuples (4)
+=====
 
 On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui réalisent bien l'opération demandée
 

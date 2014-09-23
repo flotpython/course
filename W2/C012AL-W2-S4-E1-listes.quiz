@@ -1,4 +1,5 @@
-Listes
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Listes (1)
 =====
 
 on a liste = [ 1, 3, 2, 4 ]
@@ -21,8 +22,9 @@ La cinquième est correcte
 [explanation]
 
 
-
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Listes (2)
+=====
 
 À nouveau on a liste = [ 1, 3, 2, 4 ]
 
@@ -43,7 +45,9 @@ La dernière formule est syntaxiquement incorrecte
 [explanation]
 
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Listes (3)
+=====
 
 À nouveau on a liste = [ 1, 3, 2, 4 ]
 
@@ -65,7 +69,9 @@ La dernière formule fonctionne très bien également.
 [explanation]
 
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Listes (4)
+=====
 
 À nouveau on a liste = [ '1', '3', '2', '4' ]
 

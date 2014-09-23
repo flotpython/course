@@ -1,3 +1,4 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Noms de variables
 =====
 
@@ -20,6 +21,10 @@ le caractère '-' n'est pas autorisé
 
 un identifiant ne peut pas commencer par un chiffre
 [explanation]
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Tirets dans les noms de variables
+=====
 
 Parmi les noms de variables suivants, lesquels sont autorisés par le langage
 
