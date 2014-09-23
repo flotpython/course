@@ -19,7 +19,7 @@ le caractère deux-points ':' n'est pas autorisé
 le caractère '-' n'est pas autorisé
 
 un identifiant ne peut pas commencer par un chiffre
-[/explanation]
+[explanation]
 
 Parmi les noms de variables suivants, lesquels sont autorisés par le langage
 
@@ -34,4 +34,4 @@ Toutes ces formes sont légales, y compris la première malgré l'absence de caract
 
 On notera toutefois qu'elles sont toutes non recommandées
 
-[/explanation]
+[explanation]
