@@ -1,4 +1,5 @@
-from corrections.tools import correction_table_1arg, exemple_table_1arg
+# -*- coding: iso-8859-15 -*-
+from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 def affichage (s):
     s=s.replace(' ', '').replace('\t','')

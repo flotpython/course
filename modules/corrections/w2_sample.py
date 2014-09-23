@@ -1,5 +1,7 @@
-from corrections.tools import correction_table
+# -*- coding: iso-8859-15 -*-
+from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
+#
 # example how to use
 # 
 def good_curve (a,b):

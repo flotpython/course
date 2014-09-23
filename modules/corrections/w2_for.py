@@ -1,6 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-
-from corrections.tools import correction_table, exemple_table
+from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 def multi_tri (listes):
     "trie toutes les sous-listes"
