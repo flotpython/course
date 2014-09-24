@@ -64,8 +64,6 @@ while x:
     x = x[1:]
 
 
-
-
 ###################################################################
 
 ## Vidéo 3 (Fonction lambda, programmation fonctionnelle)
@@ -78,8 +76,8 @@ C012AL-W4-S3.txt
 
 ## Compléments Vidéo 3
 
-*voir reduce 
-*voir exec et eval. Ça n'est pas en lien direct, mais il faut
+*voir sum reduce operator.add operator.mul
+BOF *voir exec et eval. Ça n'est pas en lien direct, mais il faut
 le voir et il y a peu de compléments pour cette vidéo alors
 autant le placer ici. 
 
