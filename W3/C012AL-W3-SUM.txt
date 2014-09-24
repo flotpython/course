@@ -26,10 +26,12 @@ OK C012AL-W3-S2-C2-dict-key-immuable.ipynb - types immuables et clés globalement
 OK C012AL-W3-S2-C3-dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
-TODO: un quiz sur les dictionnaires
+OK C012AL-W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
 ## Exercices Vidéo 2
-
+ONGOING C012AL-W3-S2-E2-marine.ipynb - premier morceau de code un peu réel avec data/marine.json -- assez simple - data et corrections OK - reste à rédiger
+				               	       	       	      
+ONGOING C012AL-W3-S2-E2-meteo-pending-to-postpone.ipynb - premier morceau de code un peu réel avec data/meteo.json 
 
 ###################################################################
 
