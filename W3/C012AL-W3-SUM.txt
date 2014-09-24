@@ -29,7 +29,7 @@ OK C012AL-W3-S2-C3-dict-as-struct.ipynb - une utilisation standard du dictionnai
 OK C012AL-W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
 ## Exercices Vidéo 2
-ONGOING C012AL-W3-S2-E2-marine.ipynb - premier morceau de code un peu réel avec data/marine.json -- assez simple - data et corrections OK - reste à rédiger
+OK C012AL-W3-S2-E2-marine.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections OK
 				               	       	       	      
 ONGOING C012AL-W3-S2-E2-meteo-pending-to-postpone.ipynb - premier morceau de code un peu réel avec data/meteo.json 
 
