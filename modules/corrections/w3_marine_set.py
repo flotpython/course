@@ -12,8 +12,9 @@ def diff (extended, abbreviated):
     return extended_only_names, both_names, abbreviated_only_ids
 
 # xxx celui-ci serait + élégant mais ne marche pas et je ne comprends pas pourquoi...
-def diff2 (extended, abbreviated_ids):
-    abbreviated_only = { ship[0] for ship in abbreviated if ship[0] not in ext_ids }
+def diff2 (extended, abbreviated):
+    extended_ids =     { ship[0] for ship in extended }
+    abbreviated_only = { ship[0] for ship in abbreviated if ship[0] not in extended_ids }
     extended_only =    { ship[4] for ship in extended    if ship[0] not in abbreviated_only }
     both =             { ship[4] for ship in extended    if ship[0] in abbreviated_only }
     return extended_only, both, abbreviated_only
