@@ -19,8 +19,16 @@ def diff2 (extended, abbreviated):
     both =             { ship[4] for ship in extended    if ship[0] in abbreviated_only }
     return extended_only, both, abbreviated_only
 
+import copy
 def correction_diff (student_diff, extended, abbreviated):
-    return correction_table (student_diff, diff, [ ( extended, abbreviated,) ] )
+    # start with the full dataset
+    datasets = [ (extended, abbreviated) ]
+    # make up a samples by taking only <sample> entries in each
+    for sample in [ 10, 20, 40]:
+        extended_sample = copy.deepcopy (extended[:sample])
+        abbreviated_sample = copy.deepcopy (abbreviated[:sample])
+        datasets.append ( (extended_sample, abbreviated_sample ) )
+    return correction_table (student_diff, diff, datasets)
 
 def resultat_diff (extended, abbreviated):
     return diff (extended, abbreviated)
