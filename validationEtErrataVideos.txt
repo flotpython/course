@@ -10,10 +10,10 @@ C012AL-W2-S8 NOK (le texte surimposé doit être noir)
 C012AL-W3-S1  OK
 C012AL-W3-S2  OK
 C012AL-W3-S3  OK
-C012AL-W3-S4  OK (mineur : le glissement de mon incrustation à 8:19 est étrange, pourquoi pas faire un fondu)
-C012AL-W3-S5  OK (commentaire à Thierry : je dis qu'on importe le fichier math.py, ce qui est faut puisque c'est un module built-in, donc implémenté en C. Il faut faire soit un petit errata, soit un complément expliquant la différence entre modules built-in en C et modules python)
-C012AL-W3-S6  OK (le fondu en début de vidéo sur l'image est sympa, mais il y a aussi un fondu sur le son. Ça serait mieux à mon avis d'avoir directement le son au niveau normal, sans fondu).
-C012AL-W3-S7  OK (mineur : le pointeur de la souris traine sur l'écran, il faudrait l'enlever)
+C012AL-W3-S4  NOK (mineur : le glissement de mon incrustation à 8:19 est étrange, pourquoi pas faire un fondu)
+C012AL-W3-S5  OK 
+C012AL-W3-S6  NOK (le fondu en début de vidéo sur l'image est sympa, mais il y a aussi un fondu sur le son. Ça serait mieux à mon avis d'avoir directement le son au niveau normal, sans fondu).
+C012AL-W3-S7  NOK (mineur : le pointeur de la souris traine sur l'écran, il faudrait l'enlever)
 C012AL-W3-S8 NOK:
 			* (mineur) à 3'24 le fondu fait bizarre, j'aurais préféré un fondu blanc, mais il n'y a peut-être pas assez de vidéo pour le faire.
 			* (bloquant) à 3:50, le texte surimposé doit être noir, les * sont moches pour la liste et mal centrées et surtout "élément" doit d'écrire avec des é en minuscule et non des É
@@ -22,7 +22,7 @@ C012AL-W3-S8 NOK:
 			
 C012AL-W4-S1 OK
 C012AL-W4-S2 OK 
-C012AL-W4-S3 OK pourquoi ne pas faire à 4:50 un fondu blanc, est-ce que ça ne ferait pas plus naturel que les deux fondus superposés ?
+C012AL-W4-S3 NOK pourquoi ne pas faire à 4:50 un fondu blanc, est-ce que ça ne ferait pas plus naturel que les deux fondus superposés ?
 C012AL-W4-S4 OK
 C012AL-W4-S5 OK
 C012AL-W4-S6 NOK changer la couleur de la police incluse dans le slide d'intro de rouge à noir
@@ -31,13 +31,13 @@ C012AL-W4-S7-partie2 OK (mais je pédale un peu dans la semoule)
 C012AL-W4-S8-partie1 OK
 C012AL-W4-S8-partie2 OK
 
-C012AL-W5-S1 OK (le fameux bruit de la chute de la table à 6:55)
+C012AL-W5-S1 OK (pour mémoire : le fameux bruit de la chute de la table à 6:55)
 C012AL-W5-S2 OK
 C012AL-W5-S3 OK
-C012AL-W5-S4 OK (vibration de la camera à 6:54)
+C012AL-W5-S4 OK (vibration de la camera à 6:54, je pense qu'il n'y a rien à faire)
 C012AL-W5-S5 OK
 C012AL-W5-S6 OK
-C012AL-W5-S7 NOK (le pointeur de la souris sous forme de croix reste sur le transparent)
+C012AL-W5-S7 NOK (le pointeur de la souris sous forme de croix reste sur le transparent au début de la vidéo de 0:50 à 2:50)
 
 REMARQUES DIVERSES POUR LES PROCHAINS ENREGISTREMENTS
 *il faudra faire attention pour les prochaines enregistrement 
@@ -51,23 +51,34 @@ transparent, je montre l'autre côté.
 
 ************************* ERRATA ***************************
 
-C012AL-W3-S1  
-C012AL-W3-S2  
-C012AL-W3-S3  
-C012AL-W3-S4  
+C012AL-W2-S5 OK pas d'errata
+C012AL-W2-S6 OK pas d'errata
+C012AL-W2-S7 OK pas d'errata
+C012AL-W2-S8 OK pas d'errata
+
+
+C012AL-W3-S1 OK pas d'errata
+C012AL-W3-S2 OK pas d'errata
+C012AL-W3-S3 OK pas d'errata
+C012AL-W3-S4 OK pas d'errata
 C012AL-W3-S5 ERRATA
 Dans cette vidéo nous présentons comment importer un module. En particulier
 nous expliquons que le nom d'un module lors de l'import sert à donner un nom
 de variable au module et aussi à trouver le fichier module sur le disque dur. 
-Il y a cependant deux types de modules en Python. Il y a les modules standard
-écrit en Python. Ce sont les modules les plus courants. Mais il y a aussi les
-modules built-in qui sont des modules écrits en C soit pour des raisons de 
-performance (par exemple, parce qu'ils contiennent des fonctions mathématiques)
-Dans le vidéo nous prenons l'exemple du module math. 
+Il y a cependant deux types de modules en Python. Il y a les modules standards
+écris en Python, ce sont les modules les plus courants, c'est par exemple
+le cas du module os. Il existe en effet dans le répertoire des librairies Python
+un fichier os.py. Mais il y a aussi les modules built-in qui sont des modules 
+écrits en C soit pour des raisons de performance (par exemple, parce qu'ils 
+contiennent des fonctions mathématiques), soit parce qu'ils permettent d'accéder 
+à des primitives systèmes accessibles en C (comme les entrées-sorties). 
+Le module math que nous prenons comme exemple dans le vidéo est un module
+built-in implémenté en C, il n'y a donc pas de fichier math.py correspondant 
+à ce module. 
 
-C012AL-W3-S6  
-C012AL-W3-S7 
-C012AL-W3-S8 
+C012AL-W3-S6 OK pas d'errata
+C012AL-W3-S7 OK pas d'errata
+C012AL-W3-S8 OK pas d'errata
 
 C012AL-W4-S1 OK pas d'errata
 C012AL-W4-S2 OK pas d'errata
