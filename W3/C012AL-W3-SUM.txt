@@ -59,10 +59,10 @@ pour expliquer qu'il faut toujours utiliser des sets
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-TODO : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé ...
+TODO : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé 
+entre tuple, liste, dict, set (et pourquoi pas aussi frozenset si il faut hacher)
 
 OK C012AL-W3-S3-E1-marine-set.ipynb - avec le même genre de données de marine traffic xxx version python à 
-
  
 ###################################################################
 
@@ -82,11 +82,14 @@ en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a 
 * sys.getrefcount()
 
 ## Quizz Vidéo 4
+OK C012AL-W3-S4-E1-multiply.quiz liste=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées 
 
 ## Exercices Vidéo 4
 
-BOF * montrer le problème suivant L=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées
-TODO * exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) Python arrête de faire des références partagées pour optimiser la mémoire. 
+
+DROPPED* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) 
+                 Python arrête de faire des références partagées pour optimiser la mémoire. 
+		 je laisse tomber car la fonction is_singleton e comporte de maniere bizarre
 TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
 
 ###################################################################
