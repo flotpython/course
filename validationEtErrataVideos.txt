@@ -62,17 +62,17 @@ C012AL-W3-S2 OK pas d'errata
 C012AL-W3-S3 OK pas d'errata
 C012AL-W3-S4 OK pas d'errata
 C012AL-W3-S5 ERRATA
-Dans cette vidéo nous présentons comment importer un module. En particulier
+Dans cette vidéo, nous présentons comment importer un module. En particulier
 nous expliquons que le nom d'un module lors de l'import sert à donner un nom
 de variable au module et aussi à trouver le fichier module sur le disque dur. 
 Il y a cependant deux types de modules en Python. Il y a les modules standards
 écris en Python, ce sont les modules les plus courants, c'est par exemple
 le cas du module os. Il existe en effet dans le répertoire des librairies Python
 un fichier os.py. Mais il y a aussi les modules built-in qui sont des modules 
-écrits en C soit pour des raisons de performance (par exemple, parce qu'ils 
+écris en C, soit pour des raisons de performance (par exemple, parce qu'ils 
 contiennent des fonctions mathématiques), soit parce qu'ils permettent d'accéder 
 à des primitives systèmes accessibles en C (comme les entrées-sorties). 
-Le module math que nous prenons comme exemple dans le vidéo est un module
+Le module math que nous prenons comme exemple dans la vidéo est un module
 built-in implémenté en C, il n'y a donc pas de fichier math.py correspondant 
 à ce module. 
 
@@ -87,17 +87,17 @@ C012AL-W4-S4 OK pas d'errata
 C012AL-W4-S5 OK pas d'errata
 C012AL-W4-S6 ERRATA
 
-Dans cette vidéo nous utilisons un abus de langage courant, mais qui peut 
+Dans cette vidéo, nous utilisons un abus de langage courant, mais qui peut 
 entrainer de la confusion. Nous répétons à différents moments que nous
 cherchons une variable dans un scope ; il aurait fallut dire que nous cherchions
 la variable dans un bloc de code. 
 
-Clarifions ces termes. Dans cette vidéo nous considérons deux notions de bloc
+Clarifions ces termes. Dans cette vidéo nous considérons deux notions de blocs
 de code : le bloc de code d'un module et le bloc de code d'une fonction (nous
 verrons en semaine 5 un nouveau bloc de code, celui des classes). 
 
-Une variable est soit affectée, on lui donne une valeur qui est l'objet
-référencé par la variable, soit référencée, on utilise la valeur d'une 
+Une variable est soit affectée, on lui donne alors une valeur qui est l'objet
+référencé par la variable, soit référencée, on utilise alors la valeur d'une 
 variable précédemment affectée. Regardons maintenant le lien entre
 ces notions d'affectation et de référencement avec les notions de bloc
 de code et de scope.  
@@ -123,8 +123,8 @@ dans lequel elle est référencée, puis, si elle n'est pas définie, dans
 le bloc de code des fonctions englobantes, puis, si elle n'est toujours 
 pas définie,  dans le bloc de code du module. De manière équivalente, 
 on pourrait dire que la valeur de la variable référencée est celle de la
-variable locale du même bloc de code, puis la variable locale des fonctions
-englobantes, puis la variable globale. 
+variable locale du même bloc de code, puis de la variable locale des fonctions
+englobantes, puis de la variable globale. 
 
 
 C012AL-W4-S7-partie1 ERRATA
