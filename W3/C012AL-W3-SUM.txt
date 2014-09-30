@@ -43,6 +43,7 @@ C012AL-W3-S3.txt
 OK C012AL-W3-S3-C1-set-extras.ipynb : recap. fonctions/methodes sur les ensembles
 
 -------- 
+XXX Inutile en fait puisque j'en parle dans la dernière vidéo du MOOC
 BOF *test de performance sur le test d'appartenance entre list et set
 pour expliquer qu'il faut toujours utiliser des sets
 >>> timeit.timeit(setup= "x = range(2)", stmt = '"c" in x', number = 6000000)

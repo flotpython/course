@@ -69,7 +69,7 @@ Il y a cependant deux types de modules en Python. Il y a les modules standards
 écris en Python, ce sont les modules les plus courants, c'est par exemple
 le cas du module os. Il existe en effet dans le répertoire des librairies Python
 un fichier os.py. Mais il y a aussi les modules built-in qui sont des modules 
-écris en C, soit pour des raisons de performance (par exemple, parce qu'ils 
+écrits en C, soit pour des raisons de performance (par exemple, parce qu'ils 
 contiennent des fonctions mathématiques), soit parce qu'ils permettent d'accéder 
 à des primitives systèmes accessibles en C (comme les entrées-sorties). 
 Le module math que nous prenons comme exemple dans la vidéo est un module
@@ -88,7 +88,7 @@ C012AL-W4-S5 OK pas d'errata
 C012AL-W4-S6 ERRATA
 
 Dans cette vidéo, nous utilisons un abus de langage courant, mais qui peut 
-entrainer de la confusion. Nous répétons à différents moments que nous
+entraîner de la confusion. Nous répétons à différents moments que nous
 cherchons une variable dans un scope ; il aurait fallut dire que nous cherchions
 la variable dans un bloc de code. 
 
@@ -133,7 +133,7 @@ voir l'errata de la vidéo C012AL-W4-S6
 C012AL-W4-S7-partie2 ERRATA
 
 L'utilisation impropre du terme scope (voir l'errata de C012AL-W4-S6) lors 
-que l'explication de la directive globale peut entrainer une confusion. 
+que l'explication de la directive global peut entrainer une confusion. 
 Comme expliqué dans la vidéo, global est une directive au compilateur. 
 Cela veut dire qu'avant l'exécution du code, chaque variable des fonctions est
 classée comme variable locale si elle est affectée dans la fonction
