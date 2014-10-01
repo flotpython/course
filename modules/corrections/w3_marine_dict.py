@@ -2,11 +2,11 @@
 from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 def merge (extended, abbreviated):
-    result = { ship[0]: []  for ship in extended }
+    result = {}
     for ship in extended:
         id, latitude, longitude, timestamp, name, country = ship [:6]
-        result[id] += [ name, country, (latitude, longitude, timestamp) ]
-    for id,latitude,longitude,timestamp in abbreviated:
+        result[id] = [ name, country, (latitude, longitude, timestamp) ]
+    for id, latitude, longitude, timestamp in abbreviated:
         result [id] . append ( (latitude, longitude, timestamp) )
     return result
 
