@@ -91,7 +91,7 @@ OK C012AL-W3-S4-E1-multiply.quiz liste=[[1]]*5 et demander une solution pour ne 
 DROPPED* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) 
                  Python arrête de faire des références partagées pour optimiser la mémoire. 
 		 je laisse tomber car la fonction is_singleton e comporte de maniere bizarre
-TODO * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
+NICETOHAVE * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
 
 ###################################################################
 
@@ -108,7 +108,7 @@ OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import 
 
 ## Exercices Vidéo 5
 
-TODO decode-zen.ipynb : décoder le zen de python à partir de this (de import this)
+OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this)
 
 ###################################################################
 
