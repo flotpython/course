@@ -97,8 +97,7 @@ C012AL-W2-S6.txt (5 minutes 40 secondes)
 ## Compléments Vidéo 6
 OK C012AL-W2-S6-C1-bool-expressions.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
 OK C012AL-W2-S6-C2-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
-OK C012AL-W2-S6-C3-elif.ipynb : if elif else - évaluation paresseuse
-OK C012AL-W2-S6-C4-if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
+OK C012AL-W2-S6-C3-if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 
 ## Quizz Vidéo 6
 # J'arrive un peu à la limite du quiz car je ne sais pas si je peux mettre des réponses

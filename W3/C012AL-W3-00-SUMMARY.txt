@@ -137,6 +137,8 @@ XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien ?
 C012AL-W3-S7.txt
 
 ## Compléments Vidéo 7
+OK C012AL-W3-S7-C1-evaluation-tests.ipynb: évaluation paresseuse (repris et aménagé de W2-S6)
+TODO C012AL-W3-S7-C2-recap-cond.ipynb:  recap expressions dans un if
 
 ## Quizz Vidéo 7
 
@@ -146,7 +148,6 @@ C012AL-W3-S7.txt
 d'autres exemples)
 -insister sur le fait qu'il vaut mieux mettre des parenthèses que 
 de compter sur les priorités. 
--opération shortcircuit and et or. Montrer des exemples pour les 2.
 -discuter de == : quand peut-on comparer des objets de types différents
 (seulement les numériques, et les set et frozenset, str/unicode, mais
 (1, 2) n'est pas égal à [1, 2])
