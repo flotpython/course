@@ -94,7 +94,6 @@ DROPPED* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle 
 NICETOHAVE * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
 
 ###################################################################
-
 ## Vidéo 5 (Introduction aux modules)
 
 C012AL-W3-S5.txt
@@ -104,11 +103,16 @@ OK C012AL-W3-S5-C1-packages.ipynb
 OK C012AL-W3-S5-C2-modules-and-path.ipynb: 
 OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import *
 
-## Quizz Vidéo 5
-
 ## Exercices Vidéo 5
+OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
 
-OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this)
+## Quizz Vidéo 5  
+
+TODO ? un exo (sans correction) qui invite les etudiants
+  (*) basique: creer un module dans leur workingdir et a l'importer
+  (*) intermediaire: creer un package "utils" dans le workingdir avec un module dedans
+
+ça pourrait se faire avec un quiz en dessous pour voir si les gens y arrivent,
 
 ###################################################################
 
@@ -117,17 +121,12 @@ OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this 
 C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
-BOF parler des coupures de ligne - les parentheses et autres crochets
-# indentation - syntaxe minimale - presentation unifiee - 79 cars
-
--ajouter un lien vers la PEP 008 (sur les conventions de codage)
-http://legacy.python.org/dev/peps/pep-0008/
--ajouter un lien vers cette FAQ https://docs.python.org/2/faq/design.html#why-are-colons-required-for-the-if-while-def-class-statements
+OK C012AL-W3-S6-C1-presentation.ipynb
 
 ## Quizz Vidéo 6
 
 ## Exercices Vidéo 6
-
+XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien ?
 
 ###################################################################
 
