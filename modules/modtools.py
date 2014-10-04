@@ -1,8 +1,17 @@
 import sys
 
-"not the nicest code ever, but it does the job"
+"""
+display the code for a module - or parts thereof
+not the nicest code ever, but it does the job
+"""
 
-def show_module (module, beg=None, end=None):
+# do not even try files that end with these suffixes
+excludes = [ ".so", ".pyc" ]
+
+def line_mark (lineno, width):
+    return str(lineno).rjust(width,'0')
+
+def show_module (module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
@@ -16,6 +25,10 @@ def show_module (module, beg=None, end=None):
         name = module.__name__
         # use .py instead of .pyc if that's what we get
         file = module.__file__.replace(".pyc",".py")
+        for exclude in excludes:
+            if file.endswith(exclude):
+                print "Cannot display {}, wrong type".format(file)
+                return
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         with open(file) as input:
@@ -23,7 +36,9 @@ def show_module (module, beg=None, end=None):
             print 40*"-"
             if not showing: 
                 print "<...>"
+            lineno=0
             for line in input.readlines():
+                lineno += 1
                 # turn on showing mode if beg string is seen
                 if beg and line.find(beg)>=0: 
                     showing = True
@@ -33,7 +48,8 @@ def show_module (module, beg=None, end=None):
                     return
                 # print this line if in showing mode
                 if showing: 
-                    print line,
+                    mark = '' if lineno_width <= 0 else line_mark(lineno, lineno_width)
+                    print mark+prefix+line,
     except AttributeError as e:
         print "show_module: Could not find module {}".format(module)
     except Exception as e:
@@ -41,4 +57,5 @@ def show_module (module, beg=None, end=None):
         import traceback
         traceback.print_exc()
 
+# this works for packages as well
 show_package=show_module
