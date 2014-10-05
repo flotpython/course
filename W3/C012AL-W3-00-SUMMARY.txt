@@ -148,7 +148,7 @@ OK C012AL-W3-S7-C2-recap-cond.ipynb:  recap expressions dans un if
 
 ## Exercices Vidéo 7
 
-TODO: C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
+ONGOING: C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
 
 ###################################################################
 
