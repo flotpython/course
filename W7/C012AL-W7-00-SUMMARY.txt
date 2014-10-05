@@ -34,7 +34,7 @@ C012AL-W7-S2.txt
 
 ## Vidéo 3 (Les classes new-style)
 
-CO12AL-W7-VIDEO3.txt
+CO12AL-W7-S3.txt
 
 ## Compléments Vidéo 3
 
@@ -53,7 +53,7 @@ https://www.python.org/download/releases/2.2.3/descrintro
 
 ## Vidéo 4 (Les métaclasses)
 
-CO12AL-W7-VIDEO4.txt
+CO12AL-W7-S4.txt 
 
 ## Compléments Vidéo 4
 
@@ -71,6 +71,8 @@ https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 
 ## Vidéo 5 (Performance en Python)
 
+CO12AL-W7-S5.txt 
+
 ## Compléments Vidéo 5
 
 ## Quizz Vidéo 5
@@ -79,59 +81,7 @@ https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 
 
 ###################################################################
-
-## Vidéo 7
-
-## Compléments Vidéo 7
-
-## Quizz Vidéo 7
-
-## Exercices Vidéo 7
-
-
-###################################################################
-
-## Vidéo 8 
-
-## Compléments Vidéo 8
-
-## Quizz Vidéo 8
-
-## Exercices Vidéo 8
-
-
-###################################################################
-
-## Vidéo 9 
-
-## Compléments Vidéo 9
-
-## Quizz Vidéo 9
-
-## Exercices Vidéo 9
-
-
-###################################################################
-
-## Vidéo 10 
-
-## Compléments Vidéo 10
-
-## Quizz Vidéo 10
-
-## Exercices Vidéo 10
-
-
-###################################################################
-
-## Vidéo 11 
-
-## Compléments Vidéo 11
-
-## Quizz Vidéo 11
-
-## Exercices Vidéo 11
-
-
-###################################################################
-
+TODO C012AL-W7-S6-C1-python2-vs-python3.ipynb
+          on a vendu l'idée d'un complément sur la comparaison python2 python3
+          dans lequel il faudra bien mentionner le type unicode
+DROPPED pending-unicode.ipynb : je propose de bouger ça carrément en semaine 7 
