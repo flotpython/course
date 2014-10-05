@@ -60,7 +60,7 @@ pour expliquer qu'il faut toujours utiliser des sets
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-TODO : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé 
+NICETOHAVE : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé 
 entre tuple, liste, dict, set (et pourquoi pas aussi frozenset si il faut hacher)
 
 OK C012AL-W3-S3-E1-marine-set.ipynb - avec le même genre de données de marine traffic xxx version python à 
@@ -108,7 +108,7 @@ OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this 
 
 ## Quizz Vidéo 5  
 
-TODO ? un exo (sans correction) qui invite les etudiants
+NICETOHAVE un exo (sans correction) qui invite les etudiants
   (*) basique: creer un module dans leur workingdir et a l'importer
   (*) intermediaire: creer un package "utils" dans le workingdir avec un module dedans
 
@@ -122,11 +122,15 @@ C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
 OK C012AL-W3-S6-C1-presentation.ipynb
+OK C012AL-W3-S6-C2-pass.ipynb
+-présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
+de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
 
 ## Quizz Vidéo 6
 
 ## Exercices Vidéo 6
-XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien ?
+XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien alors peut être avec la formule
+(notebook + quiz) qu'on a évoquée à un moment mais qu'on n'a pas encore pu essayer
 
 ###################################################################
 
@@ -144,7 +148,7 @@ OK C012AL-W3-S7-C2-recap-cond.ipynb:  recap expressions dans un if
 
 ## Exercices Vidéo 7
 
-TODO: des exercices sur des ifs un peu torturés
+TODO: C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
 
 ###################################################################
 
@@ -157,40 +161,37 @@ C012AL-W3-S8.txt
 ## Compléments Vidéo 8
 
 OK C012AL-W3-S8-C1-break-continue.ipynb
-TODO C012AL-W3-S8-C2-iterateur-memoire.ipynb: un iterateur sur les permutations
+TODO C012AL-W3-S8-C2-iterateur-memoire.ipynb: 
+* basique 
+- expliquer l'intérêt au niveau vitesse et occupation mémoire des itérateurs
+- parler de xrange() vs range () / dict.{items, keys, values} 
+mentionner python3
+* avancé
+illustrer avec un iterateur sur les permutations 
+
 TODO C012AL-W3-S8-C3-keep-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
-
-- expliquer l'intérêt au niveau occupation mémoire des itérateurs
-des types built-in.
--présenter break
--présenter continue (en expliquant que, comme pour les goto, les sauts
-dans le code nuisent à la compréhension, il faut donc l'éviter)
--présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
-de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
--voir le else du for
--présenter enumerate, zip, et les itérateurs des dictionnaires
--présenter xrange() et sont avantage par rapport à range() (pas 
-d'occupation mémoire). Dans le même esprit expliquer l'avantage
-des itérateurs sur des dict (iteritems/itervalues/iterkeys) par rapport
-aux listes. 
--présenter la méthode built-in iter() en expliquant que comme
-__iter__() est une méthode Python privée, on ne doit pas l'appeler
-directement dans un programme, on doit utiliser la built-in iter()
-à la place.
-
-
-
-Ici, sinon on a une boucle infinie.
-
-## Quizz Vidéo 8
-
-## Exercices Vidéo 8
-
 Il ne faut pas modifier l'objet sur lequel on itère dans boucle for.
 Si on modifie l'objet, il faut itérer sur copie
 >>> L = ['a', 'b' , 'c']
 >>> for i in L[:]:
 	if i == 'c':
 		L.append(i)	
+
+
+BOF : je laisse tomber tout ca
+ -voir le else du for 
+-présenter la méthode built-in iter() en expliquant que comme
+__iter__() est une méthode Python privée, on ne doit pas l'appeler
+directement dans un programme, on doit utiliser la built-in iter()
+à la place.
+Ici, sinon on a une boucle infinie.
+
+## Quizz Vidéo 8
+
+## Exercices Vidéo 8
+
+TODO: C012AL-W3-S8-E1-for.ipynb: 
+des exercices sur des fors un peu torturés  
+ 
 
 
