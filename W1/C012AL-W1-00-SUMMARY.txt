@@ -37,11 +37,11 @@ OK C012AL-W1-S3-C3-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 OK C012AL-W1-S3-C4-fibonacci_prompt.ipynb & .py : un notebook qui calcule et affiche fibonacci avec raw_input  
 OK C012AL-W1-S3-C5-fibonacci.ipynb & .py : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
 OK C012AL-W1-S3-C6-turtle_square.ipynb & .py : un notebook pour publier du code a telecharger et a jouer sur son ordi 
-ONGOING turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
+OK turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
 			       	     	      ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
-ONGOING turtle_fractal.py : arranger les differentes versions de turtle_fractal de semainex-a-ranger et exposer ici avec turtle_squares
+OK turtle_fractal.py : arranger les differentes versions de turtle_fractal de semainex-a-ranger et exposer ici avec turtle_squares
 
-TODO debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuvre sur un exemple
+NICETOHAVE debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuvre sur un exemple
 
 ###################################################################
 
