@@ -148,7 +148,8 @@ OK C012AL-W3-S7-C2-recap-cond.ipynb:  recap expressions dans un if
 
 ## Exercices Vidéo 7
 
-ONGOING: C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
+OK C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
+NICETOHAVE : c'est un peu léger dans l'état
 
 ###################################################################
 
@@ -161,7 +162,10 @@ C012AL-W3-S8.txt
 ## Compléments Vidéo 8
 
 OK C012AL-W3-S8-C1-break-continue.ipynb
-TODO C012AL-W3-S8-C2-iterateur-memoire.ipynb: 
+OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
+
+TODO C012AL-W3-S8-C3-iterateur-memoire.ipynb: 
+pas tout a fait sûr si c'est ici ou bien + tard dans le cours.
 * basique 
 - expliquer l'intérêt au niveau vitesse et occupation mémoire des itérateurs
 - parler de xrange() vs range () / dict.{items, keys, values} 
@@ -169,14 +173,11 @@ mentionner python3
 * avancé
 illustrer avec un iterateur sur les permutations 
 
-TODO C012AL-W3-S8-C3-keep-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
-Il ne faut pas modifier l'objet sur lequel on itère dans boucle for.
-Si on modifie l'objet, il faut itérer sur copie
->>> L = ['a', 'b' , 'c']
->>> for i in L[:]:
-	if i == 'c':
-		L.append(i)	
-
+NICETOHAVE: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
+perso je trouve ça très embrouillé après avoir revu la vidéo
+iterable : on peut faire un for dessus; doit avoir __iter__()
+iterateur : doit faire next()
+et souvent __iter__ sur l'iterateur renvoie l'iterateur lui-meme
 
 BOF : je laisse tomber tout ca
  -voir le else du for 
@@ -184,14 +185,16 @@ BOF : je laisse tomber tout ca
 __iter__() est une méthode Python privée, on ne doit pas l'appeler
 directement dans un programme, on doit utiliser la built-in iter()
 à la place.
-Ici, sinon on a une boucle infinie.
 
 ## Quizz Vidéo 8
 
 ## Exercices Vidéo 8
 
-TODO: C012AL-W3-S8-E1-for.ipynb: 
+TODO: C012AL-W3-S8-E1-iterables.quiz
+est-ce qu'on peut faire un for sur un objet qui sait faire next() ?
+etc...
+ 
+TODO: C012AL-W3-S8-E2-for.ipynb: 
 des exercices sur des fors un peu torturés  
  
-
 
