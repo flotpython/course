@@ -1,12 +1,12 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Strings (1)
 =====
 
 On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on veut écrire dans la case du milieu un caractère "-", c'est-à-dire que par exemple
 
-chaine = ""  => chaine = ""
-chaine = "a"  => chaine = "-"
-chaine = "abcde"  => chaine = "ab-de"
+<pre>chaine = ""  => chaine = ""</pre>
+<pre>chaine = "a"  => chaine = "-"</pre>
+<pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
 Comment peut-on faire (plusieurs réponses possibles)
 
@@ -24,15 +24,15 @@ Le troisieme choix est presque correct, sauf pour la chaine vide, ce qui est cor
 
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Strings (2)
 =====
 
 À partir d'une chaine, on veut calculer une chaine dérivée où le caractère '-' est inséré entre les caractères de la chaine originelle, c'est-à-dire que par exemple
 
-chaine = ""  => resultat = ""
-chaine = "a"  => resultat = "a"
-chaine = "abcd"  => resultat = "a-b-c-d"
+<pre>chaine = ""  => resultat = ""</pre>
+<pre>chaine = "a"  => resultat = "a"</pre>
+<pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
 
 Comment peut-on faire (plusieurs réponses possibles)
 
@@ -53,15 +53,15 @@ La quatrième est correcte également, on construit d'abord "a-b-c-d-" puis on éli
 
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Strings - formattage
 =====
 
 Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
 
-nom = "Dupont",  no_secu="1975787", age="25" => message = "Dupont, 25 ans, 1975787"
+<pre>nom = "Dupont",  no_secu="1975787", age="25" => message = "Dupont, 25 ans, 1975787"</pre>
 
-nom = "Durand",  no_secu=None, age="12" => message = "Durand, 12 ans, pas de no de SS"
+<pre>nom = "Durand",  no_secu=None, age="12" => message = "Durand, 12 ans, pas de no de SS"</pre>
 
 Faut-il écrire (plusieurs réponses possibles)
 

@@ -1,8 +1,9 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Tuples (1)
 =====
 
-On se donne en entrée triple = (1,2,3,)
+On se donne en entrée 
+<pre>triple = (1,2,3,)</pre>
 
 Parmi les expressions et instructions ci-dessous, lesquelles sont valides
 
@@ -18,13 +19,13 @@ La troisième expression n'est pas valable, "index out of range", triple n'a pas 
 L'affection en quatrième place n'est pas autorisée, un tuple est immuable 
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Tuples (2)
 =====
 
 Quelles sont les expressions qui renvoient True
 
-[x] [ ( [ ('spam') ] ) ] == [[ 'spam' ]]
+[x] [ ( [ ('spam') ] ) ] == [ [ 'spam' ] ]
 [ ] ('spam',) == ('spam')
 [x] [ ('spam',) ] [0][0] == 'spam'
 [ ] [ ('spam'), ] [0][0] == 'spam'
@@ -36,28 +37,29 @@ Dans la troisième expression, on a une liste contenant un tuple contenant le str
 Dans la quatrième expression, la virgule n'est pas correctement placée et la parenthèse ne crée pas un tuple.
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Tuples (3)
 =====
 
-On pose quadruple = (1, [2, 3], 'spam', [[(4,)]])
+On pose
+<pre>quadruple = (1, [2, 3], 'spam', [ [ (4,) ] ] )</pre>
 
 Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 à four
 
 [ ] ( one, (two, three), ignored, ( ( ( four ) ) ) ) = quadruple
 [x] ( one, (two, three,), _, ( ( ( four, ), ), ) ) = quadruple
-[ ] ( (one,),  (two, three), _, [[[four]]] ) = quadruple
-[x] ( one,  (two, three), _, [[[four]]] ) = quadruple
+[ ] ( (one,),  (two, three), _, [ [ [ four ] ] ] ) = quadruple
+[x] ( one,  (two, three), _, [ [ [ four ] ] ] ) = quadruple
 
 
 [explanation]
-Dans la première forme, 'four' ne se trouve pas dans un tuple à cause de l'absence de virgule. On obtient donc four == [[(4,)]]
+Dans la première forme, 'four' ne se trouve pas dans un tuple à cause de l'absence de virgule. On obtient donc four == [ [ (4,) ] ]
 La seconde forme est correcte
 Dans la troisième forme, 'one' est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
 La dernière forme est correcte, malgré la présence d'une liste à gauche et d'un tuple à droite au dernier niveau de profondeur.
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Tuples (4)
 =====
 

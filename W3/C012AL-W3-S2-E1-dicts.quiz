@@ -1,4 +1,4 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Dictionnaires (1)
 =====
 
@@ -11,7 +11,7 @@ On peut ajouter ou enlever des couples (clé,valeur) dans un dictionnaire
 [explanation]
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Dictionnaires (2)
 =====
 
@@ -25,7 +25,7 @@ Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
 Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Dictionnaires (3)
 =====
 
@@ -41,7 +41,7 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, 
 [explanation]
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Dictionnaires (4)
 =====
 
@@ -57,7 +57,7 @@ La seconde forme retourne la valeur pour 'marc' si elle existe, et sinon 50, mai
 La troisième forme ne créé la clé 'marc' que si elle n'est pas encore présente
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Dictionnaires (5)
 =====
 
@@ -78,5 +78,3 @@ La forme 4 est fantaisiste, il n'y a pas de fonction "built-in" get
 
 La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne False - et non pas None - si la clé n'est pas présente
 [explanation]
-
-

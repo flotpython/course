@@ -1,19 +1,19 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Types numériques (1)
 =====
 
 Comment calculer la 16-ème puissance de 2
 
-( ) 2 & 16
+( ) 2 &amp; 16
 (x) 2 ** 16
-( ) 2 && 16
+( ) 2 &amp;&amp; 16
 ( ) 2 | 16
 
 [explanation]
 Le signe puissance en python est **
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Types numériques (2)
 =====
 
@@ -29,13 +29,13 @@ Les anglais utilisent 'j' plutôt que notre 'i'
 Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Types numériques (3)
 =====
 
 Que retourne la formule
 
-type ( 2 ** 16 ) == type ( 2 ** 8 )
+<pre>type ( 2 ** 16 ) == type ( 2 ** 8 )</pre>
 
 (x) True
 ( ) False
@@ -44,13 +44,13 @@ type ( 2 ** 16 ) == type ( 2 ** 8 )
 Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Types numériques (4)
 =====
 
 Que retourne la formule
 
-type ( 2 ** 200 ) == type ( 2 ** 8 )
+<pre>type ( 2 ** 200 ) == type ( 2 ** 8 )</pre>
 
 ( ) True
 (x) False
@@ -59,13 +59,13 @@ type ( 2 ** 200 ) == type ( 2 ** 8 )
 Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Types numériques (5)
 =====
 
 Que retourne la formule (avancé)
 
-(2 ** 200) >> 196 == 2 ** 4
+<pre>(2 ** 200) >> 196 == 2 ** 4</pre>
 
 (x) True
 ( ) False

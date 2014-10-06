@@ -1,14 +1,14 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Références partagées (1)
 =====
 
 On définit une liste comme étant
 
-liste = 3 * [ 0 ] 
+<pre>liste = 3 * [ 0 ] </pre>
 
 après quoi on fait 
 
-liste [0] = 1
+<pre>liste [0] = 1</pre>
 
 qu'obtient-on si on imprime liste à ce stade ?
 
@@ -19,28 +19,28 @@ qu'obtient-on si on imprime liste à ce stade ?
 l'affectation de liste[0] ne change pas les deux autres éléments de la liste
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Références partagées (2)
 =====
 
 À présent on définit une liste 
 
-liste = 3 * [ [ 0 ] ]
+<pre>liste = 3 * [ [ 0 ] ]</pre>
 
 après quoi on fait 
 
-liste [0][0] = 1
+<pre>liste [0][0] = 1</pre>
 
 qu'obtient-on si on imprime liste à ce stade ?
 
-[ ] [[1], [0], [0]]
-[x] [[1], [1], [1]]
+[ ] [ [1], [0], [0] ]
+[x] [ [1], [1], [1] ]
 
 [explanation]
 Cette fois l'affectation concerne la liste à un élément qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les 3 élément de la liste
 [explanation]
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Références partagées (3)
 =====
 

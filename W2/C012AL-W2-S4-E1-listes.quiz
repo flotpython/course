@@ -1,8 +1,9 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Listes (1)
 =====
 
-on a liste = [ 1, 3, 2, 4 ]
+On a 
+<pre>liste = [ 1, 3, 2, 4 ]</pre>
 On veut modifier liste pour obtenir [ 1, 3, 5, 2, 4 ]
 
 Que faut-il faire (plusieurs réponses possibles):
@@ -22,11 +23,12 @@ La cinquième est correcte
 [explanation]
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Listes (2)
 =====
 
-À nouveau on a liste = [ 1, 3, 2, 4 ]
+À nouveau on a 
+<pre>liste = [ 1, 3, 2, 4 ]</pre>
 
 On souhaite "extraire" et retourner la valeur '1', tout en la retirant de la liste.
 Plus précisément on veut affecter à la variable 'suivant' la valeur '1' de telle sorte qu'après l'exécution, liste ne contienne plus que [ 3, 2, 4 ]
@@ -45,11 +47,12 @@ La dernière formule est syntaxiquement incorrecte
 [explanation]
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Listes (3)
 =====
 
-À nouveau on a liste = [ 1, 3, 2, 4 ]
+On a encore
+<pre>liste = [ 1, 3, 2, 4 ]</pre>
 
 On veut trier la liste en ordre décroissant, sans le besoin de mémoriser l'état initial.
 
@@ -69,17 +72,16 @@ La dernière formule fonctionne très bien également.
 [explanation]
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<hr/>
 Listes (4)
 =====
 
-À nouveau on a liste = [ '1', '3', '2', '4' ]
+On a toujours
+<pre>liste = [ '1', '3', '2', '4' ]</pre>
 
 On veut ajouter à la fin de la liste les valeurs '5' et '6' pour obtenir [ '1', '3', '2', '4', '5', '6' ]
 
 Faut-il faire (plusieurs réponses possibles) :
-
-XXX la dernière formule n'est peut-être pas encore connue ??
 
 [x] liste = liste + ['5','6']
 [x] liste.extend (['5','6'])
@@ -91,7 +93,7 @@ XXX la dernière formule n'est peut-être pas encore connue ??
 [explanation]
 Toutes les formules sauf la 3 sont correctes
 
-La formule 3 donne pour liste [ 1, 3, 2, 4, [5,6] ]
+La formule 3 donne pour liste [ 1, 3, 2, 4, [5, 6] ]
 
 Notez que la formule 5 fonctionne, car extend attend un iterable (ici un string) et ajoute tous les éléments de cet iterable; on aurait pu utiliser aussi un tuple par exemple.
 
