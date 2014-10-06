@@ -164,14 +164,8 @@ C012AL-W3-S8.txt
 
 OK C012AL-W3-S8-C1-break-continue.ipynb
 OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
-
 OK C012AL-W3-S8-C3-iterateur-performances.ipynb: 
-
-NICETOHAVE: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
-perso je trouve ça très embrouillé après avoir revu la vidéo
-iterable : on peut faire un for dessus; doit avoir __iter__()
-iterateur : doit faire next()
-et souvent __iter__ sur l'iterateur renvoie l'iterateur lui-meme
+OK C012AL-W3-S8-C4-iterable-iterateur: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 
 BOF : je laisse tomber tout ca
  -voir le else du for 
