@@ -5,7 +5,7 @@ Opérations sur les séquences
 
 On se donne les variables suivantes
 
-chaine = "douarnenez"
+<pre>chaine = "douarnenez"</pre>
 
 Trouver la valeur des expressions suivantes
 

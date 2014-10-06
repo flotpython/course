@@ -53,7 +53,7 @@ Quelles sont parmi les affectations suivantes celles qui sont valables, et qui a
 
 
 [explanation]
-Dans la première forme, 'four' ne se trouve pas dans un tuple à cause de l'absence de virgule. On obtient donc four == [ [ (4,) ] ]
+Dans la première forme, 'four' ne se trouve pas dans un tuple à cause de l'absence de virgule
 La seconde forme est correcte
 Dans la troisième forme, 'one' est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
 La dernière forme est correcte, malgré la présence d'une liste à gauche et d'un tuple à droite au dernier niveau de profondeur.
