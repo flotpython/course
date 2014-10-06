@@ -34,7 +34,7 @@ C012AL-W6-S2.txt
 ## Compléments Vidéo 2
 
 *Itérateurs et thread. 
-
+*module itertools
 
 ## Quizz Vidéo 2
 
