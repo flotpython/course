@@ -164,7 +164,7 @@ C012AL-W3-S8.txt
 OK C012AL-W3-S8-C1-break-continue.ipynb
 OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
 
-TODO C012AL-W3-S8-C3-iterateur-memoire.ipynb: 
+ONGOING C012AL-W3-S8-C3-iterateur-memoire.ipynb: 
 pas tout a fait sûr si c'est ici ou bien + tard dans le cours.
 * basique 
 - expliquer l'intérêt au niveau vitesse et occupation mémoire des itérateurs
