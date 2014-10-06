@@ -9,32 +9,32 @@ chaine = "douarnenez"
 
 Trouver la valeur des expressions suivantes
 
-chaine.index('z') == len (chaine) 
+<pre>chaine.index('z') == len (chaine) </pre>
 
 ( ) True
 (x) False
 
-chaine.index('z') == len (chaine) - 1
+<pre>chaine.index('z') == len (chaine) - 1</pre>
 
 (x) True
 ( ) False
 
-'daz' in chaine
+<pre>'daz' in chaine</pre>
 
 ( ) True
 (x) False
 
-'nez' in chaine 
+<pre>'nez' in chaine </pre>
 
 (x) True
 ( ) False
 
-chaine [ -3: ] == 'nez'
+<pre>chaine [ -3: ] == 'nez'</pre>
 
 (x) True
 ( ) False
 
-chaine[1:3] + chaine [3:5] + chaine [5:] == chaine [ 1: ]
+<pre>chaine[1:3] + chaine [3:5] + chaine [5:] == chaine [ 1: ]</pre>
 
 (x) True
 ( ) False
