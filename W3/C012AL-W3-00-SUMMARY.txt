@@ -102,6 +102,7 @@ C012AL-W3-S5.txt
 OK C012AL-W3-S5-C1-packages.ipynb
 OK C012AL-W3-S5-C2-modules-and-path.ipynb: 
 OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import *
+ONGOING C012AL-W3-S5-C4-collections.ipynb: des variantes utiles aux types de base
 
 ## Exercices Vidéo 5
 OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
