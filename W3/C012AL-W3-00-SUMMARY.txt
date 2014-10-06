@@ -102,7 +102,7 @@ C012AL-W3-S5.txt
 OK C012AL-W3-S5-C1-packages.ipynb
 OK C012AL-W3-S5-C2-modules-and-path.ipynb: 
 OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import *
-ONGOING C012AL-W3-S5-C4-collections.ipynb: des variantes utiles aux types de base
+OK C012AL-W3-S5-C4-collections.ipynb: des variantes utiles aux types de base
 
 ## Exercices Vidéo 5
 OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
@@ -165,14 +165,7 @@ C012AL-W3-S8.txt
 OK C012AL-W3-S8-C1-break-continue.ipynb
 OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
 
-ONGOING C012AL-W3-S8-C3-iterateur-memoire.ipynb: 
-pas tout a fait sûr si c'est ici ou bien + tard dans le cours.
-* basique 
-- expliquer l'intérêt au niveau vitesse et occupation mémoire des itérateurs
-- parler de xrange() vs range () / dict.{items, keys, values} 
-mentionner python3
-* avancé
-illustrer avec un iterateur sur les permutations 
+OK C012AL-W3-S8-C3-iterateur-memoire.ipynb: 
 
 NICETOHAVE: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 perso je trouve ça très embrouillé après avoir revu la vidéo

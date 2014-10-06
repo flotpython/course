@@ -35,6 +35,7 @@ C012AL-W6-S2.txt
 
 *Itérateurs et thread. 
 *module itertools
+ illustrer avec un iterateur sur les permutations 
 
 ## Quizz Vidéo 2
 
