@@ -178,11 +178,9 @@ directement dans un programme, on doit utiliser la built-in iter()
 
 ## Exercices Vidéo 8
 
-TODO: C012AL-W3-S8-E1-iterables.quiz
+ONGOING C012AL-W3-S8-E1-iterables.quiz
 est-ce qu'on peut faire un for sur un objet qui sait faire next() ?
 etc...
  
 TODO: C012AL-W3-S8-E2-for.ipynb: 
 des exercices sur des fors un peu torturés  
- 
-

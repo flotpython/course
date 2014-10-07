@@ -1,0 +1,15 @@
+<hr/>
+Itérables
+=====
+
+xxx ongoing a mettre en forme
+
+sont iterables ? : tuple str dict list set complex
+
+
+
+<hr/>
+Itérateurs
+=====
+
+sont iterateurs ? : list str
