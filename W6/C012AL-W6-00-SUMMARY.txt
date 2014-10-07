@@ -33,9 +33,8 @@ C012AL-W6-S2.txt
 
 ## Compléments Vidéo 2
 
-*Itérateurs et thread. 
-*module itertools
- illustrer avec un iterateur sur les permutations 
+*Itérateurs et thread ?
+*module itertools / illustrer (avancé) avec un iterateur sur les permutations qu'on écrit nous-mêmes
 
 ## Quizz Vidéo 2
 
@@ -120,31 +119,6 @@ with Timer() as t:
 
 ###################################################################
 
-## Vidéo 6 ()
+Mini projets
 
-## Compléments Vidéo 6
-
-## Quizz Vidéo 6
-
-## Exercices Vidéo 6
-
-###################################################################
-
-## Vidéo 7 ()
-
-## Compléments Vidéo 7
-
-## Quizz Vidéo 7
-
-## Exercices Vidéo 7
-
-###################################################################
-
-## Vidéo 8 ()
-
-## Compléments Vidéo 8
-
-## Quizz Vidéo 8
-
-## Exercices Vidéo 8
-
+ONGOING C012AL-W6-S6-miniprojets-E1-pending-data-meteo.ipynb - premier morceau de code un peu réel avec data/meteo.json 

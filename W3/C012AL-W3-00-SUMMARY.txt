@@ -31,8 +31,6 @@ OK C012AL-W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 ## Exercices Vidéo 2
 OK C012AL-W3-S2-E2-marine-dict.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections OK
 				               	       	       	      
-ONGOING C012AL-W3-S2-E2-meteo-pending-to-postpone.ipynb - premier morceau de code un peu réel avec data/meteo.json 
-
 ###################################################################
 
 ## Vidéo 3 (Les ensembles)
