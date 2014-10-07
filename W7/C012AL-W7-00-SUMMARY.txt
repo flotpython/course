@@ -23,8 +23,26 @@ C012AL-W7-S2.txt
 
 ## Compléments Vidéo 2
 
-*les exemples pratiques que tu as déjà fait. 
+* les exemples pratiques que tu as déjà fait. 
 
+* (initialiement avec les context managers) : montrer cet exemple et le comparer avec les décorateur
+
+import time
+class Timer():    
+    def __enter__(self):
+        self.start = time.clock()
+        return self
+    def __exit__(self, *args):
+        self.end = time.clock()
+        print "duree d'execution : " + \
+              str(self.end - self.start)
+        return False
+
+with Timer() as t:
+    [x ** 3 for x in xrange(1000000)]
+    print 1/0
+
+	
 ## Quizz Vidéo 2
 
 ## Exercices Vidéo 2

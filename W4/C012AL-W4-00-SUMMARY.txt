@@ -11,35 +11,24 @@
 C012AL-W4-S1.txt
 
 ## Compléments Vidéo 1
+OK C012AL-W4-S1-E1-file-extras.ipynb 
+OKC012AL-W4-S1-E2-stdinouterr.ipynb : 
 
-*donner le lien vers https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
-*exemple de flush()
-*voire read, tell, seek, writelines
-*introduire json et pickle
-*inroduire le mode b pour ouvrir des fichiers binaires et les autres
-modes utilise (e.g., a, r+)
-*expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs
+TODO C012AL-W4-S1-E3-pickle-json.ipynb 
+
+DROPPED *voire read, tell, seek, writelines
+DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier. Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
+NICETOHAVE expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs
 comme les autres types built-in (c'est lié à la manières des OS de gérer
 les accès aux fichiers). 
-*introduire sys.stdout (comparer avec print), sys.stdin (comparer 
-sys.stdin.readline() avec raw_input), et sys.stderr
-*montrer que sys.stdout n'est q'une variable qui peut référencer un 
-autre fichier. Comme print écrit dans sys.stdout, c'est un moyen simple
-de rediriger les print vers un fichier. 
-*en complément introduire le module logging (ça va bien ici, mais
-si ça fait trop de compléments, on peut le bouger en semaine 6 ou 7)
-avec les références https://docs.python.org/2/library/logging.html
-et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
-
-
 
 ## Quizz Vidéo 1
 
 ## Exercices Vidéo 1
-
-# pour creer un ou plusieurs fichiers exemple je vais devoir publier un module qui
-  cree des fichires dans l'espace des apprenants pour qu'ils puissent
-  l'ouvrir ensuite
+** un exo simple qui 
+* cree un fichier d'entree (je fournis la fonction)
+* ouvre le fichier, l'analyse et le récrit autrement
+** idem mais écrit au format json
 
 ###################################################################
 
@@ -48,11 +37,11 @@ et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 C012AL-W4-S2.txt
 
 ## Compléments Vidéo 2
+* voir comment scanner une liste avec while l : e=l.pop()
 -voir le break et le continue (déjà vu pour for, mais
 à revoir dans le contexte du while)
--voir le else du while 
-XXX OMG! and I thought I knew a lot about python!!  :)
-xxx je suggere de zapper le else du while completement
+
+DROPPED voir le else du while - OMG! and I thought I knew a lot about python!!  :)
 
 ## Quizz Vidéo 2
 
