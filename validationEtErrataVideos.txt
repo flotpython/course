@@ -1,5 +1,9 @@
 ************************* VALIDATION ***************************
 
+C012AL-W2-S1 NOK (le pointeur de la souris traine sur l'écran à partir de 4:07, il faudrait l'enlever)
+C012AL-W2-S2 NOK (le pointeur souris apparait à côté de ma tête à 0:29)
+C012AL-W2-S3 NOK (le pointeur souris apparait à 4:57)
+C012AL-W2-S4 NOK (à 0:38 pourquoi faire un fondu sur le transparent. Un fondu sur moi uniquement est suffisant)
 C012AL-W2-S5 OK
 C012AL-W2-S6 NOK (le texte surimposé doit être noir)
 C012AL-W2-S7 OK
@@ -38,7 +42,7 @@ C012AL-W5-S4 OK (vibration de la camera à 6:54, je pense qu'il n'y a rien à fair
 C012AL-W5-S5 OK
 C012AL-W5-S6 OK
 C012AL-W5-S7 NOK (le pointeur de la souris sous forme de croix reste sur le transparent au début de la vidéo de 0:50 à 2:50)
-
+C012AL-W5-S8 NOK (enlever la souris qui apparait sous ma tête à 1:22, enlever la souris à partir de 3:00)
 
 C012AL-W6-S1 OK
 C012AL-W6-S2 NOK (mineur: à 13:15 il y a un fondu sur le son, ça serait bien de faire un fondu sur l'image, mais pas sur le son pour garder un volume constant)
@@ -65,7 +69,10 @@ transparent, je montre l'autre côté.
 
 
 ************************* ERRATA ***************************
-
+C012AL-W2-S1 OK pas d'errata
+C012AL-W2-S2 OK pas d'errata
+C012AL-W2-S3 OK pas d'errata
+C012AL-W2-S4 OK pas d'errata
 C012AL-W2-S5 OK pas d'errata
 C012AL-W2-S6 OK pas d'errata
 C012AL-W2-S7 OK pas d'errata
@@ -171,6 +178,7 @@ C012AL-W5-S4 OK pas d'errata
 C012AL-W5-S5 OK pas d'errata
 C012AL-W5-S6 OK pas d'errata
 C012AL-W5-S7 OK pas d'errata
+C012AL-W5-S8O K pas d'errata
 
 C012AL-W6-S1 OK pas d'errata
 C012AL-W6-S2 OK pas d'errata
