@@ -167,7 +167,7 @@ OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet 
 OK C012AL-W3-S8-C3-iterateur-performances.ipynb: 
 OK C012AL-W3-S8-C4-iterable-iterateur: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 
-BOF : je laisse tomber tout ca
+BOF : je laisse tomber tout ca pour l'instant
  -voir le else du for 
 -présenter la méthode built-in iter() en expliquant que comme
 __iter__() est une méthode Python privée, on ne doit pas l'appeler
@@ -177,10 +177,5 @@ directement dans un programme, on doit utiliser la built-in iter()
 ## Quizz Vidéo 8
 
 ## Exercices Vidéo 8
-
-ONGOING C012AL-W3-S8-E1-iterables.quiz
-est-ce qu'on peut faire un for sur un objet qui sait faire next() ?
-etc...
- 
-TODO: C012AL-W3-S8-E2-for.ipynb: 
-des exercices sur des fors un peu torturés  
+OK C012AL-W3-S8-E1-iterables.quiz
+NICETOHAVE: C012AL-W3-S8-E2-for.ipynb: des exercices sur des fors un peu torturés  
