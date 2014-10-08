@@ -14,13 +14,11 @@ C012AL-W4-S1.txt
 OK C012AL-W4-S1-E1-file-extras.ipynb 
 OKC012AL-W4-S1-E2-stdinouterr.ipynb : 
 
-TODO C012AL-W4-S1-E3-pickle-json.ipynb 
+NICETOHAVE C012AL-W4-S1-E3-json.ipynb : parler de json, pickle, csv ...
+NICETOHAVE expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs 
+comme les autres types built-in (c'est lié à la manières des OS de gérer les accès aux fichiers). 
 
-DROPPED *voire read, tell, seek, writelines
 DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier. Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
-NICETOHAVE expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs
-comme les autres types built-in (c'est lié à la manières des OS de gérer
-les accès aux fichiers). 
 
 ## Quizz Vidéo 1
 
