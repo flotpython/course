@@ -32,9 +32,9 @@ Dictionnaires (3)
 Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire
 
 [x] 1
-[ ] [ 1,2 ]
+[ ] [1, 2]
 [x] (1, 2)
-[ ] ( [1,2], [3,4] )
+[ ] ([1, 2], [3, 4])
 
 [explanation]
 Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé
@@ -47,7 +47,7 @@ Dictionnaires (4)
 
 Pour modifier la valeur de la clé 'marc' dont on sait qu'elle est dans le dictionnaire 'annuaire', on peut faire
 
-[x] annuaire ['marc'] = 50
+[x] annuaire['marc'] = 50
 [ ] d.get('marc',50)
 [ ] d.setdefault('marc',50)
 
@@ -63,10 +63,10 @@ Dictionnaires (5)
 
 Pour accéder à la valeur de la clé 'marc' dont on ne sait pas si elle est dans le dictionnaire 'annuaire', on peut faire
 
-[ ] annuaire ['marc']
+[ ] annuaire['marc']
 [x] d.get('marc')
-[x] d.get('marc',None)
-[ ] get(d,'marc)
+[x] d.get('marc', None)
+[ ] get(d, 'marc')
 [x] 'marc' in annuaire and annuaire['marc']
 
 [explanation]

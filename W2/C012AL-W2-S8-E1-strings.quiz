@@ -36,10 +36,10 @@ Strings (2)
 
 Comment peut-on faire (plusieurs réponses possibles)
 
-[x] "-".join ( chaine )
-[x] "-".join ( list (chaine) )
-[ ] "".join([ x+y for (x,y) in zip(chaine, (len(chaine)-1)*"-") ] )
-[x] "".join([ x+y for (x,y) in zip(chaine, len(chaine)*"-") ] )[:-1]
+[x] "-".join(chaine)
+[x] "-".join(list(chaine))
+[ ] "".join([x + y for (x, y) in zip(chaine, (len(chaine)-1)*"-")])
+[x] "".join([x + y for (x, y) in zip(chaine, len(chaine)*"-")])[:-1]
 
 
 [explanation]
@@ -47,7 +47,7 @@ La première clause est correcte, c'est bien sûr le plus simple
 
 La seconde est correcte également, et reste acceptable car elle convertit la chaine en liste; si on n'est plus très sûr de savoir si "join" se comporte correctement avec une chaine en argument, au moins comme ceci on est sûr de son coup.
 
-La troisième est presque correcte; cependant zip recoit en argument 1 la chaine entiere, et en argument 2 une chaine moins longue de 1 caractère. Dans ce cas zip tronque le résultat et en sortie de cette expression il manque le dernier caractère de la chaîne en entrée.
+La troisième est presque correcte; cependant zip reçoit en argument 1 la chaine entière, et en argument 2 une chaine moins longue de 1 caractère. Dans ce cas zip tronque le résultat et en sortie de cette expression il manque le dernier caractère de la chaîne en entrée.
 
 La quatrième est correcte également, on construit d'abord "a-b-c-d-" puis on élimine le dernier "-". Elle fonctionne aussi pour une chaîne à 0 ou 1 caractère.
 
@@ -59,9 +59,9 @@ Strings - formattage
 
 Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
 
-<pre>nom = "Dupont",  no_secu="1975787", age="25" => message = "Dupont, 25 ans, 1975787"</pre>
+<pre>nom = "Dupont",  no_secu = "1975787", age = "25" => message = "Dupont, 25 ans, 1975787"</pre>
 
-<pre>nom = "Durand",  no_secu=None, age="12" => message = "Durand, 12 ans, pas de no de SS"</pre>
+<pre>nom = "Durand",  no_secu = None, age = "12" => message = "Durand, 12 ans, pas de no de SS"</pre>
 
 Faut-il écrire (plusieurs réponses possibles)
 

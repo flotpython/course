@@ -7,12 +7,12 @@ On se donne les variables suivantes
 
 Trouver la valeur des expressions suivantes
 
-<pre>chaine.index('z') == len (chaine) </pre>
+<pre>chaine.index('z') == len(chaine) </pre>
 
 ( ) True
 (x) False
 
-<pre>chaine.index('z') == len (chaine) - 1</pre>
+<pre>chaine.index('z') == len(chaine) - 1</pre>
 
 (x) True
 ( ) False
@@ -27,12 +27,12 @@ Trouver la valeur des expressions suivantes
 (x) True
 ( ) False
 
-<pre>chaine [ -3: ] == 'nez'</pre>
+<pre>chaine[-3:] == 'nez'</pre>
 
 (x) True
 ( ) False
 
-<pre>chaine[1:3] + chaine [3:5] + chaine [5:] == chaine [ 1: ]</pre>
+<pre>chaine[1:3] + chaine[3:5] + chaine[5:] == chaine[1:]</pre>
 
 (x) True
 ( ) False

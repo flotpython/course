@@ -35,7 +35,7 @@ Types numériques (3)
 
 Que retourne la formule
 
-<pre>type ( 2 ** 16 ) == type ( 2 ** 8 )</pre>
+<pre>type(2 ** 16) == type(2 ** 8)</pre>
 
 (x) True
 ( ) False
@@ -50,7 +50,7 @@ Types numériques (4)
 
 Que retourne la formule
 
-<pre>type ( 2 ** 200 ) == type ( 2 ** 8 )</pre>
+<pre>type(2 ** 200) == type(2 ** 8)</pre>
 
 ( ) True
 (x) False

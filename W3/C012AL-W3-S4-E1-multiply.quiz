@@ -4,11 +4,11 @@ Références partagées (1)
 
 On définit une liste comme étant
 
-<pre>liste = 3 * [ 0 ] </pre>
+<pre>liste = 3 * [0] </pre>
 
 après quoi on fait 
 
-<pre>liste [0] = 1</pre>
+<pre>liste[0] = 1</pre>
 
 qu'obtient-on si on imprime liste à ce stade ?
 
@@ -25,11 +25,11 @@ Références partagées (2)
 
 À présent on définit une liste 
 
-<pre>liste = 3 * [ [ 0 ] ]</pre>
+<pre>liste = 3 * [ [0] ]</pre>
 
 après quoi on fait 
 
-<pre>liste [0][0] = 1</pre>
+<pre>liste[0][0] = 1</pre>
 
 qu'obtient-on si on imprime liste à ce stade ?
 

@@ -3,14 +3,14 @@ Listes (1)
 =====
 
 On a 
-<pre>liste = [ 1, 3, 2, 4 ]</pre>
-On veut modifier liste pour obtenir [ 1, 3, 5, 2, 4 ]
+<pre>liste = [1, 3, 2, 4]</pre>
+On veut modifier liste pour obtenir [1, 3, 5, 2, 4]
 
 Que faut-il faire (plusieurs réponses possibles):
 
 [ ] liste[2] = 5
 [ ] liste[2] = [5]
-[x] liste.insert (2,5)
+[x] liste.insert(2,5)
 [ ] liste[2:3] = [5]
 [x] liste[2:2] = [5]
 
@@ -28,14 +28,14 @@ Listes (2)
 =====
 
 À nouveau on a 
-<pre>liste = [ 1, 3, 2, 4 ]</pre>
+<pre>liste = [1, 3, 2, 4]</pre>
 
 On souhaite "extraire" et retourner la valeur '1', tout en la retirant de la liste.
-Plus précisément on veut affecter à la variable 'suivant' la valeur '1' de telle sorte qu'après l'exécution, liste ne contienne plus que [ 3, 2, 4 ]
+Plus précisément on veut affecter à la variable 'suivant' la valeur '1' de telle sorte qu'après l'exécution, liste ne contienne plus que [3, 2, 4]
 
 Que faut-il faire:
 
-( ) suivant = liste [0]
+( ) suivant = liste[0]
 (x) suivant = liste.pop(0)
 ( ) del liste[0]
 ( ) suivant = del liste[0]
@@ -52,15 +52,15 @@ Listes (3)
 =====
 
 On a encore
-<pre>liste = [ 1, 3, 2, 4 ]</pre>
+<pre>liste = [1, 3, 2, 4]</pre>
 
-On veut trier la liste en ordre décroissant, sans le besoin de mémoriser l'état initial.
+On veut trier la liste en ordre décroissant et en place, c'est-à-dire sans duplication de liste.
 
 Faut-il faire (plusieurs réponses possibles) :
 
 [x] liste.sort(reverse=True)
 [ ] liste.sort()
-[ ] sorted (liste, reverse=True)
+[ ] sorted(liste, reverse=True)
 [x] liste.sort(); liste.reverse()
 
 [explanation]
@@ -77,18 +77,18 @@ Listes (4)
 =====
 
 On a toujours
-<pre>liste = [ '1', '3', '2', '4' ]</pre>
+<pre>liste = ['1', '3', '2', '4']</pre>
 
-On veut ajouter à la fin de la liste les valeurs '5' et '6' pour obtenir [ '1', '3', '2', '4', '5', '6' ]
+On veut ajouter à la fin de la liste les valeurs '5' et '6' pour obtenir ['1', '3', '2', '4', '5', '6']
 
 Faut-il faire (plusieurs réponses possibles) :
 
-[x] liste = liste + ['5','6']
-[x] liste.extend (['5','6'])
-[ ] liste.append (['5','6'])
+[x] liste = liste + ['5', '6']
+[x] liste.extend(['5', '6'])
+[ ] liste.append(['5', '6'])
 [x] liste.append('5'); liste.append('6')
-[x] liste.extend ('56')
-[x] liste += [5,6] 
+[x] liste.extend('56')
+[x] liste += ['5', '6'] 
 
 [explanation]
 Toutes les formules sauf la 3 sont correctes
