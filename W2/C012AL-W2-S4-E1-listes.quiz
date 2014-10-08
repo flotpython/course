@@ -16,7 +16,7 @@ Que faut-il faire (plusieurs réponses possibles):
 
 [explanation]
 La première formule remplace 2 par 5, la liste conserve 4 éléments
-La seconde, idem mais la liste devient [1, 2, [5], 4]
+La seconde, idem mais la liste devient &#91;1, 2, &#91;5&#93;, 4&#93;
 La troisième est correcte
 La quatrième est équivalente à la première, elle remplace 2 par 5
 La cinquième est correcte
@@ -93,7 +93,7 @@ Faut-il faire (plusieurs réponses possibles) :
 [explanation]
 Toutes les formules sauf la 3 sont correctes
 
-La formule 3 donne pour liste [ 1, 3, 2, 4, [5, 6] ]
+La formule 3 donne pour liste &#91; 1, 3, 2, 4, &#91;5, 6&#93; &#93;
 
 Notez que la formule 5 fonctionne, car extend attend un iterable (ici un string) et ajoute tous les éléments de cet iterable; on aurait pu utiliser aussi un tuple par exemple.
 

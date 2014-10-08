@@ -16,7 +16,7 @@ qu'obtient-on si on imprime liste à ce stade ?
 [ ] [1, 1, 1]
 
 [explanation]
-l'affectation de liste[0] ne change pas les deux autres éléments de la liste
+l'affectation de liste&#91;0&#93; ne change pas les deux autres éléments de la liste
 [explanation]
 
 <hr/>
