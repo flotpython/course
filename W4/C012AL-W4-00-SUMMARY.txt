@@ -15,17 +15,15 @@ OK C012AL-W4-S1-C1-file-extras.ipynb
 OKC012AL-W4-S1-C2-stdinouterr.ipynb : 
 
 OK C012AL-W4-S1-C3-json.ipynb : parler de json, pickle, csv ...
-NICETOHAVE expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs 
-comme les autres types built-in (c'est lié à la manières des OS de gérer les accès aux fichiers). 
 
-DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier. Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
+DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
+Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
 
 ## Quizz Vidéo 1
 
 ## Exercices Vidéo 1
 
 OK C012AL-W4-S1-E1-files.ipynb
-NICETOHAVE: add another exo that reads numbers and computes sum's min's and max's per line
 
 ###################################################################
 
@@ -34,15 +32,20 @@ NICETOHAVE: add another exo that reads numbers and computes sum's min's and max'
 C012AL-W4-S2.txt
 
 ## Compléments Vidéo 2
+ONGOING C012AL-W4-S2-C1-while-extras.ipynb
+un truc très court
 * voir comment scanner une liste avec while l : e=l.pop()
--voir le break et le continue (déjà vu pour for, mais
-à revoir dans le contexte du while)
+-voir le break et le continue (déjà vu pour for, mais à revoir dans le contexte du while)
 
 DROPPED voir le else du while - OMG! and I thought I knew a lot about python!!  :)
 
 ## Quizz Vidéo 2
 
 ## Exercices Vidéo 2
+
+C012AL-W4-S2-E1-while.quiz
+
+essayer de faire choisir entre +ieurs solutions de code
 
 x='spam'
 while x:
@@ -84,6 +87,7 @@ IMHO ce qui reste a expliquer la-dedans c'est
 * reduce, qui lui reste tres utile
 * eval et exec 
 
+TODO: add an exo  that reads lines of numbers and computes sum's min's and max's per line 
 
 ###################################################################
 
