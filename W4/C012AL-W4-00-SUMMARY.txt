@@ -11,10 +11,10 @@
 C012AL-W4-S1.txt
 
 ## Compléments Vidéo 1
-OK C012AL-W4-S1-E1-file-extras.ipynb 
-OKC012AL-W4-S1-E2-stdinouterr.ipynb : 
+OK C012AL-W4-S1-C1-file-extras.ipynb 
+OKC012AL-W4-S1-C2-stdinouterr.ipynb : 
 
-OK C012AL-W4-S1-E3-json.ipynb : parler de json, pickle, csv ...
+OK C012AL-W4-S1-C3-json.ipynb : parler de json, pickle, csv ...
 NICETOHAVE expliquer pourquoi le fichier est un itérateur et n'a pas des itérateurs 
 comme les autres types built-in (c'est lié à la manières des OS de gérer les accès aux fichiers). 
 
@@ -23,6 +23,8 @@ DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autr
 ## Quizz Vidéo 1
 
 ## Exercices Vidéo 1
+
+ONGOING C012AL-W4-S1-E1-files.ipynb
 
 ** un exo simple qui 
 * cree un fichier d'entree (je fournis la fonction)
