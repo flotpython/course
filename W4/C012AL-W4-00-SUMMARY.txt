@@ -5,32 +5,23 @@
 ###################################################################
 
 ## Vidéo 1 (Les fichiers)
-# open('w') - close - write - "\n
-# je suggere de mentionner 'with'
-
 C012AL-W4-S1.txt
-
 ## Compléments Vidéo 1
 OK C012AL-W4-S1-C1-file-extras.ipynb 
 OKC012AL-W4-S1-C2-stdinouterr.ipynb : 
-
 OK C012AL-W4-S1-C3-json.ipynb : parler de json, pickle, csv ...
 
 DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
 Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
 
 ## Quizz Vidéo 1
-
 ## Exercices Vidéo 1
-
 OK C012AL-W4-S1-E1-files.ipynb
 
 ###################################################################
 
 ## Vidéo 2 (Boucle while)
-
 C012AL-W4-S2.txt
-
 ## Compléments Vidéo 2
 ONGOING C012AL-W4-S2-C1-while-extras.ipynb
 un truc très court
@@ -43,7 +34,7 @@ DROPPED voir le else du while - OMG! and I thought I knew a lot about python!!  
 
 ## Exercices Vidéo 2
 
-C012AL-W4-S2-E1-while.quiz
+ONGOING C012AL-W4-S2-E1-while.quiz
 
 essayer de faire choisir entre +ieurs solutions de code
 
