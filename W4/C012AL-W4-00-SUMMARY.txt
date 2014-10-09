@@ -45,7 +45,7 @@ comparer def et lambda
 comparer map/filter 
 
 ## Exercices Vidéo 3
-ONGOING C012AL-W4-S3-E2-numbers.ipynb
+OK C012AL-W4-S3-E2-functions.ipynb
 
 ###################################################################
 

@@ -2,6 +2,7 @@
 from IPython.display import HTML
 import traceback
 import copy
+from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
 ########## helpers
 def truncate (data, max_size=10):
@@ -9,8 +10,19 @@ def truncate (data, max_size=10):
     return message if len(message) <= max_size \
         else message [:max_size-3]+'...'
 
+# display functions as their name
+def custom_repr (x):
+    if isinstance (x,(FunctionType, BuiltinFunctionType, BuiltinMethodType)):
+        return x.__name__
+    else:
+        return repr(x)
+
+def html_escape (s):
+    # xxx need to find code for < and >
+    return s.replace("<","&28;")
+
 def truncate_list (data_list, max_size=10):
-    message = ", ".join(["{}".format(repr(x)) for x in data_list])
+    message = ", ".join([custom_repr(x) for x in data_list])
     return message if len(message) <= max_size \
         else message [:max_size-3]+'...'
 
@@ -57,7 +69,7 @@ def correction_table (student_function,
         student_dataset = clone_dataset (dataset, copy_mode)
         correct_dataset = clone_dataset (dataset, copy_mode)
         # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = truncate_list(student_dataset,c1)
+        rendered_input = html_escape(truncate_list(student_dataset,c1))
         expected = apply (correct_function, correct_dataset)
         rendered_expected = truncate (expected, c2)
         # run both codes
