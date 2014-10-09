@@ -54,37 +54,20 @@ OK C012AL-W4-S3-E2-functions.ipynb
 C012AL-W4-S4.txt
 
 ## Compléments Vidéo 4
+OK C012AL-W4-S4-C1-multi-comp.ipynb compréhensions multiples 
 
-*Comparer la performance des boucles for, de map, de la compréhension. 
-S'inspirer de :
-http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
-
+DROPPED
+*Comparer la performance des boucles for, de map, de la compréhension. - pas le temps
+S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
+MIGHT MAKE SENSE TO MOVE to W6S1
 *Donner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
-pour une discussion intéressante sur la compréhension, les expression
-génératrice et Python 2 et 3.
-
-*montrer le cas d'une compréhension sur plusieurs variables et montrer
-comment lire cette expression, par exemple, 
-[(x,y) for x in range(5) if x % 2 == 0 
-	     for y in range(5) if y % 2 == 1]
-
-
-L = []
-for x in range(5):
-    if x % 2 == 0:
-        for y in range(5):
-            if y % 2 == 1:
-                L.append((x,y))
-
-
-Expliquer que la compréhension sur plusieurs variables est difficile
-à lire et que c'est par conséquent une mauvaise idée en général.
+pour une discussion intéressante sur la compréhension, les expression génératrice et Python 2 et 3.
 
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
-
-
+un exo sur des manipulations simples d'ensembles,
+un exo pour aplatir une liste de listes de niveau 1
 ###################################################################
 
 ## Vidéo 5 (Les fonctions)
