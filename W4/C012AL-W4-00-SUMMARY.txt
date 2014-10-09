@@ -32,7 +32,6 @@ OK C012AL-W4-S2-E1-pgcd.ipynb
 
 ## Vidéo 3 (Fonction lambda, programmation fonctionnelle)
 C012AL-W4-S3.txt
-
 ## Compléments Vidéo 3
 OK C012AL-W4-S3-C1-function-extras.ipynb
 
@@ -41,14 +40,12 @@ le voir et il y a peu de compléments pour cette vidéo alors
 autant le placer ici. 
 
 ## Quizz Vidéo 3
-
-ONGOING C012AL-W4-S3-E1-functions.quiz
+NICETOHAVE C012AL-W4-S3-E1-functions.quiz
 comparer def et lambda 
 comparer map/filter 
 
 ## Exercices Vidéo 3
-ONGOING C012AL-W4-S3-E2-numbers.ipynb: an exo that receives a list of numbers computes a tuple with 
-	(sum,product, min, max)
+ONGOING C012AL-W4-S3-E2-numbers.ipynb
 
 ###################################################################
 
