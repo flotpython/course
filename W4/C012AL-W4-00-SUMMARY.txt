@@ -59,9 +59,6 @@ OK C012AL-W4-S4-C1-multi-comp.ipynb compréhensions multiples
 DROPPED
 *Comparer la performance des boucles for, de map, de la compréhension. - pas le temps
 S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
-MIGHT MAKE SENSE TO MOVE to W6S1
-*Donner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
-pour une discussion intéressante sur la compréhension, les expression génératrice et Python 2 et 3.
 
 ## Quizz Vidéo 4
 

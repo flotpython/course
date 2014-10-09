@@ -14,11 +14,10 @@ C012AL-W6-S1.txt
 mémoire)
 (x**6 + 3*x for x in xrange(100000000))
 
-*redonner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
-déjà cité en W3, VIDEO8
+*Donner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
+pour une discussion intéressante sur la compréhension, les expression génératrice et Python 2 et 3.
 *faire un test de performance avec timeit pour montrer que les 
 expressions génératrices sont un peu plus lente que les compréhensions
-
 
 ## Quizz Vidéo 1
 
