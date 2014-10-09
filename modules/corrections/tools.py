@@ -21,10 +21,16 @@ def html_escape (s):
     # xxx need to find code for < and >
     return s.replace("<","&28;")
 
-def truncate_list (data_list, max_size=10):
+def _truncate_list (data_list, max_size):
     message = ", ".join([custom_repr(x) for x in data_list])
     return message if len(message) <= max_size \
         else message [:max_size-3]+'...'
+
+def truncate_list (data, max_size=10):
+    if isinstance (data,set):
+        return "{"+_truncate_list(data,max_size-2)+"}"
+    else:
+        return _truncate_list (data, max_size)
 
 # safer to copy inputs most of the time (always?)
 def clone_dataset (dataset, copy_mode):
@@ -124,4 +130,37 @@ def exemple_table (function_name,
 
     html += "</table>"
     return HTML(html)
+
+# likewise but with a different layout
+# see w4_comps.py for an example of use
+# this is a patch...
+def exemple_table_args (function_name,
+                        arg_names,
+                        correct_function,
+                        datasets,
+                        columns = default_table_columns,
+                        copy_mode = 'deep',
+                        dataset_index = 0):
+
+    # can provide 3 args (convenient when it's the same as correction) or just 2
+    columns = columns[:2]
+    c1,c2 = columns
+    html = ""
+    html += u"<table style='{}'>".format(font_style)
+    html += u"<tr><th>Arguments</th><th>Résultat attendu</th></tr>"
+    
+    sample_dataset = clone_dataset (datasets[dataset_index], copy_mode)
+    nb_args = len(arg_names)
+    for index,arg,name in zip(range(nb_args),sample_dataset, arg_names):
+        rendered_input = "{}={}".format(name,truncate_list(arg,c1))
+        if index==0:
+            expected = apply (correct_function, sample_dataset)
+            rendered_expected = truncate (expected, c2)
+        else:
+            rendered_expected = ""
+        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input,rendered_expected)
+
+    html += "</table>"
+    return HTML(html)
+
 

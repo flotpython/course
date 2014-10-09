@@ -63,8 +63,10 @@ S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/perform
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
-un exo sur des manipulations simples d'ensembles,
-un exo pour aplatir une liste de listes de niveau 1
+ONGOING C012AL-W4-S4-E1-comps.ipynb
+- OK:un exo sur des manipulations simples d'ensembles: intersect
+-TODO: un exo pour aplatir une liste de listes de niveau 1 avec des comprehensions
+
 ###################################################################
 
 ## Vidéo 5 (Les fonctions)
@@ -73,24 +75,7 @@ C012AL-W4-S5.txt
 
 ## Compléments Vidéo 5
 
-* cas pratique de plusieurs return 
-* effet de bord du passage par ref de mutable (illustration de la video)
-* expliquer comment ne pas modifier un mutable passé en argument:
-reprendre l'exemple de la video
-
-L = []
-def h(a):
-	a.append(1)
-
-Comment ne pas modifier L. Trois possibilités:
--à l'appel h(L[:]) on passe une shallow copy, ça permet
-de choisir la modification par effect de bord à l'appel
-(peut-être utile lorsque la fonction fait autre chose avec L)
--à l'appel si on veut une exception en cas de tentative
-de modification (utile pour les librairies) h(tuple(L))
--dans h en ajoutant a = a[:] avant le append pour garantir
-que h ne modifiera jamais L. 
--parler de la documentation automatique sur les fonctions 
+*parler de la documentation automatique sur les fonctions 
 et de l'argument __doc__ utilisé par help()
 def func(a, b, c, d):
     """
@@ -106,13 +91,38 @@ Help on function func in module __main__:
 func(a, b, c, d)
     Cette fonction imprime 4 parametres a la suite
 
-peut-etre l'occasion de reparler de isinstance en complement de la
-    video qui parle de polymorphisme
+* peut-etre l'occasion de reparler de isinstance en complement de la 
+    video qui parle de polymorphisme 
+
+* parler de apply (f,l) vs f(*l) 
+
+* cas pratique de plusieurs return 
+TP: on en fait à longueur d'exemples ça non ?
+
+* effet de bord du passage par ref de mutable (illustration de la video)
+TP: bon ça je crois qu'on avait déjà bien tartiné là dessus....
+expliquer comment ne pas modifier un mutable passé en argument:
+reprendre l'exemple de la video
+L = []
+def h(a):
+	a.append(1)
+Comment ne pas modifier L. Trois possibilités:
+-à l'appel h(L[:]) on passe une shallow copy, ça permet
+de choisir la modification par effect de bord à l'appel
+(peut-être utile lorsque la fonction fait autre chose avec L)
+-à l'appel si on veut une exception en cas de tentative
+de modification (utile pour les librairies) h(tuple(L))
+-dans h en ajoutant a = a[:] avant le append pour garantir
+que h ne modifiera jamais L. 
 
 ## Quizz Vidéo 5
 
 ## Exercices Vidéo 5
 
+leur faire faire des wrappers
+pourquoi ne pas leur faire refaire `validation` mais
+. avec des fonctions dont on ne sait pas combien elles prennent d'argument
+et/ou commencer à faire une espèce de décorateur simple "à la main"
 
 ###################################################################
 
