@@ -31,38 +31,24 @@ OK C012AL-W4-S2-E1-pgcd.ipynb
 ###################################################################
 
 ## Vidéo 3 (Fonction lambda, programmation fonctionnelle)
-# xxx je suggere d'enlever carrement cette video et de la remplacer
-# par des complements aux comprehensions
-# ce qui est bien dans l'exo est que pour la premiere fois on manipule
-# des objets fonction, ca ca vaut le coup de le garder
-
 C012AL-W4-S3.txt
 
 ## Compléments Vidéo 3
+OK C012AL-W4-S3-C1-function-extras.ipynb
 
-*voir sum reduce operator.add operator.mul
-BOF *voir exec et eval. Ça n'est pas en lien direct, mais il faut
+DROPPED *voir exec et eval. Ça n'est pas en lien direct, mais il faut
 le voir et il y a peu de compléments pour cette vidéo alors
 autant le placer ici. 
 
 ## Quizz Vidéo 3
 
+ONGOING C012AL-W4-S3-E1-functions.quiz
+comparer def et lambda 
+comparer map/filter 
+
 ## Exercices Vidéo 3
-
-*faire de beaux exemples pratiques d'application de map et filter
-
-xxx map et filter ne servent plus a rien avec les comprehensions de
-liste, et du coup lambda sert a peine.
-j'ai deja un complement for-comprehension qui touche a ca
-il faut lur apprendre a coder proprement avec les comprehensions, et
-leur dire ensuite que oui ya aussi map et filter et que dans certains
-cas ils peuvent esperer gagner un peu de performance..
-
-IMHO ce qui reste a expliquer la-dedans c'est 
-* reduce, qui lui reste tres utile
-* eval et exec 
-
-TODO: add an exo  that reads lines of numbers and computes sum's min's and max's per line 
+ONGOING C012AL-W4-S3-E2-numbers.ipynb: an exo that receives a list of numbers computes a tuple with 
+	(sum,product, min, max)
 
 ###################################################################
 
