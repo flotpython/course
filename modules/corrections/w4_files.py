@@ -17,8 +17,10 @@ def file_contents (filename):
 def tools_compliant (fun):
     def wrapped (in_name, out_name):
         # clean up output (in case the function does not create it
-        try: os.unlink(out_name)
-        except: pass
+        try: 
+            os.unlink(out_name)
+        except:
+            pass
         # run 
         fun(in_name,out_name)
         # return output's contents
