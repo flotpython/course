@@ -24,12 +24,8 @@ DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autr
 
 ## Exercices Vidéo 1
 
-ONGOING C012AL-W4-S1-E1-files.ipynb
-
-** un exo simple qui 
-* cree un fichier d'entree (je fournis la fonction)
-* ouvre le fichier, l'analyse et le récrit autrement
-** idem mais écrit au format json
+OK C012AL-W4-S1-E1-files.ipynb
+NICETOHAVE: add another exo that reads numbers and computes sum's min's and max's per line
 
 ###################################################################
 

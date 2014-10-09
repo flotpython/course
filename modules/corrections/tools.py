@@ -24,8 +24,8 @@ def clone_dataset (dataset, copy_mode):
         return dataset
 
 ########## 
-# when the function only has one arg it is much easier to give a list of inputs instead
-# of a list of tuples or arguments - especially as this results in 1-arg tuple
+# when the function only has one arg it is much easier to give a list of inputs 
+# instead of a list of tuples or arguments - especially as this results in 1-arg tuple
 # so the comma is required
 def correction_table_1arg (student_function, correct_function, args, *l, **k):
     datasets = [ (arg,) for arg in args ]
