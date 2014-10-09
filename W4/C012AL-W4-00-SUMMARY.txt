@@ -23,26 +23,10 @@ OK C012AL-W4-S1-E1-files.ipynb
 ## Vidéo 2 (Boucle while)
 C012AL-W4-S2.txt
 ## Compléments Vidéo 2
-ONGOING C012AL-W4-S2-C1-while-extras.ipynb
-un truc très court
-* voir comment scanner une liste avec while l : e=l.pop()
--voir le break et le continue (déjà vu pour for, mais à revoir dans le contexte du while)
-
-DROPPED voir le else du while - OMG! and I thought I knew a lot about python!!  :)
-
+OK C012AL-W4-S2-C1-while-extras.ipynb
 ## Quizz Vidéo 2
-
 ## Exercices Vidéo 2
-
-ONGOING C012AL-W4-S2-E1-while.quiz
-
-essayer de faire choisir entre +ieurs solutions de code
-
-x='spam'
-while x:
-    print x
-    x = x[1:]
-
+OK C012AL-W4-S2-E1-pgcd.ipynb
 
 ###################################################################
 
