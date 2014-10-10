@@ -63,7 +63,7 @@ S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/perform
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
-ONGOING C012AL-W4-S4-E1-comps.ipynb
+ONGOING C012AL-W4-S4-E1-comprehensions.ipynb
 - OK:un exo sur des manipulations simples d'ensembles: intersect
 -TODO: un exo pour aplatir une liste de listes de niveau 1 avec des comprehensions
 
