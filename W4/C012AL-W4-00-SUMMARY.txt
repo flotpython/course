@@ -64,9 +64,6 @@ S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/perform
 
 ## Exercices Vidéo 4
 ONGOING C012AL-W4-S4-E1-comprehensions.ipynb
-- OK:un exo sur des manipulations simples d'ensembles: intersect
--TODO: un exo pour aplatir une liste de listes de niveau 1 avec des comprehensions
-
 ###################################################################
 
 ## Vidéo 5 (Les fonctions)
@@ -75,27 +72,16 @@ C012AL-W4-S5.txt
 
 ## Compléments Vidéo 5
 
-*parler de la documentation automatique sur les fonctions 
-et de l'argument __doc__ utilisé par help()
-def func(a, b, c, d):
-    """
-    Cette fonction imprime 4 parametres a la suite
-    """
-    print a, b, c, d
-	
->>>print func.__doc__
- Cette fonction imprime 4 parametres a la suite
->>>help(func)
-Help on function func in module __main__:
+DONE C012AL-W4-S5-C1-docstring.ipynb
+help() __doc__ __name__
+TODO C012AL-W4-S5-C2-isinstance.ipynb
+prendre un annuaire (marine data)
+montrer comment une fonction peut accepter un string ou un entier (id)
+détailler isinstance - montrer différence avec type() dans le cas de hiérarchies de classes
 
-func(a, b, c, d)
-    Cette fonction imprime 4 parametres a la suite
+* passage par valeur / par reference ?
 
-* peut-etre l'occasion de reparler de isinstance en complement de la 
-    video qui parle de polymorphisme 
-
-* parler de apply (f,l) vs f(*l) 
-
+DROPPED
 * cas pratique de plusieurs return 
 TP: on en fait à longueur d'exemples ça non ?
 
@@ -119,11 +105,7 @@ que h ne modifiera jamais L.
 
 ## Exercices Vidéo 5
 
-leur faire faire des wrappers
-pourquoi ne pas leur faire refaire `validation` mais
-. avec des fonctions dont on ne sait pas combien elles prennent d'argument
-et/ou commencer à faire une espèce de décorateur simple "à la main"
-
+aplatir un arbre - pour isinstance()
 ###################################################################
 
 ## Vidéo 6 (Portée des variables dans les fonctions : règle LEG)
@@ -202,6 +184,8 @@ CO12AL-W4-VIDEO008.txt
 
 ## Compléments Vidéo 8
 
+* parler de apply (f,l) vs f(*l) 
+
 *introduire sys.argv en remarquant que c'est une forme *Targs
 et introduire le module argparse. 
 *donner des exemples pratiques de forme * et ** (si tu en as)
@@ -262,3 +246,7 @@ f(3)
 
 ## Exercices Vidéo 8
 
+leur faire faire des wrappers
+pourquoi ne pas leur faire refaire `validation` mais
+. avec des fonctions dont on ne sait pas combien elles prennent d'argument
+et/ou commencer à faire une espèce de décorateur simple "à la main"

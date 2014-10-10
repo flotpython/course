@@ -2,8 +2,9 @@
 from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg, exemple_table_args
 
 ##############################
-def aplatir (listes):
-    return [x for liste in listes for x in liste]
+def aplatir (conteneurs):
+    "retourne une liste des éléments des éléments de conteneurs"
+    return [element for conteneur in conteneurs for element in conteneur]
 
 inputs_aplatir = [
     [ (0,1,2), [ (3,4), 5 ] ],

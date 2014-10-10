@@ -34,6 +34,10 @@ def correction_numbers (student_numbers):
 
 ##########
 def validation (f, g, entrees):
+    """
+retourne une liste de booleens, un par entree dans entrees
+qui indique si f(entree) == g(entree)
+    """
     return [ f(entree) == g(entree) for entree in entrees ]
 
 def correction_validation (student_validation):
@@ -45,6 +49,7 @@ validation_inputs = []
 # factoriel
 from operator import mul
 def fact (n):
+    "une version de factoriel à base de reduce"
     return reduce (mul, range(1,n+1), 1)
 from math import factorial
 fact_inputs = [0, 1, 5]
