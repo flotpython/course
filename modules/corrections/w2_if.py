@@ -1,10 +1,11 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+####################
 def divisible (a,b): 
     return a%b==0 or b%a==0
 
-divisible_inputs = [
+inputs_divisible = [
     (20,10),
     (200,-10),
     (-200,10),
@@ -19,8 +20,7 @@ divisible_inputs = [
     (-12,-8),
 ]
 
-def correction_divisible (divisible_student):
-    return correction_table (divisible_student, divisible, divisible_inputs)
+exo_divisible = Exercice (divisible, inputs_divisible)
 
 ####################
 def spam (l):
@@ -32,7 +32,7 @@ def spam (l):
         l.pop()
     return l
 
-spam_input_args = [
+inputs_spam = [
     [],
     [1],
     ['spam', 2 ],
@@ -41,8 +41,4 @@ spam_input_args = [
     [1,2,3,4,5],
 ]
 
-def correction_spam (spam_student):
-    return correction_table_1arg (spam_student, spam, spam_input_args)
-
-def exemple_spam ():
-    return exemple_table_1arg ('spam', spam, spam_input_args, how_many=4)
+exo_spam = Exercice_1arg (spam, inputs_spam, exemple_how_many=4)

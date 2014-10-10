@@ -1,8 +1,6 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
-
 ##############################
 def aplatir (conteneurs):
     "retourne une liste des éléments des éléments de conteneurs"

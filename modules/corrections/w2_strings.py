@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 def affichage (s):
     s=s.replace(' ', '').replace('\t','')
@@ -13,7 +13,7 @@ def affichage (s):
         age = mots.pop(1)
     return "N:>{}< P:>{}< A:>{}<".format(nom,prenom,age)
 
-affichage_input_args = [
+inputs_affichage = [
     "Joseph, Dupont",
     "Jules , Durand, G123, 21",
     "Jean", 
@@ -23,13 +23,9 @@ affichage_input_args = [
     "\t Sam, Does\t, F321, 23",
 ]
 
-def correction_affichage (affichage_student):
-    return correction_table_1arg (affichage_student, affichage, affichage_input_args,
-                                  columns=(40,30,30))
-
-def exemple_affichage ():
-    return exemple_table_1arg ('affichage',affichage, affichage_input_args, how_many=2,
-                               columns= (40,40))
+exo_affichage = Exercice_1arg (affichage, inputs_affichage,
+                               correction_columns = (40,30,30),
+                               exemple_columns = (40,40))
 
 ##############################
 def carre (s):
@@ -37,15 +33,11 @@ def carre (s):
     entiers = [ int(token) for token in s.split(";") if token ]
     return ":".join ( [ "{}".format(entier**2) for entier in entiers ] )
 
-carre_input_args = [
+inputs_carre = [
     "1;2;3",
     " 2 ;  5;6;",
     "; 12 ;  -23;\t60; 1\t",
     "; -12 ; ; -23; 1 ;;\t",
 ]
 
-def correction_carre (carre_student):
-    return correction_table_1arg (carre_student, carre, carre_input_args)
-
-def exemple_carre ():
-    return exemple_table_1arg ('carre', carre, carre_input_args)
+exo_carre = Exercice_1arg (carre, inputs_carre)

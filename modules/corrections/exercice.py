@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 
 ############################################################
-# the low level interface - was used directly in the first exercices
+# the low level interface - used to be used directly in the first exercices
 
 from IPython.display import HTML
 import traceback
@@ -23,7 +23,7 @@ def custom_repr (x):
 
 def html_escape (s):
     # xxx need to find code for < and >
-    return s.replace("<","&28;")
+    return s.replace("<","&lt;").replace(">","&gt;")
 
 def _truncate_list (data_list, max_size):
     message = ", ".join([custom_repr(x) for x in data_list])
@@ -80,9 +80,9 @@ def correction_table (student_function,
         student_dataset = clone_dataset (dataset, copy_mode)
         correct_dataset = clone_dataset (dataset, copy_mode)
         # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = html_escape(truncate_list(student_dataset,c1))
+        rendered_input = html_escape (truncate_list(student_dataset,c1))
         expected = apply (correct_function, correct_dataset)
-        rendered_expected = truncate (expected, c2)
+        rendered_expected = html_escape (truncate (expected, c2))
         # run both codes
         try:
             student_result = apply (student_function, student_dataset)
@@ -99,7 +99,7 @@ def correction_table (student_function,
         html += "<tr style='{}'>".format(style)
         html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
                 format(rendered_input,rendered_expected,
-                       truncate(student_result,c3),message)
+                       html_escape(truncate(student_result,c3)),message)
     html += "</table>"
     return HTML(html)
 
@@ -180,28 +180,32 @@ class Exercice:
     """
     def __init__ (self, solution, inputs, 
                   correction_columns=None, exemple_columns=None,
-                  exemple_how_many = 1):
+                  exemple_how_many = 1,
+                  copy_mode='deep'):
         # the 'official' solution
         self.solution = solution
         # the inputs 
         self.inputs = inputs
-        self.name = solution.__name__
+        # in some weird cases this won't exist
+        self.name = getattr(solution,'__name__',"no_name")
         self.correction_columns = correction_columns 
         self.exemple_columns = exemple_columns 
         self.exemple_how_many = exemple_how_many
+        self.copy_mode = copy_mode
 
     # public interface
     def exemple (self):
         columns = self.exemple_columns
         if columns is None: columns = default_exemple_columns
         return exemple_table (self.name, self.solution, self.inputs, 
-                              columns = columns, how_many = self.exemple_how_many)
+                              copy_mode = self.copy_mode,
+                              how_many = self.exemple_how_many, columns = columns)
 
     def correction (self, student_solution):
         columns = self.correction_columns
         if columns is None: columns = default_correction_columns
         return correction_table (student_solution, self.solution, self.inputs, 
-                                 columns = columns)
+                                 copy_mode = self.copy_mode, columns = columns)
 
 class Exercice_1arg (Exercice):
     """

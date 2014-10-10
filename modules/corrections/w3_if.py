@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-dispatch1_inputs = [ (a,b) for a in range (3,6) for b in range (7,10) ]
+inputs_dispatch1 = [ (a,b) for a in range (3,6) for b in range (7,10) ]
 
 def dispatch1 (a,b):
     """dispatch1 as specified in W3-S7-E1"""
@@ -14,14 +14,13 @@ def dispatch1 (a,b):
     else:
         return a*a-b*b
 
-def correction_dispatch1 (student_dispatch1):
-    return correction_table (student_dispatch1, dispatch1, dispatch1_inputs)
+exo_dispatch1 = Exercice (dispatch1, inputs_dispatch1)
 
 ####################
 samples_A = [ (2,4,6), [2,4,6] ]
 samples_B = [ {6,8,10} ]
 
-dispatch2_inputs = [
+inputs_dispatch2 = [
         (a,b,A,B) for a,A in zip(range (3,5), samples_A) for b in range (7,10) for B in samples_B
 ]
 
@@ -34,6 +33,6 @@ def dispatch2 (a,b,A,B):
     else:
         return (a-1)*b
 
-def correction_dispatch2 (student_dispatch2):
-    return correction_table (student_dispatch2, dispatch2, dispatch2_inputs, columns = (50,30,30))
+exo_dispatch2 = Exercice (dispatch2, inputs_dispatch2,
+                          correction_columns = (50,30,30))
 

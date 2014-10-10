@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 def pgcd (a,b):
     "le pgcd de a et b par l'algorithme d'Euclide"
@@ -12,11 +12,10 @@ def pgcd (a,b):
             return b
         a,b = b,r
 
-pgcd_inputs = [
+inputs_pgcd = [
     (36 * 2**i * 3**j * 5 **k, 36 * 2**j * 3 ** k * 5 ** i)
  for i in range(3) for j in range(3) for k in range(2)
 
 ]
 
-def correction_pgcd (student_pgcd):
-    return correction_table (student_pgcd, pgcd, pgcd_inputs)
+exo_pgcd = Exercice (pgcd, inputs_pgcd)

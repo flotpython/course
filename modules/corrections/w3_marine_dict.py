@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 def merge (extended, abbreviated):
     result = {}
@@ -19,9 +19,16 @@ def merge2 (extended_data, abbreviated_data):
         result [ship[0]] .append( tuple (ship[1:4]))
     return result
 
-def correction_merge (student_merge, extended, abbreviated):
-    return correction_table (student_merge, merge, [ ( extended, abbreviated,) ] )
+class ExerciceMerge (Exercice):
 
-def resultat_merge (extended, abbreviated):
-    return merge (extended, abbreviated)
+    # on surcharge correction pour capturer les arguments
+    def correction (self, student_merge, extended, abbreviated):
+        self.inputs = [ (extended, abbreviated) ]
+        return Exercice.correction (self, student_merge)
+
+    # une fonction pour exposer le resultat attendu
+    def resultat (self, extended, abbreviated):
+        return self.solution (extended, abbreviated)
+
+exo_merge = ExerciceMerge (merge, "inputs_gets_overridden")
     
