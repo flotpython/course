@@ -14,7 +14,7 @@ def file_contents (filename):
 # the function as it is specified does not fit the correction_table model
 # this decorator does the trick to transform a student-written function
 # into something that correction_table can deal with
-def tools_compliant (fun):
+def exercice_compliant (fun):
     def wrapped (in_name, out_name):
         # clean up output (in case the function does not create it
         try: 
@@ -29,7 +29,7 @@ def tools_compliant (fun):
 
 ####################
 # comptage ()
-@tools_compliant
+@exercice_compliant
 def comptage (in_filename, out_filename):
     with open(in_filename) as input:
         with open(out_filename,"w") as output:
@@ -53,7 +53,7 @@ comptage_inputs = [
 
 def correction_comptage (student_comptage):
     # decorate before passing to the comparison engine
-    student_comptage = tools_compliant(student_comptage)
+    student_comptage = exercice_compliant(student_comptage)
     return correction_table (student_comptage, comptage, comptage_inputs)
 
 #
