@@ -1,9 +1,9 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from exercice import Exercice, Exercice_1arg
 
+##############################
 from operator import mul
 
-####################
 def numbers (liste):
     """
 retourne un tuple contenant
@@ -20,29 +20,23 @@ des elements de la liste
 
 from random import randint
 
-def input ():
+def numbers_input ():
     length = randint (3,6)
     result = []
     for i in xrange(length):
         result.append(randint(5,15))
     return result
+numbers_inputs = [ numbers_input() for i in xrange (3) ]
 
-numbers_inputs = [ input() for i in xrange (3) ]
+exo_numbers = Exercice_1arg (numbers, numbers_inputs)
 
-def correction_numbers (student_numbers):
-    return correction_table_1arg (student_numbers, numbers, numbers_inputs)
-
-##########
+##############################
 def validation (f, g, entrees):
     """
 retourne une liste de booleens, un par entree dans entrees
 qui indique si f(entree) == g(entree)
     """
     return [ f(entree) == g(entree) for entree in entrees ]
-
-def correction_validation (student_validation):
-    return correction_table (student_validation, validation, validation_inputs,
-                             columns=(50,40,40))
 
 validation_inputs = []
 
@@ -63,3 +57,6 @@ def broken_fact (n):
 
 validation_inputs.append ( (broken_fact, factorial, fact_inputs) )
 
+exo_validation = Exercice (validation, validation_inputs, columns = (50,40,40))
+
+##############################

@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 def decode_this (the_this_module):
     encoded = the_this_module.s

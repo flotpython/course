@@ -1,36 +1,31 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg, exemple_table_args
+from exercice import Exercice, Exercice_1arg, Exercice_multiline
+
+from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 ##############################
 def aplatir (conteneurs):
     "retourne une liste des éléments des éléments de conteneurs"
     return [element for conteneur in conteneurs for element in conteneur]
 
-inputs_aplatir = [
+aplatir_inputs = [
     [ (0,1,2), [ (3,4), 5 ] ],
     ( [ 1, [2, 3] ] , ( 'a', 'b', 'c' ) ),
 ]
 
-def correction_aplatir (student_aplatir):
-    return correction_table_1arg (student_aplatir, aplatir, inputs_aplatir)
-def exemple_aplatir ():
-    return exemple_table_1arg ("aplatir", aplatir, inputs_aplatir, columns =(40,40), how_many=2)
+exo_aplatir = Exercice_1arg (aplatir, aplatir_inputs)
 
 ##############################
 def alternat (l1, l2):
     return aplatir (zip (l1,l2))
 
-inputs_alternat = [
+alternat_inputs = [
     ( (1,2), ('a','b') ),
     ( (1,2,3), ('a','b','c') ),
     ( (1,(2,3)), ('a',['b','c']) ),
 ]
 
-def exemple_alternat ():
-    return exemple_table ("alternat",alternat,inputs_alternat,how_many=2)
-
-def correction_alternat (student_alternat):
-    return correction_table (student_alternat, alternat, inputs_alternat)
+exo_alternat = Exercice (alternat, alternat_inputs, exemple_how_many=2)
 
 ##############################
 def intersect (A,B):
@@ -53,11 +48,5 @@ A2 = { (1,'unA'), (2,'deux'), (3, 'troisA') }
 B2 = { (1,'unB'), (2,'deux'), (4, 'quatreB') }
 intersect_inputs.append ( (A2, B2) )
 
-def correction_intersect (student_intersect):
-    return correction_table (student_intersect, intersect, intersect_inputs)
-
-def exemple_intersect ():
-    return exemple_table_args ("intersect", ("A","B"), intersect, intersect_inputs,
-                               columns=(50,30))
-
+exo_intersect = Exercice_multiline (intersect, intersect_inputs, ('A', 'B'), exemple_columns = (50,30))
 ##############################

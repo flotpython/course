@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-from corrections.tools import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
+from corrections.exercice import correction_table, correction_table_1arg, exemple_table, exemple_table_1arg
 
 def diff (extended, abbreviated):
     extended_ids =          { ship[0] for ship in extended }
