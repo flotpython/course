@@ -95,13 +95,7 @@ CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
 
-TODO C012AL-W4-S6-E1-builtin.ipynb
-https://docs.python.org/2/library/__builtin__.html
-import __builtin__
-dir(__builtin__)
-montrer que l'on peut redéfinir un nom built-in et que c'est
-une mauvaise idée. 
-parler du scope built-in et montrer le module built-in. 
+OK C012AL-W4-S6-E1-builtin.ipynb
 
 TODO C012AL-W4-S6-E2-unbound-local.ipynb
 -rappeler qu'il faut utiliser des bons noms de variables et qu'il
