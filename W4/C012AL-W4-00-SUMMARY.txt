@@ -74,24 +74,7 @@ C012AL-W4-S5.txt
 
 OK C012AL-W4-S5-C1-docstring.ipynb 
 OK C012AL-W4-S5-C2-isinstance.ipynb
-
-TODO C012AL-W4-S5-C1-arg-reference.ipynb  
-* effet de bord du passage par ref de mutable (illustration de la video)
-TP: bon ça je crois qu'on avait déjà bien tartiné là dessus....
-expliquer comment ne pas modifier un mutable passé en argument:
-reprendre l'exemple de la video
-L = []
-def h(a):
-	a.append(1)
-Comment ne pas modifier L. Trois possibilités:
--à l'appel h(L[:]) on passe une shallow copy, ça permet
-de choisir la modification par effect de bord à l'appel
-(peut-être utile lorsque la fonction fait autre chose avec L)
--à l'appel si on veut une exception en cas de tentative
-de modification (utile pour les librairies) h(tuple(L))
--dans h en ajoutant a = a[:] avant le append pour garantir
-que h ne modifiera jamais L. 
-
+OK C012AL-W4-S5-C1-arg-reference.ipynb  
 
 DROPPED
 * cas pratique de plusieurs return 
@@ -100,8 +83,9 @@ TP: on en fait à longueur d'exemples ça non ?
 ## Quizz Vidéo 5
 
 ## Exercices Vidéo 5
-
 aplatir un arbre - pour isinstance()
+le faire en deux versions, copie ou modif inline (essayer d'abord)
+
 ###################################################################
 
 ## Vidéo 6 (Portée des variables dans les fonctions : règle LEG)
