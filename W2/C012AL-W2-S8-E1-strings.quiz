@@ -8,7 +8,7 @@ On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on
 <pre>chaine = "a"  => chaine = "-"</pre>
 <pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
-Comment peut-on faire (plusieurs réponses possibles)
+Comment peut-on faire
 
 [ ] chaine [ len(chaine)/2 ] = "-"
 [ ] chaine = chaine [:len(chaine)/2] + "-" + chaine [-len(chaine)/2:]

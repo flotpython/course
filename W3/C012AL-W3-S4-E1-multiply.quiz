@@ -12,8 +12,8 @@ après quoi on fait
 
 qu'obtient-on si on imprime liste à ce stade ?
 
-[x] [1, 0, 0]
-[ ] [1, 1, 1]
+(x) [1, 0, 0]
+( ) [1, 1, 1]
 
 [explanation]
 l'affectation de liste&#91;0&#93; ne change pas les deux autres éléments de la liste
@@ -33,8 +33,8 @@ après quoi on fait
 
 qu'obtient-on si on imprime liste à ce stade ?
 
-[ ] [ [1], [0], [0] ]
-[x] [ [1], [1], [1] ]
+( ) [ [1], [0], [0] ]
+(x) [ [1], [1], [1] ]
 
 [explanation]
 Cette fois l'affectation concerne la liste à un élément qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les 3 élément de la liste
@@ -46,9 +46,9 @@ Références partagées (3)
 
 Dans l'exercice précédent, comment faire pour éviter que les trois éléments de liste ne soient modifiées ?
 
-( ) il n'y a rien à faire, la modification ne concerne que le premier élément
-( ) il faut faire une "shallow copy"
-(x) il faut faire une "deep copy"
+[ ] il n'y a rien à faire, la modification ne concerne que le premier élément
+[ ] il faut faire une "shallow copy"
+[x] il faut faire une "deep copy"
 
 [explanation]
 Il faut faire une copie en profondeur car le premier niveau de la liste reste en fait inchangé lors de l'affectation
