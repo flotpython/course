@@ -75,16 +75,17 @@ C012AL-W4-S5.txt
 OK C012AL-W4-S5-C1-docstring.ipynb 
 OK C012AL-W4-S5-C2-isinstance.ipynb
 OK C012AL-W4-S5-C1-arg-reference.ipynb  
-
-DROPPED
-* cas pratique de plusieurs return 
-TP: on en fait à longueur d'exemples ça non ?
+DROPPED cas pratique de plusieurs return - TP: on en fait à longueur d'exemples ça non ?
 
 ## Quizz Vidéo 5
+OK C012AL-W4-S5-E1-functions.quiz
+NICETOHAVE : un peu juste ?
 
 ## Exercices Vidéo 5
-aplatir un arbre - pour isinstance()
-le faire en deux versions, copie ou modif inline (essayer d'abord)
+NICETOHAVE leur faire faire un exo des fonction polymorphe qui prenne en argument
+un entier ou un nom - par exemple avec les bateaux de marine..
+BOF aplatir un arbre - pour isinstance()
+       le faire en deux versions, copie ou modif inline (essayer d'abord)
 
 ###################################################################
 
@@ -94,11 +95,15 @@ CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
 
--parler du scope built-in et montrer le module built-in. 
--expliquer que les variables dans l'entête des fonctions sont
-aussi des variables locales. 
--montrer que l'on peut redéfinir un nom built-in et que c'est
+TODO C012AL-W4-S6-E1-builtin.ipynb
+https://docs.python.org/2/library/__builtin__.html
+import __builtin__
+dir(__builtin__)
+montrer que l'on peut redéfinir un nom built-in et que c'est
 une mauvaise idée. 
+parler du scope built-in et montrer le module built-in. 
+
+TODO C012AL-W4-S6-E2-unbound-local.ipynb
 -rappeler qu'il faut utiliser des bons noms de variables et qu'il
 faut éviter d'utiliser localement un nom de variable globales
 (ça peut conduire à des erreurs ou a des comportement étranges
@@ -124,19 +129,21 @@ Traceback (most recent call last):
     print var
 UnboundLocalError: local variable 'var' referenced before assignment
 
+DROPPED -expliquer que les variables dans l'entête des fonctions sont aussi des variables locales. 
+
 ## Quizz Vidéo 6
+TODO: (arnaud?) nombreux exemple de scope avec fonctions englobantes. 
 
 ## Exercices Vidéo 6
 
--nombreux exemple de scope avec fonctions englobantes. 
-
 ###################################################################
-
 ## Vidéo 7 (Portée des variables dans les fonctions et références partagées)
 
 C012AL-W4-S7.txt
 
 ## Compléments Vidéo 7
+
+TODO C012AL-W4-S7-C1-global.ipynb
 
 *montrer que global crée une variable global si elle n'existe
 pas encore. 
@@ -152,9 +159,9 @@ print y # existe dans le scope global.
 limitant son usage et en favorisant les retours explicite de fonction). 
 
 ## Quizz Vidéo 7
+TODO: (arnaud?) des quiz sur cette vidéo
 
 ## Exercices Vidéo 7
-
 
 ###################################################################
 

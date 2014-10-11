@@ -1,0 +1,30 @@
+<hr/>
+Fonctions (1)
+=====
+
+Une fonction en python 
+
+( ) doit contenir une instruction return 
+( ) peut contenir 0 ou 1 instruction return
+(x) peut contenir 0 on n instructions return
+
+[explananation]
+Le return est opionnel, si la fonction retourne sans avoir rencontré return elle retourne 'None'
+
+On peut utiliser autant de return que l'on veut dans une fonction
+
+[explananation]
+
+<hr/>
+Fonctions (2)
+=====
+
+Est-il possible pour une fonction de modifier l'objet qui lui est passé en argument
+
+(x) Oui, si l'objet est mutable
+( ) Oui, on peut modifier tous les objets
+( ) Non, une fonction travaille sur une copie et elle ne peut modifier l'objet dans l'espace de l'appelant
+
+[explananation]
+Comme les arguments sont passés par référence, les objets de l'appelant, s'ils sont mutables, peuvent être modifiés à l'intérieur de la fonction.
+[explananation]
