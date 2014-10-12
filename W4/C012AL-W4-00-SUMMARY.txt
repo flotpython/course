@@ -90,40 +90,11 @@ BOF aplatir un arbre - pour isinstance()
 ###################################################################
 
 ## Vidéo 6 (Portée des variables dans les fonctions : règle LEG)
-
 CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
-
 OK C012AL-W4-S6-E1-builtin.ipynb
-
-TODO C012AL-W4-S6-E2-unbound-local.ipynb
--rappeler qu'il faut utiliser des bons noms de variables et qu'il
-faut éviter d'utiliser localement un nom de variable globales
-(ça peut conduire à des erreurs ou a des comportement étranges
-que j'expliquerai plus tard dans les vidéos). 
--montrer est expliquer l'erreur UnboundLocalError
-var = 0
-def func():
-    print var
-
-def func2():
-    print var
-    var = 1
-
-func()
-func2()
->>> 
-0
-
-Traceback (most recent call last):
-  File "C:/Users/alegout/Desktop/test.py", line 12, in <module>
-    func2()
-  File "C:/Users/alegout/Desktop/test.py", line 8, in func2
-    print var
-UnboundLocalError: local variable 'var' referenced before assignment
-
-DROPPED -expliquer que les variables dans l'entête des fonctions sont aussi des variables locales. 
+OK C012AL-W4-S6-E2-unbound-local.ipynb
 
 ## Quizz Vidéo 6
 TODO: (arnaud?) nombreux exemple de scope avec fonctions englobantes. 
