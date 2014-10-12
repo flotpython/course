@@ -124,51 +124,20 @@ CO12AL-W4-VIDEO008.txt
 
 ## Compléments Vidéo 8
 OK C012AL-W4-S8-C1-fun-args.ipynb
+OK C012AL-W4-S8-C2-default-mutable.ipynb
 
 TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...
 *introduire sys.argv en remarquant que c'est une forme *Targs
 et introduire le module argparse. 
 
-TODO C012AL-W4-S8-C2-default-mutable.ipynb
-*montrer le piège des arguments par défaut qui ne sont initialisé
-qu'une fois à la création de l'objet fonction, donc problème avec 
-les mutables
-https://docs.python.org/2/tutorial/controlflow.html#default-argument-values
-def f(a, L = []):
-    L.append(a)
-    print L
-f(1)
-f(2)
-f(3)
->>>
-[1]
-[1, 2]
-[1, 2, 3]
-
-Solutions
-def f(a, L = None):
-    if L is None:
-        L = []
-    L.append(a)
-    print L
-f(1)
-f(2)
-f(3)
->>>
-[1]
-[2]
-[3]
-
-
-
-
 ## Quizz Vidéo 8
+
+TODO : un petit quiz ?
 
 ## Exercices Vidéo 8
 
+ONGOING C012AL-W4-S8-E1-validation2.ipynb
 une variation sur l'exo 'validation' mais cette fois avec un nombre quelconque d'arguments
 
-leur faire faire des wrappers
-pourquoi ne pas leur faire refaire `validation` mais
-. avec des fonctions dont on ne sait pas combien elles prennent d'argument
+TODO: leur faire faire des wrappers
 et/ou commencer à faire une espèce de décorateur simple "à la main"

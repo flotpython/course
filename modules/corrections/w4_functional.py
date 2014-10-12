@@ -57,6 +57,7 @@ def broken_fact (n):
 
 validation_inputs.append ( (broken_fact, factorial, fact_inputs) )
 
-exo_validation = Exercice (validation, validation_inputs, columns = (50,40,40))
+exo_validation = Exercice (validation, validation_inputs, 
+                           correction_columns = (50,40,40))
 
 ##############################
