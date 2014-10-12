@@ -108,20 +108,9 @@ C012AL-W4-S7.txt
 
 ## Compléments Vidéo 7
 
-TODO C012AL-W4-S7-C1-global.ipynb
-
-*montrer que global crée une variable global si elle n'existe
-pas encore. 
-x = 1
-def f():
-    global y
-	y = x + 1
-print y # n'existe pas encore
-f()
-print y # existe dans le scope global. 
-
-*revenir sur les bonnes pratiques de programmation avec global (en 
-limitant son usage et en favorisant les retours explicite de fonction). 
+# DROPPED pas de complément ici - la vidéo est déjà très copieuse et détaillée
+montrer que global crée une variable global si elle n'existe pas encore. 
+je trouve qu'on en a déjà bcp trop dit sur `global`
 
 ## Quizz Vidéo 7
 TODO: (arnaud?) des quiz sur cette vidéo
@@ -131,37 +120,16 @@ TODO: (arnaud?) des quiz sur cette vidéo
 ###################################################################
 
 ## Vidéo 8 (Passage d'arguments et appel de fonctions)
-
 CO12AL-W4-VIDEO008.txt
 
 ## Compléments Vidéo 8
+OK C012AL-W4-S8-C1-fun-args.ipynb
 
-* parler de apply (f,l) vs f(*l) 
-
+TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...
 *introduire sys.argv en remarquant que c'est une forme *Targs
 et introduire le module argparse. 
-*donner des exemples pratiques de forme * et ** (si tu en as)
-*montrer un exemple de mélange des 4 déclarations d'arguments
-def f(a, c = 3, *d, **e)
-*montrer l'erreur qu'il peut se produire lorsque l'on combine
-des formes positionnelles et des formes nommés lors de l'appel.
-def func(a, b, c, d):
-    print a, b, c, d
-func(1, c = 3, *(2,), **{'d':4})
->>>
-1 2 3 4
->>> func(1, b = 3, *(2,), **{'d':4})
-Traceback (most recent call last):
-  File "<pyshell#170>", line 1, in <module>
-    func(1, b = 3, *(2,), **{'d':4})
-TypeError: func() got multiple values for keyword argument 'b'
 
-Expliquer que les arguments ne sont pas pris dans l'ordre 
-de l'appel, mais les arguments positionnel sont utilisé en premier. 
-les arguments ordonnés et *args, ne donnent pas le nom des arguments, donc ils ne peut être que positionnel. Par contre, les arguments nommés et **args fournissent le nom. Ils sont donc traités en dernier. 
-C'est expliqué dans Dans Python Language Reference: 5.3.4. Calls
-https://docs.python.org/2/reference/expressions.html#calls
-
+TODO C012AL-W4-S8-C2-default-mutable.ipynb
 *montrer le piège des arguments par défaut qui ne sont initialisé
 qu'une fois à la création de l'objet fonction, donc problème avec 
 les mutables
@@ -197,6 +165,8 @@ f(3)
 ## Quizz Vidéo 8
 
 ## Exercices Vidéo 8
+
+une variation sur l'exo 'validation' mais cette fois avec un nombre quelconque d'arguments
 
 leur faire faire des wrappers
 pourquoi ne pas leur faire refaire `validation` mais
