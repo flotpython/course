@@ -132,12 +132,10 @@ et introduire le module argparse.
 
 ## Quizz Vidéo 8
 
-TODO : un petit quiz ?
+TODO : un petit quiz (arnaud?)
 
 ## Exercices Vidéo 8
 
-ONGOING C012AL-W4-S8-E1-validation2.ipynb
-une variation sur l'exo 'validation' mais cette fois avec un nombre quelconque d'arguments
-
-TODO: leur faire faire des wrappers
-et/ou commencer à faire une espèce de décorateur simple "à la main"
+OK C012AL-W4-S8-E1-wrap-validation.ipynb
+NICETOHAVE: prolonger l'exercice doubler_premier avec des arguments avec defaut
+voir le fichier w4_fun_args.py, demande du travail dans le framework d'exercice

@@ -2,6 +2,46 @@
 from exercice import Exercice, Exercice_1arg
 
 ##############################
+def doubler_premier (f, *args):
+    to_double = args[0]
+    to_preserve = args [1:]
+    return f ( 2 * to_double, *to_preserve)
+
+doubler_premier_inputs = []
+from operator import add
+from operator import mul
+import math
+def distance (*args):
+    return math.sqrt(sum(x**2 for x in args))
+
+# pour l'exemple on choisit les 3 premiers avec des fonctions différentes
+for i in [1]: 
+    doubler_premier_inputs.append ( [add, i, 2] )
+    doubler_premier_inputs.append ( (mul, i, 2) )
+doubler_premier_inputs.append ( (distance, 1, 1, 1) )
+doubler_premier_inputs.append ( (distance, 2, 2, 2, 2) )
+doubler_premier_inputs.append ( (distance, 3, 3, 3, 3, 3) )
+for i in [3,5]: 
+    doubler_premier_inputs.append ( [add, i, 2] )
+    doubler_premier_inputs.append ( (mul, i, 2) )
+
+exo_doubler_premier = Exercice (doubler_premier, doubler_premier_inputs, exemple_how_many=4)
+
+##############################
+# NICETOHAVE
+# le début d'un exo qui pourrait être sympa ou on prolonge l'exo précédent 
+# au passage de variables avec défaut
+# cela dit le framework d'exercice ne permet pas encore cela
+# il faudrait pouvoir décrire les entrées comme un liste de 
+# ( (tuple_positionnels), {dict: defaults} )
+# ce qui demande pas mal de rework dans la classe Exercice
+# standby for now
+def doubler_premier_defs (f, *args, **keywords):
+    to_double = args[0]
+    to_preserve = args [1:]
+    return f ( 2 * to_double, *to_preserve, **keywords)
+
+##############################
 def validation (f, g, argument_tuples):
     """
 retourne une liste de booleens, un par entree dans entrees
