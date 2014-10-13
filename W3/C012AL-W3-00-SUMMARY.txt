@@ -5,6 +5,7 @@
 ###################################################################
 
 ## Vidéo 1 (Tables de hash)
+NIVEAU: BASIC
 
 C012AL-W3-S1.txt 
 
@@ -17,6 +18,7 @@ pas de complement ni exercice sur ce topic tres abstrait
 ###################################################################
 
 ## Vidéo 2 (Les dictionnaires)
+NIVEAU: BASIC
 
 C012AL-W3-S2.txt 
 
@@ -34,6 +36,7 @@ OK C012AL-W3-S2-E2-marine-dict.ipynb - premier morceau de code un peu réel avec 
 ###################################################################
 
 ## Vidéo 3 (Les ensembles)
+NIVEAU: BASIC
 
 C012AL-W3-S3.txt 
 
@@ -66,6 +69,7 @@ OK C012AL-W3-S3-E1-marine-set.ipynb - avec le même genre de données de marine tr
 ###################################################################
 
 ## Vidéo 4 (Les références partagées)
+NIVEAU: BASIC
 
 C012AL-W3-S4.txt 
 
@@ -93,6 +97,7 @@ NICETOHAVE * essayer d'écrire un bout de code buggé et demander aux gens detrouv
 
 ###################################################################
 ## Vidéo 5 (Introduction aux modules)
+NIVEAU: BASIC
 
 C012AL-W3-S5.txt
 
@@ -116,6 +121,7 @@ NICETOHAVE un exo (sans correction) qui invite les etudiants
 ###################################################################
 
 ## Vidéo 6 (L'indentation comme syntaxe de base)
+NIVEAU: BASIC
 
 C012AL-W3-S6.txt
 
@@ -134,6 +140,8 @@ XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien alors peut êtr
 ###################################################################
 
 ## Vidéo 7 (Les tests if/elif/else et les opérateurs booléens)
+NIVEAU: BASIC
+
 # if avec resultat non booleen
 # operateurs booleens - priorites..
 
@@ -153,6 +161,7 @@ NICETOHAVE : c'est un peu léger dans l'état
 ###################################################################
 
 ## Vidéo 8 (Les boucles for et les itérateurs)
+NIVEAU: BASIC
 
 C012AL-W3-S8.txt
 # for sur une sequence - for sur un objet qui a un iterateur -

@@ -5,7 +5,10 @@
 ###################################################################
 
 ## Vidéo 1 (Les fichiers)
+NIVEAU: BASIC
+
 C012AL-W4-S1.txt
+
 ## Compléments Vidéo 1
 OK C012AL-W4-S1-C1-file-extras.ipynb 
 OKC012AL-W4-S1-C2-stdinouterr.ipynb : 
@@ -21,7 +24,10 @@ OK C012AL-W4-S1-E1-files.ipynb
 ###################################################################
 
 ## Vidéo 2 (Boucle while)
+NIVEAU: BASIC
+
 C012AL-W4-S2.txt
+
 ## Compléments Vidéo 2
 OK C012AL-W4-S2-C1-while-extras.ipynb
 ## Quizz Vidéo 2
@@ -31,7 +37,10 @@ OK C012AL-W4-S2-E1-pgcd.ipynb
 ###################################################################
 
 ## Vidéo 3 (Fonction lambda, programmation fonctionnelle)
+NIVEAU: INTERMEDIAIRE
+
 C012AL-W4-S3.txt
+
 ## Compléments Vidéo 3
 OK C012AL-W4-S3-C1-function-extras.ipynb
 
@@ -50,6 +59,7 @@ OK C012AL-W4-S3-E2-functions.ipynb
 ###################################################################
 
 ## Vidéo 4 (Compréhension de listes, sets et dictionnaires)
+NIVEAU: BASIC
 
 C012AL-W4-S4.txt
 
@@ -67,6 +77,7 @@ ONGOING C012AL-W4-S4-E1-comprehensions.ipynb
 ###################################################################
 
 ## Vidéo 5 (Les fonctions)
+NIVEAU: BASIC
 
 C012AL-W4-S5.txt
 
@@ -90,6 +101,8 @@ BOF aplatir un arbre - pour isinstance()
 ###################################################################
 
 ## Vidéo 6 (Portée des variables dans les fonctions : règle LEG)
+NIVEAU: BASIC
+
 CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
@@ -103,6 +116,7 @@ TODO: (arnaud?) nombreux exemple de scope avec fonctions englobantes.
 
 ###################################################################
 ## Vidéo 7 (Portée des variables dans les fonctions et références partagées)
+NIVEAU: BASIC
 
 C012AL-W4-S7.txt
 
@@ -120,6 +134,8 @@ TODO: (arnaud?) des quiz sur cette vidéo
 ###################################################################
 
 ## Vidéo 8 (Passage d'arguments et appel de fonctions)
+NIVEAU: BASIC
+
 CO12AL-W4-VIDEO008.txt
 
 ## Compléments Vidéo 8

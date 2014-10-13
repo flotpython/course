@@ -5,7 +5,8 @@
 
 ###################################################################
 
-## Vidéo 1 (Introduction au typage dynamique)
+## Vidéo 1 (Introduction au typage dynamique) 
+NIVEAU: BASIC
 
 C012AL-W2-S1.txt
 
@@ -23,6 +24,7 @@ OK C012AL-W2-S1-E1-identifiants.quiz
 ###################################################################
 
 ## Vidéo 2 (Les types numériques)
+NIVEAU: BASIC
 
 C012AL-W2-S2.txt
 
@@ -42,6 +44,7 @@ OK C012AL-W2-S2-E2-flottants.ipynb : exercice pour trouver la valeur approximati
 ###################################################################
 
 ## Vidéo 3 (Les séquences)
+NIVEAU: BASIC
 
 C012AL-W2-S3.txt
 
@@ -59,6 +62,7 @@ OK C012AL-W2-S3-E2-slicing.ipynb: un peu de slicing, et des indices négatifs, le
 ###################################################################
 
 ## Vidéo 4 (Les listes)
+NIVEAU: BASIC
 
 C012AL-W2-S4.txt (9 minutes)
 
@@ -75,6 +79,7 @@ xxx -- ?? comparer l.insert (i,shmol) avec l[i:i] = [ shmol ]
 ###################################################################
 
 ## Vidéo 5 (Les tuples)
+NIVEAU: BASIC
 
 CO12AL-W2-VIDEO05 ()
 
@@ -91,6 +96,7 @@ OK C012AL-W2-S5-E1-tuples.quiz
 ###################################################################
 
 ## Vidéo 6 (Introduction aux tests if/else et aux expressions conditionnelles)
+NIVEAU: BASIC
 
 C012AL-W2-S6.txt (5 minutes 40 secondes)
 
@@ -109,6 +115,7 @@ OK C012AL-W2-S6-C3-if-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 ###################################################################
 
 ## Vidéo 7 (Introduction aux boucles for et aux fonctions)
+NIVEAU: BASIC
 
 C012AL-W2-S7.txt 
 
@@ -131,7 +138,8 @@ XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 
 ###################################################################
 
-## Vidéo 8 (Les chaînes de caractères )
+## Vidéo 8 (Les chaînes de caractères)
+NIVEAU: BASIC
 
 C012AL-W2-S8.txt 
 
