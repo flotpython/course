@@ -5,6 +5,7 @@
 ###################################################################
 
 ## Vidéo 1 (Méthodes statiques et de classe)
+NIVEAU: INTERMEDIAIRE
 
 C012AL-W7-S1.txt
 
@@ -18,6 +19,7 @@ C012AL-W7-S1.txt
 ###################################################################
 
 ## Vidéo 2 (Les décorateurs)
+NIVEAU: INTERMEDIAIRE
 
 C012AL-W7-S2.txt
 
@@ -51,6 +53,7 @@ with Timer() as t:
 ###################################################################
 
 ## Vidéo 3 (Les classes new-style)
+NIVEAU: INTERMEDIAIRE
 
 CO12AL-W7-S3.txt
 
@@ -70,6 +73,7 @@ https://www.python.org/download/releases/2.2.3/descrintro
 ###################################################################
 
 ## Vidéo 4 (Les métaclasses)
+NIVEAU: AVANCÉ
 
 CO12AL-W7-S4.txt 
 
@@ -88,6 +92,7 @@ https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 ###################################################################
 
 ## Vidéo 5 (Performance en Python)
+NIVEAU: INTERMEDIAIRE
 
 CO12AL-W7-S5.txt 
 

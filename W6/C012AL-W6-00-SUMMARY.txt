@@ -5,6 +5,7 @@
 ###################################################################
 
 ## Vidéo 1 (Fonctions génératrices)
+NIVEAU: INTERMEDIAIRE
 
 C012AL-W6-S1.txt
 
@@ -27,6 +28,7 @@ expressions génératrices sont un peu plus lente que les compréhensions
 ###################################################################
 
 ## Vidéo 2 (Conception d'itérateurs)
+NIVEAU: AVANCÉ
 
 C012AL-W6-S2.txt
 
@@ -48,6 +50,7 @@ Donnes des exos pratiques de création d'objets avec des itérateurs
 ###################################################################
 
 ## Vidéo 3 (Exceptions)
+NIVEAU: BASIC
 
 C012AL-W6-S3.txt
 
@@ -75,6 +78,7 @@ du print_exc()
 ###################################################################
 
 ## Vidéo 4 (Conception d'exceptions personnalisées)
+NIVEAU: INTERMEDIAIRE
 
 C012AL-W6-S4.txt
 
@@ -88,6 +92,7 @@ C012AL-W6-S4.txt
 ###################################################################
 
 ## Vidéo 5 (Context manager)
+NIVEAU: BASIC
 
 C012AL-W6-S5.txt
 
