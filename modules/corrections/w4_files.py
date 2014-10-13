@@ -39,11 +39,11 @@ def show_comptage (in_name, out_name, comptage, suffix):
         input, output = file_contents (in_name), file_contents (out_name)
         os.unlink(out_name)
     except OSError:
-        print "Votre fonction ne semble pas crÃ©er le fichier de sortie"
+        print "Votre fonction ne semble pas créer le fichier de sortie"
         return 
     html = ""
     html += "<table>"
-    html += "<tr><th>EntrÃ©e</th></tr>"
+    html += "<tr><th>Entrée</th></tr>"
     for line in input.split("\n"):
         html += "<tr><td>{}</td></tr>".format(line)
     html += "<tr><th>Sortie</th></tr>"
@@ -82,7 +82,7 @@ class ExerciceComptage (Exercice):
         # call the decorator on the student code
         return Exercice.correction (self, exercice_compliant(student_comptage))
 
-    # on prend le premier jeu d'entrÃ©e
+    # on prend le premier jeu d'entrée
     def exemple (self):
         return show_comptage (*self.inputs[0], comptage=comptage, suffix=".ok")
 
