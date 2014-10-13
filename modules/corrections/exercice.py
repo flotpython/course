@@ -8,34 +8,57 @@ import traceback
 import copy
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
-########## helpers
-def truncate (data, max_size=10):
-    message = "{}".format(repr(data))
-    return message if len(message) <= max_size \
+########## helpers for rendering / truncating
+def html_escape (s):
+    # xxx need to find code for < and >
+    return s.replace ("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
+
+def truncate_str (message, max_size):
+    truncated = message if len(message) <= max_size \
         else message [:max_size-3]+'...'
+    return html_escape (truncated)
 
 # display functions as their name
 def custom_repr (x):
     if isinstance (x,(FunctionType, BuiltinFunctionType, BuiltinMethodType)):
         return x.__name__
+    elif isinstance (x, set):
+        return "{"+commas(x)+"}"
     else:
         return repr(x)
 
-def html_escape (s):
-    # xxx need to find code for < and >
-    return s.replace("<","&lt;").replace(">","&gt;")
-
-def _truncate_list (data_list, max_size):
-    message = ", ".join([custom_repr(x) for x in data_list])
-    return message if len(message) <= max_size \
-        else message [:max_size-3]+'...'
-
-def truncate_list (data, max_size=10):
-    if isinstance (data,set):
-        return "{"+_truncate_list(data,max_size-2)+"}"
+def commas (iterable):
+    if isinstance (iterable, dict):
+        return ", ".join( [ "{}:{}".format(k,custom_repr(v)) for k,v in iterable ] )
+    elif isinstance (iterable, str): 
+        return str
     else:
-        return _truncate_list (data, max_size)
+        return ", ".join([custom_repr(x) for x in iterable])
 
+def truncate_iterable (iterable, max_size):
+#    import pdb
+#    pdb.set_trace()
+    return truncate_str (commas(iterable), max_size)
+
+# for now a dataset is a list of arguments
+def truncate_dataset (dataset, max_size):
+    return truncate_iterable (dataset, max_size)
+    # for now dataset is arguments, but that would change
+    (arguments, keywords) = dataset
+    text = commas (arguments)
+    if keywords:
+        text += ", "+ commas(keywords)
+    return truncate_str (text, max_size)
+
+def truncate_value (value, max_size):
+    # this is the case where we may have a set and prefer to show it with {}
+    if isinstance (value, set):
+        message = "{" + commas (value)
+        return truncate_str (message, max_size-1) + "}"
+    else:
+        return truncate_str ( repr(value), max_size)
+
+#################### help to clone material
 # safer to copy inputs most of the time (always?)
 def clone_dataset (dataset, copy_mode):
     if copy_mode == 'shallow':
@@ -71,9 +94,9 @@ def correction_table (student_function,
         student_dataset = clone_dataset (dataset, copy_mode)
         correct_dataset = clone_dataset (dataset, copy_mode)
         # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = html_escape (truncate_list(student_dataset,c1))
+        rendered_input = html_escape (truncate_dataset(student_dataset,c1))
         expected = apply (correct_function, correct_dataset)
-        rendered_expected = html_escape (truncate (expected, c2))
+        rendered_expected = html_escape (truncate_value (expected, c2))
         # run both codes
         try:
             student_result = apply (student_function, student_dataset)
@@ -89,8 +112,10 @@ def correction_table (student_function,
         style = ok_style if ok else ko_style
         html += "<tr style='{}'>".format(style)
         html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
-                format(rendered_input,rendered_expected,
-                       html_escape(truncate(student_result,c3)),message)
+                format(rendered_input,
+                       rendered_expected,
+                       html_escape(truncate_value(student_result,c3)),
+                       message)
     html += "</table>"
     return HTML(html)
 
@@ -114,10 +139,11 @@ def exemple_table (function_name,
     
     for dataset in datasets [:how_many]:
         sample_dataset = clone_dataset (dataset, copy_mode)
-        rendered_input = "{}({})".format(function_name,truncate_list(sample_dataset,c1))
+        rendered_input = "{}({})".format(function_name,
+                                         truncate_dataset(sample_dataset,c1))
         expected = apply (correct_function, sample_dataset)
-        rendered_expected = truncate (expected, c2)
-        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input,rendered_expected)
+        rendered_expected = truncate_value (expected, c2)
+        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
 
     html += "</table>"
     return HTML(html)
@@ -143,13 +169,13 @@ def exemple_table_multiline (function_name,
     sample_dataset = clone_dataset (datasets[dataset_index], copy_mode)
     nb_args = len(arg_names)
     for index,arg,name in zip(range(nb_args),sample_dataset, arg_names):
-        rendered_input = "{}={}".format(name,truncate_list(arg,c1))
+        rendered_input = "{}={}".format(name,truncate_value(arg,c1))
         if index==0:
             expected = apply (correct_function, sample_dataset)
-            rendered_expected = truncate (expected, c2)
+            rendered_expected = truncate_value (expected, c2)
         else:
             rendered_expected = ""
-        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input,rendered_expected)
+        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
 
     html += "</table>"
     return HTML(html)
