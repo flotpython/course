@@ -45,15 +45,6 @@ def clone_dataset (dataset, copy_mode):
     else:
         return dataset
 
-########## 
-# when the function only has one arg it is much easier to give a list of inputs 
-# instead of a list of tuples or arguments - especially as this results in 1-arg tuple
-# so the comma is required
-def correction_table_1arg (student_function, correct_function, args, *l, **k):
-    datasets = [ (arg,) for arg in args ]
-    return correction_table (student_function, correct_function, datasets, *l, **k)
-
-
 ########## styles in html output
 font_style='font-family:monospace;'
 
@@ -102,11 +93,6 @@ def correction_table (student_function,
                        html_escape(truncate(student_result,c3)),message)
     html += "</table>"
     return HTML(html)
-
-# like with correction_table_1arg: pass a list of the arguments, not tuples
-def exemple_table_1arg (function_name, correct_function, args, *l, **kwds):
-    datasets = [ (arg,) for arg in args ]
-    return exemple_table (function_name, correct_function, datasets, *l, **kwds)
 
 # see how to use in exo_rendering.py
 def exemple_table (function_name,
