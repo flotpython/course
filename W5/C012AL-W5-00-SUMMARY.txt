@@ -11,6 +11,8 @@ C012AL-W5-S1.txt
 
 ## Compléments Vidéo 1
 
+OK C012AL-W5-S1-C1-attributs.ipynb
+
 *introduire __dict__, globals(), locals() et dir(mod) dans le contexte
 des modules uniquement. (on parlera de __dict__ pour les classes
 et les instance plus tard, mais tu peux déjà y faire allusion)
