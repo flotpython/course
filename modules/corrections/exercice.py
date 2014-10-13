@@ -8,6 +8,9 @@ import traceback
 import copy
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
+DEBUG=False
+#DEBUG=True
+
 ########## helpers for rendering / truncating
 def html_escape (s):
     # xxx need to find code for < and >
@@ -29,21 +32,19 @@ def custom_repr (x):
 
 def commas (iterable):
     if isinstance (iterable, dict):
-        return ", ".join( [ "{}:{}".format(k,custom_repr(v)) for k,v in iterable ] )
+        return ", ".join( [ "{}={}".format(k,custom_repr(v)) for k,v in iterable.items() ] )
     elif isinstance (iterable, str): 
         return str
     else:
         return ", ".join([custom_repr(x) for x in iterable])
 
 def truncate_iterable (iterable, max_size):
-#    import pdb
-#    pdb.set_trace()
     return truncate_str (commas(iterable), max_size)
 
 # for now a dataset is a list of arguments
 def truncate_dataset (dataset, max_size):
-    return truncate_iterable (dataset, max_size)
-    # for now dataset is arguments, but that would change
+#    # for now dataset is arguments, but that would change
+#    return truncate_iterable (dataset, max_size)
     (arguments, keywords) = dataset
     text = commas (arguments)
     if keywords:
@@ -94,16 +95,21 @@ def correction_table (student_function,
         student_dataset = clone_dataset (dataset, copy_mode)
         correct_dataset = clone_dataset (dataset, copy_mode)
         # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = html_escape (truncate_dataset(student_dataset,c1))
-        expected = apply (correct_function, correct_dataset)
-        rendered_expected = html_escape (truncate_value (expected, c2))
+        rendered_input = truncate_dataset (student_dataset,c1)
+        (arguments, keywords) = correct_dataset
+        try:
+            if DEBUG:
+                print "calling",correct_function.__name__,"*",arguments,"**",keywords
+            expected = correct_function (*arguments, **keywords)
+        except Exception as e:
+            expected = e
+        rendered_expected = truncate_value (expected, c2)
         # run both codes
         try:
-            student_result = apply (student_function, student_dataset)
+            (arguments, keywords) = student_dataset
+            student_result = student_function (*arguments, **keywords)
         except Exception as e:
             student_result = e
-#        print 'expected',expected
-#        print 'student_result',student_result
         # compare 
         ok = expected == student_result
         # render that run
@@ -114,7 +120,7 @@ def correction_table (student_function,
         html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
                 format(rendered_input,
                        rendered_expected,
-                       html_escape(truncate_value(student_result,c3)),
+                       truncate_value(student_result,c3),
                        message)
     html += "</table>"
     return HTML(html)
@@ -141,7 +147,11 @@ def exemple_table (function_name,
         sample_dataset = clone_dataset (dataset, copy_mode)
         rendered_input = "{}({})".format(function_name,
                                          truncate_dataset(sample_dataset,c1))
-        expected = apply (correct_function, sample_dataset)
+        (arguments, keywords) = sample_dataset
+        try:
+            expected = correct_function (*arguments, **keywords)
+        except Exception as e:
+            expected = e
         rendered_expected = truncate_value (expected, c2)
         html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
 
@@ -168,14 +178,14 @@ def exemple_table_multiline (function_name,
     
     sample_dataset = clone_dataset (datasets[dataset_index], copy_mode)
     nb_args = len(arg_names)
-    for index,arg,name in zip(range(nb_args),sample_dataset, arg_names):
-        rendered_input = "{}={}".format(name,truncate_value(arg,c1))
+    for index,arg,name in zip (range(nb_args), sample_dataset, arg_names):
+        rendered_input = "{}={}".format (name,truncate_value(arg,c1))
         if index==0:
-            expected = apply (correct_function, sample_dataset)
+            expected = correct_function (*sample_dataset)
             rendered_expected = truncate_value (expected, c2)
         else:
             rendered_expected = ""
-        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
+        html += "<tr><td>{}</td><td>{}</td></tr>".format (rendered_input, rendered_expected)
 
     html += "</table>"
     return HTML(html)
@@ -186,18 +196,21 @@ def exemple_table_multiline (function_name,
 default_correction_columns = (30, 40, 40)
 default_exemple_columns = (40, 40)
 
-class Exercice:
+class ExerciceKeywords:
     """
     The base class for handling an exercice, from a solution and inputs
+    This most general form expects datasets specified as 
+    [ (arguments, keywords) ]
+    with arguments a tuple and keywords a dictionary
     """
-    def __init__ (self, solution, inputs, 
-                  correction_columns=None, exemple_columns=None,
+    def __init__ (self, solution, datasets, 
+                  correction_columns = None, exemple_columns = None,
                   exemple_how_many = 1,
-                  copy_mode='deep'):
+                  copy_mode = 'deep'):
         # the 'official' solution
         self.solution = solution
         # the inputs 
-        self.inputs = inputs
+        self.datasets = datasets
         # in some weird cases this won't exist
         self.name = getattr(solution,'__name__',"no_name")
         self.correction_columns = correction_columns 
@@ -209,15 +222,27 @@ class Exercice:
     def exemple (self):
         columns = self.exemple_columns
         if columns is None: columns = default_exemple_columns
-        return exemple_table (self.name, self.solution, self.inputs, 
+        return exemple_table (self.name, self.solution, self.datasets, 
                               copy_mode = self.copy_mode,
                               how_many = self.exemple_how_many, columns = columns)
 
     def correction (self, student_solution):
         columns = self.correction_columns
         if columns is None: columns = default_correction_columns
-        return correction_table (student_solution, self.solution, self.inputs, 
+        return correction_table (student_solution, self.solution, self.datasets, 
                                  copy_mode = self.copy_mode, columns = columns)
+
+
+class Exercice (ExerciceKeywords):
+    """
+# the most usual form expects its inputs specified as 
+# [ arguments ]
+# with arguments a tuple
+    """
+    def __init__ (self, solution, inputs, *args, **kwds):
+        datasets = [ ( input, {}) for input in inputs ]
+        ExerciceKeywords.__init__ (self, solution, datasets, *args, **kwds)
+
 
 class Exercice_1arg (Exercice):
     """
@@ -226,14 +251,14 @@ class Exercice_1arg (Exercice):
     be described a a simple list of such args, the one-tuple 
     gets added by this class
     """
-    def __init__ (self, solution, inputs, *args, **kwds):
-        inputs = [ (input,) for input in inputs ]
+    def __init__ (self, solution, single_arg_s, *args, **kwds):
+        inputs = [ (single_arg,) for single_arg in single_arg_s ]
         Exercice.__init__ (self, solution, inputs, *args, **kwds)
 
 class Exercice_multiline (Exercice):
     """
     A customized Exercice where examples are exposed in another
-    format - namely one line par argument
+    format - one argument per line
     this is why we need a tuple of argument names
     """
     def __init__ (self, solution, inputs, argnames, *args, **kwds):
@@ -243,6 +268,6 @@ class Exercice_multiline (Exercice):
     def exemple (self):
         columns = self.exemple_columns
         if columns is None: columns = default_exemple_columns
-        return exemple_table_multiline (self.name, self.argnames, self.solution, self.inputs,
-                                        columns = columns)
+        return exemple_table_multiline (self.name, self.argnames, self.solution, 
+                                        self.datasets, columns = columns)
 

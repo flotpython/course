@@ -1,18 +1,34 @@
 # -*- coding: iso-8859-15 -*-
-from exercice import Exercice, Exercice_1arg
+from exercice import ExerciceKeywords, Exercice
 
 ##############################
-def doubler_premier (f, *args):
-    to_double = args[0]
-    to_preserve = args [1:]
-    return f ( 2 * to_double, *to_preserve)
+def distance (*args):
+    return math.sqrt(sum(x**2 for x in args)) if args else 0.
+
+distance_inputs = [
+    (),
+    (1,),
+    (1,1),
+    (1,1,1),
+    (1,1,1,1),
+]
+
+exo_distance = Exercice (distance, distance_inputs, exemple_how_many = 3)
+
+##############################
+def doubler_premier (f, first, *args):
+    return f ( 2 * first, *args)
+
+# marche aussi mais moins élégant
+def doubler_premier_bis (f, *args):
+    first = args[0]
+    remains = args[1:]
+    return f ( 2*first, *remains)
 
 doubler_premier_inputs = []
 from operator import add
 from operator import mul
 import math
-def distance (*args):
-    return math.sqrt(sum(x**2 for x in args))
 
 # pour l'exemple on choisit les 3 premiers avec des fonctions différentes
 for i in [1]: 
@@ -36,11 +52,29 @@ exo_doubler_premier = Exercice (doubler_premier, doubler_premier_inputs, exemple
 # ( (tuple_positionnels), {dict: defaults} )
 # ce qui demande pas mal de rework dans la classe Exercice
 # standby for now
-def doubler_premier_defs (f, *args, **keywords):
-    to_double = args[0]
-    to_preserve = args [1:]
-    return f ( 2 * to_double, *to_preserve, **keywords)
+def doubler_premier2 (f, first, *args, **keywords):
+    return f ( 2 * first, *args, **keywords)
 
+def addn (x, y=0):
+    return x+y
+
+def muln (x=1, y=1):
+    return x+y
+
+doubler_premier2_inputs = []
+dataset = ( (addn,1), dict(y=2));       doubler_premier2_inputs.append (dataset)
+dataset = ( (muln,1), dict(y=2));       doubler_premier2_inputs.append (dataset)
+
+# remettre les datasets de doubler_premier
+doubler_premier2_inputs += [ (arguments, {}) for arguments in doubler_premier_inputs ]
+
+dataset = ( (addn,1,2), dict());        doubler_premier2_inputs.append (dataset)
+dataset = ( (muln,1,2), dict());        doubler_premier2_inputs.append (dataset)
+dataset = ( (addn,1), dict());          doubler_premier2_inputs.append (dataset)
+dataset = ( (muln,1), dict());          doubler_premier2_inputs.append (dataset)
+
+exo_doubler_premier2 = ExerciceKeywords (doubler_premier2, doubler_premier2_inputs,
+                                         exemple_how_many = 5)
 ##############################
 def validation (f, g, argument_tuples):
     """
