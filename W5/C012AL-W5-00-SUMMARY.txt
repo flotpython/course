@@ -11,24 +11,25 @@ C012AL-W5-S1.txt
 
 ## Compléments Vidéo 1
 
-*introduire __dict__, globals(), locals() et dir(mod) dans le contexte
-des modules uniquement. (on parlera de __dict__ pour les classes
-et les instance plus tard, mais tu peux déjà y faire allusion)
+OK C012AL-W5-S1-C1-attributs.ipynb
+OK C012AL-W5-S1-C2-globals-locals.ipynb
 
-*introduire sys.modules
-
-*parler de l'impossibilité de faire __dict__ du module courant
+BOF *introduire sys.modules (et si on le fait, plutot avec la vidéo 2 non ?)
+BOF *parler de l'impossibilité de faire __dict__ du module courant
 (en particulier du prompt interactif) et expliquer que l'on 
 ne peut y accéder que depuis sys.modules[__name__].__dict__
 Citer 
 http://docs.python.org/2.6/tutorial/classes.html#id2
+TP: je comprends pas ce qui se passe ici, le lien me montre des trucs sur les generateurs dans les classes ?!?
+on n'a pas encore parlé de classe, je comprends pas, quel rapport ?
 et
 http://stackoverflow.com/questions/4877290/what-is-the-dict-dict-attribute-of-a-python-class
+pareil
+BOF je vais laisser tomber tout ça c'est beaucoup trop bas niveau
 
 ## Quizz Vidéo 1
 
 ## Exercices Vidéo 1
-
 
 ###################################################################
 
