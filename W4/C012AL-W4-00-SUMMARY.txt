@@ -153,5 +153,4 @@ TODO : un petit quiz (arnaud?)
 ## Exercices Vidéo 8
 
 OK C012AL-W4-S8-E1-wrap-validation.ipynb
-NICETOHAVE: prolonger l'exercice doubler_premier avec des arguments avec defaut
-voir le fichier w4_fun_args.py, demande du travail dans le framework d'exercice
+
