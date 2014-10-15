@@ -26,6 +26,8 @@ je vais laisser tomber tout ça c'est beaucoup trop bas niveau
 
 ## Quizz Vidéo 1
 
+NICETOHAVE (arnaud?) 
+
 ## Exercices Vidéo 1
 
 ###################################################################
@@ -54,6 +56,8 @@ déjà vu en C012AL-W3-S5-C1-packages.ipynb
 
 ## Quizz Vidéo 2
 
+NICETOHAVE (arnaud?) 
+
 ## Exercices Vidéo 2
 
 ###################################################################
@@ -73,6 +77,8 @@ l'on ne doit pas les modifier et qu'elles ne sont pas importée par
 un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes façons
 
 ## Quizz Vidéo 3
+
+NICETOHAVE (arnaud?) 
 
 ## Exercices Vidéo 3
 

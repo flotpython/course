@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 
 def un ():
-    print "la fonction un dans le module un_deux"
+    print "la fonction un dans le module",__name__
 
 def deux ():
-    print "la fonction deux dans le module un_deux"
+    print "la fonction deux dans le module",__name__
