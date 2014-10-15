@@ -11,6 +11,3 @@ def trois ():
 
 def quatre ():
     print "la fonction quatre dans le module",__name__
-
-def _private ():
-    print "fonction privée dans le module",__name__
