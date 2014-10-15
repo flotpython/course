@@ -106,8 +106,8 @@ NIVEAU: BASIC
 CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
-OK C012AL-W4-S6-E1-builtin.ipynb
-OK C012AL-W4-S6-E2-unbound-local.ipynb
+OK C012AL-W4-S6-C1-builtin.ipynb
+OK C012AL-W4-S6-C2-unbound-local.ipynb
 
 ## Quizz Vidéo 6
 TODO: (arnaud?) nombreux exemple de scope avec fonctions englobantes. 
