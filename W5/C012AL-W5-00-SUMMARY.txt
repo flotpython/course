@@ -44,12 +44,10 @@ avancé
 et sys, qui sont des modules built-in implémentés en C pour
 des questions de vitesse. 
 
-TODO C012AL-W5-S2-C2-pyc.ipynb
- intermédiaire
+NICETOHAVE C012AL-W5-S2-C2-pyc.ipynb
+intermédiaire
 *compléter la discussion de la video sur les .pyc. Par exemple,
 on peut directement distribuer les .pyc sans les .py
-
-
 
 DROPPED *exécuter un module comme un script avec  if __name__ == '__main__':
 déjà vu en C012AL-W3-S5-C1-packages.ipynb
@@ -67,22 +65,12 @@ C012AL-W5-S3.txt
 
 ## Compléments Vidéo 3
 
-*introduire 
-import modulename as name
-et
-from modulename import attrname as name
+OK C012AL-W5-S3-C1-import-as.ipynb
 
-* introduire __import__
-
-*introduire 
-from mod import *
-en expliquant qu'il ne faut jamais le faire avec des modules
-que l'on n'a pas écrit nous même parce qu'il y a un fort risque
-de collision des espaces de nommage
-Citer https://docs.python.org/2.7/reference/simple_stmts.html#the-import-statement
+DROPPED - 
 Introduire aussi les variables commençant par _ en expliquant que 
 l'on ne doit pas les modifier et qu'elles ne sont pas importée par 
-un import *
+un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes façons
 
 ## Quizz Vidéo 3
 
