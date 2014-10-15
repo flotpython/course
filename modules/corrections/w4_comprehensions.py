@@ -7,11 +7,16 @@ def aplatir (conteneurs):
     return [element for conteneur in conteneurs for element in conteneur]
 
 aplatir_inputs = [
-    [ (0,1,2), [ (3,4), 5 ] ],
+    [] ,
+    [ (1,) ], 
+    ( [1], ), 
+    [ (0,6,2), [ 1, ('a',4), 5 ] ],
     ( [ 1, [2, 3] ] , ( 'a', 'b', 'c' ) ),
+    ( [ 1, 6 ] , ( 'c', 'b'), [ 2, 3] ),
+    ( ( 1, [2, 3] ) , [] , ( 'a' ) , [ 'b', 'c' ] ),
 ]
 
-exo_aplatir = Exercice_1arg (aplatir, aplatir_inputs)
+exo_aplatir = Exercice_1arg (aplatir, aplatir_inputs, exemple_how_many=0)
 
 ##############################
 def alternat (l1, l2):
