@@ -13,6 +13,7 @@ DEBUG=False
 
 ########## helpers for rendering / truncating
 def html_escape (s):
+    return s
     # xxx need to find code for < and >
     return s.replace ("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
 
@@ -70,7 +71,8 @@ def clone_dataset (dataset, copy_mode):
         return dataset
 
 ########## styles in html output
-font_style='font-family:monospace;'
+font_style='font-family:monospace;font-size:small;'
+header_font_style='font-family:monospace;font-size:medium;'
 
 ok_style='background-color:#66CC66;'
 ko_style='background-color:#CC3300;color:#e8e8e8;'
@@ -89,7 +91,8 @@ def correction_table (student_function,
     c1,c2,c3 = columns
     html = ""
     html += u"<table style='{}'>".format(font_style)
-    html += u"<tr><th>Entrée</th><th>Attendu</th><th>Obtenu</th><th></th></tr>"
+    html += u"<tr style='{}'><th>Entrée</th><th>Attendu</th>"\
+            u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
 
     for dataset in datasets:
         student_dataset = clone_dataset (dataset, copy_mode)
@@ -141,7 +144,8 @@ def exemple_table (function_name,
     c1,c2 = columns
     html = ""
     html += u"<table style='{}'>".format(font_style)
-    html += u"<tr><th>Appel</th><th>Résultat attendu</th></tr>"
+    html += u"<tr style='{}'><th>Appel</th>"\
+            u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
     for dataset in datasets [:how_many]:
         sample_dataset = clone_dataset (dataset, copy_mode)
@@ -174,7 +178,8 @@ def exemple_table_multiline (function_name,
     c1,c2 = columns
     html = ""
     html += u"<table style='{}'>".format(font_style)
-    html += u"<tr><th>Arguments</th><th>Résultat attendu</th></tr>"
+    html += u"<tr style='{}'><th>Arguments</th>"\
+            u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
     sample_dataset = clone_dataset (datasets[dataset_index], copy_mode)
     nb_args = len(arg_names)

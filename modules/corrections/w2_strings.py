@@ -25,7 +25,8 @@ inputs_affichage = [
 
 exo_affichage = Exercice_1arg (affichage, inputs_affichage,
                                correction_columns = (40,30,30),
-                               exemple_columns = (40,40))
+                               exemple_columns = (40,40),
+                               exemple_how_many = 3)
 
 ##############################
 def carre (s):
