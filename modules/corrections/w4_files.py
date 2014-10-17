@@ -26,6 +26,8 @@ def exercice_compliant (fun):
         fun(in_name,out_name)
         # return output's contents
         return file_contents (out_name)
+    wrapped.__name__ = fun.__name__
+    wrapped.__doc__ = fun.__doc__
     return wrapped
 
 ### might end up in exercice if there's enough interest
@@ -71,7 +73,8 @@ def comptage (in_filename, out_filename):
                               format(lineno,nb_words,nb_chars,line))
             output.write("{}:{}:{}\n".format(lineno,total_words, total_chars))
 
-comptage_inputs = [
+# on passe ceci à Exercice donc pas besoin de rajouter les **keywords
+comptage_args = [
     ('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
     ('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
 ]
@@ -82,12 +85,15 @@ class ExerciceComptage (Exercice):
         # call the decorator on the student code
         return Exercice.correction (self, exercice_compliant(student_comptage))
 
-    # on prend le premier jeu d'entrée
+    # on recherche le premier jeu d'entrée, mais dans l'objet
+    # ExerciceKeyworkds le datasets a un tuple avec les **keywords
     def exemple (self):
-        return show_comptage (*self.inputs[0], comptage=comptage, suffix=".ok")
+        ( (input, output), _) = self.datasets[0]
+        return show_comptage (input, output, comptage=comptage, suffix=".ok")
 
     def debug (self, student_comptage):
-        return show_comptage (*self.inputs[0], comptage=student_comptage, suffix="")
+        ( (input, output), _) = self.datasets[0]
+        return show_comptage (input, output, comptage=student_comptage, suffix="")
 
 
-exo_comptage = ExerciceComptage (comptage, comptage_inputs)
+exo_comptage = ExerciceComptage (comptage, comptage_args)
