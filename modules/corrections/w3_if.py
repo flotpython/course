@@ -3,6 +3,7 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 inputs_dispatch1 = [ (a,b) for a in range (3,6) for b in range (7,10) ]
 
+# @BEG@ dispatch1
 def dispatch1 (a,b):
     """dispatch1 as specified in W3-S7-E1"""
     if a%2 == 0 and b%2 == 0:
@@ -13,6 +14,7 @@ def dispatch1 (a,b):
         return (a-1)*b
     else:
         return a*a-b*b
+# @END@
 
 exo_dispatch1 = Exercice (dispatch1, inputs_dispatch1)
 
@@ -24,6 +26,7 @@ inputs_dispatch2 = [
         (a,b,A,B) for a,A in zip(range (3,5), samples_A) for b in range (7,10) for B in samples_B
 ]
 
+# @BEG@ dispatch2
 def dispatch2 (a,b,A,B):
     """dispatch2 as specified in W3-S7-E1"""
     if ( a in A and b in B) or ( a not in A and b not in B):
@@ -32,6 +35,7 @@ def dispatch2 (a,b,A,B):
         return a*(b-1)
     else:
         return (a-1)*b
+# @END@
 
 exo_dispatch2 = Exercice (dispatch2, inputs_dispatch2,
                           correction_columns = (50,30,30))

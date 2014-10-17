@@ -2,8 +2,10 @@
 from exercice import ExerciceKeywords, Exercice
 
 ##############################
+# @BEG@ distance
 def distance (*args):
     return math.sqrt(sum(x**2 for x in args)) if args else 0.
+# @END@
 
 distance_inputs = [
     (),
@@ -16,8 +18,10 @@ distance_inputs = [
 exo_distance = Exercice (distance, distance_inputs, exemple_how_many = 3)
 
 ##############################
+# @BEG@ doubler_premier
 def doubler_premier (f, first, *args):
     return f ( 2 * first, *args)
+# @END@
 
 # marche aussi mais moins élégant
 def doubler_premier_bis (f, *args):
@@ -44,16 +48,10 @@ for i in [3,5]:
 exo_doubler_premier = Exercice (doubler_premier, doubler_premier_inputs, exemple_how_many=4)
 
 ##############################
-# NICETOHAVE
-# le début d'un exo qui pourrait être sympa ou on prolonge l'exo précédent 
-# au passage de variables avec défaut
-# cela dit le framework d'exercice ne permet pas encore cela
-# il faudrait pouvoir décrire les entrées comme un liste de 
-# ( (tuple_positionnels), {dict: defaults} )
-# ce qui demande pas mal de rework dans la classe Exercice
-# standby for now
+# @BEG@ doubler_premier2
 def doubler_premier2 (f, first, *args, **keywords):
     return f ( 2 * first, *args, **keywords)
+# @END@
 
 def addn (x, y=0):
     return x+y
@@ -76,15 +74,17 @@ dataset = ( (muln,1), dict());          doubler_premier2_inputs.append (dataset)
 exo_doubler_premier2 = ExerciceKeywords (doubler_premier2, doubler_premier2_inputs,
                                          exemple_how_many = 5)
 ##############################
-def validation (f, g, argument_tuples):
+# @BEG@ validation2
+def validation2 (f, g, argument_tuples):
     """
 retourne une liste de booleens, un par entree dans entrees
 qui indique si f(*tuple) == g(*tuple)
     """
     return [ f(*tuple) == g(*tuple) for tuple in argument_tuples ]
+# @END@
 
 #################### les jeux de données
-validation_inputs = []
+validation2_inputs = []
 
 ########## dataset #1
 from math import factorial
@@ -97,7 +97,7 @@ def fact (n):
     "une version de factoriel à base de reduce"
     return reduce (mul, range(1,n+1), 1)
 
-validation_inputs.append ( (fact, factorial, fact_inputs) )
+validation2_inputs.append ( (fact, factorial, fact_inputs) )
 
 ########## dataset #2
 def broken_fact (n):
@@ -105,7 +105,7 @@ def broken_fact (n):
         else 1 if n == 1 \
              else n*fact(n-1)
 
-validation_inputs.append ( (broken_fact, factorial, fact_inputs) )
+validation2_inputs.append ( (broken_fact, factorial, fact_inputs) )
 
 ########## dataset #3
 from operator import add
@@ -116,7 +116,7 @@ add_inputs = [ (2,3), (0,4), (4,5) ]
 def plus (x1, x2): 
     return x1+x2
 
-validation_inputs.append ( (add, plus, add_inputs) )
+validation2_inputs.append ( (add, plus, add_inputs) )
 
 ########## dataset #4
 def plus_broken (x1, x2):
@@ -125,9 +125,9 @@ def plus_broken (x1, x2):
     else:
         return 1 + x2
 
-validation_inputs.append ( (add, plus_broken, add_inputs) )
+validation2_inputs.append ( (add, plus_broken, add_inputs) )
 
 #################### the exercice instance
-exo_validation = Exercice (validation, validation_inputs, 
-                           correction_columns = (50,40,40))
+exo_validation2 = Exercice (validation2, validation2_inputs, 
+                            correction_columns = (50,40,40))
 

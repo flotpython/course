@@ -1,6 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+# @BEG@ merge
 def merge (extended, abbreviated):
     result = {}
     for ship in extended:
@@ -9,6 +10,7 @@ def merge (extended, abbreviated):
     for id, latitude, longitude, timestamp in abbreviated:
         result [id] . append ( (latitude, longitude, timestamp) )
     return result
+# @END@
 
 def merge2 (extended_data, abbreviated_data):
     result = {}

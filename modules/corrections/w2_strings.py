@@ -1,6 +1,8 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+
+# @BEG@ affichage
 def affichage (s):
     s=s.replace(' ', '').replace('\t','')
     mots = s.split(',')
@@ -12,6 +14,7 @@ def affichage (s):
     if len(mots)>=2:
         age = mots.pop(1)
     return "N:>{}< P:>{}< A:>{}<".format(nom,prenom,age)
+# @END@
 
 inputs_affichage = [
     "Joseph, Dupont",
@@ -29,10 +32,12 @@ exo_affichage = Exercice_1arg (affichage, inputs_affichage,
                                exemple_how_many = 3)
 
 ##############################
+# @BEG@ carre
 def carre (s):
     s=s.replace(' ', '').replace('\t','')
     entiers = [ int(token) for token in s.split(";") if token ]
     return ":".join ( [ "{}".format(entier**2) for entier in entiers ] )
+# @END@
 
 inputs_carre = [
     "1;2;3",

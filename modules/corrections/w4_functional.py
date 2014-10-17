@@ -4,6 +4,7 @@ from exercice import Exercice, Exercice_1arg
 ##############################
 from operator import mul
 
+# @BEG@ numbers
 def numbers (liste):
     """
 retourne un tuple contenant
@@ -17,6 +18,7 @@ des elements de la liste
              reduce(mul,liste,1),
              min(liste),
              max(liste))
+# @END@
 
 from random import randint
 
@@ -31,12 +33,14 @@ numbers_inputs = [ numbers_input() for i in xrange (3) ]
 exo_numbers = Exercice_1arg (numbers, numbers_inputs)
 
 ##############################
+# @BEG@ validation
 def validation (f, g, entrees):
     """
 retourne une liste de booleens, un par entree dans entrees
 qui indique si f(entree) == g(entree)
     """
     return [ f(entree) == g(entree) for entree in entrees ]
+# @END@
 
 validation_inputs = []
 

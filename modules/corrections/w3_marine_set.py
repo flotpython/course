@@ -1,6 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+# @BEG@ diff
 def diff (extended, abbreviated):
     extended_ids =          { ship[0] for ship in extended }
     abbreviated_ids =       { ship[0] for ship in abbreviated }
@@ -10,6 +11,7 @@ def diff (extended, abbreviated):
     both_names =            { ship[4] for ship in extended if ship[0] in both_ids }
     extended_only_names =   { ship[4] for ship in extended if ship[0] in extended_only_ids }
     return extended_only_names, both_names, abbreviated_only_ids
+# @END@
 
 # xxx celui-ci serait + élégant mais ne marche pas et je ne comprends pas pourquoi...
 def diff2 (extended, abbreviated):

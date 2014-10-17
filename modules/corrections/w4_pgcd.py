@@ -1,6 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+# @BEG@ pgcd
 def pgcd (a,b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # on suppose que a >= b, il faut inverser sinon
@@ -11,6 +12,7 @@ def pgcd (a,b):
         if r == 0:
             return b
         a,b = b,r
+# @END@
 
 inputs_pgcd = [
     (36 * 2**i * 3**j * 5 **k, 36 * 2**j * 3 ** k * 5 ** i)
