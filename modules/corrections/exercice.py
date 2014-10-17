@@ -8,6 +8,12 @@ import traceback
 import copy
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
+# for logging
+import os
+import os.path
+import pwd
+import time
+
 DEBUG=False
 #DEBUG=True
 
@@ -79,6 +85,20 @@ ko_style='background-color:#CC3300;color:#e8e8e8;'
 # xxx should go away eventually
 default_table_columns = (30, 40, 40)
 
+def log_correction (function, success):
+    try:
+        uid = os.getuid()
+        md5 = pwd.getpwuid(uid).pw_name
+        now = time.strftime("%D-%H:%M",time.localtime())
+        logname = os.path.join(os.getenv("HOME"),".correction")
+        function_name = function.__name__
+        message = "OK" if success else "KO"
+        with open (logname, 'a') as log:
+            line = "{now} {uid} {md5} {function_name} {message}\n".format(**locals())
+            log.write(line)
+    except:
+        pass
+
 def correction_table (student_function,
                       correct_function,
                       datasets,
@@ -94,6 +114,7 @@ def correction_table (student_function,
     html += u"<tr style='{}'><th>Entrée</th><th>Attendu</th>"\
             u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
 
+    overall = True
     for dataset in datasets:
         student_dataset = clone_dataset (dataset, copy_mode)
         correct_dataset = clone_dataset (dataset, copy_mode)
@@ -115,6 +136,8 @@ def correction_table (student_function,
             student_result = e
         # compare 
         ok = expected == student_result
+        if not ok:
+            overall = False
         # render that run
         result_cell = '<td style="background-color:green;">'
         message = 'OK' if ok else 'KO'
@@ -126,6 +149,7 @@ def correction_table (student_function,
                        truncate_value(student_result,c3),
                        message)
     html += "</table>"
+    log_correction (correct_function, overall)
     return HTML(html)
 
 # see how to use in exo_rendering.py
