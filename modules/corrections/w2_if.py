@@ -2,8 +2,10 @@
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 ####################
+# @BEG@ divisible
 def divisible (a,b): 
     return a%b==0 or b%a==0
+# @END@
 
 inputs_divisible = [
     (20,10),
@@ -23,6 +25,7 @@ inputs_divisible = [
 exo_divisible = Exercice (divisible, inputs_divisible)
 
 ####################
+# @BEG@ spam
 def spam (l):
     if not l:
         pass
@@ -31,6 +34,7 @@ def spam (l):
     else:
         l.pop()
     return l
+# @END@
 
 inputs_spam = [
     [],

@@ -1,11 +1,13 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+# @BEG@ multi_tri
 def multi_tri (listes):
     "trie toutes les sous-listes"
     for liste in listes:
         liste.sort()
     return listes
+# @END@
 
 inputs_multi_tri = [
     [ [ 40, 12, 25], [ 'spam', 'egg', 'bacon' ], ], 
@@ -18,12 +20,14 @@ exo_multi_tri = Exercice_1arg (multi_tri, inputs_multi_tri,
                                exemple_columns=(60,60))
                                
 ####################
+# @BEG@ multi_tri_reverse
 def multi_tri_reverse (listes, reverses):
     """trie toutes les sous listes, dans une direction
     precisée par le second argument"""
     for liste, reverse in zip(listes, reverses):
         liste.sort(reverse=reverse)
     return listes
+# @END@
 
 inputs_multi_tri_reverse = [ 
     ( [ [1,2], [3,4] ], [ True, False] ),
@@ -40,15 +44,15 @@ exo_multi_tri_reverse = Exercice (multi_tri_reverse, inputs_multi_tri_reverse,
                                   exemple_how_many = 2)
 
 ####################
+# @BEG@ liste_racines
 from math import e, pi
 def liste_racines (p):
     "retourne la liste des racines p-ièmes de l'unité"
     resultat = []
     for n in range(p):
         resultat.append(e**((2*pi*1j*n)/p))
-        # ou pour la variante
-        #resultat.append(n*(n+1)/2)
     return resultat
+# @END@
 
 inputs_liste_racines = [ 2,3,4 ] 
 
@@ -56,6 +60,7 @@ exo_liste_racines = Exercice_1arg (liste_racines, inputs_liste_racines,
                                    correction_columns=(7,40,40))
 
 ####################
+# @BEG@ produit_scalaire
 def produit_scalaire (X,Y):
     """retourne le produit scalaire de deux listes de même taille"""
     # la dimension
@@ -67,6 +72,7 @@ def produit_scalaire (X,Y):
         scalaire += X[i] * Y[i]
     # ne pas oublier
     return scalaire
+# @END@
 
 from fractions import Fraction
 

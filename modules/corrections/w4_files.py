@@ -57,6 +57,7 @@ def show_comptage (in_name, out_name, comptage, suffix):
 ####################
 # comptage ()
 @exercice_compliant
+# @BEG@ comptage
 def comptage (in_filename, out_filename):
     with open(in_filename) as input:
         with open(out_filename,"w") as output:
@@ -72,6 +73,7 @@ def comptage (in_filename, out_filename):
                 output.write ("{}:{}:{}:{}".\
                               format(lineno,nb_words,nb_chars,line))
             output.write("{}:{}:{}\n".format(lineno,total_words, total_chars))
+# @END@
 
 # on passe ceci à Exercice donc pas besoin de rajouter les **keywords
 comptage_args = [
