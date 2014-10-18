@@ -2,7 +2,7 @@
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 
-# @BEG@ affichage
+# @BEG@ 2 8 affichage
 def affichage (s):
     s=s.replace(' ', '').replace('\t','')
     mots = s.split(',')
@@ -32,7 +32,7 @@ exo_affichage = Exercice_1arg (affichage, inputs_affichage,
                                exemple_how_many = 3)
 
 ##############################
-# @BEG@ carre
+# @BEG@ 2 8 carre
 def carre (s):
     s=s.replace(' ', '').replace('\t','')
     entiers = [ int(token) for token in s.split(";") if token ]

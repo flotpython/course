@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-# @BEG@ merge
+# @BEG@ 3 2 merge
 def merge (extended, abbreviated):
     result = {}
     for ship in extended:

@@ -2,7 +2,7 @@
 from exercice import ExerciceKeywords, Exercice
 
 ##############################
-# @BEG@ distance
+# @BEG@ 4 8 distance
 def distance (*args):
     return math.sqrt(sum(x**2 for x in args)) if args else 0.
 # @END@
@@ -18,7 +18,7 @@ distance_inputs = [
 exo_distance = Exercice (distance, distance_inputs, exemple_how_many = 3)
 
 ##############################
-# @BEG@ doubler_premier
+# @BEG@ 4 8 doubler_premier
 def doubler_premier (f, first, *args):
     return f ( 2 * first, *args)
 # @END@
@@ -48,7 +48,7 @@ for i in [3,5]:
 exo_doubler_premier = Exercice (doubler_premier, doubler_premier_inputs, exemple_how_many=4)
 
 ##############################
-# @BEG@ doubler_premier2
+# @BEG@ 4 8 doubler_premier2
 def doubler_premier2 (f, first, *args, **keywords):
     return f ( 2 * first, *args, **keywords)
 # @END@
@@ -74,7 +74,7 @@ dataset = ( (muln,1), dict());          doubler_premier2_inputs.append (dataset)
 exo_doubler_premier2 = ExerciceKeywords (doubler_premier2, doubler_premier2_inputs,
                                          exemple_how_many = 5)
 ##############################
-# @BEG@ validation2
+# @BEG@ 4 8 validation2
 def validation2 (f, g, argument_tuples):
     """
 retourne une liste de booleens, un par entree dans entrees

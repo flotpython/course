@@ -2,7 +2,7 @@
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 ##############################
-# @BEG@ aplatir
+# @BEG@ 4 4 aplatir
 def aplatir (conteneurs):
     "retourne une liste des éléments des éléments de conteneurs"
     return [element for conteneur in conteneurs for element in conteneur]
@@ -21,7 +21,7 @@ aplatir_inputs = [
 exo_aplatir = Exercice_1arg (aplatir, aplatir_inputs, exemple_how_many=0)
 
 ##############################
-# @BEG@ alternat
+# @BEG@ 4 4 alternat
 def alternat (l1, l2):
     return aplatir (zip (l1,l2))
 # @END@
@@ -35,7 +35,7 @@ alternat_inputs = [
 exo_alternat = Exercice (alternat, alternat_inputs, exemple_how_many=2)
 
 ##############################
-# @BEG@ intersect
+# @BEG@ 4 4 intersect
 def intersect (A,B):
     # l'ensemble des entiers dans un des ensembles
     def values (S):

@@ -14,6 +14,8 @@ corriges.tex: $(SOURCES)
 	$(TOOL) -o $@ $(SOURCES)
 corriges.pdf: corriges.tex
 	pdflatex corriges.tex
+clean::
+	rm -f corriges.tex corriges.pdf
 
 define week_target
 corriges-w$(1).tex: $(W$(1))

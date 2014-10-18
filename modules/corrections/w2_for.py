@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-# @BEG@ multi_tri
+# @BEG@ 2 7 multi_tri
 def multi_tri (listes):
     "trie toutes les sous-listes"
     for liste in listes:
@@ -20,7 +20,7 @@ exo_multi_tri = Exercice_1arg (multi_tri, inputs_multi_tri,
                                exemple_columns=(60,60))
                                
 ####################
-# @BEG@ multi_tri_reverse
+# @BEG@ 2 7 multi_tri_reverse
 def multi_tri_reverse (listes, reverses):
     """trie toutes les sous listes, dans une direction
     precisée par le second argument"""
@@ -44,7 +44,7 @@ exo_multi_tri_reverse = Exercice (multi_tri_reverse, inputs_multi_tri_reverse,
                                   exemple_how_many = 2)
 
 ####################
-# @BEG@ liste_racines
+# @BEG@ 2 7 liste_racines
 from math import e, pi
 def liste_racines (p):
     "retourne la liste des racines p-ièmes de l'unité"
@@ -60,7 +60,7 @@ exo_liste_racines = Exercice_1arg (liste_racines, inputs_liste_racines,
                                    correction_columns=(7,40,40))
 
 ####################
-# @BEG@ produit_scalaire
+# @BEG@ 2 7 produit_scalaire
 def produit_scalaire (X,Y):
     """retourne le produit scalaire de deux listes de même taille"""
     # la dimension

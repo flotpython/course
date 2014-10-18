@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-# @BEG@ diff
+# @BEG@ 3 3 diff
 def diff (extended, abbreviated):
     extended_ids =          { ship[0] for ship in extended }
     abbreviated_ids =       { ship[0] for ship in abbreviated }

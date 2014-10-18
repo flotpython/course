@@ -5,7 +5,7 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 # example how to use
 # 
 
-# @BEG@ curve
+# @BEG@ 0 0 curve
 def curve (a,b):
     return a ** 2 + 3 * a * b + 12
 # @END@

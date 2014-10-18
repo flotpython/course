@@ -57,7 +57,7 @@ def show_comptage (in_name, out_name, comptage, suffix):
 ####################
 # comptage ()
 @exercice_compliant
-# @BEG@ comptage
+# @BEG@ 4 1 comptage
 def comptage (in_filename, out_filename):
     with open(in_filename) as input:
         with open(out_filename,"w") as output:

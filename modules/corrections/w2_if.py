@@ -2,7 +2,7 @@
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 ####################
-# @BEG@ divisible
+# @BEG@ 2 7 divisible
 def divisible (a,b): 
     return a%b==0 or b%a==0
 # @END@
@@ -25,7 +25,7 @@ inputs_divisible = [
 exo_divisible = Exercice (divisible, inputs_divisible)
 
 ####################
-# @BEG@ spam
+# @BEG@ 2 7 spam
 def spam (l):
     if not l:
         pass

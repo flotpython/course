@@ -4,7 +4,7 @@ from exercice import Exercice, Exercice_1arg
 ##############################
 from operator import mul
 
-# @BEG@ numbers
+# @BEG@ 4 3 numbers
 def numbers (liste):
     """
 retourne un tuple contenant
@@ -33,7 +33,7 @@ numbers_inputs = [ numbers_input() for i in xrange (3) ]
 exo_numbers = Exercice_1arg (numbers, numbers_inputs)
 
 ##############################
-# @BEG@ validation
+# @BEG@ 4 3 validation
 def validation (f, g, entrees):
     """
 retourne une liste de booleens, un par entree dans entrees

@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-# @BEG@ decode_zen
+# @BEG@ 2 5 decode_zen
 def decode_zen (the_this_module):
     encoded = the_this_module.s
     code = the_this_module.d

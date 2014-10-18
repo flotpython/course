@@ -31,6 +31,6 @@ exo_inconnue = ExerciceInconnue (connue, composite)
 
 ####################
 # la solution est bien sûr
-# @BEG@ composite
+# @BEG@ 2 3 composite
 inconnue = composite [ len(connue) : len(composite)-len(connue) ]
 # @END@

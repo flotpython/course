@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
-# @BEG@ pgcd
+# @BEG@ 4 2 pgcd
 def pgcd (a,b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # on suppose que a >= b, il faut inverser sinon
