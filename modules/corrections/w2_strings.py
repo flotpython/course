@@ -4,15 +4,26 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 2 8 affichage
 def affichage (s):
+    # pour ignorer les espaces et les tabulations 
+    # le plus simple est de les enlever
     s=s.replace(' ', '').replace('\t','')
+    # la liste des mots séparés par une virgule 
+    # nous est donnée par un simple appel à split
     mots = s.split(',')
+    # si on n'a même pas deux mots, on retourne None
     if len (mots) < 2:
         return None
+    # maintenant qu'on sait qu'on a deux mots
+    # on peut extraire le prénom et le nom
     prenom = mots.pop(0)
     nom = mots.pop(0)
+    # on veut afficher "??" si l'âge est inconnu
     age = "??"
+    # mais si l'âge est précisé dans la ligne
     if len(mots)>=2:
+        # alors on le prend
         age = mots.pop(1)
+    # il ne reste plus qu'à formater
     return "N:>{}< P:>{}< A:>{}<".format(nom,prenom,age)
 # @END@
 
@@ -34,8 +45,16 @@ exo_affichage = Exercice_1arg (affichage, inputs_affichage,
 ##############################
 # @BEG@ 2 8 carre
 def carre (s):
+    # on enlève les espaces et les tabulations
     s=s.replace(' ', '').replace('\t','')
+    # la ligne suivante fait tout le travail
+    # d'abord on appelle split() pour découper selon les ';'
+    # dans le cas où on a des ';' en trop, on obtient dans le 
+    #    résultat des split un 'token' vide, que l'on ignore 
+    #    ici avec le clause 'if token'
+    # enfin on convertit tous les tokens restants en entiers
     entiers = [ int(token) for token in s.split(";") if token ]
+    # il n'y a plus qu'à mettre au carré, et à recoudre (join) avec ':'
     return ":".join ( [ "{}".format(entier**2) for entier in entiers ] )
 # @END@
 
@@ -46,4 +65,4 @@ inputs_carre = [
     "; -12 ; ; -23; 1 ;;\t",
 ]
 
-exo_carre = Exercice_1arg (carre, inputs_carre)
+exo_carre = Exercice_1arg (carre, inputs_carre, exemple_how_many=0)
