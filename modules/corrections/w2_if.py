@@ -4,10 +4,18 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 ####################
 # @BEG@ 2 7 divisible
 def divisible (a,b): 
+    "renvoie True si un des deux arguments divise l'autre"
+    # b divise a si et seulement si le reste 
+    # de la division de a par b est nul
+    # et il faut regarder aussi si a divise b
     return a%b==0 or b%a==0
 # @END@
 
 inputs_divisible = [
+    (10,1),
+    (10,-1),
+    (1,10),
+    (1,-10),
     (20,10),
     (200,-10),
     (-200,10),

@@ -32,5 +32,9 @@ exo_inconnue = ExerciceInconnue (connue, composite)
 ####################
 # la solution est bien sûr
 # @BEG@ 2 3 composite
+# Pour calculer inconnue, on extrait une sous-chaine de composite
+# qui commence a l'index len(connue)
+# qui se termine a l'index len(composite)-len(connue)
+# ce qui donne en utilisant une slice
 inconnue = composite [ len(connue) : len(composite)-len(connue) ]
 # @END@
