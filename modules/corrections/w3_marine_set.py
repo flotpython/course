@@ -3,13 +3,34 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 3 3 diff
 def diff (extended, abbreviated):
-    extended_ids =          { ship[0] for ship in extended }
-    abbreviated_ids =       { ship[0] for ship in abbreviated }
-    abbreviated_only_ids =  abbreviated_ids - extended_ids
-    both_ids =              abbreviated_ids & extended_ids
-    extended_only_ids =     extended_ids - abbreviated_ids
-    both_names =            { ship[4] for ship in extended if ship[0] in both_ids }
-    extended_only_names =   { ship[4] for ship in extended if ship[0] in extended_only_ids }
+    """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
+(*) les noms des bateaux seulement dans extended
+(*) les noms des bateaux présents dans les deux listes
+(*) les ids des bateaux seulement dans abbreviated
+    """
+    # on n'utilise que des ensembles dans tous l'exercice
+    # les ids de tous les bateaux dans extended
+    # en utilisant une compréhension d'ensemble
+    extended_ids =         { ship[0] for ship in extended }
+    # les ids de tous les bateaux dans abbreviated
+    # en utilisant une compréhension d'ensemble
+    abbreviated_ids =      { ship[0] for ship in abbreviated }
+    # les ids des bateaux seulement dans abbreviated
+    # en utilisant la difference des ensembles
+    abbreviated_only_ids = abbreviated_ids - extended_ids
+    # les ids des bateaux dans les deux listes
+    # en utilisant l'intersection des ensembles
+    both_ids =             abbreviated_ids & extended_ids
+    # les ids des bateaux seulement dans extended
+    # en utilisant la difference des ensembles
+    extended_only_ids =    extended_ids - abbreviated_ids
+    # on recalcule les noms pour les deux catégories où c'est possible
+    # par une compréhension d'ensemble
+    both_names = \
+          { ship[4] for ship in extended if ship[0] in both_ids }
+    extended_only_names = \
+          { ship[4] for ship in extended if ship[0] in extended_only_ids }
+    # enfin on retourne les 3 ensembles sous forme d'un tuple
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
 
@@ -26,12 +47,12 @@ import copy
 class ExerciceDiff (Exercice):
     def correction (self, student_diff, extended, abbreviated):
         # start with the full dataset
-        self.inputs = [ (extended, abbreviated) ]
+        self.datasets = [ ((extended, abbreviated), {}) ]
         # make up a samples by taking only <sample> entries in each
         for sample in [ 10, 20, 40]:
             extended_sample = copy.deepcopy (extended[:sample])
             abbreviated_sample = copy.deepcopy (abbreviated[:sample])
-            self.inputs.append ( (extended_sample, abbreviated_sample ) )
+            self.datasets.append ( ((extended_sample, abbreviated_sample), {}) )
         return Exercice.correction (self,student_diff)
 
     def resultat (self, extended, abbreviated):

@@ -59,19 +59,35 @@ def show_comptage (in_name, out_name, comptage, suffix):
 @exercice_compliant
 # @BEG@ 4 1 comptage
 def comptage (in_filename, out_filename):
+    """
+retranscrit le fichier in_filename dans le fichier out_filename
+en ajoutant des annotations sur les nombres de lignes, de mots
+et de caractères
+    """
+    # on ouvre le fichier d'entrée en lecture
+    # on aurait pu mettre open (in_filename, 'r')
     with open(in_filename) as input:
+        # on ouvre la sortie en écriture
         with open(out_filename,"w") as output:
+            # initialisations
             lineno = 0
             total_words = 0
             total_chars = 0
+            # pour toutes les lignes du fichier d'entrée
             for line in input:
+                # on maintient le nombre de lignes
+                # qui est aussi la ligne courante
                 lineno += 1
+                # autant de mots que d'éléments dans split()
                 nb_words = len(line.split())
                 total_words += nb_words
+                # autant de caractères que d'éléments dans la ligne
                 nb_chars = len(line)
                 total_chars += nb_chars
+                # on écrit la ligne de sortie
                 output.write ("{}:{}:{}:{}".\
                               format(lineno,nb_words,nb_chars,line))
+            # on écrit la ligne de synthèse
             output.write("{}:{}:{}\n".format(lineno,total_words, total_chars))
 # @END@
 

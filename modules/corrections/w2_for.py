@@ -61,7 +61,7 @@ def liste_racines (p):
 
 # Il est tout à fait possible aussi de contruire les racines pas à pas
 # C'est un peu moins élégant mais ça fonctionne très bien aussi
-def liste_racines_2 (p):
+def liste_racines_bis (p):
     "retourne la liste des racines p-ièmes de l'unité"
     # on va construire le résultat petit à petit
     # en partant d'une liste vide
@@ -96,12 +96,12 @@ def produit_scalaire (X,Y):
 # (que nous n'avons pas encore vue, nous la verrons en semaine 4)
 # en voici toutefois un avant-goût: la fonction sum est très pratique
 # pour faire la somme de toute une liste de valeurs
-def produit_scalaire_2 (X,Y):
+def produit_scalaire_bis (X,Y):
     """retourne le produit scalaire de deux listes de même taille"""
     return sum ( [x*y for x,y in zip (X,Y) ] )
 # @END@
 
-def produit_scalaire_3 (X,Y):
+def produit_scalaire_ter (X,Y):
     scalaire = 0
     n = len(X)
     for i in range (n):

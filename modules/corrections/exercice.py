@@ -206,11 +206,12 @@ def exemple_table_multiline (function_name,
             u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
     sample_dataset = clone_dataset (datasets[dataset_index], copy_mode)
+    args, keywords = sample_dataset
     nb_args = len(arg_names)
-    for index,arg,name in zip (range(nb_args), sample_dataset, arg_names):
+    for index,arg,name in zip (range(nb_args), args, arg_names):
         rendered_input = "{}={}".format (name,truncate_value(arg,c1))
         if index==0:
-            expected = correct_function (*sample_dataset)
+            expected = correct_function (*args, **keywords)
             rendered_expected = truncate_value (expected, c2)
         else:
             rendered_expected = ""

@@ -11,7 +11,7 @@ SOURCES = $(foreach week,$(WEEKS),$(W$(week)))
 all: $(foreach week, $(WEEKS), corriges-w$(week).tex) corriges.tex
 
 corriges.tex: $(SOURCES) $(TOOL)
-	$(TOOL) -o $@ -t "Tous les corrigés" $(SOURCES)
+	$(TOOL) -o $@ -t "Tous les corrigés" -c $(SOURCES)
 corriges.pdf: corriges.tex
 	pdflatex corriges.tex
 clean::

@@ -7,10 +7,14 @@ def pgcd (a,b):
     # on suppose que a >= b, il faut inverser sinon
     if b > a : 
         a,b = b,a
+    # boucle sans fin
     while True:
+        # on calcule le reste 
         r = a % b
+        # si le reste est nul, on a terminé
         if r == 0:
             return b
+        # sinon on passe à l'itération suivante
         a,b = b,r
 # @END@
 

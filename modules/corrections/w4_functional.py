@@ -2,9 +2,9 @@
 from exercice import Exercice, Exercice_1arg
 
 ##############################
+# @BEG@ 4 3 numbers
 from operator import mul
 
-# @BEG@ 4 3 numbers
 def numbers (liste):
     """
 retourne un tuple contenant
@@ -14,10 +14,16 @@ retourne un tuple contenant
  le maximum
 des elements de la liste
     """
-    return ( sum(liste),
-             reduce(mul,liste,1),
-             min(liste),
-             max(liste))
+    
+    return ( 
+        # la builtin 'sum' renvoie la somme
+        sum(liste),
+        # pour la multiplication, reduce est nécessaire
+        reduce(mul,liste,1),
+        # les builtin 'min' et 'max' font ce qu'on veut aussi
+        min(liste),
+        max(liste)
+    )
 # @END@
 
 from random import randint
@@ -39,6 +45,9 @@ def validation (f, g, entrees):
 retourne une liste de booleens, un par entree dans entrees
 qui indique si f(entree) == g(entree)
     """
+    # on vérifie pour chaque entrée si f et g retournent
+    # des résultats égaux avec ==
+    # et on assemble le tout avec une comprehension de liste 
     return [ f(entree) == g(entree) for entree in entrees ]
 # @END@
 
