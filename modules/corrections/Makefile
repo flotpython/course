@@ -10,16 +10,16 @@ SOURCES = $(foreach week,$(WEEKS),$(W$(week)))
 
 all: $(foreach week, $(WEEKS), corriges-w$(week).tex) corriges.tex
 
-corriges.tex: $(SOURCES) 
-	$(TOOL) -o $@ $(SOURCES)
+corriges.tex: $(SOURCES) $(TOOL)
+	$(TOOL) -o $@ -t "Tous les corrigés" $(SOURCES)
 corriges.pdf: corriges.tex
 	pdflatex corriges.tex
 clean::
 	rm -f corriges.tex corriges.pdf
 
 define week_target
-corriges-w$(1).tex: $(W$(1))
-	$(TOOL) -o corriges-w$(1).tex $(W$(1))
+corriges-w$(1).tex: $(W$(1)) $(TOOL)
+	$(TOOL) -o corriges-w$(1).tex -t "Corrigés de la semaine $(1)" $(W$(1))
 
 corriges-w$(1).pdf: corriges-w$(1).tex
 	pdflatex corriges-w$(1).tex
