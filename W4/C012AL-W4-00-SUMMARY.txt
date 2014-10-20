@@ -11,8 +11,9 @@ C012AL-W4-S1.txt
 
 ## Compléments Vidéo 1
 OK C012AL-W4-S1-C1-file-extras.ipynb 
-OKC012AL-W4-S1-C2-stdinouterr.ipynb : 
+ONGOING C012AL-W4-S1-C2-file-utils.ipynb
 OK C012AL-W4-S1-C3-json.ipynb : parler de json, pickle, csv ...
+OK C012AL-W4-S1-C4-stdinouterr.ipynb : 
 
 DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
 Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
