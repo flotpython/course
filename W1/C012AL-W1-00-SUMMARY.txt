@@ -28,6 +28,7 @@ OK C012AL-W1-S2-C1-accents.ipynb -- commencer à parler des accents
 
 ## Compléments Vidéo 3
 OK C012AL-W1-S3-C1-notebooks.ipynb : expliquer le fonctionnement des notebooks
+NICETOHAVE quelques mots sur la charge et le timeout à 1h
 OK C012AL-W1-S3-C2-notebook-vs-interpreter.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
 OK C012AL-W1-S3-C3-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 

@@ -106,15 +106,28 @@ C012AL-W5-S4.txt
 
 ## Compléments Vidéo 4
 
-TODO C012AL-W5-S4-C1-classes.ipynb
+ONGOING C012AL-W5-S4-C1-classes.ipynb
 basique
 un premier exemple de classe sur un cas concret
-la classe Point, __init__, comment on crée un objet,
+la classe Matrix2, __init__, comment on crée un objet,
 comment on définit une méthode sur la classe et qu'on l'appelle sur un objet.
+montrer docstring
 
-intermédiaire - homework needed
-* introduire la notion de variables privées _var
-(privée et pas d'import par from mod import *), __var__ 
+
+enregistrements (record/struct)
+https://docs.python.org/2/tutorial/classes.html#odds-and-ends
+
+TODO C012AL-W5-S4-C2-classes-instances.ipynb
+intermédiaire
+montrer les attributs de classe et les attributs d'instance sur un exemple
+par exemple Matrix2.template pour une mise en forme..
+ou trouver mieux
+monter qu'on peut faire self.template aussi bien que Matrix2.template
+
+intermédiaire
+montrer que la classe est un objet
+variables commençant par _ : https://docs.python.org/2/tutorial/classes.html#tut-private
+variables en __foo__ : faire une référence à la vidéo 6
 
 ## Quizz Vidéo 4
 
