@@ -1,5 +1,5 @@
 <hr/>
-Passage d'arguments par défaut (1)
+Passage d'arguments par défaut
 =====
 
 Quelles sont les manières correctes de déclarer un argument var par défaut dans une fonction.
@@ -55,7 +55,7 @@ La proposition 5 est incorrecte, on ne peut pas dupliquer un argument dans l'ent
 [explanation]
 
 <hr/>
-Unpacking des arguments (2)
+Unpacking des arguments
 =====
 
 Comment passer les éléments de la liste suivante
