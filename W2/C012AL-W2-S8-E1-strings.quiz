@@ -8,7 +8,6 @@ On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on
 <pre>chaine = "abc"  => chaine = "a-c"</pre>
 <pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
-<br/>
 Comment peut-on faire
 
 [ ] chaine [ len(chaine)/2 ] = "-"
@@ -34,7 +33,6 @@ Strings (2)
 <pre>chaine = "a"  => resultat = "a"</pre>
 <pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
 
-<br/>
 Comment peut-on faire (plusieurs réponses possibles)
 
 [x] "-".join(chaine)
@@ -59,7 +57,6 @@ Dans du code nouveau on veut mettre en forme un message à partir de 3 variables 
 <pre>nom = "Durand",  no_secu = None, age = "12" 
      => message = "Durand, 12 ans, pas de no de SS"</pre>
 
-<br/>
 On envisage plusieurs solutions pour réaliser cela
 
 Solution 1
@@ -72,7 +69,7 @@ message = "{nom}, {age} ans, {secu}".\
 Solution 2
 <pre>
 message = "{}, {} ans, {}".\
-	  format(nom, age, no_secu if no_secu else "pas de no de SS")
+          format(nom, age, no_secu if no_secu else "pas de no de SS")
 </pre>
 
 Solution 3
@@ -83,12 +80,14 @@ message = "%s, %s ans, %s".\
 
 Solution 4
 <pre>
-message = nom + ", " + age + " ans, " + no_secu if no_secu else "pas de no de SS" 
+message = nom + ", " + age + " ans, " +\
+          no_secu if no_secu else "pas de no de SS" 
 </pre>
 
 Solution 5
 <pre>
-message = "%s, %s, %s" % (nom, age, no_secu if no_secu else "pas de no de SS" )
+message = "%s, %s, %s" % (nom, age, 
+                          no_secu if no_secu else "pas de no de SS" )
 </pre>
 
 Quelle(s) solution(s) est(sont) correcte(s) ?
