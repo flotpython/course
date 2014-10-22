@@ -111,7 +111,7 @@ OK C012AL-W4-S6-C1-builtin.ipynb
 OK C012AL-W4-S6-C2-unbound-local.ipynb
 
 ## Quizz Vidéo 6
-TODO: (arnaud?) nombreux exemple de scope avec fonctions englobantes. 
+OK C012AL-W4-S6-E1.quiz
 
 ## Exercices Vidéo 6
 
@@ -128,7 +128,7 @@ montrer que global crée une variable global si elle n'existe pas encore.
 je trouve qu'on en a déjà bcp trop dit sur `global`
 
 ## Quizz Vidéo 7
-TODO: (arnaud?) des quiz sur cette vidéo
+OK C012AL-W4-S7-E1.quiz
 
 ## Exercices Vidéo 7
 
@@ -149,7 +149,7 @@ et introduire le module argparse.
 
 ## Quizz Vidéo 8
 
-TODO : un petit quiz (arnaud?)
+OK C012AL-W4-S8-E1.quiz
 
 ## Exercices Vidéo 8
 
