@@ -1,0 +1,77 @@
+<hr/>
+Définition du scope d'une variable (1)
+=====
+
+Que détermine le scope d'une variable
+
+(x) la portée d'une variable
+( ) la référence d'un objet
+( ) l'objet référencé par la variable
+
+[explananation]
+On appelle l'accessibilité de la valeur d'une variable le scope (ou la portée)
+de cette variable. 
+[explananation]
+
+<hr/>
+Portée (scope) des variables (2)
+=====
+
+Que va afficher : print f() ?
+
+<pre>
+var = 10
+def f():
+    var = 20
+    def g():
+        return var
+    return g()
+print f()	
+</pre>
+
+( ) 10
+(x) 20
+( ) None
+( ) Une exception
+
+[explananation]
+Suivant la règle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
+
+Si ce résultat vous semble clair et que vous avez déjà lu l'errata de la vidéo précédente, vous pouvez passer l'explication suivante, sinon, 
+lisez là attentivement.
+
+Cette semaine, nous considérons deux notions de blocs
+de code : le bloc de code d'un module et le bloc de code d'une fonction (nous
+verrons en semaine 5 un nouveau bloc de code, celui des classes). 
+
+Une variable est soit affectée, on lui donne alors une valeur qui est l'objet
+référencé par la variable, soit référencée, on utilise alors la valeur d'une 
+variable précédemment affectée. Regardons maintenant le lien entre
+ces notions d'affectation et de référencement avec les notions de bloc
+de code et de scope.  
+
+Une variable qui est affectée dans un bloc de code devient locale à ce bloc. 
+On dit que la variable est locale à la fonction ou au module et 
+par définition, une variable locale à un module est appelée une variable globale. 
+
+En résumé, une variable affectée dans une fonction est locale à la fonction. 
+La valeur de cette variable sera accessible à toutes les instructions dans
+le bloc de code de cette fonction et à toutes les instructions dans les blocs
+de code des fonctions définies dans cette fonction. Une variable affectée dans 
+un module (en dehors d'une fonction) est une variable globale du module. 
+La valeur de cette variable sera accessible à toutes les instructions dans le 
+module, y compris aux instructions dans les blocs de code des fonctions du module. 
+
+On appelle l'accessibilité de la valeur d'une variable le scope (ou la portée)
+de cette variable. 
+
+Lorsque l'on référence une variable, on va chercher sa valeur suivant
+la règle LEG. On cherche la variable localement au bloc de code
+dans lequel elle est référencée, puis, si elle n'est pas définie, dans 
+le bloc de code des fonctions englobantes, puis, si elle n'est toujours 
+pas définie,  dans le bloc de code du module. De manière équivalente, 
+on pourrait dire que la valeur de la variable référencée est celle de la
+variable locale du même bloc de code, puis de la variable locale des fonctions
+englobantes, puis de la variable globale. 
+
+[explananation]

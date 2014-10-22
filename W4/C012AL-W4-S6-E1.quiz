@@ -1,0 +1,75 @@
+<hr/>
+Variable locale à une fonction (1)
+=====
+
+Dans quel cas la variable var est locale à la fonction.
+
+Proposition 1
+<pre>
+var = 'globale'
+def f():
+    res = 'locale'
+    return var
+</pre>
+
+Proposition 2
+<pre>
+var = 'globale'
+def f():
+    var = 'locale'
+    return var
+</pre>
+
+Proposition 3
+<pre>
+var = 'globale'
+def f():
+    print var
+    var = 'locale'
+    return var
+</pre>
+
+
+( ) Proposition 1
+(x) Proposition 2
+( ) Proposition 3
+
+[explananation]
+Dans la proposition 1, la variable var n'est jamais affectée dans la fonction,
+donc elle n'est par une variable locale à la fonction, mais une variable globale. 
+
+Dans la proposition 2, la variable var est affectée à la première ligne de la 
+fonction. Elle devient donc locale à la fonction. 
+
+Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction,
+mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une 
+ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis :
+UnboundLocalError. Il y a un complément spécifique sur cette erreur qu'il est très
+important de comprendre. 
+
+[explananation]
+
+<hr/>
+Portée (scope) des variables (2)
+=====
+
+Que va afficher : print f() ?
+
+<pre>
+var = 10
+def f():
+    var = 20
+    def g():
+        return var
+    return g()
+print f()	
+</pre>
+
+( ) 10
+(x) 20
+( ) None
+( ) Une exception
+
+[explananation]
+Suivant la règle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
+[explananation]
