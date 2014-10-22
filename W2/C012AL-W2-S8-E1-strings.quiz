@@ -8,6 +8,7 @@ On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on
 <pre>chaine = "abc"  => chaine = "a-c"</pre>
 <pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
+<br/>
 Comment peut-on faire
 
 [ ] chaine [ len(chaine)/2 ] = "-"
@@ -24,6 +25,29 @@ Le troisième choix est correct
 [explanation]
 
 <hr/>
+Strings (2)
+=====
+
+À partir d'une chaîne, on veut calculer une chaîne dérivée où le caractère '-' est inséré entre les caractères de la chaîne originelle, c'est-à-dire que par exemple
+
+<pre>chaine = ""  => resultat = ""</pre>
+<pre>chaine = "a"  => resultat = "a"</pre>
+<pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
+
+<br/>
+Comment peut-on faire (plusieurs réponses possibles)
+
+[x] "-".join(chaine)
+[x] "-".join(list(chaine))
+
+[explanation]
+La première clause est correcte, c'est bien sûr le plus simple
+
+La seconde est correcte également, et reste acceptable car elle convertit la chaîne en liste; si on n'est plus très sûr de savoir si "join" se comporte correctement avec une chaîne en argument, au moins comme ceci on est sûr de son coup.
+
+[explanation]
+
+<hr/>
 Strings - formattage
 =====
 
@@ -35,10 +59,10 @@ Dans du code nouveau on veut mettre en forme un message à partir de 3 variables 
 <pre>nom = "Durand",  no_secu = None, age = "12" 
      => message = "Durand, 12 ans, pas de no de SS"</pre>
 
+<br/>
 On envisage plusieurs solutions pour réaliser cela
 
 Solution 1
-
 <pre>
 message = "{nom}, {age} ans, {secu}".\
           format(nom=nom, age=age, 
@@ -46,27 +70,23 @@ message = "{nom}, {age} ans, {secu}".\
 </pre>
 
 Solution 2
-
 <pre>
 message = "{}, {} ans, {}".\
 	  format(nom, age, no_secu if no_secu else "pas de no de SS")
 </pre>
 
 Solution 3
-
 <pre>
 message = "%s, %s ans, %s".\
           format(nom, age, no_secu if no_secu else "pas de no de SS")
 </pre>
 
 Solution 4
-
 <pre>
 message = nom + ", " + age + " ans, " + no_secu if no_secu else "pas de no de SS" 
 </pre>
 
 Solution 5
-
 <pre>
 message = "%s, %s, %s" % (nom, age, no_secu if no_secu else "pas de no de SS" )
 </pre>
@@ -88,40 +108,3 @@ La dernière clause, quoique correcte, est à éviter dans du nouveau code.
 
 [explanation]
 
-<hr/>
-Strings (2)
-=====
-
-À partir d'une chaîne, on veut calculer une chaîne dérivée où le caractère '-' est inséré entre les caractères de la chaîne originelle, c'est-à-dire que par exemple
-
-<pre>chaine = ""  => resultat = ""</pre>
-<pre>chaine = "a"  => resultat = "a"</pre>
-<pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
-
-Comment peut-on faire (plusieurs réponses possibles)
-
-[x] "-".join(chaine)
-[x] "-".join(list(chaine))
-
-[explanation]
-La première clause est correcte, c'est bien sûr le plus simple
-
-La seconde est correcte également, et reste acceptable car elle convertit la chaîne en liste; si on n'est plus très sûr de savoir si "join" se comporte correctement avec une chaîne en argument, au moins comme ceci on est sûr de son coup.
-
-[explanation]
-
-<hr />
-Le même problème (avancé)
-=====
-
-On cherche à résoudre le même problème que ci-dessus, mais cette fois en utilisant la fonction zip
-
-
-[ ] "".join([x + y for (x, y) in zip(chaine, (len(chaine)-1)*"-")])
-[x] "".join([x + y for (x, y) in zip(chaine, len(chaine)*"-")])[:-1]
-
-[explanation]
-La première clause est presque correcte; cependant zip reçoit en argument 1 la chaîne entière, et en argument 2 une chaîne moins longue de 1 caractère. Dans ce cas zip tronque le résultat et en sortie il manque le dernier caractère de la chaîne en entrée.
-
-La seconde forme est cette fois correcte, on construit d'abord "a-b-c-d-" puis on élimine le dernier "-". Elle fonctionne aussi pour une chaîne à 0 ou 1 caractère. Bon mais clairement aucune de ces deux solutions n'est à recommander :)
-[explanation]
