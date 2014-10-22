@@ -8,12 +8,12 @@ Une fonction en python
 ( ) peut contenir 0 ou 1 instruction return
 (x) peut contenir 0 on n instructions return
 
-[explananation]
+[explanation]
 Le return est opionnel, si la fonction retourne sans avoir rencontré return elle retourne 'None'
 
 On peut utiliser autant de return que l'on veut dans une fonction
 
-[explananation]
+[explanation]
 
 <hr/>
 Fonctions (2)
@@ -25,6 +25,6 @@ Est-il possible pour une fonction de modifier l'objet qui lui est passé en argum
 ( ) Oui, on peut modifier tous les objets
 ( ) Non, une fonction travaille sur une copie et elle ne peut modifier l'objet dans l'espace de l'appelant
 
-[explananation]
+[explanation]
 Comme les arguments sont passés par référence, les objets de l'appelant, s'ils sont mutables, peuvent être modifiés à l'intérieur de la fonction.
-[explananation]
+[explanation]

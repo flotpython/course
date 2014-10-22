@@ -8,7 +8,7 @@ Proposition 1
 <pre>
 var = 'globale'
 def f():
-    res = 'locale'
+    tmp = 'locale'
     return var
 </pre>
 
@@ -30,24 +30,19 @@ def f():
 </pre>
 
 
-( ) Proposition 1
-(x) Proposition 2
-( ) Proposition 3
+Choisissez une ou plusieurs propositions.
 
-[explananation]
-Dans la proposition 1, la variable var n'est jamais affectée dans la fonction,
-donc elle n'est par une variable locale à la fonction, mais une variable globale. 
+[ ] Proposition 1
+[x] Proposition 2
+[ ] Proposition 3
 
-Dans la proposition 2, la variable var est affectée à la première ligne de la 
-fonction. Elle devient donc locale à la fonction. 
+[explanation]
+Dans la proposition 1, la variable var n'est jamais affectée dans la fonction, donc elle n'est pas une variable locale à la fonction, mais une variable globale. 
 
-Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction,
-mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une 
-ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis :
-UnboundLocalError. Il y a un complément spécifique sur cette erreur qu'il est très
-important de comprendre. 
+Dans la proposition 2, la variable var est affectée à la première ligne de la fonction. Elle devient donc locale à la fonction. 
 
-[explananation]
+Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction, mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis : UnboundLocalError. Il y a un complément spécifique sur cette erreur qu'il est très important de comprendre. 
+[explanation]
 
 <hr/>
 Portée (scope) des variables (2)
@@ -65,11 +60,27 @@ def f():
 print f()	
 </pre>
 
+Choisissez une proposition.
+
 ( ) 10
 (x) 20
 ( ) None
 ( ) Une exception
 
-[explananation]
+[explanation]
 Suivant la règle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
-[explananation]
+
+Si ce résultat vous semble clair et que vous avez déjà lu l'errata de cette vidéo, vous pouvez passer l'explication suivante, sinon, lisez la attentivement.
+
+Cette semaine, nous considérons deux notions de blocs de code : le bloc de code d'un module et le bloc de code d'une fonction (nous verrons en semaine 5 un nouveau bloc de code, celui des classes). 
+
+Une variable est soit affectée, on lui donne alors une valeur qui est l'objet référencé par la variable, soit référencée, on utilise alors la valeur d'une variable précédemment affectée. Regardons maintenant le lien entre ces notions d'affectation et de référencement avec les notions de bloc de code et de scope.  
+
+Une variable qui est affectée dans un bloc de code devient locale à ce bloc. On dit que la variable est locale à la fonction ou au module et par définition, une variable locale à un module est appelée une variable globale. 
+
+En résumé, une variable affectée dans une fonction est locale à la fonction. La valeur de cette variable sera accessible à toutes les instructions dans le bloc de code de cette fonction et à toutes les instructions dans les blocs de code des fonctions définies dans cette fonction. Une variable affectée dans  un module (en dehors d'une fonction) est une variable globale du module. La valeur de cette variable sera accessible à toutes les instructions dans le module, y compris aux instructions dans les blocs de code des fonctions du module. 
+
+On appelle l'accessibilité de la valeur d'une variable le scope (ou la portée) de cette variable. 
+
+Lorsque l'on référence une variable, on va chercher sa valeur suivant la règle LEG. On cherche la variable localement au bloc de code dans lequel elle est référencée, puis, si elle n'est pas définie, dans le bloc de code des fonctions englobantes, puis, si elle n'est toujours pas définie,  dans le bloc de code du module. De manière équivalente, on pourrait dire que la valeur de la variable référencée est celle de la variable locale du même bloc de code, puis de la variable locale des fonctions englobantes, puis de la variable globale. 
+[explanation]
