@@ -42,14 +42,14 @@ Tuples (3)
 =====
 
 On pose
-<pre>quadruple = (1, [2, 3], 'spam', [ [ (4,) ] ] )</pre>
+<pre>quadruple = (1, [2, 3], 'spam', [ (4,) ] )</pre>
 
 Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 à four
 
-[ ] ( one, (two, three), ignored, ( ( ( four ) ) ) ) = quadruple
-[x] ( one, (two, three,), _, ( ( ( four, ), ), ) ) = quadruple
-[ ] ( (one,),  (two, three), _, [ [ [ four ] ] ] ) = quadruple
-[x] ( one,  (two, three), _, [ [ [ four ] ] ] ) = quadruple
+[ ] ( one, (two, three), ignored, ( ( four ) ) ) = quadruple
+[x] ( one, (two, three,), _, ( ( four, ), ) ) = quadruple
+[ ] ( (one,),  (two, three), _, [ [ four ] ] ) = quadruple
+[x] ( one,  (two, three), _, [ [ four ] ] ) = quadruple
 
 
 [explanation]
@@ -60,10 +60,10 @@ La dernière forme est correcte, malgré la présence d'une liste à gauche et d'un 
 [explanation]
 
 <hr/>
-Tuples (4)
+Listes
 =====
 
-On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui réalisent bien l'opération demandée
+On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui font bien ce qu'on veut
 
 [x] tmp = liste[-1]; liste[-1] = liste [-2]; liste[-2] = tmp
 [ ] liste.reverse(-2,-1)

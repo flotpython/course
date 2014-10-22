@@ -2,7 +2,7 @@
 Noms de variables
 =====
 
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage (avec les choix multiples présentés comme ici avec des cases carrées, vous devez choisir toutes les réponses valides; il peut y en avoir zéro, une, ou plusieurs)
 
 [x] nom_de_variable
 [ ] nom-de-variable
@@ -20,6 +20,20 @@ le caractère deux-points ':' n'est pas autorisé
 le caractère '-' n'est pas autorisé
 
 un identifiant ne peut pas commencer par un chiffre
+[explanation]
+
+
+<hr/>
+Accents dans les noms de variables
+=====
+
+On peut utiliser des caractères accentués dans les noms de variables (vous pouvez remarquer ici que les cases à cocher sont rondes; dans ces questions-là il y a exactement une bonne réponse)
+
+( ) Oui
+(x) Non
+
+[explanation]
+On ne peut utiliser des accents que dans les commentaires, et à l'intérieur des chaînes de caractères.
 [explanation]
 
 <hr/>
