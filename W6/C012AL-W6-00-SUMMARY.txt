@@ -56,6 +56,9 @@ C012AL-W6-S3.txt
 
 ## Compléments Vidéo 3
 
+la pile; montrer la pile lorsqu'on attrape une exception
+pourquoi ne pas mentionner le debugger ?
+
 *parler des Warning et du module warning
 https://docs.python.org/2.7/library/warnings.html#module-warnings
 

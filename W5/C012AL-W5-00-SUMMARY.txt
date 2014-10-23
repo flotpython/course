@@ -113,9 +113,9 @@ la classe Matrix2, __init__, comment on crée un objet,
 comment on définit une méthode sur la classe et qu'on l'appelle sur un objet.
 montrer docstring
 
-
 enregistrements (record/struct)
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
+mentionner datetime vs time()
 
 TODO C012AL-W5-S4-C2-classes-instances.ipynb
 intermédiaire
