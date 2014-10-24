@@ -25,8 +25,7 @@ pareil
 je vais laisser tomber tout ça c'est beaucoup trop bas niveau
 
 ## Quizz Vidéo 1
-
-NICETOHAVE (arnaud?) 
+OK C012AL-W5-S1-E1.quiz
 
 en relisant les exos des semaines passées je tombe sur ceci
 import string
@@ -68,7 +67,8 @@ déjà vu en C012AL-W3-S5-C1-packages.ipynb
 
 ## Quizz Vidéo 2
 
-NICETOHAVE (arnaud?) 
+OK C012AL-W5-S2-E1.quiz
+
 
 ## Exercices Vidéo 2
 
@@ -90,7 +90,8 @@ un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes façons
 
 ## Quizz Vidéo 3
 
-NICETOHAVE (arnaud?) 
+OK C012AL-W5-S3-E1.quiz
+
 
 ## Exercices Vidéo 3
 
