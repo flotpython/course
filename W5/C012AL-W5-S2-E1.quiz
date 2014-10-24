@@ -7,10 +7,10 @@ Comment est-ce que l'interpréteur python trouve la localisation du fichier d'un 
 [x] Dans le répertoire courant, c'est-à-dire le répertoire depuis lequel on a lancé l'interpréteur python. 
 [ ] Dans le répertoire système.
 [ ] Python trouve automatiquement le fichier quelque soit sa localisation grâce à un mécanisme d'indexation. 
-[x] Dans une liste de répertoire contenu dans la variable d'environnement système PYTHONPATH.
+[x] Dans une liste de répertoires contenue dans la variable d'environnement système PYTHONPATH.
 [x] Dans les répertoires de la librairie standard. 
 [ ] Il faut donner explicitement le chemin complet du fichier lorsque l'on importe un module.
-[x] Dans le liste des répertoires contenue dans la variable sys.path qui regroupe tous les chemins de recherche. 
+[x] Dans la liste des répertoires contenue dans la variable sys.path qui regroupe tous les chemins de recherche. 
 
 [explanation]
 Lorsque l'on importe un module mod, l'interpréteur python cherche en premier le fichier correspondant (mod.py) dans le répertoire courant, puis dans la liste des répertoires contenue dans la variable d'environnement système PYTHONPATH, puis dans les répertoires de la librairie standard. Tous ces chemins sont contenus dans la variable sys.path au démarrage de l'interpréteur. 

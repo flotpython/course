@@ -28,8 +28,8 @@ On exécute le fichier egg.py en ligne de commande. Que va retourner la fonction 
 (x) Le tuple (1, 1, 2)
 
 [explanation]
-Le module egg.py import la module spam. La variable spam dans le module egg permet alors d'accéder à l'espace de nommage du module spam. Par conséquent spam.egg() appelle la fonction egg dans le module spam. Suivant la règle LEG, la variable spam retournée par la fonction egg et la variable spam du module spam.py, donc 1. spam.spam représente la variable spam dans le module spam, et egg est la variable egg dans le module egg. 
+Le module egg.py import la module spam. La variable spam dans le module egg permet alors d'accéder à l'espace de nommage du module spam. Par conséquent, spam.egg() appelle la fonction egg dans le module spam. Suivant la règle LEG, la variable spam retournée par la fonction egg est la variable spam du module spam.py, donc 1. spam.spam représente la variable spam dans le module spam, et egg est la variable egg dans le module egg. 
 
-Notons que le choix des noms de variables et de modules entraîne volontairement de la confusion pour tester votre compréhension dans ce quiz. Dans un cas réel de programme, on évitera au maximum d'utiliser dans deux modules que l'on écrit des variables avec un nom générique qui ont un rôle différent (entier et fonction pour egg) dans deux modules différents. D'une manière générale, il est souhaitable que le nom du module et de ses attributs soient suffisamment explicites pour comprendre leur rôle sans regarder la documentation (ça n'est évidemment pas le cas ici). 
+Notons que le choix des noms de variables et de modules entraîne volontairement de la confusion pour tester votre compréhension dans ce quiz. Dans un cas réel de programme, on évitera au maximum d'utiliser dans deux modules que l'on écrit des variables avec un nom générique qui ont un rôle différent (entier et fonction pour egg). D'une manière générale, il est souhaitable que le nom du module et de ses attributs soient suffisamment explicites pour comprendre leur rôle sans regarder la documentation (ça n'est évidemment pas le cas ici). 
 [explanation]
 

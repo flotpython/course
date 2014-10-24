@@ -32,8 +32,8 @@ On exécute le fichier egg.py en ligne de commande. Que va retourner la fonction 
 ( ) [1, 1, 2, 1, 1]
 
 [explanation]
-L'instruction "import spam" va importer le module spam et la variable spam va référencer ce module. spam.beans fait donc référence à la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" import le module spam et crée un variable dans l'espace de nommage du module egg qui référence l'objet entier 1. On a donc une référence partagée sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
+L'instruction "import spam" va importer le module spam et la variable spam va référencer ce module. spam.beans fait donc référence à la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" import le module spam et créer une variable beans dans l'espace de nommage du module egg qui référence l'objet entier 1. On a donc une référence partagée sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
 
-spam.beans référence donc l'entier 1, puis beans référence également l'entier 1. L'instruction "spam.beans = 2" change la variable beans dans l'espace de nommage de spam, mais pas dans l'espace de nommage de egg. Donc spam.beans référence maintenant l'entier 2, mais beans référence toujours l'entier 1. Pour finir spam.f() retourne la variable globale beans dans l'espace de nommage de spam, c'est donc maintenant l'entier 2. 
+spam.beans référence donc l'entier 1, puis beans référence également l'entier 1. L'instruction "spam.beans = 2" change la variable beans dans l'espace de nommage de spam, mais pas dans l'espace de nommage de egg. Donc spam.beans référence maintenant l'entier 2, mais beans référence toujours l'entier 1. Pour finir, spam.f() retourne la variable globale beans dans l'espace de nommage de spam, c'est donc maintenant l'entier 2. 
 [explanation]
 
