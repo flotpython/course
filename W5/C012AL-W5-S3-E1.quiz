@@ -5,6 +5,7 @@ Importation et espace de nommage
 Supposons que nous avons le code suivant.
 Dans un fichier spam.py on a 
 <pre>
+# fichier spam.py
 beans = 1
 def f():
     return beans
@@ -12,6 +13,7 @@ def f():
 
 et dans un fichier egg.py on a
 <pre>
+# fichier egg.py
 import spam
 from spam import beans
 def g(L):
@@ -25,14 +27,14 @@ def g(L):
 print g([])
 </pre>
 
-On exécute le fichier egg.py en ligne de commande. Que va retourner la fonction g dans le module egg ?
+On exécute le fichier egg.py en ligne de commande. Qu'imprime le programme ?
 ( ) [1, 1, 2, 2, 2]
 (x) [1, 1, 2, 1, 2]
 ( ) [1, 1, 2, 2, 1]
 ( ) [1, 1, 2, 1, 1]
 
 [explanation]
-L'instruction "import spam" va importer le module spam et la variable spam va référencer ce module. spam.beans fait donc référence à la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" import le module spam et créer une variable beans dans l'espace de nommage du module egg qui référence l'objet entier 1. On a donc une référence partagée sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
+L'instruction "import spam" va importer le module spam et la variable spam va référencer ce module. spam.beans fait donc référence à la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" importe le module spam et crée une variable beans dans l'espace de nommage du module egg, qui référence l'objet entier 1. On a donc une référence partagée sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
 
 spam.beans référence donc l'entier 1, puis beans référence également l'entier 1. L'instruction "spam.beans = 2" change la variable beans dans l'espace de nommage de spam, mais pas dans l'espace de nommage de egg. Donc spam.beans référence maintenant l'entier 2, mais beans référence toujours l'entier 1. Pour finir, spam.f() retourne la variable globale beans dans l'espace de nommage de spam, c'est donc maintenant l'entier 2. 
 [explanation]
