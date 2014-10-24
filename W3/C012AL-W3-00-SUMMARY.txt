@@ -74,7 +74,7 @@ NIVEAU: BASIC
 C012AL-W3-S4.txt 
 
 ## Compléments Vidéo 4
-OK S4-C1-fontion-id-et-operateur-is.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+OK S4-C1-operateur-is-et-fonction-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
 OK S4-C2-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
 OK S4-C3-les-differentes-copies.ipynb - make sure this comes after is-id 
 OK S4-C4-instruction-del.ipynb *del a;  del L[i:j:k]; del d[clef]
@@ -104,11 +104,11 @@ C012AL-W3-S5.txt
 ## Compléments Vidéo 5
 OK S5-C1-packages.ipynb
 OK S5-C2-modules-et-chemins.ipynb: 
-OK S5-C3-import.ipynb : pourquoi il ne faut pas utiliser import *
-OK S5-C4-collections.ipynb: des variantes utiles aux types de base
+OK S5-C3-recapitulatif-import.ipynb : pourquoi il ne faut pas utiliser import *
+OK S5-C4-module-collections.ipynb: des variantes utiles aux types de base
 
 ## Exercices Vidéo 5
-OK S5-Exercices-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
+OK S5-Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
 
 ## Quizz Vidéo 5  
 

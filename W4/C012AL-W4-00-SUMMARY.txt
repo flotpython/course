@@ -33,7 +33,7 @@ C012AL-W4-S2.txt
 OK S2-C1-boucle-while.ipynb
 ## Quizz Vidéo 2
 ## Exercices Vidéo 2
-OK S2-Exercices-pgcd.ipynb
+OK S2-Exercice-pgcd.ipynb
 
 ###################################################################
 
@@ -55,7 +55,7 @@ comparer def et lambda
 comparer map/filter 
 
 ## Exercices Vidéo 3
-OK C012AL-W4-S3-E2-functions.ipynb
+OK S3-Exercices-fonctions.ipynb
 
 ###################################################################
 
@@ -107,8 +107,8 @@ NIVEAU: BASIC
 CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
-OK S6-C1-module-builtin.ipynb
-OK S6-C2-unboundlocalerror.ipynb
+OK S6-C1-scopebuiltin.ipynb
+OK S6-C2-exception-unboundlocalerror.ipynb
 
 ## Quizz Vidéo 6
 OK C012AL-W4-S6-E1.quiz

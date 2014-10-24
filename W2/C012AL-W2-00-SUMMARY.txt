@@ -145,9 +145,9 @@ C012AL-W2-S8.txt
 
 ## Compléments Vidéo 8 
 BOF raw-strings.ipynb - backslashes - \n \t 
-OK S8-C1-formattage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
+OK S8-C1-formatage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
 OK S8-C2-outils-sur-chaines.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
-OK S8-C3-raw_input.ipynb
+OK S8-C3-la-fonction-raw_input.ipynb
 
 # XXX bytearray : je connaissais pas du tout ce truc non plus, après une lecture rapide j'ai le sentiment que ça a / peut avoir un lien avec buffer; je propose de bouger ces deux trucs en semaine 7 - ou de virer complètement, ou d'en parler très très vite. 
 
