@@ -5,7 +5,7 @@ Processus d'importation d'un module
 Comment est-ce que l'interpréteur python trouve la localisation du fichier d'un module sur le disque dur ? Il y a un ou plusieurs choix possibles. 
 
 [x] Dans le répertoire courant, c'est-à-dire le répertoire depuis lequel on a lancé l'interpréteur python. 
-[ ] Dans le répertoire système.
+[ ] Dans un des répertoires d'installation du système d'exploitation.
 [ ] Python trouve automatiquement le fichier quelque soit sa localisation grâce à un mécanisme d'indexation. 
 [x] Dans une liste de répertoires contenue dans la variable d'environnement système PYTHONPATH.
 [x] Dans les répertoires de la librairie standard. 
