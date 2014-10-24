@@ -10,17 +10,17 @@ NIVEAU: BASIC
 C012AL-W4-S1.txt
 
 ## Compléments Vidéo 1
-OK C012AL-W4-S1-C1-file-extras.ipynb 
-ONGOING C012AL-W4-S1-C2-file-utils.ipynb
-OK C012AL-W4-S1-C3-json.ipynb : parler de json, pickle, csv ...
-OK C012AL-W4-S1-C4-stdinouterr.ipynb : 
+OK S1-C1-fichiers.ipynb 
+ONGOING S1-C2-utilitaires-sur-fichiers.ipynb
+OK S1-C3-format-json-et-autres.ipynb : parler de json, pickle, csv ...
+OK S1-C4-fichiers-systeme.ipynb : 
 
 DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
 Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est très sale cette façon de faire..)
 
 ## Quizz Vidéo 1
 ## Exercices Vidéo 1
-OK C012AL-W4-S1-E1-files.ipynb
+OK S1-Exercices-fichiers.ipynb
 
 ###################################################################
 
@@ -30,10 +30,10 @@ NIVEAU: BASIC
 C012AL-W4-S2.txt
 
 ## Compléments Vidéo 2
-OK C012AL-W4-S2-C1-while-extras.ipynb
+OK S2-C1-boucle-while.ipynb
 ## Quizz Vidéo 2
 ## Exercices Vidéo 2
-OK C012AL-W4-S2-E1-pgcd.ipynb
+OK S2-Exercices-pgcd.ipynb
 
 ###################################################################
 
@@ -43,7 +43,7 @@ NIVEAU: INTERMEDIAIRE
 C012AL-W4-S3.txt
 
 ## Compléments Vidéo 3
-OK C012AL-W4-S3-C1-function-extras.ipynb
+OK S3-C1-fonctions.ipynb
 
 DROPPED *voir exec et eval. Ça n'est pas en lien direct, mais il faut
 le voir et il y a peu de compléments pour cette vidéo alors
@@ -65,7 +65,7 @@ NIVEAU: BASIC
 C012AL-W4-S4.txt
 
 ## Compléments Vidéo 4
-OK C012AL-W4-S4-C1-multi-comp.ipynb compréhensions multiples 
+OK S4-C1-comprehensions-imbriquees.ipynb compréhensions multiples 
 
 DROPPED
 *Comparer la performance des boucles for, de map, de la compréhension. - pas le temps
@@ -74,7 +74,7 @@ S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/perform
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
-ONGOING C012AL-W4-S4-E1-comprehensions.ipynb
+ONGOING S4-Exercices-comprehensions.ipynb
 ###################################################################
 
 ## Vidéo 5 (Les fonctions)
@@ -84,8 +84,8 @@ C012AL-W4-S5.txt
 
 ## Compléments Vidéo 5
 
-OK C012AL-W4-S5-C1-docstring.ipynb 
-OK C012AL-W4-S5-C2-isinstance.ipynb
+OK S5-C1-docstring.ipynb 
+OK S5-C2-fonction-isinstance.ipynb
 OK C012AL-W4-S5-C1-arg-reference.ipynb  
 DROPPED cas pratique de plusieurs return - TP: on en fait à longueur d'exemples ça non ?
 
@@ -107,8 +107,8 @@ NIVEAU: BASIC
 CO12AL-W4-VIDEO006.txt
 
 ## Compléments Vidéo 6
-OK C012AL-W4-S6-C1-builtin.ipynb
-OK C012AL-W4-S6-C2-unbound-local.ipynb
+OK S6-C1-module-builtin.ipynb
+OK S6-C2-unboundlocalerror.ipynb
 
 ## Quizz Vidéo 6
 OK C012AL-W4-S6-E1.quiz
@@ -140,8 +140,8 @@ NIVEAU: BASIC
 CO12AL-W4-VIDEO008.txt
 
 ## Compléments Vidéo 8
-OK C012AL-W4-S8-C1-fun-args.ipynb
-OK C012AL-W4-S8-C2-default-mutable.ipynb
+OK S8-C1-passage-arguments.ipynb
+OK S8-C2-pas-de-valeur-par-defaut-mutable.ipynb
 
 TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...
 *introduire sys.argv en remarquant que c'est une forme *Targs
@@ -153,5 +153,5 @@ OK C012AL-W4-S8-E1.quiz
 
 ## Exercices Vidéo 8
 
-OK C012AL-W4-S8-E1-wrap-validation.ipynb
+OK S8-Exercice-passage-arguments.ipynb
 
