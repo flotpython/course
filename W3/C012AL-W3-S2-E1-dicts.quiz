@@ -3,11 +3,12 @@ Dictionnaires (1)
 =====
 
 Le type dictionnaire en python est un type
+
 ( ) immuable
 (x) mutable
 
 [explanation]
-On peut ajouter ou enlever des couples (clé,valeur) dans un dictionnaire
+On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
 [explanation]
 
 
@@ -15,14 +16,17 @@ On peut ajouter ou enlever des couples (clé,valeur) dans un dictionnaire
 Dictionnaires (2)
 =====
 
-Dans un dictionnaire les couples (clé,valeur), peut-on connaître l'ordre dans lequel les clés ont été insérées:
+Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ?
 
 ( ) oui
 (x) non
 
 [explanation]
 Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
+
 Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+
+NB. la classe OrderedDict, dans le module collections, ajoute cette fonctionnalité.
 [explanation]
 
 <hr/>
