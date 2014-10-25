@@ -11,8 +11,8 @@ C012AL-W5-S1.txt
 
 ## Compléments Vidéo 1
 
-OK S1-C1-attributs.ipynb
-OK S1-C2-fonctions-globals-et-locals.ipynb
+OK Complement-attributs.ipynb
+OK Complement-fonctions-globals-et-locals.ipynb
 
 DROPPED
 *parler de l'impossibilité de faire __dict__ du module courant
@@ -44,7 +44,7 @@ C012AL-W5-S2.txt
 
 ## Compléments Vidéo 2
 
-OK C012AL-W5-S2-C1-import-extras .ipynb
+OK Complement-import .ipynb
 avancé
 . en profiter pour mentionner sys.modules
 . parler de sys.builtin_module_names et de, par exemple, math 
@@ -63,7 +63,7 @@ pyc ne dépend pas du hardware, d'accord, mais dépend-il de la version
 de python (je présume que oui)
 
 DROPPED *exécuter un module comme un script avec  if __name__ == '__main__':
-déjà vu en S5-C1-packages.ipynb
+déjà vu en Complement-packages.ipynb
 
 ## Quizz Vidéo 2
 
@@ -81,7 +81,7 @@ C012AL-W5-S3.txt
 
 ## Compléments Vidéo 3
 
-OK S3-C1-import-as.ipynb
+OK Complement-import-as.ipynb
 
 DROPPED - 
 Introduire aussi les variables commençant par _ en expliquant que 
@@ -107,7 +107,7 @@ C012AL-W5-S4.txt
 
 ## Compléments Vidéo 4
 
-ONGOING S4-C1-classes.ipynb
+ONGOING Complement-classes.ipynb
 basique
 un premier exemple de classe sur un cas concret
 la classe Matrix2, __init__, comment on crée un objet,
