@@ -46,7 +46,7 @@ La seconde est correcte également, et reste acceptable car elle convertit la cha
 [explanation]
 
 <hr/>
-Strings - formattage
+Strings - formatage
 =====
 
 Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple

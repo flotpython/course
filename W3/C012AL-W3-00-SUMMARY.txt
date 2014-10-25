@@ -23,15 +23,15 @@ NIVEAU: BASIC
 C012AL-W3-S2.txt 
 
 ## Compléments Vidéo 2
-OK C012AL-W3-S2-C1-dict-extras.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
-OK C012AL-W3-S2-C2-dict-key-immuable.ipynb - types immuables et clés globalement immuables
-OK C012AL-W3-S2-C3-dict-as-struct.ipynb - une utilisation standard du dictionnaire pour faire un struct
+OK S2-C1-dictionnaires.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
+OK S2-C2-cles-immuables.ipynb - types immuables et clés globalement immuables
+OK S2-C3-record-et-dictionnaire.ipynb - une utilisation standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 2
 OK C012AL-W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
 ## Exercices Vidéo 2
-OK C012AL-W3-S2-E2-marine-dict.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections OK
+OK S2-Exercices-marine-dictionnaire.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections OK
 				               	       	       	      
 ###################################################################
 
@@ -41,7 +41,7 @@ NIVEAU: BASIC
 C012AL-W3-S3.txt 
 
 ## Compléments Vidéo 3
-OK C012AL-W3-S3-C1-set-extras.ipynb : recap. fonctions/methodes sur les ensembles
+OK S3-C1-ensembles.ipynb : recap. fonctions/methodes sur les ensembles
 
 -------- 
 XXX Inutile en fait puisque j'en parle dans la dernière vidéo du MOOC
@@ -64,7 +64,7 @@ pour expliquer qu'il faut toujours utiliser des sets
 NICETOHAVE : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé 
 entre tuple, liste, dict, set (et pourquoi pas aussi frozenset si il faut hacher)
 
-OK C012AL-W3-S3-E1-marine-set.ipynb - avec le même genre de données de marine traffic xxx version python à 
+OK S3-Exercices-marine-ensembles.ipynb - avec le même genre de données de marine traffic xxx version python à 
  
 ###################################################################
 
@@ -74,11 +74,11 @@ NIVEAU: BASIC
 C012AL-W3-S4.txt 
 
 ## Compléments Vidéo 4
-OK C012AL-W3-S4-C1-is-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
-OK C012AL-W3-S4-C2-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
-OK C012AL-W3-S4-C3-copy.ipynb - make sure this comes after is-id 
-OK C012AL-W3-S4-C4-del.ipynb *del a;  del L[i:j:k]; del d[clef]
-OK C012AL-W3-S4-C5-assign-simultaneous.ipynb   a = b = []
+OK S4-C1-operateur-is-et-fonction-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+OK S4-C2-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+OK S4-C3-les-differentes-copies.ipynb - make sure this comes after is-id 
+OK S4-C4-instruction-del.ipynb *del a;  del L[i:j:k]; del d[clef]
+OK S4-C5-affectation-simultanee.ipynb   a = b = []
 
 BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
 en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
@@ -102,13 +102,13 @@ NIVEAU: BASIC
 C012AL-W3-S5.txt
 
 ## Compléments Vidéo 5
-OK C012AL-W3-S5-C1-packages.ipynb
-OK C012AL-W3-S5-C2-modules-and-path.ipynb: 
-OK C012AL-W3-S5-C3-recap-import.ipynb : pourquoi il ne faut pas utiliser import *
-OK C012AL-W3-S5-C4-collections.ipynb: des variantes utiles aux types de base
+OK S5-C1-packages.ipynb
+OK S5-C2-modules-et-chemins.ipynb: 
+OK S5-C3-recapitulatif-import.ipynb : pourquoi il ne faut pas utiliser import *
+OK S5-C4-module-collections.ipynb: des variantes utiles aux types de base
 
 ## Exercices Vidéo 5
-OK C012AL-W3-S5-E1-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
+OK S5-Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
 
 ## Quizz Vidéo 5  
 
@@ -126,8 +126,8 @@ NIVEAU: BASIC
 C012AL-W3-S6.txt
 
 ## Compléments Vidéo 6
-OK C012AL-W3-S6-C1-presentation.ipynb
-OK C012AL-W3-S6-C2-pass.ipynb
+OK S6-C1-presentation.ipynb
+OK S6-C2-instruction-pass.ipynb
 -présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
 de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
 
@@ -148,14 +148,14 @@ NIVEAU: BASIC
 C012AL-W3-S7.txt
 
 ## Compléments Vidéo 7
-OK C012AL-W3-S7-C1-evaluation-tests.ipynb: évaluation paresseuse (repris et aménagé de W2-S6)
-OK C012AL-W3-S7-C2-recap-cond.ipynb:  recap expressions dans un if
+OK S7-C1-evaluation-conditions.ipynb: évaluation paresseuse (repris et aménagé de W2-S6)
+OK S7-C2-conditions-2.ipynb:  recap expressions dans un if
 
 ## Quizz Vidéo 7
 
 ## Exercices Vidéo 7
 
-OK C012AL-W3-S7-E1-if.ipynb: des exercices sur des ifs un peu torturés 
+OK S7-Exercices-if.ipynb: des exercices sur des ifs un peu torturés 
 NICETOHAVE : c'est un peu léger dans l'état
 
 ###################################################################
@@ -169,9 +169,9 @@ C012AL-W3-S8.txt
 
 ## Compléments Vidéo 8
 
-OK C012AL-W3-S8-C1-break-continue.ipynb
-OK C012AL-W3-S8-C2-for-object-intact.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
-OK C012AL-W3-S8-C3-iterateur-performances.ipynb: 
+OK S8-C1-instructions-break-et-continue.ipynb
+OK S8-C2-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
+OK S8-C3-iterateurs-et-performances.ipynb: 
 OK C012AL-W3-S8-C4-iterable-iterateur: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 
 BOF : je laisse tomber tout ca pour l'instant

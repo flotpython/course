@@ -2,9 +2,9 @@
 Modules et espaces de nommage 
 =====
 
-Supposons que nous avons le code suivant.
 Dans un fichier spam.py on a 
 <pre>
+# fichier spam.py
 spam = 1
 def egg():
     return spam
@@ -12,6 +12,7 @@ def egg():
 
 et dans un fichier egg.py on a
 <pre>
+# fichier egg.py
 import spam
 egg = 2
 def f():
@@ -19,7 +20,7 @@ def f():
 print f()
 </pre>
 
-On exécute le fichier egg.py en ligne de commande. Que va retourner la fonction f dans le module egg ?
+On exécute le fichier egg.py en ligne de commande. Que va imprimer le programme ?
 
 ( ) Une exception
 ( ) La liste [2, 1, 2]
