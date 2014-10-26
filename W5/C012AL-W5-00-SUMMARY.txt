@@ -107,28 +107,21 @@ C012AL-W5-S4.txt
 
 ## Compléments Vidéo 4
 
-ONGOING Complement-classes.ipynb
-basique
-un premier exemple de classe sur un cas concret
-la classe Matrix2, __init__, comment on crée un objet,
-comment on définit une méthode sur la classe et qu'on l'appelle sur un objet.
-montrer docstring
+OK (S4-C1-)Complement-introduction-classes.ipynb
 
+TODO (S4-C2-)Complement-record-et-classe.ipynb
 enregistrements (record/struct)
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
+
+TODO (S4-C3-)Complement-datetime.ipynb
 mentionner datetime vs time()
 
-TODO C012AL-W5-S4-C2-classes-instances.ipynb
+TODO (S4-C4-)Complement-attributs-classe-instance.ipynb
 intermédiaire
 montrer les attributs de classe et les attributs d'instance sur un exemple
 par exemple Matrix2.template pour une mise en forme..
 ou trouver mieux
 monter qu'on peut faire self.template aussi bien que Matrix2.template
-
-intermédiaire
-montrer que la classe est un objet
-variables commençant par _ : https://docs.python.org/2/tutorial/classes.html#tut-private
-variables en __foo__ : faire une référence à la vidéo 6
 
 ## Quizz Vidéo 4
 
@@ -152,9 +145,6 @@ parce que sinon ça pourrait rendre l'interpréteur instable.
 
 *citer (et peut-être discuter en montrer des exemples) 
 design patterns et le livre de Gramma et al.
-
-* introduire les variables __var (name mangling)
-http://docs.python.org/2/reference/lexical_analysis.html#reserved-classes-of-identifiers
 
 ## Quizz Vidéo 5
 
