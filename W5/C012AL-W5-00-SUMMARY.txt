@@ -112,8 +112,8 @@ OK (S4-C1-)Complement-introduction-classes.ipynb
 OK (S4-C2-)Complement-module-datetime.ipynb
 mentionner datetime vs time()
  
-TODO (S4-C3-)Complement-record-et-classe.ipynb
-enregistrements (record/struct)
+OK (S4-C3-)Complement-record-et-classe.ipynb
+je laisse tomber ce lien; je ne suis meme pas sur de tout comprendre la-dedans
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
 
 TODO (S4-C4-)Complement-attributs-classe-instance.ipynb
