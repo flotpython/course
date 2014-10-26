@@ -12,9 +12,9 @@ C012AL-W2-S1.txt
 
 ## Compléments Vidéo 1
 
-OK S1-C1-noms-de-variables.ipynb : noms de variables
-OK S1-C2-mots-cles.ipynb: liste des mots clés
-OK S1-C3-introduction-types.ipynb: type() et premier contact avec isinstance ()
+OK Complement-noms-de-variables.ipynb : noms de variables
+OK Complement-mots-cles.ipynb: liste des mots clés
+OK Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 1 
 OK C012AL-W2-S1-E1-identifiants.quiz
@@ -30,16 +30,16 @@ C012AL-W2-S2.txt
 
 ## Compléments Vidéo 2
 
-OK S2-C1-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
-OK S2-C2-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
-OK S2-C3-precision-flottants.ipynb : limitation de la précision des floats  
-OK S2-C4-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
+OK Complement-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
+OK Complement-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
+OK Complement-precision-flottants.ipynb : limitation de la précision des floats  
+OK Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 2 
 OK C012AL-W2-S2-E1-type-numeriques.quiz
 
 ## Exercices Vidéo 2 
-OK S2-Exercices-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
+OK Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
 
 ###################################################################
 
@@ -50,14 +50,14 @@ C012AL-W2-S3.txt
 
 ## Compléments Vidéo 3 
 
-OK S3-C1-slices.ipynb : reprend le slicing 
+OK Complement-slices.ipynb : reprend le slicing 
 
 ## Quizz Vidéo 3 
 
 OK C012AL-W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
 
 ## Exercices Vidéo 3 
-OK S3-Exercices-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
+OK Exercice-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
 
 ###################################################################
 
@@ -67,8 +67,8 @@ NIVEAU: BASIC
 C012AL-W2-S4.txt (9 minutes)
 
 ## Compléments Vidéo 4 
-OK: S4-C1-listes.ipynb: un complément sur les méthodes des listes
-OK S4-C2-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
+OK: Complement-listes.ipynb: un complément sur les méthodes des listes
+OK Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
 
 ## Quizz Vidéo 4 
 OK C012AL-W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
@@ -85,8 +85,8 @@ CO12AL-W2-VIDEO05 ()
 
 ## Compléments Vidéo 5  
 
-OK S5-C1-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
-OK S5-C2-affectation-multiple.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
+OK Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+OK Complement-affectation-multiple.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 5 
 OK C012AL-W2-S5-E1-tuples.quiz
@@ -101,9 +101,9 @@ NIVEAU: BASIC
 C012AL-W2-S6.txt (5 minutes 40 secondes)
 
 ## Compléments Vidéo 6
-OK S6-C1-conditions-1.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
-OK S6-C2-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
-OK S6-C3-if-comme-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
+OK Complement-conditions-1.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
+OK Complement-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
+OK Complement-if-comme-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 
 ## Quizz Vidéo 6
 # J'arrive un peu à la limite du quiz car je ne sais pas si je peux mettre des réponses
@@ -120,10 +120,10 @@ NIVEAU: BASIC
 C012AL-W2-S7.txt 
 
 ## Compléments Vidéo 7 
-OK S7-C1-for-sur-plusieurs-variables.ipynb: affectation a,b dans un for, la fonction zip
-OK S7-C2-comprehension-de-liste.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
-OK S7-C3-tris-de-listes-2.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
-OK S7-C4-valeur-de-retour.ipynb : il nous faut 'return' pour les exe rcices please 
+OK Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans un for, la fonction zip
+OK Complement-comprehension-de-liste.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
+OK Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
+OK Complement-valeur-de-retour.ipynb : il nous faut 'return' pour les exe rcices please 
 XXX Arnaud : ajouter sur les conventions de style: un espace après les
 virgules, en espace avant et après les opérateurs
 (a = f(1, 2) + g(3, 4)), un saut
@@ -132,8 +132,8 @@ de ligne pour séparer les bloc d'instructions et les fonctions.
 ## Quizz Vidéo 7
 
 ## Exercices Vidéo 7 
-OK S7-Exercices-if-et-def.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
-OK S7-Exercices-boucle-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
+OK Exercice-if-et-def.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
+OK Exercice-boucle-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
 XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 
 ###################################################################
@@ -145,9 +145,9 @@ C012AL-W2-S8.txt
 
 ## Compléments Vidéo 8 
 BOF raw-strings.ipynb - backslashes - \n \t 
-OK S8-C1-formatage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
-OK S8-C2-outils-sur-chaines.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
-OK S8-C3-la-fonction-raw_input.ipynb
+OK Complement-formatage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
+OK Complement-outils-sur-chaines.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
+OK Complement-la-fonction-raw_input.ipynb
 
 # XXX bytearray : je connaissais pas du tout ce truc non plus, après une lecture rapide j'ai le sentiment que ça a / peut avoir un lien avec buffer; je propose de bouger ces deux trucs en semaine 7 - ou de virer complètement, ou d'en parler très très vite. 
 
@@ -156,4 +156,4 @@ OK S8-C3-la-fonction-raw_input.ipynb
 OK C012AL-W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
 
 ## Exercices Vidéo 8
-OK S8-Exercices-chaines.ipynb - split, replace, format...
+OK Exercice-chaines.ipynb - split, replace, format...

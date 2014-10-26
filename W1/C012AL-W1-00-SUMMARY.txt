@@ -6,7 +6,7 @@
 C012AL-W1-S1.txt 
 
 ## Compléments Vidéo 1
-OK S1-C1-installer-python.ipynb quelques ressources pour l'installation de python
+OK Complement-installer-python.ipynb quelques ressources pour l'installation de python
 
 ## Quizz Vidéo 1
 
@@ -18,7 +18,7 @@ OK S1-C1-installer-python.ipynb quelques ressources pour l'installation de pytho
 ## Vidéo 2 (la distribution standard)
 
 ## Compléments Vidéo 2
-OK S2-C1-accents.ipynb -- commencer à parler des accents
+OK Complement-accents.ipynb -- commencer à parler des accents
 
 ## Quizz Vidéo 2
 
@@ -27,16 +27,16 @@ OK S2-C1-accents.ipynb -- commencer à parler des accents
 ## Vidéo 3 (les notebooks - ipython)
 
 ## Compléments Vidéo 3
-OK S3-C1-utiliser-les-notebooks.ipynb : expliquer le fonctionnement des notebooks
+OK Complement-utiliser-les-notebooks.ipynb : expliquer le fonctionnement des notebooks
 NICETOHAVE quelques mots sur la charge et le timeout à 1h
-OK S3-C2-notebooks-et-interpreteur.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
-OK S3-C3-la-ligne-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
+OK Complement-notebooks-et-interpreteur.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
+OK Complement-la-ligne-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
 
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-OK S3-C4-fibonacci-prompt.ipynb & .py : un notebook qui calcule et affiche fibonacci avec raw_input  
-OK S3-C5-fibonacci.ipynb & .py : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
+OK Complement-fibonacci-prompt.ipynb & .py : un notebook qui calcule et affiche fibonacci avec raw_input  
+OK Complement-fibonacci.ipynb & .py : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
 OK S3-C6-carres-en-turtle.ipynb & .py : un notebook pour publier du code a telecharger et a jouer sur son ordi 
 OK turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
 			       	     	      ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
@@ -49,10 +49,10 @@ NICETOHAVE debugger-pdb.ipynb : expliquer le principe du debugger et le mettre e
 ## Vidéo 4 (Pourquoi python)
 
 ## Compléments Vidéo 4
-OK S4-C1-suggestions-de-lecture.ipynb : collection de liens utiles 
-OK S4-C2-type-checking.ipynb:  typage dynamique / typage statique / inference de type 
-OK S4-C3-garbage-collector.ipynb
-OK S4-C4-print-en-python3.ipynb - sans doute a deplacer + tard
+OK Complement-suggestions-de-lecture.ipynb : collection de liens utiles 
+OK Complement-type-checking.ipynb:  typage dynamique / typage statique / inference de type 
+OK Complement-garbage-collector.ipynb
+OK Complement-print-en-python3.ipynb - sans doute a deplacer + tard
 
 ## Quizz Vidéo 4
 
