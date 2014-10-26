@@ -126,6 +126,17 @@ monter qu'on peut faire self.template aussi bien que Matrix2.template
 ## Quizz Vidéo 4
 
 ## Exercices Vidéo 4
+je pense qu'en guise d'exercice je vais leur mitonner un mini-projet 
+un truc à base des données de marine (une classe bateau, une classe position, une classe mouvement)
+il n'y aurait alors pas de correction en ligne, mais plutôt
+. un énoncé où on liste les classes et les modules qu'il faut écrire et les méthodes clé 
+. un bout de code qui utilise ces classes pour faire quelque (genre dessiner les positions des bateaux dans matplotlib)
+. et un corrigé la semaine suivante
+
+Les etudiants pourraient 
+* télécharger le code python qui va avec le notebook de l'exercice
+* ecrire leur code a eux sur leur ordi dans les modules specifies
+jusqu'a ce que ca donne le resultat escompte
 
 ###################################################################
 
