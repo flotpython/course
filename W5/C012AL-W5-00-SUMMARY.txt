@@ -116,7 +116,7 @@ OK (S4-C3-)Complement-record-et-classe.ipynb
 je laisse tomber ce lien; je ne suis meme pas sur de tout comprendre la-dedans
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
 
-TODO (S4-C4-)Complement-attributs-classe-instance.ipynb
+ONGOING(S4-C4-)Complement-attributs-classe-instance.ipynb
 intermédiaire
 montrer les attributs de classe et les attributs d'instance sur un exemple
 par exemple Matrix2.template pour une mise en forme..
@@ -175,6 +175,9 @@ http://docs.python.org/2/reference/datamodel.html#special-method-names
 *couvrir d'autres opérateurs (je couvre __init__ et __str__ en vidéo)
 Il faut voir au minimum __call__, __add__, __contains__, __len__, __getattr__,
 __nonzero__
+
+illustrer __getattr__ avec un proxy xmlrpc
+
 * rappeler que le __iter__ est également une surcharge
 * parler des fallback 
 Itération : __iter__ puis __getitem__
