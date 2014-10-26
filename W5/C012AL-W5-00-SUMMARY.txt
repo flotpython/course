@@ -109,7 +109,7 @@ C012AL-W5-S4.txt
 
 OK (S4-C1-)Complement-introduction-classes.ipynb
 
-OK (S4-C2-)Complement-datetime.ipynb
+OK (S4-C2-)Complement-module-datetime.ipynb
 mentionner datetime vs time()
  
 TODO (S4-C3-)Complement-record-et-classe.ipynb
