@@ -11,7 +11,6 @@ from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 # for logging
 import os
 import os.path
-import pwd
 import time
 
 DEBUG=False
@@ -88,7 +87,7 @@ default_table_columns = (30, 40, 40)
 def log_correction (function, success):
     try:
         uid = os.getuid()
-        md5 = pwd.getpwuid(uid).pw_name
+        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
         now = time.strftime("%D-%H:%M",time.localtime())
         logname = os.path.join(os.getenv("HOME"),".correction")
         function_name = function.__name__
