@@ -116,7 +116,7 @@ OK (S4-C3-)Complement-record-et-classe.ipynb
 je laisse tomber ce lien; je ne suis meme pas sur de tout comprendre la-dedans
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
 
-ONGOING(S4-C4-)Complement-attributs-classe-instance.ipynb
+OK (S4-C4-)Complement-attributs-classe-instance.ipynb
 intermédiaire
 montrer les attributs de classe et les attributs d'instance sur un exemple
 par exemple Matrix2.template pour une mise en forme..
@@ -147,15 +147,26 @@ C012AL-W5-S5.txt
 
 ## Compléments Vidéo 5
 
+ONGOING (S5-C1-)Complement-heritage.ipynb
+* à quoi ça sert l'héritage
+réutilisabilité 
+héritage multiple & composition
+DROPPED je trouve que c'est vraiment très éloigné du sujet 
+*citer (et peut-être discuter en montrer des exemples) 
+design patterns et le livre de Gamma et al.
+
+ONGOING(S5-C2-)Complement-classes-new-style.ipynb  
+BASIQUE: c'est quoi ce code avec (object) ?
+AVANCÉ: un peu d'histoire; hériter des types builtin; unifier les types et les classes; python3 
+* mentionner en passant que seules les classes built-in ne sont pas mutables
+parce que sinon ça pourrait rendre l'interpréteur instable. 
+* donner des liens pour les détails scabreux
+
+ONGOING (S5-C3-)Complement-heritage-multiple.ipynb
+reprendre la discussion attributs-classe-instance et montrer que l'héritage est un prolongement
 *introduire la MRO (Method Resolution Order)
 http://python-history.blogspot.fr/2010/06/method-resolution-order.html
 (attention cet article parle aussi des nouvelles classes)
-
-*expliquer que seules les classes built-in ne sont pas mutables
-parce que sinon ça pourrait rendre l'interpréteur instable. 
-
-*citer (et peut-être discuter en montrer des exemples) 
-design patterns et le livre de Gramma et al.
 
 ## Quizz Vidéo 5
 
