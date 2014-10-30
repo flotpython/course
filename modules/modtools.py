@@ -82,7 +82,7 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
     # check this is a module
     if type(module) is not type(sys):
         htmlprint("show_module: Unexpected input {}\n".format(module))
-        return
+        return HTML(html+"</pre>")
     try:
         name = module.__name__
         # use .py instead of .pyc if that's what we get
@@ -90,7 +90,7 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
         for exclude in excludes:
             if file.endswith(exclude):
                 htmlprint("Cannot display {}, wrong type".format(file))
-                return
+                return HTML(html+"</pre>")
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         with open(file) as input:
@@ -107,7 +107,7 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
                 # get out if in showing mode and end string is seen
                 if showing and end and line.find(end)>=0:
                     htmlprint("<...>")
-                    return
+                    return HTML(html+"</pre>")
                 # print this line if in showing mode
                 if showing: 
                     mark = '' if lineno_width <= 0 else line_mark(lineno, lineno_width)
@@ -118,8 +118,7 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
         htmlprint("show_module: Could not show module {}".format(name))
         import traceback
         traceback.print_exc()
-    htmlprint("</pre>")
-    return HTML(html)
+    return HTML(html+"</pre>")
 
 ########################################
 # this works for packages as well
