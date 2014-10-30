@@ -15,7 +15,7 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 # mais ce serait le cas seulement si le code agissait sur 
 # tous les caractères
 
-def decode_zen (this_module):
+def decode_zen(this_module):
     # la version encodée du manifeste
     encoded = this_module.s
     # le 'code' 
@@ -24,22 +24,22 @@ def decode_zen (this_module):
     # sinon on garde le caractère tel quel
     # aussi, on appelle 'join' pour refaire une chaîne à partir
     # de la liste des caractères décodés
-    return ''.join( [ code[c] if c in code else c for c in encoded ] )
+    return ''.join([code[c] if c in code else c for c in encoded])
 
 # une autre version qui marche aussi, en utilisant 
 # dict.get(key, default)
-def decode_zen_bis (this_module):
-    return "".join ( [ this_module.d.get(c,c) for c in this_module.s ] )
+def decode_zen_bis(this_module):
+    return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
 
-class ExerciceDecodeZen (Exercice):
+class ExerciceDecodeZen(Exercice):
     # on surcharge correction pour capturer les arguments
-    def correction (self, student_decode_zen, this):
-        self.datasets = [ ((this,),{}) ]
-        return Exercice.correction (self, student_decode_zen)
+    def correction(self, student_decode_zen, this):
+        self.datasets = [((this,), {})]
+        return Exercice.correction(self, student_decode_zen)
     
-    def resultat (self, this):
+    def resultat(self, this):
         return self.solution(this)
 
 # cannot copy not deepcopy a module
-exo_decode_zen = ExerciceDecodeZen (decode_zen, "inputs_gets_overridden", copy_mode='none')
+exo_decode_zen = ExerciceDecodeZen(decode_zen, "inputs_gets_overridden", copy_mode='none')

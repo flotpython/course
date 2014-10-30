@@ -2,11 +2,11 @@
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 4 2 pgcd
-def pgcd (a,b):
+def pgcd(a, b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # on suppose que a >= b, il faut inverser sinon
     if b > a : 
-        a,b = b,a
+        a, b = b, a
     # boucle sans fin
     while True:
         # on calcule le reste 
@@ -15,7 +15,7 @@ def pgcd (a,b):
         if r == 0:
             return b
         # sinon on passe à l'itération suivante
-        a,b = b,r
+        a, b = b, r
 # @END@
 
 inputs_pgcd = [
@@ -24,4 +24,4 @@ inputs_pgcd = [
 
 ]
 
-exo_pgcd = Exercice (pgcd, inputs_pgcd)
+exo_pgcd = Exercice(pgcd, inputs_pgcd)

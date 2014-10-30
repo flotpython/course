@@ -4,4 +4,4 @@ print "chargement du package", __name__
 
 spam = range(3)
 
-__all__ = [ 'module_jouet' ]
+__all__ = ['module_jouet']
