@@ -6,12 +6,12 @@ not the nicest code ever, but it does the job
 """
 
 # do not even try files that end with these suffixes
-excludes = [ ".so", ".pyc" ]
+excludes = [".so", ".pyc"]
 
-def line_mark (lineno, width):
-    return str(lineno).rjust(width,'0')
+def line_mark(lineno, width):
+    return str(lineno).rjust(width, '0')
 
-def show_module (module, beg=None, end=None, prefix='|',lineno_width=0):
+def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
@@ -24,7 +24,7 @@ def show_module (module, beg=None, end=None, prefix='|',lineno_width=0):
     try:
         name = module.__name__
         # use .py instead of .pyc if that's what we get
-        file = module.__file__.replace(".pyc",".py")
+        file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
                 print "Cannot display {}, wrong type".format(file)
@@ -36,7 +36,7 @@ def show_module (module, beg=None, end=None, prefix='|',lineno_width=0):
             print 40*"-"
             if not showing: 
                 print "<...>"
-            lineno=0
+            lineno = 0
             for line in input.readlines():
                 lineno += 1
                 # turn on showing mode if beg string is seen
@@ -57,14 +57,14 @@ def show_module (module, beg=None, end=None, prefix='|',lineno_width=0):
         import traceback
         traceback.print_exc()
 
-html_style='max_height=300px; font-size:x-small;'
+html_style = 'max_height=300px; font-size:x-small;'
 
 html = ""
 
 from IPython.display import HTML
 # ceci est un ajout de derniere minute, aussi pour ne pas casser ce qui
 # marche je prefere copier-coller show_module
-def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
+def show_module_html(module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
@@ -72,10 +72,10 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     global html
     html = "<pre style='{}'>".format(html_style)
-    def htmlprint (*args):
+    def htmlprint(*args):
         global html
         html += " ".join(args) + "\n"
-    def htmlprint_nonl (*args):
+    def htmlprint_nonl(*args):
         global html
         html += " ".join(args)
 
@@ -86,7 +86,7 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
     try:
         name = module.__name__
         # use .py instead of .pyc if that's what we get
-        file = module.__file__.replace(".pyc",".py")
+        file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
                 htmlprint("Cannot display {}, wrong type".format(file))
@@ -122,6 +122,6 @@ def show_module_html (module, beg=None, end=None, prefix='|',lineno_width=0):
 
 ########################################
 # this works for packages as well
-show_package=show_module
-show_package_html=show_module_html
+show_package = show_module
+show_package_html = show_module_html
 
