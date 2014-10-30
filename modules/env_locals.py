@@ -5,7 +5,7 @@ un module pour illustrer la fonction locals
 """
 
 # pour afficher
-from locals_globals import environnement
+from env_locals_globals import environnement
 
 def temoin (x):
     "la fonction témoin"
