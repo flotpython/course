@@ -98,7 +98,7 @@ def show_module_html(module, beg=None, end=None, prefix='|',lineno_width=0):
             htmlprint(40*"-")
             if not showing: 
                 htmlprint("<...>")
-            lineno=0
+            lineno = 0
             for line in input.readlines():
                 lineno += 1
                 # turn on showing mode if beg string is seen
