@@ -57,7 +57,10 @@ def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
         import traceback
         traceback.print_exc()
 
-html_style = 'max_height=300px; font-size:11px; line-height:15px;'
+# this was not too bad on a mac retina but still not right
+# with other environments
+#html_style = 'max_height=300px; font-size:11px; line-height:15px;'
+html_style = 'max_height=300px; font-size:x-small; line-height:15px;'
 
 html = ""
 
