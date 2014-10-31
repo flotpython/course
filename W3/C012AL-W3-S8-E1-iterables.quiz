@@ -1,5 +1,5 @@
 <hr/>
-Itérables
+Itérables (niveau basique)
 =====
 
 Parmi les types suivants, lesquels sont des itérables ?
@@ -20,6 +20,9 @@ On peut itérer sur les dictionnaires, on balaye alors toutes les clés du diction
 On ne peut pas itérer sur les objets atomiques, en particulier float et complex.
 [explanation]
 
+<hr/>
+Itérables (niveau intermédiaire)
+=====
 
 Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode __iter__() qui renvoie un itérateur ?
 
@@ -30,6 +33,7 @@ Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode __ite
 Oui, et dans ce cas la boucle for va utiliser cet iterateur pour implementer son parcours.
 [explanation]
 
+<hr/>
 Est-ce que si on peut faire une boucle sur un objet alors c'est qu'il propose une méthode next() ?
 
 ( ) Oui
@@ -40,7 +44,7 @@ La méthode next() est requise sur les itérateurs, pas forcément sur les itérable
 [explanation]
 
 <hr/>
-Itérateurs
+Itérateurs (niveau avancé)
 =====
 
 Parmi les types suivants, lesquels sont des itérateurs ? N'hésitez pas à vous servir d'un interpréteur python en cas de doute:
