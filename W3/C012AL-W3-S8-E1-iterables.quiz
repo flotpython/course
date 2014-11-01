@@ -34,7 +34,7 @@ Oui, et dans ce cas la boucle for va utiliser cet iterateur pour implementer son
 [explanation]
 
 <hr/>
-Est-ce que si on peut faire une boucle sur un objet alors c'est qu'il propose une méthode next() ?
+Si on peut faire une boucle for sur un objet, est-ce qu'il implémente forcément une méthode next() ?
 
 ( ) Oui
 (x) Non
