@@ -125,6 +125,8 @@ monter qu'on peut faire self.template aussi bien que Matrix2.template
 
 ## Quizz Vidéo 4
 
+OK C012AL-W5-S4-E1.quiz
+
 ## Exercices Vidéo 4
 je pense qu'en guise d'exercice je vais leur mitonner un mini-projet 
 un truc à base des données de marine (une classe bateau, une classe position, une classe mouvement)
@@ -164,6 +166,7 @@ OK (S5-C3-)Complement-heritage-multiple.ipynb
 
 ## Quizz Vidéo 5
 batir quelque chose avec des exemples simples de code 
+OK C012AL-W5-S5-E1.quiz
 
 ## Exercices Vidéo 5
 
