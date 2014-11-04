@@ -6,7 +6,7 @@
 . debugger
 . pylint
 
--- intrduire rapidement (essentiellement mentionner et montrer des exemples)
+-- introduire rapidement (essentiellement mentionner et montrer des exemples)
 . django 
 .. mentionner à cette occasion Model-View-Controller MVC http://fr.wikipedia.org/wiki/Modèle-vue-contrôleur
 . matplotlib
