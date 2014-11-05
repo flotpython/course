@@ -183,20 +183,15 @@ ONGOING (S6-C1-)Complement-surcharge-operateurs-1.ipynb
 
 *Citer ce lien pour toutes les surcharges d'opérateurs. 
 http://docs.python.org/2/reference/datamodel.html#special-method-names
-*couvrir d'autres opérateurs (je couvre __init__ et __str__ en vidéo)
-Il faut voir au minimum __call__, __add__, __contains__, __len__, __getattr__,
-__nonzero__
 
+Il faut voir au minimum  __getattr__,
 illustrer __getattr__ avec un proxy xmlrpc
 
-* rappeler que le __iter__ est également une surcharge
 * parler des fallback 
 Itération : __iter__ puis __getitem__
 in :  __contains__ puis __iter__ puis __getitem__
 Test vrai/faux : __nonzero__ puis __len__ (faux si __len__ retourne 0)
 print : __str__ puis __repr__
-
-* parler de __call__ qui transforme une instance en un callable
 
 *parler des optimisations de CPython sur les opérateurs
 Plus rapide d'utiliser un opérateur que l'appel direct sur le méthode
