@@ -25,9 +25,11 @@ C012AL-W7-S2.txt
 
 ## Compléments Vidéo 2
 
-* les exemples pratiques que tu as déjà fait. 
+ONGOING (S2-C1-)Complement-decorateurs.ipynb
 
-* (initialiement avec les context managers) : montrer cet exemple et le comparer avec les décorateur
+* les exemples pratiques que tu as déjà faits. 
+
+* (initialement avec les context managers) : montrer cet exemple et le comparer avec les décorateur
 
 import time
 class Timer():    

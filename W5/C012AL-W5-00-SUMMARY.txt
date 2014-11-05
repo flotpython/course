@@ -227,6 +227,8 @@ NIVEAU: INTERMEDIAIRE
 C012AL-W5-S8.txt
 
 ## Compléments Vidéo 8
+NICETOHAVE: un complement qui explique qu'on n'a pas besoin de 'global' si on code proprement
+
 citer: 
 http://www.python.org/dev/peps/pep-0227/
 http://docs.python.org/2.7/reference/executionmodel.html 
