@@ -6,7 +6,7 @@ Supposons que nous ayons le code suivant.
 <pre>
 class Parser:
     def __init__(self, sep=' '):
-        self.sep = ':'
+        self.sep = sep
         self.parsed_line = ''
         
     def parse(self, line):
