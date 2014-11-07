@@ -1,0 +1,53 @@
+<hr/>
+Affectation et référencement ?
+=====
+
+Supposons que l'on ait le code suivant
+<pre>
+a = "a dans module"
+b = "b dans module"
+class C():
+    a = "a dans C"
+    b = "b dans C"
+    def f(self):
+        b = "b dans f"
+        def g():
+            print a
+            print b
+        g()
+C().f()
+</pre>
+
+>>Que va être le résultat de l'exécution de ce code ?<<
+( ) une exception
+( ) un affichage de : "a dans C" et "b dans f"
+( ) un affichage de : "a dans module" et "b dans module"
+( ) un affichage de : "a dans C" et "b dans C"
+(x) un affichage de : "a dans module" et "b dans f"
+
+[explanation]
+L'interpréteur python suit toujours la règle LEG pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobante uniquement. Lorsque l'on execute "print a", "a" est cherchée localement, puis dans les fonctions englobantes (donc la fonction f) puis dans le module. C'est donc la valeur de "a" définie dans le module qui sera utilisée (on note que l'on saute la classe englobante lors de la recherche de la variable). 
+
+Lorsque l'on execute "print b", "b" est cherchée localement, puis dans les fonctions englobantes (donc la fonction f). "b" est définie dans la fonction englobante f, c'est donc cette valeur de "b" qui sera utilisée. 
+[explanation]
+
+=====
+Supposons que l'on ait le code suivant
+<pre>
+x = 1
+def f():
+    print x
+    x = 2
+f()
+</pre>
+
+>>Que va être le résultat de l'exécution de ce code ?<<
+( ) affichage de 1 sur le terminal
+( ) affichage de 2 sur le terminal
+( ) affichage de None sur le terminal
+(x) une exception
+
+[explanation]
+Il s'agit d'un cas subtil en python. On s'attendrait à ce que la fonction affiche 1, c'est-à-dire la valeur de la variable globale "x" au moment du print. Cependant, on définit cette variable "x" comme étant locale à la ligne suivante. Comme c'est une mauvaise idée de mélanger dans la même fonction une variable locale et une variable globale de même nom, python interdit cela en lançant une exception spécifique : UnboundLocalError. Ce problème est discuté dans un complément dédié en semaine 4. 
+[explanation]
+
