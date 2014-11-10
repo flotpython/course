@@ -171,8 +171,9 @@ C012AL-W3-S8.txt
 
 OK Complement-instructions-break-et-continue.ipynb
 OK Complement-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
-OK Complement-iterateurs-et-performances.ipynb: 
-OK C012AL-W3-S8-C4-iterable-iterateur: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
+ONGOING Complement-variable-boucles.ipynb  
+ OK Complement-iterateurs-et-performances.ipynb: 
+OK Complement-iterable-vs-iterateur.ipynb: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 
 BOF : je laisse tomber tout ca pour l'instant
  -voir le else du for 
