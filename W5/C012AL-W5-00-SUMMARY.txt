@@ -150,19 +150,17 @@ C012AL-W5-S5.txt
 ## Compléments Vidéo 5
 
 
-ONGOING (S5-C1-)Complement-heritage.ipynb
-* à quoi ça sert l'héritage
-réutilisabilité  
-hériter d'une spécification vs hériter d'une implémentation
-langages fortement typés
-héritage multiple & composition
-see http://en.wikipedia.org/wiki/Mixin#In_Python & SocketServer
+OK (S5-C1-)Complement-heritage.ipynb
 
+ONGOING (S5-C2-)Complement-heritage-typage.ipynb
+ce complément pose problème et dans le cas le pire on l'enlèvera
+
+DROPPED
 * peut-être citer / discuter en montrer des exemples
 design patterns et le livre de Gamma et al.
 
-OK (S5-C2-)Complement-classes-new-style.ipynb  
-OK (S5-C3-)Complement-heritage-multiple.ipynb
+OK (S5-C3-)Complement-classes-new-style.ipynb  
+OK (S5-C4-)Complement-heritage-multiple.ipynb
 
 ## Quizz Vidéo 5
 batir quelque chose avec des exemples simples de code 
