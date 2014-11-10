@@ -106,7 +106,7 @@ CO12AL-W7-S5.txt
 
 
 ###################################################################
-ONGOING C012AL-W7-S6-C1-python2-vs-python3.ipynb
+OK C012AL-W7-S6-C1-python2-vs-python3.ipynb
           on a vendu l'idée d'un complément sur la comparaison python2 python3
           dans lequel il faudra bien mentionner le type unicode
 DROPPED pending-unicode.ipynb : je propose de bouger ça carrément en semaine 7 
