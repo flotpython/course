@@ -86,7 +86,7 @@ message = nom + ", " + age + " ans, " +\
 
 Solution 5
 <pre>
-message = "%s, %s, %s" % (nom, age, 
+message = "%s, %s ans, %s" % (nom, age, 
                           no_secu if no_secu else "pas de no de SS" )
 </pre>
 
