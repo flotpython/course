@@ -4,7 +4,7 @@ Héritage
 
 Supposons que nous ayons le code suivant volontairement obscur.
 <pre>
-class C:
+class C(object):
     def f(self):
         self.x = 1
 
