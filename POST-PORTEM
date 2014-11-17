@@ -5,3 +5,32 @@
  * classes new-style
    * trop de décalage dans le temps entre le cours semaine 5
      et celui de la semaine 7
+
+ * equilibre cours
+   * la semaine 2 est très chargée
+   * les libellés des différentes semaines sont imprécis
+
+ * bisect the repo to find out about this "nous dirons plus tard que les variables référencent le même objet" thing
+   when was it written, by whom, did valerie let this pass ?
+
+ * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
+   * le dernier champ étant vide on pourrait s'attendre à afficher ??
+   * d'ailleurs la mise en page sur la plateforme pourrait être améliorée, comme de toutes façons on se retrouve avec 2 lignes par input autant ne pas abréger c'est inutile et confusant
+
+***** notebooks et process
+ * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
+ * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
+ * avoir git mieux intégré à IPython serait cool
+ * un outil dans IPython pour gérer les annotations (notebookname et version)
+ * comprendre les signatures entre mac et windows
+ * revoir l'utilisation de RawNbConvert
+   * a. dans l'état, on n'utilise que le rendu html dans le notebook qui est plutôt sympa
+   * b. il y a d'autres voies pour rendre la même chose (genre 'code' avec les 4 espaces en markdown)
+   * avec a. on a un html sympa, mais tous les nbconvert sont pourris (on ne peut pas lancer latex par exemple)
+   * avec b. c'est mieux pour les exports mais c'est dommage de perdre le rendu
+   * j'ai essayé plusieurs voies pour essayer d'obtenir le même rendu avec un autre type que RawNbConvert mais sans succès. par exemple si je mets moi-meme un <pre> avec un style dans un markdown, le style ne passe pas très bien (apparemment certains flags css passent et d'autres non...)
+   * trouver un autre rendu permettrait d'éditer du pdf plus fidele.
+
+ * ce serait bien si on pouvait lier les notebooks entre eux (mettre des URLs de l'un vers l'autre)
+   * apparemment c'est possible déjà sauf que MH ne m'a pas passé la recette magique.
+   * dans tous les cas il faudrait dans ce cas garder le libellé de la référence (Semaine x Séquence y)
