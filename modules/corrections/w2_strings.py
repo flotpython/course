@@ -31,16 +31,16 @@ inputs_affichage = [
     "Joseph, Dupont",
     "Jules , Durand, G123, 21",
     "Jean", 
+    "Ted, Mosby, F321, ",
     " Jacques , Martin, L119, \t24 ,",
     "Sheldon, Cooper ,",
-    "Ted, Mosby, F321, ",
     "\t Sam, Does\t, F321, 23",
 ]
 
 exo_affichage = Exercice_1arg(affichage, inputs_affichage,
-                              correction_columns=(40, 30, 30),
+                              correction_columns=(40, 40, 40),
                               exemple_columns=(40, 40),
-                              exemple_how_many=3)
+                              exemple_how_many=4)
 
 ##############################
 # @BEG@ 2 8 carre
