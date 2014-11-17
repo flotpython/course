@@ -11,6 +11,7 @@ C012AL-W6-S1.txt
 
 ## Compléments Vidéo 1
 
+ONGOING (S1-C1-)Complement-expressions-generatrices.ipynb 
 *parler des expressions génératrice et de leur intérêt (faible occupation
 mémoire)
 (x**6 + 3*x for x in xrange(100000000))
@@ -111,6 +112,11 @@ et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 ## Exercices Vidéo 5
 
 ###################################################################
+
+## Séquence ajoutée 'suppléments'
+
+ONGOING (S6-C1-)Complement-expressions-regulieres.ipynb 
+
 
 Mini projets
 
