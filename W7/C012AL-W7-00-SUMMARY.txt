@@ -25,7 +25,7 @@ C012AL-W7-S2.txt
 
 ## Compléments Vidéo 2
 
-ONGOING (S2-C1-)Complement-decorateurs.ipynb
+OK (S2-C1-)Complement-decorateurs.ipynb
 
 * les exemples pratiques que tu as déjà faits. 
 
