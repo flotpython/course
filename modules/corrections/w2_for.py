@@ -25,7 +25,7 @@ exo_multi_tri = Exercice_1arg(multi_tri, inputs_multi_tri,
 # @BEG@ 2 7 multi_tri_reverse
 def multi_tri_reverse(listes, reverses):
     """trie toutes les sous listes, dans une direction
-    precisée par le second argument"""
+    précisée par le second argument"""
     # zip() permet de faire correspondre les éléments 
     # de listes avec ceux de reverses
     for liste, reverse in zip(listes, reverses):
@@ -59,7 +59,7 @@ def liste_racines(p):
     # souvenez vous que 1j c'est notre 'i' complexe
     return [e**((2*pi*1j*n)/p) for n in range(p)]
 
-# Il est tout à fait possible aussi de contruire les racines pas à pas
+# Il est tout à fait possible aussi de construire les racines pas à pas
 # C'est un peu moins élégant mais ça fonctionne très bien aussi
 def liste_racines_bis(p):
     "retourne la liste des racines p-ièmes de l'unité"

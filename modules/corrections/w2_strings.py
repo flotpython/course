@@ -60,8 +60,9 @@ def carre(s):
     #    ici avec le clause 'if token'
     # enfin on convertit tous les tokens restants en entiers avec int()
     entiers = [int(token) for token in s.split(";") if token]
-    # il n'y a plus qu'à mettre au carré, et à recoudre (join) avec ':'
-    return ":".join (["{}".format(entier**2) for entier in entiers])
+    # il n'y a plus qu'à mettre au carré, retraduire en strings,
+    # et à recoudre le tout avec join et ':'
+    return ":".join([str(entier**2) for entier in entiers])
 # @END@
 
 inputs_carre = [
