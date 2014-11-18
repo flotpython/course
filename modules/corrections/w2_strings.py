@@ -3,6 +3,12 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 
 # @BEG@ 2 8 affichage
+# un élève a remarqué très justement que ce code ne fait pas
+# exactement ce qui est demandé, en ce sens qu'avec
+# l'entrée correspondant à Ted Mosby on obtient A:><
+# je préfère toutefois publier le code qui est en
+# service pour la correction en ligne, et vous laisse
+# le soin de l'améliorer si vous le souhaitez
 def affichage(s):
     # pour ignorer les espaces et les tabulations 
     # le plus simple est de les enlever
