@@ -36,5 +36,8 @@ exo_inconnue = ExerciceInconnue(connue, composite)
 # qui commence a l'index len(connue)
 # qui se termine a l'index len(composite)-len(connue)
 # ce qui donne en utilisant une slice
-inconnue = composite [len(connue):len(composite)-len(connue)]
+inconnue = composite [ len(connue) : len(composite)-len(connue) ]
+#
+# on peut aussi faire encore plus simplement
+inconnue = composite [ len(connue) : -len(connue) ]
 # @END@
