@@ -11,7 +11,7 @@ C012AL-W6-S1.txt
 
 ## Compléments Vidéo 1
 
-ONGOING (S1-C1-)Complement-expressions-generatrices.ipynb 
+OK (S1-C1-)Complement-expressions-generatrices.ipynb 
 *parler des expressions génératrice et de leur intérêt (faible occupation
 mémoire)
 (x**6 + 3*x for x in xrange(100000000))
