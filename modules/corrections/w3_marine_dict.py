@@ -4,10 +4,10 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 # @BEG@ 3 2 merge
 def merge(extended, abbreviated):
     """
-Consolide des données étendues et des données abrégées
-comme décrit dans l'énoncé
-Le coût de cette fonction est linéaire dans la taille 
-des données (longueur des listes)
+    Consolide des données étendues et des données abrégées
+    comme décrit dans l'énoncé
+    Le coût de cette fonction est linéaire dans la taille 
+    des données (longueur des listes)
     """
     # on initialise le résultat avec un dictionnaire vide
     result = {}
@@ -29,14 +29,59 @@ des données (longueur des listes)
     return result
 # @END@
 
-def merge2(extended_data, abbreviated_data):
+# @BEG@ 3 2 merge
+def merge2(extended, abbreviated):
+    """
+    Une deuxième version
+    """
+    # on initialise le résultat avec un dictionnaire vide
     result = {}
-    for ship in extended_data:
-        result[ship[0]] = ship[4:6]
-        result[ship[0]].append(tuple(ship[1:4]))
-    for ship in abbreviated_data:
-        result[ship[0]].append(tuple(ship[1:4]))
+    # on remplit d'abord à partir des données étendues
+    for ship in extended:
+        id = ship[0]
+        # on crée la liste avec le nom et le pays
+        result[id] = ship[4:6]
+        # on ajoute un tuple correspondant à la position
+        result[id].append(tuple(ship[1:4]))
+    # pareil que pour la première solution,
+    # on sait d'après les hypothèses
+    # que les id trouvées dans abbreviated
+    # sont déja présentes dans le resultat
+    for ship in abbreviated:
+        id = ship[0]
+        # on ajoute un tuple correspondant à la position
+        result[id].append(tuple(ship[1:4]))
     return result
+# @END@
+
+# @BEG@ 3 2 merge
+def merge3(extended, abbreviated):
+    """
+    Une troisième solution
+    """
+    # ici on va tirer profit du fait que les id sont
+    # en première position dans les deux tableaux
+    # aussi si on les trie on va mettre les deux tableaux 'en phase'
+    #
+    # c'est une technique qui marche dans ce cas précis
+    # parce qu'on sait que les deux tableaux contiennent des données
+    # pour exactement le même ensemble de bateaux
+    # 
+    # ici on a deux choix, selon qu'on peut se permettre ou non de
+    # modifier les données en entrée. Supposons que oui:
+    extended.sort()
+    abbreviated.sort()
+    # si ça n'avait pas été le cas on aurait fait plutôt
+    # extended = extended.sorted() et idem pour l'autre
+    #
+    # il ne reste plus qu'à assembler le résultat
+    # en découpant des tranches et en les transformant en tuples
+    # lorsque c'est ce qui est demandé
+    return {
+        e[0] : e[4:6] + [ tuple(e[1:4]), tuple(a[1:4]) ]
+        for (e,a) in zip (extended, abbreviated)
+        }
+# @END@
 
 class ExerciceMerge(Exercice):
 
