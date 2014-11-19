@@ -46,10 +46,10 @@ Références partagées (3)
 
 Dans l'exercice précédent, comment faire pour éviter que les trois éléments de liste ne soient modifiées ?
 
-[ ] il n'y a rien à faire, la modification ne concerne que le premier élément
-[ ] il faut faire une "shallow copy"
-[ ] il faut faire une "deep copy"
-[x] il faut construire la liste autrement
+( ) il n'y a rien à faire, la modification ne concerne que le premier élément
+( ) il faut faire une "shallow copy"
+( ) il faut faire une "deep copy"
+(x) il faut construire la liste autrement
 
 [explanation]
 Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc le même défaut que l'objet original. La seule solution est de construire la liste autrement, soit à la main 
