@@ -17,6 +17,15 @@
    * le dernier champ étant vide on pourrait s'attendre à afficher ??
    * d'ailleurs la mise en page sur la plateforme pourrait être améliorée, comme de toutes façons on se retrouve avec 2 lignes par input autant ne pas abréger c'est inutile et confusant
 
+ * W3S2 - dans le quiz on propose une option qui est `'marc' in annuaire and annuaire['marc']`
+   quelqu'un remarque que ceci renvoie False au lieu de None
+   il faudrait mettre ça en contexte
+
+ * W3S6 la section sur le short-circuit est foireuse, il faudrait des trucs + simples comme tout simplement
+   True and 0/0
+   False and 0/0
+   qui est bcp + clair à comprendre
+
 ***** notebooks et process
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
  * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
