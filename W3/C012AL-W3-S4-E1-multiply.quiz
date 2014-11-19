@@ -48,8 +48,22 @@ Dans l'exercice précédent, comment faire pour éviter que les trois éléments de l
 
 [ ] il n'y a rien à faire, la modification ne concerne que le premier élément
 [ ] il faut faire une "shallow copy"
-[x] il faut faire une "deep copy"
+[ ] il faut faire une "deep copy"
+[x] il faut construire la liste autrement
 
 [explanation]
-Il faut faire une copie en profondeur car le premier niveau de la liste reste en fait inchangé lors de l'affectation
+Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc le même défaut que l'objet original. La seule solution est de construire la liste autrement, soit à la main 
+<pre>
+liste = &#91;&#91;0&#93;, &#91;0&#93;, &#91;0&#93;&#93;
+</pre> 
+soit dans une boucle for
+<pre>
+liste = &#91;&#93;
+for i in range(3):
+    liste.append(&#91;0&#93;)
+</pre>
+soit dans une compréhension de liste que nous verrons plus tard
+<pre>
+liste = &#91;&#91;0&#93; for i in range(3)&#93;
+</pre>
 [explanation]
