@@ -26,6 +26,14 @@
    False and 0/0
    qui est bcp + clair à comprendre
 
+ * Le quiz sur les listes et la copie avec 3 * [[0]] est assez foireux
+   il faudrait le récrire avec un exemple plus pertinent (sans le '*')
+
+ * l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
+   semble être trop raide pour certains
+   on pourrait sans trop de souci le décliner en une version simple:
+   ecrire index() qui renvoie les éléments de extended mais dans un dictionnaire indexé sur l'id
+
 ***** notebooks et process
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
  * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
