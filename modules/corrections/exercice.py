@@ -262,6 +262,7 @@ class ExerciceKeywords:
                                 copy_mode=self.copy_mode, columns=columns)
 
 
+##############################
 class Exercice(ExerciceKeywords):
     """
 # the most usual form expects its inputs specified as 
@@ -273,6 +274,7 @@ class Exercice(ExerciceKeywords):
         ExerciceKeywords.__init__(self, solution, datasets, *args, **kwds)
 
 
+##############################
 class Exercice_1arg(Exercice):
     """
     A convenience/specialized Exercice.
@@ -284,6 +286,7 @@ class Exercice_1arg(Exercice):
         inputs = [(single_arg,) for single_arg in single_arg_s]
         Exercice.__init__(self, solution, inputs, *args, **kwds)
 
+##############################
 class Exercice_multiline(Exercice):
     """
     A customized Exercice where examples are exposed in another
@@ -300,3 +303,21 @@ class Exercice_multiline(Exercice):
         return exemple_table_multiline(self.name, self.argnames, self.solution, 
                                        self.datasets, columns=columns)
 
+
+##############################
+import re
+
+class ExerciceRegexp(Exercice_1arg):
+    def __init__(self, name, regexp, inputs, *args, **keywords):
+        self.regexp = regexp
+        def solution (string):
+            match = re.match(regexp, string)
+            return match and match.groups()
+        Exercice_1arg.__init__(self, solution, inputs, *args, **keywords)
+        self.name = name
+
+    def correction(self, student_regexp):
+        def student_solution(x):
+            match = re.match(student_regexp, x)
+            return match and match.groups()
+        return Exercice_1arg.correction(self, student_solution)
