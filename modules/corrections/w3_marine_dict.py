@@ -1,6 +1,48 @@
 # -*- coding: iso-8859-15 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
+# @BEG@ 3 2 index
+def index(bateaux):
+    """
+    Calcule sous la forme d'un dictionnaire indexé par les ids
+    un index de tous les bateaux présents dans la liste en argument
+    Comme les données étendues et abrégées ont toutes leur id 
+    en première position on peut en fait utiliser ce code
+    avec les deux types de données
+    """
+    # c'est une simple compréhension de dictionnaire
+    return { bateau[0]: bateau for bateau in bateaux}
+# @END@
+
+# @BEG@ 3 2 index
+def index2(bateaux):
+    """
+    La même chose mais ne manière itérative
+    """
+    # si on veut décortiquer
+    resultat = {}
+    for bateau in bateaux:
+        resultat [bateau[0]] = bateau
+    return resultat
+# @END@
+
+class ExerciceIndex(Exercice):
+
+    # on surcharge correction pour capturer les arguments
+    def correction(self, student_index, bateaux):
+        self.datasets = [((bateaux, ), {})]
+        return Exercice.correction(self, student_index)
+
+    # une fonction pour exposer le resultat attendu
+    def resultat(self, bateaux):
+        return self.solution(bateaux)
+
+exo_index = ExerciceIndex(index, "inputs_gets_overridden")
+    
+
+    
+# @END@
+
 # @BEG@ 3 2 merge
 def merge(extended, abbreviated):
     """
