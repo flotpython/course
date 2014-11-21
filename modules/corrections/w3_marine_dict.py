@@ -40,9 +40,6 @@ class ExerciceIndex(Exercice):
 exo_index = ExerciceIndex(index, "inputs_gets_overridden")
     
 
-    
-# @END@
-
 # @BEG@ 3 2 merge
 def merge(extended, abbreviated):
     """
