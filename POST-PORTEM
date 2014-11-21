@@ -31,8 +31,8 @@
 
  * l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
    semble être trop raide pour certains
-   on pourrait sans trop de souci le décliner en une version simple:
-   ecrire index() qui renvoie les éléments de extended mais dans un dictionnaire indexé sur l'id
+   j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
+   qui se décline en deux versions basique et intermédiaire
 
 ***** notebooks et process
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
