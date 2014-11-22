@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 Général
 =======
@@ -69,7 +68,10 @@ Notebooks et process
    * b. il y a d'autres voies pour rendre la même chose (genre 'code' avec les 4 espaces en markdown)
    * avec a. on a un html sympa, mais tous les nbconvert sont pourris (on ne peut pas lancer latex par exemple)
    * avec b. c'est mieux pour les exports mais c'est dommage de perdre le rendu
-   * j'ai essayé plusieurs voies pour essayer d'obtenir le même rendu avec un autre type que RawNbConvert mais sans succès. par exemple si je mets moi-meme un <pre> avec un style dans un markdown, le style ne passe pas très bien (apparemment certains flags css passent et d'autres non...)
+   * j'ai essayé plusieurs voies pour essayer d'obtenir le même rendu
+   avec un autre type que RawNbConvert mais sans succès. par exemple
+   si je mets moi-meme un `<pre>` avec un `style=` dans un markdown,
+   le style ne passe pas très bien (apparemment certains flags css passent et d'autres non...)
    * trouver un autre rendu permettrait d'éditer du pdf plus fidele.
 
  * ce serait bien si on pouvait lier les notebooks entre eux (mettre des URLs de l'un vers l'autre)
