@@ -1,11 +1,13 @@
-General
+# -*- coding: utf-8 -*-
+
+Général
 =======
 
  * classes new-style
    * trop de décalage dans le temps entre le cours semaine 5
      et celui de la semaine 7
 
- * equilibre cours
+ * équilibre cours
    * la semaine 2 est très chargée
    * les libellés des différentes semaines sont imprécis
 
@@ -23,8 +25,9 @@ W1
 W2
 ===
 
- * Le quiz sur les listes et la copie avec 3 * [[0]] est assez foireux
-   il faudrait le supprimer ou le récrire avec un exemple plus pertinent (sans le '*')
+ * Le quiz sur les listes et la copie avec `3 * [[0]]` est assez foireux
+   il faudrait le supprimer ou le récrire avec un exemple plus
+   pertinent - sans le `*`
 
  * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
    * le dernier champ étant vide on pourrait s'attendre à afficher ??
@@ -32,9 +35,9 @@ W2
      comme de toutes façons on se retrouve avec 2 lignes par input
      autant ne pas abréger c'est inutile et confusant
 
- * le quiz sur le formattage des strings, et 'dans du code nouveau'
+ * le quiz sur le formattage des strings, et "dans du code nouveau"
    a suscité pas mal d'émoi, il faudrait préciser mieux l'histoire
-   des % qu'on ne compte pas comme corrects.
+   des `%` qu'on ne compte pas comme corrects.
 
 W3
 ===
