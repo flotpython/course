@@ -1,6 +1,5 @@
- * installation sur windows
-   * donner un peu plus d'indications a propos du PATH
-   * idem peut-être pour le shebang
+General
+=======
 
  * classes new-style
    * trop de décalage dans le temps entre le cours semaine 5
@@ -10,31 +9,53 @@
    * la semaine 2 est très chargée
    * les libellés des différentes semaines sont imprécis
 
- * bisect the repo to find out about this "nous dirons plus tard que les variables référencent le même objet" thing
+ * bisect the repo to find out about this
+   "nous dirons plus tard que les variables référencent le même objet" thing
    when was it written, by whom, did valerie let this pass ?
+
+W1
+===
+
+ * installation sur windows
+   * donner un peu plus d'indications a propos du PATH
+   * idem peut-être pour le shebang sur windows
+
+W2
+===
+
+ * Le quiz sur les listes et la copie avec 3 * [[0]] est assez foireux
+   il faudrait le supprimer ou le récrire avec un exemple plus pertinent (sans le '*')
 
  * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
    * le dernier champ étant vide on pourrait s'attendre à afficher ??
-   * d'ailleurs la mise en page sur la plateforme pourrait être améliorée, comme de toutes façons on se retrouve avec 2 lignes par input autant ne pas abréger c'est inutile et confusant
+   * d'ailleurs la mise en page sur la plateforme pourrait être améliorée,
+     comme de toutes façons on se retrouve avec 2 lignes par input
+     autant ne pas abréger c'est inutile et confusant
+
+ * le quiz sur le formattage des strings, et 'dans du code nouveau'
+   a suscité pas mal d'émoi, il faudrait préciser mieux l'histoire
+   des % qu'on ne compte pas comme corrects.
+
+W3
+===
 
  * W3S2 - dans le quiz on propose une option qui est `'marc' in annuaire and annuaire['marc']`
    quelqu'un remarque que ceci renvoie False au lieu de None
    il faudrait mettre ça en contexte
 
- * W3S6 la section sur le short-circuit est foireuse, il faudrait des trucs + simples comme tout simplement
+ * W3S6 dans le notebook la section sur le short-circuit est foireuse,
+   il faudrait des trucs + simples comme tout simplement
    True and 0/0
    False and 0/0
-   qui est bcp + clair à comprendre
+   qui est bcp + clair à comprendre - plutot que ces pop() qui sont confusants
 
- * Le quiz sur les listes et la copie avec 3 * [[0]] est assez foireux
-   il faudrait le récrire avec un exemple plus pertinent (sans le '*')
-
- * l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
+ * W3S2 l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
    semble être trop raide pour certains
    j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
    qui se décline en deux versions basique et intermédiaire
 
-***** notebooks et process
+Notebooks et process
+====================
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
  * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
  * avoir git mieux intégré à IPython serait cool
