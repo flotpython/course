@@ -2,15 +2,15 @@ General
 =======
 
  * classes new-style
-   * trop de décalage dans le temps entre le cours semaine 5
+   * trop de dÃ©calage dans le temps entre le cours semaine 5
      et celui de la semaine 7
 
  * equilibre cours
-   * la semaine 2 est très chargée
-   * les libellés des différentes semaines sont imprécis
+   * la semaine 2 est trÃ¨s chargÃ©e
+   * les libellÃ©s des diffÃ©rentes semaines sont imprÃ©cis
 
  * bisect the repo to find out about this
-   "nous dirons plus tard que les variables référencent le même objet" thing
+   "nous dirons plus tard que les variables rÃ©fÃ©rencent le mÃªme objet" thing
    when was it written, by whom, did valerie let this pass ?
 
 W1
@@ -18,22 +18,22 @@ W1
 
  * installation sur windows
    * donner un peu plus d'indications a propos du PATH
-   * idem peut-être pour le shebang sur windows
+   * idem peut-Ãªtre pour le shebang sur windows
 
 W2
 ===
 
  * Le quiz sur les listes et la copie avec 3 * [[0]] est assez foireux
-   il faudrait le supprimer ou le récrire avec un exemple plus pertinent (sans le '*')
+   il faudrait le supprimer ou le rÃ©crire avec un exemple plus pertinent (sans le '*')
 
- * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
-   * le dernier champ étant vide on pourrait s'attendre à afficher ??
-   * d'ailleurs la mise en page sur la plateforme pourrait être améliorée,
-     comme de toutes façons on se retrouve avec 2 lignes par input
-     autant ne pas abréger c'est inutile et confusant
+ * W2S8 - l'exercice 'affichage' donne un rÃ©sultat discutable pour Ted Mosby,
+   * le dernier champ Ã©tant vide on pourrait s'attendre Ã  afficher ??
+   * d'ailleurs la mise en page sur la plateforme pourrait Ãªtre amÃ©liorÃ©e,
+     comme de toutes faÃ§ons on se retrouve avec 2 lignes par input
+     autant ne pas abrÃ©ger c'est inutile et confusant
 
  * le quiz sur le formattage des strings, et 'dans du code nouveau'
-   a suscité pas mal d'émoi, il faudrait préciser mieux l'histoire
+   a suscitÃ© pas mal d'Ã©moi, il faudrait prÃ©ciser mieux l'histoire
    des % qu'on ne compte pas comme corrects.
 
 W3
@@ -41,34 +41,34 @@ W3
 
  * W3S2 - dans le quiz on propose une option qui est `'marc' in annuaire and annuaire['marc']`
    quelqu'un remarque que ceci renvoie False au lieu de None
-   il faudrait mettre ça en contexte
+   il faudrait mettre Ã§a en contexte
 
  * W3S6 dans le notebook la section sur le short-circuit est foireuse,
    il faudrait des trucs + simples comme tout simplement
    True and 0/0
    False and 0/0
-   qui est bcp + clair à comprendre - plutot que ces pop() qui sont confusants
+   qui est bcp + clair Ã  comprendre - plutot que ces pop() qui sont confusants
 
  * W3S2 l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
-   semble être trop raide pour certains
-   j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
-   qui se décline en deux versions basique et intermédiaire
+   semble Ãªtre trop raide pour certains
+   j'ai rangÃ© dans la branche 'exo' une version 2.0 de cet exercice
+   qui se dÃ©cline en deux versions basique et intermÃ©diaire
 
 Notebooks et process
 ====================
- * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
- * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
- * avoir git mieux intégré à IPython serait cool
- * un outil dans IPython pour gérer les annotations (notebookname et version)
+ * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait trÃ¨s apprÃ©ciable
+ * un bouton pour faire clear_all_cells + remove_empty_cells serait trÃ¨s apprÃ©ciable
+ * avoir git mieux intÃ©grÃ© Ã  IPython serait cool
+ * un outil dans IPython pour gÃ©rer les annotations (notebookname et version)
  * comprendre les signatures entre mac et windows
  * revoir l'utilisation de RawNbConvert
-   * a. dans l'état, on n'utilise que le rendu html dans le notebook qui est plutôt sympa
-   * b. il y a d'autres voies pour rendre la même chose (genre 'code' avec les 4 espaces en markdown)
+   * a. dans l'Ã©tat, on n'utilise que le rendu html dans le notebook qui est plutÃ´t sympa
+   * b. il y a d'autres voies pour rendre la mÃªme chose (genre 'code' avec les 4 espaces en markdown)
    * avec a. on a un html sympa, mais tous les nbconvert sont pourris (on ne peut pas lancer latex par exemple)
    * avec b. c'est mieux pour les exports mais c'est dommage de perdre le rendu
-   * j'ai essayé plusieurs voies pour essayer d'obtenir le même rendu avec un autre type que RawNbConvert mais sans succès. par exemple si je mets moi-meme un <pre> avec un style dans un markdown, le style ne passe pas très bien (apparemment certains flags css passent et d'autres non...)
-   * trouver un autre rendu permettrait d'éditer du pdf plus fidele.
+   * j'ai essayÃ© plusieurs voies pour essayer d'obtenir le mÃªme rendu avec un autre type que RawNbConvert mais sans succÃ¨s. par exemple si je mets moi-meme un <pre> avec un style dans un markdown, le style ne passe pas trÃ¨s bien (apparemment certains flags css passent et d'autres non...)
+   * trouver un autre rendu permettrait d'Ã©diter du pdf plus fidele.
 
  * ce serait bien si on pouvait lier les notebooks entre eux (mettre des URLs de l'un vers l'autre)
-   * apparemment c'est possible déjà sauf que MH ne m'a pas passé la recette magique.
-   * dans tous les cas il faudrait dans ce cas garder le libellé de la référence (Semaine x Séquence y)
+   * apparemment c'est possible dÃ©jÃ  sauf que MH ne m'a pas passÃ© la recette magique.
+   * dans tous les cas il faudrait dans ce cas garder le libellÃ© de la rÃ©fÃ©rence (Semaine x SÃ©quence y)
