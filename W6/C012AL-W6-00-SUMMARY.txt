@@ -57,6 +57,8 @@ C012AL-W6-S3.txt
 
 ## Compléments Vidéo 3
 
+NICETOHAVE un complement sur le debugger, la pile, traceback, etc.
+
 la pile; montrer la pile lorsqu'on attrape une exception
 pourquoi ne pas mentionner le debugger ?
 
@@ -76,7 +78,6 @@ du print_exc()
 ## Quizz Vidéo 3
 
 ## Exercices Vidéo 3
-
 
 
 ###################################################################
