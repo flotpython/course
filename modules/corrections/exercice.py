@@ -265,9 +265,8 @@ class ExerciceKeywords:
 ##############################
 class Exercice(ExerciceKeywords):
     """
-# the most usual form expects its inputs specified as 
-# [ arguments ]
-# with arguments a tuple
+    the most usual form expects its inputs specified as 
+    a list of *arguments*, with arguments a tuple
     """
     def __init__(self, solution, inputs, *args, **kwds):
         datasets = [(input, {}) for input in inputs]
@@ -308,16 +307,61 @@ class Exercice_multiline(Exercice):
 import re
 
 class ExerciceRegexp(Exercice_1arg):
-    def __init__(self, name, regexp, inputs, *args, **keywords):
-        self.regexp = regexp
-        def solution (string):
-            match = re.match(regexp, string)
+    """
+    With these exercices the students are asked to write a regexp
+    which is transformed into a function that essentially
+    takes an input string and returns the groups of the 
+    match of that string against the regexp - or None
+    """
+    @staticmethod
+    def regexp_to_solution(regexp):
+        def solution(string):
+            match = re.match(regexp, x)
             return match and match.groups()
+        return solution
+
+    def __init__(self, name, regexp, inputs, *args, **keywords):
+        solution = ExerciceRegexp.regexp_to_solution(regexp)
         Exercice_1arg.__init__(self, solution, inputs, *args, **keywords)
+        self.regexp = regexp
         self.name = name
 
     def correction(self, student_regexp):
-        def student_solution(x):
-            match = re.match(student_regexp, x)
-            return match and match.groups()
+        student_solution = ExerciceRegexp.regexp_to_solution(student_regexp)
+        return Exercice_1arg.correction(self, student_solution)
+
+##############################
+class ExerciceRegexpGroups(Exercice_1arg):
+    """
+    With these exercices the students are asked to write a regexp
+    with a set of specified named groups
+    a list of these groups needs to be passed to construct the object
+
+    the regexp is then transformed into a function that again
+    takes an input string and either a list of tuples 
+    (groupname, found_substring) 
+    or None if no match occurs
+    """
+
+    @staticmethod
+    def extract_group(match, group):
+        try:        return group, match.group(group)
+        except:     return group, "Undefined"
+
+    @staticmethod
+    def regexp_to_solution(regexp, groups):
+        def solution(string):
+            match = re.match(regexp, string)
+            return match and [ExerciceRegexpGroups.extract_group(match,group) for group in groups]
+        return solution
+
+    def __init__(self, name, regexp, groups, inputs, *args, **keywords):
+        solution = ExerciceRegexpGroups.regexp_to_solution(regexp, groups)
+        Exercice_1arg.__init__(self, solution, inputs, *args, **keywords)
+        self.name = name
+        self.regexp = regexp
+        self.groups = groups
+
+    def correction(self, student_regexp):
+        student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups)
         return Exercice_1arg.correction(self, student_solution)
