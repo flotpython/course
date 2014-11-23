@@ -115,9 +115,10 @@ et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 
 ## Séquence ajoutée 'suppléments'
 
-ONGOING (S6-C1-)Complement-expressions-regulieres.ipynb 
+OK (S6-C1-)Complement-expressions-regulieres.ipynb 
+ONGOING (S6-E1-)Exercice-expressions-regulieres.ipynb
 
-
-Mini projets
-
-ONGOING C012AL-W6-S6-miniprojets-E1-pending-data-meteo.ipynb - premier morceau de code un peu réel avec data/meteo.json 
+ONGOING (S6-M1-)Mini-projets-intro.ipynb
+ONGOING (S6-M2-)Mini-projet-disk-usage.ipynb
+ONGOING (S6-M3-)Mini-projet-crawler.ipynb
+ONGOING (S6-M4-)Mini-projet-meteo-data.ipynb
