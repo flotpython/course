@@ -11,6 +11,22 @@ excludes = [".so", ".pyc"]
 def line_mark(lineno, width):
     return str(lineno).rjust(width, '0')
 
+def check_legit(module):
+    "is this an attempt to sneak at corrections ?"
+    module_name = module.__name__
+    if "corrections" not in module_name:
+        return True
+    try:
+        uid = os.getuid()
+        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
+        now = time.strftime("%D-%H:%M", time.localtime())
+        logname = os.path.join(os.getenv("HOME"), ".cheat")
+        with open(logname, 'a') as log:
+            line = "{now} {module_name}\n".format(**locals())
+            log.write(line)
+    except:
+        pass
+
 def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     display the source code for a module (or package as a matter of fact)
@@ -20,6 +36,9 @@ def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
     # check this is a module
     if type(module) is not type(sys):
         print "show_module: Unexpected input {}".format(module)
+        return
+    if not check_legit(module):
+        print "Nice try"
         return
     try:
         name = module.__name__
