@@ -117,7 +117,7 @@ et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 ## Séquence ajoutée 'suppléments'
 
 OK (S6-C1-)Complement-expressions-regulieres.ipynb 
-ONGOING (S6-E1-)Exercice-expressions-regulieres.ipynb
+OK (S6-E1-)Exercice-expressions-regulieres.ipynb
 
 ONGOING (S6-M1-)Mini-projets-intro.ipynb
 ONGOING (S6-M2-)Mini-projet-disk-usage.ipynb
