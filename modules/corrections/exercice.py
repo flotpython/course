@@ -310,14 +310,15 @@ class ExerciceRegexp(Exercice_1arg):
     """
     With these exercices the students are asked to write a regexp
     which is transformed into a function that essentially
-    takes an input string and returns the groups of the 
-    match of that string against the regexp - or None
+    takes an input string and returns a boolean
+    that says if the *whole* string matches or not
     """
     @staticmethod
     def regexp_to_solution(regexp):
         def solution(string):
-            match = re.match(regexp, x)
-            return match and match.groups()
+            match = re.match(regexp, string)
+            if not match:       return False
+            else:               return match.group(0) == string
         return solution
 
     def __init__(self, name, regexp, inputs, *args, **keywords):
