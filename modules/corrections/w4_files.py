@@ -86,7 +86,7 @@ et de caractères
                 total_chars += nb_chars
                 # on écrit la ligne de sortie
                 output.write("{}:{}:{}:{}".\
-                            format(lineno, nb_words, nb_chars,line))
+                             format(lineno, nb_words, nb_chars, line))
             # on écrit la ligne de synthèse
             output.write("{}:{}:{}\n".format(lineno, total_words, total_chars))
 # @END@
