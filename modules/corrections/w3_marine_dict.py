@@ -11,13 +11,13 @@ def index(bateaux):
     avec les deux types de données
     """
     # c'est une simple compréhension de dictionnaire
-    return { bateau[0]: bateau for bateau in bateaux}
+    return {bateau[0]:bateau for bateau in bateaux}
 # @END@
 
 # @BEG@ 3 2 index
 def index2(bateaux):
     """
-    La même chose mais ne manière itérative
+    La même chose mais de manière itérative
     """
     # si on veut décortiquer
     resultat = {}
@@ -61,8 +61,9 @@ def merge(extended, abbreviated):
     # maintenant on peut compléter le résultat avec les données abrégées
     for id, latitude, longitude, timestamp in abbreviated:
         # et avec les hypothèses on sait que le bateau a déjà été 
-        # inscrit dans le résultat, donc on peut se contenter d'ajouter 
-        # la mesure abrégée correspondant au bateau
+        # inscrit dans le résultat, donc result[id] doit déjà exister
+        # et on peut se contenter d'ajouter ls mesure abrégée
+        # dans l'entrée correspondant dans result
         result[id].append((latitude, longitude, timestamp))
     # et retourner le résultat
     return result
@@ -71,7 +72,7 @@ def merge(extended, abbreviated):
 # @BEG@ 3 2 merge
 def merge2(extended, abbreviated):
     """
-    Une deuxième version
+    Une deuxième version, linéaire également
     """
     # on initialise le résultat avec un dictionnaire vide
     result = {}
@@ -97,16 +98,19 @@ def merge2(extended, abbreviated):
 def merge3(extended, abbreviated):
     """
     Une troisième solution
+    à cause du tri que l'on fait au départ, cette 
+    solution n'est plus linéaire mais en O(n.log(n))
     """
     # ici on va tirer profit du fait que les id sont
     # en première position dans les deux tableaux
-    # aussi si on les trie on va mettre les deux tableaux 'en phase'
+    # si bien que si on les trie,
+    # on va mettre les deux tableaux 'en phase'
     #
     # c'est une technique qui marche dans ce cas précis
     # parce qu'on sait que les deux tableaux contiennent des données
     # pour exactement le même ensemble de bateaux
     # 
-    # ici on a deux choix, selon qu'on peut se permettre ou non de
+    # on a deux choix, selon qu'on peut se permettre ou non de
     # modifier les données en entrée. Supposons que oui:
     extended.sort()
     abbreviated.sort()
@@ -114,8 +118,9 @@ def merge3(extended, abbreviated):
     # extended = extended.sorted() et idem pour l'autre
     #
     # il ne reste plus qu'à assembler le résultat
-    # en découpant des tranches et en les transformant en tuples
-    # lorsque c'est ce qui est demandé
+    # en découpant des tranches
+    # et en les transformant en tuples pour les positions
+    # puisque c'est ce qui est demandé
     return {
         e[0] : e[4:6] + [ tuple(e[1:4]), tuple(a[1:4]) ]
         for (e,a) in zip (extended, abbreviated)
