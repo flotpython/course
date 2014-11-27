@@ -1,3 +1,11 @@
+Plateforme
+=======
+
+* montrer dans une vidéo comment publier du code
+  * l'icone '010010' dans la barre de menu
+  * Control-K
+  * `x`
+  * 4 espaces
 
 Général
 =======
