@@ -27,7 +27,6 @@ def check_legit(module):
             line = "{now} {module_name}\n".format(**locals())
             log.write(line)
     except:
-        traceback.print_exc()
         pass
 
 def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
