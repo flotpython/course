@@ -1,4 +1,6 @@
 import sys
+import os
+import time
 
 """
 display the code for a module - or parts thereof
@@ -25,6 +27,7 @@ def check_legit(module):
             line = "{now} {module_name}\n".format(**locals())
             log.write(line)
     except:
+        traceback.print_exc()
         pass
 
 def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
@@ -146,4 +149,3 @@ def show_module_html(module, beg=None, end=None, prefix='|',lineno_width=0):
 # this works for packages as well
 show_package = show_module
 show_package_html = show_module_html
-
