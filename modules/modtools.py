@@ -26,7 +26,9 @@ def check_legit(module):
         with open(logname, 'a') as log:
             line = "{now} {module_name}\n".format(**locals())
             log.write(line)
-    except:
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
         pass
 
 def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
