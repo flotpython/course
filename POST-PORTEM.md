@@ -64,6 +64,13 @@ W3
    j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
    qui se décline en deux versions basique et intermédiaire
 
+W4
+===
+
+ * W4S8 dans doubler_premier il faudrait au moins une fonction
+   non-associative - la fonction distance est en fait associative ! Du
+   coup les gens utilisent reduce et trouvent un résultat légèrement différent.
+
 Notebooks et process
 ====================
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
