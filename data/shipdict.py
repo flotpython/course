@@ -1,3 +1,4 @@
+# @BEG@ 5 6 shipdict 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -27,9 +28,11 @@ class Position(object):
     def lon_str(self):  return self._lon_str(self.longitude)
 
     def __repr__(self):
-        return "<{} {} @ {}".format(self.lat_str(), self.lon_str(), self.timestamp)
+        return "<{} {} @ {}".format(self.lat_str(),
+                                    self.lon_str(), self.timestamp)
+# @END@
 
-
+# @BEG@ 5 6 shipdict-suite
 class Ship(object):
     """
     a ship object, that requires a ship id, 
@@ -59,7 +62,9 @@ class Ship(object):
         sort list of positions by chronological order
         """
         self.positions.sort(key=lambda position: position.timestamp)
+# @END@
 
+# @BEG@ 5 6 shipdict-suite
 class ShipDict(dict):
     """
     a repository for storing all ships that we know about
@@ -85,7 +90,6 @@ class ShipDict(dict):
         adds an abbreviated data chunk to the repository
         """
         id, latitude, longitude, _, _, _, timestamp = chunk
-        # xxx improve me - setdefault could work but would create an object each time
         if id not in self:
             self[id] = Ship(id)
         ship = self[id]
@@ -105,7 +109,9 @@ class ShipDict(dict):
             ship.name = name
             ship.country = country
         self[id].add_position (Position (latitude, longitude, timestamp))
+# @END@
 
+# @BEG@ 5 6 shipdict-suite
     def add_chunk(self, chunk):
         """
         chunk is a plain list coming from the JSON data and be either
@@ -128,14 +134,22 @@ class ShipDict(dict):
 
     def clean_unnamed(self):
         """
-        Because we enter abbreviated and extended data in no particular order,
-        and for any time period, we might have ship instances with no name attached
+        Because we enter abbreviated and extended data
+        in no particular order, and for any time period,
+        we might have ship instances with no name attached
         This method removes such entries from the dict
         """
-        unnamed_ids = { id for id, ship in self.iteritems() if ship.name is None }
+        # we cannot do all in a single loop as this would amount to
+        # changing the loop subject
+        # so let us collect the ids to remove first
+        unnamed_ids = { id for id, ship in self.iteritems()
+                        if ship.name is None }
+        # and remove them next
         for id in unnamed_ids:
             del self[id]
+# @END@
 
+# @BEG@ 5 6 shipdict-suite
     def ships_by_name(self, name):
         """
         returns a list of all known ships with name <name>
@@ -147,4 +161,4 @@ class ShipDict(dict):
         returns a list of all ships known to us 
         """
         return self.values()
-
+# @END@
