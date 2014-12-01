@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# repeating myself within the @BEG@ / @END@ so that these lines show up
+# repeating myself within the BEG / END so that
+# the shebang and coding lines do show up
 # in the corriges AND I can still run this
 
 # @BEG@ 5 6 shipdict 
@@ -33,6 +34,9 @@ class Position(object):
     def lon_str(self):  return self._lon_str(self.longitude)
 
     def __repr__(self):
+        """
+        only used when merger.py is run in verbose mode
+        """
         return "<{} {} @ {}>".format(self.lat_str(),
                                     self.lon_str(), self.timestamp)
 # @END@
@@ -82,8 +86,7 @@ class ShipDict(dict):
     def __repr__(self):
         return "<ShipDict instance with {} ships>".format(len(self))
 
-    @staticmethod
-    def is_abbreviated(chunk):
+    def is_abbreviated(self, chunk):
         """
         depending on the size of the incoming data chunk, 
         guess if it is an abbreviated or extended data
@@ -119,11 +122,11 @@ class ShipDict(dict):
 # @BEG@ 5 6 shipdict-suite
     def add_chunk(self, chunk):
         """
-        chunk is a plain list coming from the JSON data and be either
-        extended or abbreviated
+        chunk is a plain list coming from the JSON data
+        and be either extended or abbreviated
 
-        based on the result of is_abbreviated(), that chunk gets dealt with
-        using add_extended or add_abbreviated
+        based on the result of is_abbreviated(), 
+        gets sent to add_extended or add_abbreviated
         """
         if self.is_abbreviated(chunk):
             self.add_abbreviated(chunk)
@@ -132,7 +135,8 @@ class ShipDict(dict):
 
     def sort(self):
         """
-        makes sure all the ships have their positions in chronological order
+        makes sure all the ships have their positions
+        sorted in chronological order
         """
         for id, ship in self.iteritems():
             ship.sort_positions()
