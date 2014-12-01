@@ -25,11 +25,14 @@ class Merger(object):
         also creates an empty instance of ShipDict for merging incoming data
         """
         parser = ArgumentParser()
-        parser.add_argument ("-v", "--verbose", dest='verbose', default=False, action='store_true',
+        parser.add_argument ("-v", "--verbose", dest='verbose', default=False,
+                             action='store_true',
                              help="Verbose mode")
-        parser.add_argument ("-s", "--ship", dest='ship_name', default=None, action='store',
+        parser.add_argument ("-s", "--ship", dest='ship_name', default=None,
+                             action='store',
                              help="Restrict to ships by that name")
-        parser.add_argument ("-z", "--gzip", dest='gzip', default=False, action='store_true',
+        parser.add_argument ("-z", "--gzip", dest='gzip', default=False,
+                             action='store_true',
                              help="Store kml output in gzip (KMZ) format")
         parser.add_argument ("inputs", nargs='*')
         self.args = parser.parse_args()
@@ -70,14 +73,15 @@ class Merger(object):
     def write_ships_summary(self, ships, out_name):
         """
         saves in filename a summary of all selected ships
-        typically filename is <ship_name>.txt or ALL_SHIPS.txt 
-        also it will have a -v added in verbose mode as we show more stuff in verbose mode
+        typically out_name is <ship_name>.txt or ALL_SHIPS.txt 
+        also it will have a -v added in verbose mode
+        as we show more stuff in verbose mode
         returns filename
         """
         format = "{}-v.txt" if self.args.verbose else "{}.txt"
         filename = format.format(out_name)
 
-        print ("Opening {filename} for listing all named ships".format(**locals()))
+        print ("Opening {filename} for listing ships".format(**locals()))
 
         with open(filename, 'w') as summary:
             # one line to say how many ships we have seen
@@ -89,7 +93,8 @@ class Merger(object):
             for name in sorted(dict_by_name):
                 # because we have a dictionary this is in O(1)
                 ship = dict_by_name[name]
-                summary.write ("{} ({} positions)\n".format(name, len(ship.positions)))
+                summary.write ("{} ({} positions)\n".format(name,
+                                                            len(ship.positions)))
                 # in verbose mode let us show all the positions at hand
                 if self.args.verbose:
                     for position in ship.positions:
@@ -109,16 +114,20 @@ class Merger(object):
         # send it the `contents` method to retrieve the text
         # to be written in the kml file
         contents = kml.contents(ships, kml_name=out_name,
-                                description = "Positions for ship(s) {}".format(out_name)
-        )
-        # compute suffix based on self.args.gzip (whther the --gzip option was passed or not)
+                                description = "Positions for ship(s) {}".\
+                                              format(out_name)
+                               )
+        # compute suffix based on self.args.gzip
+        #  - whether the --gzip option was passed or not
         suffix = "kmz" if self.args.gzip else "kml"
         # compute full filename
         kml_filename = "{}.{}".format(out_name, suffix)
         # message
-        print ("Opening {kml_filename} for ship {out_name}".format(**locals()))
+        print ("Opening {kml_filename} for ship {out_name}".\
+               format(**locals()))
         # open a plain file or compressed file as requested
-        with gzip.open(kml_filename, 'w') if self.args.gzip else open(kml_filename, 'w') as out:
+        with gzip.open(kml_filename, 'w') if self.args.gzip \
+             else open(kml_filename, 'w') as out:
             out.write(contents)
         # return filename
         return kml_filename
@@ -128,11 +137,12 @@ class Merger(object):
         """
         program entry point
 
-        first runs merge on the input json filenames specified on the command line
+        first runs merge on the input json filenames
+        specified on the command line
 
         then creates a summary file, and a kml file
 
-        as per usual convention, this returns 0 if everythong goes fine 
+        as per usual convention, this returns 0 if everythong goes fine
         and non-zero otherwise, and specifically
           (*) 1 if both output files were created but they do not match 
               the reference result

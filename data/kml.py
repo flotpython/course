@@ -40,8 +40,9 @@ class KML():
     
     def _random_color(self):
         """
-        as per https://developers.google.com/kml/documentation/kmlreference#color
-        a KML color is aabbggrr - essentially the exact opposite of what you would expect
+        https://developers.google.com/kml/documentation/kmlreference#color
+        a KML color is aabbggrr 
+        essentially the exact opposite of what you would expect
         we set alpha = 80 (128) and compute the other 3 in the 10-245 range
         """
         colors = [128] + [random.randint(10,245) for i in range(3)]
@@ -72,12 +73,13 @@ class KML():
     ####################
     def _ship_trip(self, ship):
         """
-        The KML fragment that describes a ship's trajectory as a <Placemark> tag
-        The different coordinates are derived from the ship's positions, which
+        The KML fragment that describes a trajectory as a <Placemark> tag
+        The different coordinates are from the ship's positions, which
         of course need to have been sorted in chronological order first.
         """
         # the coordinates chunk
-        coordinates = "\n".join(["{},{},0".format(position.longitude, position.latitude)
+        coordinates = "\n".join(["{},{},0".format(position.longitude,
+                                                  position.latitude)
                                  for position in ship.positions])
 
         # that we put into a <Placemark>
