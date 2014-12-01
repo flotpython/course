@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+
+### cannot remember why this one file is unicode but there was a good reason
+# I expect some parts of the file make it to the platform itself, or something
+# in any case there is a hack in corriges.py to take care of that
+
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 import os
@@ -60,9 +65,9 @@ def show_comptage(in_name, out_name, comptage, suffix):
 # @BEG@ 4 1 comptage
 def comptage(in_filename, out_filename):
     """
-retranscrit le fichier in_filename dans le fichier out_filename
-en ajoutant des annotations sur les nombres de lignes, de mots
-et de caractères
+    retranscrit le fichier in_filename dans le fichier out_filename
+    en ajoutant des annotations sur les nombres de lignes, de mots
+    et de caractères
     """
     # on ouvre le fichier d'entrée en lecture
     # on aurait pu mettre open (in_filename, 'r')
@@ -84,11 +89,13 @@ et de caractères
                 # autant de caractères que d'éléments dans la ligne
                 nb_chars = len(line)
                 total_chars += nb_chars
-                # on écrit la ligne de sortie
+                # on écrit la ligne de sortie; pas besoin
+                # de newline (\n) car line en a déjà un
                 output.write("{}:{}:{}:{}".\
                              format(lineno, nb_words, nb_chars, line))
             # on écrit la ligne de synthèse
-            output.write("{}:{}:{}\n".format(lineno, total_words, total_chars))
+            output.write("{}:{}:{}\n".\
+                         format(lineno, total_words, total_chars))
 # @END@
 
 # on passe ceci à Exercice donc pas besoin de rajouter les **keywords

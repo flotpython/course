@@ -14,12 +14,21 @@ def distance(*args):
     return math.sqrt(sum([x**2 for x in args]))
 # @END@
 
+# ceci est testé mais je préfère ne pas l'exposer dans les corriges pour l'instant
+def distance2(*args):
+    "idem mais avec une expression génératrice"
+    # on n'a pas encore vu cette forme - cf Semaine 6
+    # mais pour vous donner un avant-goût d'une expression
+    # génératrice:
+    return math.sqrt(sum( (x**2 for x in args) ))
+
 distance_inputs = [
     (),
     (1,),
     (1, 1),
     (1, 1, 1),
     (1, 1, 1, 1),
+    range(100),
 ]
 
 exo_distance = Exercice(distance, distance_inputs, exemple_how_many=3)
@@ -28,8 +37,8 @@ exo_distance = Exercice(distance, distance_inputs, exemple_how_many=3)
 # @BEG@ 4 8 doubler_premier
 def doubler_premier(f, first, *args):
     """
-renvoie le résultat de la fonction f appliquée sur
-f(2 * first, *args)
+    renvoie le résultat de la fonction f appliquée sur
+    f(2 * first, *args)
     """
     # une fois qu'on a écrit la signature on a presque fini le travail
     # en effet on a isolé la fonction, son premier argument, et le reste
@@ -63,7 +72,8 @@ exo_doubler_premier = Exercice(doubler_premier, doubler_premier_inputs, exemple_
 # @BEG@ 4 8 doubler_premier2
 def doubler_premier2(f, first, *args, **keywords):
     """
-comme doubler_premier mais on peut aussi passer des arguments nommés
+    équivalent à doubler_premier 
+    mais on peut aussi passer des arguments nommés
     """
     # c'est exactement la même chose
     return f(2*first, *args, **keywords)
@@ -71,8 +81,9 @@ comme doubler_premier mais on peut aussi passer des arguments nommés
 # Complément - niveau avancé
 # ----
 # Il y a un cas qui ne fonctionne pas avec cette implémentation, 
-# c'est si le premier argument de f a une valeur par défaut 
-# *et* on veut pouvoir appeler doubler_premier en nommant ce premier argument 
+# quand le premier argument de f a une valeur par défaut 
+# *et* on veut pouvoir appeler doubler_premier
+# en nommant ce premier argument 
 #
 # par exemple - avec f=muln telle que définie dans l'énoncé 
 #def muln(x=1, y=1): return x*y
@@ -110,8 +121,8 @@ exo_doubler_premier2 = ExerciceKeywords(doubler_premier2, doubler_premier2_input
 # @BEG@ 4 8 validation2
 def validation2(f, g, argument_tuples):
     """
-retourne une liste de booleens, un par entree dans entrees
-qui indique si f(*tuple) == g(*tuple)
+    retourne une liste de booléens, un par entree dans entrees
+    qui indique si f(*tuple) == g(*tuple)
     """
     # c'est presque exactement comme validation, sauf qu'on s'attend 
     # à recevoir une liste de tuples d'arguments, qu'on applique

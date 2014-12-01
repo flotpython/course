@@ -37,24 +37,38 @@ alternat_inputs = [
     ((1, (2, 3)), ('a', ['b', 'c'])),
 ]
 
+# @BEG@ 4 4 alternat
+def alternat2(l1, l2):
+    "une deuxième version de alternat"
+    # la même idée mais directement, sans utiliser aplatir
+    return [element for conteneur in zip(l1, l2) for element in conteneur]
+# @END@
+
+
 exo_alternat = Exercice(alternat, alternat_inputs, exemple_how_many=2)
 
 ##############################
 # @BEG@ 4 4 intersect
 def intersect(A, B):
     """
-avec en entrée deux listes de tuples de la forme
-(entier, valeur)
-renvoie la liste des valeurs associées dans A ou B
-aux entiers présents dans A et B
+    prend en entrée deux listes de tuples de la forme
+    (entier, valeur)
+    renvoie la liste des valeurs associées dans A ou B
+    aux entiers présents dans A et B
     """
+    # pour montrer un exemple de fonction locale:
     # une fonction qui renvoie l'ensemble des entiers
-    # présent dans une des deux listes d'entrée
+    # présents dans une des deux listes d'entrée
     def values(S):
         return {i for i, val in S}
     # on l'applique à A et B
     val_A = values(A)
     val_B = values(B)
+    #
+    # bien sûr on aurait pu écrire directement
+    # val_A = {i for i, val in A}
+    # val_B = {i for i, val in B}
+    # 
     # les entiers présents dans A et B 
     # avec une intersection d'ensembles
     common_keys = val_A & val_B

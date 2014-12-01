@@ -4,7 +4,8 @@ from exercice import Exercice, Exercice_1arg, Exercice_multiline
 # @BEG@ 4 2 pgcd
 def pgcd(a, b):
     "le pgcd de a et b par l'algorithme d'Euclide"
-    # on suppose que a >= b, si ce n'est pas le cas
+    # l'algorithme suppose que a >= b
+    # donc si ce n'est pas le cas 
     # il faut inverser les deux entrées
     if b > a : 
         a, b = b, a

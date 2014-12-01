@@ -7,12 +7,12 @@ from operator import mul
 
 def numbers(liste):
     """
-retourne un tuple contenant
- la somme
- le produit
- le minimum
- le maximum
-des elements de la liste
+    retourne un tuple contenant
+    (*) la somme
+    (*) le produit
+    (*) le minimum
+    (*) le maximum
+    des éléments de la liste
     """
     
     return ( 
@@ -42,8 +42,8 @@ exo_numbers = Exercice_1arg(numbers, numbers_inputs)
 # @BEG@ 4 3 validation
 def validation(f, g, entrees):
     """
-retourne une liste de booleens, un par entree dans entrees
-qui indique si f(entree) == g(entree)
+    retourne une liste de booléens, un par entree dans entrees
+    qui indique si f(entree) == g(entree)
     """
     # on vérifie pour chaque entrée si f et g retournent
     # des résultats égaux avec ==
