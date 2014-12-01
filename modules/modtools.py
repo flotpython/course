@@ -18,25 +18,6 @@ def check_legit(module):
     module_name = module.__name__
     if "corrections" not in module_name:
         return True
-    try:
-        uid = os.getuid()
-        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
-        now = time.strftime("%D-%H:%M", time.localtime())
-        logname = os.path.join(os.getenv("HOME"), ".cheat")
-        with open(logname, 'a') as log:
-            line = "{now} {module_name}\n".format(**locals())
-            log.write(line)
-    except Exception as e:
-        # import traceback
-        # traceback.print_exc()
-        # surprisingly enough if I leave these two lines in service I get his
-        # Traceback (most recent call last):
-        #   File "/appli/MoocExercices/ipython/modules/modtools.py", line 26, in check_legit
-        #     with open(logname, 'a') as log:
-        # IOError: [Errno 13] Permission denied: '/appli/students/d571a944a682f2a4fa95ea37bf527380/.cheat'
-        # and the reason this is odd is we do the exact same thing with .correction
-        # and that works fine, even recently new persons have tried
-        pass
 
 def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
     """
