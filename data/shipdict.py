@@ -10,6 +10,30 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
+# helpers - used for the verbose mode only
+# could have been implemented as static methods in Position
+# but we had not seen that at the time
+def d_m_s(f):
+    """
+    make a float readable; e.g. transform 2.5 into 2.30'00'' 
+    we avoid using ° to keep things simple
+    input is assumed positive
+    """
+    d = int (f)
+    m = int((f-d)*60)
+    s = int( (f-d)*3600 - 60*m)
+    return "{:02d}.{:02d}'{:02d}''".format(d,m,s)
+
+def lat_d_m_s(f):
+    if f>=0:        return "{} N".format(d_m_s(f))
+    else:           return "{} S".format(d_m_s(-f))
+        
+def lon_d_m_s(f):
+    if f>=0:        return "{} E".format(d_m_s(f))
+    else:           return "{} W".format(d_m_s(-f))
+# @END@
+
+# @BEG@ 5 6 shipdict-suite
 class Position(object):
     "a position atom with timestamp attached"
     
@@ -20,18 +44,8 @@ class Position(object):
         self.timestamp = timestamp
 
 # all these methods are only used when merger.py runs in verbose mode
-    @staticmethod
-    def _lat_str(f):
-        if f>=0:        return "{}°N".format(f)
-        else:           return "{}°S".format(-f)
-    
-    @staticmethod
-    def _lon_str(f):
-        if f>=0:        return "{}°E".format(f)
-        else:           return "{}°W".format(-f)
-        
-    def lat_str(self):  return self._lat_str(self.latitude)
-    def lon_str(self):  return self._lon_str(self.longitude)
+    def lat_str(self):  return lat_d_m_s(self.latitude)
+    def lon_str(self):  return lon_d_m_s(self.longitude)
 
     def __repr__(self):
         """
