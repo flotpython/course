@@ -7,6 +7,7 @@ from __future__ import print_function
 # standard library imports
 import gzip
 import json
+import glob
 from argparse import ArgumentParser
 #             
 
@@ -36,6 +37,15 @@ class Merger(object):
                              help="Store kml output in gzip (KMZ) format")
         parser.add_argument ("inputs", nargs='*')
         self.args = parser.parse_args()
+        
+        # the windows command line is a little lazy with filename expansion
+        inputs = []
+        for input in self.args.inputs:
+            if '*' not in input:
+                inputs.append(input)
+            else:
+                inputs.extend(glob.glob(input))
+        self.args.inputs = inputs
 
         self.ship_dict = ShipDict()
         
@@ -180,7 +190,7 @@ class Merger(object):
             kml_filename = self.write_kml_output(ships, output_name)
 
             # for each of the 2 files, compare contents with the reference
-            # that is expected to be in thisdirectory with a .ref extension
+            # that is expected to be in this directory with a .ref extension
             ok_summary = Compare(summary_filename).compare_and_print()
             ok_kml     = Compare(kml_filename).compare_and_print()
             # is everything fine ?
@@ -191,7 +201,7 @@ class Merger(object):
         # if anything goes south
         except Exception as e:
             # give description of the exception
-            print ('Something went wrong',e)
+            print ('Something went wrong', e)
             # plus provide a snapshot of the stack at the point
             # where the exception was raised
             import traceback

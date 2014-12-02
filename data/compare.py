@@ -25,7 +25,7 @@ class Compare(object):
         contents = [None, None]
         for i, name in enumerate( [self.out_name, self.ref_name] ):
             try:
-                with open(name, "ru") as output:
+                with open(name, "rU") as output:
                     contents[i] = output.read()
             # if anything goes wrong we just return False
             except Exception as e:
