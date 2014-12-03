@@ -100,7 +100,12 @@ Notebooks et process
    si je mets moi-meme un `<pre>` avec un `style=` dans un markdown,
    le style ne passe pas très bien (apparemment certains flags css passent et d'autres non...)
    * trouver un autre rendu permettrait d'éditer du pdf plus fidele.
+ * produire les PDFs localement et du coup produire des bundle (tar ou
+   zip) par semaine
 
  * ce serait bien si on pouvait lier les notebooks entre eux (mettre des URLs de l'un vers l'autre)
    * apparemment c'est possible déjà sauf que MH ne m'a pas passé la recette magique.
    * dans tous les cas il faudrait dans ce cas garder le libellé de la référence (Semaine x Séquence y)
+   * XXX: à bien y réfléchir, c'est très casse gueule car ça rend le
+     notebook dépendant du 'run' FUN, c'est sûrement une idée à la
+     noix en fait.
