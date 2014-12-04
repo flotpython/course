@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Version : 2.0
+
 # this must come first
 from __future__ import print_function
 
@@ -86,6 +88,9 @@ class Merger(object):
         typically out_name is <ship_name>.txt or ALL_SHIPS.txt 
         also it will have a -v added in verbose mode
         as we show more stuff in verbose mode
+
+        ships are expected to be sorted already
+
         returns filename
         """
         format = "{}-v.txt" if self.args.verbose else "{}.txt"
@@ -96,14 +101,9 @@ class Merger(object):
         with open(filename, 'w') as summary:
             # one line to say how many ships we have seen
             summary.write ("Found {} ships\n".format(len(ships)))
-            # create a dictionary indexed on ship names
-            dict_by_name = { ship.name : ship for ship in ships }
-            # list them in alphabetical order
-            # note that sorted can be used on a dictionary as on any iterable
-            for name in sorted(dict_by_name):
-                # because we have a dictionary this is in O(1)
-                ship = dict_by_name[name]
-                summary.write ("{} ({} positions)\n".format(name,
+            # ships are expected to be sorted already
+            for ship in ships:
+                summary.write ("{} ({} positions)\n".format(ship.name,
                                                             len(ship.positions)))
                 # in verbose mode let us show all the positions at hand
                 if self.args.verbose:
@@ -183,6 +183,9 @@ class Merger(object):
                 # restrict to ships that match the selected ship name
                 ships = self.ship_dict.ships_by_name(ship_name)
                 output_name = self.args.ship_name
+
+            # sort ships once and for good
+            ships = self.ship_dict.sort_ships_by_name(ships)
 
             # create summary file
             summary_filename = self.write_ships_summary(ships, output_name)
