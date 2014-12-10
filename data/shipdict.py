@@ -1,13 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# repeating myself within the BEG / END so that
-# the shebang and coding lines do show up
-# in the corriges AND I can still run this
-
 # @BEG@ 5 6 shipdict 
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 from __future__ import print_function
 
 # helpers - used for the verbose mode only
