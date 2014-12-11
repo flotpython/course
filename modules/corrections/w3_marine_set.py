@@ -1,16 +1,16 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 3 3 diff
 def diff(extended, abbreviated):
-    """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
+    """Calcule comme demandÃ© dans l'exercice, et sous formes d'ensembles
 (*) les noms des bateaux seulement dans extended
-(*) les noms des bateaux présents dans les deux listes
+(*) les noms des bateaux prÃ©sents dans les deux listes
 (*) les ids des bateaux seulement dans abbreviated
     """
     ### on n'utilise que des ensembles dans tous l'exercice
     # les ids de tous les bateaux dans extended
-    # une compréhension d'ensemble
+    # une comprÃ©hension d'ensemble
     extended_ids = {ship[0] for ship in extended}
     # les ids de tous les bateaux dans abbreviated
     # idem
@@ -24,9 +24,9 @@ def diff(extended, abbreviated):
     # les ids des bateaux seulement dans extended 
     # ditto
     extended_only_ids = extended_ids - abbreviated_ids
-    # pour les deux catégories où c'est possible
+    # pour les deux catÃ©gories oÃ¹ c'est possible
     # on recalcule les noms des bateaux
-    # par une compréhension d'ensemble
+    # par une comprÃ©hension d'ensemble
     both_names = \
           {ship[4] for ship in extended if ship[0] in both_ids}
     extended_only_names = \
@@ -35,9 +35,9 @@ def diff(extended, abbreviated):
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
 
-# xxx celui-ci serait + élégant mais ne marche pas et je ne comprends pas pourquoi...
-# possiblement parce que, comme l'a souligné une étudiante, il y a dans les données
-# deux bateaux qui portent le même nom
+# xxx celui-ci serait + Ã©lÃ©gant mais ne marche pas et je ne comprends pas pourquoi...
+# possiblement parce que, comme l'a soulignÃ© une Ã©tudiante, il y a dans les donnÃ©es
+# deux bateaux qui portent le mÃªme nom
 def diff2(extended, abbreviated):
     extended_ids =     {ship[0] for ship in extended}
     abbreviated_only = {ship[0] for ship in abbreviated if ship[0] not in extended_ids}
@@ -45,7 +45,7 @@ def diff2(extended, abbreviated):
     both =             {ship[4] for ship in extended    if ship[0] in abbreviated_only}
     return extended_only, both, abbreviated_only
 
-# on passe des copies pour éviter qu'un bout de code ne pollue
+# on passe des copies pour Ã©viter qu'un bout de code ne pollue
 # tout l'exercice en modifiant le master 
 import copy
 

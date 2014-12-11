@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 #

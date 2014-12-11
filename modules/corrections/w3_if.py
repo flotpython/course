@@ -1,11 +1,11 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 inputs_dispatch1 = [(a, b) for a in range (3, 6) for b in range (7, 10)]
 
 # @BEG@ 3 7 dispatch1
 def dispatch1(a, b):
-    """dispatch1 comme spécifié"""
+    """dispatch1 comme spÃ©cifiÃ©"""
     # si les deux arguments sont pairs
     if a%2 == 0 and b%2 == 0:
         return a*a + b*b
@@ -32,7 +32,7 @@ inputs_dispatch2 = [
 
 # @BEG@ 3 7 dispatch2
 def dispatch2(a, b, A, B):
-    """dispatch2 comme spécifié"""
+    """dispatch2 comme spÃ©cifiÃ©"""
     # les deux cas de la diagonale \ 
     if (a in A and b in B) or (a not in A and b not in B):
         return a*a + b*b
@@ -40,7 +40,7 @@ def dispatch2(a, b, A, B):
     # ce qui alors implique que a est dans A
     elif b not in B: 
         return a*(b-1)
-    # le dernier cas, on sait forcément que
+    # le dernier cas, on sait forcÃ©ment que
     # b est dans B et a n'est pas dans A
     else:
         return (a-1)*b

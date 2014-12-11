@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg
 
 ##############################
@@ -12,13 +12,13 @@ def numbers(liste):
     (*) le produit
     (*) le minimum
     (*) le maximum
-    des éléments de la liste
+    des Ã©lÃ©ments de la liste
     """
     
     return ( 
         # la builtin 'sum' renvoie la somme
         sum(liste),
-        # pour la multiplication, reduce est nécessaire
+        # pour la multiplication, reduce est nÃ©cessaire
         reduce(mul, liste, 1),
         # les builtin 'min' et 'max' font ce qu'on veut aussi
         min(liste),
@@ -42,11 +42,11 @@ exo_numbers = Exercice_1arg(numbers, numbers_inputs)
 # @BEG@ 4 3 validation
 def validation(f, g, entrees):
     """
-    retourne une liste de booléens, un par entree dans entrees
+    retourne une liste de boolÃ©ens, un par entree dans entrees
     qui indique si f(entree) == g(entree)
     """
-    # on vérifie pour chaque entrée si f et g retournent
-    # des résultats égaux avec ==
+    # on vÃ©rifie pour chaque entrÃ©e si f et g retournent
+    # des rÃ©sultats Ã©gaux avec ==
     # et on assemble le tout avec une comprehension de liste 
     return [f(entree) == g(entree) for entree in entrees]
 # @END@
@@ -56,7 +56,7 @@ validation_inputs = []
 # factoriel
 from operator import mul
 def fact(n):
-    "une version de factoriel à base de reduce"
+    "une version de factoriel Ã  base de reduce"
     return reduce(mul, range(1, n+1), 1)
 from math import factorial
 fact_inputs = [0, 1, 5]

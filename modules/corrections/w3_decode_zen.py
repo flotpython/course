@@ -1,36 +1,36 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 3 5 decode_zen
-# le module this est implémenté comme une petite énigme 
+# le module this est implÃ©mentÃ© comme une petite Ã©nigme 
 # comme le laissent entrevoir les indices, on y trouve
-# (*) dans l'attribut 's' une version encodée du manifeste
-# (*) dans l'attribut 'd' le code à utiliser pour décoder
+# (*) dans l'attribut 's' une version encodÃ©e du manifeste
+# (*) dans l'attribut 'd' le code Ã  utiliser pour dÃ©coder
 # 
-# ce qui veut dire qu'en première approximation on pourrait 
-# obtenir une liste des caractères du manifeste en faisant
+# ce qui veut dire qu'en premiÃ¨re approximation on pourrait 
+# obtenir une liste des caractÃ¨res du manifeste en faisant
 # 
 # [ this.d [c] for c in this.s ]
 # 
 # mais ce serait le cas seulement si le code agissait sur 
-# tous les caractères; comme ce n'est pas le cas il faut
-# laisser intacts les caractères dans this.s qui ne sont pas
+# tous les caractÃ¨res; comme ce n'est pas le cas il faut
+# laisser intacts les caractÃ¨res dans this.s qui ne sont pas
 # dans this.d (dans le sens "c in this.d")
 #
-# je fais exprès de ne pas appeler l'argument this pour
+# je fais exprÃ¨s de ne pas appeler l'argument this pour
 # illustrer le fait qu'un module est un objet comme un autre
 #
 
 def decode_zen(this_module):
-    "décode le zen de python à partir du module this"
-    # la version encodée du manifeste
+    "dÃ©code le zen de python Ã  partir du module this"
+    # la version encodÃ©e du manifeste
     encoded = this_module.s
     # le 'code' 
     code = this_module.d
-    # si un caractère est dans le code, on applique le code
-    # sinon on garde le caractère tel quel
-    # aussi, on appelle 'join' pour refaire une chaîne à partir
-    # de la liste des caractères décodés
+    # si un caractÃ¨re est dans le code, on applique le code
+    # sinon on garde le caractÃ¨re tel quel
+    # aussi, on appelle 'join' pour refaire une chaÃ®ne Ã  partir
+    # de la liste des caractÃ¨res dÃ©codÃ©s
     return ''.join([code[c] if c in code else c for c in encoded])
 # @END@
 

@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import ExerciceKeywords, Exercice
 
 ##############################
@@ -6,20 +6,20 @@ from exercice import ExerciceKeywords, Exercice
 import math
 
 def distance(*args):
-    "la racine de la somme des carrés des arguments"
-    # avec une compréhension on calcule la liste des carrés des arguments
+    "la racine de la somme des carrÃ©s des arguments"
+    # avec une comprÃ©hension on calcule la liste des carrÃ©s des arguments
     # on applique ensuite sum pour en faire la somme
-    # vous pourrez d'ailleurs vérifier que sum ([]) = 0
+    # vous pourrez d'ailleurs vÃ©rifier que sum ([]) = 0
     # enfin on extrait la racine avec math.sqrt
     return math.sqrt(sum([x**2 for x in args]))
 # @END@
 
-# ceci est testé mais je préfère ne pas l'exposer dans les corriges pour l'instant
+# ceci est testÃ© mais je prÃ©fÃ¨re ne pas l'exposer dans les corriges pour l'instant
 def distance2(*args):
-    "idem mais avec une expression génératrice"
+    "idem mais avec une expression gÃ©nÃ©ratrice"
     # on n'a pas encore vu cette forme - cf Semaine 6
-    # mais pour vous donner un avant-goût d'une expression
-    # génératrice:
+    # mais pour vous donner un avant-goÃ»t d'une expression
+    # gÃ©nÃ©ratrice:
     return math.sqrt(sum( (x**2 for x in args) ))
 
 distance_inputs = [
@@ -37,17 +37,17 @@ exo_distance = Exercice(distance, distance_inputs, exemple_how_many=3)
 # @BEG@ 4 8 doubler_premier
 def doubler_premier(f, first, *args):
     """
-    renvoie le résultat de la fonction f appliquée sur
+    renvoie le rÃ©sultat de la fonction f appliquÃ©e sur
     f(2 * first, *args)
     """
-    # une fois qu'on a écrit la signature on a presque fini le travail
-    # en effet on a isolé la fonction, son premier argument, et le reste
+    # une fois qu'on a Ã©crit la signature on a presque fini le travail
+    # en effet on a isolÃ© la fonction, son premier argument, et le reste
     # des arguments
-    # il ne reste qu'à appeler f, après avoir doublé first
+    # il ne reste qu'Ã  appeler f, aprÃ¨s avoir doublÃ© first
     return f(2*first, *args)
 # @END@
 
-# marche aussi mais moins élégant
+# marche aussi mais moins Ã©lÃ©gant
 def doubler_premier_bis(f, *args):
     first = args[0]
     remains = args[1:]
@@ -58,7 +58,7 @@ from operator import add
 from operator import mul
 import math
 
-# pour l'exemple on choisit les 3 premiers avec des fonctions différentes
+# pour l'exemple on choisit les 3 premiers avec des fonctions diffÃ©rentes
 for i in [1, 3, 5]: 
     doubler_premier_inputs.append([add, i, 4])
     doubler_premier_inputs.append((mul, i, 4))
@@ -72,20 +72,20 @@ exo_doubler_premier = Exercice(doubler_premier, doubler_premier_inputs, exemple_
 # @BEG@ 4 8 doubler_premier2
 def doubler_premier2(f, first, *args, **keywords):
     """
-    équivalent à doubler_premier 
-    mais on peut aussi passer des arguments nommés
+    Ã©quivalent Ã  doubler_premier 
+    mais on peut aussi passer des arguments nommÃ©s
     """
-    # c'est exactement la même chose
+    # c'est exactement la mÃªme chose
     return f(2*first, *args, **keywords)
 
-# Complément - niveau avancé
+# ComplÃ©ment - niveau avancÃ©
 # ----
-# Il y a un cas qui ne fonctionne pas avec cette implémentation, 
-# quand le premier argument de f a une valeur par défaut 
+# Il y a un cas qui ne fonctionne pas avec cette implÃ©mentation, 
+# quand le premier argument de f a une valeur par dÃ©faut 
 # *et* on veut pouvoir appeler doubler_premier
 # en nommant ce premier argument 
 #
-# par exemple - avec f=muln telle que définie dans l'énoncé 
+# par exemple - avec f=muln telle que dÃ©finie dans l'Ã©noncÃ© 
 #def muln(x=1, y=1): return x*y
 
 # alors ceci
@@ -93,8 +93,8 @@ def doubler_premier2(f, first, *args, **keywords):
 # ne marche pas car on n'a pas les deux arguments requis
 # par doubler_premier2
 # 
-# et pour écrire, disons doubler_permier3, qui marcherait aussi comme cela
-# il faudrait faire une hypothèse sur le nom du premier argument...
+# et pour Ã©crire, disons doubler_permier3, qui marcherait aussi comme cela
+# il faudrait faire une hypothÃ¨se sur le nom du premier argument...
 # @END@
 
 def addn(x, y=0):
@@ -121,16 +121,16 @@ exo_doubler_premier2 = ExerciceKeywords(doubler_premier2, doubler_premier2_input
 # @BEG@ 4 8 validation2
 def validation2(f, g, argument_tuples):
     """
-    retourne une liste de booléens, un par entree dans entrees
+    retourne une liste de boolÃ©ens, un par entree dans entrees
     qui indique si f(*tuple) == g(*tuple)
     """
     # c'est presque exactement comme validation, sauf qu'on s'attend 
-    # à recevoir une liste de tuples d'arguments, qu'on applique
+    # Ã  recevoir une liste de tuples d'arguments, qu'on applique
     # aux deux fonctions avec la forme * au lieu de les passer directement
     return [f(*tuple) == g(*tuple) for tuple in argument_tuples]
 # @END@
 
-#################### les jeux de données
+#################### les jeux de donnÃ©es
 validation2_inputs = []
 
 ########## dataset #1
@@ -141,7 +141,7 @@ from operator import mul
 fact_inputs = [(0,), (1,), (5,),]
 
 def fact(n):
-    "une version de factoriel à base de reduce"
+    "une version de factoriel Ã  base de reduce"
     return reduce(mul, range(1, n+1), 1)
 
 validation2_inputs.append((fact, factorial, fact_inputs))

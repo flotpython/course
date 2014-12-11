@@ -1,12 +1,12 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 ##############################
 # @BEG@ 4 4 aplatir
 def aplatir(conteneurs):
-    "retourne une liste des éléments des éléments de conteneurs"
-    # on peut concaténer les éléments de deuxième niveau 
-    # par une simple imbrication de deux compréhensions de liste
+    "retourne une liste des Ã©lÃ©ments des Ã©lÃ©ments de conteneurs"
+    # on peut concatÃ©ner les Ã©lÃ©ments de deuxiÃ¨me niveau 
+    # par une simple imbrication de deux comprÃ©hensions de liste
     return [element for conteneur in conteneurs for element in conteneur]
 # @END@
 
@@ -25,9 +25,9 @@ exo_aplatir = Exercice_1arg(aplatir, aplatir_inputs, exemple_how_many=0)
 ##############################
 # @BEG@ 4 4 alternat
 def alternat(l1, l2):
-    "renvoie une liste des éléments pris un sur deux dans l1 et dans l2"
-    # pour réaliser l'alternance on peut combiner zip avec aplatir
-    # telle qu'on vient de la réaliser
+    "renvoie une liste des Ã©lÃ©ments pris un sur deux dans l1 et dans l2"
+    # pour rÃ©aliser l'alternance on peut combiner zip avec aplatir
+    # telle qu'on vient de la rÃ©aliser
     return aplatir(zip(l1, l2))
 # @END@
 
@@ -39,8 +39,8 @@ alternat_inputs = [
 
 # @BEG@ 4 4 alternat
 def alternat2(l1, l2):
-    "une deuxième version de alternat"
-    # la même idée mais directement, sans utiliser aplatir
+    "une deuxiÃ¨me version de alternat"
+    # la mÃªme idÃ©e mais directement, sans utiliser aplatir
     return [element for conteneur in zip(l1, l2) for element in conteneur]
 # @END@
 
@@ -51,29 +51,29 @@ exo_alternat = Exercice(alternat, alternat_inputs, exemple_how_many=2)
 # @BEG@ 4 4 intersect
 def intersect(A, B):
     """
-    prend en entrée deux listes de tuples de la forme
+    prend en entrÃ©e deux listes de tuples de la forme
     (entier, valeur)
-    renvoie la liste des valeurs associées dans A ou B
-    aux entiers présents dans A et B
+    renvoie la liste des valeurs associÃ©es dans A ou B
+    aux entiers prÃ©sents dans A et B
     """
     # pour montrer un exemple de fonction locale:
     # une fonction qui renvoie l'ensemble des entiers
-    # présents dans une des deux listes d'entrée
+    # prÃ©sents dans une des deux listes d'entrÃ©e
     def values(S):
         return {i for i, val in S}
-    # on l'applique à A et B
+    # on l'applique Ã  A et B
     val_A = values(A)
     val_B = values(B)
     #
-    # bien sûr on aurait pu écrire directement
+    # bien sÃ»r on aurait pu Ã©crire directement
     # val_A = {i for i, val in A}
     # val_B = {i for i, val in B}
     # 
-    # les entiers présents dans A et B 
+    # les entiers prÃ©sents dans A et B 
     # avec une intersection d'ensembles
     common_keys = val_A & val_B
     # et pour conclure on fait une union sur deux
-    # compréhensions d'ensembles
+    # comprÃ©hensions d'ensembles
     return {vala for a, vala in A if a in common_keys} \
          | {valb for b, valb in B if b in common_keys} 
 # @END@

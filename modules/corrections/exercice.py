@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 ############################################################
 # the low level interface - used to be used directly in the first exercices
@@ -110,7 +110,7 @@ def correction_table(student_function,
     c1,c2,c3 = columns
     html = ""
     html += u"<table style='{}'>".format(font_style)
-    html += u"<tr style='{}'><th>Entrée</th><th>Attendu</th>"\
+    html += u"<tr style='{}'><th>EntrÃ©e</th><th>Attendu</th>"\
             u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
 
     overall = True
@@ -168,7 +168,7 @@ def exemple_table(function_name,
     html = ""
     html += u"<table style='{}'>".format(font_style)
     html += u"<tr style='{}'><th>Appel</th>"\
-            u"<th>Résultat attendu</th></tr>".format(header_font_style)
+            u"<th>RÃ©sultat attendu</th></tr>".format(header_font_style)
     
     for dataset in datasets[:how_many]:
         sample_dataset = clone_dataset(dataset, copy_mode)
@@ -202,7 +202,7 @@ def exemple_table_multiline(function_name,
     html = ""
     html += u"<table style='{}'>".format(font_style)
     html += u"<tr style='{}'><th>Arguments</th>"\
-            u"<th>Résultat attendu</th></tr>".format(header_font_style)
+            u"<th>RÃ©sultat attendu</th></tr>".format(header_font_style)
     
     sample_dataset = clone_dataset(datasets[dataset_index], copy_mode)
     args, keywords = sample_dataset

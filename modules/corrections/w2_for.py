@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 2 7 multi_tri
@@ -7,7 +7,7 @@ def multi_tri(listes):
     for liste in listes:
         # sort fait un effet de bord 
         liste.sort()
-    # et on retourne la liste de départ
+    # et on retourne la liste de dÃ©part
     return listes
 # @END@
 
@@ -25,13 +25,13 @@ exo_multi_tri = Exercice_1arg(multi_tri, inputs_multi_tri,
 # @BEG@ 2 7 multi_tri_reverse
 def multi_tri_reverse(listes, reverses):
     """trie toutes les sous listes, dans une direction
-    précisée par le second argument"""
-    # zip() permet de faire correspondre les éléments 
+    prÃ©cisÃ©e par le second argument"""
+    # zip() permet de faire correspondre les Ã©lÃ©ments 
     # de listes avec ceux de reverses
     for liste, reverse in zip(listes, reverses):
-        # on appelle sort en précisant reverse=
+        # on appelle sort en prÃ©cisant reverse=
         liste.sort(reverse=reverse)
-    # on retourne la liste de départ
+    # on retourne la liste de dÃ©part
     return listes
 # @END@
 
@@ -54,23 +54,23 @@ exo_multi_tri_reverse = Exercice(multi_tri_reverse, inputs_multi_tri_reverse,
 from math import e, pi
 
 def liste_racines(p):
-    "retourne la liste des racines p-ièmes de l'unité"
-    # une simple compréhension fait l'affaire
+    "retourne la liste des racines p-iÃ¨mes de l'unitÃ©"
+    # une simple comprÃ©hension fait l'affaire
     # souvenez vous que 1j c'est notre 'i' complexe
     return [e**((2*pi*1j*n)/p) for n in range(p)]
 
-# Il est tout à fait possible aussi de construire les racines pas à pas
-# C'est un peu moins élégant mais ça fonctionne très bien aussi
+# Il est tout Ã  fait possible aussi de construire les racines pas Ã  pas
+# C'est un peu moins Ã©lÃ©gant mais Ã§a fonctionne trÃ¨s bien aussi
 def liste_racines_bis(p):
-    "retourne la liste des racines p-ièmes de l'unité"
-    # on va construire le résultat petit à petit
+    "retourne la liste des racines p-iÃ¨mes de l'unitÃ©"
+    # on va construire le rÃ©sultat petit Ã  petit
     # en partant d'une liste vide
     resultat = []
     # pour chaque n dans {0 .. p-1}
     for n in range(p):
-        # on ajoute dans le résultat la racine d'ordre n
+        # on ajoute dans le rÃ©sultat la racine d'ordre n
         resultat.append(e**((2*pi*1j*n)/p))
-    # et on retourne le résultat
+    # et on retourne le rÃ©sultat
     return resultat
 # @END@
 
@@ -82,22 +82,22 @@ exo_liste_racines = Exercice_1arg(liste_racines, inputs_liste_racines,
 ####################
 # @BEG@ 2 7 produit_scalaire
 def produit_scalaire(X,Y):
-    # initialisation du resultat
+    # initialisation du rÃ©sultat
     scalaire = 0
     # ici encore avec zip() on peut faire correspondre 
     # les X avec les Y
     for x,y in zip(X,Y):
         scalaire += x*y
-    # on retourne le résultat
+    # on retourne le rÃ©sultat
     return scalaire
 
 # Il y a plein d'autres solutions qui marchent aussi
 # en voici notamment une qui utilise la fonction builtin sum
 # (que nous n'avons pas encore vue, nous la verrons en semaine 4)
-# en voici toutefois un avant-goût: la fonction sum est très pratique
+# en voici toutefois un avant-goÃ»t: la fonction sum est trÃ¨s pratique
 # pour faire la somme de toute une liste de valeurs
 def produit_scalaire_bis(X,Y):
-    """retourne le produit scalaire de deux listes de même taille"""
+    """retourne le produit scalaire de deux listes de mÃªme taille"""
     return sum([x*y for x, y in zip(X, Y)])
 # @END@
 

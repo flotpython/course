@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 4 2 pgcd
@@ -6,17 +6,17 @@ def pgcd(a, b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # l'algorithme suppose que a >= b
     # donc si ce n'est pas le cas 
-    # il faut inverser les deux entrées
+    # il faut inverser les deux entrÃ©es
     if b > a : 
         a, b = b, a
     # boucle sans fin
     while True:
         # on calcule le reste 
         r = a % b
-        # si le reste est nul, on a terminé
+        # si le reste est nul, on a terminÃ©
         if r == 0:
             return b
-        # sinon on passe à l'itération suivante
+        # sinon on passe Ã  l'itÃ©ration suivante
         a, b = b, r
 # @END@
 

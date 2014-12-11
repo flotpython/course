@@ -1,16 +1,17 @@
+# -*- coding: utf-8 -*-
 # @BEG@ 5 6 RPCProxy
-# une troisième implémentation de RPCProxy
+# une troisiÃ¨me implÃ©mentation de RPCProxy
 
 class Forwarder(object):
     """
     Une instance de la classe Forwarder est un callable
-    qui peut être utilisée comme une méthode sur l
+    qui peut Ãªtre utilisÃ©e comme une mÃ©thode sur l
     class RPCProxy
     """
     def __init__(self, rpc_proxy, methodname):
         """
-        le constructeur  mémorise l'instance de RPCProxy
-        et le nom de la méthode qui a été appelée
+        le constructeur  mÃ©morise l'instance de RPCProxy
+        et le nom de la mÃ©thode qui a Ã©tÃ© appelÃ©e
         """
         self.methodname = methodname
         self.rpc_proxy = rpc_proxy
@@ -18,17 +19,17 @@ class Forwarder(object):
     def __call__(self, *args):
         """
         en rendant cet objet callable, on peut l'utiliser
-        comme une méthode de RPCProxy
+        comme une mÃ©thode de RPCProxy
         """
-        print "Envoi à {}\nde la fonction {} -- args= {}".\
+        print "Envoi Ã  {}\nde la fonction {} -- args= {}".\
             format(self.rpc_proxy.url, self.methodname, args)
         return "retour de la fonction " + self.methodname
 
 class RPCProxy(object):
     """
-    Une troisième implémentation de RPCProxy qui sous-traite
-    à une classe annexe `Forwarder` qui se comporte comme
-    une *factory* de méthodes
+    Une troisiÃ¨me implÃ©mentation de RPCProxy qui sous-traite
+    Ã  une classe annexe `Forwarder` qui se comporte comme
+    une *factory* de mÃ©thodes
     """
     def __init__(self, url, login, password):
         self.url = url
@@ -37,8 +38,8 @@ class RPCProxy(object):
         
     def __getattr__ (self, methodname):
         """
-        Crée à la volée une instance de Forwarder
-        correspondant à 'methodname'
+        CrÃ©e Ã  la volÃ©e une instance de Forwarder
+        correspondant Ã  'methodname'
         """
         return Forwarder(self, methodname)
 # @END@

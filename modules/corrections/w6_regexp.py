@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import ExerciceRegexp, ExerciceRegexpGroups
 
 ########################################
@@ -11,14 +11,14 @@ for germ in germs:
 
 # @BEG@ 6 6 regexp_pythonid
 # un identificateur commence par une lettre ou un underscore
-# et peut être suivi par n'importe quel nombre de
-# lettre, chiffre ou underscore, ce qui se trouve être \w
+# et peut Ãªtre suivi par n'importe quel nombre de
+# lettre, chiffre ou underscore, ce qui se trouve Ãªtre \w
 # si on ne se met pas en mode unicode
 regexp_pythonid = "[a-zA-Z_]\w*"
 # @END@
 
 # @BEG@ 6 6 regexp_pythonid
-# on peut aussi bien sûr l'écrire en clair
+# on peut aussi bien sÃ»r l'Ã©crire en clair
 regexp_pythonid2 = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
@@ -33,12 +33,12 @@ inputs_specials = [ '__y3s__', '_n0__', '___n0__', '__0no__',
 
 # @BEG@ 6 6 regexp_specials
 # il faut commencer par exactement 2 underscores
-# donc le caractère suivant doit être une lettre
-# ensuite on peut mettre ce qu'on veut comme alphanumérique,
+# donc le caractÃ¨re suivant doit Ãªtre une lettre
+# ensuite on peut mettre ce qu'on veut comme alphanumÃ©rique,
 # mais avant les deux derniers underscores on ne peut pas avoir
 # un underscore
-# enfin pour traiter le cas où la partie centrale est réduite
-# à un seul caractère, on met une option - avec ()? 
+# enfin pour traiter le cas oÃ¹ la partie centrale est rÃ©duite
+# Ã  un seul caractÃ¨re, on met une option - avec ()? 
 regexp_specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
 # @END@
 
@@ -63,26 +63,26 @@ http:///missing/hostname/
 # qu'en minuscules
 i_flag = "(?i)"
 
-# pour élaborer la chaine (proto1|proto2|...)
+# pour Ã©laborer la chaine (proto1|proto2|...)
 protos_list = ['http', 'https', 'ftp', 'ssh', ] 
 protos      = "(?P<proto>" + "|".join(protos_list) + ")"
 
-# à l'intérieur de la zone 'user/password', la partie
+# Ã  l'intÃ©rieur de la zone 'user/password', la partie
 # password est optionnelle - mais on ne veut pas le ':' dans
 # le groupe 'password' - il nous faut deux groupes
 password    = r"(:(?P<password>[^:]+))?"
 
-# la partie user-password elle-même est optionnelle
+# la partie user-password elle-mÃªme est optionnelle
 user        = r"((?P<user>\w+){password}@)?".format(**locals())
 
 # pour le hostname on accepte des lettres, chiffres, underscore et '.'
-# attention à backslaher . car sinon ceci va matcher tout y compris /
+# attention Ã  backslaher . car sinon ceci va matcher tout y compris /
 hostname    = r"(?P<hostname>[\w\.]+)"
 
 # le port est optionnel
 port        = r"(:(?P<port>\d+))?"
 
-# après le premier slash
+# aprÃ¨s le premier slash
 path        = r"(?P<path>.*)"
 
 # on assemble le tout

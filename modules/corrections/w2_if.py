@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 ####################
@@ -36,20 +36,20 @@ exo_divisible = Exercice(divisible, inputs_divisible)
 # @BEG@ 2 7 spam
 def spam(l):
     """
-Prend en argument une liste, et retourne la liste modifiée:
- * taille paire: on intervertit les deux premiers éléments
- * taille impaire, on retire le dernier élément
+Prend en argument une liste, et retourne la liste modifiÃ©e:
+ * taille paire: on intervertit les deux premiers Ã©lÃ©ments
+ * taille impaire, on retire le dernier Ã©lÃ©ment
 """
-    # si la liste est vide il n'y a rien à faire
+    # si la liste est vide il n'y a rien Ã  faire
     if not l:
         pass
     # si la liste est de taille paire
     elif len(l)%2 == 0:
-        # on intervertit les deux premiers éléments
+        # on intervertit les deux premiers Ã©lÃ©ments
         l[0], l[1] = l[1], l[0]
     # si elle est de taille impaire
     else:
-        # on retire le dernier élément
+        # on retire le dernier Ã©lÃ©ment
         l.pop()
     # et on n'oublie pas de retourner la liste dans tous les cas
     return l

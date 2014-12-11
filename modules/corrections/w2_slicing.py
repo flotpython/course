@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import ExerciceKeywords
 
 alphabet = "0123456789abcdef"
@@ -30,7 +30,7 @@ class ExerciceInconnue(ExerciceKeywords):
 exo_inconnue = ExerciceInconnue(connue, composite)
 
 ####################
-# la solution est bien sûr
+# la solution est bien sÃ»r
 # @BEG@ 2 3 composite
 # Pour calculer inconnue, on extrait une sous-chaine de composite
 # qui commence a l'index len(connue)

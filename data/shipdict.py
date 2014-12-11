@@ -10,7 +10,7 @@ from __future__ import print_function
 def d_m_s(f):
     """
     make a float readable; e.g. transform 2.5 into 2.30'00'' 
-    we avoid using ° to keep things simple
+    we avoid using the degree sign to keep things simple
     input is assumed positive
     """
     d = int (f)

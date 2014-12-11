@@ -1,25 +1,25 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 from exercice import Exercice, Exercice_1arg, Exercice_multiline
 
 # @BEG@ 3 2 index
 def index(bateaux):
     """
-    Calcule sous la forme d'un dictionnaire indexé par les ids
-    un index de tous les bateaux présents dans la liste en argument
-    Comme les données étendues et abrégées ont toutes leur id 
-    en première position on peut en fait utiliser ce code
-    avec les deux types de données
+    Calcule sous la forme d'un dictionnaire indexÃ© par les ids
+    un index de tous les bateaux prÃ©sents dans la liste en argument
+    Comme les donnÃ©es Ã©tendues et abrÃ©gÃ©es ont toutes leur id 
+    en premiÃ¨re position on peut en fait utiliser ce code
+    avec les deux types de donnÃ©es
     """
-    # c'est une simple compréhension de dictionnaire
+    # c'est une simple comprÃ©hension de dictionnaire
     return {bateau[0]:bateau for bateau in bateaux}
 # @END@
 
 # @BEG@ 3 2 index
 def index2(bateaux):
     """
-    La même chose mais de manière itérative
+    La mÃªme chose mais de maniÃ¨re itÃ©rative
     """
-    # si on veut décortiquer
+    # si on veut dÃ©cortiquer
     resultat = {}
     for bateau in bateaux:
         resultat [bateau[0]] = bateau
@@ -43,53 +43,53 @@ exo_index = ExerciceIndex(index, "inputs_gets_overridden")
 # @BEG@ 3 2 merge
 def merge(extended, abbreviated):
     """
-    Consolide des données étendues et des données abrégées
-    comme décrit dans l'énoncé
-    Le coût de cette fonction est linéaire dans la taille 
-    des données (longueur des listes)
+    Consolide des donnÃ©es Ã©tendues et des donnÃ©es abrÃ©gÃ©es
+    comme dÃ©crit dans l'Ã©noncÃ©
+    Le coÃ»t de cette fonction est linÃ©aire dans la taille 
+    des donnÃ©es (longueur des listes)
     """
-    # on initialise le résultat avec un dictionnaire vide
+    # on initialise le rÃ©sultat avec un dictionnaire vide
     result = {}
-    # pour les données étendues
+    # pour les donnÃ©es Ã©tendues
     for ship in extended:
         # on affecte les 6 premiers champs
-        # et on ignore les champs de rang 6 et au delà
+        # et on ignore les champs de rang 6 et au delÃ 
         id, latitude, longitude, timestamp, name, country = ship[:6]
-        # on crée une entrée dans le résultat, 
-        # avec la mesure correspondant aux données étendues
+        # on crÃ©e une entrÃ©e dans le rÃ©sultat, 
+        # avec la mesure correspondant aux donnÃ©es Ã©tendues
         result[id] = [name, country, (latitude, longitude, timestamp)]
-    # maintenant on peut compléter le résultat avec les données abrégées
+    # maintenant on peut complÃ©ter le rÃ©sultat avec les donnÃ©es abrÃ©gÃ©es
     for id, latitude, longitude, timestamp in abbreviated:
-        # et avec les hypothèses on sait que le bateau a déjà été 
-        # inscrit dans le résultat, donc result[id] doit déjà exister
-        # et on peut se contenter d'ajouter ls mesure abrégée
-        # dans l'entrée correspondant dans result
+        # et avec les hypothÃ¨ses on sait que le bateau a dÃ©jÃ  Ã©tÃ© 
+        # inscrit dans le rÃ©sultat, donc result[id] doit dÃ©jÃ  exister
+        # et on peut se contenter d'ajouter ls mesure abrÃ©gÃ©e
+        # dans l'entrÃ©e correspondant dans result
         result[id].append((latitude, longitude, timestamp))
-    # et retourner le résultat
+    # et retourner le rÃ©sultat
     return result
 # @END@
 
 # @BEG@ 3 2 merge
 def merge2(extended, abbreviated):
     """
-    Une deuxième version, linéaire également
+    Une deuxiÃ¨me version, linÃ©aire Ã©galement
     """
-    # on initialise le résultat avec un dictionnaire vide
+    # on initialise le rÃ©sultat avec un dictionnaire vide
     result = {}
-    # on remplit d'abord à partir des données étendues
+    # on remplit d'abord Ã  partir des donnÃ©es Ã©tendues
     for ship in extended:
         id = ship[0]
-        # on crée la liste avec le nom et le pays
+        # on crÃ©e la liste avec le nom et le pays
         result[id] = ship[4:6]
-        # on ajoute un tuple correspondant à la position
+        # on ajoute un tuple correspondant Ã  la position
         result[id].append(tuple(ship[1:4]))
-    # pareil que pour la première solution,
-    # on sait d'après les hypothèses
-    # que les id trouvées dans abbreviated
-    # sont déja présentes dans le resultat
+    # pareil que pour la premiÃ¨re solution,
+    # on sait d'aprÃ¨s les hypothÃ¨ses
+    # que les id trouvÃ©es dans abbreviated
+    # sont dÃ©ja prÃ©sentes dans le resultat
     for ship in abbreviated:
         id = ship[0]
-        # on ajoute un tuple correspondant à la position
+        # on ajoute un tuple correspondant Ã  la position
         result[id].append(tuple(ship[1:4]))
     return result
 # @END@
@@ -97,30 +97,30 @@ def merge2(extended, abbreviated):
 # @BEG@ 3 2 merge
 def merge3(extended, abbreviated):
     """
-    Une troisième solution
-    à cause du tri que l'on fait au départ, cette 
-    solution n'est plus linéaire mais en O(n.log(n))
+    Une troisiÃ¨me solution
+    Ã  cause du tri que l'on fait au dÃ©part, cette 
+    solution n'est plus linÃ©aire mais en O(n.log(n))
     """
     # ici on va tirer profit du fait que les id sont
-    # en première position dans les deux tableaux
+    # en premiÃ¨re position dans les deux tableaux
     # si bien que si on les trie,
     # on va mettre les deux tableaux 'en phase'
     #
-    # c'est une technique qui marche dans ce cas précis
-    # parce qu'on sait que les deux tableaux contiennent des données
-    # pour exactement le même ensemble de bateaux
+    # c'est une technique qui marche dans ce cas prÃ©cis
+    # parce qu'on sait que les deux tableaux contiennent des donnÃ©es
+    # pour exactement le mÃªme ensemble de bateaux
     # 
     # on a deux choix, selon qu'on peut se permettre ou non de
-    # modifier les données en entrée. Supposons que oui:
+    # modifier les donnÃ©es en entrÃ©e. Supposons que oui:
     extended.sort()
     abbreviated.sort()
-    # si ça n'avait pas été le cas on aurait fait plutôt
+    # si Ã§a n'avait pas Ã©tÃ© le cas on aurait fait plutÃ´t
     # extended = extended.sorted() et idem pour l'autre
     #
-    # il ne reste plus qu'à assembler le résultat
-    # en découpant des tranches
+    # il ne reste plus qu'Ã  assembler le rÃ©sultat
+    # en dÃ©coupant des tranches
     # et en les transformant en tuples pour les positions
-    # puisque c'est ce qui est demandé
+    # puisque c'est ce qui est demandÃ©
     return {
         e[0] : e[4:6] + [ tuple(e[1:4]), tuple(a[1:4]) ]
         for (e,a) in zip (extended, abbreviated)
