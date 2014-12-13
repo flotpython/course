@@ -1,24 +1,25 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Conception d'itérateurs
+## TITRE : Conception d'itÃ©rateurs
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Nous avons vu précédemment la notion d'itérateur du point
-de vue des utilisateurs. Je vous rappelle que les itérateurs permettent
-de parcourir des objets de manière intuitive, simple
+Nous avons vu prÃ©cÃ©demment la notion d'itÃ©rateur du point
+de vue des utilisateurs. Je vous rappelle que les itÃ©rateurs permettent
+de parcourir des objets de maniÃ¨re intuitive, simple
 et efficace avec les boucle for, avec les fonctions map et filter,
-et avec les compréhensions. 
+et avec les comprÃ©hensions. 
 
-Je vous rappelle aussi qu'un itérateur à deux méthodes,
-la méthode [__iter__()] qui retourne l'itérateur lui même
-et la méthode [next()] qui retourne un nouvel élément
-jusqu'à [StopIteration]
+Je vous rappelle aussi qu'un itÃ©rateur Ã  deux mÃ©thodes,
+la mÃ©thode [__iter__()] qui retourne l'itÃ©rateur lui mÃªme
+et la mÃ©thode [next()] qui retourne un nouvel Ã©lÃ©ment
+jusqu'Ã  [StopIteration]
 
 [[
 __iter__()
@@ -26,11 +27,11 @@ next()
 StopIteration
 ]]
 
-Nous allons voir dans cette vidéo comment créer vos 
-propres itérateurs pour vos objets. Ce qui veut
+Nous allons voir dans cette vidÃ©o comment crÃ©er vos 
+propres itÃ©rateurs pour vos objets. Ce qui veut
 dire que vous pourrez exploiter toute la puissance
-des itérateurs pour vos objets.  Ouvrons un éditeur
-IDLE pour commencer à jouer avec les itérateurs...
+des itÃ©rateurs pour vos objets.  Ouvrons un Ã©diteur
+IDLE pour commencer Ã  jouer avec les itÃ©rateurs...
 
 >>>>>>>>>> INCLUDE C012AL-W6-S2-exo1.py <<<<<<<<<<
 

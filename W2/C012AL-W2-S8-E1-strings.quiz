@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Strings (1)
 =====
 
-On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on veut écrire dans la case du milieu un caractère "-", c'est-à-dire que par exemple
+On reÃ§oit en entrÃ©e une chaÃ®ne dont on sait qu'elle est de taille impaire, et on veut Ã©crire dans la case du milieu un caractÃ¨re "-", c'est-Ã -dire que par exemple
 
 <pre>chaine = "a"  => chaine = "-"</pre>
 <pre>chaine = "abc"  => chaine = "a-c"</pre>
@@ -15,11 +16,11 @@ Comment peut-on faire
 [x] chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2+1:]
 
 [explanation]
-Le premier choix n'est pas valide car le type chaîne n'est pas mutable
+Le premier choix n'est pas valide car le type chaÃ®ne n'est pas mutable
 
-Le second choix n'est pas correct, car le résultat contient un caractère de trop
+Le second choix n'est pas correct, car le rÃ©sultat contient un caractÃ¨re de trop
 
-Le troisième choix est correct
+Le troisiÃ¨me choix est correct
 
 [explanation]
 
@@ -27,21 +28,21 @@ Le troisième choix est correct
 Strings (2)
 =====
 
-À partir d'une chaîne, on veut calculer une chaîne dérivée où le caractère '-' est inséré entre les caractères de la chaîne originelle, c'est-à-dire que par exemple
+Ã€ partir d'une chaÃ®ne, on veut calculer une chaÃ®ne dÃ©rivÃ©e oÃ¹ le caractÃ¨re '-' est insÃ©rÃ© entre les caractÃ¨res de la chaÃ®ne originelle, c'est-Ã -dire que par exemple
 
 <pre>chaine = ""  => resultat = ""</pre>
 <pre>chaine = "a"  => resultat = "a"</pre>
 <pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
 
-Comment peut-on faire (plusieurs réponses possibles)
+Comment peut-on faire (plusieurs rÃ©ponses possibles)
 
 [x] "-".join(chaine)
 [x] "-".join(list(chaine))
 
 [explanation]
-La première clause est correcte, c'est bien sûr le plus simple
+La premiÃ¨re clause est correcte, c'est bien sÃ»r le plus simple
 
-La seconde est correcte également, et reste acceptable car elle convertit la chaîne en liste; si on n'est plus très sûr de savoir si "join" se comporte correctement avec une chaîne en argument, au moins comme ceci on est sûr de son coup.
+La seconde est correcte Ã©galement, et reste acceptable car elle convertit la chaÃ®ne en liste; si on n'est plus trÃ¨s sÃ»r de savoir si "join" se comporte correctement avec une chaÃ®ne en argument, au moins comme ceci on est sÃ»r de son coup.
 
 [explanation]
 
@@ -49,7 +50,7 @@ La seconde est correcte également, et reste acceptable car elle convertit la cha
 Strings - formatage
 =====
 
-Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
+Dans du code nouveau on veut mettre en forme un message Ã  partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
 
 <pre>nom = "Dupont",  no_secu = "1975787", age = "25" 
      => message = "Dupont, 25 ans, 1975787"</pre>
@@ -57,7 +58,7 @@ Dans du code nouveau on veut mettre en forme un message à partir de 3 variables 
 <pre>nom = "Durand",  no_secu = None, age = "12" 
      => message = "Durand, 12 ans, pas de no de SS"</pre>
 
-On envisage plusieurs solutions pour réaliser cela
+On envisage plusieurs solutions pour rÃ©aliser cela
 
 Solution 1
 <pre>
@@ -99,11 +100,11 @@ Quelle(s) solution(s) est(sont) correcte(s) ?
 [ ] 5
 
 [explanation]
-Les clauses 1, 2 et 4 sont correctes - on voit cependant que la clause 4 est plus difficile à relire et donc à modifier
+Les clauses 1, 2 et 4 sont correctes - on voit cependant que la clause 4 est plus difficile Ã  relire et donc Ã  modifier
 
-La clause 3 est erronée, elle mélange les '%s' de l'opérateur % avec la méthode format
+La clause 3 est erronÃ©e, elle mÃ©lange les '%s' de l'opÃ©rateur % avec la mÃ©thode format
 
-La dernière clause, quoique correcte, est à éviter dans du nouveau code.
+La derniÃ¨re clause, quoique correcte, est Ã  Ã©viter dans du nouveau code.
 
 [explanation]
 

@@ -1,104 +1,105 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Les boucles for et les itérateurs
+## TITRE : Les boucles for et les itÃ©rateurs
 
 # IMHO on a saute l'etape essentielle ici, pourquoi veut-on 
 # faire des iterateurs ?
 # on pourrait parler de l'optimisation memoire, range() vs. xrange()
 # avant de se lancer dans ces details qui sont assez obscurs tout de
 # meme...
-# AL : non, je ne suis pas convaincu. Oui l'occupation mémoire est 
-# importante, mais même sans ça, une interface commune à tous les objets
-# pour les parcourir, ça serait déjà suffisant pour justifier les
-# itérateurs. C'est à mon avis la grande contribution. Je propose
-# de déplacer la discussion de l'occupation mémoire en complément. 
+# AL : non, je ne suis pas convaincu. Oui l'occupation mÃ©moire est 
+# importante, mais mÃªme sans Ã§a, une interface commune Ã  tous les objets
+# pour les parcourir, Ã§a serait dÃ©jÃ  suffisant pour justifier les
+# itÃ©rateurs. C'est Ã  mon avis la grande contribution. Je propose
+# de dÃ©placer la discussion de l'occupation mÃ©moire en complÃ©ment. 
 
 
-## Résumé de la vidéo (1 minute)
+## RÃ©sumÃ© de la vidÃ©o (1 minute)
 
-On a vu la semaine dernière une rapide introduction
+On a vu la semaine derniÃ¨re une rapide introduction
 aux boucles for. On a principalement vu que l'on
 pouvait faire directement une boucle for sur une
-séquence et que la boucle allait parcourir chaque
-élément de la séquence. Mais, la boucle for est
-beaucoup plus générale et puissante qu'un simple
-parcours de séquences. Une boucle for peut parcourir
-n'importe quel objet qui a un itérateur, et la bonne
+sÃ©quence et que la boucle allait parcourir chaque
+Ã©lÃ©ment de la sÃ©quence. Mais, la boucle for est
+beaucoup plus gÃ©nÃ©rale et puissante qu'un simple
+parcours de sÃ©quences. Une boucle for peut parcourir
+n'importe quel objet qui a un itÃ©rateur, et la bonne
 nouvelle est que tous les types built-in en Python ont
-un itérateur (sauf les types numériques par ce qu'ils
-ne représentent qu'une seule valeur). La boucle for
-permet ainsi d'écrire simplement et rapidement du code
-lisible et efficace. Le concept d'itérateur fait
+un itÃ©rateur (sauf les types numÃ©riques par ce qu'ils
+ne reprÃ©sentent qu'une seule valeur). La boucle for
+permet ainsi d'Ã©crire simplement et rapidement du code
+lisible et efficace. Le concept d'itÃ©rateur fait
 partie des trois grands concepts fondamentaux de
-Python avec les références partagées, que nous avons
-déjà vu, et les espaces de nommages que nous verrons
+Python avec les rÃ©fÃ©rences partagÃ©es, que nous avons
+dÃ©jÃ  vu, et les espaces de nommages que nous verrons
 prochainement.
 
-Dans cette vidéo, on va approfondir le fonctionnement
+Dans cette vidÃ©o, on va approfondir le fonctionnement
 des boucles for et explorer le concept
-d'itérateur. Ouvrons un terminal pour commencer à
-jouer avec les boucles for et les itérateurs...
+d'itÃ©rateur. Ouvrons un terminal pour commencer Ã 
+jouer avec les boucles for et les itÃ©rateurs...
 
 >>>>>>>>>> C012AL-W3-S8-exo1.py <<<<<<<<<< (3 minutes)
 
-## différence entre un objet qui a un itérateur 
-## et un itérateur  (1 minutes 50 seconde)
+## diffÃ©rence entre un objet qui a un itÃ©rateur 
+## et un itÃ©rateur  (1 minutes 50 seconde)
 
 Nous avons vu comment une boucle for utilisait les
-objets qui ont un itérateur, mais nous n'avons
-toujours pas défini exactement ce qu'était un
-itérateur. 
+objets qui ont un itÃ©rateur, mais nous n'avons
+toujours pas dÃ©fini exactement ce qu'Ã©tait un
+itÃ©rateur. 
 XXX je ne comprends pas bien cette transision, dans EXO01 on a justement
-déjà montré __iter__ et next()
+dÃ©jÃ  montrÃ© __iter__ et next()
 
-Un itérateur est un objet (en Python tout est un objet
-donc ça ne devrait plus vous surprendre qu'un
-itérateur soit également un objet) qui a deux
-méthodes. Une méthode [__iter__()] qui retourne
-l'itérateur lui même et une méthode [next()] qui
-retourne un [nouvel élément] à chaque appel et
-[StopIteration] lorsqu'il n'y a plus d'éléments.
+Un itÃ©rateur est un objet (en Python tout est un objet
+donc Ã§a ne devrait plus vous surprendre qu'un
+itÃ©rateur soit Ã©galement un objet) qui a deux
+mÃ©thodes. Une mÃ©thode [__iter__()] qui retourne
+l'itÃ©rateur lui mÃªme et une mÃ©thode [next()] qui
+retourne un [nouvel Ã©lÃ©ment] Ã  chaque appel et
+[StopIteration] lorsqu'il n'y a plus d'Ã©lÃ©ments.
 
 [[
 __iter__()
 next()
-   *nouvel élément
+   *nouvel Ã©lÃ©ment
    *StopIteration
 ]]
 
-Vous avez peut-être remarqué quelque chose de
-bizarre. Un objet qui a un itérateur a une méthode
-__iter__() qui retourne l'itérateur, on a vu par
-exemple l'appel de la méthode __iter__ sur un set dans
-l'exemple précédent. Mais un itérateur a aussi une
-méthode __iter__() qui retourne l'itérateur lui
-même. Pourquoi est-ce que cette méthode sur
-l'itérateur existe ? Elle existe pour vous simplifier
-la vie. En effet, une boucle for fait toujours la même
-chose, elle appelle la méthode __iter__() sur l'objet,
-puis elle appelle la méthode next(). Si vous faîtes
-une boucle for sur un objet qui a un itérateur, la
-méthode __iter__() va retourner l'itérateur et la
+Vous avez peut-Ãªtre remarquÃ© quelque chose de
+bizarre. Un objet qui a un itÃ©rateur a une mÃ©thode
+__iter__() qui retourne l'itÃ©rateur, on a vu par
+exemple l'appel de la mÃ©thode __iter__ sur un set dans
+l'exemple prÃ©cÃ©dent. Mais un itÃ©rateur a aussi une
+mÃ©thode __iter__() qui retourne l'itÃ©rateur lui
+mÃªme. Pourquoi est-ce que cette mÃ©thode sur
+l'itÃ©rateur existe ? Elle existe pour vous simplifier
+la vie. En effet, une boucle for fait toujours la mÃªme
+chose, elle appelle la mÃ©thode __iter__() sur l'objet,
+puis elle appelle la mÃ©thode next(). Si vous faÃ®tes
+une boucle for sur un objet qui a un itÃ©rateur, la
+mÃ©thode __iter__() va retourner l'itÃ©rateur et la
 boucle for fonctionnera. Si vous faites une boucle for
-sur un itérateur, la méthode __iter__() va retourner
-l'itérateur et la boucle for fonctionnera également.
+sur un itÃ©rateur, la mÃ©thode __iter__() va retourner
+l'itÃ©rateur et la boucle for fonctionnera Ã©galement.
 
-Donc vous n'avez jamais à vous préoccuper de savoir si
-votre objet a un itérateur ou est déjà un itérateur,
+Donc vous n'avez jamais Ã  vous prÃ©occuper de savoir si
+votre objet a un itÃ©rateur ou est dÃ©jÃ  un itÃ©rateur,
 dans les deux cas, la boucle for pourra l'utiliser.
 
 Ouvrons de nouveau un terminal ...
 
 >>>>>>>>>> C012AL-W3-S8-exo2.py <<<<<<<<<< (3 minutes 30)
 
-Nous venons de voir que le concept d'itérateurs est à
-la fois très puissant et très simple. Nous verrons
-prochainement comment faire des itérateurs pour vos
+Nous venons de voir que le concept d'itÃ©rateurs est Ã 
+la fois trÃ¨s puissant et trÃ¨s simple. Nous verrons
+prochainement comment faire des itÃ©rateurs pour vos
 propres objets.

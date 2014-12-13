@@ -1,26 +1,27 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les tuples
 
-## Résumé de la vidéo (1 minute)
+## RÃ©sumÃ© de la vidÃ©o (1 minute)
 
-Dans cette vidéo nous allons presenter un autre type
-séquence très proche des listes, c'est le tuple.
-Comme une liste, un tuple regroupe sous forme d'une séquence
+Dans cette vidÃ©o nous allons presenter un autre type
+sÃ©quence trÃ¨s proche des listes, c'est le tuple.
+Comme une liste, un tuple regroupe sous forme d'une sÃ©quence
 des objets de type quelconque. 
 
-Mais, il existe une différence fondamentale entre les listes et les tuples.
+Mais, il existe une diffÃ©rence fondamentale entre les listes et les tuples.
 Contrairement aux liste qui sont mutables, les tuples sont immuables, 
-c'est à dire que les modification en place sont interdites, 
-on ne peut donc pas modifier un tuple déjà créé. 
+c'est Ã  dire que les modification en place sont interdites, 
+on ne peut donc pas modifier un tuple dÃ©jÃ  crÃ©Ã©. 
 
-Nous discuterons l'intérêt des objets immutables lorsque nous parlerons des
-dictionnaires et des références partagées dans les vidéos qui suivent 
+Nous discuterons l'intÃ©rÃªt des objets immutables lorsque nous parlerons des
+dictionnaires et des rÃ©fÃ©rences partagÃ©es dans les vidÃ©os qui suivent 
 cette semaine. 
 
 Ouvrons un terminal interactif pour jouer avec les tuples.

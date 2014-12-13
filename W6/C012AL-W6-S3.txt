@@ -1,52 +1,53 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Exceptions
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Depuis que nous avons commencé à jouer avec Python, vous les 
-avez sans doute souvent rencontré, mais vous ne savez toujours
+Depuis que nous avons commencÃ© Ã  jouer avec Python, vous les 
+avez sans doute souvent rencontrÃ©, mais vous ne savez toujours
 pas quoi en faire, ni exactement ce que c'est...
 Ce sont les exceptions. 
 
-Les exceptions sont le moyen en Python de gérer toutes
+Les exceptions sont le moyen en Python de gÃ©rer toutes
 les erreurs de fonctionnement de votre programme. 
 Et comme en Python tout est un objet, les exceptions aussi sont 
 des objets. Mais il y 
-a deux choses importantes à savoir sur les exceptions. 
-Premièrement, une exception n'est pas une fatalité qui conduit
-à l'arrêt du programme, on peut [capturer les exceptions] et prévoir
-des traitements spécifiques pour continuer le programme. C'est
-ce que nous allons voir dans cette vidéo.
-Deuxièmement, les exceptions 
-sont très [performantes] en Python, c'est d'ailleurs pour cela 
-que l'exception StopIteration est utilisé par les itérateurs. 
+a deux choses importantes Ã  savoir sur les exceptions. 
+PremiÃ¨rement, une exception n'est pas une fatalitÃ© qui conduit
+Ã  l'arrÃªt du programme, on peut [capturer les exceptions] et prÃ©voir
+des traitements spÃ©cifiques pour continuer le programme. C'est
+ce que nous allons voir dans cette vidÃ©o.
+DeuxiÃ¨mement, les exceptions 
+sont trÃ¨s [performantes] en Python, c'est d'ailleurs pour cela 
+que l'exception StopIteration est utilisÃ© par les itÃ©rateurs. 
 
  
-Ouvrons maintenant un éditeur IDLE pour commencer à jouer 
+Ouvrons maintenant un Ã©diteur IDLE pour commencer Ã  jouer 
 avec les exceptions...
 
 >>>>>>>>>> INCLUDE C012AL-W6-S3-exo1.py (6 minutes 50 s) <<<<<<<<<<
 
 
 ## Conclusion ()
-Vous avez remarqué que je faisais toujours suivre une clause except
-d'un nom d'exception. Ça n'est pas une obligation, je peux avoir
+Vous avez remarquÃ© que je faisais toujours suivre une clause except
+d'un nom d'exception. Ã‡a n'est pas une obligation, je peux avoir
 une clause except sans nom d'exception, et dans ce cas, ma clause
-va capturer toutes les exceptions. C'est toujours une très mauvaise
-idée de faire ça parce que vous risquez de capturer des exceptions
-que vous n'avez pas prévu ou que vous ne connaissez pas. Votre
-traitement ne sera donc pas approprié et votre programme risque
+va capturer toutes les exceptions. C'est toujours une trÃ¨s mauvaise
+idÃ©e de faire Ã§a parce que vous risquez de capturer des exceptions
+que vous n'avez pas prÃ©vu ou que vous ne connaissez pas. Votre
+traitement ne sera donc pas appropriÃ© et votre programme risque
 de planter sans message d'erreur ou avec un message d'erreur
-ne correspondant pas au problème. 
+ne correspondant pas au problÃ¨me. 
 
-Pour finir, vous devez sans doute vous demander comment connaître les
-exceptions à capturer et leur signification. Il n'y a ici
+Pour finir, vous devez sans doute vous demander comment connaÃ®tre les
+exceptions Ã  capturer et leur signification. Il n'y a ici
 aucune magie, la seule solution est de lire la documentation
-pour connaître les exceptions built-in et la documentation
+pour connaÃ®tre les exceptions built-in et la documentation
 des modules que vous utilisez.  

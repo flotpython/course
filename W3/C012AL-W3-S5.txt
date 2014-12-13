@@ -1,58 +1,59 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Introduction aux modules
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Dans cette vidéo, nous allons introduire la notion de modules et 
-en particulier comment utiliser des modules. Nous verrons la création 
+Dans cette vidÃ©o, nous allons introduire la notion de modules et 
+en particulier comment utiliser des modules. Nous verrons la crÃ©ation 
 de modules plus tard.
 
 Un module est un fichier python standard finissant par .py et tous les
 fichiers python sont des modules. Donc les notions de fichier python
-et de module sont équivalentes. Alors pourquoi introduire cette notion
+et de module sont Ã©quivalentes. Alors pourquoi introduire cette notion
 de module ? En Python tout est un objet et lorsque l'on importe un
-fichier python dans un programme, cela crée un objet que l'on appelle
-un module. On peut accéder a tout ce qui a été défini dans le fichier
-importé, en particulier les fonctions, par l'objet module.
+fichier python dans un programme, cela crÃ©e un objet que l'on appelle
+un module. On peut accÃ©der a tout ce qui a Ã©tÃ© dÃ©fini dans le fichier
+importÃ©, en particulier les fonctions, par l'objet module.
 
-Par conséquent, on peut voir un module comme une boite à outils,
-c'est-à-dire un fichier définissant des fonctions pour une tâche
-particulière. Si l'on veut utiliser un module il suffit de 
+Par consÃ©quent, on peut voir un module comme une boite Ã  outils,
+c'est-Ã -dire un fichier dÃ©finissant des fonctions pour une tÃ¢che
+particuliÃ¨re. Si l'on veut utiliser un module il suffit de 
 l'importer avec l'instruction import. 
 
-# xxx à ce stade un exemple en incrustation ?
-# xxx thierry à mon avis oui, avec import math / math.pi qu'on a déjà vu
+# xxx Ã  ce stade un exemple en incrustation ?
+# xxx thierry Ã  mon avis oui, avec import math / math.pi qu'on a dÃ©jÃ  vu
 
 Il y a en Python des dizaines de modules dans ce que l'on appelle la
 librairie standard. C'est la librairie qui est disponible avec toutes
-les installations de Python. Donc quelque soit le système
+les installations de Python. Donc quelque soit le systÃ¨me
 d'exploitation que l'on utilise, un programme utilisant les librairies
 standards fonctionnera avec toutes les installations de Python.
 
 Il y a dans la librairie standard des modules pour faire toutes les
-tâches courantes en programmation, comme par exemple, faire des
-opérations mathématiques de base, travailler avec le système de
-fichiers ou le système d'exploitation, enregistrer des informations
-dans des fichiers ou dans une base de données, faire des applications
+tÃ¢ches courantes en programmation, comme par exemple, faire des
+opÃ©rations mathÃ©matiques de base, travailler avec le systÃ¨me de
+fichiers ou le systÃ¨me d'exploitation, enregistrer des informations
+dans des fichiers ou dans une base de donnÃ©es, faire des applications
 graphiques, communiquer sur Internet, et bien plus encore.
 
-Ouvrons un terminal pour commencer à jouer avec les modules...
+Ouvrons un terminal pour commencer Ã  jouer avec les modules...
 
 >>>>>>>>>> INCLUDE C012AL-W3-S5-exo1.py <<<<<<<<<<
 
-On a vu une introduction rapide à l'utilisation des modules de la
+On a vu une introduction rapide Ã  l'utilisation des modules de la
 librairie standard. 
 
-Il y a bien sûr un grand nombre d'autres modules externes pour faire
-des tâches spécialisées. Ces modules n'étant pas standard, ils
-demandent une installation supplémentaire à Python, mais ils
+Il y a bien sÃ»r un grand nombre d'autres modules externes pour faire
+des tÃ¢ches spÃ©cialisÃ©es. Ces modules n'Ã©tant pas standard, ils
+demandent une installation supplÃ©mentaire Ã  Python, mais ils
 s'importent et s'utilisent ensuite comme un module de la librairie
 standard.

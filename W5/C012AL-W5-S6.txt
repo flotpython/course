@@ -1,56 +1,57 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Surcharge d'opérateurs
+## TITRE : Surcharge d'opÃ©rateurs
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
 Nous avons vu les notions de classes, d'instances et
-d'héritage et nous avons vu que Python permettait de 
-manipuler ces notions puissantes avec simplicité et souplesse. 
-Il y a une dernière notion clef de la programmation 
-objet que nous allons aborder dans cette vidéo : 
-la surcharge d'opérateurs. 
+d'hÃ©ritage et nous avons vu que Python permettait de 
+manipuler ces notions puissantes avec simplicitÃ© et souplesse. 
+Il y a une derniÃ¨re notion clef de la programmation 
+objet que nous allons aborder dans cette vidÃ©o : 
+la surcharge d'opÃ©rateurs. 
 
-Surcharger une méthode en programmation objet, c'est redéfinir
-une méthode d'une super-classe dans une sous-classe, de manière
-à ce que les instances de cette sous classe utilisent cette
-nouvelle méthode puisque qu'elle est plus proche de l'instance
-dans l'arbre d'héritage. 
+Surcharger une mÃ©thode en programmation objet, c'est redÃ©finir
+une mÃ©thode d'une super-classe dans une sous-classe, de maniÃ¨re
+Ã  ce que les instances de cette sous classe utilisent cette
+nouvelle mÃ©thode puisque qu'elle est plus proche de l'instance
+dans l'arbre d'hÃ©ritage. 
 
-Surcharger un opérateur c'est surcharger une méthode définie
-par le langage pour toutes les classes. Ces opérateurs 
-ou méthodes on des rôles particulier très puissants qui permettent
-de créer nos propres objets utilisant les même mécanismes
+Surcharger un opÃ©rateur c'est surcharger une mÃ©thode dÃ©finie
+par le langage pour toutes les classes. Ces opÃ©rateurs 
+ou mÃ©thodes on des rÃ´les particulier trÃ¨s puissants qui permettent
+de crÃ©er nos propres objets utilisant les mÃªme mÃ©canismes
 que les objets built-in. Par exemple, on peut surcharger 
-en Python l'opérateur + ou l'opérateur in. 
+en Python l'opÃ©rateur + ou l'opÃ©rateur in. 
 
-Ouvrons un éditeur IDLE pour commencer à jouer avec les opérateurs...
+Ouvrons un Ã©diteur IDLE pour commencer Ã  jouer avec les opÃ©rateurs...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S6-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 
-Nous avons vu dans cette vidéo la surcharge de l'opérateur __init__,
-c'est à dire du constructeur de la classe. Nous avons
+Nous avons vu dans cette vidÃ©o la surcharge de l'opÃ©rateur __init__,
+c'est Ã  dire du constructeur de la classe. Nous avons
 vu comment on peut initialiser des instances et comment 
-prendre en compte l'héritage dans l'initialisation d'instances.
-Nous avons également vu la surcharge de la méthode __str__
-qui est appelée automatiquement par l'instruction print. 
+prendre en compte l'hÃ©ritage dans l'initialisation d'instances.
+Nous avons Ã©galement vu la surcharge de la mÃ©thode __str__
+qui est appelÃ©e automatiquement par l'instruction print. 
 
-Il y a plus de 80 opérateurs que l'on peut surcharger
+Il y a plus de 80 opÃ©rateurs que l'on peut surcharger
 en Python. On peut, par exemple,  surcharger le comportement 
 de l'instruction
-[print] ou [in], de la fonction built-in len(), des opérateurs
-[+, -, *, /], des opérateurs de comparaisons [<, >, ==, etc.], 
-ou de l'accès aux éléments d'une séquence S[i]. 
+[print] ou [in], de la fonction built-in len(), des opÃ©rateurs
+[+, -, *, /], des opÃ©rateurs de comparaisons [<, >, ==, etc.], 
+ou de l'accÃ¨s aux Ã©lÃ©ments d'une sÃ©quence S[i]. 
 
-Vous verrez dans les compléments d'autres exemples et la documentation
-Python décrit en détail tous ces opérateurs que l'on peut
+Vous verrez dans les complÃ©ments d'autres exemples et la documentation
+Python dÃ©crit en dÃ©tail tous ces opÃ©rateurs que l'on peut
 surcharger.
 
 [[

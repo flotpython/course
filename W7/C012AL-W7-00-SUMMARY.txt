@@ -1,35 +1,36 @@
+# -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
 
 # TITRE SEMAINE 7 : 
 
 ###################################################################
 
-## VidÈo 1 (MÈthodes statiques et de classe)
+## Vid√©o 1 (M√©thodes statiques et de classe)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W7-S1.txt
 
-## ComplÈments VidÈo 1
+## Compl√©ments Vid√©o 1
 
-## Quizz VidÈo 1
+## Quizz Vid√©o 1
 
-## Exercices VidÈo 1
+## Exercices Vid√©o 1
 
 
 ###################################################################
 
-## VidÈo 2 (Les dÈcorateurs)
+## Vid√©o 2 (Les d√©corateurs)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W7-S2.txt
 
-## ComplÈments VidÈo 2
+## Compl√©ments Vid√©o 2
 
 OK (S2-C1-)Complement-decorateurs.ipynb
 
-* les exemples pratiques que tu as dÈj‡ faits. 
+* les exemples pratiques que tu as d√©j√† faits. 
 
-* (initialement avec les context managers) : montrer cet exemple et le comparer avec les dÈcorateur
+* (initialement avec les context managers) : montrer cet exemple et le comparer avec les d√©corateur
 
 import time
 class Timer():    
@@ -47,19 +48,19 @@ with Timer() as t:
     print 1/0
 
 	
-## Quizz VidÈo 2
+## Quizz Vid√©o 2
 
-## Exercices VidÈo 2
+## Exercices Vid√©o 2
 
 
 ###################################################################
 
-## VidÈo 3 (Les classes new-style)
+## Vid√©o 3 (Les classes new-style)
 NIVEAU: INTERMEDIAIRE
 
 CO12AL-W7-S3.txt
 
-## ComplÈments VidÈo 3
+## Compl√©ments Vid√©o 3
 
 * lien vers
 https://www.python.org/download/releases/2.2.3/descrintro
@@ -67,53 +68,53 @@ https://www.python.org/download/releases/2.2.3/descrintro
 *voir __getattribute__
 *voir 
 
-## Quizz VidÈo 3
+## Quizz Vid√©o 3
 
-## Exercices VidÈo 3
+## Exercices Vid√©o 3
 
 
 ###################################################################
 
-## VidÈo 4 (Les mÈtaclasses)
-NIVEAU: AVANC…
+## Vid√©o 4 (Les m√©taclasses)
+NIVEAU: AVANC√â
 
 CO12AL-W7-S4.txt 
 
-## ComplÈments VidÈo 4
+## Compl√©ments Vid√©o 4
 
 * lien vers
 https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 
 *exemples d'utilisation de metaclasses
 
-## Quizz VidÈo 4
+## Quizz Vid√©o 4
 
-## Exercices VidÈo 4
+## Exercices Vid√©o 4
 
 
 ###################################################################
 
-## VidÈo 5 (Performance en Python)
+## Vid√©o 5 (Performance en Python)
 NIVEAU: INTERMEDIAIRE
 
 CO12AL-W7-S5.txt 
 
-## ComplÈments VidÈo 5
+## Compl√©ments Vid√©o 5
 
-## Quizz VidÈo 5
+## Quizz Vid√©o 5
 
-## Exercices VidÈo 5
+## Exercices Vid√©o 5
 
 
 ###################################################################
 
-## SÈquence ajoutÈe 'supplÈments'
+## S√©quence ajout√©e 'suppl√©ments'
 
 ###################################################################
 OK C012AL-W7-S6-C1-python2-vs-python3.ipynb
-          on a vendu l'idÈe d'un complÈment sur la comparaison python2 python3
+          on a vendu l'id√©e d'un compl√©ment sur la comparaison python2 python3
           dans lequel il faudra bien mentionner le type unicode
-DROPPED pending-unicode.ipynb : je propose de bouger Áa carrÈment en semaine 7 
+DROPPED pending-unicode.ipynb : je propose de bouger √ßa carr√©ment en semaine 7 
 
 
-Mini-projets ‡ venir...
+Mini-projets √† venir...

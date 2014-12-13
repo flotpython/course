@@ -1,22 +1,23 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ##  TITRE : Les classes new-style
 
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Nous allons dans cette vidéo présenter les classe new-style est 
-introduire le concept de métaclasse. Il s'agit de sujets avancés,
-mais cette vidéo va vous permettre d'améliorer votre compréhension
-des objets en Python et votre maitrise de concepts avancés de 
+Nous allons dans cette vidÃ©o prÃ©senter les classe new-style est 
+introduire le concept de mÃ©taclasse. Il s'agit de sujets avancÃ©s,
+mais cette vidÃ©o va vous permettre d'amÃ©liorer votre comprÃ©hension
+des objets en Python et votre maitrise de concepts avancÃ©s de 
 programmation objet. 
 
-Ouvrons un terminal interactif pour commencer à jouer avec les 
+Ouvrons un terminal interactif pour commencer Ã  jouer avec les 
 classe new-style.
 
 >>>>>>>>>> INCLUDE C012AL-W7-S3-exo1.py (5 minutes) <<<<<<<<<<

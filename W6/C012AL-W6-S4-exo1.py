@@ -1,9 +1,9 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 
 ## Dans 99% des cas vous avez uniquement besoin
 ## pour votre exception d'un nom et d'un message
-## d'erreur. C'est dans ce cas très simple de faire
+## d'erreur. C'est dans ce cas trÃ¨s simple de faire
 ## votre propre exception. Regardons un exemple...
 
 ## Il est d'usage d'utiliser un terme explicite pour
@@ -14,9 +14,9 @@ class SplitError(Exception):
     pass
 
 ## Pour lancer l'exception on utilise l'instruction
-## raise. On peut passer à l'exception une liste
+## raise. On peut passer Ã  l'exception une liste
 ## d'argument qui sera automatiquement mise dans un
-## tuple nommé args. C'est le constructeur de Exception
+## tuple nommÃ© args. C'est le constructeur de Exception
 ## qui fait cela. 
 
 x = 1
@@ -25,7 +25,7 @@ y = 'a'
 #raise SplitError('message...', x, y)
 
 ## on peut ensuite capturer cette exception et utiliser
-## les arguments passés
+## les arguments passÃ©s
 
 try:
     raise SplitError('message...', x, y)
@@ -34,9 +34,9 @@ except SplitError as e:
 
 
 ## Mais comme une exception est une vraie classe, on peut
-## surcharger le constructeur et ajouter des méthodes.
-## En particulier, on peut utiliser des arguments nommés
-## dans le contructeur, mais il faut évidamment les
+## surcharger le constructeur et ajouter des mÃ©thodes.
+## En particulier, on peut utiliser des arguments nommÃ©s
+## dans le contructeur, mais il faut Ã©vidamment les
 ## documenter.
 
 class SplitError(Exception):

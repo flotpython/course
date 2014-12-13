@@ -1,17 +1,17 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## une liste est une séquence, donc toutes les fonctions et opérations
-## que l'on a vues pour les séquences s'appliques aux listes : en particulier
-## testes d'appartenance in, not in ; concaténation avec le signe + ;
-## longeur avec la fonction built-in len ; récupération d'un élément
+## une liste est une sÃ©quence, donc toutes les fonctions et opÃ©rations
+## que l'on a vues pour les sÃ©quences s'appliques aux listes : en particulier
+## testes d'appartenance in, not in ; concatÃ©nation avec le signe + ;
+## longeur avec la fonction built-in len ; rÃ©cupÃ©ration d'un Ã©lÃ©ment
 ## par son index entre crochet ; et le slicing.
 
-## on crée une liste vide ainsi
+## on crÃ©e une liste vide ainsi
 a = []
 
-## on sépare les éléments d'une liste par des virgules
+## on sÃ©pare les Ã©lÃ©ments d'une liste par des virgules
 ## notons que l'on peut directement mettre un objet dans
-## la liste, ou utiliser une variable référencant l'objet
+## la liste, ou utiliser une variable rÃ©fÃ©rencant l'objet
 
 i = 4
 
@@ -23,17 +23,17 @@ a[0] = 20
 
 print a
 
-## on peut également directement effectuer une opération et réaffecter
-## cette opération à un élément de la liste. Je rappelle qu'en Python
-## on évalue d'abord ce qu'il y a à droite du signe égal et ensuite
-## on affecte le résultat à la variable de gauche.
+## on peut Ã©galement directement effectuer une opÃ©ration et rÃ©affecter
+## cette opÃ©ration Ã  un Ã©lÃ©ment de la liste. Je rappelle qu'en Python
+## on Ã©value d'abord ce qu'il y a Ã  droite du signe Ã©gal et ensuite
+## on affecte le rÃ©sultat Ã  la variable de gauche.
 
 a[0] = a[0] + 1
 
 print a
 
 ## on peut utiliser le slicing dans une liste parce que c'est
-## une séquence
+## une sÃ©quence
 
 print a[1:2]
 
@@ -43,33 +43,33 @@ a[1:2] = ['egg', 'beans']
 
 print a
 
-## il faut bien comprendre ce que fait cette opération. Python commence
-## par effacer les éléments spécifiés par le slide dans l, puis il va
-## ajouter les éléments de la liste de droite à la place. S'il y a plus
-## d'éléments la liste est agrandie, s'il y en a moins, elle est raccoucie
+## il faut bien comprendre ce que fait cette opÃ©ration. Python commence
+## par effacer les Ã©lÃ©ments spÃ©cifiÃ©s par le slide dans l, puis il va
+## ajouter les Ã©lÃ©ments de la liste de droite Ã  la place. S'il y a plus
+## d'Ã©lÃ©ments la liste est agrandie, s'il y en a moins, elle est raccoucie
 
-## on peut donc supprimer des éléments sur un slice en affectant un slice à une
+## on peut donc supprimer des Ã©lÃ©ments sur un slice en affectant un slice Ã  une
 ## liste vide
 
 a[1:2] = []
 
 print a
 
-## je peux également utiliser l'instruction del pour effacer tous les éléments
-## spécifiés dans un slice
+## je peux Ã©galement utiliser l'instruction del pour effacer tous les Ã©lÃ©ments
+## spÃ©cifiÃ©s dans un slice
 
 del a[0:3:2]
 
 print a
 
-## par contre s'il on écrit L[1] = ['spam', 'good'], on va simplement ajouter
-## une liste à la position 1 de la liste l
+## par contre s'il on Ã©crit L[1] = ['spam', 'good'], on va simplement ajouter
+## une liste Ã  la position 1 de la liste l
 
 a[1] = ['spam', 'good']
 
 print a
 
-## avant de continuer, sur les fonctions spécifiques aux listes, je vais
+## avant de continuer, sur les fonctions spÃ©cifiques aux listes, je vais
 ## introduire la fonction built-in range() qui permet d'obtenir une liste
 ## d'entiers.
 
@@ -79,7 +79,7 @@ print range(1, 10)
 
 print range(1, 10, 2)
 
-## la notation de range est similaire à la notation
+## la notation de range est similaire Ã  la notation
 ## que l'on a vu avec le slicing. 
 range(100)[4:10:2] == range(4,10,2)
 range(100)[18:12:-2] == range(18,12,-2)
@@ -95,7 +95,7 @@ print a
 a.extend([11, 12])
 print a
 
-## insère l'objet juste avant la position, mais n'efface et ne remplace rien
+## insÃ¨re l'objet juste avant la position, mais n'efface et ne remplace rien
 a.insert(2, 'egg')
 print a
 
@@ -111,6 +111,6 @@ print a.pop(2)
 
 print a
 
-a.remove(5) # efface la premiere occurence de l'élément passé en parametre
+a.remove(5) # efface la premiere occurence de l'Ã©lÃ©ment passÃ© en parametre
 
 ## 8 minutes

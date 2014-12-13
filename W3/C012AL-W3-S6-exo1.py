@@ -1,10 +1,10 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## On peut écrire des listes, tuples, set et dictionnaires
-## sur plusieurs lignes. Lorsque les éléments sont séparés
+## On peut Ã©crire des listes, tuples, set et dictionnaires
+## sur plusieurs lignes. Lorsque les Ã©lÃ©ments sont sÃ©parÃ©s
 ## par des virgules, on a l'habitude le mettre une virgule
-## en fin de ligne plutôt qu'en début. On aligne chaque
-## premier élément de la ligne pour la lisibilité, les espaces
+## en fin de ligne plutÃ´t qu'en dÃ©but. On aligne chaque
+## premier Ã©lÃ©ment de la ligne pour la lisibilitÃ©, les espaces
 ## ne sont pas pris en compte. 
 
 print [1,
@@ -22,15 +22,15 @@ print {'a': 1,
 print (1 + 2 + 3 +
        4)
 
-## par contre pour les chaînes de caractères, on doit
-## mettre un backslash en fin de ligne et tous les caractères
-## ajoutés en début de ligne seront pris en compte dans
-## la chaîne. 
+## par contre pour les chaÃ®nes de caractÃ¨res, on doit
+## mettre un backslash en fin de ligne et tous les caractÃ¨res
+## ajoutÃ©s en dÃ©but de ligne seront pris en compte dans
+## la chaÃ®ne. 
 
 print 'une grande\
  phrase'
 
-# xxx comme la fois précédente, perso je ne mettrais pas l'exemple des strings
+# xxx comme la fois prÃ©cÃ©dente, perso je ne mettrais pas l'exemple des strings
 # 1. les strings multilignes sont beaucoup mieux avec des """
 # 2. c'est plus utile je pense de montrer un appel de fonction - il n'y en a pas ci-dessus
 

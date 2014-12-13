@@ -1,28 +1,29 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 
 ## TITRE : Boucle while
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Nous avons vu l'instruction if qui permet d'exécuter des blocs 
+Nous avons vu l'instruction if qui permet d'exÃ©cuter des blocs 
 d'instructions en fonction de tests et l'instruction for qui permet,
-entres autres, de répéter des blocs d'instructions.
+entres autres, de rÃ©pÃ©ter des blocs d'instructions.
 Il existe une autre instruction, while qui combine ces deux 
-possibilités.
+possibilitÃ©s.
 
 Ouvrons un terminal pour jouer avec l'instruction while...
 
 
 >>>>>>>>>> C012AL-W4-S2-exo1.py <<<<<<<<<< ()
 
-L'instruction while ne présente pas de difficultés particulières
-et son utilisation est limitée à la répétition d'un bloc d'instruction 
-tant qu'un test n'est pas évalué à True. 
+L'instruction while ne prÃ©sente pas de difficultÃ©s particuliÃ¨res
+et son utilisation est limitÃ©e Ã  la rÃ©pÃ©tition d'un bloc d'instruction 
+tant qu'un test n'est pas Ã©valuÃ© Ã  True. 

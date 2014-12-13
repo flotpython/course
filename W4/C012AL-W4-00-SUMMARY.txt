@@ -1,99 +1,100 @@
+# -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
 
 # TITRE SEMAINE 4 : Fonctions 
 
 ###################################################################
 
-## VidÈo 1 (Les fichiers)
+## Vid√©o 1 (Les fichiers)
 NIVEAU: BASIC
 
 C012AL-W4-S1.txt
 
-## ComplÈments VidÈo 1
+## Compl√©ments Vid√©o 1
 OK Complement-fichiers.ipynb 
 ONGOING Complement-utilitaires-sur-fichiers.ipynb
 OK Complement-format-json-et-autres.ipynb : parler de json, pickle, csv ...
 OK Complement-fichiers-systeme.ipynb : 
 
-DROPPED *montrer que sys.stdout n'est q'une variable qui peut rÈfÈrencer un autre fichier.
-Comme print Ècrit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est trËs sale cette faÁon de faire..)
+DROPPED *montrer que sys.stdout n'est q'une variable qui peut r√©f√©rencer un autre fichier.
+Comme print √©crit dans sys.stdout, c'est un moyen simple de rediriger les print vers un fichier. (c'est tr√®s sale cette fa√ßon de faire..)
 
-## Quizz VidÈo 1
-## Exercices VidÈo 1
+## Quizz Vid√©o 1
+## Exercices Vid√©o 1
 OK Exercice-fichiers.ipynb
 
 ###################################################################
 
-## VidÈo 2 (Boucle while)
+## Vid√©o 2 (Boucle while)
 NIVEAU: BASIC
 
 C012AL-W4-S2.txt
 
-## ComplÈments VidÈo 2
+## Compl√©ments Vid√©o 2
 OK Complement-boucle-while.ipynb
-## Quizz VidÈo 2
-## Exercices VidÈo 2
+## Quizz Vid√©o 2
+## Exercices Vid√©o 2
 OK Exercice-pgcd.ipynb
 
 ###################################################################
 
-## VidÈo 3 (Fonction lambda, programmation fonctionnelle)
+## Vid√©o 3 (Fonction lambda, programmation fonctionnelle)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W4-S3.txt
 
-## ComplÈments VidÈo 3
+## Compl√©ments Vid√©o 3
 OK Complement-fonctions.ipynb
 
-DROPPED *voir exec et eval. «a n'est pas en lien direct, mais il faut
-le voir et il y a peu de complÈments pour cette vidÈo alors
+DROPPED *voir exec et eval. √áa n'est pas en lien direct, mais il faut
+le voir et il y a peu de compl√©ments pour cette vid√©o alors
 autant le placer ici. 
 
-## Quizz VidÈo 3
+## Quizz Vid√©o 3
 NICETOHAVE C012AL-W4-S3-E1-functions.quiz
 comparer def et lambda 
 comparer map/filter 
 
-## Exercices VidÈo 3
+## Exercices Vid√©o 3
 OK Exercice-fonctions.ipynb
 
 ###################################################################
 
-## VidÈo 4 (ComprÈhension de listes, sets et dictionnaires)
+## Vid√©o 4 (Compr√©hension de listes, sets et dictionnaires)
 NIVEAU: BASIC
 
 C012AL-W4-S4.txt
 
-## ComplÈments VidÈo 4
-OK Complement-comprehensions-imbriquees.ipynb comprÈhensions multiples 
+## Compl√©ments Vid√©o 4
+OK Complement-comprehensions-imbriquees.ipynb compr√©hensions multiples 
 
 DROPPED
-*Comparer la performance des boucles for, de map, de la comprÈhension. - pas le temps
+*Comparer la performance des boucles for, de map, de la compr√©hension. - pas le temps
 S'inspirer de : http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
 
-## Quizz VidÈo 4
+## Quizz Vid√©o 4
 
-## Exercices VidÈo 4
+## Exercices Vid√©o 4
 ONGOING Exercice-comprehensions.ipynb
 ###################################################################
 
-## VidÈo 5 (Les fonctions)
+## Vid√©o 5 (Les fonctions)
 NIVEAU: BASIC
 
 C012AL-W4-S5.txt
 
-## ComplÈments VidÈo 5
+## Compl√©ments Vid√©o 5
 
 OK Complement-docstring.ipynb 
 OK Complement-fonction-isinstance.ipynb
 OK C012AL-W4-S5-C1-arg-reference.ipynb  
-DROPPED cas pratique de plusieurs return - TP: on en fait ‡ longueur d'exemples Áa non ?
+DROPPED cas pratique de plusieurs return - TP: on en fait √† longueur d'exemples √ßa non ?
 
-## Quizz VidÈo 5
+## Quizz Vid√©o 5
 OK C012AL-W4-S5-E1-functions.quiz
 NICETOHAVE : un peu juste ?
 
-## Exercices VidÈo 5
+## Exercices Vid√©o 5
 NICETOHAVE leur faire faire un exo des fonction polymorphe qui prenne en argument
 un entier ou un nom - par exemple avec les bateaux de marine..
 BOF aplatir un arbre - pour isinstance()
@@ -101,57 +102,57 @@ BOF aplatir un arbre - pour isinstance()
 
 ###################################################################
 
-## VidÈo 6 (PortÈe des variables dans les fonctions : rËgle LEG)
+## Vid√©o 6 (Port√©e des variables dans les fonctions : r√®gle LEG)
 NIVEAU: BASIC
 
 CO12AL-W4-VIDEO006.txt
 
-## ComplÈments VidÈo 6
+## Compl√©ments Vid√©o 6
 OK S6-C1-scopebuiltin.ipynb
 OK Complement-exception-unboundlocalerror.ipynb
 
-## Quizz VidÈo 6
+## Quizz Vid√©o 6
 OK C012AL-W4-S6-E1.quiz
 
-## Exercices VidÈo 6
+## Exercices Vid√©o 6
 
 ###################################################################
-## VidÈo 7 (PortÈe des variables dans les fonctions et rÈfÈrences partagÈes)
+## Vid√©o 7 (Port√©e des variables dans les fonctions et r√©f√©rences partag√©es)
 NIVEAU: BASIC
 
 C012AL-W4-S7.txt
 
-## ComplÈments VidÈo 7
+## Compl√©ments Vid√©o 7
 
-# DROPPED pas de complÈment ici - la vidÈo est dÈj‡ trËs copieuse et dÈtaillÈe
-montrer que global crÈe une variable global si elle n'existe pas encore. 
-je trouve qu'on en a dÈj‡ bcp trop dit sur `global`
+# DROPPED pas de compl√©ment ici - la vid√©o est d√©j√† tr√®s copieuse et d√©taill√©e
+montrer que global cr√©e une variable global si elle n'existe pas encore. 
+je trouve qu'on en a d√©j√† bcp trop dit sur `global`
 
-## Quizz VidÈo 7
+## Quizz Vid√©o 7
 OK C012AL-W4-S7-E1.quiz
 
-## Exercices VidÈo 7
+## Exercices Vid√©o 7
 
 ###################################################################
 
-## VidÈo 8 (Passage d'arguments et appel de fonctions)
+## Vid√©o 8 (Passage d'arguments et appel de fonctions)
 NIVEAU: BASIC
 
 CO12AL-W4-VIDEO008.txt
 
-## ComplÈments VidÈo 8
+## Compl√©ments Vid√©o 8
 OK Complement-passage-arguments.ipynb
 OK Complement-pas-de-valeur-par-defaut-mutable.ipynb
 
-TODO je sais pas trop o˘ mettre argparse, je trouve qu'ici c'est dÈj‡ bien chargÈ...
+TODO je sais pas trop o√π mettre argparse, je trouve qu'ici c'est d√©j√† bien charg√©...
 *introduire sys.argv en remarquant que c'est une forme *Targs
 et introduire le module argparse. 
 
-## Quizz VidÈo 8
+## Quizz Vid√©o 8
 
 OK C012AL-W4-S8-E1.quiz
 
-## Exercices VidÈo 8
+## Exercices Vid√©o 8
 
 OK Exercice-passage-arguments.ipynb
 

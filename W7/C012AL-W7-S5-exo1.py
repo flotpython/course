@@ -1,6 +1,6 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## commençons par regarder la taille des types
+## commenÃ§ons par regarder la taille des types
 ## built-in
 
 import sys
@@ -13,13 +13,13 @@ print '1L', sys.getsizeof(1L)
 
 print 'grand entier', sys.getsizeof(23495873294572347598275973825833)
 
-## une chaîne de caractère fait au minimum 22 bytes
+## une chaÃ®ne de caractÃ¨re fait au minimum 22 bytes
 ## sur une machine 32 bits et 38 bytes sur une
 ## machine 64 bits
 print 'a', sys.getsizeof('a')
 
-## par contre chaque nouveau caractère ne compte que
-## pour un byte de plus dans la chaîne
+## par contre chaque nouveau caractÃ¨re ne compte que
+## pour un byte de plus dans la chaÃ®ne
 print 'ab', sys.getsizeof('ab')
 
 print 'abc', sys.getsizeof('abc')
@@ -30,41 +30,41 @@ print 'abc', sys.getsizeof('abc')
 print 'None', sys.getsizeof(None)
 
 print '[]', sys.getsizeof([])
-## la taille d'une liste est indépendante de la
+## la taille d'une liste est indÃ©pendante de la
 ## taille des objets dans une list. Elle ne garde
-## que les références
+## que les rÃ©fÃ©rences
 print '[1, 2]', sys.getsizeof([1, 2])
 print '["sdafasd", {1, 2}]', sys.getsizeof(['sdafasd', {1, 2}])
 
-## Donc Python utilise  beaucoup de mémoire pour chaque
-## objet, heureusement les références partagées permettent de
-## limiter le nombre d'objets en mémoire.
+## Donc Python utilise  beaucoup de mÃ©moire pour chaque
+## objet, heureusement les rÃ©fÃ©rences partagÃ©es permettent de
+## limiter le nombre d'objets en mÃ©moire.
 
-## Il est également important de comprendre qu'occuper
-## de la mémoire quand on en a n'est pas un problème.
+## Il est Ã©galement important de comprendre qu'occuper
+## de la mÃ©moire quand on en a n'est pas un problÃ¨me.
 ## Toutes les machines modernes ont plusieurs Gigabytes
-## de mémoire. Les avantages de Python viennent
+## de mÃ©moire. Les avantages de Python viennent
 ## au prix d'avoir des objets partout, donc une plus
-## grande occupation mémoire. C'est presque toujours un
-## petit prix à payer pour tant d'avantages.
+## grande occupation mÃ©moire. C'est presque toujours un
+## petit prix Ã  payer pour tant d'avantages.
 
-## Dans les rares cas où les types built-in consomment
-## trop de mémoire pour votre usage, il est toujours
-## possible d'implémenter vos propres strucutures de
-## données en C et d'interfacer ces structures avec
-## du code Python. Nous donnerons dans les compléments
+## Dans les rares cas oÃ¹ les types built-in consomment
+## trop de mÃ©moire pour votre usage, il est toujours
+## possible d'implÃ©menter vos propres strucutures de
+## donnÃ©es en C et d'interfacer ces structures avec
+## du code Python. Nous donnerons dans les complÃ©ments
 ## le lien de la documentation qui explique comment
 ## interfacer du code C et du code Python.
 
-## regardons maintenant quelques résultats suprenants sur
+## regardons maintenant quelques rÃ©sultats suprenants sur
 ## la performance de Python. On va utiliser pour cela
 ## la fonction timeit dans le module timeit. Cette fonction
-## permet d'exécuter plusieurs fois un morceau code et retourne
-## le temps d'exécution de ce code.
+## permet d'exÃ©cuter plusieurs fois un morceau code et retourne
+## le temps d'exÃ©cution de ce code.
 
 import timeit
 
-## commençons par répondre à une question simple, à partir
+## commenÃ§ons par rÃ©pondre Ã  une question simple, Ã  partir
 ## de quand vaut-il mieux utiliser les set que les listes
 ## dans les test d'appartance. 
 print timeit.timeit(setup= "x = range(40)", stmt = '"a" in x', number = 6000000)
@@ -77,28 +77,28 @@ print timeit.timeit(setup= "x = set(range(2))", stmt = '"a" in x', number = 6000
 print timeit.timeit(setup= "x = range(2)", stmt = '0 in x', number = 6000000)
 print timeit.timeit(setup= "x = set(range(2))", stmt = '0 in x', number = 6000000)
 
-## la liste est légèrement plus rapide que quand le test d'appertance
-## est vrai dès le premier élément de la liste
+## la liste est lÃ©gÃ¨rement plus rapide que quand le test d'appertance
+## est vrai dÃ¨s le premier Ã©lÃ©ment de la liste
 
-## regardons maintenant un résultat très surprenant pour les personnes
-## habituées aux langages compilés. Nous avons vu avec la surcharge
-## d'opérateur qu'il existait des méthodes pour toutes les opérations
-## sur les built-in. Par exemple la méthode __contains__ est appelée
-## lors du test d'appartenance avec in. Les personnes habituées
-## aux langage compilé pourrait croire que l'appel direct à la fonction
-## est plus rapide que d'utiliser l'opérateur in. Regardons cela
+## regardons maintenant un rÃ©sultat trÃ¨s surprenant pour les personnes
+## habituÃ©es aux langages compilÃ©s. Nous avons vu avec la surcharge
+## d'opÃ©rateur qu'il existait des mÃ©thodes pour toutes les opÃ©rations
+## sur les built-in. Par exemple la mÃ©thode __contains__ est appelÃ©e
+## lors du test d'appartenance avec in. Les personnes habituÃ©es
+## aux langage compilÃ© pourrait croire que l'appel direct Ã  la fonction
+## est plus rapide que d'utiliser l'opÃ©rateur in. Regardons cela
 
 print timeit.timeit(setup = "L = range(1000)", number = 30000000, stmt = "0 in L")
 
 print timeit.timeit(setup = "L = range(1000)", number = 30000000, stmt = "L.__contains__(0)")
 
-## L'interpréteur Python est optimisé pour l'utilisation des opérateurs.
-## il faut donc toujours favoriser les opérateurs sur les appels directs
+## L'interprÃ©teur Python est optimisÃ© pour l'utilisation des opÃ©rateurs.
+## il faut donc toujours favoriser les opÃ©rateurs sur les appels directs
 ## aux fonctions. 
 
 
-## regardons maintenant la différence de performance entre une boucle
-## for et une compréhension de liste
+## regardons maintenant la diffÃ©rence de performance entre une boucle
+## for et une comprÃ©hension de liste
 
 def f():
     L = []
@@ -112,13 +112,13 @@ def g():
 print timeit.timeit(number = 10000, stmt = f)
 print timeit.timeit(number = 10000, stmt = g)
 
-## on voir donc que la compréhension de liste n'est pas une
-## expression qui exécute en réalité une boucle for.
-## Les compréhensions sont exécuté plus efficacement
-## que les boucles for par l'interpréteur Python.
+## on voir donc que la comprÃ©hension de liste n'est pas une
+## expression qui exÃ©cute en rÃ©alitÃ© une boucle for.
+## Les comprÃ©hensions sont exÃ©cutÃ© plus efficacement
+## que les boucles for par l'interprÃ©teur Python.
 
 
 ## nous aurions pu faire beaucoup d'autres tests, mais vous
-## devez commencer à comprendre le principe. N'hésitez
-## pas à jouer avec timeit pour comprendre quels sont
-## les meilleurs choix d'implémentation dans votre contexte. 
+## devez commencer Ã  comprendre le principe. N'hÃ©sitez
+## pas Ã  jouer avec timeit pour comprendre quels sont
+## les meilleurs choix d'implÃ©mentation dans votre contexte. 

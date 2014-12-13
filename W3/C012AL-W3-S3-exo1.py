@@ -1,6 +1,6 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## On peut créer un set de deux manières, soit avec un littéral
+## On peut crÃ©er un set de deux maniÃ¨res, soit avec un littÃ©ral
 ## soit en passant une une liste comme argument de la
 ## fonction set
 
@@ -11,7 +11,7 @@ s2 = set(a)
 
 print s1, s2
 
-## on peut ajouter ou enlever des éléments d'un set
+## on peut ajouter ou enlever des Ã©lÃ©ments d'un set
 s1.add('spam')
 s2.update([38, 9, 'egg'])
 s2.remove(38)
@@ -24,18 +24,18 @@ print 8 not in s1
 
 print len(s1)
 
-## je peux calculer la différence, l'union et l'intersection
+## je peux calculer la diffÃ©rence, l'union et l'intersection
 ## de deux sets
 
 print s1 - s2
 print s1 | s2
 print s1 & s2
 
-## il y a d'autres opérations possibles sur les sets que je
-## vous encourage à découvrir dans la documentation Python.
+## il y a d'autres opÃ©rations possibles sur les sets que je
+## vous encourage Ã  dÃ©couvrir dans la documentation Python.
 
-## pour finir vous pouvez créer un frozen set à partir
-## d'une séquence ou d'un set ainsi
+## pour finir vous pouvez crÃ©er un frozen set Ã  partir
+## d'une sÃ©quence ou d'un set ainsi
 
 fs = frozenset(s1)
 print fs

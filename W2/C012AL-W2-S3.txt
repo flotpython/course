@@ -1,19 +1,20 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Les séquences
+## TITRE : Les sÃ©quences
 
-## Résumé de la vidéo (20s)
+## RÃ©sumÃ© de la vidÃ©o (20s)
 
 Nous allons aborber un ensemble de types de base en Python
-qui sont au coeur du langage, ce sont les types séquence. Les principaux 
-types séquence sont les [listes], les [tuples] et les [string]. 
-Tous les types séquence ont de charactéristiques
-commune que nous allons présenter dans cette vidéo.
+qui sont au coeur du langage, ce sont les types sÃ©quence. Les principaux 
+types sÃ©quence sont les [listes], les [tuples] et les [string]. 
+Tous les types sÃ©quence ont de charactÃ©ristiques
+commune que nous allons prÃ©senter dans cette vidÃ©o.
 
 [[
 list
@@ -25,6 +26,6 @@ str
 
 >>>>>>>>>> INCLUDE C012AL-W2-S3-slide1.pptx () <<<<<<<<<<
 
-On a vu dans cette vidéo les caractéristiques des types séquences.
+On a vu dans cette vidÃ©o les caractÃ©ristiques des types sÃ©quences.
 Ce sont des types puissants qui permettent de faire simplement
-des opérations sophistiquées comme le slicing. 
+des opÃ©rations sophistiquÃ©es comme le slicing. 

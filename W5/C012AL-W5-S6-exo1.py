@@ -1,10 +1,10 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Commençons avec l'opérateur le plus courant que l'on
-## appel le constructeur. C'est une méthode qui est appelée
-## automatiquement à la création de chaque instance.
-## Cette méthode __init__ permet d'initialiser des variables
-## d'instance à la contruction de l'instance. Regardons
+## CommenÃ§ons avec l'opÃ©rateur le plus courant que l'on
+## appel le constructeur. C'est une mÃ©thode qui est appelÃ©e
+## automatiquement Ã  la crÃ©ation de chaque instance.
+## Cette mÃ©thode __init__ permet d'initialiser des variables
+## d'instance Ã  la contruction de l'instance. Regardons
 ## un exemple
 
 class C:
@@ -17,10 +17,10 @@ I = C()
 
 ## si on appelle get_x avant de d'appeler set_x on
 ## va avoir une exception parce que la variable x
-## n'a pas encore été créée dans l'espace de nommage
-## de l'instance. On pourrait alors vouloir, dès la
-## création de l'instance, initialiser x à une valeur
-## par défaut, par exemple 0. On peut le faire avec
+## n'a pas encore Ã©tÃ© crÃ©Ã©e dans l'espace de nommage
+## de l'instance. On pourrait alors vouloir, dÃ¨s la
+## crÃ©ation de l'instance, initialiser x Ã  une valeur
+## par dÃ©faut, par exemple 0. On peut le faire avec
 ## le constructeur
 
 #I.get_x()
@@ -38,7 +38,7 @@ I = C()
 I.get_x()
 
 ## On peut, comme pour toutes fonctions, passer des arguments
-## à init
+## Ã  init
 
 class C:
     def __init__(self, x):
@@ -52,7 +52,7 @@ class C:
 I = C(10)
 I.get_x()
 
-## En cas d'héritage, le contructeur n'est appeler que sur
+## En cas d'hÃ©ritage, le contructeur n'est appeler que sur
 ## la classe qui instancie l'objet et pas sur ces super-classes
 
 class D(C):
@@ -63,7 +63,7 @@ I = D()
 
 #I.get_x()
 
-## pour appeler le contructeur de C lorsque l'on crée une
+## pour appeler le contructeur de C lorsque l'on crÃ©e une
 ## instance de D, il faut le faire explicitement.
 
 class D(C):
@@ -78,9 +78,9 @@ I.get_x()
 
 ## 5 minutes
 ## Pour voir les valeurs de x dans l'instance on appelle
-## à chaque fois la méthode get_x(), mais 
+## Ã  chaque fois la mÃ©thode get_x(), mais 
 ## on pourrait vouloir utiliser directement l'instruction
-## print. C'est possible en surchargeant la méthode __str__
+## print. C'est possible en surchargeant la mÃ©thode __str__
 
 class C:
     def __init__(self, x):
@@ -90,7 +90,7 @@ class C:
         self.x = x
     def get_x(self):
         print self.x
-    # doit retourner une chaîne de caractères
+    # doit retourner une chaÃ®ne de caractÃ¨res
     def __str__(self):
         return str(self.x)
 
@@ -99,10 +99,10 @@ class D(C):
         C.__init__(self, 100)
         print 'dans D'
 
-## l'appel à la méthode __str__ suit l'arbre d'héritage,
-## donc si elle est définie dans la super classe, toutes
-## les sous classes pourront utiliser la même méthode
-## lorsque print est appelé.
+## l'appel Ã  la mÃ©thode __str__ suit l'arbre d'hÃ©ritage,
+## donc si elle est dÃ©finie dans la super classe, toutes
+## les sous classes pourront utiliser la mÃªme mÃ©thode
+## lorsque print est appelÃ©.
         
 I = C(20)
 J = D()

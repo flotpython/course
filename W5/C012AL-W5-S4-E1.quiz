@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Classes et instances
 =====
@@ -27,34 +28,34 @@ print p
 </pre>
 
 >>Quels objets sont Parser et p ?<<
-( ) Parser est une classe et p une chaîne de caractères
+( ) Parser est une classe et p une chaÃ®ne de caractÃ¨res
 ( ) Parser est un module et p une classe
 ( ) Parser et p sont des classes
 (x) Parser est une classe et p est une instance
 
 [explanation]
-L'instruction class permet de créer des classes. Par conséquent, Parser est bien un objet de type classe. L'objet p est créé par Parser(':'), donc p est une instance de la classe Parser.
+L'instruction class permet de crÃ©er des classes. Par consÃ©quent, Parser est bien un objet de type classe. L'objet p est crÃ©Ã© par Parser(':'), donc p est une instance de la classe Parser.
 [explanation]
 
->>Que représente l'attribut self ?<<
-(x) Une référence vers une instance de la classe Parser
-( ) Une référence vers la classe Parser
-( ) Une chaîne de caractères
-( ) Un mot clef nécessaire pour définir une méthode dans une classe
+>>Que reprÃ©sente l'attribut self ?<<
+(x) Une rÃ©fÃ©rence vers une instance de la classe Parser
+( ) Une rÃ©fÃ©rence vers la classe Parser
+( ) Une chaÃ®ne de caractÃ¨res
+( ) Un mot clef nÃ©cessaire pour dÃ©finir une mÃ©thode dans une classe
 
 [explanation]
-self représente bien une référence vers une instance de la classe Parser. Cette référence est automatiquement celle de l'instance qui appelle les méthodes de la classe, explicitement comme parse() ou implicitement comme __init__ (lors de la création de l'instance) ou __repr__ (lors d'un print de l'instance). 
+self reprÃ©sente bien une rÃ©fÃ©rence vers une instance de la classe Parser. Cette rÃ©fÃ©rence est automatiquement celle de l'instance qui appelle les mÃ©thodes de la classe, explicitement comme parse() ou implicitement comme __init__ (lors de la crÃ©ation de l'instance) ou __repr__ (lors d'un print de l'instance). 
 [explanation]
 
 >>Que va afficher print p ?<<
 ( ) Une exception
 (x) 123 34 707
 ( ) None
-( ) Une chaîne de caractères vide
+( ) Une chaÃ®ne de caractÃ¨res vide
 
 [explanation]
-La méthode parse() va découper la chaîne test en mots, chaque mot étant séparé par le caractère ':' dans test(line.split(self.sep)), et parse() va enlever tous les espaces autour de chaque mot (i.strip()) et créer une liste ne contenant que les mots qui représentent des nombres (i.strip().isdigit()). On notera que toutes ces opérations peuvent être faites en une seule compréhension de liste. 
+La mÃ©thode parse() va dÃ©couper la chaÃ®ne test en mots, chaque mot Ã©tant sÃ©parÃ© par le caractÃ¨re ':' dans test(line.split(self.sep)), et parse() va enlever tous les espaces autour de chaque mot (i.strip()) et crÃ©er une liste ne contenant que les mots qui reprÃ©sentent des nombres (i.strip().isdigit()). On notera que toutes ces opÃ©rations peuvent Ãªtre faites en une seule comprÃ©hension de liste. 
 
-La méthode __repr__ appelée par l'instruction print va retourner une chaîne de caractères.
+La mÃ©thode __repr__ appelÃ©e par l'instruction print va retourner une chaÃ®ne de caractÃ¨res.
 [explanation]
 

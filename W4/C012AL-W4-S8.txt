@@ -1,27 +1,28 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Passage d'arguments et appel de fonctions
 
-## Résumé de la vidéo (40 secondes)
+## RÃ©sumÃ© de la vidÃ©o (40 secondes)
 
-Nous avons couvert les caractéristiques les plus importantes
-des fonctions. Vous savez maintenant déclarer une fonction et
-retourner un résultat, vous avez compris les notions de scope
-et vous savez rendre une variable assignée dans une fonction globale
-avec la directive globale. Vous savez également passer des arguments
-à une fonction, mais il y a 4 manières différentes de déclarer des
-arguments dans une fonction et 4 manière différentes de passer
-des arguments à une fonction. Ces différentes manières ne sont
-pas là pour ajouter de la complexité, mais pour vous simplifier la
-vie dans certains cas concrets et fréquents d'utilisation des fonctions.
+Nous avons couvert les caractÃ©ristiques les plus importantes
+des fonctions. Vous savez maintenant dÃ©clarer une fonction et
+retourner un rÃ©sultat, vous avez compris les notions de scope
+et vous savez rendre une variable assignÃ©e dans une fonction globale
+avec la directive globale. Vous savez Ã©galement passer des arguments
+Ã  une fonction, mais il y a 4 maniÃ¨res diffÃ©rentes de dÃ©clarer des
+arguments dans une fonction et 4 maniÃ¨re diffÃ©rentes de passer
+des arguments Ã  une fonction. Ces diffÃ©rentes maniÃ¨res ne sont
+pas lÃ  pour ajouter de la complexitÃ©, mais pour vous simplifier la
+vie dans certains cas concrets et frÃ©quents d'utilisation des fonctions.
 
-Nous allons voir dans cette vidéo les 4 manières de déclarer des 
-arguments et les 4 manières de passer des arguments à une fonction.
+Nous allons voir dans cette vidÃ©o les 4 maniÃ¨res de dÃ©clarer des 
+arguments et les 4 maniÃ¨res de passer des arguments Ã  une fonction.
 Ouvrons un terminal pour jouer avec les arguments d'une fonction...
 
 >>>>>>>>>> C012AL-W4-S8-exo1.py <<<<<<<<<< (8 minutes 40 secondes)
@@ -29,9 +30,9 @@ Ouvrons un terminal pour jouer avec les arguments d'une fonction...
 
 ## conclusion ()
 
-Certaines déclarations et appels de fonctions peuvent vous paraitre
-compliquées, mais il faut comprendre que ces différentes manières
-de sont pas une contraintes, mais une liberté. Si vous n'en n'avez
+Certaines dÃ©clarations et appels de fonctions peuvent vous paraitre
+compliquÃ©es, mais il faut comprendre que ces diffÃ©rentes maniÃ¨res
+de sont pas une contraintes, mais une libertÃ©. Si vous n'en n'avez
 pas besoin, ne les utilisez pas, mais vous tomberez sans doute un 
 jour sur un cas d'utilisation et vous serez alors content des les
 avoir sous la main. 

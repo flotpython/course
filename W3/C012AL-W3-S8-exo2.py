@@ -1,51 +1,51 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Prenons une liste de 3 éléments
+## Prenons une liste de 3 Ã©lÃ©ments
 
 L = [1, 2, 3]
 
 ## essayons d'appeler next() sur la liste L
 #L.next()
 
-## ça retourne une exception parce que la liste L
-## n'est pas un itérateur. Par contre les listes ont
-## des itérateurs.
+## Ã§a retourne une exception parce que la liste L
+## n'est pas un itÃ©rateur. Par contre les listes ont
+## des itÃ©rateurs.
 
-## recupérons l'itérateur de cette liste
+## recupÃ©rons l'itÃ©rateur de cette liste
 
 it = L.__iter__()
 
-## nous voyons que la liste et l'itérateur sont différents
+## nous voyons que la liste et l'itÃ©rateur sont diffÃ©rents
 print L is it
 
-## par contre si on appelle __iter__() sur l'itérateur
-## on remarque de l'on a le même objet, donc
-## l'appelle de __iter__() sur un itérateur retourne bien
-## l'itérateur lui même.
+## par contre si on appelle __iter__() sur l'itÃ©rateur
+## on remarque de l'on a le mÃªme objet, donc
+## l'appelle de __iter__() sur un itÃ©rateur retourne bien
+## l'itÃ©rateur lui mÃªme.
 
 it2 = it.__iter__()
 
 print it is it2
 
-## on peut faire directement une boucle for sur l'itérateur
-## c'est équivallent à faire une boucle for sur l'objet
-## qui a cet itérateur puisque la boucle for appélera toujours
+## on peut faire directement une boucle for sur l'itÃ©rateur
+## c'est Ã©quivallent Ã  faire une boucle for sur l'objet
+## qui a cet itÃ©rateur puisque la boucle for appÃ©lera toujours
 ## en premier la fonction __iter__() sur l'objet.
 
 for i in it:
     print i,
 
-## par contre, une fois que l'itérateur a retourné tous les
-## éléments, next() retournera toujours StopIteration, on ne
+## par contre, une fois que l'itÃ©rateur a retournÃ© tous les
+## Ã©lÃ©ments, next() retournera toujours StopIteration, on ne
 ## peut donc plus faire de boucle for dessus. Il faudra dans
-## ce cas créer un autre itérateur.
+## ce cas crÃ©er un autre itÃ©rateur.
 
 #iterateur.next()
 
 for i in it:
     print i, 
 
-it3 = L.__iter__() # nouvel itérateur
+it3 = L.__iter__() # nouvel itÃ©rateur
 
 print
 print it is it3
@@ -53,8 +53,8 @@ print it is it3
 for i in it3:
     print i,
     
-## Il faut faire attention lorsque l'on manipule directement des itérateurs
-## de générer un nouvel itérateur à chaque fois que l'on fait une nouvelle
-## boucle. On n'a pas de ce problème avec les objets qui ont des itérateurs
-## puisque la boucle for se chargera elle même de génerer un nouvelle itérateur
+## Il faut faire attention lorsque l'on manipule directement des itÃ©rateurs
+## de gÃ©nÃ©rer un nouvel itÃ©rateur Ã  chaque fois que l'on fait une nouvelle
+## boucle. On n'a pas de ce problÃ¨me avec les objets qui ont des itÃ©rateurs
+## puisque la boucle for se chargera elle mÃªme de gÃ©nerer un nouvelle itÃ©rateur
     

@@ -1,159 +1,160 @@
+# -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
-# XXX TODO : numéroter tous les exos
+# XXX TODO : numÃ©roter tous les exos
 
 # TITRE SEMAINE 2 : Types de bases 
 
 ###################################################################
 
-## Vidéo 1 (Introduction au typage dynamique) 
+## VidÃ©o 1 (Introduction au typage dynamique) 
 NIVEAU: BASIC
 
 C012AL-W2-S1.txt
 
-## Compléments Vidéo 1
+## ComplÃ©ments VidÃ©o 1
 
 OK Complement-noms-de-variables.ipynb : noms de variables
-OK Complement-mots-cles.ipynb: liste des mots clés
+OK Complement-mots-cles.ipynb: liste des mots clÃ©s
 OK Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
 
-## Quizz Vidéo 1 
+## Quizz VidÃ©o 1 
 OK C012AL-W2-S1-E1-identifiants.quiz
 
-## Exercices Vidéo 1
+## Exercices VidÃ©o 1
 
 ###################################################################
 
-## Vidéo 2 (Les types numériques)
+## VidÃ©o 2 (Les types numÃ©riques)
 NIVEAU: BASIC
 
 C012AL-W2-S2.txt
 
-## Compléments Vidéo 2
+## ComplÃ©ments VidÃ©o 2
 
 OK Complement-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
 OK Complement-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
-OK Complement-precision-flottants.ipynb : limitation de la précision des floats  
-OK Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
+OK Complement-precision-flottants.ipynb : limitation de la prÃ©cision des floats  
+OK Complement-entiers-bit-a-bit.ipynb : opÃ©rations bitwise : et/ou/ou exclusifs dÃ©calages 
 
-## Quizz Vidéo 2 
+## Quizz VidÃ©o 2 
 OK C012AL-W2-S2-E1-type-numeriques.quiz
 
-## Exercices Vidéo 2 
+## Exercices VidÃ©o 2 
 OK Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
 
 ###################################################################
 
-## Vidéo 3 (Les séquences)
+## VidÃ©o 3 (Les sÃ©quences)
 NIVEAU: BASIC
 
 C012AL-W2-S3.txt
 
-## Compléments Vidéo 3 
+## ComplÃ©ments VidÃ©o 3 
 
 OK Complement-slices.ipynb : reprend le slicing 
 
-## Quizz Vidéo 3 
+## Quizz VidÃ©o 3 
 
-OK C012AL-W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
+OK C012AL-W2-S3-E1-generic-slicing.quiz : opÃ©rations gÃ©nÃ©riques sur les sÃ©quences en prenant une str comme exemple 
 
-## Exercices Vidéo 3 
-OK Exercice-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
+## Exercices VidÃ©o 3 
+OK Exercice-slicing.ipynb: un peu de slicing, et des indices nÃ©gatifs, le slicing avec pas, utilisation de la longueur
 
 ###################################################################
 
-## Vidéo 4 (Les listes)
+## VidÃ©o 4 (Les listes)
 NIVEAU: BASIC
 
 C012AL-W2-S4.txt (9 minutes)
 
-## Compléments Vidéo 4 
-OK: Complement-listes.ipynb: un complément sur les méthodes des listes
-OK Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
+## ComplÃ©ments VidÃ©o 4 
+OK: Complement-listes.ipynb: un complÃ©ment sur les mÃ©thodes des listes
+OK Complement-tris-de-listes-1.ipynb : sort avec les paramÃ¨tres reverse, et sur des strings 
 
-## Quizz Vidéo 4 
+## Quizz VidÃ©o 4 
 OK C012AL-W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
 xxx -- ?? comparer l.insert (i,shmol) avec l[i:i] = [ shmol ]
 
-## Exercices Vidéo 4 
+## Exercices VidÃ©o 4 
 
 ###################################################################
 
-## Vidéo 5 (Les tuples)
+## VidÃ©o 5 (Les tuples)
 NIVEAU: BASIC
 
 CO12AL-W2-VIDEO05 ()
 
-## Compléments Vidéo 5  
+## ComplÃ©ments VidÃ©o 5  
 
-OK Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+OK Complement-tuple-et-virgule.ipynb : les diffÃ©rentes syntaxes (avec ou sans parenthÃ¨ses, avec ou sans virgule terminale
 OK Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
-## Quizz Vidéo 5 
+## Quizz VidÃ©o 5 
 OK C012AL-W2-S5-E1-tuples.quiz
 
-## Exercices Vidéo 5 
+## Exercices VidÃ©o 5 
 
 ###################################################################
 
-## Vidéo 6 (Introduction aux tests if/else et aux expressions conditionnelles)
+## VidÃ©o 6 (Introduction aux tests if/else et aux expressions conditionnelles)
 NIVEAU: BASIC
 
 C012AL-W2-S6.txt (5 minutes 40 secondes)
 
-## Compléments Vidéo 6
-OK Complement-conditions-1.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
+## ComplÃ©ments VidÃ©o 6
+OK Complement-conditions-1.ipynb : introduire les opÃ©rateurs logiques - expliquer <> pour !=, obsolÃ¨te mais dans du code ancien 
 OK Complement-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
 OK Complement-if-comme-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 
-## Quizz Vidéo 6
-# J'arrive un peu à la limite du quiz car je ne sais pas si je peux mettre des réponses
+## Quizz VidÃ©o 6
+# J'arrive un peu Ã  la limite du quiz car je ne sais pas si je peux mettre des rÃ©ponses
 # sur plusieurs lignes dans les questions a choix multiples
 
-## Exercices Vidéo 6
-# je postpone à après la vidéo 7 car on aura les fonctions; bref pas d'exo après cette vidéo-là
+## Exercices VidÃ©o 6
+# je postpone Ã  aprÃ¨s la vidÃ©o 7 car on aura les fonctions; bref pas d'exo aprÃ¨s cette vidÃ©o-lÃ 
 
 ###################################################################
 
-## Vidéo 7 (Introduction aux boucles for et aux fonctions)
+## VidÃ©o 7 (Introduction aux boucles for et aux fonctions)
 NIVEAU: BASIC
 
 C012AL-W2-S7.txt 
 
-## Compléments Vidéo 7 
+## ComplÃ©ments VidÃ©o 7 
 OK Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans un for, la fonction zip
 OK Complement-comprehension-de-liste.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
-OK Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
+OK Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort avec le paramÃ¨tre key (une fonction), et sorted 
 OK Complement-valeur-de-retour.ipynb : il nous faut 'return' pour les exe rcices please 
-XXX Arnaud : ajouter sur les conventions de style: un espace après les
-virgules, en espace avant et après les opérateurs
+XXX Arnaud : ajouter sur les conventions de style: un espace aprÃ¨s les
+virgules, en espace avant et aprÃ¨s les opÃ©rateurs
 (a = f(1, 2) + g(3, 4)), un saut
-de ligne pour séparer les bloc d'instructions et les fonctions. 
+de ligne pour sÃ©parer les bloc d'instructions et les fonctions. 
 
-## Quizz Vidéo 7
+## Quizz VidÃ©o 7
 
-## Exercices Vidéo 7 
+## Exercices VidÃ©o 7 
 OK Exercice-if-et-def.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
 OK Exercice-boucle-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
-XXX Arnaud: montrer une boucle for sur une chaine de caractères.
+XXX Arnaud: montrer une boucle for sur une chaine de caractÃ¨res.
 
 ###################################################################
 
-## Vidéo 8 (Les chaînes de caractères)
+## VidÃ©o 8 (Les chaÃ®nes de caractÃ¨res)
 NIVEAU: BASIC
 
 C012AL-W2-S8.txt 
 
-## Compléments Vidéo 8 
+## ComplÃ©ments VidÃ©o 8 
 BOF raw-strings.ipynb - backslashes - \n \t 
 OK Complement-formatage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
 OK Complement-outils-sur-chaines.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
 OK Complement-la-fonction-raw_input.ipynb
 
-# XXX bytearray : je connaissais pas du tout ce truc non plus, après une lecture rapide j'ai le sentiment que ça a / peut avoir un lien avec buffer; je propose de bouger ces deux trucs en semaine 7 - ou de virer complètement, ou d'en parler très très vite. 
+# XXX bytearray : je connaissais pas du tout ce truc non plus, aprÃ¨s une lecture rapide j'ai le sentiment que Ã§a a / peut avoir un lien avec buffer; je propose de bouger ces deux trucs en semaine 7 - ou de virer complÃ¨tement, ou d'en parler trÃ¨s trÃ¨s vite. 
 
 
-## Quizz Vidéo 8
+## Quizz VidÃ©o 8
 OK C012AL-W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
 
-## Exercices Vidéo 8
+## Exercices VidÃ©o 8
 OK Exercice-chaines.ipynb - split, replace, format...

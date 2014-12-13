@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 [[ commencer avec le transparent ]]
 [[ capturer tout l'ecran ]]
 [[ voir avec mathieu quel fond je prends ]]
@@ -5,37 +6,37 @@
 Bonjour  
  
 Aujourd'hui nous allons voir rapidement comment utiliser les 2 outils
- que nous utiliserons dans les vidéos.
+ que nous utiliserons dans les vidÃ©os.
 
-D'une part, vous aurez besoin d'un environnement de développement,
-c'est-à-dire un outil pour écrire votre code, et l'essayer au fur et à
+D'une part, vous aurez besoin d'un environnement de dÃ©veloppement,
+c'est-Ã -dire un outil pour Ã©crire votre code, et l'essayer au fur et Ã 
 mesure.
 
-D'autre part, pour exécuter un programme écrit en python, il faut
-disposer du "coeur" du langage, c'est-à-dire l'interpréteur python
-lui-même.
+D'autre part, pour exÃ©cuter un programme Ã©crit en python, il faut
+disposer du "coeur" du langage, c'est-Ã -dire l'interprÃ©teur python
+lui-mÃªme.
 
 ==================== 
-Je vais commencer par l'environnement de développement. Nous avons
-choisi d'utiliser IDLE dans les vidéos, car il fait partie de la
+Je vais commencer par l'environnement de dÃ©veloppement. Nous avons
+choisi d'utiliser IDLE dans les vidÃ©os, car il fait partie de la
 distribution standard. 
 
-Si vous préférez vous pouvez utiliser autre chose bien sûr, comme
-emacs, vim, eclipse, mais même dans ce cas il est utile que vous
-sachiez comment fonctionne IDLE pour suivre les vidéos avec un maximum
+Si vous prÃ©fÃ©rez vous pouvez utiliser autre chose bien sÃ»r, comme
+emacs, vim, eclipse, mais mÃªme dans ce cas il est utile que vous
+sachiez comment fonctionne IDLE pour suivre les vidÃ©os avec un maximum
 de confort.
 
 
 Je vais lancer IDLE. 
 
 # Montrer le numero de version
-vérifier 2.7
+vÃ©rifier 2.7
 
-Vous voyez d'abord une fenêtre qui contient ce qu'on appele
-l'interpréteur interactif. Il est interactif car je peux y taper
-directement du code, qui est exécuté immédiatement au fur et à mesure.
+Vous voyez d'abord une fenÃªtre qui contient ce qu'on appele
+l'interprÃ©teur interactif. Il est interactif car je peux y taper
+directement du code, qui est exÃ©cutÃ© immÃ©diatement au fur et Ã  mesure.
 
-expression arithmétique
+expression arithmÃ©tique
 
 une petite fonction, par exemple factoriel
 def factoriel (n):
@@ -96,7 +97,7 @@ n=10
 
 print n
 
-refaire F5, et montrer que l'interpréteur affiche "RESTART", expliquer
+refaire F5, et montrer que l'interprÃ©teur affiche "RESTART", expliquer
 ce que ca veut dire (on efface l'environnement)
 
 montrer que la variable n n'est plus disponible
@@ -109,30 +110,30 @@ Conclure sur IDLE:
 * les executer dans un environnement "propre"
 
 ========================================
-Je vais a present vous montrer comment utiliser l'interpréteur python.
+Je vais a present vous montrer comment utiliser l'interprÃ©teur python.
 
-Comme je l'ai dit tout à l'heure, l'interpréteur est nécessaire
-pour exécuter le code. Que vous développiez avec IDLE, ou avec autre
-chose, vous avez besoin de l'interpréteur. Et si vous publiez votre
-code, vos utilisateurs auront besoin de l'interpréteur.
+Comme je l'ai dit tout Ã  l'heure, l'interprÃ©teur est nÃ©cessaire
+pour exÃ©cuter le code. Que vous dÃ©veloppiez avec IDLE, ou avec autre
+chose, vous avez besoin de l'interprÃ©teur. Et si vous publiez votre
+code, vos utilisateurs auront besoin de l'interprÃ©teur.
 
 Je vais vous montrer son utilisation dans un terminal. Naturellement
-une fois votre programme terminé et distribué, vos utilisateurs
+une fois votre programme terminÃ© et distribuÃ©, vos utilisateurs
 n'auront pas besoin de lancer un terminal, mais quelle que soit la
-façon de lancer votre programme, il y aura une instance de
-l'interpréteur à la manoeuvre quelque part dans les processus de
+faÃ§on de lancer votre programme, il y aura une instance de
+l'interprÃ©teur Ã  la manoeuvre quelque part dans les processus de
 l'ordinateur.
 
 Je lance donc un terminal. 
 
-Selon les systèmes, vous pouvez lancer une console de ce genre en utilisant
+Selon les systÃ¨mes, vous pouvez lancer une console de ce genre en utilisant
 "cmd" sur windows, "xterm" sur linux, ou l'application "Terminal" sur
 macos, comme je vais le faire tout de suite. 
 
 ====================
 [[Ouvrir terminal]]
 
-Je me deplace dans le repertoire ou j'ai créé factoriel.py
+Je me deplace dans le repertoire ou j'ai crÃ©Ã© factoriel.py
 $ cd MOOC/brouillon
 
 Pour lancer python en mode interactif comme on dit, on le lance sans
@@ -144,13 +145,13 @@ $ python
 3 * 5
 
 c'est aussi simple que possible, cela fonctionne presque exactement comme tout
-à l'heure, en plus basique (pas de couleur, d'indentation..)
+Ã  l'heure, en plus basique (pas de couleur, d'indentation..)
 
 retaper factoriel 
 montrer qu'on peut remonter dans l'historique cette fois avec les
 fleches
 
-en fait python dans ce mode n'est pas connecté à la souris ni aux menus 
+en fait python dans ce mode n'est pas connectÃ© Ã  la souris ni aux menus 
 
 exit() 
 
@@ -162,10 +163,10 @@ Je voudrais maintenant vous montrer comment on utilise python pour lancer un vra
 
 reprendre factoriel.py (montrer le contenu)
 
-lancer python factoriel.py, montrer que ça ne fait rien car on n'a pas appelé la fonction
+lancer python factoriel.py, montrer que Ã§a ne fait rien car on n'a pas appelÃ© la fonction
 
 expliquer que c'est le mode de fonctionnement "normal" de python
-que le fichier passé en argument s'appelle le point d'entrée
+que le fichier passÃ© en argument s'appelle le point d'entrÃ©e
 
 relancer sur factoriel.py avec python -i
 appeler la fonction 
@@ -173,20 +174,20 @@ appeler la fonction
 sortir
 
 ====================
-Voila qui conclut la présentation des deux outils
+Voila qui conclut la prÃ©sentation des deux outils
 
 J'aimerais attirer votre attention sur le fait que dans les
-vidéos, pour des raisons pratiques, on utilise massivement des noms de
-variables très courts - pour ne pas passer trop de temps au clavier.
-Nous vous recommandons contrairement à ce qui est fait dans la vidéo,
-de bien prendre l'habitude, et même dans les exercices, d'utiliser des
+vidÃ©os, pour des raisons pratiques, on utilise massivement des noms de
+variables trÃ¨s courts - pour ne pas passer trop de temps au clavier.
+Nous vous recommandons contrairement Ã  ce qui est fait dans la vidÃ©o,
+de bien prendre l'habitude, et mÃªme dans les exercices, d'utiliser des
 identifiants qui soient parlants. 
 
 
 ====================
-Enfin, je voudrais ajouter un mot sur les caractères accentués.  Le
-sujet des accents est -- en informatique en général, ce n'est pas propre
-à python -- extrêmement scabreux.
-Vous trouverez dans les compléments quelques indications sommaires sur ce point.
+Enfin, je voudrais ajouter un mot sur les caractÃ¨res accentuÃ©s.  Le
+sujet des accents est -- en informatique en gÃ©nÃ©ral, ce n'est pas propre
+Ã  python -- extrÃªmement scabreux.
+Vous trouverez dans les complÃ©ments quelques indications sommaires sur ce point.
 
-Je vous retrouve la prochaine fois pour vous montrer les notebooks; à bientôt
+Je vous retrouve la prochaine fois pour vous montrer les notebooks; Ã  bientÃ´t

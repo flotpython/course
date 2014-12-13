@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Dictionnaires (1)
 =====
@@ -8,7 +9,7 @@ Le type dictionnaire en python est un type
 (x) mutable
 
 [explanation]
-On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
+On peut ajouter ou enlever des couples (clÃ©, valeur) dans un dictionnaire
 [explanation]
 
 
@@ -16,24 +17,24 @@ On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
 Dictionnaires (2)
 =====
 
-Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ?
+Dans un dictionnaire, peut-on connaÃ®tre l'ordre dans lequel les clÃ©s ont Ã©tÃ© insÃ©rÃ©es ?
 
 ( ) oui
 (x) non
 
 [explanation]
-Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
+Nous avons vu l'implÃ©mentation des dictionnaires sous forme d'une table de hash.
 
-Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+Comme les clÃ©s sont rangÃ©es en fonction de la fonction de hachage, l'implÃ©mentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clÃ©s sont insÃ©rÃ©es.
 
-NB. la classe OrderedDict, dans le module collections, ajoute cette fonctionnalité.
+NB. la classe OrderedDict, dans le module collections, ajoute cette fonctionnalitÃ©.
 [explanation]
 
 <hr/>
 Dictionnaires (3)
 =====
 
-Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire
+Parmi les objets suivants, quels sont ceux qui peuvent Ãªtre utilisÃ©s comme une clÃ© dans un dictionnaire
 
 [x] 1
 [ ] [1, 2]
@@ -41,7 +42,7 @@ Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une c
 [ ] ([1, 2], [3, 4])
 
 [explanation]
-Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé
+Les objets 2 et 4 peuvent Ãªtre modifiÃ©s car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clÃ©
 [explanation]
 
 
@@ -49,7 +50,7 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, 
 Dictionnaires (4)
 =====
 
-Pour modifier la valeur de la clé 'marc' dont on sait qu'elle est dans le dictionnaire 'annuaire', on peut faire
+Pour modifier la valeur de la clÃ© 'marc' dont on sait qu'elle est dans le dictionnaire 'annuaire', on peut faire
 
 [x] annuaire['marc'] = 50
 [ ] annuaire.get('marc',50)
@@ -58,14 +59,14 @@ Pour modifier la valeur de la clé 'marc' dont on sait qu'elle est dans le dictio
 [explanation]
 La seconde forme retourne la valeur pour 'marc' si elle existe, et sinon 50, mais ne modifie pas la valeur.
 
-La troisième forme ne créé la clé 'marc' que si elle n'est pas encore présente
+La troisiÃ¨me forme ne crÃ©Ã© la clÃ© 'marc' que si elle n'est pas encore prÃ©sente
 [explanation]
 
 <hr/>
 Dictionnaires (5)
 =====
 
-Pour accéder à la valeur de la clé 'marc' dont on ne sait pas si elle est dans le dictionnaire 'annuaire', on peut faire
+Pour accÃ©der Ã  la valeur de la clÃ© 'marc' dont on ne sait pas si elle est dans le dictionnaire 'annuaire', on peut faire
 
 [ ] annuaire['marc']
 [x] annuaire.get('marc')
@@ -74,11 +75,11 @@ Pour accéder à la valeur de la clé 'marc' dont on ne sait pas si elle est dans l
 [x] 'marc' in annuaire and annuaire['marc']
 
 [explanation]
-La première forme lève une exception si 'marc' n'est pas présent
+La premiÃ¨re forme lÃ¨ve une exception si 'marc' n'est pas prÃ©sent
 
-Les formes 2 et 3 sont exactement équivalentes: on obtient la valeur, ou None si la clé n'est pas présente
+Les formes 2 et 3 sont exactement Ã©quivalentes: on obtient la valeur, ou None si la clÃ© n'est pas prÃ©sente
 
 La forme 4 est fantaisiste, il n'y a pas de fonction "built-in" get
 
-La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne False - et non pas None - si la clé n'est pas présente
+La derniÃ¨re forme fonctionne aussi, mais remarquez qu'ici on retourne False - et non pas None - si la clÃ© n'est pas prÃ©sente
 [explanation]

@@ -1,16 +1,17 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Importation de modules et espace de nommage
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Dans cette vidéo, nous allons revenir sur les différentes 
-manières d'importer un module et sur leur impact sur les
+Dans cette vidÃ©o, nous allons revenir sur les diffÃ©rentes 
+maniÃ¨res d'importer un module et sur leur impact sur les
 espaces de nommage des modules. 
 Ouvrons un terminal interactif pour jouer avec les importations
 de modules...
@@ -18,11 +19,11 @@ de modules...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S3-exo1.py <<<<<<<<<<
 
-En résumé, un module est un objet mutable que l'on peut 
-modifier après importation. 
+En rÃ©sumÃ©, un module est un objet mutable que l'on peut 
+modifier aprÃ¨s importation. 
 L'importation d'un module a un impact important sur les 
-espaces de nommage. Les deux manières d'importer des modules 
-ont des avantages et des inconvénients que vous devait prendre en 
+espaces de nommage. Les deux maniÃ¨res d'importer des modules 
+ont des avantages et des inconvÃ©nients que vous devait prendre en 
 compte lors de l'utilisation de modules.
 
 ## Conclusion ()

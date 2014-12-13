@@ -1,25 +1,26 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Les chaînes de caractères 
+## TITRE : Les chaÃ®nes de caractÃ¨res 
 
-## chaînes de catactères 
+## chaÃ®nes de catactÃ¨res 
 
-Nous allons voir dans cette vidéo le type str qui représente
-les chaînes de caractères. Le type str est un type séquence, 
-c'est-à-dire que toutes les opérations et fonctions sur les 
-séquence s'appliquent aux chaînes de catactères. Je vous
+Nous allons voir dans cette vidÃ©o le type str qui reprÃ©sente
+les chaÃ®nes de caractÃ¨res. Le type str est un type sÃ©quence, 
+c'est-Ã -dire que toutes les opÃ©rations et fonctions sur les 
+sÃ©quence s'appliquent aux chaÃ®nes de catactÃ¨res. Je vous
 rappelle rapidement que les principales sont le test 
-d'appartenance [x in s], ou [x not in s], la concaténation 
-[s + t], l'accès par indice [s[i]], le slicing [s[i:j:k]] qui
-permet d'obtenir la sous chaîne allant de i à j-1 par pas de k. 
-Je rappelle également que les chaîne de caractères sont immuable, 
-ce qui veut dire qu'une fois qu'une chaîne de caractères est 
-créée, on ne peut plus la modifier. 
+d'appartenance [x in s], ou [x not in s], la concatÃ©nation 
+[s + t], l'accÃ¨s par indice [s[i]], le slicing [s[i:j:k]] qui
+permet d'obtenir la sous chaÃ®ne allant de i Ã  j-1 par pas de k. 
+Je rappelle Ã©galement que les chaÃ®ne de caractÃ¨res sont immuable, 
+ce qui veut dire qu'une fois qu'une chaÃ®ne de caractÃ¨res est 
+crÃ©Ã©e, on ne peut plus la modifier. 
 
 [[
 x in s
@@ -29,12 +30,12 @@ s[i]
 s[i:j:k]
 ]]
 
-passons dans un terminal pour commencer à jouer avec les chaînes
-de caractères...
+passons dans un terminal pour commencer Ã  jouer avec les chaÃ®nes
+de caractÃ¨res...
 
 >>>>>>>>>>  C012AL-W2-S8-exo1.py  <<<<<<<<<<
 
-Il existe beaucoup d'autres fonctions sur les chaînes de caractères, 
-nous en verrons de nouvelles dans les exercices et n'hésitez pas
-à lire la section 5.6.1 de l'aide Python qui présente toutes les
-fonctions sur les chaîne de caractères. 
+Il existe beaucoup d'autres fonctions sur les chaÃ®nes de caractÃ¨res, 
+nous en verrons de nouvelles dans les exercices et n'hÃ©sitez pas
+Ã  lire la section 5.6.1 de l'aide Python qui prÃ©sente toutes les
+fonctions sur les chaÃ®ne de caractÃ¨res. 

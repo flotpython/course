@@ -1,43 +1,44 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-##  TITRE : Méthodes statiques et de classe
+##  TITRE : MÃ©thodes statiques et de classe
 
 ## Sujet de la semaine ()
 
 
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Nous avons vu que les méthodes dans les classes devaient 
-obligatoirement avoir comme premier paramètre une instance. 
-On appelle ces méthodes des méthodes d'instance. Par conséquent, 
-on ne peut pas appeler une méthode d'instance sur une classe 
+Nous avons vu que les mÃ©thodes dans les classes devaient 
+obligatoirement avoir comme premier paramÃ¨tre une instance. 
+On appelle ces mÃ©thodes des mÃ©thodes d'instance. Par consÃ©quent, 
+on ne peut pas appeler une mÃ©thode d'instance sur une classe 
 si on n'a pas d'instance. 
 
-Dans certains cas, il peut être utile d'appeler une méthode sur
+Dans certains cas, il peut Ãªtre utile d'appeler une mÃ©thode sur
 une classe sans passer par une instance. Par exemple, 
-on pourrait concevoir une classe comme une boite à outils
-qui regroupe des méthodes ne travaillant pas sur des 
+on pourrait concevoir une classe comme une boite Ã  outils
+qui regroupe des mÃ©thodes ne travaillant pas sur des 
 instances de la classe, mais sur d'autres objets. 
-On peut déjà faire ça avec des modules, mais avec les modules
-on ne peut pas structurer des classes en exploitant l'héritage. 
+On peut dÃ©jÃ  faire Ã§a avec des modules, mais avec les modules
+on ne peut pas structurer des classes en exploitant l'hÃ©ritage. 
 
-En Python, Il est possible de créer des méthodes dans une 
-classe qui peuvent être appelées sans instance. On appelle 
-ces méthodes des méthodes statiques. 
+En Python, Il est possible de crÃ©er des mÃ©thodes dans une 
+classe qui peuvent Ãªtre appelÃ©es sans instance. On appelle 
+ces mÃ©thodes des mÃ©thodes statiques. 
 
-Ouvrons un terminal pour jouer avec les méthodes statiques...
+Ouvrons un terminal pour jouer avec les mÃ©thodes statiques...
 
 >>>>>>>>>> INCLUDE C012AL-W7-S1-exo1.py (8 minutes) <<<<<<<<<<
 
-Les méthodes statiques et de classes permettent de définir des méthodes
-dans une classe qui n'ont pas besoin d'instance pour s'exécuter. 
-Ces deux types de méthode sont proches, on préfèrera la methode 
-statiques lorsque l'on a besoin du même comportement pour toutes
-les sous classes, et la méthode de classe si l'on veut un 
-comportement différencié. 
+Les mÃ©thodes statiques et de classes permettent de dÃ©finir des mÃ©thodes
+dans une classe qui n'ont pas besoin d'instance pour s'exÃ©cuter. 
+Ces deux types de mÃ©thode sont proches, on prÃ©fÃ¨rera la methode 
+statiques lorsque l'on a besoin du mÃªme comportement pour toutes
+les sous classes, et la mÃ©thode de classe si l'on veut un 
+comportement diffÃ©renciÃ©. 

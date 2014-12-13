@@ -1,7 +1,7 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Tous les types built-in ont un itérateur, et comme une boucle
-## for peut directement itérer sur un objet qui a un itérateur,
+## Tous les types built-in ont un itÃ©rateur, et comme une boucle
+## for peut directement itÃ©rer sur un objet qui a un itÃ©rateur,
 ## on peut faire une boucle for sur tous les types built-in.
 
 s = {1, 2, 3, 'a'}
@@ -9,19 +9,19 @@ for i in s:
     print i, 
 
 ## Mais regardons comment une boucle for fait pour utiliser
-## un objet qui a un itérateur.
+## un objet qui a un itÃ©rateur.
 
-## La boucle for commence par récupérer l'itérateur avec
-## la méthode __iter__() sur l'objet
+## La boucle for commence par rÃ©cupÃ©rer l'itÃ©rateur avec
+## la mÃ©thode __iter__() sur l'objet
 
 print
 
 it = s.__iter__()
 print it
 
-## ensuite, la boucle for appelle la méthode next() pour obtenir
-## chaque élément de l'objet. Lorsqu'on a parcouru tous les
-## éléments de l'objet, la méthode next retourne une exception qui
+## ensuite, la boucle for appelle la mÃ©thode next() pour obtenir
+## chaque Ã©lÃ©ment de l'objet. Lorsqu'on a parcouru tous les
+## Ã©lÃ©ments de l'objet, la mÃ©thode next retourne une exception qui
 ## s'appelle StopIteration. La boucle for capture automatiquement
 ## cette exception et se termine
 
@@ -31,15 +31,15 @@ print it.next()
 print it.next()
 print it.next()
 
-## Évidement, vous n'avez pas à appeler vous-même les méthodes
+## Ã‰videment, vous n'avez pas Ã  appeler vous-mÃªme les mÃ©thodes
 ## __iter__() et next(), le but de cet exemple est de vous montrer le
-## fonctionnement des itérateurs. La compréhension de ce
-## fonctionnement sera utile lorsque vous créerez vos propres
-## itérateurs.
+## fonctionnement des itÃ©rateurs. La comprÃ©hension de ce
+## fonctionnement sera utile lorsque vous crÃ©erez vos propres
+## itÃ©rateurs.
 
-## Vous pouvez aussi avoir le sentiment que ce fonctionnement, même s'il
-## est pratique, est lourd et lent. Ça n'est pas le cas, le fonctionnement
-## des itérateurs est parmi ce qui a été le plus optimisé dans la machine
+## Vous pouvez aussi avoir le sentiment que ce fonctionnement, mÃªme s'il
+## est pratique, est lourd et lent. Ã‡a n'est pas le cas, le fonctionnement
+## des itÃ©rateurs est parmi ce qui a Ã©tÃ© le plus optimisÃ© dans la machine
 ## virtuelle CPython. 
 
 

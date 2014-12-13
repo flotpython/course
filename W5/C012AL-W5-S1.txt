@@ -1,27 +1,28 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Modules et espaces de nommage
 
-## Résumé de la semaine()
+## RÃ©sumÃ© de la semaine()
 
 TODO
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
 Nous avons introduit rapidement la notion de modules
-la semaine dernière en présentant le côté utilisateur, 
-c'est-à-dire comment utiliser un module comme une boite à
+la semaine derniÃ¨re en prÃ©sentant le cÃ´tÃ© utilisateur, 
+c'est-Ã -dire comment utiliser un module comme une boite Ã 
 outils. Cependant les modules sont bien plus que de simples
-boites à outils, ce sont de véritables objets qui permettent
+boites Ã  outils, ce sont de vÃ©ritables objets qui permettent
 l'isolation des variables par ce que l'on appelle des espaces
 de nommages. 
 
-Nous allons voir dans cette vidéo la subtilité des espaces 
+Nous allons voir dans cette vidÃ©o la subtilitÃ© des espaces 
 de nommage. 
 
 >>>>>>>>>> INCLUDE C012AL-W5-S1-slide1.pptx (5 minutes) <<<<<<<<<<
@@ -30,16 +31,16 @@ de nommage.
 
 C'est important de comprendre que les espaces de nommage isolent 
 uniquement les variables, mais pas les objets. Il est possible 
-d'avoir des références partagées par différents espaces de nommage 
-vers le même objet. Si l'objet est mutable, il peut alors être modifié
-depuis un espace de nommage et sera vu modifié par tous les autres. 
+d'avoir des rÃ©fÃ©rences partagÃ©es par diffÃ©rents espaces de nommage 
+vers le mÃªme objet. Si l'objet est mutable, il peut alors Ãªtre modifiÃ©
+depuis un espace de nommage et sera vu modifiÃ© par tous les autres. 
 
-En résumé, les espaces de nommage permettent une parfaite isolation
-des variables. Par contre, on peut accéder à toutes les variables 
+En rÃ©sumÃ©, les espaces de nommage permettent une parfaite isolation
+des variables. Par contre, on peut accÃ©der Ã  toutes les variables 
 de l'espace de nommage d'un autre module en utilisant le nom du
-module point le nom de la variable, du moment que le module a été 
-importé avant. Cette isolation des espaces de nommage est une des 
-grandes forces de Python puisque l'accès à une variable en dehors de son
-espace de nommage doit toujours être fait explicitement. 
+module point le nom de la variable, du moment que le module a Ã©tÃ© 
+importÃ© avant. Cette isolation des espaces de nommage est une des 
+grandes forces de Python puisque l'accÃ¨s Ã  une variable en dehors de son
+espace de nommage doit toujours Ãªtre fait explicitement. 
 
 

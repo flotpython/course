@@ -1,17 +1,18 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 
-## Les tests if/elif/else et les opérateurs booléens
+## Les tests if/elif/else et les opÃ©rateurs boolÃ©ens
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-On a vu la semaine dernière une rapide introduction à l'instruction
-if else. On va voir dans cette vidéo tous les détails. 
+On a vu la semaine derniÃ¨re une rapide introduction Ã  l'instruction
+if else. On va voir dans cette vidÃ©o tous les dÃ©tails. 
 
 >>>>>>>>>> C012AL-W3-S7-slide1.pptx <<<<<<<<<<
 

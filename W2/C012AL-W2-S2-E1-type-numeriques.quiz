@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 <hr/>
-Types numériques (1)
+Types numÃ©riques (1)
 =====
 
-Comment calculer la 16-ème puissance de 2
+Comment calculer la 16-Ã¨me puissance de 2
 
 ( ) 2 &amp; 16
 (x) 2 ** 16
@@ -14,7 +15,7 @@ Le signe puissance en python est **
 [explanation]
 
 <hr/>
-Types numériques (2)
+Types numÃ©riques (2)
 =====
 
 Comment entrer la valeur du complexe 3 + 2i
@@ -25,12 +26,12 @@ Comment entrer la valeur du complexe 3 + 2i
 ( ) 3 + 2 * j
 
 [explanation]
-Les anglais utilisent 'j' plutôt que notre 'i'
-Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
+Les anglais utilisent 'j' plutÃ´t que notre 'i'
+Les deux derniÃ¨res formes font rÃ©fÃ©rence Ã  une variable "normale" qui s'appellerait 'i' ou 'j'
 [explanation]
 
 <hr/>
-Types numériques (3)
+Types numÃ©riques (3)
 =====
 
 Que retourne la formule
@@ -41,11 +42,11 @@ Que retourne la formule
 ( ) False
 
 [explanation]
-Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
+Ces deux puissances de 2 sont toutes deux assez petites pour Ãªtre reprÃ©sentÃ©es par des entiers simples
 [explanation]
 
 <hr/>
-Types numériques (4)
+Types numÃ©riques (4)
 =====
 
 Que retourne la formule
@@ -56,14 +57,14 @@ Que retourne la formule
 (x) False
 
 [explanation]
-Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
+Par contre ici 2 ** 200 est beaucoup trop gros pour Ãªtre reprÃ©sentÃ© par un entier simple, c'est un entier long.
 [explanation]
 
 <hr/>
-Types numériques (5)
+Types numÃ©riques (5)
 =====
 
-Que retourne la formule (avancé)
+Que retourne la formule (avancÃ©)
 
 <pre>(2 ** 200) >> 196 == 2 ** 4</pre>
 
@@ -71,10 +72,10 @@ Que retourne la formule (avancé)
 ( ) False
 
 [explanation]
-On a vu que le décalage vers la droite représente une division entière par 2 ** n
+On a vu que le dÃ©calage vers la droite reprÃ©sente une division entiÃ¨re par 2 ** n
 
-Donc 2 puissance 200, décalé à droite de 196 vaut bien 2 puissance 4
+Donc 2 puissance 200, dÃ©calÃ© Ã  droite de 196 vaut bien 2 puissance 4
 
-Par ailleurs, la comparaison d'un entier long et d'un entier simple de même valeur retourne - heureusement - True
+Par ailleurs, la comparaison d'un entier long et d'un entier simple de mÃªme valeur retourne - heureusement - True
 [explanation]
 

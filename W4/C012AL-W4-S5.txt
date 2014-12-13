@@ -1,19 +1,20 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les fonctions
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Nous avons succinctement introduit les fonctions la semaine dernière.
-Nous allons dans cette vidéo et les vidéos suivantes approfondir cette
-notion importante. Commençons par revenir sur la déclaration d'une
+Nous avons succinctement introduit les fonctions la semaine derniÃ¨re.
+Nous allons dans cette vidÃ©o et les vidÃ©os suivantes approfondir cette
+notion importante. CommenÃ§ons par revenir sur la dÃ©claration d'une
 fonction.
 
 ouvrons un terminal pour jouer avec les fonctions...
@@ -23,12 +24,12 @@ ouvrons un terminal pour jouer avec les fonctions...
 
 ## conclusion ()
 
-Nous avons, dans cette vidéo, présenté les caractéristiques générales
-des fonctions. Les fonctions en Python sont des objets référencés par
+Nous avons, dans cette vidÃ©o, prÃ©sentÃ© les caractÃ©ristiques gÃ©nÃ©rales
+des fonctions. Les fonctions en Python sont des objets rÃ©fÃ©rencÃ©s par
 une variable qui est le nom de la fonction. Tous les arguments sont
-passés par référence, il faut donc faire attention aux effets de bord
+passÃ©s par rÃ©fÃ©rence, il faut donc faire attention aux effets de bord
 sur les types mutables. Une fonction retourne toujours une valeur,
-soit None, soit la valeur spécifiée par l'instruction return. Et, pour
+soit None, soit la valeur spÃ©cifiÃ©e par l'instruction return. Et, pour
 finir, les fonctions en python sont polymorphes, ce qui veut
 simplement dire que les fonctions acceptent en argument des objets de
 n'importe quel type.

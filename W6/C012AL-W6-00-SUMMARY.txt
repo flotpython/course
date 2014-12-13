@@ -1,61 +1,62 @@
+# -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
 
-# TITRE SEMAINE 6 : Conception d'itérateurs et gestion d'exceptions
+# TITRE SEMAINE 6 : Conception d'itÃ©rateurs et gestion d'exceptions
 
 ###################################################################
 
-## Vidéo 1 (Fonctions génératrices)
+## VidÃ©o 1 (Fonctions gÃ©nÃ©ratrices)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W6-S1.txt
 
-## Compléments Vidéo 1
+## ComplÃ©ments VidÃ©o 1
 
 OK (S1-C1-)Complement-expressions-generatrices.ipynb 
-*parler des expressions génératrice et de leur intérêt (faible occupation
-mémoire)
+*parler des expressions gÃ©nÃ©ratrice et de leur intÃ©rÃªt (faible occupation
+mÃ©moire)
 (x**6 + 3*x for x in xrange(100000000))
 
 *Donner le lien vers http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html 
-pour une discussion intéressante sur la compréhension, les expression génératrice et Python 2 et 3.
+pour une discussion intÃ©ressante sur la comprÃ©hension, les expression gÃ©nÃ©ratrice et Python 2 et 3.
 *faire un test de performance avec timeit pour montrer que les 
-expressions génératrices sont un peu plus lente que les compréhensions
+expressions gÃ©nÃ©ratrices sont un peu plus lente que les comprÃ©hensions
 
-## Quizz Vidéo 1
+## Quizz VidÃ©o 1
 
-## Exercices Vidéo 1
+## Exercices VidÃ©o 1
 
 
 ###################################################################
 
-## Vidéo 2 (Conception d'itérateurs)
-NIVEAU: AVANCÉ
+## VidÃ©o 2 (Conception d'itÃ©rateurs)
+NIVEAU: AVANCÃ‰
 
 C012AL-W6-S2.txt
 
-## Compléments Vidéo 2
+## ComplÃ©ments VidÃ©o 2
 
-*Itérateurs et thread ?
-*module itertools / illustrer (avancé) avec un iterateur sur les permutations qu'on écrit nous-mêmes
+*ItÃ©rateurs et thread ?
+*module itertools / illustrer (avancÃ©) avec un iterateur sur les permutations qu'on Ã©crit nous-mÃªmes
 
-## Quizz Vidéo 2
+## Quizz VidÃ©o 2
 
-## Exercices Vidéo 2
+## Exercices VidÃ©o 2
 
-* dire que comme on a des itérateurs partout en Python, on peut
-souvent directement les utiliser. Proposer de réécrire la deuxième
-version de Mots avec un itérateur sur la liste de mots. 
+* dire que comme on a des itÃ©rateurs partout en Python, on peut
+souvent directement les utiliser. Proposer de rÃ©Ã©crire la deuxiÃ¨me
+version de Mots avec un itÃ©rateur sur la liste de mots. 
 
-Donnes des exos pratiques de création d'objets avec des itérateurs
+Donnes des exos pratiques de crÃ©ation d'objets avec des itÃ©rateurs
 
 ###################################################################
 
-## Vidéo 3 (Exceptions)
+## VidÃ©o 3 (Exceptions)
 NIVEAU: BASIC
 
 C012AL-W6-S3.txt
 
-## Compléments Vidéo 3
+## ComplÃ©ments VidÃ©o 3
 
 NICETOHAVE un complement sur le debugger, la pile, traceback, etc.
 
@@ -65,7 +66,7 @@ pourquoi ne pas mentionner le debugger ?
 *parler des Warning et du module warning
 https://docs.python.org/2.7/library/warnings.html#module-warnings
 
-*donner la référence de la documentation de toutes les 
+*donner la rÃ©fÃ©rence de la documentation de toutes les 
 exceptions built-in https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions
 et du tutorial Python sur les exceptions
 https://docs.python.org/2.7/tutorial/errors.html
@@ -75,46 +76,46 @@ du print_exc()
 
 *parler de assert
 
-## Quizz Vidéo 3
+## Quizz VidÃ©o 3
 
-## Exercices Vidéo 3
+## Exercices VidÃ©o 3
 
 
 ###################################################################
 
-## Vidéo 4 (Conception d'exceptions personnalisées)
+## VidÃ©o 4 (Conception d'exceptions personnalisÃ©es)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W6-S4.txt
 
-## Compléments Vidéo 4
+## ComplÃ©ments VidÃ©o 4
 
-* définit __str__ sur SplitError
-## Quizz Vidéo 4
+* dÃ©finit __str__ sur SplitError
+## Quizz VidÃ©o 4
 
-## Exercices Vidéo 4
+## Exercices VidÃ©o 4
 
 ###################################################################
 
-## Vidéo 5 (Context manager)
+## VidÃ©o 5 (Context manager)
 NIVEAU: BASIC
 
 C012AL-W6-S5.txt
 
-## Compléments Vidéo 5
+## ComplÃ©ments VidÃ©o 5
 
-*en complément introduire le module logging (ça va bien ici, mais
-si ça fait trop de compléments, on peut le bouger en semaine 6 ou 7)
-avec les références https://docs.python.org/2/library/logging.html
+*en complÃ©ment introduire le module logging (Ã§a va bien ici, mais
+si Ã§a fait trop de complÃ©ments, on peut le bouger en semaine 6 ou 7)
+avec les rÃ©fÃ©rences https://docs.python.org/2/library/logging.html
 et https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 
-## Quizz Vidéo 5
+## Quizz VidÃ©o 5
 
-## Exercices Vidéo 5
+## Exercices VidÃ©o 5
 
 ###################################################################
 
-## Séquence ajoutée 'suppléments'
+## SÃ©quence ajoutÃ©e 'supplÃ©ments'
 
 OK (S6-C1-)Complement-expressions-regulieres.ipynb 
 OK (S6-E1-)Exercice-expressions-regulieres.ipynb

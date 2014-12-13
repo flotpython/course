@@ -1,58 +1,59 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Quand utiliser fonctions, modules ou classes ?
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
 Nous avons vu maintenant tous les principaux objets en Python.
 En particulier, nous avons vu trois types d'objets qui permettent
 de factoriser du code : les fonctions, les modules et les classes. 
-Même s'il s'agit d'objets très différent, il est important de 
+MÃªme s'il s'agit d'objets trÃ¨s diffÃ©rent, il est important de 
 clarifier quel est l'usage de chacun de ces objets. 
 
 
 >>>>>>>>>> INCLUDE C012AL-W5-S7-slide1.pptx <<<<<<<<<<
 
-On voit donc que ce qui différencie les classes des modules
-c'est la possibilité d'avoir de [multiples instances] et l'[héritage]. 
+On voit donc que ce qui diffÃ©rencie les classes des modules
+c'est la possibilitÃ© d'avoir de [multiples instances] et l'[hÃ©ritage]. 
 
 En Python, chaque instance a son propre espace de nommage, donc 
-l'intérêt d'avoir des instances multiples et d'avoir des objets
-qui vont évoluer indépendamment. C'est, par exemple, le cas des 
-listes. Chaque objet liste a son propre état qui évolue indépendamment
-des autres objets liste. Le seul moyen de créer des objets
-comme les listes et de passer par la création de classes. Donc 
-si vous voulez juste une [boite à outils] avec son propre espace 
-de nommage, le module est suffisant, mais si vous des créer des [objets
-qui évoluent indépendamment], vous devez passer par les classes. 
+l'intÃ©rÃªt d'avoir des instances multiples et d'avoir des objets
+qui vont Ã©voluer indÃ©pendamment. C'est, par exemple, le cas des 
+listes. Chaque objet liste a son propre Ã©tat qui Ã©volue indÃ©pendamment
+des autres objets liste. Le seul moyen de crÃ©er des objets
+comme les listes et de passer par la crÃ©ation de classes. Donc 
+si vous voulez juste une [boite Ã  outils] avec son propre espace 
+de nommage, le module est suffisant, mais si vous des crÃ©er des [objets
+qui Ã©voluent indÃ©pendamment], vous devez passer par les classes. 
 
-L'intérêt de l'héritage est de structurer son code en fonction 
-de types de comportements qui peuvent être hérité. On peut imaginer
-une classe employée qui définit les informations standards pour 
-tous les employés (nom, adresses, numéro sécu, etc.) et une 
-classe cadre qui hérite de tous les attributs de la classe employé, 
-mais qui définit en plus une liste de personnes encadrées. 
+L'intÃ©rÃªt de l'hÃ©ritage est de structurer son code en fonction 
+de types de comportements qui peuvent Ãªtre hÃ©ritÃ©. On peut imaginer
+une classe employÃ©e qui dÃ©finit les informations standards pour 
+tous les employÃ©s (nom, adresses, numÃ©ro sÃ©cu, etc.) et une 
+classe cadre qui hÃ©rite de tous les attributs de la classe employÃ©, 
+mais qui dÃ©finit en plus une liste de personnes encadrÃ©es. 
 
 Il faut comprendre que la 
-programmation objet et l'héritage n'est pas un dogme, mais juste un
-outil destiné à vous simplifier la vie. Alors, ne prenez pas cela 
-comme une contrainte, mais comme une facilité si un jour vous avez besoin
-d'héritage. Il est possible d'écrire de gros programmes sans
-héritage, et en aucun cas l'héritage et l'abstraction qu'il impose au travers
+programmation objet et l'hÃ©ritage n'est pas un dogme, mais juste un
+outil destinÃ© Ã  vous simplifier la vie. Alors, ne prenez pas cela 
+comme une contrainte, mais comme une facilitÃ© si un jour vous avez besoin
+d'hÃ©ritage. Il est possible d'Ã©crire de gros programmes sans
+hÃ©ritage, et en aucun cas l'hÃ©ritage et l'abstraction qu'il impose au travers
 de diagrammes de classes ne doit vous compliquer la vie. 
 
-Si vous passez plus de temps à concevoir
-des diagrammes de classes qu'à programmer, c'est la garantie qu'au final
+Si vous passez plus de temps Ã  concevoir
+des diagrammes de classes qu'Ã  programmer, c'est la garantie qu'au final
 vous aurez des diagrammes, mais pas de programme. Commencez toujours par 
 programmer, par faire un prototype, par documenter votre code. 
-Et ensuite seulement, si ça s'impose à vous, vous pourrez améliorer 
+Et ensuite seulement, si Ã§a s'impose Ã  vous, vous pourrez amÃ©liorer 
 la structure de votre programme en exploitant pleinement les classes 
-et l'héritage. 
+et l'hÃ©ritage. 
 
 
 ## Conclusion ()

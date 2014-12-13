@@ -1,45 +1,45 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Il existe deux manières de créer un dictionnaire, la
-## plus simple lorsque l'on crée un dictionnaire à la main
+## Il existe deux maniÃ¨res de crÃ©er un dictionnaire, la
+## plus simple lorsque l'on crÃ©e un dictionnaire Ã  la main
 ## est d'utiliser les accolades
 
 d = {}
 
 d = {'marc':35, 'alice':30, 'eric':38}
 
-## la deuxième manière est très utile lorsque les couples
-## clefs-valeurs sont obtenues par une opération, dans
-## ce cas on peut automatiquement créer un dictionnaire
-## à partir d'une liste de tuples clef,valeur
+## la deuxiÃ¨me maniÃ¨re est trÃ¨s utile lorsque les couples
+## clefs-valeurs sont obtenues par une opÃ©ration, dans
+## ce cas on peut automatiquement crÃ©er un dictionnaire
+## Ã  partir d'une liste de tuples clef,valeur
 
 a = [('marc', 35), ('alice', 30), ('eric', 38)]
 d = dict(a)
 
 # xxx je ferais remarquer qu'il s'agit d'un cas particulier de conversion
-# comme on en a déjà vu pour les types numériques e.g. float(12)
+# comme on en a dÃ©jÃ  vu pour les types numÃ©riques e.g. float(12)
 
 ## je rappelle qu'il n'y a pas d'ordre dans un dictionnaire
-## donc le dictionnaire n'affiche pas nécéssairement
-## les valeurs dans l'ordre dans lequel on les a entrées
+## donc le dictionnaire n'affiche pas nÃ©cÃ©ssairement
+## les valeurs dans l'ordre dans lequel on les a entrÃ©es
 
 print d
 
-## il existe de très nombreuse opérations et fonctions
+## il existe de trÃ¨s nombreuse opÃ©rations et fonctions
 ## sur les dictionnaires, nous allons voir les principales
-## commençons par les deux suivantes
+## commenÃ§ons par les deux suivantes
 
 print len(d)
 print 'marc' in d
 print 'marc' not in d
 
-## même si les dictionnaires ne sont pas des séquences,
-## dans un soucis d'uniformité et de simplification,
-## la fonction len et l'opérateur in ont été implémentés
+## mÃªme si les dictionnaires ne sont pas des sÃ©quences,
+## dans un soucis d'uniformitÃ© et de simplification,
+## la fonction len et l'opÃ©rateur in ont Ã©tÃ© implÃ©mentÃ©s
 ## sur les dictionnaires.
 
-## on peut accéder et modifier la valeur d'une clef de la
-## manière suivante
+## on peut accÃ©der et modifier la valeur d'une clef de la
+## maniÃ¨re suivante
 
 print d['marc']
 d['marc'] = 40
@@ -52,7 +52,7 @@ del d['marc']
 d.copy() # shallow copie du dictionnaire
 print 
 
-## et on a des méthodes pour récupérer sous forme de liste:
+## et on a des mÃ©thodes pour rÃ©cupÃ©rer sous forme de liste:
 ## les clefs, les valeurs, et les tuples (clefs, valeur)
 
 print d.keys()

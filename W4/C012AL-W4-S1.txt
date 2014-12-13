@@ -1,102 +1,103 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les fichiers
 
-## Résumé de la semaine (35 secondes)
+## RÃ©sumÃ© de la semaine (35 secondes)
 
 TODO
 
-## Résumé de la vidéo (35 secondes)
+## RÃ©sumÃ© de la vidÃ©o (35 secondes)
 
-Nous avons vu la semaine dernière les types de base en
-Python, les types numériques, les types séquence avec
-les listes, les tuples et les chaînes de caractères,
+Nous avons vu la semaine derniÃ¨re les types de base en
+Python, les types numÃ©riques, les types sÃ©quence avec
+les listes, les tuples et les chaÃ®nes de caractÃ¨res,
 nous avons vu aussi les sets et les dictionnaires. Il
 y a un dernier type de base que nous allons voir dans
-cette vidéo : les fichiers.
+cette vidÃ©o : les fichiers.
 
-Les fichiers représentent le moyen le plus simple de
+Les fichiers reprÃ©sentent le moyen le plus simple de
 stocker et de lire des informations sur un
 ordinateur. Et comme on est en Python, les fichiers
-sont des objets et les fichiers sont des itérateurs,
-c'est-à-dire que l'on peut directement faire une
+sont des objets et les fichiers sont des itÃ©rateurs,
+c'est-Ã -dire que l'on peut directement faire une
 boucle for sur un objet fichier. Ouvrons un terminal
 pour voir comme il est facile de travailler avec des
 fichiers en Python.
 
 >>>>>>>>>> C012AL-W4-S1-exo1.py <<<<<<<<<< (2 minutes 10 secondes)
 
-## close(), flush() et écriture asynchrone (2 minutes 30 secondes)
+## close(), flush() et Ã©criture asynchrone (2 minutes 30 secondes)
 
-La fonction close est très importante. Il faut
-comprendre que notre programme n'accède jamais
-directement aux fichiers. Toutes les opérations sur
-les fichiers passent par le système d'exploitation.
-Le système d'exploitation gère deux tâches
-principales.  La première est de maintenir la liste de
+La fonction close est trÃ¨s importante. Il faut
+comprendre que notre programme n'accÃ¨de jamais
+directement aux fichiers. Toutes les opÃ©rations sur
+les fichiers passent par le systÃ¨me d'exploitation.
+Le systÃ¨me d'exploitation gÃ¨re deux tÃ¢ches
+principales.  La premiÃ¨re est de maintenir la liste de
 tous les programmes (on appelle cela des processus)
-qui accèdent aux fichiers et de gérer les accès de ces
+qui accÃ¨dent aux fichiers et de gÃ©rer les accÃ¨s de ces
 processus aux fichiers. Lorsqu'un programme n'a plus
-besoin d'un fichier, le système d'exploitation n'a
+besoin d'un fichier, le systÃ¨me d'exploitation n'a
 aucun moyen de le savoir si on n'appelle pas close()
-sur le fichier.  Un fichier qui n'est pas libéré par
-un programme, c'est-à-dire un fichier sur lequel on ne
+sur le fichier.  Un fichier qui n'est pas libÃ©rÃ© par
+un programme, c'est-Ã -dire un fichier sur lequel on ne
 fait pas de close, consomme des ressources pour rien
-dans le système d'exploitation. Dans des cas extrêmes,
-ça peut conduire à l'impossibilité des programmes à
-accéder à de nouveaux fichiers.
+dans le systÃ¨me d'exploitation. Dans des cas extrÃªmes,
+Ã§a peut conduire Ã  l'impossibilitÃ© des programmes Ã 
+accÃ©der Ã  de nouveaux fichiers.
 
-La deuxième tâche est d'optimiser les écritures sur le
+La deuxiÃ¨me tÃ¢che est d'optimiser les Ã©critures sur le
 disque dur. En effet, lorsque l'on fait un write sur
-un fichier, on dit simplement au système
-d'exploitation, écrit sur le disque dur cette chaîne
-de caractères.  L'écriture effective sur le disque dur
-sera décidé par la système d'exploitation de manière
+un fichier, on dit simplement au systÃ¨me
+d'exploitation, Ã©crit sur le disque dur cette chaÃ®ne
+de caractÃ¨res.  L'Ã©criture effective sur le disque dur
+sera dÃ©cidÃ© par la systÃ¨me d'exploitation de maniÃ¨re
 asynchrone.
 
-Si l'on compte sur une écriture synchrone pour le
+Si l'on compte sur une Ã©criture synchrone pour le
 fonctionnement correct du programme, alors le
-fonctionnement risque d'être faux.  Il est cependant
-possible de forcer l'écriture synchrone c'est-à-dire
-que l'écriture dans le fichier sur le disque dur soit
-faite au moment ou l'on écrit dans le programme.  On
-peut soit ajouter un retour chariot (le \n) à la fin
-de la chaîne de caractère que l'on passe à write, soit
+fonctionnement risque d'Ãªtre faux.  Il est cependant
+possible de forcer l'Ã©criture synchrone c'est-Ã -dire
+que l'Ã©criture dans le fichier sur le disque dur soit
+faite au moment ou l'on Ã©crit dans le programme.  On
+peut soit ajouter un retour chariot (le \n) Ã  la fin
+de la chaÃ®ne de caractÃ¨re que l'on passe Ã  write, soit
 on peut utiliser la fonction flush() sur le fichier
-qui force l'écriture synchrone sur le disque dur.  Il
+qui force l'Ã©criture synchrone sur le disque dur.  Il
 faut faire attention cependant de ne pas abuser de
-flush qui ne doit être utilisé que si l'écriture
-synchrone est nécessaire au fonctionnement correct du
+flush qui ne doit Ãªtre utilisÃ© que si l'Ã©criture
+synchrone est nÃ©cessaire au fonctionnement correct du
 programme.  En effet, en utilisant flush, on contourne
-les optimisations du système d'exploitation.
+les optimisations du systÃ¨me d'exploitation.
 
 Pour finir, lorsqu'un programme se termine
-correctement c'est-à-dire sans planter, tous les
-fichiers non encore fermés sont automatiquement
-fermés. Par contre, si le programme plante, tout ce
-qui n'a pas encore été écrit sur le disque dur est
-perdu. Ce problème est courant lorsque l'on débugge un
-programme à partir d'un fichier de log, mais que l'on
+correctement c'est-Ã -dire sans planter, tous les
+fichiers non encore fermÃ©s sont automatiquement
+fermÃ©s. Par contre, si le programme plante, tout ce
+qui n'a pas encore Ã©tÃ© Ã©crit sur le disque dur est
+perdu. Ce problÃ¨me est courant lorsque l'on dÃ©bugge un
+programme Ã  partir d'un fichier de log, mais que l'on
 ne fait pas de flush (ou de retour chariot)
-régulièrement.
+rÃ©guliÃ¨rement.
 
 Ouvrons de nouveau un terminal et regardons comment
 lire et modifier un fichier.
 
 >>>>>>>>>> C012AL-W4-S1-exo2.py <<<<<<<<<< (2 minutes 40 secondes)
 
-Le concept d'itérateurs appliqué aux fichiers rend la
-manipulation des fichiers en Python extrêmement
-simple. Lorsque l'on combine ça avec la puissance des
-chaînes de caractères, on comprend que Python est
-rencontré un grand succès auprès de tous ceux qui
+Le concept d'itÃ©rateurs appliquÃ© aux fichiers rend la
+manipulation des fichiers en Python extrÃªmement
+simple. Lorsque l'on combine Ã§a avec la puissance des
+chaÃ®nes de caractÃ¨res, on comprend que Python est
+rencontrÃ© un grand succÃ¨s auprÃ¨s de tous ceux qui
 manipulent et transforment des fichiers, comme les
-administrateurs systèmes.
+administrateurs systÃ¨mes.
 

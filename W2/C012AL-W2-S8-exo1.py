@@ -1,8 +1,8 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## il existe deux manières totalement équivalentes de créer
-## une chaîne de caractères. Soit on met la chaîne que l'on
-## veut créer entre apostrophes ou entre guillemets
+## il existe deux maniÃ¨res totalement Ã©quivalentes de crÃ©er
+## une chaÃ®ne de caractÃ¨res. Soit on met la chaÃ®ne que l'on
+## veut crÃ©er entre apostrophes ou entre guillemets
 
 s1 = 'spam'
 s2 = "spam"
@@ -11,35 +11,35 @@ print s1, s2
 
 print s1 == s2
 
-## l'intérêt d'avoir deux notations est que, si dans la
-## chaîne on veut avoir un guillement ou une apostrophe,
-## on peut l'écrire en utilisant l'autre notation pour
-## ne pas avoit d'ambiguïté
+## l'intÃ©rÃªt d'avoir deux notations est que, si dans la
+## chaÃ®ne on veut avoir un guillement ou une apostrophe,
+## on peut l'Ã©crire en utilisant l'autre notation pour
+## ne pas avoit d'ambiguÃ¯tÃ©
 
 s1 = "l'herbe"
 s2 = 'un guillemet : "'
 
 print s1, s2
 
-## Il est possible d'écrire dans une chaîne de caractères
-## des caractères spéciaux qui sont toujours précédés
-## d'une barre oblique inversée que l'on appelle backslash
+## Il est possible d'Ã©crire dans une chaÃ®ne de caractÃ¨res
+## des caractÃ¨res spÃ©ciaux qui sont toujours prÃ©cÃ©dÃ©s
+## d'une barre oblique inversÃ©e que l'on appelle backslash
 
 print '\' \" \\ \n spam'
 
-## mais supposons que l'on ait une chaîne de caractères
-## qui contienne beaucoup de backslash qui ne représente
-## pas de caractères spéciaux. C'est le cas notamment
+## mais supposons que l'on ait une chaÃ®ne de caractÃ¨res
+## qui contienne beaucoup de backslash qui ne reprÃ©sente
+## pas de caractÃ¨res spÃ©ciaux. C'est le cas notamment
 ## des chemins des fichiers sous Windows.
 
 nom = 'c:\temp\test\f.py'
 print nom
 
-## on a deux solutions à ce problèmes; soit on double
+## on a deux solutions Ã  ce problÃ¨mes; soit on double
 ## tous les backslash, mais c'est fastidieux et sujet
-## à erreur, soit on utilise une "raw string", c'est-à-dire
-## une chaîne de caractères qui n'interprête plus aucun
-## backslash comme caractère spécial.
+## Ã  erreur, soit on utilise une "raw string", c'est-Ã -dire
+## une chaÃ®ne de caractÃ¨res qui n'interprÃªte plus aucun
+## backslash comme caractÃ¨re spÃ©cial.
 
 nom = 'c:\\temp\\test\\f.py'
 print nom
@@ -48,11 +48,11 @@ nom = r'c:\temp\test\f.py'
 print nom
 
 ## il exite un dernier type de notation, en plus de l'apostrophe
-## et du guillemet, pour créer une chaîne de caractères,
+## et du guillemet, pour crÃ©er une chaÃ®ne de caractÃ¨res,
 ## c'est la triple apostrophe ou le triple guillemet.
-## l'intéret de cette notation est que les retours chariots
-## sont automatiquement transformé en \n. C'est très pratique
-## pour écrire par exemple de l'aide ou de la documentation.
+## l'intÃ©ret de cette notation est que les retours chariots
+## sont automatiquement transformÃ© en \n. C'est trÃ¨s pratique
+## pour Ã©crire par exemple de l'aide ou de la documentation.
 
 s = """
 Usage : fft(n)
@@ -61,10 +61,10 @@ Usage : fft(n)
 s
 print s
 
-## comme les chaînes de caractères sont immuables, on ne peut
+## comme les chaÃ®nes de caractÃ¨res sont immuables, on ne peut
 ## pas les modifier en place, par contre, il existe de
-## nombreuses fonctions qui retournent une nouvelle chaîne
-## modifiée. Regardons quelques-unes des ces fonctions.
+## nombreuses fonctions qui retournent une nouvelle chaÃ®ne
+## modifiÃ©e. Regardons quelques-unes des ces fonctions.
 
 s = "le spam, c'est bon"
 s = s.upper()
@@ -74,10 +74,10 @@ print s
 s = s.replace('spam', 'poulet')
 print s
 
-## il y a ensuite deux fonctions très importantes qui
-## permettent de passer d'une chaîne de caractère à une liste
+## il y a ensuite deux fonctions trÃ¨s importantes qui
+## permettent de passer d'une chaÃ®ne de caractÃ¨re Ã  une liste
 ## et vice versa. Comme la liste est un type mutable 
-## il est naturel pour travailler sur une chaîne de caractères
+## il est naturel pour travailler sur une chaÃ®ne de caractÃ¨res
 ## de la transformer en liste. Regardons un example.
 
 string = 'marc 35 175'

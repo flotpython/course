@@ -1,85 +1,85 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 ## Lorsque l'on importe un module on utilise l'instruction
-## import suivi du nom du module. Ce nom a deux rôles,
+## import suivi du nom du module. Ce nom a deux rÃ´les,
 ## Le premier est de donner le nom du fichier devant
-## être importé pour créer l'objet module. Le deuxième
+## Ãªtre importÃ© pour crÃ©er l'objet module. Le deuxiÃ¨me
 ## est de donner le nom de la variable qui pointera vers
-## l'objet module importé. Prenons l'exemple du module os. 
+## l'objet module importÃ©. Prenons l'exemple du module os. 
 
 import os
 
 ## os est une variable qui pointe vers l'objet module os
 print os
 
-## mais c'est également un nom de fichier, le fichier os.py
+## mais c'est Ã©galement un nom de fichier, le fichier os.py
 ## vous pouvez voir que le fichier de l'objet module
 ## s'appelle os.pyc, nous allons revenir dessus. 
 
 ## Revenons sur le processus d'importation. Ce processus
-## se déroule en trois étapes.
+## se dÃ©roule en trois Ã©tapes.
 
-## La première étape consiste à trouver le fichier module
-## sur le disque dur. L'interpréteur va chercher le module
-## à importer dans le répertoire courant, c'est-à-dire,
+## La premiÃ¨re Ã©tape consiste Ã  trouver le fichier module
+## sur le disque dur. L'interprÃ©teur va chercher le module
+## Ã  importer dans le rÃ©pertoire courant, c'est-Ã -dire,
 ## dans le repertoire duquel vous avez lancer Python. Si vous
-## avez lancé Python depuis un raccourci, le répertoire
+## avez lancÃ© Python depuis un raccourci, le rÃ©pertoire
 ## courant sera celui d'installation de Python sur votre
-## système. Si l'interpréteur Python ne trouve pas le fichier
-## il va chercher dans les répertoires contenus dans la
-## variable d'environement système PYTHONPATH.
+## systÃ¨me. Si l'interprÃ©teur Python ne trouve pas le fichier
+## il va chercher dans les rÃ©pertoires contenus dans la
+## variable d'environement systÃ¨me PYTHONPATH.
 
 ## utilisons os.environ qui est un dictionnaire qui contient
-## toutes les variables d'environement dans le système.
+## toutes les variables d'environement dans le systÃ¨me.
 
 print os.environ.get('PYTHONPATH', '') ## PYHTONPATH n'est pas
-                                       ## nécessairement sur le
-                                       ## système
+                                       ## nÃ©cessairement sur le
+                                       ## systÃ¨me
 
-## Si le fichier n'est toujours pas trouvé, il sera cherché
-## dans le répertoire des librairies standards.
+## Si le fichier n'est toujours pas trouvÃ©, il sera cherchÃ©
+## dans le rÃ©pertoire des librairies standards.
 
-## Tous les chemins suivis par l'interpréteur sont dans
+## Tous les chemins suivis par l'interprÃ©teur sont dans
 ## la variable  sys.path
 import sys
 print sys.path
 
 
 ## Comme il s'agit d'une liste il est possible de la modifier
-## en cours d'exécution du programme.
+## en cours d'exÃ©cution du programme.
 
-## La deuxième étape consiste à compiler le fichier module
+## La deuxiÃ¨me Ã©tape consiste Ã  compiler le fichier module
 ## en byte code. Attention, il ne s'agit pas de code machine
-## mais de code préparé à être exécuté directement sur une
-## machine virtuelle. Le fichier compilé finit par un .pyc
-## Comme cette opération prend du temps, elle n'est exécutée
+## mais de code prÃ©parÃ© Ã  Ãªtre exÃ©cutÃ© directement sur une
+## machine virtuelle. Le fichier compilÃ© finit par un .pyc
+## Comme cette opÃ©ration prend du temps, elle n'est exÃ©cutÃ©e
 ## que si le fichier .pyc n'existe pas encore ou si le
-## fichier source .py a changé depuis la derniere compilation.
+## fichier source .py a changÃ© depuis la derniere compilation.
 
-## Pour finir, l'interpréteur Python va exécuter le fichier
-## module (en fait, il va exécuter le byte code) pour créer
+## Pour finir, l'interprÃ©teur Python va exÃ©cuter le fichier
+## module (en fait, il va exÃ©cuter le byte code) pour crÃ©er
 ## l'objet module est tous les objets qu'il contient. 
-## L'interpréteur va exécuter le code sequentiellement en
-## créant chaque objet au fur et à mesure. Les fonctions
+## L'interprÃ©teur va exÃ©cuter le code sequentiellement en
+## crÃ©ant chaque objet au fur et Ã  mesure. Les fonctions
 ## sont un cas un peu particulier. L'objet fonction est bien
-## créé à l'import séquentiel du module. Par contre, le code
-## contenu dans le corps de la fonction ne sera exécuté
+## crÃ©Ã© Ã  l'import sÃ©quentiel du module. Par contre, le code
+## contenu dans le corps de la fonction ne sera exÃ©cutÃ©
 ## qu'a l'appel de la fonction.
 
-## Ouvrons un éditeur IDLE pour comprendre cette exécution
-## séquentielle
+## Ouvrons un Ã©diteur IDLE pour comprendre cette exÃ©cution
+## sÃ©quentielle
 
 #f()
 #def f():
 #    print 'dans f()'
 #    g()
 
-## l'objet fonction f() est maintenant créé
+## l'objet fonction f() est maintenant crÃ©Ã©
 
 #f()
 #def g():
 #    print 'dans g()'
 
-## l'objet fonction g() est maintenant créé
+## l'objet fonction g() est maintenant crÃ©Ã©
 
 #f()

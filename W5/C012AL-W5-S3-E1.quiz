@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Importation et espace de nommage
 =====
@@ -27,15 +28,15 @@ def g(L):
 print g([])
 </pre>
 
-On exécute le fichier egg.py en ligne de commande. Qu'imprime le programme ?
+On exÃ©cute le fichier egg.py en ligne de commande. Qu'imprime le programme ?
 ( ) [1, 1, 2, 2, 2]
 (x) [1, 1, 2, 1, 2]
 ( ) [1, 1, 2, 2, 1]
 ( ) [1, 1, 2, 1, 1]
 
 [explanation]
-L'instruction "import spam" va importer le module spam et la variable spam va référencer ce module. spam.beans fait donc référence à la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" importe le module spam et crée une variable beans dans l'espace de nommage du module egg, qui référence l'objet entier 1. On a donc une référence partagée sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
+L'instruction "import spam" va importer le module spam et la variable spam va rÃ©fÃ©rencer ce module. spam.beans fait donc rÃ©fÃ©rence Ã  la variable beans dans l'espace de nommage de spam. Par contre, "from spam import beans" importe le module spam et crÃ©e une variable beans dans l'espace de nommage du module egg, qui rÃ©fÃ©rence l'objet entier 1. On a donc une rÃ©fÃ©rence partagÃ©e sur l'entier 1 entre la variable beans dans le module spam et la variable beans dans le module egg. 
 
-spam.beans référence donc l'entier 1, puis beans référence également l'entier 1. L'instruction "spam.beans = 2" change la variable beans dans l'espace de nommage de spam, mais pas dans l'espace de nommage de egg. Donc spam.beans référence maintenant l'entier 2, mais beans référence toujours l'entier 1. Pour finir, spam.f() retourne la variable globale beans dans l'espace de nommage de spam, c'est donc maintenant l'entier 2. 
+spam.beans rÃ©fÃ©rence donc l'entier 1, puis beans rÃ©fÃ©rence Ã©galement l'entier 1. L'instruction "spam.beans = 2" change la variable beans dans l'espace de nommage de spam, mais pas dans l'espace de nommage de egg. Donc spam.beans rÃ©fÃ©rence maintenant l'entier 2, mais beans rÃ©fÃ©rence toujours l'entier 1. Pour finir, spam.f() retourne la variable globale beans dans l'espace de nommage de spam, c'est donc maintenant l'entier 2. 
 [explanation]
 

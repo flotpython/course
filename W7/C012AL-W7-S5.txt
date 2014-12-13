@@ -1,25 +1,26 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ##  TITRE : Performance en Python
 
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-En Python tout est un objet, donc on a un surcout mémoire pour 
-tout en Python. De plus Python est un langage interprété, il ne 
-peut donc pas être aussi rapide qu'un langage compilé qui produit
+En Python tout est un objet, donc on a un surcout mÃ©moire pour 
+tout en Python. De plus Python est un langage interprÃ©tÃ©, il ne 
+peut donc pas Ãªtre aussi rapide qu'un langage compilÃ© qui produit
 directement du langage machine. 
 
-Vous pouvez vous demander si Python est adapté à votre usage, si votre
-programme sera suffisamment rapide et si l'occupation mémoire 
-sera raisonnable. La réponse est presque toujours oui. 
+Vous pouvez vous demander si Python est adaptÃ© Ã  votre usage, si votre
+programme sera suffisamment rapide et si l'occupation mÃ©moire 
+sera raisonnable. La rÃ©ponse est presque toujours oui. 
 
-Ouvrons maintenant un terminal interactif pour évaluer la
+Ouvrons maintenant un terminal interactif pour Ã©valuer la
 performance de Python. 
 
 >>>>>>>>>> INCLUDE C012AL-W7-S3-exo1.py (5 minutes) <<<<<<<<<<
@@ -28,20 +29,20 @@ performance de Python.
 
 ## Conclusion()
 
-En résumé, lorsque l'on fait un programme et que l'on veut
+En rÃ©sumÃ©, lorsque l'on fait un programme et que l'on veut
 choisir un langage de programmation, il faut toujours prendre en compte 
-non seulement la performance intrinsèque du langage, mais aussi la 
-vitesse de développement dans ce langage. En effet rien ne sert d'avoir
+non seulement la performance intrinsÃ¨que du langage, mais aussi la 
+vitesse de dÃ©veloppement dans ce langage. En effet rien ne sert d'avoir
 un programme en C qui fait une tache en 1 seconde au lieu de 1 minute
-en Python, si la durée d'exécution n'est pas un problème dans notre
-contexte et qu'il faut deux semaines pour développer le programme
+en Python, si la durÃ©e d'exÃ©cution n'est pas un problÃ¨me dans notre
+contexte et qu'il faut deux semaines pour dÃ©velopper le programme
 en C contre 3 jours en Python.
 
-Cette vidéo conclus ce Mooc sur Python. Thierry et moi espérons que vous 
-avez apprécié ce Mooc et que nous vous avons convaincu que Python 
-est un excellent langage. Si vous vous êtes accroché (ce que je suppose
-si vous suivez cette dernière vidéo), vous avez maintenant de très
-bonnes connaissances en Python qui vous permettrons d'appréhender 
+Cette vidÃ©o conclus ce Mooc sur Python. Thierry et moi espÃ©rons que vous 
+avez apprÃ©ciÃ© ce Mooc et que nous vous avons convaincu que Python 
+est un excellent langage. Si vous vous Ãªtes accrochÃ© (ce que je suppose
+si vous suivez cette derniÃ¨re vidÃ©o), vous avez maintenant de trÃ¨s
+bonnes connaissances en Python qui vous permettrons d'apprÃ©hender 
 les projets les plus complexes. 
 
 Merci de nous avoir suivi durant ces sept semaines. Au revoir. 

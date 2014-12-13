@@ -1,41 +1,42 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Classes, instances et méthodes
+## TITRE : Classes, instances et mÃ©thodes
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Nous allons dans cette vidéo aborder en sujet fondamental en 
+Nous allons dans cette vidÃ©o aborder en sujet fondamental en 
 Python, la programmation objet. Mais qu'est-ce que la 
-programmation objet ? Vous savez déjà que tout est un 
+programmation objet ? Vous savez dÃ©jÃ  que tout est un 
 objet en Python : les entiers, listes, les fonctions, les modules,
 absolument tout. Et chaque objet vient avec un type qui 
-détermine ses caractéristiques. Les types 
-built-in sont très complets et puissants, mais ils ne peuvent pas
+dÃ©termine ses caractÃ©ristiques. Les types 
+built-in sont trÃ¨s complets et puissants, mais ils ne peuvent pas
 couvrir tous les cas imaginables. 
 
-La programmation objet permet de définir de nouveaux types, 
-c'est-à-dire de nouveaux objets qui stockeront leurs propres
-informations et auront leurs propres comportements. Pour créer
-un nouveau type, il faut définir une classe. 
+La programmation objet permet de dÃ©finir de nouveaux types, 
+c'est-Ã -dire de nouveaux objets qui stockeront leurs propres
+informations et auront leurs propres comportements. Pour crÃ©er
+un nouveau type, il faut dÃ©finir une classe. 
 
 Comme tout en Python, les classes aussi sont des 
-objets. De même qu'un module est un fichier contenant du code 
-Python et que ce code devient un objet lorsqu'il est importé, 
+objets. De mÃªme qu'un module est un fichier contenant du code 
+Python et que ce code devient un objet lorsqu'il est importÃ©, 
 une classe est du code Python dans un module, code qui devient 
-un objet lorsque le module contenant la classe est importé. 
+un objet lorsque le module contenant la classe est importÃ©. 
 
-Une fois que l'objet classe est créé, il va devenir une usine à 
-instance, c'est à dire que chaque appel à cet objet classe
-va créer une nouvelle instance. Les instances aussi sont
+Une fois que l'objet classe est crÃ©Ã©, il va devenir une usine Ã  
+instance, c'est Ã  dire que chaque appel Ã  cet objet classe
+va crÃ©er une nouvelle instance. Les instances aussi sont
 des objets qui ont leur propre espace de nommage, donc
-les instances peuvent évoluer indépendamment. 
+les instances peuvent Ã©voluer indÃ©pendamment. 
 
-Ouvrons maintenant un terminal interactif pour commencer à jouer avec 
+Ouvrons maintenant un terminal interactif pour commencer Ã  jouer avec 
 les classes et les instances...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S4-exo1.py <<<<<<<<<<
@@ -43,9 +44,9 @@ les classes et les instances...
 
 ## Conclusion ()
 
-Nous avons vu que les classes sont des usines à instances et que
-les instances ont accès aux variables des classes qui les ont créées. 
-On a vu également que l'on peut définir dans les classes des méthodes 
+Nous avons vu que les classes sont des usines Ã  instances et que
+les instances ont accÃ¨s aux variables des classes qui les ont crÃ©Ã©es. 
+On a vu Ã©galement que l'on peut dÃ©finir dans les classes des mÃ©thodes 
 qui travaillent sur les instances de la classe. 
-Nous verrons dans la prochaine vidéo la notion d'héritage. 
+Nous verrons dans la prochaine vidÃ©o la notion d'hÃ©ritage. 
 

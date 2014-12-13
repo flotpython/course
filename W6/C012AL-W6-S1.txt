@@ -1,39 +1,40 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Fonctions génératrices
+## TITRE : Fonctions gÃ©nÃ©ratrices
 
 ## Sujet de la semaine ()
 TODO
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Dans cette vidéo nous allons parler d'un type de fonction 
-particulier : les fonctions génératrices. Ce sont des fonctions
-qui sont des itérateurs et qui permettent très simplement, 
-comme on le verra dans une prochaine vidéo, de faire des 
-itérateurs pour vos propres objets. Mais comme toujours en Python,
-vous allez voir que faire une fonction génératrice est très simple. 
+Dans cette vidÃ©o nous allons parler d'un type de fonction 
+particulier : les fonctions gÃ©nÃ©ratrices. Ce sont des fonctions
+qui sont des itÃ©rateurs et qui permettent trÃ¨s simplement, 
+comme on le verra dans une prochaine vidÃ©o, de faire des 
+itÃ©rateurs pour vos propres objets. Mais comme toujours en Python,
+vous allez voir que faire une fonction gÃ©nÃ©ratrice est trÃ¨s simple. 
 
-Avec une fonction classique, lorsque l'interpréteur arrive 
-à une instruction return ou à la fin de la fonction, toutes
-les variables locales de la fonction sont supprimées. Donc
-une fonction classique ne garde aucun état entre deux appels
+Avec une fonction classique, lorsque l'interprÃ©teur arrive 
+Ã  une instruction return ou Ã  la fin de la fonction, toutes
+les variables locales de la fonction sont supprimÃ©es. Donc
+une fonction classique ne garde aucun Ã©tat entre deux appels
 successifs. 
 
-Une fonction génératrice se comporte différemment. Ouvrons un 
-terminal pour commencer à jouer avec des fonction génératrices...
+Une fonction gÃ©nÃ©ratrice se comporte diffÃ©remment. Ouvrons un 
+terminal pour commencer Ã  jouer avec des fonction gÃ©nÃ©ratrices...
 
 >>>>>>>>>> INCLUDE C012AL-W6-S1-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 
-Les fonctions génératrices sont des objets très simple à 
-écrire, mais très puissant puisqu'ils permettent en quelques
-lignes de code de faire des itérateurs pour vos propres
-objets. Nous reviendrons sur la création des itérateurs pour
+Les fonctions gÃ©nÃ©ratrices sont des objets trÃ¨s simple Ã  
+Ã©crire, mais trÃ¨s puissant puisqu'ils permettent en quelques
+lignes de code de faire des itÃ©rateurs pour vos propres
+objets. Nous reviendrons sur la crÃ©ation des itÃ©rateurs pour
 vos objets un peu plus tard.  

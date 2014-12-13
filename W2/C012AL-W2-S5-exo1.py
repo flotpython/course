@@ -1,25 +1,25 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Pour définir un tuple on utilise des paranthèses
+## Pour dÃ©finir un tuple on utilise des paranthÃ¨ses
 
 t = () #tuple vide
 
-t = (4,) # tuple avec un seul élément. Attention à la virgule à la fin,
-         # Python pense que les parenthèse sont juste pour regrouper des
-         # opérations
+t = (4,) # tuple avec un seul Ã©lÃ©ment. Attention Ã  la virgule Ã  la fin,
+         # Python pense que les parenthÃ¨se sont juste pour regrouper des
+         # opÃ©rations
 print t
-## les parenthèses sont facultatives. !! attention ça n'est pas le cas
+## les parenthÃ¨ses sont facultatives. !! attention Ã§a n'est pas le cas
 ## avec les listes
 
 t = 5,
 
-## lorsque j'ai plusieurs éléments, je les sépare par des virgules
+## lorsque j'ai plusieurs Ã©lÃ©ments, je les sÃ©pare par des virgules
 
 t = (3, 4.1, 'spam')
 
 t = 3, 4.1, 'spam'
 
-## on a sur les tuples, toutes les opérations des séquences
+## on a sur les tuples, toutes les opÃ©rations des sÃ©quences
 
 print 3 in t
 

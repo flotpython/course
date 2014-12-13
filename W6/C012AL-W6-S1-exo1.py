@@ -1,6 +1,6 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Commençons par créer une fonction classique
+## CommenÃ§ons par crÃ©er une fonction classique
 
 def f():
     return 10
@@ -9,7 +9,7 @@ print f()
 
 ## notre fonction retourne 10
 
-## créeons maintenant une fonction génératrice,
+## crÃ©eons maintenant une fonction gÃ©nÃ©ratrice,
 ## il suffit pour cela de remplacer l'instruction
 ## return par yield
 
@@ -20,10 +20,10 @@ print f()
 
 ## on voit que cette fois la fonction ne retourne
 ## 10, mais un objet generator. Que faire alors avec
-## cet objet ? En fait, cet objet est un itérateur
-## que l'on peut utiliser comme n'importe quel itérateur
+## cet objet ? En fait, cet objet est un itÃ©rateur
+## que l'on peut utiliser comme n'importe quel itÃ©rateur
 ## dans une boucle for, avec les fonction map ou filter
-## et dans une compréhension de liste
+## et dans une comprÃ©hension de liste
 
 it = f()
 print it
@@ -35,7 +35,7 @@ print it.next()
 for i in f():
     print i
 
-## Évidemment, une fonction générateur est plus utile
+## Ã‰videmment, une fonction gÃ©nÃ©rateur est plus utile
 ## lorsqu'elle contient une boucle, soit avec for,
 ## soit avec while
 

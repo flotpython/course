@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 <hr/>
-Passage d'arguments par défaut
+Passage d'arguments par dÃ©faut
 =====
 
-Quelles sont les manières correctes de déclarer un argument var par défaut dans une fonction.
+Quelles sont les maniÃ¨res correctes de dÃ©clarer un argument var par dÃ©faut dans une fonction.
 
 Proposition 1
 <pre>
@@ -43,22 +44,22 @@ Choisissez une ou plusieurs propositions.
 [ ] Proposition 5
 
 [explanation]
-La proposition 1 est syntaxiquement incorrecte. On doit déclarer un argument par défaut avec le signe = et non ==.
+La proposition 1 est syntaxiquement incorrecte. On doit dÃ©clarer un argument par dÃ©faut avec le signe = et non ==.
 
 La proposition 2 est correcte.
 
-La proposition 3 est incorrecte, les arguments par défaut doivent toujours apparaitre après les arguments ordonnés.
+La proposition 3 est incorrecte, les arguments par dÃ©faut doivent toujours apparaitre aprÃ¨s les arguments ordonnÃ©s.
 
-La proposition 4 est correcte puisque dans ce cas, b est également un argument par défaut.
+La proposition 4 est correcte puisque dans ce cas, b est Ã©galement un argument par dÃ©faut.
 
-La proposition 5 est incorrecte, on ne peut pas dupliquer un argument dans l'entête d'une fonction, ici var est dupliqué. 
+La proposition 5 est incorrecte, on ne peut pas dupliquer un argument dans l'entÃªte d'une fonction, ici var est dupliquÃ©. 
 [explanation]
 
 <hr/>
 Unpacking des arguments
 =====
 
-Comment passer les éléments de la liste suivante
+Comment passer les Ã©lÃ©ments de la liste suivante
 <pre>
 L = [1, 2, 'a']
 </pre>
@@ -90,9 +91,9 @@ Choisissez une ou plusieurs propositions.
 [x] Proposition 3
 
 [explanation]
-La proposition 1 est incorrecte parce que L correspond à un seul argument alors que f attend 3 arguments.
+La proposition 1 est incorrecte parce que L correspond Ã  un seul argument alors que f attend 3 arguments.
 
-La proposition 2 est correcte, mais pas pythonique. On passe en effet trois arguments à f, par contre, on découpe la liste L à la main, ce qui est presque toujours le signe d'une mauvaise utilisation de python. 
+La proposition 2 est correcte, mais pas pythonique. On passe en effet trois arguments Ã  f, par contre, on dÃ©coupe la liste L Ã  la main, ce qui est presque toujours le signe d'une mauvaise utilisation de python. 
 
-La proposition 3 est correcte et pythonique. On utilise la notion de liste unpacking pour automatiquement passer chaque élément de la liste à un argument de la fonction. 
+La proposition 3 est correcte et pythonique. On utilise la notion de liste unpacking pour automatiquement passer chaque Ã©lÃ©ment de la liste Ã  un argument de la fonction. 
 [explanation]

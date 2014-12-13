@@ -1,55 +1,56 @@
+# -*- coding: utf-8 -*-
 [[
 Voir avec Mathieu pour la taille de la capture
-Je peux créer un safari en 16/9eme
+Je peux crÃ©er un safari en 16/9eme
 ou bien un peu moins plat pour laisser de la place a incruster mon visage
 il faudra ajouter les transparents apres coup 
 ]]
 
 Bonjour
 
-La dernière fois nous avons vu comment utiliser python et IDLE sur
+La derniÃ¨re fois nous avons vu comment utiliser python et IDLE sur
 votre ordinateur.
  
 Aujourd'hui je vais vous montrer rapidement comment utiliser les
-notebooks. Alors tout d'abord, par rapport à ce qu'on a vu la dernière
+notebooks. Alors tout d'abord, par rapport Ã  ce qu'on a vu la derniÃ¨re
 fois, j'insiste bien sur le fait que tout ce que nous allons faire
 aujourd'hui utilise des ressources python qui sont distantes,
-c'est-à-dire hébergées dans la plateforme fun. 
+c'est-Ã -dire hÃ©bergÃ©es dans la plateforme fun. 
 {{Vous pouvez utiliser
-tout ceci même si vous n'avez pas encore installé python sur votre
+tout ceci mÃªme si vous n'avez pas encore installÃ© python sur votre
 ordinateur. Vous pourriez par exemple utiliser une tablette.}}
 
 [[ ouvrir safari ]]
 
-Nous allons d'abord parcourir ensemble le complément de cette vidéo, pour
-voir les mécanismes de base, et ensuite je vous montrerai un exercice,
+Nous allons d'abord parcourir ensemble le complÃ©ment de cette vidÃ©o, pour
+voir les mÃ©canismes de base, et ensuite je vous montrerai un exercice,
 pour vous montrer comment vous pouvez faire votre propre correction.
 
 Si je prends le premier notebook
 
-Vous pouvez d'abord voir que le document est découpé en cellules. Si
-je clique ici, je sélectionne la première cellule.
+Vous pouvez d'abord voir que le document est dÃ©coupÃ© en cellules. Si
+je clique ici, je sÃ©lectionne la premiÃ¨re cellule.
 
-Vous pouvez passer d'une cellule à l'autre en utilisant cette petite
-flêche ici; 
+Vous pouvez passer d'une cellule Ã  l'autre en utilisant cette petite
+flÃªche ici; 
 
-[[ cliquer jusqu'à Shift Enter']]
+[[ cliquer jusqu'Ã  Shift Enter']]
 
 Pour ceux qui comme moi sont plus clavier que souris, vous pouvez
-utiliser le raccourci "Majuscule-Entrée", qui fait la même chose. 
+utiliser le raccourci "Majuscule-EntrÃ©e", qui fait la mÃªme chose. 
 
-Tant que vous êtes dans une cellule de texte on a l'impression qu'on ne
+Tant que vous Ãªtes dans une cellule de texte on a l'impression qu'on ne
 fait qu'avancer dans le document, mais sur une cellule de code comme
 ici
-[[ s'arrêter sur la premiere expression ]]
+[[ s'arrÃªter sur la premiere expression ]]
 quand j'avance vous voyez qu'il se passe quelque chose de plus, le
-fragment de code se fait évaluer et le browser me montre le résultat.
+fragment de code se fait Ã©valuer et le browser me montre le rÃ©sultat.
 
-Remarquez la ligne Out[] qui nous donne le résultat, c'est un peu
-comme avec l'interpréteur interactif qu'on a vu la dernière fois.
+Remarquez la ligne Out[] qui nous donne le rÃ©sultat, c'est un peu
+comme avec l'interprÃ©teur interactif qu'on a vu la derniÃ¨re fois.
 
 Ce code, vous pouvez le modifier 
-[[ descendre et s'arrêter sur la cellule avec la racine carree 
+[[ descendre et s'arrÃªter sur la cellule avec la racine carree 
   montrer qu'on peut modifier du code -> calculer sqrt(25)
  ]]
 
@@ -57,61 +58,61 @@ Montrer qu'il faut remonter, modifier le code, et refaire le triangle
 ou shift-enter]]
 
 [[ remontrer le champ [Out] ]]
-Vous n'êtes pas obligés d'exécuter les cellules de code dans l'ordre,
-mais faites attention quand même; pour vous y retrouver  on vous
-montre dans la bulle "Out" l'ordre des évaluations [[ montrer que ça
-s'incrémente ]]
+Vous n'Ãªtes pas obligÃ©s d'exÃ©cuter les cellules de code dans l'ordre,
+mais faites attention quand mÃªme; pour vous y retrouver  on vous
+montre dans la bulle "Out" l'ordre des Ã©valuations [[ montrer que Ã§a
+s'incrÃ©mente ]]
 
-Vous pouvez repartir d'un interpréteur vierge (donc comme quand on
+Vous pouvez repartir d'un interprÃ©teur vierge (donc comme quand on
 fait F5 sous IDLE) avec le menu "Kernel -> Restart" [[ montrer ]]
 
 ------------
-Une dernière chose importante: votre notebook naturellement est une
-copie de celui rédigé par les enseignants (une copie qui est faite au niveau
-du serveur web, pas sur votre machine évidemment, vous avez bien
-compris que toute cette mécanique fonctionne intégralement sur le
-serveur, et n'utilise pas votre installation python à vous) 
+Une derniÃ¨re chose importante: votre notebook naturellement est une
+copie de celui rÃ©digÃ© par les enseignants (une copie qui est faite au niveau
+du serveur web, pas sur votre machine Ã©videmment, vous avez bien
+compris que toute cette mÃ©canique fonctionne intÃ©gralement sur le
+serveur, et n'utilise pas votre installation python Ã  vous) 
 
-Si par hasard vous défigurez votre notebook vous pouvez revenir à
+Si par hasard vous dÃ©figurez votre notebook vous pouvez revenir Ã 
 cette version 'enseignants' avec le menu "File -> Reset to Origin"
 
-Je vous signale enfin la possibilité de télécharger le contenu du
+Je vous signale enfin la possibilitÃ© de tÃ©lÃ©charger le contenu du
 notebook au format python, [[ File -> Download as -> python ]]
 
-Et aussi, qui peut être pratique pour échanger entre vous, la
-possibilité de créer un snapshot en lecture seule [[ File -> Share
-static version ]]; vous obtenez comme ça une adresse URL que vous
+Et aussi, qui peut Ãªtre pratique pour Ã©changer entre vous, la
+possibilitÃ© de crÃ©er un snapshot en lecture seule [[ File -> Share
+static version ]]; vous obtenez comme Ã§a une adresse URL que vous
 pouvez poster sur le forum pour que d'autres puissent lire votre code.
 
 -------------
-Je vous montre à présent rapidement un des tous premiers exercices.
+Je vous montre Ã  prÃ©sent rapidement un des tous premiers exercices.
 
-Passer à l'exercice exo-if
+Passer Ã  l'exercice exo-if
 
-La mécanique est très simple, vous lisez l'énoncé, vous écrivez votre
-code, vous l'évaluez, et vous pouvez ensuite utiliser une cellule en
-dessous pour vérifier votre code
+La mÃ©canique est trÃ¨s simple, vous lisez l'Ã©noncÃ©, vous Ã©crivez votre
+code, vous l'Ã©valuez, et vous pouvez ensuite utiliser une cellule en
+dessous pour vÃ©rifier votre code
 
 Remplir avec du code faux
 
-Montrer comment se présente le résultat
+Montrer comment se prÃ©sente le rÃ©sultat
 
 ---
 
-J'espère que cette rapide présentation vous clarifie les idées
+J'espÃ¨re que cette rapide prÃ©sentation vous clarifie les idÃ©es
 concernant l'utilisation des notebooks, que nous allons massivement
 utiliser dans ce cours.
 
-D'ici la semaine prochaine je vous invite à vous familiariser avec
-tout ceci; vous trouverez en complément quelques petits morceaux de
-code que vous pouvez télécharger et faire tourner sur votre propre
-machine. Ceux que ça intéresse peuvent essayer de mettre des
-caractères accentués dans un message pour voir comment ça se comporte
-sur votre système.
+D'ici la semaine prochaine je vous invite Ã  vous familiariser avec
+tout ceci; vous trouverez en complÃ©ment quelques petits morceaux de
+code que vous pouvez tÃ©lÃ©charger et faire tourner sur votre propre
+machine. Ceux que Ã§a intÃ©resse peuvent essayer de mettre des
+caractÃ¨res accentuÃ©s dans un message pour voir comment Ã§a se comporte
+sur votre systÃ¨me.
 
 La prochaine fois je concluerai la semaine en discutant les grands
-principes qui gouvernent la conception du langage, qui expliquent à
-notre avis son succès, et pourquoi nous pensons que python est un
-langage aussi agréable à utiliser,
+principes qui gouvernent la conception du langage, qui expliquent Ã 
+notre avis son succÃ¨s, et pourquoi nous pensons que python est un
+langage aussi agrÃ©able Ã  utiliser,
 
-À bientôt
+Ã€ bientÃ´t

@@ -1,39 +1,40 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 
 ## Fonction lambda, programmation fonctionnelle
 
-## Résumé de la vidéo ( 1 minute)
+## RÃ©sumÃ© de la vidÃ©o ( 1 minute)
 
-Nous avons vu la puissance des itérateurs dans le contexte
-des boucles for. Les itérateurs sont des outils tellement puissants
-que leur utilisation a été étendue à d'autres contextes comme
+Nous avons vu la puissance des itÃ©rateurs dans le contexte
+des boucles for. Les itÃ©rateurs sont des outils tellement puissants
+que leur utilisation a Ã©tÃ© Ã©tendue Ã  d'autres contextes comme
 les fonctions built-in map et filter que nous allons voir dans 
-cette vidéo ou la compréhension de liste, la technique la plus 
-puissante exploitant les itérateurs, que nous verrons dans la 
-prochaine vidéo. 
+cette vidÃ©o ou la comprÃ©hension de liste, la technique la plus 
+puissante exploitant les itÃ©rateurs, que nous verrons dans la 
+prochaine vidÃ©o. 
 
 Mais avant de parler des fonctions map et filter, je dois
-introduire la notion de fonctions lambda. Nous vous inquiétez
-pas c'est un nom étrange pour quelque chose de très simple.
+introduire la notion de fonctions lambda. Nous vous inquiÃ©tez
+pas c'est un nom Ã©trange pour quelque chose de trÃ¨s simple.
 
-Une fonction lambda est une forme simplifiée de fonction. Tout 
-ce que l'on peut faire avec une fonction lambda, on peut également
+Une fonction lambda est une forme simplifiÃ©e de fonction. Tout 
+ce que l'on peut faire avec une fonction lambda, on peut Ã©galement
 le faire avec une fonction classique. Par contre, on ne peut pas tout
-faire dans une fonction lambda. Alors quel est l'intérêt des
-fonctions lambda ? Leur unique intérêt est que les fonctions
-lambda peuvent être déclarées comme des expressions, alors
-que les fonctions classiques doivent être déclarées avec 
+faire dans une fonction lambda. Alors quel est l'intÃ©rÃªt des
+fonctions lambda ? Leur unique intÃ©rÃªt est que les fonctions
+lambda peuvent Ãªtre dÃ©clarÃ©es comme des expressions, alors
+que les fonctions classiques doivent Ãªtre dÃ©clarÃ©es avec 
 l'instruction def. 
 
-Cela veut dire que l'on peut définir une
+Cela veut dire que l'on peut dÃ©finir une
 fonction lambda partout ou l'on peut mettre une expression : 
 par exemple, dans une liste, dans un dictionnaire, ou en 
 argument d'une fonction.
@@ -45,8 +46,8 @@ Ouvrons un terminal pour jouer avec les fonction lambda...
 
 Les fonctions map et filter offrent une alternative utilisant 
 la programmation fonctionnelle aux boucles for. Cependant, nous
-verrons dans la prochaine vidéo qu'il existe une autre manière de remplacer 
+verrons dans la prochaine vidÃ©o qu'il existe une autre maniÃ¨re de remplacer 
 les boucles for qui est plus intuitive et plus efficace que ces
-fonctions : c'est la compréhension de liste.  
+fonctions : c'est la comprÃ©hension de liste.  
 
 

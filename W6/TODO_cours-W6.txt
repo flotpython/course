@@ -1,4 +1,5 @@
-. module re et expressions régulières 
+# -*- coding: utf-8 -*-
+. module re et expressions rÃ©guliÃ¨res 
 . argparse
 . framework de tests inittest
 . accents

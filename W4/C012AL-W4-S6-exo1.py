@@ -1,82 +1,82 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Commençons pas sauvegarder notre éditeur dans un fichier
+## CommenÃ§ons pas sauvegarder notre Ã©diteur dans un fichier
 ## finissant en .py, par exemple scope.py.
-## Lorsque nous allons exécuter ce fichier
+## Lorsque nous allons exÃ©cuter ce fichier
 ## (je vous rappelle que dans IDLE
 ## on peut simplement taper sur la touche F5, ou on
 ## peut en ligne de commande taper python scope.py)
-## l'interpréteur Python va transformer le code dans ce
+## l'interprÃ©teur Python va transformer le code dans ce
 ## fichier en un objet module. 
-## Toutes les variables définies dans
+## Toutes les variables dÃ©finies dans
 ## ce fichier appartiennent au scope global de ce module
-## sauf les variables définies dans les fonctions qui elles
+## sauf les variables dÃ©finies dans les fonctions qui elles
 ## appartiennent au scope local. 
 
-## Il y a deux notions importantes à comprendre lorsque
-## l'on parle de variables. La première notion est celle
+## Il y a deux notions importantes Ã  comprendre lorsque
+## l'on parle de variables. La premiÃ¨re notion est celle
 ## de scope qui explique comment les variables peuvent
-## accéder aux différentes parties du code d'un même module.
-## c'est ce que l'on va voir dans cette vidéo. La deuxième
+## accÃ©der aux diffÃ©rentes parties du code d'un mÃªme module.
+## c'est ce que l'on va voir dans cette vidÃ©o. La deuxiÃ¨me
 ## notion est celle d'espace de nommage qui explique
-## comment accéder aux variables d'autres modules et d'autres
+## comment accÃ©der aux variables d'autres modules et d'autres
 ## objets. C'est ce que l'on verra lorsque l'on reparlera
-## des modules un peu plus tard. En résumé, le scope
-## concerne l'accès aux variables internes au module,
-## et les espaces de nommage concernent l'accès
+## des modules un peu plus tard. En rÃ©sumÃ©, le scope
+## concerne l'accÃ¨s aux variables internes au module,
+## et les espaces de nommage concernent l'accÃ¨s
 ## aux variables entre les modules.
 
-## créeons deux variables a et b
+## crÃ©eons deux variables a et b
 a, b = 1, 1
 
-## c'est une variable globale parce que définie dans un module
+## c'est une variable globale parce que dÃ©finie dans un module
 ## et en dehors d'une fonction. Toutes les variables globales
-## sont accéssibles à tout le code d'un module.
+## sont accÃ©ssibles Ã  tout le code d'un module.
 
 for i in range(10):
     print a
 
 
-## je définis maintenant une fonction f avec deux variables
-## b et c. Comme elles sont définies dans la fonction,
-## elles sont locales, c'est-à-dire accessibles uniquement
-## dans la fonction, mais pas à l'extérieur.
-## De plus, les variables locales sont créées uniquement à
-## l'appel de la fonction et détruites lorsque la fonction
-## retourne (c'est-à-dire lorsque l'on sort de la fonction).
+## je dÃ©finis maintenant une fonction f avec deux variables
+## b et c. Comme elles sont dÃ©finies dans la fonction,
+## elles sont locales, c'est-Ã -dire accessibles uniquement
+## dans la fonction, mais pas Ã  l'extÃ©rieur.
+## De plus, les variables locales sont crÃ©Ã©es uniquement Ã 
+## l'appel de la fonction et dÃ©truites lorsque la fonction
+## retourne (c'est-Ã -dire lorsque l'on sort de la fonction).
 
 def f():
     b, c = 2, 3
     print a, b, c
 
-## lorsque je fais 'print a, b, c', comment l'interpréteur
+## lorsque je fais 'print a, b, c', comment l'interprÃ©teur
 ## sait quelle variable 'a' et 'b' utiliser, puisque 'a'
-## et 'b' sont définies à la fois dans le scope local et global.
-## C'est très simple !
-## La règle est de chercher d'abord la variable localement où
-## elle est utilisée. Ici, c'est dans une fonction, donc
+## et 'b' sont dÃ©finies Ã  la fois dans le scope local et global.
+## C'est trÃ¨s simple !
+## La rÃ¨gle est de chercher d'abord la variable localement oÃ¹
+## elle est utilisÃ©e. Ici, c'est dans une fonction, donc
 ## on cherche 'a' localement dans la fonction,
-## puis, si 'a' n'est pas trouvé dans le scope de la fonction,
-## on cherche 'a' globalement, c'est-à-dire dans le module.
-## Ici, a n'est pas trouvé localement, mais globalement, et
-## b et c sont trouvés localement, c'est eux
+## puis, si 'a' n'est pas trouvÃ© dans le scope de la fonction,
+## on cherche 'a' globalement, c'est-Ã -dire dans le module.
+## Ici, a n'est pas trouvÃ© localement, mais globalement, et
+## b et c sont trouvÃ©s localement, c'est eux
 ## que l'on utilise. 
 
 f()
 
-## 'print b' cherche 'b' localement où elle est utilisée,
-## c'est-à-dire dans le scope global du module. On ne
-## peut pas accéder depuis le scope global du module
+## 'print b' cherche 'b' localement oÃ¹ elle est utilisÃ©e,
+## c'est-Ã -dire dans le scope global du module. On ne
+## peut pas accÃ©der depuis le scope global du module
 ## aux variables locales des fonctions.
 print b
 
 ## par contre, on ne peut pas faire print 'c', puisque
-## 'c' est une variable locale à la fonction, donc pas
+## 'c' est une variable locale Ã  la fonction, donc pas
 ## accessible en dehors de la fonction et pas non plus
-## définie dans le scope global. 
+## dÃ©finie dans le scope global. 
 #print c
 
-## Maintenant, que se passe-t-il si on définit une fonction
+## Maintenant, que se passe-t-il si on dÃ©finit une fonction
 ## dans une fonction.
 
 a, b, c = 1, 1, 1
@@ -88,32 +88,32 @@ def g():
     h()
 g()
 
-## Python va suivre dans ce cas une nouvelle règle, utilisant
+## Python va suivre dans ce cas une nouvelle rÃ¨gle, utilisant
 ## un nouveau scope que l'on appelle scope des fonctions
 ## englobantes. Lorsque l'on fait
 ## 'print a, b, c' dans la fonction h(),
 ## Python cherche les variables dans le scope local de h(),
-## il trouve 'c' qui vaut 5. Par contre 'b' n'est pas défini
+## il trouve 'c' qui vaut 5. Par contre 'b' n'est pas dÃ©fini
 ## localement, on le cherche alors dans le scope des fonctions
-## englobante, c'est-à-dire dans le scope local
+## englobante, c'est-Ã -dire dans le scope local
 ## des fonctions qui contiennent le bloc de code de h(),
 ## de la fonction la plus proche de h
-## jusqu'à la plus éloignée. Python trouve 'b' qui vaut 3.
+## jusqu'Ã  la plus Ã©loignÃ©e. Python trouve 'b' qui vaut 3.
 ## Pour 'a', il n'est pas dans le scope local, ni dans le
 ## scope des fonction englobante, par contre il est dans le
 ## scope global. 'a' vaut donc 1.
 
-## Résumons, le scope d'une variable est déterminé par le bloc
-## de code dans lequel est défini la variable. Il peut être
+## RÃ©sumons, le scope d'une variable est dÃ©terminÃ© par le bloc
+## de code dans lequel est dÃ©fini la variable. Il peut Ãªtre
 ## local (dans une fonction) ou global (dans le module).
-## Ensuite on cherche la définition d'une variable localement,
+## Ensuite on cherche la dÃ©finition d'une variable localement,
 ## puis dans le scope des fonctions englobantes, puis
-## globalement. On appelle cette règle LEG.
+## globalement. On appelle cette rÃ¨gle LEG.
 
-## Donc une variable globale est accessible à tout le monde
-## dans le module même aux fonctions et une variable locale
+## Donc une variable globale est accessible Ã  tout le monde
+## dans le module mÃªme aux fonctions et une variable locale
 ## est accessible
-## uniquement localement ou dans les fonctions englobées,
-## c'est-à-dire dans les fonctions définies à l'intérieur
-## de la fonction qui définit notre variable.
+## uniquement localement ou dans les fonctions englobÃ©es,
+## c'est-Ã -dire dans les fonctions dÃ©finies Ã  l'intÃ©rieur
+## de la fonction qui dÃ©finit notre variable.
 

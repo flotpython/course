@@ -1,27 +1,28 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Assignation et référencement des variables et des attributs
+## TITRE : Assignation et rÃ©fÃ©rencement des variables et des attributs
 
-## Sujet de la vidéo (2 minutes 20 secondes)
+## Sujet de la vidÃ©o (2 minutes 20 secondes)
 
-Nous avons vu la notion de scope lorsque l'on a parlé des fonctions,
-la notion d'espace de nommage lorsque l'on a parlé de modules,
-et la notion d'arbre d'héritage lorsque l'on a parlé de classes. 
-Toutes ces notions servent à définir l'accès aux variables dans les
-objets. Et il est probable qu'à ce stade vous n'ayez pas les idées
-claires sur comment ces différentes notions interagissent et c'est 
-tout à fait normal, parce qu'il s'agit d'un problème difficile. 
+Nous avons vu la notion de scope lorsque l'on a parlÃ© des fonctions,
+la notion d'espace de nommage lorsque l'on a parlÃ© de modules,
+et la notion d'arbre d'hÃ©ritage lorsque l'on a parlÃ© de classes. 
+Toutes ces notions servent Ã  dÃ©finir l'accÃ¨s aux variables dans les
+objets. Et il est probable qu'Ã  ce stade vous n'ayez pas les idÃ©es
+claires sur comment ces diffÃ©rentes notions interagissent et c'est 
+tout Ã  fait normal, parce qu'il s'agit d'un problÃ¨me difficile. 
 
-Le but de cette vidéo et de faire toute la lumière sur ce problème. 
-Il faut distinguer deux cas totalement différents. Si ma variable x
-est assignée ou référencée en utilisant la notation [objet.x]
+Le but de cette vidÃ©o et de faire toute la lumiÃ¨re sur ce problÃ¨me. 
+Il faut distinguer deux cas totalement diffÃ©rents. Si ma variable x
+est assignÃ©e ou rÃ©fÃ©rencÃ©e en utilisant la notation [objet.x]
 on dira dans la suite que cette variable x est un attribut de l'objet. 
-Si ma variable x est assignée ou référencée en utilisant directement
+Si ma variable x est assignÃ©e ou rÃ©fÃ©rencÃ©e en utilisant directement
 son nom [x], alors on dira que c'est simplement une variable. 
 
 [[
@@ -30,19 +31,19 @@ x
 ]]
 
 J'utilise cette distinction entre attribut et variable parce que 
-l'assignation et le référencement est différent entre les deux.
+l'assignation et le rÃ©fÃ©rencement est diffÃ©rent entre les deux.
 
-Commençons par le cas le plus simple d'un attribut. L'assignation
+CommenÃ§ons par le cas le plus simple d'un attribut. L'assignation
 d'un attribut [objet.x = val] change la valeur de x dans 
 l'espace de nommage de l'objet. C'est simple, et c'est ce qu'on 
-a déjà vu.
+a dÃ©jÃ  vu.
 
-La référence d'un attribut [objet.x]
+La rÃ©fÃ©rence d'un attribut [objet.x]
 cherche x dynamiquement dans l'espace de nommage de l'objet, et si 
-l'objet est une instance ou une classe, le long de l'arbre d'héritage 
-si x n'est pas présent dans l'espace de nommage de l'objet. 
-C'est également ce que l'on a vu lorsque l'on a parlé d'héritage.
-Il n'y a donc pas de difficultés pour les attributs. 
+l'objet est une instance ou une classe, le long de l'arbre d'hÃ©ritage 
+si x n'est pas prÃ©sent dans l'espace de nommage de l'objet. 
+C'est Ã©galement ce que l'on a vu lorsque l'on a parlÃ© d'hÃ©ritage.
+Il n'y a donc pas de difficultÃ©s pour les attributs. 
 
 [[
 objet.x = val
@@ -55,7 +56,7 @@ Parlons maintenant du cas d'une variable.
 
 ## Conclusion ()
 
-La compréhension des mécanismes de référencement des attributs et des variables 
-est très importante pour comprendre le fonctionnement de programmes complexes. 
-Vous avez vu dans cette vidéo toutes les bases nécessaires à une bonne
-compréhension de ces mécanismes. 
+La comprÃ©hension des mÃ©canismes de rÃ©fÃ©rencement des attributs et des variables 
+est trÃ¨s importante pour comprendre le fonctionnement de programmes complexes. 
+Vous avez vu dans cette vidÃ©o toutes les bases nÃ©cessaires Ã  une bonne
+comprÃ©hension de ces mÃ©canismes. 

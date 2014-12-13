@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 <hr/>
-Affectation et référencement ?
+Affectation et rÃ©fÃ©rencement ?
 =====
 
 Supposons que l'on ait le code suivant
@@ -18,7 +19,7 @@ class C():
 C().f()
 </pre>
 
->>Que va être le résultat de l'exécution de ce code ?<<
+>>Que va Ãªtre le rÃ©sultat de l'exÃ©cution de ce code ?<<
 ( ) une exception
 ( ) un affichage de : "a dans C" et "b dans f"
 ( ) un affichage de : "a dans module" et "b dans module"
@@ -26,9 +27,9 @@ C().f()
 (x) un affichage de : "a dans module" et "b dans f"
 
 [explanation]
-L'interpréteur python suit toujours la règle LEG pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobante uniquement. Lorsque l'on execute "print a", "a" est cherchée localement, puis dans les fonctions englobantes (donc la fonction f) puis dans le module. C'est donc la valeur de "a" définie dans le module qui sera utilisée (on note que l'on saute la classe englobante lors de la recherche de la variable). 
+L'interprÃ©teur python suit toujours la rÃ¨gle LEG pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobante uniquement. Lorsque l'on execute "print a", "a" est cherchÃ©e localement, puis dans les fonctions englobantes (donc la fonction f) puis dans le module. C'est donc la valeur de "a" dÃ©finie dans le module qui sera utilisÃ©e (on note que l'on saute la classe englobante lors de la recherche de la variable). 
 
-Lorsque l'on execute "print b", "b" est cherchée localement, puis dans les fonctions englobantes (donc la fonction f). "b" est définie dans la fonction englobante f, c'est donc cette valeur de "b" qui sera utilisée. 
+Lorsque l'on execute "print b", "b" est cherchÃ©e localement, puis dans les fonctions englobantes (donc la fonction f). "b" est dÃ©finie dans la fonction englobante f, c'est donc cette valeur de "b" qui sera utilisÃ©e. 
 [explanation]
 
 =====
@@ -41,13 +42,13 @@ def f():
 f()
 </pre>
 
->>Que va être le résultat de l'exécution de ce code ?<<
+>>Que va Ãªtre le rÃ©sultat de l'exÃ©cution de ce code ?<<
 ( ) affichage de 1 sur le terminal
 ( ) affichage de 2 sur le terminal
 ( ) affichage de None sur le terminal
 (x) une exception
 
 [explanation]
-Il s'agit d'un cas subtil en python. On s'attendrait à ce que la fonction affiche 1, c'est-à-dire la valeur de la variable globale "x" au moment du print. Cependant, on définit cette variable "x" comme étant locale à la ligne suivante. Comme c'est une mauvaise idée de mélanger dans la même fonction une variable locale et une variable globale de même nom, python interdit cela en lançant une exception spécifique : UnboundLocalError. Ce problème est discuté dans un complément dédié en semaine 4. 
+Il s'agit d'un cas subtil en python. On s'attendrait Ã  ce que la fonction affiche 1, c'est-Ã -dire la valeur de la variable globale "x" au moment du print. Cependant, on dÃ©finit cette variable "x" comme Ã©tant locale Ã  la ligne suivante. Comme c'est une mauvaise idÃ©e de mÃ©langer dans la mÃªme fonction une variable locale et une variable globale de mÃªme nom, python interdit cela en lanÃ§ant une exception spÃ©cifique : UnboundLocalError. Ce problÃ¨me est discutÃ© dans un complÃ©ment dÃ©diÃ© en semaine 4. 
 [explanation]
 

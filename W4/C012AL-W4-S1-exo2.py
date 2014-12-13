@@ -1,36 +1,36 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 ## Supposons maintenant que dans le fichier que l'on vient
-## de créer je veuille remplacer l'espace entre le nombre
-## et son carré par une virgule, nous allons voir que grace
-## à la puissance des itérateurs cela ne demande que quelques
+## de crÃ©er je veuille remplacer l'espace entre le nombre
+## et son carrÃ© par une virgule, nous allons voir que grace
+## Ã  la puissance des itÃ©rateurs cela ne demande que quelques
 ## lignes de code. 
 
-## Commençonms par ouvrir le fichier que l'on vient de créer
+## CommenÃ§onms par ouvrir le fichier que l'on vient de crÃ©er
 ## en mode lecture
 f = open('C:\Temp\spam.txt', 'r')
 
-## et ouvrons un nouveau fichier en mode écriture
+## et ouvrons un nouveau fichier en mode Ã©criture
 f2 = open('C:\Temp\spam2.txt', 'w')
 
-## Les fichiers en Python sont des itérateurs
+## Les fichiers en Python sont des itÃ©rateurs
 it = f.__iter__()
 
 print it is f
 
 ## Donc on peut faire directement une boucle for sur un
-## fichier. Chaque itération va retourner une nouvelle
+## fichier. Chaque itÃ©ration va retourner une nouvelle
 ## ligne du fichier.
 
-## Cependant, comme le fichier est directement un itérateur
-## (et non un objet qui peut avoir plusieurs itérateurs)
-## on ne peut itérer qu'une seule fois sur un objet fichier.
-## Pour itérer de nouveau, il faut créer un nouvel objet
+## Cependant, comme le fichier est directement un itÃ©rateur
+## (et non un objet qui peut avoir plusieurs itÃ©rateurs)
+## on ne peut itÃ©rer qu'une seule fois sur un objet fichier.
+## Pour itÃ©rer de nouveau, il faut crÃ©er un nouvel objet
 ## fichier avec la fonction built-in open()
 
 ## regardons maintenant comment lire le fichier,
-## remplacer les espaces par des virgules et écrire
-## le résultat dans un nouveau fichier.
+## remplacer les espaces par des virgules et Ã©crire
+## le rÃ©sultat dans un nouveau fichier.
 
 for line in f:
     f2.write(line.replace(' ', ','))

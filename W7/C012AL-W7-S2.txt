@@ -1,42 +1,43 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-##  TITRE : Les décorateurs
+##  TITRE : Les dÃ©corateurs
 
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
-Dans cette vidéo nous allons parler de la notion de décorateur.
-Cette notion a été introduire initialement pous simplifier
-la déclaration des méthodes statiques et de classes. Mais
-les décorateur vont beaucoup plus loin en offrant un moyen
-puissant d'ajouter une couche de logique à la demande aux
+Dans cette vidÃ©o nous allons parler de la notion de dÃ©corateur.
+Cette notion a Ã©tÃ© introduire initialement pous simplifier
+la dÃ©claration des mÃ©thodes statiques et de classes. Mais
+les dÃ©corateur vont beaucoup plus loin en offrant un moyen
+puissant d'ajouter une couche de logique Ã  la demande aux
 fonctions et aux classes. 
 
-Mais revenons sur notre exemple de méthodes statiques et de classe. 
+Mais revenons sur notre exemple de mÃ©thodes statiques et de classe. 
 
 >>>>>>>>>> INCLUDE C012AL-W7-S2-slide1.pptx () <<<<<<<<<<
 
 
 ## Conclusion()
 
-En résumé un décorateur est un moyen d'ajouter une couche de 
-logique autour d'une fonction ou d'une classe à la demande. En effet, 
+En rÃ©sumÃ© un dÃ©corateur est un moyen d'ajouter une couche de 
+logique autour d'une fonction ou d'une classe Ã  la demande. En effet, 
 il suffit d'ajouter la ligne @decorateur avant la fonction ou la 
 classe pour ajouter cette couche. 
 
-Cette couche de logique peut-être simple, comme une fonction, ou très
-sophistiquée, comme une classe. Le décorateur peut faire des opérations
+Cette couche de logique peut-Ãªtre simple, comme une fonction, ou trÃ¨s
+sophistiquÃ©e, comme une classe. Le dÃ©corateur peut faire des opÃ©rations
 et retourner la fonction ou la classe originale, ou retourner un 
 autre objet callable,
-c'est à dire soit une fonction, soit une classe qui implémente la
- méthode __call__. Les possibilités sont donc énorme. 
- Par exemple, un décorateur peut simplement valider des arguments 
- passés à une fonction ou profiler le temps d'exécution. Nous allons 
- voir dans les compléments des exemples concrets d'utilisation des 
- décorateurs.
+c'est Ã  dire soit une fonction, soit une classe qui implÃ©mente la
+ mÃ©thode __call__. Les possibilitÃ©s sont donc Ã©norme. 
+ Par exemple, un dÃ©corateur peut simplement valider des arguments 
+ passÃ©s Ã  une fonction ou profiler le temps d'exÃ©cution. Nous allons 
+ voir dans les complÃ©ments des exemples concrets d'utilisation des 
+ dÃ©corateurs.
 

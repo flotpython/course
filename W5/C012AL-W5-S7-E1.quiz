@@ -1,34 +1,35 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Quand utiliser fonctions, modules ou classes ?
 =====
 
->>J'ai un morceau de code qui effectue un calcul et j'utilise très fréquemment ce code. Quelle est la bonne manière de factoriser ce code?<<
+>>J'ai un morceau de code qui effectue un calcul et j'utilise trÃ¨s frÃ©quemment ce code. Quelle est la bonne maniÃ¨re de factoriser ce code?<<
 (x) une fonction
 ( ) une classe
 ( ) un module
 ( ) aucune factorisation possible
 
 [explanation]
-Lorsque l'on a un morceau de code qui retourne un résultat et que l'on a besoin de fréquemment utiliser ce code, il est naturel d'utiliser une fonction python.
+Lorsque l'on a un morceau de code qui retourne un rÃ©sultat et que l'on a besoin de frÃ©quemment utiliser ce code, il est naturel d'utiliser une fonction python.
 [explanation]
 
->>J'ai un morceau code avec de nombreuses fonctions que j'ai besoin d'utiliser à différents endroits de mon programme. Quelle est la bonne manière de factoriser ce code?<<
+>>J'ai un morceau code avec de nombreuses fonctions que j'ai besoin d'utiliser Ã  diffÃ©rents endroits de mon programme. Quelle est la bonne maniÃ¨re de factoriser ce code?<<
 ( ) une fonction
 ( ) une classe
 (x) un module
 ( ) aucune factorisation possible
 
 [explanation]
-La manière naturelle de factoriser un code avec des fonctions est de faire un module qui jouera le rôle d'une boite à outils pour mon programme. 
+La maniÃ¨re naturelle de factoriser un code avec des fonctions est de faire un module qui jouera le rÃ´le d'une boite Ã  outils pour mon programme. 
 [explanation]
 
->>J'ai un morceau code avec des fonctions et j'ai besoin de l'utiliser à différents endroits de mon programme. De plus, je modifie à différents endroits de mon programme quelques fonctions de ce morceau de code. Quelle est la bonne manière de factoriser ce code?<<
+>>J'ai un morceau code avec des fonctions et j'ai besoin de l'utiliser Ã  diffÃ©rents endroits de mon programme. De plus, je modifie Ã  diffÃ©rents endroits de mon programme quelques fonctions de ce morceau de code. Quelle est la bonne maniÃ¨re de factoriser ce code?<<
 ( ) une fonction
 (x) une classe
 ( ) un module
 ( ) aucune factorisation possible
 
 [explanation]
-Dans ce cas, on peut difficilement utiliser un module puisque l'on doit suivant l'endroit du programme utiliser des fonctions différentes. La manière naturelle de factoriser ce code est de faire des classes et des sous classes qui définissent les fonctions différentes suivant l'endroit de mon programme. Notons que l'on peut tout à fait créer des fonctions qui avec certains paramètres changent leur comportement et tout mettre dans un module. Cependant, la maintenance sera plus difficile puisque l'on ne bénéficiera pas de l'héritage qui, lorsqu'il est bien utilisé, permet une meilleure factorisation et maintenance du code. 
+Dans ce cas, on peut difficilement utiliser un module puisque l'on doit suivant l'endroit du programme utiliser des fonctions diffÃ©rentes. La maniÃ¨re naturelle de factoriser ce code est de faire des classes et des sous classes qui dÃ©finissent les fonctions diffÃ©rentes suivant l'endroit de mon programme. Notons que l'on peut tout Ã  fait crÃ©er des fonctions qui avec certains paramÃ¨tres changent leur comportement et tout mettre dans un module. Cependant, la maintenance sera plus difficile puisque l'on ne bÃ©nÃ©ficiera pas de l'hÃ©ritage qui, lorsqu'il est bien utilisÃ©, permet une meilleure factorisation et maintenance du code. 
 [explanation]
 

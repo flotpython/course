@@ -1,24 +1,24 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Il y a trois manieres d'implémenter un itérateur
-## pour ses objets. Commençons par la permière.
-## je veux que mon objet soit son propre itérateur,
-## donc on ne peut itérer qu'un fois sur chaque objet.
+## Il y a trois manieres d'implÃ©menter un itÃ©rateur
+## pour ses objets. CommenÃ§ons par la permiÃ¨re.
+## je veux que mon objet soit son propre itÃ©rateur,
+## donc on ne peut itÃ©rer qu'un fois sur chaque objet.
 ## C'est ce que l'on a pour les fichiers 
 
 
 class Mots():
-    ## ma classe Objet prend un phrase à la contruction
-    ## et la découpe en mots
+    ## ma classe Objet prend un phrase Ã  la contruction
+    ## et la dÃ©coupe en mots
     def __init__(self, phrase):
         self.list_mots = phrase.split()
         self.count = 0
 
-    ## mon objet et son propre itérateur
+    ## mon objet et son propre itÃ©rateur
     def __iter__(self):
         return self
 
-    ## next retourne le mot suivant jusqu'à ce
+    ## next retourne le mot suivant jusqu'Ã  ce
     ## qu'il n'y ait plus de mots dans la phrase.
     def next(self):
         if self.count == len(self.list_mots):
@@ -28,13 +28,13 @@ class Mots():
 
 m = Mots("spam spam spam egg beans spam")
 print [x for x in m]
-print [x for x in m] #il n'y a qu'un itérateur par instance
-## il faut refaire une instance pour itérer à nouveau.
+print [x for x in m] #il n'y a qu'un itÃ©rateur par instance
+## il faut refaire une instance pour itÃ©rer Ã  nouveau.
 m = Mots("spam spam spam egg beans spam")
 print [x for x in m]
 
-## la deuxième manière consiste à avoir un nouvel
-## objet itérateur à chaque fois que l'on itere sur
+## la deuxiÃ¨me maniÃ¨re consiste Ã  avoir un nouvel
+## objet itÃ©rateur Ã  chaque fois que l'on itere sur
 ## une instance de Mot. C'est ce que l'on a pour les
 ## listes.
 
@@ -61,11 +61,11 @@ class IterMots():
 
 m = Mots("spam spam spam egg beans spam")
 print [x for x in m]
-print [x for x in m]        #il y a de multiples itérateurs 
+print [x for x in m]        #il y a de multiples itÃ©rateurs 
 
-## la dernière manière donne le même résultat que la
-## précédente (de multiple itérateur par instance),
-## mais en exploitant la puissance des fonctions génératrices
+## la derniÃ¨re maniÃ¨re donne le mÃªme rÃ©sultat que la
+## prÃ©cÃ©dente (de multiple itÃ©rateur par instance),
+## mais en exploitant la puissance des fonctions gÃ©nÃ©ratrices
 
 class Mots():
     def __init__(self, phrase):
@@ -77,4 +77,4 @@ class Mots():
 
 m = Mots("spam spam spam egg beans spam")
 print [x for x in m]
-print [x for x in m]        #il y a de multiples itérateurs 
+print [x for x in m]        #il y a de multiples itÃ©rateurs 

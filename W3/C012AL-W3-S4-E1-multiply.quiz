@@ -1,58 +1,59 @@
+# -*- coding: utf-8 -*-
 <hr/>
-Références partagées (1)
+RÃ©fÃ©rences partagÃ©es (1)
 =====
 
-On définit une liste comme étant
+On dÃ©finit une liste comme Ã©tant
 
 <pre>liste = 3 * [0] </pre>
 
-après quoi on fait 
+aprÃ¨s quoi on fait 
 
 <pre>liste[0] = 1</pre>
 
-qu'obtient-on si on imprime liste à ce stade ?
+qu'obtient-on si on imprime liste Ã  ce stade ?
 
 (x) [1, 0, 0]
 ( ) [1, 1, 1]
 
 [explanation]
-l'affectation de liste&#91;0&#93; ne change pas les deux autres éléments de la liste
+l'affectation de liste&#91;0&#93; ne change pas les deux autres Ã©lÃ©ments de la liste
 [explanation]
 
 <hr/>
-Références partagées (2)
+RÃ©fÃ©rences partagÃ©es (2)
 =====
 
-À présent on définit une liste 
+Ã€ prÃ©sent on dÃ©finit une liste 
 
 <pre>liste = 3 * [ [0] ]</pre>
 
-après quoi on fait 
+aprÃ¨s quoi on fait 
 
 <pre>liste[0][0] = 1</pre>
 
-qu'obtient-on si on imprime liste à ce stade ?
+qu'obtient-on si on imprime liste Ã  ce stade ?
 
 ( ) [ [1], [0], [0] ]
 (x) [ [1], [1], [1] ]
 
 [explanation]
-Cette fois l'affectation concerne la liste à un élément qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les 3 élément de la liste
+Cette fois l'affectation concerne la liste Ã  un Ã©lÃ©ment qui est partagÃ©e par les trois Ã©lÃ©ments de liste, on est dans le cas d'une rÃ©fÃ©rence partagÃ©e, la modification affecte les 3 Ã©lÃ©ment de la liste
 [explanation]
 
 <hr/>
-Références partagées (3)
+RÃ©fÃ©rences partagÃ©es (3)
 =====
 
-Dans l'exercice précédent, comment faire pour éviter que les trois éléments de liste ne soient modifiées ?
+Dans l'exercice prÃ©cÃ©dent, comment faire pour Ã©viter que les trois Ã©lÃ©ments de liste ne soient modifiÃ©es ?
 
-( ) il n'y a rien à faire, la modification ne concerne que le premier élément
+( ) il n'y a rien Ã  faire, la modification ne concerne que le premier Ã©lÃ©ment
 ( ) il faut faire une "shallow copy"
 ( ) il faut faire une "deep copy"
 (x) il faut construire la liste autrement
 
 [explanation]
-Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc le même défaut que l'objet original. La seule solution est de construire la liste autrement, soit à la main 
+Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va crÃ©er un nouvel objet, mais avec la mÃªme structure, donc le mÃªme dÃ©faut que l'objet original. La seule solution est de construire la liste autrement, soit Ã  la main 
 <pre>
 liste = &#91;&#91;0&#93;, &#91;0&#93;, &#91;0&#93;&#93;
 </pre> 
@@ -62,7 +63,7 @@ liste = &#91;&#93;
 for i in range(3):
     liste.append(&#91;0&#93;)
 </pre>
-soit dans une compréhension de liste que nous verrons plus tard
+soit dans une comprÃ©hension de liste que nous verrons plus tard
 <pre>
 liste = &#91;&#91;0&#93; for i in range(3)&#93;
 </pre>

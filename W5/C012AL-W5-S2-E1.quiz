@@ -1,17 +1,18 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Processus d'importation d'un module
 =====
 
-Comment est-ce que l'interprÈteur python trouve la localisation du fichier d'un module sur le disque dur ? Il y a un ou plusieurs choix possibles. 
+Comment est-ce que l'interpr√©teur python trouve la localisation du fichier d'un module sur le disque dur ? Il y a un ou plusieurs choix possibles. 
 
-[x] Dans le rÈpertoire courant, c'est-‡-dire le rÈpertoire depuis lequel on a lancÈ l'interprÈteur python. 
-[ ] Python trouve automatiquement le fichier quelque soit sa localisation gr‚ce ‡ un mÈcanisme d'indexation. 
-[x] Dans une liste de rÈpertoires contenue dans la variable d'environnement systËme PYTHONPATH.
-[x] Dans les rÈpertoires de la librairie standard. 
+[x] Dans le r√©pertoire courant, c'est-√†-dire le r√©pertoire depuis lequel on a lanc√© l'interpr√©teur python. 
+[ ] Python trouve automatiquement le fichier quelque soit sa localisation gr√¢ce √† un m√©canisme d'indexation. 
+[x] Dans une liste de r√©pertoires contenue dans la variable d'environnement syst√®me PYTHONPATH.
+[x] Dans les r√©pertoires de la librairie standard. 
 [ ] Il faut donner explicitement le chemin complet du fichier lorsque l'on importe un module.
-[x] Dans la liste des rÈpertoires contenue dans la variable sys.path qui regroupe tous les chemins de recherche. 
+[x] Dans la liste des r√©pertoires contenue dans la variable sys.path qui regroupe tous les chemins de recherche. 
 
 [explanation]
-Lorsque l'on importe un module mod, l'interprÈteur python cherche en premier le fichier correspondant (mod.py) dans le rÈpertoire courant, puis dans la liste des rÈpertoires contenue dans la variable d'environnement systËme PYTHONPATH, puis dans les rÈpertoires de la librairie standard. Tous ces chemins sont contenus dans la variable sys.path au dÈmarrage de l'interprÈteur. 
+Lorsque l'on importe un module mod, l'interpr√©teur python cherche en premier le fichier correspondant (mod.py) dans le r√©pertoire courant, puis dans la liste des r√©pertoires contenue dans la variable d'environnement syst√®me PYTHONPATH, puis dans les r√©pertoires de la librairie standard. Tous ces chemins sont contenus dans la variable sys.path au d√©marrage de l'interpr√©teur. 
 [explanation]
 

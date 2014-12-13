@@ -1,30 +1,31 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les listes
 
-## Résumé de la vidéo (1 minute)
+## RÃ©sumÃ© de la vidÃ©o (1 minute)
 
-Dans cette vidéo nous allons présenter le type de plus important
-en Python, c'est le type list. La liste est une séquence qui permet 
-de regrouper des objets hétérogènes de n'importe
-quel type. Les objets ne sont jamais stockés directement 
-dans la liste, seules les références vers ces objets
-sont stockées. Donc la taille d'une liste n'augmente pas avec la taille
-des objets qu'elle référence, mais seulement avec le nombre d'objet
-quelle référence. 
+Dans cette vidÃ©o nous allons prÃ©senter le type de plus important
+en Python, c'est le type list. La liste est une sÃ©quence qui permet 
+de regrouper des objets hÃ©tÃ©rogÃ¨nes de n'importe
+quel type. Les objets ne sont jamais stockÃ©s directement 
+dans la liste, seules les rÃ©fÃ©rences vers ces objets
+sont stockÃ©es. Donc la taille d'une liste n'augmente pas avec la taille
+des objets qu'elle rÃ©fÃ©rence, mais seulement avec le nombre d'objet
+quelle rÃ©fÃ©rence. 
 
-Les listes sont mutables, c'est-à-dire que l'on peut les modifier en 
+Les listes sont mutables, c'est-Ã -dire que l'on peut les modifier en 
 place. On dit qu'une modification est en place lorsque l'on modifie directement
-l'objet en mémoire sans en faire une copie temporaire. L'intérêt d'une 
-modification en place est qu'elle est économe en mémoire puisqu'elle ne
+l'objet en mÃ©moire sans en faire une copie temporaire. L'intÃ©rÃªt d'une 
+modification en place est qu'elle est Ã©conome en mÃ©moire puisqu'elle ne
 demande pas de copie temporaire.
 
-Ouvrons un terminal interactif et commençons a jouer avec les listes. 
+Ouvrons un terminal interactif et commenÃ§ons a jouer avec les listes. 
 
 >>>>>>>>>> INCLUDE C012AL-W2-S4-exo1.py (8 minutes) <<<<<<<<<<
 

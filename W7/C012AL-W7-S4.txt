@@ -1,28 +1,29 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-##  TITRE : Les métaclasses
+##  TITRE : Les mÃ©taclasses
 
 
-## Résumé de la vidéo ()
+## RÃ©sumÃ© de la vidÃ©o ()
 
  revenons maintenant au fonctionnement des classes new-style
- On va dans la suite aborder des notions très avancées sur
+ On va dans la suite aborder des notions trÃ¨s avancÃ©es sur
  le fonctionnement des objets. Vous pouvez tout a fait
- programmer en Python sans connaître les détails qui suivent
+ programmer en Python sans connaÃ®tre les dÃ©tails qui suivent
  Mais si vous aimez savoir comment les choses fonctionnent
- ou si vous envisagez un utilisation avancée de la
+ ou si vous envisagez un utilisation avancÃ©e de la
  programmation objet en Python, ce qui suit dans
- cette vidéo sera éclairant.
+ cette vidÃ©o sera Ã©clairant.
 
 >>>>>>>>>> INCLUDE C012AL-W7-S4-slide1.pptx () <<<<<<<<<<
 
-Les décorateurs sont utile pour modifier une fonction ou une classe
-après son instanciation. Les métaclasses sont utiles pour modifier
-les attributs d'une classe avant sa création. 
+Les dÃ©corateurs sont utile pour modifier une fonction ou une classe
+aprÃ¨s son instanciation. Les mÃ©taclasses sont utiles pour modifier
+les attributs d'une classe avant sa crÃ©ation. 
 
 ## Conclusion()

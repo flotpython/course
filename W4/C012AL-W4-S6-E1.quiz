@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 <hr/>
-Variable locale à une fonction (1)
+Variable locale Ã  une fonction (1)
 =====
 
-Dans quel cas la variable var est locale à la fonction.
+Dans quel cas la variable var est locale Ã  la fonction.
 
 Proposition 1
 <pre>
@@ -37,15 +38,15 @@ Choisissez une ou plusieurs propositions.
 [ ] Proposition 3
 
 [explanation]
-Dans la proposition 1, la variable var n'est jamais affectée dans la fonction, donc elle n'est pas une variable locale à la fonction, mais une variable globale. 
+Dans la proposition 1, la variable var n'est jamais affectÃ©e dans la fonction, donc elle n'est pas une variable locale Ã  la fonction, mais une variable globale. 
 
-Dans la proposition 2, la variable var est affectée à la première ligne de la fonction. Elle devient donc locale à la fonction. 
+Dans la proposition 2, la variable var est affectÃ©e Ã  la premiÃ¨re ligne de la fonction. Elle devient donc locale Ã  la fonction. 
 
-Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction, mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis : UnboundLocalError. Il y a un complément spécifique sur cette erreur qu'il est très important de comprendre. 
+Dans la proposition 3, la variable var est affectÃ©e Ã  la deuxiÃ¨me ligne de la fonction, mais aprÃ¨s avoir Ã©tÃ© rÃ©fÃ©rencÃ©e Ã  la premiÃ¨re ligne. Dans ce cas, Python juge qu'il y a une ambiguÃ¯tÃ© et va lancer une exception particuliÃ¨re qui n'est lancÃ©e que dans ce cas prÃ©cis : UnboundLocalError. Il y a un complÃ©ment spÃ©cifique sur cette erreur qu'il est trÃ¨s important de comprendre. 
 [explanation]
 
 <hr/>
-Portée (scope) des variables (2)
+PortÃ©e (scope) des variables (2)
 =====
 
 Que va afficher : print f() ?
@@ -68,19 +69,19 @@ Choisissez une proposition.
 ( ) Une exception
 
 [explanation]
-Suivant la règle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
+Suivant la rÃ¨gle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
 
-Si ce résultat vous semble clair et que vous avez déjà lu l'errata de cette vidéo, vous pouvez passer l'explication suivante, sinon, lisez la attentivement.
+Si ce rÃ©sultat vous semble clair et que vous avez dÃ©jÃ  lu l'errata de cette vidÃ©o, vous pouvez passer l'explication suivante, sinon, lisez la attentivement.
 
-Cette semaine, nous considérons deux notions de blocs de code : le bloc de code d'un module et le bloc de code d'une fonction (nous verrons en semaine 5 un nouveau bloc de code, celui des classes). 
+Cette semaine, nous considÃ©rons deux notions de blocs de code : le bloc de code d'un module et le bloc de code d'une fonction (nous verrons en semaine 5 un nouveau bloc de code, celui des classes). 
 
-Une variable est soit affectée, on lui donne alors une valeur qui est l'objet référencé par la variable, soit référencée, on utilise alors la valeur d'une variable précédemment affectée. Regardons maintenant le lien entre ces notions d'affectation et de référencement avec les notions de bloc de code et de scope.  
+Une variable est soit affectÃ©e, on lui donne alors une valeur qui est l'objet rÃ©fÃ©rencÃ© par la variable, soit rÃ©fÃ©rencÃ©e, on utilise alors la valeur d'une variable prÃ©cÃ©demment affectÃ©e. Regardons maintenant le lien entre ces notions d'affectation et de rÃ©fÃ©rencement avec les notions de bloc de code et de scope.  
 
-Une variable qui est affectée dans un bloc de code devient locale à ce bloc. On dit que la variable est locale à la fonction ou au module et par définition, une variable locale à un module est appelée une variable globale. 
+Une variable qui est affectÃ©e dans un bloc de code devient locale Ã  ce bloc. On dit que la variable est locale Ã  la fonction ou au module et par dÃ©finition, une variable locale Ã  un module est appelÃ©e une variable globale. 
 
-En résumé, une variable affectée dans une fonction est locale à la fonction. La valeur de cette variable sera accessible à toutes les instructions dans le bloc de code de cette fonction et à toutes les instructions dans les blocs de code des fonctions définies dans cette fonction. Une variable affectée dans  un module (en dehors d'une fonction) est une variable globale du module. La valeur de cette variable sera accessible à toutes les instructions dans le module, y compris aux instructions dans les blocs de code des fonctions du module. 
+En rÃ©sumÃ©, une variable affectÃ©e dans une fonction est locale Ã  la fonction. La valeur de cette variable sera accessible Ã  toutes les instructions dans le bloc de code de cette fonction et Ã  toutes les instructions dans les blocs de code des fonctions dÃ©finies dans cette fonction. Une variable affectÃ©e dans  un module (en dehors d'une fonction) est une variable globale du module. La valeur de cette variable sera accessible Ã  toutes les instructions dans le module, y compris aux instructions dans les blocs de code des fonctions du module. 
 
-On appelle l'accessibilité de la valeur d'une variable le scope (ou la portée) de cette variable. 
+On appelle l'accessibilitÃ© de la valeur d'une variable le scope (ou la portÃ©e) de cette variable. 
 
-Lorsque l'on référence une variable, on va chercher sa valeur suivant la règle LEG. On cherche la variable localement au bloc de code dans lequel elle est référencée, puis, si elle n'est pas définie, dans le bloc de code des fonctions englobantes, puis, si elle n'est toujours pas définie,  dans le bloc de code du module. De manière équivalente, on pourrait dire que la valeur de la variable référencée est celle de la variable locale du même bloc de code, puis de la variable locale des fonctions englobantes, puis de la variable globale. 
+Lorsque l'on rÃ©fÃ©rence une variable, on va chercher sa valeur suivant la rÃ¨gle LEG. On cherche la variable localement au bloc de code dans lequel elle est rÃ©fÃ©rencÃ©e, puis, si elle n'est pas dÃ©finie, dans le bloc de code des fonctions englobantes, puis, si elle n'est toujours pas dÃ©finie,  dans le bloc de code du module. De maniÃ¨re Ã©quivalente, on pourrait dire que la valeur de la variable rÃ©fÃ©rencÃ©e est celle de la variable locale du mÃªme bloc de code, puis de la variable locale des fonctions englobantes, puis de la variable globale. 
 [explanation]

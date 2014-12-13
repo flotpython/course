@@ -1,111 +1,112 @@
+# -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
 
 # TITRE SEMAINE 5 : Modules, classes et espaces de nommage
 
 ###################################################################
 
-## Vidéo 1 (Modules et espaces de nommage)
+## VidÃ©o 1 (Modules et espaces de nommage)
 NIVEAU: BASIC
 
 C012AL-W5-S1.txt
 
-## Compléments Vidéo 1
+## ComplÃ©ments VidÃ©o 1
 
 OK Complement-attributs.ipynb
 OK Complement-fonctions-globals-et-locals.ipynb
 
 DROPPED
-*parler de l'impossibilité de faire __dict__ du module courant
+*parler de l'impossibilitÃ© de faire __dict__ du module courant
 (en particulier du prompt interactif) et expliquer que l'on 
-ne peut y accéder que depuis sys.modules[__name__].__dict__
+ne peut y accÃ©der que depuis sys.modules[__name__].__dict__
 Citer 
 http://docs.python.org/2.6/tutorial/classes.html#id2
 http://stackoverflow.com/questions/4877290/what-is-the-dict-dict-attribute-of-a-python-class
 pareil
-je vais laisser tomber tout ça c'est beaucoup trop bas niveau
+je vais laisser tomber tout Ã§a c'est beaucoup trop bas niveau
 
-## Quizz Vidéo 1
+## Quizz VidÃ©o 1
 OK C012AL-W5-S1-E1.quiz
 
-en relisant les exos des semaines passées je tombe sur ceci
+en relisant les exos des semaines passÃ©es je tombe sur ceci
 import string
 chaine = string.lowercase
 print chaine
-on pourrait sûrement contruire un quiz en élaborant là-dessus, non ?
+on pourrait sÃ»rement contruire un quiz en Ã©laborant lÃ -dessus, non ?
 
-## Exercices Vidéo 1
+## Exercices VidÃ©o 1
 
 ###################################################################
 
-## Vidéo 2 (Processus d'importation des modules)
+## VidÃ©o 2 (Processus d'importation des modules)
 NIVEAU: BASIC
 
 C012AL-W5-S2.txt
 
-## Compléments Vidéo 2
+## ComplÃ©ments VidÃ©o 2
 
 OK Complement-import .ipynb
-avancé
+avancÃ©
 . en profiter pour mentionner sys.modules
 . parler de sys.builtin_module_names et de, par exemple, math 
-et sys, qui sont des modules built-in implémentés en C pour
+et sys, qui sont des modules built-in implÃ©mentÃ©s en C pour
 des questions de vitesse. 
 
 NICETOHAVE
-montrer que si bar importe foo et que foo importe sys, alors bar peut accéder à foo.sys
+montrer que si bar importe foo et que foo importe sys, alors bar peut accÃ©der Ã  foo.sys
 
 NICETOHAVE C012AL-W5-S2-C2-pyc.ipynb
-intermédiaire
-*compléter la
+intermÃ©diaire
+*complÃ©ter la
 discussion de la video sur les .pyc. Par exemple, on peut directement
-distribuer les .pyc sans les .py je suis pas très clair là-dessus, le
-pyc ne dépend pas du hardware, d'accord, mais dépend-il de la version
-de python (je présume que oui)
+distribuer les .pyc sans les .py je suis pas trÃ¨s clair lÃ -dessus, le
+pyc ne dÃ©pend pas du hardware, d'accord, mais dÃ©pend-il de la version
+de python (je prÃ©sume que oui)
 
-DROPPED *exécuter un module comme un script avec  if __name__ == '__main__':
-déjà vu en Complement-packages.ipynb
+DROPPED *exÃ©cuter un module comme un script avec  if __name__ == '__main__':
+dÃ©jÃ  vu en Complement-packages.ipynb
 
-## Quizz Vidéo 2
+## Quizz VidÃ©o 2
 
 OK C012AL-W5-S2-E1.quiz
 
 
-## Exercices Vidéo 2
+## Exercices VidÃ©o 2
 
 ###################################################################
 
-## Vidéo 3 (Importation de modules et espace de nommage)
+## VidÃ©o 3 (Importation de modules et espace de nommage)
 NIVEAU: BASIC
 
 C012AL-W5-S3.txt
 
-## Compléments Vidéo 3
+## ComplÃ©ments VidÃ©o 3
 
 OK Complement-import-as.ipynb
 
 DROPPED - 
-Introduire aussi les variables commençant par _ en expliquant que 
-l'on ne doit pas les modifier et qu'elles ne sont pas importée par 
-un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes façons
+Introduire aussi les variables commenÃ§ant par _ en expliquant que 
+l'on ne doit pas les modifier et qu'elles ne sont pas importÃ©e par 
+un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes faÃ§ons
 
-## Quizz Vidéo 3
+## Quizz VidÃ©o 3
 
 OK C012AL-W5-S3-E1.quiz
 
 
-## Exercices Vidéo 3
+## Exercices VidÃ©o 3
 
 ###################################################################
-# avant d'attaquer les classes je mettrais bien ici un premier enoncé de mini-projet..
+# avant d'attaquer les classes je mettrais bien ici un premier enoncÃ© de mini-projet..
 # ou alors en fin de cette semaine 
 ###################################################################
 
-## Vidéo 4 (Classes, instances et méthodes)
+## VidÃ©o 4 (Classes, instances et mÃ©thodes)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W5-S4.txt
 
-## Compléments Vidéo 4
+## ComplÃ©ments VidÃ©o 4
 
 OK (S4-C1-)Complement-introduction-classes.ipynb
 
@@ -117,86 +118,86 @@ je laisse tomber ce lien; je ne suis meme pas sur de tout comprendre la-dedans
 https://docs.python.org/2/tutorial/classes.html#odds-and-ends
 
 OK (S4-C4-)Complement-attributs-classe-instance.ipynb
-intermédiaire
+intermÃ©diaire
 montrer les attributs de classe et les attributs d'instance sur un exemple
 par exemple Matrix2.template pour une mise en forme..
 ou trouver mieux
 monter qu'on peut faire self.template aussi bien que Matrix2.template
 
-## Quizz Vidéo 4
+## Quizz VidÃ©o 4
 
 OK C012AL-W5-S4-E1.quiz
 
-## Exercices Vidéo 4
+## Exercices VidÃ©o 4
 
 ###################################################################
 
-## Vidéo 5 (Héritage)
+## VidÃ©o 5 (HÃ©ritage)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W5-S5.txt
 
-## Compléments Vidéo 5
+## ComplÃ©ments VidÃ©o 5
 
 
 OK (S5-C1-)Complement-heritage.ipynb
 DROPPED
-* peut-être citer / discuter en montrer des exemples
+* peut-Ãªtre citer / discuter en montrer des exemples
 design patterns et le livre de Gamma et al.
 OK (S5-C2-)Complement-classes-new-style.ipynb  
 OK (S5-C3-)Complement-heritage-multiple.ipynb
 OK (S5-C4-)Complement-heritage-typage.ipynb
 
-## Quizz Vidéo 5
+## Quizz VidÃ©o 5
 batir quelque chose avec des exemples simples de code 
 OK C012AL-W5-S5-E1.quiz
 
-## Exercices Vidéo 5
+## Exercices VidÃ©o 5
 
 ###################################################################
 
-## Vidéo 6 (Surcharge d'opérateurs)
+## VidÃ©o 6 (Surcharge d'opÃ©rateurs)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W5-S6.txt
 
-## Compléments Vidéo 6
+## ComplÃ©ments VidÃ©o 6
 
 ONGOING (S6-C1-)Complement-surcharge-operateurs-1.ipynb
 
-*Citer ce lien pour toutes les surcharges d'opérateurs. 
+*Citer ce lien pour toutes les surcharges d'opÃ©rateurs. 
 http://docs.python.org/2/reference/datamodel.html#special-method-names
 
 Il faut voir au minimum  __getattr__,
 illustrer __getattr__ avec un proxy xmlrpc
 
 * parler des fallback 
-Itération : __iter__ puis __getitem__
+ItÃ©ration : __iter__ puis __getitem__
 in :  __contains__ puis __iter__ puis __getitem__
 Test vrai/faux : __nonzero__ puis __len__ (faux si __len__ retourne 0)
 print : __str__ puis __repr__
 
-*parler des optimisations de CPython sur les opérateurs
-Plus rapide d'utiliser un opérateur que l'appel direct sur le méthode
+*parler des optimisations de CPython sur les opÃ©rateurs
+Plus rapide d'utiliser un opÃ©rateur que l'appel direct sur le mÃ©thode
 >>> timeit.timeit(setup = "L = range(1000)", number = 100000000, stmt = "0 in L")
 3.1706046182752914
 >>> timeit.timeit(setup = "L = range(1000)", number = 100000000, stmt = "L.__contains__(0)")
 11.681099249275206
 
-## Quizz Vidéo 6
+## Quizz VidÃ©o 6
 
-## Exercices Vidéo 6
+## Exercices VidÃ©o 6
 ONGOING (S6-E1-)Exercice-classes.ipynb
 
 je pense qu'en guise d'exercice je vais leur mitonner un mini-projet 
-un truc à base des données de marine (une classe bateau, une classe position, une classe mouvement)
-il n'y aurait alors pas de correction en ligne, mais plutôt
-. un énoncé où on liste les classes et les modules qu'il faut écrire et les méthodes clé 
+un truc Ã  base des donnÃ©es de marine (une classe bateau, une classe position, une classe mouvement)
+il n'y aurait alors pas de correction en ligne, mais plutÃ´t
+. un Ã©noncÃ© oÃ¹ on liste les classes et les modules qu'il faut Ã©crire et les mÃ©thodes clÃ© 
 . un bout de code qui utilise ces classes pour faire quelque (genre dessiner les positions des bateaux dans matplotlib)
-. et un corrigé la semaine suivante
+. et un corrigÃ© la semaine suivante
 
 Les etudiants pourraient 
-* télécharger le code python qui va avec le notebook de l'exercice
+* tÃ©lÃ©charger le code python qui va avec le notebook de l'exercice
 * ecrire leur code a eux sur leur ordi dans les modules specifies
 jusqu'a ce que ca donne le resultat escompte
 
@@ -204,26 +205,26 @@ jusqu'a ce que ca donne le resultat escompte
 
 ###################################################################
 
-## Vidéo 7 (Quand utiliser fonctions, modules ou classes ?)
+## VidÃ©o 7 (Quand utiliser fonctions, modules ou classes ?)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W5-S7.txt
 
-## Compléments Vidéo 7
+## ComplÃ©ments VidÃ©o 7
 
-## Quizz Vidéo 7
+## Quizz VidÃ©o 7
 
-## Exercices Vidéo 7
+## Exercices VidÃ©o 7
 
 
 ###################################################################
 
-## Vidéo 8 (Assignation et référencement des variables et des attributs)
+## VidÃ©o 8 (Assignation et rÃ©fÃ©rencement des variables et des attributs)
 NIVEAU: INTERMEDIAIRE
 
 C012AL-W5-S8.txt
 
-## Compléments Vidéo 8
+## ComplÃ©ments VidÃ©o 8
 NICETOHAVE: un complement qui explique qu'on n'a pas besoin de 'global' si on code proprement
 
 citer: 
@@ -245,14 +246,14 @@ Traceback (most recent call last):
     b = list(a + i for i in range(10))
 NameError: global name 'a' is not defined
 
-*faire un notebook sur les règles pour ne pas tomber dans les
+*faire un notebook sur les rÃ¨gles pour ne pas tomber dans les
 cas dangereux:
    -ne jamais utiliser comme nom de variable locale
    un nom qui existe en global
    -toujours mettre la directive global avec l'utilisation
    de la variable.
 puis montrer quelques exemples d'erreurs quand on ne suit
-pas ses règles
+pas ses rÃ¨gles
 1) binding static au scope local pour les fonction uniquement
 (optimisation de CPython) et la fameuse UnboundLocalError
 var = 0
@@ -286,9 +287,9 @@ UnboundLocalError: local variable 'x' referenced before assignment
 
 3) directive global apres l'utilisation de la variable
 
-## Quizz Vidéo 8
+## Quizz VidÃ©o 8
 
-## Exercices Vidéo 8
+## Exercices VidÃ©o 8
 
 proposer quelques exercices un peu vicieux (avec des imports, des classes, des fonctions
 englobantes, etc.)

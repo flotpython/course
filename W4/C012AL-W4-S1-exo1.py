@@ -1,23 +1,23 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 ## Pour ouvrir un fichier on utilise la fonction built-in open.
-## Attention, le nom de cette fonction peut-être trompeur.
+## Attention, le nom de cette fonction peut-Ãªtre trompeur.
 ## La fonction open ne permet pas seulement d'ouvrir un
-## fichier qui existe déjà, mais elle permet aussi de créer
-## un nouveau fichier. En fait, le rôle exact de la fonction
-## open est déterminé par ce que l'on appel le mode d'ouverture.
+## fichier qui existe dÃ©jÃ , mais elle permet aussi de crÃ©er
+## un nouveau fichier. En fait, le rÃ´le exact de la fonction
+## open est dÃ©terminÃ© par ce que l'on appel le mode d'ouverture.
 
-## Regardons, maintenant comment créer un fichier, écrire
-## dedans sur chaque ligne un nombre et son carré
+## Regardons, maintenant comment crÃ©er un fichier, Ã©crire
+## dedans sur chaque ligne un nombre et son carrÃ©
 
 f = open('C:\Temp\spam.txt', 'w')
 
-## le mode w ouvre le fichier en écriture et efface le
-## contenu précédent. Attention w est une chaîne de caractères
+## le mode w ouvre le fichier en Ã©criture et efface le
+## contenu prÃ©cÃ©dent. Attention w est une chaÃ®ne de caractÃ¨res
 
-## on ne peut écrire dans un fichier que des chaînes de
-## caractères, en d'autres termes write s'attend a recevoir un string
-## on utilise donc format; remarquez bien la fin de ligne qui s'écrit "\n"
+## on ne peut Ã©crire dans un fichier que des chaÃ®nes de
+## caractÃ¨res, en d'autres termes write s'attend a recevoir un string
+## on utilise donc format; remarquez bien la fin de ligne qui s'Ã©crit "\n"
 for i in range(100):
     line = "{} {}\n".format(i,i**2)
     f.write(line)

@@ -1,26 +1,27 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Processus d'importation des modules
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
 Revenons maintenant sur le processus d'importation d'un module.
 Lorsque vous importez un module, la machine virtuelle effectue
-plusieurs étapes qu'il est important de bien comprendre. 
+plusieurs Ã©tapes qu'il est important de bien comprendre. 
 
 Ouvrons un terminal interactif pour jouer avec le processus
 d'importation des modules...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S2-exo1.py <<<<<<<<<<
 
-Comme le processus d'importation est une opération coûteuse,
-un module n'est importé qu'une seule fois dans un programme
-et il n'y a qu'un seul objet module par module importé. Tous
-les imports sur un module utilise donc le même objet module. 
+Comme le processus d'importation est une opÃ©ration coÃ»teuse,
+un module n'est importÃ© qu'une seule fois dans un programme
+et il n'y a qu'un seul objet module par module importÃ©. Tous
+les imports sur un module utilise donc le mÃªme objet module. 
 
 ## Conclusion ()

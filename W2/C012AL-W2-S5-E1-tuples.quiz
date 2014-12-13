@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 <hr/>
 Tuples (1)
 =====
 
-On se donne en entrée 
+On se donne en entrÃ©e 
 <pre>triple = (1,2,3,)</pre>
 
 Parmi les expressions et instructions ci-dessous, lesquelles sont valides
@@ -13,10 +14,10 @@ Parmi les expressions et instructions ci-dessous, lesquelles sont valides
 [ ] triple[0] = 0
 
 [explanation]
-La première expression est correcte et renvoie 1
+La premiÃ¨re expression est correcte et renvoie 1
 La seconde expression est correcte et renvoie une copie du tuple
-La troisième expression n'est pas valable, "index out of range", triple n'a pas de case numéro 3
-L'affection en quatrième place n'est pas autorisée, un tuple est immuable 
+La troisiÃ¨me expression n'est pas valable, "index out of range", triple n'a pas de case numÃ©ro 3
+L'affection en quatriÃ¨me place n'est pas autorisÃ©e, un tuple est immuable 
 [explanation]
 
 <hr/>
@@ -31,10 +32,10 @@ Quelles sont les expressions qui renvoient True
 [ ] [ ('spam'), ] [0][0] == 'spam'
 
 [explanation]
-Dans la première expression, l'absence de virgule rend les parenthèses vides de sens
+Dans la premiÃ¨re expression, l'absence de virgule rend les parenthÃ¨ses vides de sens
 Dans la seconde expression la partie droite n'est pas un tuple
-Dans la troisième expression, on a une liste contenant un tuple contenant le string, l'expression renvoie True
-Dans la quatrième expression, la virgule n'est pas correctement placée et la parenthèse ne crée pas un tuple.
+Dans la troisiÃ¨me expression, on a une liste contenant un tuple contenant le string, l'expression renvoie True
+Dans la quatriÃ¨me expression, la virgule n'est pas correctement placÃ©e et la parenthÃ¨se ne crÃ©e pas un tuple.
 [explanation]
 
 <hr/>
@@ -44,7 +45,7 @@ Tuples (3)
 On pose
 <pre>quadruple = (1, [2, 3], 'spam', [ (4,) ] )</pre>
 
-Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 à four
+Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 Ã  four
 
 [ ] ( one, (two, three), ignored, ( ( four ) ) ) = quadruple
 [x] ( one, (two, three,), _, ( ( four, ), ) ) = quadruple
@@ -53,25 +54,25 @@ Quelles sont parmi les affectations suivantes celles qui sont valables, et qui a
 
 
 [explanation]
-Dans la première forme, 'four' ne se trouve pas dans un tuple à cause de l'absence de virgule
+Dans la premiÃ¨re forme, 'four' ne se trouve pas dans un tuple Ã  cause de l'absence de virgule
 La seconde forme est correcte
-Dans la troisième forme, 'one' est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
-La dernière forme est correcte, malgré la présence d'une liste à gauche et d'un tuple à droite au dernier niveau de profondeur.
+Dans la troisiÃ¨me forme, 'one' est inclus dans un tuple, ce qui empÃªche l'affectation de fonctionner
+La derniÃ¨re forme est correcte, malgrÃ© la prÃ©sence d'une liste Ã  gauche et d'un tuple Ã  droite au dernier niveau de profondeur.
 [explanation]
 
 <hr/>
 Listes
 =====
 
-On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui font bien ce qu'on veut
+On cherche Ã  Ã©crire un code qui permette d'intervertir les deux derniers Ã©lÃ©ments dans une liste. On suppose que la liste en entrÃ©e a au moins deux Ã©lÃ©ments. Quelles sont parmi les variantes suivantes celles qui font bien ce qu'on veut
 
 [x] tmp = liste[-1]; liste[-1] = liste [-2]; liste[-2] = tmp
 [ ] liste.reverse(-2,-1)
 [x] liste[-2],liste[-1] = liste[-1],liste[-2]
 
 [explanation] 
-La première formule fonctionne, quoi que pas très "pythonique"
+La premiÃ¨re formule fonctionne, quoi que pas trÃ¨s "pythonique"
 La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(reverse)
-La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à gauche de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
+La derniÃ¨re formule fonctionne, ce serait notre prÃ©fÃ©rÃ©e. Comme on l'a vu dÃ©jÃ , les expressions Ã  gauche de l'affectation sont toutes Ã©valuÃ©es, puis l'affectation est rÃ©alisÃ©e.
 [explanation]
 

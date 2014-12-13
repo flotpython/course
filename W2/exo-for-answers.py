@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 def multi_tri (listes):
     "trie toutes les sous-listes"
@@ -8,7 +8,7 @@ def multi_tri (listes):
 
 def multi_tri_reverse (listes, reverses):
     """trie toutes les sous listes, dans une direction
-    precisée par le second argument"""
+    precisÃ©e par le second argument"""
     for liste, reverse in zip(listes, reverses):
         liste.sort(reverse=reverse)
     return listes
@@ -30,7 +30,7 @@ def liste_racines (p):
     return resultat
 
 def produit_scalaire (X,Y):
-    """retourne le produit scalaire de deux listes de même taille"""
+    """retourne le produit scalaire de deux listes de mÃªme taille"""
     # la dimension
     n = len(X)
     # initialisation du resultat

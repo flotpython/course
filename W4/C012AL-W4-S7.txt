@@ -1,68 +1,69 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Portée des variables dans les fonctions et références partagées
+## TITRE : PortÃ©e des variables dans les fonctions et rÃ©fÃ©rences partagÃ©es
 
-## Résumé de la vidéo (40 secondes)
+## RÃ©sumÃ© de la vidÃ©o (40 secondes)
 
-Nous avons vu dans la video précédente la notion de scope et la
-règle LEG qui permet de trouver quelle variable utiliser parmi
+Nous avons vu dans la video prÃ©cÃ©dente la notion de scope et la
+rÃ¨gle LEG qui permet de trouver quelle variable utiliser parmi
 tous les scopes que l'on a dans un module : le scope global,
 le scope de fonction englobante, et le scope local d'une fonction. 
-Nous allons voir maintenant la différence entre scope et références
-partagées et nous finirons avec l'instruction global qui permet
+Nous allons voir maintenant la diffÃ©rence entre scope et rÃ©fÃ©rences
+partagÃ©es et nous finirons avec l'instruction global qui permet
 de forcer le scope global d'une variable locale.
 
-Commençons avec la différence entre scope et références partagées. 
+CommenÃ§ons avec la diffÃ©rence entre scope et rÃ©fÃ©rences partagÃ©es. 
 Il s'agit de deux notions orthogonales qui peuvent induire de la confusion
-chez les débutants en Python. Le scope détermine la portée d'une 
+chez les dÃ©butants en Python. Le scope dÃ©termine la portÃ©e d'une 
 variable. Ainsi, une variable L dans un scope local de fonction 
 ne peut pas modifier une variable globale L. Modifier une variable 
-veut dire modifier la référence, donc changer l'objet vers lequel 
+veut dire modifier la rÃ©fÃ©rence, donc changer l'objet vers lequel 
 la variable pointe. 
 
 Nos deux variables L sont deux variables
-distinctes, même si elles on le même nom,  qui vivent 
-dans des scopes différents. Par contre, 
-rien n'interdit de modifier l'objet référencé par une variable
+distinctes, mÃªme si elles on le mÃªme nom,  qui vivent 
+dans des scopes diffÃ©rents. Par contre, 
+rien n'interdit de modifier l'objet rÃ©fÃ©rencÃ© par une variable
 globale depuis n'importe quel scope du moment 
-qu'il y a une référence partagée sur cet objet par les deux
+qu'il y a une rÃ©fÃ©rence partagÃ©e sur cet objet par les deux
 variables et que l'objet est mutable.
 
 Regardons un exemple...
 
 >>>>>>>>>> C012AL-W4-S7-slide1.pptx <<<<<<<<<< (2 minutes 30 secondes)
 
-## résumé et transition (40 secondes)
+## rÃ©sumÃ© et transition (40 secondes)
 
 Nous avons vu qu'il est important de faire une distinction entre 
 la notion de scope qui ne concerne que les variables et la notion
-de références partagées qui concerne les variables et les objets. 
+de rÃ©fÃ©rences partagÃ©es qui concerne les variables et les objets. 
 En effet, le scope isole des variables, mais pas les objets. Nous
-verrons prochainement que cette propriété d'isolation est liée
-à la notion, centrale en Python, d'espace de nommage. 
+verrons prochainement que cette propriÃ©tÃ© d'isolation est liÃ©e
+Ã  la notion, centrale en Python, d'espace de nommage. 
 
-Mais revenons à la notion de scope. Une variable dans le scope
+Mais revenons Ã  la notion de scope. Une variable dans le scope
 local d'une fonction n'a aucun lien avec une variable globale.
 Cette variable locale ne peut donc pas modifier la variable globale.
-Je rappelle que modifier une variable veut dire modifier la référence,
+Je rappelle que modifier une variable veut dire modifier la rÃ©fÃ©rence,
 donc changer l'objet vers lequel la variable pointe. 
 
 Comment faire alors pour modifier depuis une fonction
-une variable globale. On peut le faire grâce a l'instruction global
-Ouvrons un éditeur IDLE pour découvrir cette instruction global...
+une variable globale. On peut le faire grÃ¢ce a l'instruction global
+Ouvrons un Ã©diteur IDLE pour dÃ©couvrir cette instruction global...
 
 >>>>>>>>>> C012AL-W4-S7-exo1.py <<<<<<<<<< (4 minutes)
 
 ## conclusion ()
 On voit donc que l'on peut communiquer entre le scope local 
-et le scope global dans un module par les références partagées,
+et le scope global dans un module par les rÃ©fÃ©rences partagÃ©es,
 la directive global, et les retours de fonctions. Nous
-reviendrons prochainement sur ces notions de scope en les généralisant
+reviendrons prochainement sur ces notions de scope en les gÃ©nÃ©ralisant
 avec la notion d'espace de nommage. 

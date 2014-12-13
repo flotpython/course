@@ -1,21 +1,22 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Les types numériques
+## TITRE : Les types numÃ©riques
 
-## Résumé de la vidéo (25s)
+## RÃ©sumÃ© de la vidÃ©o (25s)
 
-Bonjour, nous allons voir dans cette vidéo les 4 types numériques qui
-existent en Python : les [int] qui représentent des entiers, les [long]
-qui représentent des entiers de précision illimitée, les [float] qui
-représentent des nombre décimaux, et les [complex] qui représentent des
+Bonjour, nous allons voir dans cette vidÃ©o les 4 types numÃ©riques qui
+existent en Python : les [int] qui reprÃ©sentent des entiers, les [long]
+qui reprÃ©sentent des entiers de prÃ©cision illimitÃ©e, les [float] qui
+reprÃ©sentent des nombre dÃ©cimaux, et les [complex] qui reprÃ©sentent des
 nombres complexes. 
 Ouvrons un terminal interactif pour jouer avec ces types
-numériques...
+numÃ©riques...
  
 
 [[
@@ -28,10 +29,10 @@ bool
 
 >>>>>>>>>> INCLUDE C012AL-W2-S2-exo1.py <<<<<<<<<<
 
-## Résumé de la vidéo (25s)
+## RÃ©sumÃ© de la vidÃ©o (25s)
 
-Nous avons vu dans cette vidéo les 4 types numériques qui
+Nous avons vu dans cette vidÃ©o les 4 types numÃ©riques qui
 existent en Python : les int, les long, les float et les complexe. 
 On a vu que le type long est un type puissant permettant de travailler
-avec des entiers de taille illimité. Dans la prochaîne vidéo, on va voir
-de nouveaux types de base en pyhton encore plus puissant, les séquences. 
+avec des entiers de taille illimitÃ©. Dans la prochaÃ®ne vidÃ©o, on va voir
+de nouveaux types de base en pyhton encore plus puissant, les sÃ©quences. 

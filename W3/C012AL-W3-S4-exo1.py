@@ -1,11 +1,11 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Nous avons vu la notion de shallow copie pour les séquences
+## Nous avons vu la notion de shallow copie pour les sÃ©quences
 
 a = range(10)
 a2 = a[:]
 
-## mais on peut également faire une shallow copy pour un dictionnaire
+## mais on peut Ã©galement faire une shallow copy pour un dictionnaire
 ## ou un set
 
 d = {'marc' : 30, 'alice' : 35}
@@ -21,7 +21,7 @@ print s, s2
 # xxx il y a un complement deja ecrit sur ce sujet, si tu veux gagner 
 # un peu de temps tu peux zapper ca
 
-## pour finir, j'aimerais aborder un problème d'optimisation de CPython
+## pour finir, j'aimerais aborder un problÃ¨me d'optimisation de CPython
 a = [1, 2]
 b = a
 print a == b
@@ -36,8 +36,8 @@ b = 18
 print a == b
 print a is b
 
-## Python réutilise certains objets immuables (petits entiers, petites
-## chaînes de caractères) pour minimiser la consommation mémoire. Il n'y
-## a jamais de problèmes avec les références partagées dans ce cas
-## parce que ces objets réutilisés sont immuables et ne sont pas
-## composites (c'est-à-dire qu'ils ne peuvent pas contenir d'autres objets). 
+## Python rÃ©utilise certains objets immuables (petits entiers, petites
+## chaÃ®nes de caractÃ¨res) pour minimiser la consommation mÃ©moire. Il n'y
+## a jamais de problÃ¨mes avec les rÃ©fÃ©rences partagÃ©es dans ce cas
+## parce que ces objets rÃ©utilisÃ©s sont immuables et ne sont pas
+## composites (c'est-Ã -dire qu'ils ne peuvent pas contenir d'autres objets). 

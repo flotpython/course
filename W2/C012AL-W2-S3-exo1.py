@@ -1,39 +1,39 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## une séquence est un ensemble fini d'éléments ordonnés qui sont
-## indexés par des entiers commençant à 0
+## une sÃ©quence est un ensemble fini d'Ã©lÃ©ments ordonnÃ©s qui sont
+## indexÃ©s par des entiers commenÃ§ant Ã  0
 
-## Pour illustrer le fonctionnement des séquences commençons par
-## regarder les chaînes de caractères
+## Pour illustrer le fonctionnement des sÃ©quences commenÃ§ons par
+## regarder les chaÃ®nes de caractÃ¨res
 
 s = 'egg, bacon' # dix lettres
 
 print s[0]
 print s[9]
 
-## il existe des fonctions et des opérations communes à toutes les séquences
-## c'est-à-dire non seulement aux chaînes de caractères mais aussi aux listes
-## et aux tuples. Commençons par regarder ces fonctions et opérations communes
-## à toutes les séquences
+## il existe des fonctions et des opÃ©rations communes Ã  toutes les sÃ©quences
+## c'est-Ã -dire non seulement aux chaÃ®nes de caractÃ¨res mais aussi aux listes
+## et aux tuples. CommenÃ§ons par regarder ces fonctions et opÃ©rations communes
+## Ã  toutes les sÃ©quences
 
 ## test d'appartenance
 
 print 'g' in s
 print 'g' not in s # noter que c'est presque du langage naturel
 
-## concaténation, retourne une nouvelle séquence de même type
+## concatÃ©nation, retourne une nouvelle sÃ©quence de mÃªme type
 
 print s + ' and spam'
 
-## l'accès direct à un élément par un indice négatif
+## l'accÃ¨s direct Ã  un Ã©lÃ©ment par un indice nÃ©gatif
 
 print s[-3]
 
-## le nombre d'éléments
+## le nombre d'Ã©lÃ©ments
 
 print len(s)
 
-## le plus petit ou plus grand élément de la séquence
+## le plus petit ou plus grand Ã©lÃ©ment de la sÃ©quence
 
 print min(s)
 print max(s)
@@ -46,17 +46,17 @@ print s.index('g')
 
 print s.count('g')
 
-## n shallow copy de s concaténés, on reviendra sur la notion de shallow copy
+## n shallow copy de s concatÃ©nÃ©s, on reviendra sur la notion de shallow copy
 ## cette semaine.
 
 print s*3
 
 print '-'*30
 
-## et pour finir on a la notion de slicing qui s'applique à
-## toutes les séquences. Le slicing permet d'obtenir une
-## nouvelle séquence qui est un sous ensemble de la séquence
-## d'origine. C'est une opération très puissante qu'il est
+## et pour finir on a la notion de slicing qui s'applique Ã 
+## toutes les sÃ©quences. Le slicing permet d'obtenir une
+## nouvelle sÃ©quence qui est un sous ensemble de la sÃ©quence
+## d'origine. C'est une opÃ©ration trÃ¨s puissante qu'il est
 ## important de bien maitriser. Regardons comment le slicing
 ## fonctionne
 

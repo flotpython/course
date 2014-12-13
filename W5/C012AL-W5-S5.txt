@@ -1,40 +1,41 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Héritage
+## TITRE : HÃ©ritage
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Nous avons vu jusqu'à maintenant les notions de classes, d'instances, 
-et de méthodes. On va voir maintenant un autre concept central en 
-programmation objet, l'héritage. Python supporte l'héritage 
-et même d'héritage multiple. 
-Regardons le fonctionnement de l'héritage...
+Nous avons vu jusqu'Ã  maintenant les notions de classes, d'instances, 
+et de mÃ©thodes. On va voir maintenant un autre concept central en 
+programmation objet, l'hÃ©ritage. Python supporte l'hÃ©ritage 
+et mÃªme d'hÃ©ritage multiple. 
+Regardons le fonctionnement de l'hÃ©ritage...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S5-slide1.pptx <<<<<<<<<<
 
-On voit donc que l'héritage construit un arbre d'héritage partant
-de l'instance et allant jusqu'à la plus haute super classe dans
+On voit donc que l'hÃ©ritage construit un arbre d'hÃ©ritage partant
+de l'instance et allant jusqu'Ã  la plus haute super classe dans
 l'arbre. Lorsque l'on cherche une variable dans une instance ou 
-une classe, l'interpréteur va la chercher localement dans l'espace
-de nommage de l'objet, et si la variable n'est pas trouvée, elle
-est cherchée dans l'espace de nommage des objets le long
-de l'arbre d'héritage. Si la variable n'est trouvée dans aucun des 
-espaces de nommage le long de l'arbre d'héritage, il y aura une 
+une classe, l'interprÃ©teur va la chercher localement dans l'espace
+de nommage de l'objet, et si la variable n'est pas trouvÃ©e, elle
+est cherchÃ©e dans l'espace de nommage des objets le long
+de l'arbre d'hÃ©ritage. Si la variable n'est trouvÃ©e dans aucun des 
+espaces de nommage le long de l'arbre d'hÃ©ritage, il y aura une 
 exception. 
 
-Ouvrons un éditeur IDLE pour jouer avec l'héritage et les espaces 
+Ouvrons un Ã©diteur IDLE pour jouer avec l'hÃ©ritage et les espaces 
 de nommage...
 
 >>>>>>>>>> INCLUDE C012AL-W5-S5-exo1.py <<<<<<<<<<
 
-L'héritage est une notion importante de la programmation objet qui, 
-même si vous ne l'utilisez pas directement dans la conception de vos
-programme, est nécessaire à la compréhension des librairies et du code
+L'hÃ©ritage est une notion importante de la programmation objet qui, 
+mÃªme si vous ne l'utilisez pas directement dans la conception de vos
+programme, est nÃ©cessaire Ã  la comprÃ©hension des librairies et du code
 existant. 
 
 ## Conclusion ()

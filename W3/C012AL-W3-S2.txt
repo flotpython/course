@@ -1,32 +1,33 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les dictionnaires 
 
 ## dictionaires 
 
-Dans cette vidéo nous allons voir comment utiliser les dictionnaires
+Dans cette vidÃ©o nous allons voir comment utiliser les dictionnaires
 en Python. Un dictionnaire en Python est une table de hash qui prend
 comme clef n'importe immuable et comme valeur n'importe quel objet. Il
 n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le voir
-comme une collection non ordonnée de couples (clef, valeur). Le
-dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
+comme une collection non ordonnÃ©e de couples (clef, valeur). Le
+dictionnaire est par contre un type mutable, c'est-Ã -dire qu'on peut
 le modifier en place.
 
-Les dictionnaires sont des objets très puissants qui permettent 
+Les dictionnaires sont des objets trÃ¨s puissants qui permettent 
 de faire facilement certaines taches qui avec d'autres langages 
-longue et fastidieuse à écrire. Ouvrons un terminal interactif 
-pour commencer à jouer avec les dictionnaires. 
+longue et fastidieuse Ã  Ã©crire. Ouvrons un terminal interactif 
+pour commencer Ã  jouer avec les dictionnaires. 
 
 
 >>>>>>>>>> C012AL-W3-S2-exo1.py <<<<<<<<<<
 
-Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, 
-et on imagine facilement la puissance de ce type. Créer un agenda
+Nous avons vu dans cette vidÃ©o le fonctionnement des dictionnaires, 
+et on imagine facilement la puissance de ce type. CrÃ©er un agenda
 ou un annuaire peut se faire en seulement quelques lignes de code.

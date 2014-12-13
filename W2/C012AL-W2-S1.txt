@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Introduction au typage dynamique
@@ -11,53 +12,53 @@
 
 Cette semaine nous allons aborder deux sujets importants. Le premier
 sujet concerne les notions d'objets, de variables et de typage
-dynamique, qui représentent une des clefs de la compréhension de
-Python. C'est l'objet de cette vidéo.
+dynamique, qui reprÃ©sentent une des clefs de la comprÃ©hension de
+Python. C'est l'objet de cette vidÃ©o.
 
-Le deuxième sujet est sur la présentation des types de base, 
-que nous appelons également types built-in, en
-Python qui sont des objets puissants, polyvalents, mais très souples et
-faciles à utiliser. Les types built-in viennent avec toutes les installations
-de Python. Nous les verrons les uns après les autres jusqu'au
-début de la semaine prochaine.
+Le deuxiÃ¨me sujet est sur la prÃ©sentation des types de base, 
+que nous appelons Ã©galement types built-in, en
+Python qui sont des objets puissants, polyvalents, mais trÃ¨s souples et
+faciles Ã  utiliser. Les types built-in viennent avec toutes les installations
+de Python. Nous les verrons les uns aprÃ¨s les autres jusqu'au
+dÃ©but de la semaine prochaine.
 
-## Résumé de la vidéo (20s)
+## RÃ©sumÃ© de la vidÃ©o (20s)
 
-Dans cette vidéo, je vais introduire les notions d'objet, de
-variable et de typage dynamique. À la fin de cette vidéo, vous saurez
-assigner un objet à une variable et vous aurez compris les bases du
+Dans cette vidÃ©o, je vais introduire les notions d'objet, de
+variable et de typage dynamique. Ã€ la fin de cette vidÃ©o, vous saurez
+assigner un objet Ã  une variable et vous aurez compris les bases du
 typage dynamique en Python.
 
-## Définition d'un objet (27s)
+## DÃ©finition d'un objet (27s)
 
-Commençons par la notion d'objet. En informatique, un [objet] est un
+CommenÃ§ons par la notion d'objet. En informatique, un [objet] est un
 morceau de programme qui peut [stocker de l'information] et qui a un
-ensemble de mécanismes, que l'on appelle [méthodes], qui permettent
-d'effectuer des tâches. Le [type] de l'objet va définir les [informations
-et les méthodes qui existent par défaut] à la création de
-l'objet. Regardons maintenant un exemple de création d'objet...
+ensemble de mÃ©canismes, que l'on appelle [mÃ©thodes], qui permettent
+d'effectuer des tÃ¢ches. Le [type] de l'objet va dÃ©finir les [informations
+et les mÃ©thodes qui existent par dÃ©faut] Ã  la crÃ©ation de
+l'objet. Regardons maintenant un exemple de crÃ©ation d'objet...
 
 [[
 Objet
 	stockage d'information
-	méthodes
+	mÃ©thodes
 
 Type
-	information et méthodes par défaut
+	information et mÃ©thodes par dÃ©faut
 ]]
 
 >>>>>>>>>> INCLUDE C012AL-W2-S1-slide1.pptx <<<<<<<<<<
 
 ## En Python, tout est un objet (30s)
 
-En python tout est un objet, ce qui simplifie et réduit
-considérablement le temps de développement de programmes.  On accède à
-tous les objets par leur référence en mémoire, mais on ne manipule
-jamais directement ces références. On utilise à la place l'affectation
-à une variable, c'est-à-dire que l'on utilise le signe égal pour
-affecter un objet à une variable, par exemple [a=1] signifie que l'on
-affecte l'objet entier 1 à la variable a. Regardons maintenant plus en
-détail cette notion de variable...
+En python tout est un objet, ce qui simplifie et rÃ©duit
+considÃ©rablement le temps de dÃ©veloppement de programmes.  On accÃ¨de Ã 
+tous les objets par leur rÃ©fÃ©rence en mÃ©moire, mais on ne manipule
+jamais directement ces rÃ©fÃ©rences. On utilise Ã  la place l'affectation
+Ã  une variable, c'est-Ã -dire que l'on utilise le signe Ã©gal pour
+affecter un objet Ã  une variable, par exemple [a=1] signifie que l'on
+affecte l'objet entier 1 Ã  la variable a. Regardons maintenant plus en
+dÃ©tail cette notion de variable...
 
 [[
 a = 1
@@ -65,23 +66,23 @@ a = 1
 
 ## Notion de variable (50s)
 
-Une variable est un nom que l'on donne à un objet pour le retrouver en
-mémoire.
+Une variable est un nom que l'on donne Ã  un objet pour le retrouver en
+mÃ©moire.
 
-Il y a trois règles importantes pour le nom d'une variable en Python.
-Une variable peut être composée d'une suite quelconque de caractères
-alphanumériques, c'est-à-dire les [lettres de l'alphabet en
-minuscule], [en majuscule] et les [chiffres de 0 à 9].  
-Le [tiret bas] est également autorisé. 
+Il y a trois rÃ¨gles importantes pour le nom d'une variable en Python.
+Une variable peut Ãªtre composÃ©e d'une suite quelconque de caractÃ¨res
+alphanumÃ©riques, c'est-Ã -dire les [lettres de l'alphabet en
+minuscule], [en majuscule] et les [chiffres de 0 Ã  9].  
+Le [tiret bas] est Ã©galement autorisÃ©. 
 
 Une variable commence soit par une [lettre soit par un tiret bas],
 mais [jamais par un chiffre].
 
 Les majuscules et minuscules sont prises en compte, donc [Ma_variable]
-est différent de [ma_variable].
+est diffÃ©rent de [ma_variable].
 
-Il est recommandé d'utiliser des noms explicites de variable, de tout
-écrire en minuscule, et de séparer les mots par des tirets bas. Par
+Il est recommandÃ© d'utiliser des noms explicites de variable, de tout
+Ã©crire en minuscule, et de sÃ©parer les mots par des tirets bas. Par
 exemple, [moyenne_age_francais] est un bon nom de variable, meilleur que
 [moy_age_f] et bien meilleur que simplement [x]
 
@@ -95,11 +96,11 @@ ma_variable (vert)
 _ma_variable (vert)
 1variable (barrer en rouge)
 
-Ma_variable est différent de ma_variable
+Ma_variable est diffÃ©rent de ma_variable
 
 Utiliser 
 moyenne_age_francais 
-plutôt que 
+plutÃ´t que 
 moy_age_f 
 ou pire 
 x
@@ -110,32 +111,32 @@ x
 
 Maintenant que nous avons vu les notions d'objets et de variables,
 parlons du typage dynamique.  Python utilise le typage dynamique
-c'est-à-dire que le type des variables n'est pas spécifié lors de
-l'écriture du programme, mais automatiquement à l'exécution. En fait,
+c'est-Ã -dire que le type des variables n'est pas spÃ©cifiÃ© lors de
+l'Ã©criture du programme, mais automatiquement Ã  l'exÃ©cution. En fait,
 les variables n'ont pas de type, ce sont les objets qu'elles
-référencent qui ont un type. Prenons un exemple.
+rÃ©fÃ©rencent qui ont un type. Prenons un exemple.
 
 >>>>>>>>>> INCLUDE C012AL-W2-S1-slide2.pptx <<<<<<<<<<
 
-## Résumé typage dynamique (15s)
+## RÃ©sumÃ© typage dynamique (15s)
 
 Nous verrons dans la suite que le typage dynamique est une notion
-essentielle de Python qui offre beaucoup de flexibilité et facilite
-grandement l'écriture des programmes.
+essentielle de Python qui offre beaucoup de flexibilitÃ© et facilite
+grandement l'Ã©criture des programmes.
 
 ## Instruction print
 
 Pour finir, maintenant que l'on sait utiliser les variables et
-affecter une référence d'objet à une variable, je vais vous présenter
-l'instruction print. Cette instruction sert à afficher sur le terminal
+affecter une rÃ©fÃ©rence d'objet Ã  une variable, je vais vous prÃ©senter
+l'instruction print. Cette instruction sert Ã  afficher sur le terminal
 la valeur d'un objet. Passons sur un terminal interactif pour voir
 comment utiliser cette instruction...
 
 >>>>>>>>>> INCLUDE C012AL-W2-S1-exo1.py <<<<<<<<<<
 
-## Résumé de la vidéo (15s)
+## RÃ©sumÃ© de la vidÃ©o (15s)
 
-Dans cette vidéo, nous avons introduit la notion d'objet avec les
-variables et le typage dynamique, et nous avons présenté l'instruction
+Dans cette vidÃ©o, nous avons introduit la notion d'objet avec les
+variables et le typage dynamique, et nous avons prÃ©sentÃ© l'instruction
 print qui permet d'afficher la valeur d'un objet sur le terminal. Dans
-la prochaine vidéo, nous introduirons les types numériques en Python.
+la prochaine vidÃ©o, nous introduirons les types numÃ©riques en Python.

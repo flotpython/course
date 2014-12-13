@@ -1,14 +1,15 @@
-# celui-ci on l'a annoncé
-. python3 à partir de python2 
+# -*- coding: utf-8 -*-
+# celui-ci on l'a annoncÃ©
+. python3 Ã  partir de python2 
 
 
-# tout ceci sans doute dans les compléments
+# tout ceci sans doute dans les complÃ©ments
 . debugger
 . pylint
 
 -- introduire rapidement (essentiellement mentionner et montrer des exemples)
 . django 
-.. mentionner à cette occasion Model-View-Controller MVC http://fr.wikipedia.org/wiki/Modèle-vue-contrôleur
+.. mentionner Ã  cette occasion Model-View-Controller MVC http://fr.wikipedia.org/wiki/ModÃ¨le-vue-contrÃ´leur
 . matplotlib
 . numpy
 . sage

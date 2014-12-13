@@ -1,49 +1,49 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## prenons un problème simple, je veux afficher la liste des entiers
-## de 1 à 10 et de leur carré.
+## prenons un problÃ¨me simple, je veux afficher la liste des entiers
+## de 1 Ã  10 et de leur carrÃ©.
 print 1, 1**2
 print 2, 2**2
 print 3, 3**2
 
-## on se rend vite compte que l'on fait 10 fois la même tache avec
+## on se rend vite compte que l'on fait 10 fois la mÃªme tache avec
 ## une petite variation, la valeur de x. Les boucles for existe justement
-## pour factoriser ce type de taches. Regardons comme on écrit une boucle for
+## pour factoriser ce type de taches. Regardons comme on Ã©crit une boucle for
 
 for x in range(1,11):
     print x, x**2
 print "on est sorti de la boucle"
 ## La boucle for utilise (comment souvent en Python), une notation
 ## simple et intuitive. On commence une boucle for par l'instruction
-## for puis, on spécifie une variable (x dans notre cas), l'instruction
-## in, et une séquence. On fini la ligne avec un : ce qui veut
-## dire que l'on va avoir un nouveau bloc d'instruction décalé
-## de 4 caractères vers la droite par rapport au for.
-## La boucle for va répéter le bloc d'instruction autant fois qu'il
-## y a d'éléments dans la séquence. À la premiere exécution du bloc
-## d'instruction, la variable x référence le premier élément de la séquence
-## et à chaque nouvelle répétition du bloc d'instruction x référencera
-## l'élément suivant dans la séquence jusq'au dernier élément de la séquence. 
-## Lorsqu'il n'y a plus d'élément dans la séquence on sort de la boucle
-## for, c'est-à dire que l'on continu avec le bloc de code aligné avec
+## for puis, on spÃ©cifie une variable (x dans notre cas), l'instruction
+## in, et une sÃ©quence. On fini la ligne avec un : ce qui veut
+## dire que l'on va avoir un nouveau bloc d'instruction dÃ©calÃ©
+## de 4 caractÃ¨res vers la droite par rapport au for.
+## La boucle for va rÃ©pÃ©ter le bloc d'instruction autant fois qu'il
+## y a d'Ã©lÃ©ments dans la sÃ©quence. Ã€ la premiere exÃ©cution du bloc
+## d'instruction, la variable x rÃ©fÃ©rence le premier Ã©lÃ©ment de la sÃ©quence
+## et Ã  chaque nouvelle rÃ©pÃ©tition du bloc d'instruction x rÃ©fÃ©rencera
+## l'Ã©lÃ©ment suivant dans la sÃ©quence jusq'au dernier Ã©lÃ©ment de la sÃ©quence. 
+## Lorsqu'il n'y a plus d'Ã©lÃ©ment dans la sÃ©quence on sort de la boucle
+## for, c'est-Ã  dire que l'on continu avec le bloc de code alignÃ© avec
 ## la boucle for.
 
-## comme un boucle for fonctionne sur toutes les séquences, on peut
-## faire une boucle for sur un chaîne de caractères par exemple
+## comme un boucle for fonctionne sur toutes les sÃ©quences, on peut
+## faire une boucle for sur un chaÃ®ne de caractÃ¨res par exemple
 for i in 'spam':
     print i + ' ',
     
 print
-## ou sur une liste d'éléments quelconques.
+## ou sur une liste d'Ã©lÃ©ments quelconques.
 L = [1, 'spam', 3.2, True]
 for i in L:
     print i
 
 #2 minutes 50 secondes
 
-## regardons maintenant un autre problème. Je veux a différents moments
-## de mon programme faire une opération, par exemple, afficher
-## sur la sortie standard tous les éléments d'une liste et leur carré.
+## regardons maintenant un autre problÃ¨me. Je veux a diffÃ©rents moments
+## de mon programme faire une opÃ©ration, par exemple, afficher
+## sur la sortie standard tous les Ã©lÃ©ments d'une liste et leur carrÃ©.
 
 L1 = [1, 4, 6, 7, 10, 11, 30, 50]
 for x in L1:
@@ -53,44 +53,44 @@ L2 = [3.4, 11, 22, 150.435, 18]
 for x in L2:
     print x, x**2
 
-## on voit que grace à la boucle for, je peux factoriser mon code, mais
-## que malgré tout je répète deux fois exactement la même boucle for.
+## on voit que grace Ã  la boucle for, je peux factoriser mon code, mais
+## que malgrÃ© tout je rÃ©pÃ¨te deux fois exactement la mÃªme boucle for.
 ## Un moyen de factoriser encore plus ce code est d'utiliser ce que l'on
-## appelle une fonction. Regardons comment on écrit une fonction
+## appelle une fonction. Regardons comment on Ã©crit une fonction
 
 def f(L):
     for x in L:
         print x, x**2
 
 ## une fonction commence avec l'instruction def, on donne ensuite un nom
-## à la fonction (f ici). puis en met entre paranthèses l'argument de la
+## Ã  la fonction (f ici). puis en met entre paranthÃ¨ses l'argument de la
 ## fonction (L dans notre cas) et on finit une fois encore par un :
-## qui signal un nouveau bloc d'instruction qui doit être indenté de 4
-## caractère vers la droite par rapport au premier caractere du la
-## permière ligne de la fonction, donc le d du def. On appelle de bloc
+## qui signal un nouveau bloc d'instruction qui doit Ãªtre indentÃ© de 4
+## caractÃ¨re vers la droite par rapport au premier caractere du la
+## permiÃ¨re ligne de la fonction, donc le d du def. On appelle de bloc
 ## d'instructions le corps de la fonction. 
 ## Le principe d'une fonction est que le bloc d'instruction dans la fonction
-## (c'est-à-dire indenté de 4 caractères vers la droite) est exécuté
-## à chaque appel de la fonction avec l'argument passé au moment de la
-## fonction. C'est très facile d'appeler une fonction et de lui passer un
+## (c'est-Ã -dire indentÃ© de 4 caractÃ¨res vers la droite) est exÃ©cutÃ©
+## Ã  chaque appel de la fonction avec l'argument passÃ© au moment de la
+## fonction. C'est trÃ¨s facile d'appeler une fonction et de lui passer un
 ## argument, il suffit de taper le nom de la fonction suivi de l'argument
-## entre parenthèses.
+## entre parenthÃ¨ses.
 
 f(L1)
 f(L2)
 
 # 6 minutes ##
 
-## Une caractéristique importante des fonctions est sa valeur de retour.
-## En effet, une fonction retourne toujours un objet. Par défaut
+## Une caractÃ©ristique importante des fonctions est sa valeur de retour.
+## En effet, une fonction retourne toujours un objet. Par dÃ©faut
 ## elle retourne l'objet None qui est un objet vide, sans valeur,
-## mais on peut définir un autre objet retourné avec l'instruction
+## mais on peut dÃ©finir un autre objet retournÃ© avec l'instruction
 ## return.
 
-## la valeur de retour d'une fonction peut-être affecté à une variable
-## de la manière suivante
+## la valeur de retour d'une fonction peut-Ãªtre affectÃ© Ã  une variable
+## de la maniÃ¨re suivante
 
-r = f(L1) ## c'est None qui est retourné.
+r = f(L1) ## c'est None qui est retournÃ©.
 print r
 
 def f(L):

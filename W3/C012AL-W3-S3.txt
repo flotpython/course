@@ -1,38 +1,39 @@
+# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
 ## TITRE : Les ensembles
 
 ## ensembles
 
-Un ensemble, en anglais 'set', est comme dans sa version mathématique
-un paquet non ordonné d'objets uniques. Il est implémenté avec une
-table de hash, donc il est optimisé pour l'accés, l'insertion,
+Un ensemble, en anglais 'set', est comme dans sa version mathÃ©matique
+un paquet non ordonnÃ© d'objets uniques. Il est implÃ©mentÃ© avec une
+table de hash, donc il est optimisÃ© pour l'accÃ©s, l'insertion,
 l'effacement et le test d'appartenance.  Il faut donc toujours les
-préférer à des listes lorsque l'on fait un test d'appartenance (le
-coût de convertion est souvent négligeable lorsque l'on fait beaucoup
+prÃ©fÃ©rer Ã  des listes lorsque l'on fait un test d'appartenance (le
+coÃ»t de convertion est souvent nÃ©gligeable lorsque l'on fait beaucoup
 de tests d'appartenance).
 
 Comme le dictionnaire, un set ne peut accepter que des clefs
-immuables (nombre, chaîne de caractères, tuple d'immuable).
+immuables (nombre, chaÃ®ne de caractÃ¨res, tuple d'immuable).
 Par contre, contrairement au dictionnaire, on ne peut pas stocker
-de valeur associée à une clef. 
+de valeur associÃ©e Ã  une clef. 
 
 Les sets sont des objets mutables et il existe un type frozenset
-qui a les mêmes caractéristiques qu'un set, mais qui est immuable. 
+qui a les mÃªmes caractÃ©ristiques qu'un set, mais qui est immuable. 
 
 Ouvrons un terminal interactif pour jouer avec les set. 
 
 >>>>>>>>>> C012AL-W3-S3-exo1.py <<<<<<<<<<
 
-Nous avons fini la présentation des principaux type de base en Python.
-On a vu que ces types étaient riches et très puissants. Ils constituent
-un socle solide à l'écriture rapide de programmes. Je vous encourage
-à jouer avec pour bien les maitriser et ainsi aborder dans les meilleures
-conditions les prochaines vidéos. 
+Nous avons fini la prÃ©sentation des principaux type de base en Python.
+On a vu que ces types Ã©taient riches et trÃ¨s puissants. Ils constituent
+un socle solide Ã  l'Ã©criture rapide de programmes. Je vous encourage
+Ã  jouer avec pour bien les maitriser et ainsi aborder dans les meilleures
+conditions les prochaines vidÃ©os. 

@@ -1,22 +1,23 @@
+# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
+## est Ã  afficher en surimpression pendant que je parle et Ã  
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Conception d'exceptions personnalisées
+## TITRE : Conception d'exceptions personnalisÃ©es
 
-## Sujet de la vidéo ()
+## Sujet de la vidÃ©o ()
 
-Il est possible, et même recommandé, de créer des exceptions
-personnalisée pour votre propre code. Nous allons voir que c'est
-très simple en Python. Les exceptions sont des classes qui 
-forment un arbre d'héritage. Toutes les exceptions créées
-par les développeurs doivent hériter de la classe Exception
+Il est possible, et mÃªme recommandÃ©, de crÃ©er des exceptions
+personnalisÃ©e pour votre propre code. Nous allons voir que c'est
+trÃ¨s simple en Python. Les exceptions sont des classes qui 
+forment un arbre d'hÃ©ritage. Toutes les exceptions crÃ©Ã©es
+par les dÃ©veloppeurs doivent hÃ©riter de la classe Exception
 
 
-Ouvrons un éditeur IDLE pour jouer avec la conception des
+Ouvrons un Ã©diteur IDLE pour jouer avec la conception des
 exceptions...
 
 >>>>>>>>>> INCLUDE C012AL-W6-S4-exo1.py () <<<<<<<<<<
@@ -24,7 +25,7 @@ exceptions...
 
 ## Conclusion ()
 
-Il est facile de créer ses propres exceptions et c'est une bonne
+Il est facile de crÃ©er ses propres exceptions et c'est une bonne
 pratique de le faire. Par contre, documenter ses exceptions
-est nécessaire, il faut donc utiliser les possibilités de documentation
+est nÃ©cessaire, il faut donc utiliser les possibilitÃ©s de documentation
 automatique que l'on a en Python. 
