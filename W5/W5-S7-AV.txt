@@ -17,7 +17,7 @@ Même s'il s'agit d'objets très différent, il est important de
 clarifier quel est l'usage de chacun de ces objets. 
 
 
->>>>>>>>>> INCLUDE C012AL-W5-S7-slide1.pptx <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S7-AV-slide1.pptx <<<<<<<<<<
 
 On voit donc que ce qui différencie les classes des modules
 c'est la possibilité d'avoir de [multiples instances] et l'[héritage]. 

@@ -20,7 +20,7 @@
  programmation objet en Python, ce qui suit dans
  cette vidéo sera éclairant.
 
->>>>>>>>>> INCLUDE C012AL-W7-S4-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W7-S4-AV-slide1.pptx () <<<<<<<<<<
 
 Les décorateurs sont utile pour modifier une fonction ou une classe
 après son instanciation. Les métaclasses sont utiles pour modifier

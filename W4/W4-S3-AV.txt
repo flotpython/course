@@ -42,7 +42,7 @@ argument d'une fonction.
 Ouvrons un terminal pour jouer avec les fonction lambda...
 
 
->>>>>>>>>> C012AL-W4-S3-exo1.py <<<<<<<<<< (6 minutes 30 secondes)
+>>>>>>>>>> W4-S3-AV-exo1.py <<<<<<<<<< (6 minutes 30 secondes)
 
 Les fonctions map et filter offrent une alternative utilisant 
 la programmation fonctionnelle aux boucles for. Cependant, nous

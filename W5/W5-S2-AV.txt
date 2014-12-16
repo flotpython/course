@@ -17,7 +17,7 @@ plusieurs étapes qu'il est important de bien comprendre.
 Ouvrons un terminal interactif pour jouer avec le processus
 d'importation des modules...
 
->>>>>>>>>> INCLUDE C012AL-W5-S2-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S2-AV-exo1.py <<<<<<<<<<
 
 Comme le processus d'importation est une opération coûteuse,
 un module n'est importé qu'une seule fois dans un programme

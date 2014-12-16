@@ -52,7 +52,7 @@ objet.x
  
 Parlons maintenant du cas d'une variable. 
 
->>>>>>>>>> INCLUDE C012AL-W5-S8-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S8-AV-slide1.pptx () <<<<<<<<<<
 
 ## Conclusion ()
 

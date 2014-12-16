@@ -27,7 +27,7 @@ demande pas de copie temporaire.
 
 Ouvrons un terminal interactif et commençons a jouer avec les listes. 
 
->>>>>>>>>> INCLUDE C012AL-W2-S4-exo1.py (8 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S4-AV-exo1.py (8 minutes) <<<<<<<<<<
 
 Nous venons de voir le type list qui est central en Python. Vous 
 utiliserez, quelque soit votre programme, sans aucun doute de nombreuses

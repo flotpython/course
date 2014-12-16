@@ -52,4 +52,4 @@ si l'expression est vraie est un autre bloc si l'expression est fausse.
 Regardons un cas pratique : supposons que l'on veuille écrire un programme 
 qui affiche reçu si la note d'un examen est supérieure à 10, et recalé sinon. 
 
->>>>>>>>>> INCLUDE C012AL-W2-S6-slide1.pptx ( 4 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S6-AV-slide1.pptx ( 4 minutes) <<<<<<<<<<

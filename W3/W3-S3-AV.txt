@@ -30,7 +30,7 @@ qui a les mêmes caractéristiques qu'un set, mais qui est immuable.
 
 Ouvrons un terminal interactif pour jouer avec les set. 
 
->>>>>>>>>> C012AL-W3-S3-exo1.py <<<<<<<<<<
+>>>>>>>>>> W3-S3-AV-exo1.py <<<<<<<<<<
 
 Nous avons fini la présentation des principaux type de base en Python.
 On a vu que ces types étaient riches et très puissants. Ils constituent

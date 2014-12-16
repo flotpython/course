@@ -29,7 +29,7 @@ successifs.
 Une fonction génératrice se comporte différemment. Ouvrons un 
 terminal pour commencer à jouer avec des fonction génératrices...
 
->>>>>>>>>> INCLUDE C012AL-W6-S1-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W6-S1-AV-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 

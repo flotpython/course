@@ -39,7 +39,7 @@ les instances peuvent évoluer indépendamment.
 Ouvrons maintenant un terminal interactif pour commencer à jouer avec 
 les classes et les instances...
 
->>>>>>>>>> INCLUDE C012AL-W5-S4-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S4-AV-exo1.py <<<<<<<<<<
 
 
 ## Conclusion ()

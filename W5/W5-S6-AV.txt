@@ -32,7 +32,7 @@ en Python l'opérateur + ou l'opérateur in.
 
 Ouvrons un éditeur IDLE pour commencer à jouer avec les opérateurs...
 
->>>>>>>>>> INCLUDE C012AL-W5-S6-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S6-AV-exo1.py <<<<<<<<<<
 
 ## Conclusion ()
 

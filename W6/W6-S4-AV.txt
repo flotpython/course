@@ -20,7 +20,7 @@ par les développeurs doivent hériter de la classe Exception
 Ouvrons un éditeur IDLE pour jouer avec la conception des
 exceptions...
 
->>>>>>>>>> INCLUDE C012AL-W6-S4-exo1.py () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W6-S4-AV-exo1.py () <<<<<<<<<<
 
 
 ## Conclusion ()

@@ -41,7 +41,7 @@ Java.
 
 Regardons maintenant un exemple. 
 
->>>>>>>>>> C012AL-W3-S6-slide1.pptx (3 minutes) <<<<<<<<<<
+>>>>>>>>>> W3-S6-AV-slide1.pptx (3 minutes) <<<<<<<<<<
 
 L'indentation comme règle de syntaxe est une des raisons du succès de
 Python. Cette règle n'a presque que des avantages, elle a cependant un
@@ -67,4 +67,4 @@ caractères.  En effet, tout ce qui est entre (), {}, ou [] peut
 contenir des retours chariots sans que cela n'affecte le code exécuté.
 Regardons quelques exemples .
 
->>>>>>>>>> C012AL-W3-S6-exo1.py (? minutes) <<<<<<<<<<
+>>>>>>>>>> W3-S6-AV-exo1.py (? minutes) <<<<<<<<<<

@@ -32,7 +32,7 @@ boucle for sur un objet fichier. Ouvrons un terminal
 pour voir comme il est facile de travailler avec des
 fichiers en Python.
 
->>>>>>>>>> C012AL-W4-S1-exo1.py <<<<<<<<<< (2 minutes 10 secondes)
+>>>>>>>>>> W4-S1-AV-exo1.py <<<<<<<<<< (2 minutes 10 secondes)
 
 ## close(), flush() et écriture asynchrone (2 minutes 30 secondes)
 
@@ -91,7 +91,7 @@ régulièrement.
 Ouvrons de nouveau un terminal et regardons comment
 lire et modifier un fichier.
 
->>>>>>>>>> C012AL-W4-S1-exo2.py <<<<<<<<<< (2 minutes 40 secondes)
+>>>>>>>>>> W4-S1-AV-exo2.py <<<<<<<<<< (2 minutes 40 secondes)
 
 Le concept d'itérateurs appliqué aux fichiers rend la
 manipulation des fichiers en Python extrêmement

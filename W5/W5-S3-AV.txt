@@ -17,7 +17,7 @@ Ouvrons un terminal interactif pour jouer avec les importations
 de modules...
 
 
->>>>>>>>>> INCLUDE C012AL-W5-S3-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S3-AV-exo1.py <<<<<<<<<<
 
 En résumé, un module est un objet mutable que l'on peut 
 modifier après importation. 

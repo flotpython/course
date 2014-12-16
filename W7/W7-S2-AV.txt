@@ -20,7 +20,7 @@ fonctions et aux classes.
 
 Mais revenons sur notre exemple de méthodes statiques et de classe. 
 
->>>>>>>>>> INCLUDE C012AL-W7-S2-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W7-S2-AV-slide1.pptx () <<<<<<<<<<
 
 
 ## Conclusion()

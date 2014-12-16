@@ -25,7 +25,7 @@ de nommages.
 Nous allons voir dans cette vidéo la subtilité des espaces 
 de nommage. 
 
->>>>>>>>>> INCLUDE C012AL-W5-S1-slide1.pptx (5 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W5-S1-AV-slide1.pptx (5 minutes) <<<<<<<<<<
 
 ## Conclusion ()
 

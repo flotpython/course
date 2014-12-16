@@ -8,7 +8,7 @@
 ## Vidéo 1 (Modules et espaces de nommage)
 NIVEAU: BASIC
 
-C012AL-W5-S1.txt
+W5-S1-AV.txt
 
 ## Compléments Vidéo 1
 
@@ -26,7 +26,7 @@ pareil
 je vais laisser tomber tout ça c'est beaucoup trop bas niveau
 
 ## Quizz Vidéo 1
-OK C012AL-W5-S1-E1.quiz
+OK W5-S1-E1.quiz
 
 en relisant les exos des semaines passées je tombe sur ceci
 import string
@@ -41,7 +41,7 @@ on pourrait sûrement contruire un quiz en élaborant là-dessus, non ?
 ## Vidéo 2 (Processus d'importation des modules)
 NIVEAU: BASIC
 
-C012AL-W5-S2.txt
+W5-S2-AV.txt
 
 ## Compléments Vidéo 2
 
@@ -55,7 +55,7 @@ des questions de vitesse.
 NICETOHAVE
 montrer que si bar importe foo et que foo importe sys, alors bar peut accéder à foo.sys
 
-NICETOHAVE C012AL-W5-S2-C2-pyc.ipynb
+NICETOHAVE W5-S2-C2-pyc.ipynb
 intermédiaire
 *compléter la
 discussion de la video sur les .pyc. Par exemple, on peut directement
@@ -68,7 +68,7 @@ déjà vu en Complement-packages.ipynb
 
 ## Quizz Vidéo 2
 
-OK C012AL-W5-S2-E1.quiz
+OK W5-S2-E1.quiz
 
 
 ## Exercices Vidéo 2
@@ -78,7 +78,7 @@ OK C012AL-W5-S2-E1.quiz
 ## Vidéo 3 (Importation de modules et espace de nommage)
 NIVEAU: BASIC
 
-C012AL-W5-S3.txt
+W5-S3-AV.txt
 
 ## Compléments Vidéo 3
 
@@ -91,7 +91,7 @@ un import * - je laisse tomber puisqu'il ne faut pas le faire de toutes façons
 
 ## Quizz Vidéo 3
 
-OK C012AL-W5-S3-E1.quiz
+OK W5-S3-E1.quiz
 
 
 ## Exercices Vidéo 3
@@ -104,7 +104,7 @@ OK C012AL-W5-S3-E1.quiz
 ## Vidéo 4 (Classes, instances et méthodes)
 NIVEAU: INTERMEDIAIRE
 
-C012AL-W5-S4.txt
+W5-S4-AV.txt
 
 ## Compléments Vidéo 4
 
@@ -126,7 +126,7 @@ monter qu'on peut faire self.template aussi bien que Matrix2.template
 
 ## Quizz Vidéo 4
 
-OK C012AL-W5-S4-E1.quiz
+OK W5-S4-E1.quiz
 
 ## Exercices Vidéo 4
 
@@ -135,7 +135,7 @@ OK C012AL-W5-S4-E1.quiz
 ## Vidéo 5 (Héritage)
 NIVEAU: INTERMEDIAIRE
 
-C012AL-W5-S5.txt
+W5-S5-AV.txt
 
 ## Compléments Vidéo 5
 
@@ -150,7 +150,7 @@ OK (S5-C4-)Complement-heritage-typage.ipynb
 
 ## Quizz Vidéo 5
 batir quelque chose avec des exemples simples de code 
-OK C012AL-W5-S5-E1.quiz
+OK W5-S5-E1.quiz
 
 ## Exercices Vidéo 5
 
@@ -159,7 +159,7 @@ OK C012AL-W5-S5-E1.quiz
 ## Vidéo 6 (Surcharge d'opérateurs)
 NIVEAU: INTERMEDIAIRE
 
-C012AL-W5-S6.txt
+W5-S6-AV.txt
 
 ## Compléments Vidéo 6
 
@@ -208,7 +208,7 @@ jusqu'a ce que ca donne le resultat escompte
 ## Vidéo 7 (Quand utiliser fonctions, modules ou classes ?)
 NIVEAU: INTERMEDIAIRE
 
-C012AL-W5-S7.txt
+W5-S7-AV.txt
 
 ## Compléments Vidéo 7
 
@@ -222,7 +222,7 @@ C012AL-W5-S7.txt
 ## Vidéo 8 (Assignation et référencement des variables et des attributs)
 NIVEAU: INTERMEDIAIRE
 
-C012AL-W5-S8.txt
+W5-S8-AV.txt
 
 ## Compléments Vidéo 8
 NICETOHAVE: un complement qui explique qu'on n'a pas besoin de 'global' si on code proprement

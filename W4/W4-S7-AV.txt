@@ -38,7 +38,7 @@ variables et que l'objet est mutable.
 
 Regardons un exemple...
 
->>>>>>>>>> C012AL-W4-S7-slide1.pptx <<<<<<<<<< (2 minutes 30 secondes)
+>>>>>>>>>> W4-S7-AV-slide1.pptx <<<<<<<<<< (2 minutes 30 secondes)
 
 ## résumé et transition (40 secondes)
 
@@ -59,7 +59,7 @@ Comment faire alors pour modifier depuis une fonction
 une variable globale. On peut le faire grâce a l'instruction global
 Ouvrons un éditeur IDLE pour découvrir cette instruction global...
 
->>>>>>>>>> C012AL-W4-S7-exo1.py <<<<<<<<<< (4 minutes)
+>>>>>>>>>> W4-S7-AV-exo1.py <<<<<<<<<< (4 minutes)
 
 ## conclusion ()
 On voit donc que l'on peut communiquer entre le scope local 

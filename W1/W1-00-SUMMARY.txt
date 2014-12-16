@@ -4,7 +4,7 @@
 
 ## Vidéo 1 (Organisation du MOOC)
 
-C012AL-W1-S1.txt 
+W1-S1-AV.txt 
 
 ## Compléments Vidéo 1
 OK Complement-installer-python.ipynb quelques ressources pour l'installation de python

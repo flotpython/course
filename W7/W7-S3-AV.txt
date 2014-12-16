@@ -20,7 +20,7 @@ programmation objet.
 Ouvrons un terminal interactif pour commencer à jouer avec les 
 classe new-style.
 
->>>>>>>>>> INCLUDE C012AL-W7-S3-exo1.py (5 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W7-S3-AV-exo1.py (5 minutes) <<<<<<<<<<
 
 
 

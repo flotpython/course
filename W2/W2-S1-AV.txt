@@ -47,7 +47,7 @@ Type
 	information et méthodes par défaut
 ]]
 
->>>>>>>>>> INCLUDE C012AL-W2-S1-slide1.pptx <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S1-AV-slide1.pptx <<<<<<<<<<
 
 ## En Python, tout est un objet (30s)
 
@@ -116,7 +116,7 @@ l'écriture du programme, mais automatiquement à l'exécution. En fait,
 les variables n'ont pas de type, ce sont les objets qu'elles
 référencent qui ont un type. Prenons un exemple.
 
->>>>>>>>>> INCLUDE C012AL-W2-S1-slide2.pptx <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S1-AV-slide2.pptx <<<<<<<<<<
 
 ## Résumé typage dynamique (15s)
 
@@ -132,7 +132,7 @@ l'instruction print. Cette instruction sert à afficher sur le terminal
 la valeur d'un objet. Passons sur un terminal interactif pour voir
 comment utiliser cette instruction...
 
->>>>>>>>>> INCLUDE C012AL-W2-S1-exo1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S1-AV-exo1.py <<<<<<<<<<
 
 ## Résumé de la vidéo (15s)
 

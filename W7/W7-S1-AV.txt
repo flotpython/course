@@ -34,7 +34,7 @@ ces méthodes des méthodes statiques.
 
 Ouvrons un terminal pour jouer avec les méthodes statiques...
 
->>>>>>>>>> INCLUDE C012AL-W7-S1-exo1.py (8 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W7-S1-AV-exo1.py (8 minutes) <<<<<<<<<<
 
 Les méthodes statiques et de classes permettent de définir des méthodes
 dans une classe qui n'ont pas besoin d'instance pour s'exécuter. 

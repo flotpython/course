@@ -22,9 +22,9 @@ tuple
 str
 ]]
 
->>>>>>>>>> INCLUDE C012AL-W2-S3-exo1.py (5m) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S3-AV-exo1.py (5m) <<<<<<<<<<
 
->>>>>>>>>> INCLUDE C012AL-W2-S3-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S3-AV-slide1.pptx () <<<<<<<<<<
 
 On a vu dans cette vidéo les caractéristiques des types séquences.
 Ce sont des types puissants qui permettent de faire simplement

@@ -9,7 +9,7 @@
 ## Vidéo 1 (Introduction au typage dynamique) 
 NIVEAU: BASIC
 
-C012AL-W2-S1.txt
+W2-S1-AV.txt
 
 ## Compléments Vidéo 1
 
@@ -18,7 +18,7 @@ OK Complement-mots-cles.ipynb: liste des mots clés
 OK Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 1 
-OK C012AL-W2-S1-E1-identifiants.quiz
+OK W2-S1-E1-identifiants.quiz
 
 ## Exercices Vidéo 1
 
@@ -27,7 +27,7 @@ OK C012AL-W2-S1-E1-identifiants.quiz
 ## Vidéo 2 (Les types numériques)
 NIVEAU: BASIC
 
-C012AL-W2-S2.txt
+W2-S2-AV.txt
 
 ## Compléments Vidéo 2
 
@@ -37,7 +37,7 @@ OK Complement-precision-flottants.ipynb : limitation de la précision des floats
 OK Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 2 
-OK C012AL-W2-S2-E1-type-numeriques.quiz
+OK W2-S2-E1-type-numeriques.quiz
 
 ## Exercices Vidéo 2 
 OK Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
@@ -47,7 +47,7 @@ OK Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du +
 ## Vidéo 3 (Les séquences)
 NIVEAU: BASIC
 
-C012AL-W2-S3.txt
+W2-S3-AV.txt
 
 ## Compléments Vidéo 3 
 
@@ -55,7 +55,7 @@ OK Complement-slices.ipynb : reprend le slicing
 
 ## Quizz Vidéo 3 
 
-OK C012AL-W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
+OK W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
 
 ## Exercices Vidéo 3 
 OK Exercice-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
@@ -65,14 +65,14 @@ OK Exercice-slicing.ipynb: un peu de slicing, et des indices négatifs, le slici
 ## Vidéo 4 (Les listes)
 NIVEAU: BASIC
 
-C012AL-W2-S4.txt (9 minutes)
+W2-S4-AV.txt (9 minutes)
 
 ## Compléments Vidéo 4 
 OK: Complement-listes.ipynb: un complément sur les méthodes des listes
 OK Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
 
 ## Quizz Vidéo 4 
-OK C012AL-W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
+OK W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
 xxx -- ?? comparer l.insert (i,shmol) avec l[i:i] = [ shmol ]
 
 ## Exercices Vidéo 4 
@@ -90,7 +90,7 @@ OK Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans p
 OK Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 5 
-OK C012AL-W2-S5-E1-tuples.quiz
+OK W2-S5-E1-tuples.quiz
 
 ## Exercices Vidéo 5 
 
@@ -99,7 +99,7 @@ OK C012AL-W2-S5-E1-tuples.quiz
 ## Vidéo 6 (Introduction aux tests if/else et aux expressions conditionnelles)
 NIVEAU: BASIC
 
-C012AL-W2-S6.txt (5 minutes 40 secondes)
+W2-S6-AV.txt (5 minutes 40 secondes)
 
 ## Compléments Vidéo 6
 OK Complement-conditions-1.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
@@ -118,7 +118,7 @@ OK Complement-if-comme-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
 ## Vidéo 7 (Introduction aux boucles for et aux fonctions)
 NIVEAU: BASIC
 
-C012AL-W2-S7.txt 
+W2-S7-AV.txt 
 
 ## Compléments Vidéo 7 
 OK Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans un for, la fonction zip
@@ -142,7 +142,7 @@ XXX Arnaud: montrer une boucle for sur une chaine de caractères.
 ## Vidéo 8 (Les chaînes de caractères)
 NIVEAU: BASIC
 
-C012AL-W2-S8.txt 
+W2-S8-AV.txt 
 
 ## Compléments Vidéo 8 
 BOF raw-strings.ipynb - backslashes - \n \t 
@@ -154,7 +154,7 @@ OK Complement-la-fonction-raw_input.ipynb
 
 
 ## Quizz Vidéo 8
-OK C012AL-W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
+OK W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
 
 ## Exercices Vidéo 8
 OK Exercice-chaines.ipynb - split, replace, format...

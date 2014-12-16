@@ -32,7 +32,7 @@ que l'exception StopIteration est utilisé par les itérateurs.
 Ouvrons maintenant un éditeur IDLE pour commencer à jouer 
 avec les exceptions...
 
->>>>>>>>>> INCLUDE C012AL-W6-S3-exo1.py (6 minutes 50 s) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W6-S3-AV-exo1.py (6 minutes 50 s) <<<<<<<<<<
 
 
 ## Conclusion ()

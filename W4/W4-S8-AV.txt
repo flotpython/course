@@ -25,7 +25,7 @@ Nous allons voir dans cette vidéo les 4 manières de déclarer des
 arguments et les 4 manières de passer des arguments à une fonction.
 Ouvrons un terminal pour jouer avec les arguments d'une fonction...
 
->>>>>>>>>> C012AL-W4-S8-exo1.py <<<<<<<<<< (8 minutes 40 secondes)
+>>>>>>>>>> W4-S8-AV-exo1.py <<<<<<<<<< (8 minutes 40 secondes)
 
 
 ## conclusion ()
