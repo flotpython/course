@@ -83,6 +83,17 @@ W4
    non-associative - la fonction distance est en fait associative ! Du
    coup les gens utilisent reduce et trouvent un résultat légèrement différent.
 
+Exos
+===
+
+* shipdict.py - il faudrait enlever les doublons (même mesure dans 2
+  fichiers) - voir bateaux "ENFORCER" et le "SANTA CRUZ" d'après un
+  post étudiant
+
+* prévenir + clairement la toute première fois qu'on fait un exo sur
+  les bateaux qu'il peut y avoir des bateaux de même nom
+
+
 Notebooks et process
 ====================
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
