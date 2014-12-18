@@ -83,6 +83,15 @@ W4
    non-associative - la fonction distance est en fait associative ! Du
    coup les gens utilisent reduce et trouvent un résultat légèrement différent.
 
+W7
+===
+ * le complément sur les décorateurs : plutoôt que de rediriger vers
+   https://wiki.python.org/moin/PythonDecoratorLibrary#Singleton à la
+   fin, ce serait mieux de le refaire en le commentant; rien que
+   d'utiliser des noms un peu moins space ça rendre le tout déjà
+   beaucoup + lisible.
+
+
 Exos
 ===
 
