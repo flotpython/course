@@ -12,9 +12,17 @@ TAGS
 connect.html
 *.mov
 *.mkv
+*.mp4
 *.pdf
 *.png
 *.jpg
 *.key
 *.pptx
 *.bak
+*.tar.gz
+stats
+*.aux
+*.log
+*.tex
+*.kml
+*.json
