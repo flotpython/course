@@ -27,12 +27,9 @@ Général
  * exercices sans doute trop difficiles en moyenne
    on observe un taux de 1 succès pour 3 échecs dans les stats
 
- * corriges : les .py des exos sont presque tous en isolatin sauf pour
-   celui sur les fichiers qui, je sais plus pourquoi mais ça a à voir
-   avec le fait qu'on en expose des bouts dans ipython sans doute, est
-   en UTF8.
-   Du coup le pdf est bancal pour cet exo; le mieux serait de tout
-   mettre en unicode et de modifer la moulinette des corriges en consequence
+ * les quelques séquences qui ont 2 vidéos : des gens sont arrivés à
+   rater la deuxième; il suffirait de reprendre un peu la présentation
+   pour rendre ça + explicite (un message AVANT la première vidéo).
 
 W1
 ===
