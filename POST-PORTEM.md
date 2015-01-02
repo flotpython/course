@@ -31,6 +31,13 @@ Général
    rater la deuxième; il suffirait de reprendre un peu la présentation
    pour rendre ça + explicite (un message AVANT la première vidéo).
 
+* la mise `a disposition au format html
+   * il faut penser aux accessoires (surtout media/ et peut-être
+   data/ - sachant que dans data/ on a les cities*.json qui prennent
+   dans les 140 Mb à eux tous seuls)
+   * ce serait bien si les cellules pouvaient être évaluées avant de
+     générer le html - mais ça semble peut-être un peu dur à faire
+
 W1
 ===
 
