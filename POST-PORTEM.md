@@ -3,40 +3,52 @@
 Plateforme
 =======
 
+* Prévoir des mécanismes plus conviviaux pour échanger le code (miniprojets) - étudier un mini-github
+
 * montrer dans une vidéo comment publier du code
   * l'icone '010010' dans la barre de menu
   * Control-K
-  * `x`
+  * les back quotes `x`
   * 4 espaces
+  * parler aussi de la possibilité de publier les notebooks (liens statiques)
+  * et donc du point précédent (un site pour exposer le code ?)
+
+* peut-on faire du peer-review sur des miniprojets ?
+
 
 Général
 =======
 
- * classes new-style
-   * trop de décalage dans le temps entre le cours semaine 5
+* classes new-style
+  * trop de décalage dans le temps entre le cours semaine 5
      et celui de la semaine 7
 
- * équilibre cours
+* équilibre cours
    * la semaine 2 est très chargée
    * les libellés des différentes semaines sont imprécis
 
- * bisect the repo to find out about this
-   "nous dirons plus tard que les variables référencent le même objet" thing
-   when was it written, by whom, did valerie let this pass ?
+* équilibre cours - suite
+  * essayer de parler de plus de librairies standard
 
- * exercices sans doute trop difficiles en moyenne
+* exercices sans doute trop difficiles en moyenne
    on observe un taux de 1 succès pour 3 échecs dans les stats
 
- * les quelques séquences qui ont 2 vidéos : des gens sont arrivés à
+* les quelques séquences qui ont 2 vidéos : des gens sont arrivés à
    rater la deuxième; il suffirait de reprendre un peu la présentation
    pour rendre ça + explicite (un message AVANT la première vidéo).
 
-* la mise `a disposition au format html
+* alléger data/ as far as possible
+
+* la mise à disposition au format html
    * il faut penser aux accessoires (surtout media/ et peut-être
    data/ - sachant que dans data/ on a les cities*.json qui prennent
    dans les 140 Mb à eux tous seuls)
    * ce serait bien si les cellules pouvaient être évaluées avant de
      générer le html - mais ça semble peut-être un peu dur à faire
+
+* minor: bisect the repo to find out about this
+   "nous dirons plus tard que les variables référencent le même objet" thing
+   when was it written, by whom, did valerie let this pass ?
 
 W1
 ===
@@ -50,7 +62,7 @@ W2
 
  * Le quiz sur les listes et la copie avec `3 * [[0]]` est assez foireux
    il faudrait le supprimer ou le récrire avec un exemple plus
-   pertinent - sans le `*`
+   pertinent - c'est-à-dire sans le `*`
 
  * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
    * le dernier champ étant vide on pourrait s'attendre à afficher ??
@@ -92,8 +104,7 @@ W7
  * le complément sur les décorateurs : plutoôt que de rediriger vers
    https://wiki.python.org/moin/PythonDecoratorLibrary#Singleton à la
    fin, ce serait mieux de le refaire en le commentant; rien que
-   d'utiliser des noms un peu moins space ça rendre le tout déjà
-   beaucoup + lisible.
+   d'utiliser des noms un peu moins space ça va rendre le tout déjà beaucoup + lisible.
 
 
 Exos
