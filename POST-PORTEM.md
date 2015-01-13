@@ -29,6 +29,8 @@ Général
 
 * équilibre cours - suite
   * essayer de parler de plus de librairies standard
+  * mentionner le debugger
+  * on ne parle pas du tout de la pile par exemple
 
 * exercices sans doute trop difficiles en moyenne
    on observe un taux de 1 succès pour 3 échecs dans les stats
