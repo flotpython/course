@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 # @BEG@ 4 2 pgcd
 def pgcd(a, b):
@@ -21,7 +21,7 @@ def pgcd(a, b):
 # @END@
 
 inputs_pgcd = [
-    (36 * 2**i * 3**j * 5 **k, 36 * 2**j * 3 ** k * 5 ** i)
+    Args(36 * 2**i * 3**j * 5 **k, 36 * 2**j * 3 ** k * 5 ** i)
  for i in range(3) for j in range(3) for k in range(2)
 ]
 

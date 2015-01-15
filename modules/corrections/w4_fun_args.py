@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import ExerciceKeywords, Exercice
+from exercice import Exercice, Args, ArgsKeywords
 
 ##############################
 # @BEG@ 4 8 distance
@@ -23,12 +23,12 @@ def distance2(*args):
     return math.sqrt(sum( (x**2 for x in args) ))
 
 distance_inputs = [
-    (),
-    (1,),
-    (1, 1),
-    (1, 1, 1),
-    (1, 1, 1, 1),
-    range(100),
+    Args(),
+    Args(1),
+    Args(1, 1),
+    Args(1, 1, 1),
+    Args(1, 1, 1, 1),
+    Args(*range(100)),
 ]
 
 exo_distance = Exercice(distance, distance_inputs, exemple_how_many=3)
@@ -60,11 +60,11 @@ import math
 
 # pour l'exemple on choisit les 3 premiers avec des fonctions différentes
 for i in [1, 3, 5]: 
-    doubler_premier_inputs.append([add, i, 4])
-    doubler_premier_inputs.append((mul, i, 4))
-doubler_premier_inputs.insert(2, (distance, 1, 1, 1))
-doubler_premier_inputs.insert(3, (distance, 2, 2, 2, 2))
-doubler_premier_inputs.insert(4, (distance, 3, 3, 3, 3, 3))
+    doubler_premier_inputs.append(Args(add, i, 4))
+    doubler_premier_inputs.append(Args(mul, i, 4))
+doubler_premier_inputs.insert(2, Args(distance, 1, 1, 1))
+doubler_premier_inputs.insert(3, Args(distance, 2, 2, 2, 2))
+doubler_premier_inputs.insert(4, Args(distance, 3, 3, 3, 3, 3))
 
 exo_doubler_premier = Exercice(doubler_premier, doubler_premier_inputs, exemple_how_many=4)
 
@@ -104,19 +104,19 @@ def muln(x=1, y=1):
     return x*y
 
 doubler_premier2_inputs = []
-dataset = ((addn,1), dict(y=3));       doubler_premier2_inputs.append(dataset)
-dataset = ((muln,1), dict(y=3));       doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((addn,1), dict(y=3));   doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((muln,1), dict(y=3));   doubler_premier2_inputs.append(dataset)
 
 # remettre les datasets de doubler_premier
-doubler_premier2_inputs += [(arguments, {}) for arguments in doubler_premier_inputs]
+doubler_premier2_inputs += doubler_premier_inputs
 
-dataset = ((addn, 1, 3), dict());        doubler_premier2_inputs.append(dataset)
-dataset = ((muln,1, 3), dict());         doubler_premier2_inputs.append(dataset)
-dataset = ((addn,1), dict());            doubler_premier2_inputs.append(dataset)
-dataset = ((muln,1), dict());            doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((addn, 1, 3), dict());  doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((muln,1, 3), dict());   doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((addn,1), dict());      doubler_premier2_inputs.append(dataset)
+dataset = ArgsKeywords((muln,1), dict());      doubler_premier2_inputs.append(dataset)
 
-exo_doubler_premier2 = ExerciceKeywords(doubler_premier2, doubler_premier2_inputs,
-                                         exemple_how_many=5)
+exo_doubler_premier2 = Exercice(doubler_premier2, doubler_premier2_inputs,
+                                exemple_how_many=5)
 ##############################
 # @BEG@ 4 8 validation2
 def validation2(f, g, argument_tuples):
@@ -144,7 +144,7 @@ def fact(n):
     "une version de factoriel à base de reduce"
     return reduce(mul, range(1, n+1), 1)
 
-validation2_inputs.append((fact, factorial, fact_inputs))
+validation2_inputs.append(Args(fact, factorial, fact_inputs))
 
 ########## dataset #2
 def broken_fact(n):
@@ -152,7 +152,7 @@ def broken_fact(n):
         else 1 if n == 1 \
              else n*fact(n-1)
 
-validation2_inputs.append((broken_fact, factorial, fact_inputs))
+validation2_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 ########## dataset #3
 from operator import add
@@ -163,7 +163,7 @@ add_inputs = [(2, 3), (0, 4), (4, 5)]
 def plus(x1, x2): 
     return x1 + x2
 
-validation2_inputs.append((add, plus, add_inputs))
+validation2_inputs.append(Args(add, plus, add_inputs))
 
 ########## dataset #4
 def plus_broken(x1, x2):
@@ -172,7 +172,7 @@ def plus_broken(x1, x2):
     else:
         return 1 + x2
 
-validation2_inputs.append((add, plus_broken, add_inputs))
+validation2_inputs.append(Args(add, plus_broken, add_inputs))
 
 #################### the exercice instance
 exo_validation2 = Exercice(validation2, validation2_inputs, 

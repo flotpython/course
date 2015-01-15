@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
-inputs_dispatch1 = [(a, b) for a in range (3, 6) for b in range (7, 10)]
+inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
 
 # @BEG@ 3 7 dispatch1
 def dispatch1(a, b):
@@ -27,7 +27,7 @@ samples_A = [(2, 4, 6), [2, 4, 6]]
 samples_B = [{6, 8, 10}]
 
 inputs_dispatch2 = [
-        (a, b, A, B) for a, A in zip(range(3, 5), samples_A) for b in range(7, 10) for B in samples_B
+    Args(a, b, A, B) for a, A in zip(range(3, 5), samples_A) for b in range(7, 10) for B in samples_B
 ]
 
 # @BEG@ 3 7 dispatch2
@@ -47,5 +47,5 @@ def dispatch2(a, b, A, B):
 # @END@
 
 exo_dispatch2 = Exercice(dispatch2, inputs_dispatch2,
-                          correction_columns=(50, 30, 30))
+                         correction_columns=(50, 30, 30))
 

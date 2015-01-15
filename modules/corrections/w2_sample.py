@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 #
 # example how to use
@@ -10,6 +10,14 @@ def curve(a, b):
     return a ** 2 + 3 * a * b + 12
 # @END@
 
-inputs_curve = [(0,1), (0,2), (0,3), (0,4), (1,2), (1,3), (1,4), (1,5)]
+inputs_curve = [Args(0,1),
+                Args(0,2),
+                Args(0,3),
+                Args(0,4),
+                Args(1,2),
+                Args(1,3),
+                Args(1,4),
+                Args(1,5),
+]
 
 exo_curve = Exercice(curve, inputs_curve)

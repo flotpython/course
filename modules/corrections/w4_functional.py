@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg
+from exercice import Exercice, Args
 
 ##############################
 # @BEG@ 4 3 numbers
@@ -34,9 +34,9 @@ def numbers_input():
     for i in xrange(length):
         result.append(randint(5, 15))
     return result
-numbers_inputs = [numbers_input() for i in xrange (3)]
+numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
 
-exo_numbers = Exercice_1arg(numbers, numbers_inputs)
+exo_numbers = Exercice(numbers, numbers_inputs)
 
 ##############################
 # @BEG@ 4 3 validation
@@ -61,14 +61,14 @@ def fact(n):
 from math import factorial
 fact_inputs = [0, 1, 5]
 
-validation_inputs.append((fact, factorial, fact_inputs))
+validation_inputs.append(Args(fact, factorial, fact_inputs))
 
 def broken_fact(n):
     return 0 if n <= 0 \
         else 1 if n == 1 \
              else n*fact(n-1)
 
-validation_inputs.append((broken_fact, factorial, fact_inputs))
+validation_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 exo_validation = Exercice(validation, validation_inputs, 
                           correction_columns=(50, 40, 40))

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 # @BEG@ 3 3 diff
 def diff(extended, abbreviated):
@@ -52,12 +52,12 @@ import copy
 class ExerciceDiff(Exercice):
     def correction(self, student_diff, extended, abbreviated):
         # start with the full dataset
-        self.datasets = [((extended, abbreviated), {})]
+        self.datasets = [Args(extended, abbreviated)]
         # make up a samples by taking only <sample> entries in each
         for sample in [10, 20, 40]:
             extended_sample = copy.deepcopy(extended[:sample])
             abbreviated_sample = copy.deepcopy(abbreviated[:sample])
-            self.datasets.append(((extended_sample, abbreviated_sample), {}))
+            self.datasets.append(Args(extended_sample, abbreviated_sample))
         return Exercice.correction(self, student_diff)
 
     def resultat(self, extended, abbreviated):

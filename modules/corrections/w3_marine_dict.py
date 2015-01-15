@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 # @BEG@ 3 2 index
 def index(bateaux):
@@ -30,7 +30,7 @@ class ExerciceIndex(Exercice):
 
     # on surcharge correction pour capturer les arguments
     def correction(self, student_index, bateaux):
-        self.datasets = [((bateaux, ), {})]
+        self.datasets = [Args(bateaux)]
         return Exercice.correction(self, student_index)
 
     # une fonction pour exposer le resultat attendu
@@ -131,7 +131,7 @@ class ExerciceMerge(Exercice):
 
     # on surcharge correction pour capturer les arguments
     def correction(self, student_merge, extended, abbreviated):
-        self.datasets = [((extended, abbreviated), {})]
+        self.datasets = [Args(extended, abbreviated)]
         return Exercice.correction(self, student_merge)
 
     # une fonction pour exposer le resultat attendu

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 ############################################################
 # the low level interface - used to be used directly in the first exercices
 
@@ -47,16 +49,6 @@ def commas(iterable):
 def truncate_iterable(iterable, max_size):
     return truncate_str(commas(iterable), max_size)
 
-# for now a dataset is a list of arguments
-def truncate_dataset(dataset, max_size):
-#    # for now dataset is arguments, but that would change
-#    return truncate_iterable (dataset, max_size)
-    (arguments, keywords) = dataset
-    text = commas(arguments)
-    if keywords:
-        text += ", " + commas(keywords)
-    return truncate_str(text, max_size)
-
 def truncate_value(value, max_size):
     # this is the case where we may have a set and prefer to show it with {}
     if isinstance(value, set):
@@ -64,16 +56,6 @@ def truncate_value(value, max_size):
         return truncate_str(message, max_size-1) + "}"
     else:
         return truncate_str(repr(value), max_size)
-
-#################### help to clone material
-# safer to copy inputs most of the time (always?)
-def clone_dataset(dataset, copy_mode):
-    if copy_mode == 'shallow':
-        return copy.copy(dataset)
-    elif copy_mode == 'deep':
-        return copy.deepcopy(dataset)
-    else:
-        return dataset
 
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
@@ -115,25 +97,24 @@ def correction_table(student_function,
 
     overall = True
     for dataset in datasets:
-        student_dataset = clone_dataset(dataset, copy_mode)
-        correct_dataset = clone_dataset(dataset, copy_mode)
+        # always clone all inputs
+        student_dataset = dataset.clone(copy_mode)
+        correct_dataset = dataset.clone(copy_mode)
         # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = truncate_dataset(student_dataset, c1)
-        (arguments, keywords) = correct_dataset
+        rendered_input = student_dataset.truncate(c1)
+        
+        # run both codes
         try:
-            if DEBUG:
-                print "calling", correct_function.__name__, "*", arguments, "**", keywords
-            expected = correct_function(*arguments, **keywords)
+            expected = correct_dataset.call(correct_function, debug=DEBUG)
         except Exception as e:
             expected = e
         rendered_expected = truncate_value(expected, c2)
-        # run both codes
         try:
-            (arguments, keywords) = student_dataset
-            student_result = student_function(*arguments, **keywords)
+            student_result = student_dataset.call(student_function, debug=DEBUG)
         except Exception as e:
             student_result = e
-        # compare 
+
+        # compare results
         ok = expected == student_result
         if not ok:
             overall = False
@@ -171,12 +152,11 @@ def exemple_table(function_name,
             u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
     for dataset in datasets[:how_many]:
-        sample_dataset = clone_dataset(dataset, copy_mode)
+        sample_dataset = dataset.clone(copy_mode)
         rendered_input = "{}({})".format(function_name,
-                                         truncate_dataset(sample_dataset,c1))
-        (arguments, keywords) = sample_dataset
+                                         sample_dataset.truncate(c1))
         try:
-            expected = correct_function(*arguments, **keywords)
+            expected = sample_dataset.call(correct_function)
         except Exception as e:
             expected = e
         rendered_expected = truncate_value(expected, c2)
@@ -204,13 +184,12 @@ def exemple_table_multiline(function_name,
     html += u"<tr style='{}'><th>Arguments</th>"\
             u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
-    sample_dataset = clone_dataset(datasets[dataset_index], copy_mode)
-    args, keywords = sample_dataset
+    sample_dataset = datasets[dataset_index].clone(copy_mode)
     nb_args = len(arg_names)
-    for index, arg, name in zip(range(nb_args), args, arg_names):
+    for index, arg, name in zip(range(nb_args), sample_dataset.args, arg_names):
         rendered_input = "{}={}".format(name, truncate_value(arg, c1))
         if index == 0:
-            expected = correct_function(*args, **keywords)
+            expected = sample_dataset.call(correct_function)
             rendered_expected = truncate_value(expected, c2)
         else:
             rendered_expected = ""
@@ -225,12 +204,87 @@ def exemple_table_multiline(function_name,
 default_correction_columns = (30, 40, 40)
 default_exemple_columns = (40, 40)
 
-class ExerciceKeywords:
+####################
+class ArgsKeywords(object):
     """
-    The base class for handling an exercice, from a solution and inputs
-    This most general form expects datasets specified as 
-    [ (arguments, keywords) ]
-    with arguments a tuple and keywords a dictionary
+    The most general form of a function argument list is made
+    of a tuple and a dictionary
+    
+    Example:
+    my_input = ArgsKeywords( (1,2), {'a': []})
+    my_input.call (foo)
+    would then return the same thing as
+    foo (1, 2, a=[])
+    """
+    def __init__(self, args=None, keywords=None):
+        # expecting a tuple or a list
+        self.args = args if args is not None else tuple()
+        # expecting a dictionary
+        self.keywords = keywords if keywords is not None else {}
+
+    def call(self, function, debug=False):
+        if debug:
+            print("calling", function.__name__, "*", self.args, "**", self.keywords)
+        return function(*self.args, **self.keywords)
+
+    def clone(self, copy_mode):
+        "clone this input for safety"
+        if copy_mode == 'shallow':
+            return copy.copy(self)
+        elif copy_mode == 'deep':
+            return copy.deepcopy(self)
+        else:
+            return self
+
+    def truncate(self, max_size):
+        "truncate for html rendering"
+        text = commas(self.args)
+        if self.keywords:
+            text += ", " + commas(self.keywords)
+        return truncate_str(text, max_size)
+    
+class Args(ArgsKeywords):
+    """
+    In most cases though, we do not use keywords so it is more convenient to
+    just pass a list of arguments
+
+    Example:
+    my_input = Args (1, 2, 3)
+    my_input.call(foo)
+    would then return the same thing as
+    foo(1, 2, 3)
+    """
+    def __init__(self, *args):
+        ArgsKeywords.__init__(self, args)
+
+####################        
+class Exercice:
+    """The class for an exercice where students are asked to write a
+    function The teacher version of that function is provided as
+    'solution' and is used against datasets - a list of Args (or
+    ArgsKeywords) to generate an online correction.
+
+    The most useful method in this class is 'correction'; for each
+    input in the dataset, we call both the teacher function and the
+    student function, and compare the results using '==' to produce a
+    table of green or red cells.
+
+    The class provides a few other utility methods, like 'exemple'
+    that can be used in the students notebook to show the expected
+    result for some or all of the inputs.
+
+    One important aspects of this is copying. Realizing that both
+    teacher and student functions can do side effects in the inputs,
+    it means that these need to be copied before any call is made. By
+    default the copy is a deep copy, but for some corner cases it can
+    be required to use shallow copy instead; in this case just pass
+    copy_mode='shallow' to the constructor here.
+
+    Some more cosmetic settings are supported as well, for defining
+    the column widths in both the correction and exemple outputs. Also
+    exemple_how_many allows you to specify how many inputs should be
+    considered for generating the exemple table (starting of course at
+    the top of the list).
     """
     def __init__(self, solution, datasets, 
                  correction_columns=None, exemple_columns=None,
@@ -263,29 +317,9 @@ class ExerciceKeywords:
 
 
 ##############################
-class Exercice(ExerciceKeywords):
-    """
-    the most usual form expects its inputs specified as 
-    a list of *arguments*, with arguments a tuple
-    """
-    def __init__(self, solution, inputs, *args, **kwds):
-        datasets = [(input, {}) for input in inputs]
-        ExerciceKeywords.__init__(self, solution, datasets, *args, **kwds)
-
-
-##############################
-class Exercice_1arg(Exercice):
-    """
-    A convenience/specialized Exercice.
-    When the function expects one argument, inputs can
-    be described a a simple list of such args, the one-tuple 
-    gets added by this class
-    """
-    def __init__(self, solution, single_arg_s, *args, **kwds):
-        inputs = [(single_arg,) for single_arg in single_arg_s]
-        Exercice.__init__(self, solution, inputs, *args, **kwds)
-
-##############################
+# this one is about providing a slightly different layout
+# it is used only for exercice 'intersect' so it is probably not
+# worth worrying too much about it
 class Exercice_multiline(Exercice):
     """
     A customized Exercice where examples are exposed in another
@@ -306,7 +340,7 @@ class Exercice_multiline(Exercice):
 ##############################
 import re
 
-class ExerciceRegexp(Exercice_1arg):
+class ExerciceRegexp(Exercice):
     """
     With these exercices the students are asked to write a regexp
     which is transformed into a function that essentially
@@ -323,16 +357,16 @@ class ExerciceRegexp(Exercice_1arg):
 
     def __init__(self, name, regexp, inputs, *args, **keywords):
         solution = ExerciceRegexp.regexp_to_solution(regexp)
-        Exercice_1arg.__init__(self, solution, inputs, *args, **keywords)
+        Exercice.__init__(self, solution, inputs, *args, **keywords)
         self.regexp = regexp
         self.name = name
 
     def correction(self, student_regexp):
         student_solution = ExerciceRegexp.regexp_to_solution(student_regexp)
-        return Exercice_1arg.correction(self, student_solution)
+        return Exercice.correction(self, student_solution)
 
 ##############################
-class ExerciceRegexpGroups(Exercice_1arg):
+class ExerciceRegexpGroups(Exercice):
     """
     With these exercices the students are asked to write a regexp
     with a set of specified named groups
@@ -358,11 +392,11 @@ class ExerciceRegexpGroups(Exercice_1arg):
 
     def __init__(self, name, regexp, groups, inputs, *args, **keywords):
         solution = ExerciceRegexpGroups.regexp_to_solution(regexp, groups)
-        Exercice_1arg.__init__(self, solution, inputs, *args, **keywords)
+        Exercice.__init__(self, solution, inputs, *args, **keywords)
         self.name = name
         self.regexp = regexp
         self.groups = groups
 
     def correction(self, student_regexp):
         student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups)
-        return Exercice_1arg.correction(self, student_solution)
+        return Exercice.correction(self, student_solution)
