@@ -184,18 +184,19 @@ def exemple_table_multiline(function_name,
     html += u"<tr style='{}'><th>Arguments</th>"\
             u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
-    sample_dataset = datasets[dataset_index].clone(copy_mode)
     nb_args = len(arg_names)
+
+    sample_dataset = datasets[dataset_index].clone(copy_mode)
+    rendered_input = ""
+    rendered_expected = ""
     for index, arg, name in zip(range(nb_args), sample_dataset.args, arg_names):
-        rendered_input = "{}={}".format(name, truncate_value(arg, c1))
-        if index == 0:
-            expected = sample_dataset.call(correct_function)
-            rendered_expected = truncate_value(expected, c2)
-        else:
-            rendered_expected = ""
-        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
+        rendered_input += "{}={}<br/>".format(name, truncate_value(arg, c1))
+    expected = sample_dataset.call(correct_function)
+    rendered_expected = truncate_value(expected, c2)
+    html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
 
     html += "</table>"
+#    print(html)
     return HTML(html)
 
 ############################################################
