@@ -46,9 +46,6 @@ def commas(iterable):
     else:
         return ", ".join([custom_repr(x) for x in iterable])
 
-def truncate_iterable(iterable, max_size):
-    return truncate_str(commas(iterable), max_size)
-
 def truncate_value(value, max_size):
     # this is the case where we may have a set and prefer to show it with {}
     if isinstance(value, set):
@@ -169,7 +166,6 @@ def exemple_table(function_name,
 # see w4_comps.py for an example of use
 # this is a patch...
 def exemple_table_multiline(function_name,
-                            arg_names,
                             correct_function,
                             datasets,
                             columns=default_table_columns,
@@ -181,18 +177,13 @@ def exemple_table_multiline(function_name,
     c1, c2 = columns
     html = ""
     html += u"<table style='{}'>".format(font_style)
-    html += u"<tr style='{}'><th>Arguments</th>"\
+    html += u"<tr style='{}'><th>Appel</th>"\
             u"<th>Résultat attendu</th></tr>".format(header_font_style)
     
-    nb_args = len(arg_names)
-
     sample_dataset = datasets[dataset_index].clone(copy_mode)
-    rendered_input = ""
-    rendered_expected = ""
-    for index, arg, name in zip(range(nb_args), sample_dataset.args, arg_names):
-        rendered_input += "{}={}<br/>".format(name, truncate_value(arg, c1))
-    expected = sample_dataset.call(correct_function)
-    rendered_expected = truncate_value(expected, c2)
+    rendered_args = ",<br/>".join([truncate_value(arg, c1) for arg in sample_dataset.args])
+    rendered_input = "{}(<br/>{}<br/>)".format(function_name, rendered_args)
+    rendered_expected = truncate_value( sample_dataset.call(correct_function), c2)
     html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
 
     html += "</table>"
@@ -214,7 +205,7 @@ class ArgsKeywords(object):
     Example:
     my_input = ArgsKeywords( (1,2), {'a': []})
     my_input.call (foo)
-    would then return the same thing as
+    would then return the result of
     foo (1, 2, a=[])
     """
     def __init__(self, args=None, keywords=None):
@@ -252,7 +243,7 @@ class Args(ArgsKeywords):
     Example:
     my_input = Args (1, 2, 3)
     my_input.call(foo)
-    would then return the same thing as
+    would then return the result of
     foo(1, 2, 3)
     """
     def __init__(self, *args):
@@ -322,19 +313,10 @@ class Exercice:
 # it is used only for exercice 'intersect' so it is probably not
 # worth worrying too much about it
 class Exercice_multiline(Exercice):
-    """
-    A customized Exercice where examples are exposed in another
-    format - one argument per line
-    this is why we need a tuple of argument names
-    """
-    def __init__(self, solution, inputs, argnames, *args, **kwds):
-        self.argnames = argnames
-        Exercice.__init__(self, solution, inputs, *args, **kwds)
-
     def exemple(self):
         columns = self.exemple_columns
         if columns is None: columns = default_exemple_columns
-        return exemple_table_multiline(self.name, self.argnames, self.solution, 
+        return exemple_table_multiline(self.name, self.solution, 
                                        self.datasets, columns=columns)
 
 

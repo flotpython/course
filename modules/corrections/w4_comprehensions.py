@@ -89,6 +89,6 @@ A2 = {(1, 'unA'), (2, 'deux'), (3, 'troisA')}
 B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
-exo_intersect = Exercice_multiline(intersect, intersect_inputs, ('A', 'B'), 
+exo_intersect = Exercice_multiline(intersect, intersect_inputs,
                                    exemple_columns=(55, 30))
 ##############################
