@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from exercice import Exercice, Args
-from exercice import Exercice_multiline
 
 ##############################
 # @BEG@ 4 4 aplatir
@@ -89,6 +88,7 @@ A2 = {(1, 'unA'), (2, 'deux'), (3, 'troisA')}
 B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
-exo_intersect = Exercice_multiline(intersect, intersect_inputs,
-                                   exemple_columns=(55, 30))
+exo_intersect = Exercice(intersect, intersect_inputs,
+                         exemple_columns=(55, 30),
+                         format='multiline')
 ##############################

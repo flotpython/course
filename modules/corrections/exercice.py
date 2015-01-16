@@ -60,141 +60,10 @@ header_font_style = 'font-family:monospace;font-size:medium;'
 
 ok_style = 'background-color:#66CC66;'
 ko_style = 'background-color:#CC3300;color:#e8e8e8;'
-# xxx should go away eventually
-default_table_columns = (30, 40, 40)
 
-def log_correction(function, success):
-    try:
-        uid = os.getuid()
-        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
-        now = time.strftime("%D-%H:%M", time.localtime())
-        logname = os.path.join(os.getenv("HOME"), ".correction")
-        function_name = function.__name__
-        message = "OK" if success else "KO"
-        with open(logname, 'a') as log:
-            line = "{now} {uid} {md5} {function_name} {message}\n".format(**locals())
-            log.write(line)
-    except:
-        pass
-
-def correction_table(student_function,
-                     correct_function,
-                     datasets,
-                     columns=default_table_columns,
-                     copy_mode='deep'):
-    """
-    colums should be a 3-tuple for the 3 columns widths
-    copy_mode can be either None, 'shallow', or 'deep' (default)
-    """
-    c1,c2,c3 = columns
-    html = ""
-    html += u"<table style='{}'>".format(font_style)
-    html += u"<tr style='{}'><th>Entrée</th><th>Attendu</th>"\
-            u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
-
-    overall = True
-    for dataset in datasets:
-        # always clone all inputs
-        student_dataset = dataset.clone(copy_mode)
-        correct_dataset = dataset.clone(copy_mode)
-        # compute rendering of dataset *before* running in case there are side-effects
-        rendered_input = student_dataset.truncate(c1)
-        
-        # run both codes
-        try:
-            expected = correct_dataset.call(correct_function, debug=DEBUG)
-        except Exception as e:
-            expected = e
-        rendered_expected = truncate_value(expected, c2)
-        try:
-            student_result = student_dataset.call(student_function, debug=DEBUG)
-        except Exception as e:
-            student_result = e
-
-        # compare results
-        ok = expected == student_result
-        if not ok:
-            overall = False
-        # render that run
-        result_cell = '<td style="background-color:green;">'
-        message = 'OK' if ok else 'KO'
-        style = ok_style if ok else ko_style
-        html += "<tr style='{}'>".format(style)
-        html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
-                format(rendered_input,
-                       rendered_expected,
-                       truncate_value(student_result, c3),
-                       message)
-    html += "</table>"
-    log_correction(correct_function, overall)
-    return HTML(html)
-
-# see how to use in exo_rendering.py
-def exemple_table(function_name,
-                  correct_function,
-                  datasets,
-                  columns=default_table_columns,
-                  copy_mode='deep',
-                  how_many=1):
-
-    if how_many == 0:
-        how_many = len(datasets)
-
-    # can provide 3 args (convenient when it's the same as correction) or just 2
-    columns = columns[:2]
-    c1, c2 = columns
-    html = ""
-    html += u"<table style='{}'>".format(font_style)
-    html += u"<tr style='{}'><th>Appel</th>"\
-            u"<th>Résultat attendu</th></tr>".format(header_font_style)
-    
-    for dataset in datasets[:how_many]:
-        sample_dataset = dataset.clone(copy_mode)
-        rendered_input = "{}({})".format(function_name,
-                                         sample_dataset.truncate(c1))
-        try:
-            expected = sample_dataset.call(correct_function)
-        except Exception as e:
-            expected = e
-        rendered_expected = truncate_value(expected, c2)
-        html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
-
-    html += "</table>"
-    return HTML(html)
-
-# likewise but with a different layout
-# see w4_comps.py for an example of use
-# this is a patch...
-def exemple_table_multiline(function_name,
-                            correct_function,
-                            datasets,
-                            columns=default_table_columns,
-                            copy_mode='deep',
-                            dataset_index=0):
-
-    # can provide 3 args (convenient when it's the same as correction) or just 2
-    columns = columns[:2]
-    c1, c2 = columns
-    html = ""
-    html += u"<table style='{}'>".format(font_style)
-    html += u"<tr style='{}'><th>Appel</th>"\
-            u"<th>Résultat attendu</th></tr>".format(header_font_style)
-    
-    sample_dataset = datasets[dataset_index].clone(copy_mode)
-    rendered_args = ",<br/>".join([truncate_value(arg, c1) for arg in sample_dataset.args])
-    rendered_input = "{}(<br/>{}<br/>)".format(function_name, rendered_args)
-    rendered_expected = truncate_value( sample_dataset.call(correct_function), c2)
-    html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
-
-    html += "</table>"
-#    print(html)
-    return HTML(html)
-
-############################################################
-# the high level interface - preferred
-
-default_correction_columns = (30, 40, 40)
-default_exemple_columns = (40, 40)
+# defaults for columns widths - for FUN 
+default_correction_columns =    (30, 40, 40)
+default_exemple_columns =       (40, 40)
 
 ####################
 class ArgsKeywords(object):
@@ -208,11 +77,15 @@ class ArgsKeywords(object):
     would then return the result of
     foo (1, 2, a=[])
     """
-    def __init__(self, args=None, keywords=None):
+    def __init__(self, args=None, keywords=None, format=None):
         # expecting a tuple or a list
         self.args = args if args is not None else tuple()
         # expecting a dictionary
         self.keywords = keywords if keywords is not None else {}
+        # used when rendering - in exemple or correction
+        # in general this is defined in the Exercice instance
+        # but can also be overridden here
+        self.format=format
 
     def call(self, function, debug=False):
         if debug:
@@ -228,13 +101,63 @@ class ArgsKeywords(object):
         else:
             return self
 
-    def truncate(self, max_size):
-        "truncate for html rendering"
+    # several formats for rendering in a table
+    # the default is for when this is left unspecified
+    # both in the Exercice instance and in the ArgsKeywords instance
+    default_format = 'truncate'
+    supported_formats = ['truncate', 'multiline', 'plain'] 
+
+    def actual_format(self, exo_format):
+        "the format to use"
+        # the value specified in the instance wins if set
+        # as it is more specific
+        # second use the one provided at the exercice level
+        # last resort is this default
+        actual_format = self.format if self.format \
+           else exo_format if exo_format \
+                else self.default_format
+        if actual_format not in self.supported_formats:
+            print("WARNING: unsupported format {}".format(actual_format))
+            actual_format = self.default_format
+        return actual_format
+
+    def render_cell(self, exo, width):
+        """ 
+        return html for rendering in a table cell
+        multiplexes to mathod render_<format> depending on
+        this instance's format and the one specified in the exercice
+        (former hs priority if set)
+        """
+        exo_format = exo.format
+        actual_format = self.actual_format(exo_format)
+        method = getattr(self, 'render_' + actual_format)
+        # the magic of bound methods !
+        return method(exo.name, width)
+
+    def render_plain(self, function_name, width):
+        """
+        single line - not truncated
+        """
         text = commas(self.args)
         if self.keywords:
             text += ", " + commas(self.keywords)
-        return truncate_str(text, max_size)
+        return text
+
+    def render_truncate(self, function_name, width):
+        """
+        render a list of arguments on a single line, truncated
+        """
+        return truncate_str(self.render_plain(function_name, width), width)
     
+    def render_multiline(self, function_name, width):
+        """
+        render a list of arguments in multiline mode
+        """
+        raw_lines = list(self.args) + [ "{}={}".format(k,v) for k,v in self.keywords ]
+        lines = [ truncate_value(line, width) for line in raw_lines ]
+        rendered_args = ",<br/>".join(lines)
+        return "{}(<br/>{}<br/>)".format(function_name, rendered_args)
+
 class Args(ArgsKeywords):
     """
     In most cases though, we do not use keywords so it is more convenient to
@@ -245,9 +168,13 @@ class Args(ArgsKeywords):
     my_input.call(foo)
     would then return the result of
     foo(1, 2, 3)
+
+    it is possible to specify format=multiline if desired,
+    but it MUST be a named parameter of course
     """
-    def __init__(self, *args):
-        ArgsKeywords.__init__(self, args)
+    def __init__(self, *args, **kwds):
+        # it is NOT *args here, this is intentional
+        ArgsKeywords.__init__(self, args, **kwds)
 
 ####################        
 class Exercice:
@@ -281,7 +208,8 @@ class Exercice:
     def __init__(self, solution, datasets, 
                  correction_columns=None, exemple_columns=None,
                  exemple_how_many=1,
-                 copy_mode='deep'):
+                 copy_mode='deep',
+                 format=None):
         # the 'official' solution
         self.solution = solution
         # the inputs 
@@ -292,20 +220,107 @@ class Exercice:
         self.exemple_columns = exemple_columns 
         self.exemple_how_many = exemple_how_many
         self.copy_mode = copy_mode
+        self.format = format
 
     # public interface
     def exemple(self):
-        columns = self.exemple_columns
-        if columns is None: columns = default_exemple_columns
-        return exemple_table(self.name, self.solution, self.datasets, 
-                             copy_mode=self.copy_mode,
-                             how_many=self.exemple_how_many, columns=columns)
+        # the 'right' implementation
+        how_many = self.exemple_how_many
+        columns = self.exemple_columns if self.exemple_columns else default_exemple_columns
+        exo_format = self.format
 
-    def correction(self, student_solution):
+        how_many_samples = self.exemple_how_many if self.exemple_how_many \
+                           else len(self.datasets)
+    
+        # can provide 3 args (convenient when it's the same as correction) or just 2
+        columns = columns[:2]
+        c1, c2 = columns
+
+        html = ""
+        html += u"<table style='{}'>".format(font_style)
+        html += u"<tr style='{}'><th>Arguments</th>"\
+                u"<th>Résultat attendu</th></tr>".format(header_font_style)
+        
+        for dataset in self.datasets[:how_many_samples]:
+            sample_dataset = dataset.clone(self.copy_mode)
+            rendered_input = sample_dataset.render_cell(self, width=c1)
+            try:
+                expected = sample_dataset.call(self.solution)
+            except Exception as e:
+                expected = e
+            rendered_expected = truncate_value(expected, c2)
+            html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
+    
+        html += "</table>"
+        return HTML(html)
+
+    def correction(self, student_function):
+        """
+        colums should be a 3-tuple for the 3 columns widths
+        copy_mode can be either None, 'shallow', or 'deep' (default)
+        """
+        datasets = self.datasets
+        copy_mode = self.copy_mode
         columns = self.correction_columns
         if columns is None: columns = default_correction_columns
-        return correction_table(student_solution, self.solution, self.datasets, 
-                                copy_mode=self.copy_mode, columns=columns)
+
+        c1,c2,c3 = columns
+        html = ""
+        html += u"<table style='{}'>".format(font_style)
+        html += u"<tr style='{}'><th>Arguments</th><th>Attendu</th>"\
+                u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
+    
+        overall = True
+        for dataset in datasets:
+            # always clone all inputs
+            student_dataset = dataset.clone(copy_mode)
+            correct_dataset = dataset.clone(copy_mode)
+            # compute rendering of dataset *before* running
+            #in case there are side-effects
+            rendered_input = student_dataset.render_cell(self, width=c1)
+            
+            # run both codes
+            try:
+                expected = correct_dataset.call(self.solution, debug=DEBUG)
+            except Exception as e:
+                expected = e
+            rendered_expected = truncate_value(expected, c2)
+            try:
+                student_result = student_dataset.call(student_function, debug=DEBUG)
+            except Exception as e:
+                student_result = e
+    
+            # compare results
+            ok = expected == student_result
+            if not ok:
+                overall = False
+            # render that run
+            result_cell = '<td style="background-color:green;">'
+            message = 'OK' if ok else 'KO'
+            style = ok_style if ok else ko_style
+            html += "<tr style='{}'>".format(style)
+            html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
+                    format(rendered_input,
+                           rendered_expected,
+                           truncate_value(student_result, c3),
+                           message)
+        html += "</table>"
+        self.log_correction(overall)
+        return HTML(html)
+
+    def log_correction(self, success):
+        try:
+            uid = os.getuid()
+            md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
+            now = time.strftime("%D-%H:%M", time.localtime())
+            logname = os.path.join(os.getenv("HOME"), ".correction")
+            message = "OK" if success else "KO"
+            function_name = self.name
+            with open(logname, 'a') as log:
+                line = "{now} {uid} {md5} {function_name} {message}\n".format(**locals())
+                log.write(line)
+        except:
+            pass
 
 
 ##############################
