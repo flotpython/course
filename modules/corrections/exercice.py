@@ -25,6 +25,9 @@ def html_escape(s):
     return s.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
 
 def truncate_str(message, max_size):
+    # width = 0 or less means do not truncate
+    if max_size <= 0:
+        return message
     truncated = message if len(message) <= max_size \
         else message[:max_size-3]+'...'
     return html_escape(truncated)
@@ -105,7 +108,7 @@ class ArgsKeywords(object):
     # the default is for when this is left unspecified
     # both in the Exercice instance and in the ArgsKeywords instance
     default_format = 'truncate'
-    supported_formats = ['truncate', 'multiline', 'plain'] 
+    supported_formats = ['truncate', 'multiline'] 
 
     def actual_format(self, exo_format):
         "the format to use"
@@ -134,20 +137,15 @@ class ArgsKeywords(object):
         # the magic of bound methods !
         return method(exo.name, width)
 
-    def render_plain(self, function_name, width):
+    def render_truncate(self, function_name, width):
         """
-        single line - not truncated
+        render a list of arguments on a single line, truncated
+        remember that width <= 0 means no truncation
         """
         text = commas(self.args)
         if self.keywords:
             text += ", " + commas(self.keywords)
-        return text
-
-    def render_truncate(self, function_name, width):
-        """
-        render a list of arguments on a single line, truncated
-        """
-        return truncate_str(self.render_plain(function_name, width), width)
+        return truncate_str(text, width)
     
     def render_multiline(self, function_name, width):
         """
