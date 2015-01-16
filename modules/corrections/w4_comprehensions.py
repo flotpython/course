@@ -89,6 +89,7 @@ B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
 exo_intersect = Exercice(intersect, intersect_inputs,
-                         exemple_columns=(55, 30),
+                         exemple_columns=(0,0),
+                         correction_columns=(0, 0, 0),
                          format='multiline')
 ##############################
