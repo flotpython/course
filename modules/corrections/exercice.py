@@ -320,19 +320,6 @@ class Exercice:
         except:
             pass
 
-
-##############################
-# this one is about providing a slightly different layout
-# it is used only for exercice 'intersect' so it is probably not
-# worth worrying too much about it
-class Exercice_multiline(Exercice):
-    def exemple(self):
-        columns = self.exemple_columns
-        if columns is None: columns = default_exemple_columns
-        return exemple_table_multiline(self.name, self.solution, 
-                                       self.datasets, columns=columns)
-
-
 ##############################
 import re
 
