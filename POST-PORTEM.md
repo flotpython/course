@@ -146,3 +146,10 @@ Notebooks et process
    * XXX: à bien y réfléchir, c'est très casse gueule car ça rend le
      notebook dépendant du 'run' FUN, c'est sûrement une idée à la
      noix en fait.
+
+Exercices
+====================
+* ai rencontré une mention aux tags MP3 (Id3) qui pourrait peut-être
+  faire un bon exo, surtout dans la perspective de python3 et
+  bytearray ?
+  
