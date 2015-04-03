@@ -153,3 +153,11 @@ Exercices
   faire un bon exo, surtout dans la perspective de python3 et
   bytearray ?
   
+
+Notes on python3
+====================
+
+* subprocess & universal_newlines=True, so that the module knows it
+  should return strings and not bytearrays
+
+* XMLRPC & <base64> tags vs <string> - or whatever it is
