@@ -20,9 +20,10 @@ connect.html
 *.pptx
 *.bak
 *.tar.gz
-stats
 *.aux
 *.log
 *.tex
 *.kml
 *.json
+html/*.ipynb
+html/*.html
