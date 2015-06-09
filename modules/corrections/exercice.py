@@ -320,7 +320,6 @@ class Exercice:
         except:
             pass
 
-
 ##############################
 import re
 
