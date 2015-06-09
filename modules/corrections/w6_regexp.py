@@ -42,7 +42,7 @@ inputs_specials = [ '__y3s__', '_n0__', '___n0__', '__0no__',
 regexp_specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
 # @END@
 
-exo_specials = ExerciceRegexp('pythonid', regexp_specials,
+exo_specials = ExerciceRegexp('specials', regexp_specials,
                                inputs_specials,
                                exemple_how_many = 0)
 
