@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 ####################
 # @BEG@ 2 7 divisible
@@ -12,22 +12,22 @@ def divisible(a, b):
 # @END@
 
 inputs_divisible = [
-    (10, 1),
-    (10, -1),
-    (1, 10),
-    (1, -10),
-    (20, 10),
-    (200, -10),
-    (-200, 10),
-    (-200, -10),
-    (10, 200),
-    (10, -200),
-    (-10, 200),
-    (-10, -200),
-    (8, 12),
-    (12, -8),
-    (-12, 8),
-    (-12, -8),
+    Args(10, 1),
+    Args(10, -1),
+    Args(1, 10),
+    Args(1, -10),
+    Args(20, 10),
+    Args(200, -10),
+    Args(-200, 10),
+    Args(-200, -10),
+    Args(10, 200),
+    Args(10, -200),
+    Args(-10, 200),
+    Args(-10, -200),
+    Args(8, 12),
+    Args(12, -8),
+    Args(-12, 8),
+    Args(-12, -8),
 ]
 
 exo_divisible = Exercice(divisible, inputs_divisible)
@@ -56,12 +56,12 @@ Prend en argument une liste, et retourne la liste modifiée:
 # @END@
 
 inputs_spam = [
-    [],
-    [1],
-    ['spam', 2],
-    ['spam', 2, 'bacon'],
-    [1, 2, 3, 4],
-    [1, 2, 3, 4, 5],
+    Args([]),
+    Args([1]),
+    Args(['spam', 2]),
+    Args(['spam', 2, 'bacon']),
+    Args([1, 2, 3, 4]),
+    Args([1, 2, 3, 4, 5]),
 ]
 
-exo_spam = Exercice_1arg(spam, inputs_spam, exemple_how_many=4)
+exo_spam = Exercice(spam, inputs_spam, exemple_how_many=4)

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from exercice import ExerciceRegexp, ExerciceRegexpGroups
+from exercice import ExerciceRegexp, ExerciceRegexpGroups, Args
 
-########################################
+######################################## pythonid
 germs = [ 'aa1', 'A1a', '1Aa']
-inputs_pythonid = [ 'a', '_', '__', '-', ] + germs [:]
+pythonid_strings = [ 'a', '_', '__', '-', ] + germs [:]
 for germ in germs:
     for i in range (len(germ)):
         for seed in '-_':
-            inputs_pythonid.append(germ[:i]+seed+germ[i:])
+            pythonid_strings.append(germ[:i]+seed+germ[i:])
 
 # @BEG@ 6 6 regexp_pythonid
 # un identificateur commence par une lettre ou un underscore
@@ -23,13 +23,14 @@ regexp_pythonid2 = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
 exo_pythonid = ExerciceRegexp('pythonid', regexp_pythonid,
-                              inputs_pythonid,
+                              [Args(x) for x in pythonid_strings],
                               exemple_how_many = 8)
 
-########################################
+######################################## specials
 # on ne prend pas le dernier pour le premier exo
-inputs_specials = [ '__y3s__', '_n0__', '___n0__', '__0no__',
-                    '__n0_', '__n0___', '__y3s_too__', '__y__', ]
+specials_strings = [ '__y3s__', '_n0__', '___n0__',
+                     '__0no__', '__n0_', '__n0___',
+                     '__y3s_too__', '__y__', ]
 
 # @BEG@ 6 6 regexp_specials
 # il faut commencer par exactement 2 underscores
@@ -43,11 +44,11 @@ regexp_specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
 # @END@
 
 exo_specials = ExerciceRegexp('specials', regexp_specials,
-                               inputs_specials,
+                               [Args(x) for x in specials_strings],
                                exemple_how_many = 0)
 
-########################################
-inputs_url = """
+######################################## url
+url_strings = """
 http://www.google.com/a/b
 HttPS://www.google.com:8080/a/b
 http://user@www.google.com/a/b
@@ -56,7 +57,6 @@ ssh://missing.ending.slash
 gopher://unsupported.proto.col/
 http:///missing/hostname/
 """.split()
-
 
 # @BEG@ 6 6 regexp_url
 # en ignorant la casse on pourra ne mentionner les noms de protocoles
@@ -92,7 +92,7 @@ regexp_url = i_flag + protos + "://" + user + hostname + port + '/' + path
 groups = [ 'proto', 'user', 'password', 'hostname', 'port', 'path' ]
 
 exo_url = ExerciceRegexpGroups('url', regexp_url, groups,
-                               inputs_url,
+                               [Args(x) for x in url_strings],
                                exemple_how_many=0,
                                exemple_columns = (1000,1000),
                                correction_columns=(1000,1000,1000),

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import ExerciceKeywords
+from exercice import Exercice, Args
 
 alphabet = "0123456789abcdef"
 
@@ -9,23 +9,22 @@ connue   = "".join(random.sample(alphabet, random.randint(3, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
-class ExerciceInconnue(ExerciceKeywords):
+class ExerciceInconnue(Exercice):
     def __init__(self, connue, composite):
-        # on appelle ExerciceKeywords.__init__ pour remplir tous les champs
+        # on appelle Exercice.__init__ pour remplir tous les champs
         # mais self.datasets sera en fait rempli plus tard
-        # a small closure evey now and then can help out
+        # une petite clôture..
         def target(inconnue): 
             return composite
-        ExerciceKeywords.__init__(self, target, None)
+        Exercice.__init__(self, target, None)
         self.connue = connue
         self.composite = composite
     def correction(self, inconnue):
-        # build inputs as for a general ExerciceKeywords object
-        # since we use 
-        self.datasets = [((inconnue,), {})]
+        # dans notre cas il n'y a qu'un seul jeu d'entrées
+        self.datasets = [ Args(inconnue) ]
         def check(inconnue):
             return self.connue + inconnue + self.connue
-        return ExerciceKeywords.correction(self, check)
+        return Exercice.correction(self, check)
 
 exo_inconnue = ExerciceInconnue(connue, composite)
 

@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 ### cannot remember why this one file is unicode but there was a good reason
 # I expect some parts of the file make it to the platform itself, or something
 # in any case there is a hack in corriges.py to take care of that
 
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 import os
 
@@ -18,7 +20,7 @@ def file_contents(filename):
     except:
         return ""
 
-# this decorator does the trick to transform a student-written function
+# this decorator does what it takes to transform a student-written function
 # into something that exercice/correction_table can deal with
 def exercice_compliant(fun):
     def wrapped(in_name, out_name):
@@ -46,7 +48,7 @@ def show_comptage(in_name, out_name, comptage, suffix):
         input, output = file_contents(in_name), file_contents(out_name)
         os.unlink(out_name)
     except OSError:
-        print "Votre fonction ne semble pas créer le fichier de sortie"
+        print("Votre fonction ne semble pas créer le fichier de sortie")
         return 
     html = ""
     html += "<table>"
@@ -100,8 +102,8 @@ def comptage(in_filename, out_filename):
 
 # on passe ceci à Exercice donc pas besoin de rajouter les **keywords
 comptage_args = [
-    ('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
-    ('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
+    Args('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
+    Args('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
 ]
 
 class ExerciceComptage(Exercice):
@@ -110,14 +112,18 @@ class ExerciceComptage(Exercice):
         # call the decorator on the student code
         return Exercice.correction(self, exercice_compliant(student_comptage))
 
-    # on recherche le premier jeu d'entrée, mais dans l'objet
-    # ExerciceKeyworkds le datasets a un tuple avec les **keywords
+    # on recherche les noms des fichers d'entrée et de sortie
+    # à utiliser pour l'exemple (ou le debug, on prend le même)
+    # associés au premier jeu de données (self.datasets[0])
+    # et là-dedans il nous faut regarder dans .args qui va contenir
+    # un tuple avec les deux valeurs qu'on recherche
     def exemple(self):
-        ((input, output), _) = self.datasets[0]
+        print("premier dataset",self.datasets[0].args)
+        (input, output) = self.datasets[0].args
         return show_comptage(input, output, comptage=comptage, suffix=".ok")
 
     def debug(self, student_comptage):
-        ((input, output), _) = self.datasets[0]
+        (input, output) = self.datasets[0].args
         return show_comptage(input, output, comptage=student_comptage, suffix="")
 
 

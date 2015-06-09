@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 
 # @BEG@ 2 8 affichage
@@ -34,19 +34,19 @@ def affichage(s):
 # @END@
 
 inputs_affichage = [
-    "Joseph, Dupont",
-    "Jules , Durand, G123, 21",
-    "Jean", 
-    "Ted, Mosby, F321, ",
-    " Jacques , Martin, L119, \t24 ,",
-    "Sheldon, Cooper ,",
-    "\t Sam, Does\t, F321, 23",
+    Args("Joseph, Dupont"),
+    Args("Jules , Durand, G123, 21"),
+    Args("Jean"), 
+    Args("Ted, Mosby, F321, "),
+    Args(" Jacques , Martin, L119, \t24 ,"),
+    Args("Sheldon, Cooper ,"),
+    Args("\t Sam, Does\t, F321, 23"),
 ]
 
-exo_affichage = Exercice_1arg(affichage, inputs_affichage,
-                              correction_columns=(40, 40, 40),
-                              exemple_columns=(40, 40),
-                              exemple_how_many=4)
+exo_affichage = Exercice(affichage, inputs_affichage,
+                         correction_columns=(40, 40, 40),
+                         exemple_columns=(40, 40),
+                         exemple_how_many=4)
 
 ##############################
 # @BEG@ 2 8 carre
@@ -66,10 +66,10 @@ def carre(s):
 # @END@
 
 inputs_carre = [
-    "1;2;3",
-    " 2 ;  5;6;",
-    "; 12 ;  -23;\t60; 1\t",
-    "; -12 ; ; -23; 1 ;;\t",
+    Args("1;2;3"),
+    Args(" 2 ;  5;6;"),
+    Args("; 12 ;  -23;\t60; 1\t"),
+    Args("; -12 ; ; -23; 1 ;;\t"),
 ]
 
-exo_carre = Exercice_1arg(carre, inputs_carre, exemple_how_many=0)
+exo_carre = Exercice(carre, inputs_carre, exemple_how_many=0)

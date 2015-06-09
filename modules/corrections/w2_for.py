@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Exercice_1arg, Exercice_multiline
+from exercice import Exercice, Args
 
 # @BEG@ 2 7 multi_tri
 def multi_tri(listes):
@@ -12,14 +12,14 @@ def multi_tri(listes):
 # @END@
 
 inputs_multi_tri = [
-    [[40, 12, 25], ['spam', 'egg', 'bacon'],], 
-    [[32, 45], [200, 12], [-25, 37]], 
-    [[], range(10)],
+    Args([[40, 12, 25], ['spam', 'egg', 'bacon']]), 
+    Args([[32, 45], [200, 12], [-25, 37]]),
+    Args([[], range(10)]),
 ]
 
-exo_multi_tri = Exercice_1arg(multi_tri, inputs_multi_tri,
-                              correction_columns=(40, 40, 40),
-                              exemple_columns=(60, 60))
+exo_multi_tri = Exercice(multi_tri, inputs_multi_tri,
+                         correction_columns=(40, 40, 40),
+                         exemple_columns=(60, 60))
                                
 ####################
 # @BEG@ 2 7 multi_tri_reverse
@@ -36,12 +36,12 @@ def multi_tri_reverse(listes, reverses):
 # @END@
 
 inputs_multi_tri_reverse = [ 
-    ([[1, 2], [3, 4]], [True, False]),
-    ([[1, 2], [3, 4]], (True, True)),
-    ([[1, 3, 2], [3, 4]], [False, True]),
-    ([[1, 2], [3, 5, 4]], [False, False]),
-    ([[1, 3], [9, 5], [4, 2]], (True, False, True)),
-    ([[], ['a', 'z', 'c']], [False, True],),
+    Args([[1, 2], [3, 4]], [True, False]),
+    Args([[1, 2], [3, 4]], (True, True)),
+    Args([[1, 3, 2], [3, 4]], [False, True]),
+    Args([[1, 2], [3, 5, 4]], [False, False]),
+    Args([[1, 3], [9, 5], [4, 2]], (True, False, True)),
+    Args([[], ['a', 'z', 'c']], [False, True],),
 ]
 
 exo_multi_tri_reverse = Exercice(multi_tri_reverse, inputs_multi_tri_reverse,
@@ -74,10 +74,11 @@ def liste_racines_bis(p):
     return resultat
 # @END@
 
-inputs_liste_racines = [2, 3, 4] 
+inputs_liste_racines = [Args(2), Args(3), Args(4)] 
 
-exo_liste_racines = Exercice_1arg(liste_racines, inputs_liste_racines,
-                                   correction_columns=(7, 40, 40))
+exo_liste_racines = Exercice(liste_racines,
+                             inputs_liste_racines,
+                             correction_columns=(7, 40, 40))
 
 ####################
 # @BEG@ 2 7 produit_scalaire
@@ -112,10 +113,10 @@ def produit_scalaire_ter(X, Y):
 from fractions import Fraction
 
 inputs_produit_scalaire = [
-    (range(3, 13), range (5, 15)),
-    ([-2, 10] , [20, 4]),
-    ([Fraction(2, 15), Fraction(3, 4)], [Fraction(-7, 19), Fraction(4, 13)]),
-    ([],[]),
+    Args(range(3, 13), range (5, 15)),
+    Args([-2, 10] , [20, 4]),
+    Args([Fraction(2, 15), Fraction(3, 4)], [Fraction(-7, 19), Fraction(4, 13)]),
+    Args([],[]),
 ]
 
 exo_produit_scalaire = Exercice(produit_scalaire, inputs_produit_scalaire,
