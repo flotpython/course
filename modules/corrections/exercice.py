@@ -57,6 +57,20 @@ def truncate_value(value, max_size):
     else:
         return truncate_str(repr(value), max_size)
 
+########## logging
+def log_correction(exo_name, success):
+    try:
+        uid = os.getuid()
+        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
+        now = time.strftime("%D-%H:%M", time.localtime())
+        logname = os.path.join(os.getenv("HOME"), ".correction")
+        message = "OK" if success else "KO"
+        with open(logname, 'a') as log:
+            line = "{now} {uid} {md5} {exo_name} {message}\n".format(**locals())
+            log.write(line)
+    except:
+        pass
+
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
 header_font_style = 'font-family:monospace;font-size:medium;'
@@ -90,11 +104,32 @@ class ArgsKeywords(object):
         # but can also be overridden here
         self.format=format
 
+    def __repr__(self):
+        cn = "Args" if not self.keywords else "ArgsKeywords"
+        result = "<Args {} ".format(self.args)
+        if self.keywords:
+            result += "Keywords:" + ",".join(["{}={}".format(k, v) for (k, v) in self.keywords.items() ])
+        result += ">"
+        return result
+
     def call(self, function, debug=False):
         if debug:
-            print("calling", function.__name__, "*", self.args, "**", self.keywords)
+            print("calling {} *{} **{}".format(function.__name__, self.args, self.keywords))
         return function(*self.args, **self.keywords)
 
+    def init_obj(self, klass, debug=False):
+        if debug:
+            print("creating object in class {}, *{} **{}"
+                  .format(klass.__name__, self.args, self.keywords))
+        return klass(*self.args, **self.keywords)
+                  
+    def call_obj(self, object, methodname, debug=False):
+        if debug:
+            print("calling method {} on object {} *{} **{}"
+                  .format(methodname, object, self.args, self.keywords))
+        method = getattr(object, methodname)
+        return method(*self.args, **self.keywords)
+                  
     def clone(self, copy_mode):
         "clone this input for safety"
         if copy_mode == 'shallow':
@@ -124,18 +159,17 @@ class ArgsKeywords(object):
             actual_format = self.default_format
         return actual_format
 
-    def render_cell(self, exo, width):
+    def render_cell(self, function_name, exo_format, width):
         """ 
         return html for rendering in a table cell
-        multiplexes to mathod render_<format> depending on
+        multiplexes to method render_<format> depending on
         this instance's format and the one specified in the exercice
         (former hs priority if set)
         """
-        exo_format = exo.format
         actual_format = self.actual_format(exo_format)
         method = getattr(self, 'render_' + actual_format)
         # the magic of bound methods !
-        return method(exo.name, width)
+        return method(function_name, width)
 
     def render_truncate(self, function_name, width):
         """
@@ -175,7 +209,7 @@ class Args(ArgsKeywords):
         ArgsKeywords.__init__(self, args, **kwds)
 
 ####################        
-class Exercice:
+class Exercice(object):
     """The class for an exercice where students are asked to write a
     function The teacher version of that function is provided as
     'solution' and is used against datasets - a list of Args (or
@@ -218,6 +252,7 @@ class Exercice:
         self.exemple_columns = exemple_columns 
         self.exemple_how_many = exemple_how_many
         self.copy_mode = copy_mode
+        # applicable to all cells whose Args instance has not specified a format
         self.format = format
 
     # public interface
@@ -241,7 +276,7 @@ class Exercice:
         
         for dataset in self.datasets[:how_many_samples]:
             sample_dataset = dataset.clone(self.copy_mode)
-            rendered_input = sample_dataset.render_cell(self, width=c1)
+            rendered_input = sample_dataset.render_cell(self.name, self.format, width=c1)
             try:
                 expected = sample_dataset.call(self.solution)
             except Exception as e:
@@ -259,10 +294,9 @@ class Exercice:
         """
         datasets = self.datasets
         copy_mode = self.copy_mode
-        columns = self.correction_columns
-        if columns is None: columns = default_correction_columns
+        columns = self.correction_columns if self.correction_columns else default_correction_columns
 
-        c1,c2,c3 = columns
+        c1, c2, c3 = columns
         html = ""
         html += u"<table style='{}'>".format(font_style)
         html += u"<tr style='{}'><th>Arguments</th><th>Attendu</th>"\
@@ -275,7 +309,7 @@ class Exercice:
             correct_dataset = dataset.clone(copy_mode)
             # compute rendering of dataset *before* running
             #in case there are side-effects
-            rendered_input = student_dataset.render_cell(self, width=c1)
+            rendered_input = student_dataset.render_cell(self.name, self.format, width=c1)
             
             # run both codes
             try:
@@ -302,23 +336,10 @@ class Exercice:
                            rendered_expected,
                            truncate_value(student_result, c3),
                            message)
-        html += "</table>"
-        self.log_correction(overall)
-        return HTML(html)
 
-    def log_correction(self, success):
-        try:
-            uid = os.getuid()
-            md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
-            now = time.strftime("%D-%H:%M", time.localtime())
-            logname = os.path.join(os.getenv("HOME"), ".correction")
-            message = "OK" if success else "KO"
-            function_name = self.name
-            with open(logname, 'a') as log:
-                line = "{now} {uid} {md5} {function_name} {message}\n".format(**locals())
-                log.write(line)
-        except:
-            pass
+        log_correction(self.name, overall)
+        html += "</table>"
+        return HTML(html)
 
 ##############################
 import re
