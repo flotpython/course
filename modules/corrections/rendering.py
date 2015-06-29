@@ -2,6 +2,8 @@
 
 from __future__ import print_function
 
+from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
+
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
 header_font_style = 'font-family:monospace;font-size:medium;'
