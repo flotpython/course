@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args, ArgsKeywords
+from exercice_function import ExerciceFunction
+from args import Args, ArgsKeywords
 
 ##############################
 # @BEG@ 4 8 distance
@@ -31,7 +32,8 @@ distance_inputs = [
     Args(*range(100)),
 ]
 
-exo_distance = Exercice(distance, distance_inputs, exemple_how_many=3)
+exo_distance = ExerciceFunction(
+    distance, distance_inputs, exemple_how_many=3)
 
 ##############################
 # @BEG@ 4 8 doubler_premier
@@ -66,7 +68,8 @@ doubler_premier_inputs.insert(2, Args(distance, 1, 1, 1))
 doubler_premier_inputs.insert(3, Args(distance, 2, 2, 2, 2))
 doubler_premier_inputs.insert(4, Args(distance, 3, 3, 3, 3, 3))
 
-exo_doubler_premier = Exercice(doubler_premier, doubler_premier_inputs, exemple_how_many=4)
+exo_doubler_premier = ExerciceFunction(
+    doubler_premier, doubler_premier_inputs, exemple_how_many=4)
 
 ##############################
 # @BEG@ 4 8 doubler_premier2
@@ -115,8 +118,9 @@ dataset = ArgsKeywords((muln,1, 3), dict());   doubler_premier2_inputs.append(da
 dataset = ArgsKeywords((addn,1), dict());      doubler_premier2_inputs.append(dataset)
 dataset = ArgsKeywords((muln,1), dict());      doubler_premier2_inputs.append(dataset)
 
-exo_doubler_premier2 = Exercice(doubler_premier2, doubler_premier2_inputs,
-                                exemple_how_many=5)
+exo_doubler_premier2 = ExerciceFunction(
+    doubler_premier2, doubler_premier2_inputs,
+    exemple_how_many=5)
 ##############################
 # @BEG@ 4 8 validation2
 def validation2(f, g, argument_tuples):
@@ -175,6 +179,7 @@ def plus_broken(x1, x2):
 validation2_inputs.append(Args(add, plus_broken, add_inputs))
 
 #################### the exercice instance
-exo_validation2 = Exercice(validation2, validation2_inputs, 
-                           correction_columns=(50, 40, 40))
+exo_validation2 = ExerciceFunction(
+    validation2, validation2_inputs, 
+    correction_columns=(50, 40, 40))
 

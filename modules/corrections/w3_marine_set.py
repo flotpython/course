@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 # @BEG@ 3 3 diff
 def diff(extended, abbreviated):
@@ -49,7 +50,7 @@ def diff2(extended, abbreviated):
 # tout l'exercice en modifiant le master 
 import copy
 
-class ExerciceDiff(Exercice):
+class ExerciceDiff(ExerciceFunction):
     def correction(self, student_diff, extended, abbreviated):
         # start with the full dataset
         self.datasets = [Args(extended, abbreviated)]
@@ -58,7 +59,7 @@ class ExerciceDiff(Exercice):
             extended_sample = copy.deepcopy(extended[:sample])
             abbreviated_sample = copy.deepcopy(abbreviated[:sample])
             self.datasets.append(Args(extended_sample, abbreviated_sample))
-        return Exercice.correction(self, student_diff)
+        return ExerciceFunction.correction(self, student_diff)
 
     def resultat(self, extended, abbreviated):
         return self.solution(extended, abbreviated)

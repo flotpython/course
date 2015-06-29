@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import ExerciceRegexp, ExerciceRegexpGroups, Args
+from exercice_function import ExerciceRegexp, ExerciceRegexpGroups
+from args import Args
 
 ######################################## pythonid
 germs = [ 'aa1', 'A1a', '1Aa']
@@ -91,11 +92,12 @@ regexp_url = i_flag + protos + "://" + user + hostname + port + '/' + path
 
 groups = [ 'proto', 'user', 'password', 'hostname', 'port', 'path' ]
 
-exo_url = ExerciceRegexpGroups('url', regexp_url, groups,
-                               [Args(x) for x in url_strings],
-                               exemple_how_many=0,
-                               exemple_columns = (1000,1000),
-                               correction_columns=(1000,1000,1000),
-                           )
+exo_url = ExerciceRegexpGroups(
+    'url', regexp_url, groups,
+    [Args(x) for x in url_strings],
+    exemple_how_many=0,
+    exemple_columns = (1000,1000),
+    correction_columns=(1000,1000,1000),
+)
 
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 ##############################
 # @BEG@ 4 3 numbers
@@ -36,7 +37,7 @@ def numbers_input():
     return result
 numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
 
-exo_numbers = Exercice(numbers, numbers_inputs)
+exo_numbers = ExerciceFunction(numbers, numbers_inputs)
 
 ##############################
 # @BEG@ 4 3 validation
@@ -70,7 +71,8 @@ def broken_fact(n):
 
 validation_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
-exo_validation = Exercice(validation, validation_inputs, 
-                          correction_columns=(50, 40, 40))
+exo_validation = ExerciceFunction(
+    validation, validation_inputs, 
+    correction_columns=(50, 40, 40))
 
 ##############################

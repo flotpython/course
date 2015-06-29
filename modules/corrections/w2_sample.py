@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 #
 # example how to use
@@ -20,4 +21,5 @@ inputs_curve = [Args(0,1),
                 Args(1,5),
 ]
 
-exo_curve = Exercice(curve, inputs_curve)
+exo_curve = ExerciceFunction(
+    curve, inputs_curve)

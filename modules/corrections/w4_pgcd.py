@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 # @BEG@ 4 2 pgcd
 def pgcd(a, b):
@@ -25,4 +26,4 @@ inputs_pgcd = [
  for i in range(3) for j in range(3) for k in range(2)
 ]
 
-exo_pgcd = Exercice(pgcd, inputs_pgcd)
+exo_pgcd = ExerciceFunction(pgcd, inputs_pgcd)

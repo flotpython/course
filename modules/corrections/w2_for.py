@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 # @BEG@ 2 7 multi_tri
 def multi_tri(listes):
@@ -17,9 +18,10 @@ inputs_multi_tri = [
     Args([[], range(10)]),
 ]
 
-exo_multi_tri = Exercice(multi_tri, inputs_multi_tri,
-                         correction_columns=(40, 40, 40),
-                         exemple_columns=(60, 60))
+exo_multi_tri = ExerciceFunction(
+    multi_tri, inputs_multi_tri,
+    correction_columns=(40, 40, 40),
+    exemple_columns=(60, 60))
                                
 ####################
 # @BEG@ 2 7 multi_tri_reverse
@@ -44,10 +46,11 @@ inputs_multi_tri_reverse = [
     Args([[], ['a', 'z', 'c']], [False, True],),
 ]
 
-exo_multi_tri_reverse = Exercice(multi_tri_reverse, inputs_multi_tri_reverse,
-                                  correction_columns=(50, 40, 40),
-                                  exemple_columns=(60, 60),
-                                  exemple_how_many=2)
+exo_multi_tri_reverse = ExerciceFunction(
+    multi_tri_reverse, inputs_multi_tri_reverse,
+    correction_columns=(50, 40, 40),
+    exemple_columns=(60, 60),
+    exemple_how_many=2)
 
 ####################
 # @BEG@ 2 7 liste_racines
@@ -76,9 +79,10 @@ def liste_racines_bis(p):
 
 inputs_liste_racines = [Args(2), Args(3), Args(4)] 
 
-exo_liste_racines = Exercice(liste_racines,
-                             inputs_liste_racines,
-                             correction_columns=(7, 40, 40))
+exo_liste_racines = ExerciceFunction(
+    liste_racines,
+    inputs_liste_racines,
+    correction_columns=(7, 40, 40))
 
 ####################
 # @BEG@ 2 7 produit_scalaire
@@ -119,6 +123,8 @@ inputs_produit_scalaire = [
     Args([],[]),
 ]
 
-exo_produit_scalaire = Exercice(produit_scalaire, inputs_produit_scalaire,
-                                 correction_columns=(42, 15, 15))
+exo_produit_scalaire = ExerciceFunction(
+    produit_scalaire,
+    inputs_produit_scalaire,
+    correction_columns=(42, 15, 15))
 

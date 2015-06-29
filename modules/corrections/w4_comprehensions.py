@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 ##############################
 # @BEG@ 4 4 aplatir
@@ -20,7 +21,8 @@ aplatir_inputs = [
     Args((( 1, [2, 3]), [], ('a'), ['b', 'c'])),
 ]
 
-exo_aplatir = Exercice(aplatir, aplatir_inputs, exemple_how_many=0)
+exo_aplatir = ExerciceFunction(
+    aplatir, aplatir_inputs, exemple_how_many=0)
 
 ##############################
 # @BEG@ 4 4 alternat
@@ -45,7 +47,8 @@ def alternat2(l1, l2):
 # @END@
 
 
-exo_alternat = Exercice(alternat, alternat_inputs, exemple_how_many=2)
+exo_alternat = ExerciceFunction(
+    alternat, alternat_inputs, exemple_how_many=2)
 
 ##############################
 # @BEG@ 4 4 intersect
@@ -88,8 +91,9 @@ A2 = {(1, 'unA'), (2, 'deux'), (3, 'troisA')}
 B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
-exo_intersect = Exercice(intersect, intersect_inputs,
-                         exemple_columns=(0,0),
-                         correction_columns=(0, 0, 0),
-                         format='multiline')
+exo_intersect = ExerciceFunction(
+    intersect, intersect_inputs,
+    exemple_columns=(0,0),
+    correction_columns=(0, 0, 0),
+    format='multiline')
 ##############################

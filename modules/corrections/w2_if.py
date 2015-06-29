@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 ####################
 # @BEG@ 2 7 divisible
@@ -30,7 +31,8 @@ inputs_divisible = [
     Args(-12, -8),
 ]
 
-exo_divisible = Exercice(divisible, inputs_divisible)
+exo_divisible = ExerciceFunction(
+    divisible, inputs_divisible)
 
 ####################
 # @BEG@ 2 7 spam
@@ -64,4 +66,5 @@ inputs_spam = [
     Args([1, 2, 3, 4, 5]),
 ]
 
-exo_spam = Exercice(spam, inputs_spam, exemple_how_many=4)
+exo_spam = ExerciceFunction(
+    spam, inputs_spam, exemple_how_many=4)

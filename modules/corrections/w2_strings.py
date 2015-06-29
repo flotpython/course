@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 
 # @BEG@ 2 8 affichage
@@ -43,10 +44,11 @@ inputs_affichage = [
     Args("\t Sam, Does\t, F321, 23"),
 ]
 
-exo_affichage = Exercice(affichage, inputs_affichage,
-                         correction_columns=(40, 40, 40),
-                         exemple_columns=(40, 40),
-                         exemple_how_many=4)
+exo_affichage = ExerciceFunction(
+    affichage, inputs_affichage,
+    correction_columns=(40, 40, 40),
+    exemple_columns=(40, 40),
+    exemple_how_many=4)
 
 ##############################
 # @BEG@ 2 8 carre
@@ -72,4 +74,5 @@ inputs_carre = [
     Args("; -12 ; ; -23; 1 ;;\t"),
 ]
 
-exo_carre = Exercice(carre, inputs_carre, exemple_how_many=0)
+exo_carre = ExerciceFunction(
+    carre, inputs_carre, exemple_how_many=0)

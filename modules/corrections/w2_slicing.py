@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 alphabet = "0123456789abcdef"
 
@@ -9,14 +10,14 @@ connue   = "".join(random.sample(alphabet, random.randint(3, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
-class ExerciceInconnue(Exercice):
+class ExerciceInconnue(ExerciceFunction):
     def __init__(self, connue, composite):
-        # on appelle Exercice.__init__ pour remplir tous les champs
+        # on appelle ExerciceFunction.__init__ pour remplir tous les champs
         # mais self.datasets sera en fait rempli plus tard
         # une petite clôture..
         def target(inconnue): 
             return composite
-        Exercice.__init__(self, target, None)
+        ExerciceFunction.__init__(self, target, None)
         self.connue = connue
         self.composite = composite
     def correction(self, inconnue):
@@ -24,7 +25,7 @@ class ExerciceInconnue(Exercice):
         self.datasets = [ Args(inconnue) ]
         def check(inconnue):
             return self.connue + inconnue + self.connue
-        return Exercice.correction(self, check)
+        return ExerciceFunction.correction(self, check)
 
 exo_inconnue = ExerciceInconnue(connue, composite)
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 # @BEG@ 3 2 index
 def index(bateaux):
@@ -26,12 +27,12 @@ def index2(bateaux):
     return resultat
 # @END@
 
-class ExerciceIndex(Exercice):
+class ExerciceIndex(ExerciceFunction):
 
     # on surcharge correction pour capturer les arguments
     def correction(self, student_index, bateaux):
         self.datasets = [Args(bateaux)]
-        return Exercice.correction(self, student_index)
+        return ExerciceFunction.correction(self, student_index)
 
     # une fonction pour exposer le resultat attendu
     def resultat(self, bateaux):
@@ -127,12 +128,12 @@ def merge3(extended, abbreviated):
         }
 # @END@
 
-class ExerciceMerge(Exercice):
+class ExerciceMerge(ExerciceFunction):
 
     # on surcharge correction pour capturer les arguments
     def correction(self, student_merge, extended, abbreviated):
         self.datasets = [Args(extended, abbreviated)]
-        return Exercice.correction(self, student_merge)
+        return ExerciceFunction.correction(self, student_merge)
 
     # une fonction pour exposer le resultat attendu
     def resultat(self, extended, abbreviated):

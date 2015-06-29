@@ -22,19 +22,20 @@ class ScenarioClass(list):
     So a class scenario in its simpler form is defined as a list
     of couples of the form 
     ( method_name, Args_object )
+    the latter being an instance of ArgsKeywords or Args
     """
 
     def __init__(self):
         list.__init__(self)
 
-    def set_init_args(self, args):
+    def set_init_args(self, args_obj):
         if self and self[0][0] == '__init__':
             print("Only one __init__ step is allowed")
             return
-        self.insert(0, ('__init__', args))
+        self.insert(0, ('__init__', args_obj))
 
-    def add_step (self, methodname, args):
-        self.append( (methodname, args,) )
+    def add_step (self, methodname, args_obj):
+        self.append( (methodname, args_obj,) )
 
 class ExerciceClass(object):
     """
@@ -75,8 +76,8 @@ class ExerciceClass(object):
             if not scenario: continue
             
             # first step has to be a constructor
-            methodname, args = scenario[0]
-            args.render_function_name(ref_class.__name__)
+            methodname, args_obj = scenario[0]
+            args_obj.render_function_name(ref_class.__name__)
             if methodname != '__init__':
                 cells = [ TableCell("Error in scenario - first step must be a constructor",
                                     tag='th',
@@ -94,13 +95,12 @@ class ExerciceClass(object):
             html += TableRow(cells = cells).render()
 
             # initialize both objects
-            #constructor = args.render_cell(ref_class.__name__, self.format, c1+c2+c3 )
             try:
-                objects = [ args.init_obj(klass) for klass in (ref_class, student_class) ]
-                cells = [ TableCell(x) for x in (args, '-', '-','OK')]
+                objects = [ args_obj.init_obj(klass) for klass in (ref_class, student_class) ]
+                cells = [ TableCell(x) for x in (args_obj, '-', '-','OK')]
                 html += TableRow(cells=cells, style=ok_style).render()
             except Exception as e:
-                cell1 = TableCell(args, colspan=2)
+                cell1 = TableCell(args_obj, colspan=2)
                 error = "Exception {}".format(e)
                 cell2 = TableCell(error)
                 cell3 = TableCell('KO')
@@ -109,12 +109,12 @@ class ExerciceClass(object):
                 continue
             
             # other steps of that scenario
-            for methodname, args in scenario[1:]:
+            for methodname, args_obj in scenario[1:]:
                 # so that we display the function name
-                args.render_function_name(methodname)
-                ref_result = args.call_obj(objects[0], methodname)
+                args_obj.render_function_name(methodname)
+                ref_result = args_obj.call_obj(objects[0], methodname)
                 try:
-                    student_result = args.call_obj(objects[1], methodname)
+                    student_result = args_obj.call_obj(objects[1], methodname)
                     if ref_result == student_result:
                         style = ok_style
                         msg = 'OK'
@@ -128,7 +128,7 @@ class ExerciceClass(object):
                     overall = False
                     student_result = "Exception {}".format(e)
                     
-                cells = (TableCell(args), TableCell(ref_result),
+                cells = (TableCell(args_obj), TableCell(ref_result),
                          TableCell(student_result), TableCell(msg))
                 html += TableRow (cells=cells, style=style).render()
 

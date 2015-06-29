@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 # @BEG@ 3 5 decode_zen
 # le module this est implémenté comme une petite énigme 
@@ -41,13 +42,14 @@ def decode_zen2(this):
     return "".join([this.d.get(c, c) for c in this.s])
 # @END@
 
-class ExerciceDecodeZen(Exercice):
+class ExerciceDecodeZen(ExerciceFunction):
     def correction(self, student_decode_zen, this):
         self.datasets = [Args(this)]
-        return Exercice.correction(self, student_decode_zen)
+        return ExerciceFunction.correction(self, student_decode_zen)
     
     def resultat(self, this):
         return self.solution(this)
 
 # cannot copy nor deepcopy a module
-exo_decode_zen = ExerciceDecodeZen(decode_zen, "inputs_gets_overridden", copy_mode='none')
+exo_decode_zen = ExerciceDecodeZen(
+    decode_zen, "inputs_gets_overridden", copy_mode='none')

@@ -2,7 +2,7 @@
 
 ## General case 
 
-* mostly exos use the `Exercice` class
+* mostly exos use the `ExerciceFunction` class
 
 ## regexps
 
@@ -10,6 +10,6 @@
 
 ## others
 
-There remains some other usages of `Exercice` that are not straightforward, makes sense to document them as they come up.
+There remains some other usages of `ExerciceFunction` that are not straightforward, makes sense to document them as they come up.
 
 

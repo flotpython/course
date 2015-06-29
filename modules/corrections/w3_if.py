@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice import Exercice, Args
+from exercice_function import ExerciceFunction
+from args import Args
 
 inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
 
@@ -20,7 +21,8 @@ def dispatch1(a, b):
         return a*a - b*b
 # @END@
 
-exo_dispatch1 = Exercice(dispatch1, inputs_dispatch1)
+exo_dispatch1 = ExerciceFunction(
+    dispatch1, inputs_dispatch1)
 
 ####################
 samples_A = [(2, 4, 6), [2, 4, 6]]
@@ -46,6 +48,7 @@ def dispatch2(a, b, A, B):
         return (a-1)*b
 # @END@
 
-exo_dispatch2 = Exercice(dispatch2, inputs_dispatch2,
-                         correction_columns=(50, 30, 30))
+exo_dispatch2 = ExerciceFunction(
+    dispatch2, inputs_dispatch2,
+    correction_columns=(50, 30, 30))
 
