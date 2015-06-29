@@ -9,6 +9,45 @@ header_font_style = 'font-family:monospace;font-size:medium;'
 ok_style = 'background-color:#66CC66;'
 ko_style = 'background-color:#CC3300;color:#e8e8e8;'
 
+########## helpers for rendering / truncating
+def html_escape(s):
+    return s
+    # xxx need to find code for < and >
+    return s.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
+
+def truncate_str(message, max_size):
+    # width = 0 or less means do not truncate
+    if max_size <= 0:
+        return message
+    truncated = message if len(message) <= max_size \
+        else message[:max_size-3]+'...'
+    return html_escape(truncated)
+
+# display functions as their name
+def custom_repr(x):
+    if isinstance(x, (FunctionType, BuiltinFunctionType, BuiltinMethodType)):
+        return x.__name__
+    elif isinstance(x, set):
+        return "{" + commas(x) + "}"
+    else:
+        return repr(x)
+
+def commas(iterable):
+    if isinstance(iterable, dict):
+        return ", ".join(["{}={}".format(k,custom_repr(v)) for k,v in iterable.items()])
+    elif isinstance(iterable, str): 
+        return str
+    else:
+        return ", ".join([custom_repr(x) for x in iterable])
+
+def truncate_value(value, max_size):
+    # this is the case where we may have a set and prefer to show it with {}
+    if isinstance(value, set):
+        message = "{" + commas(value)
+        return truncate_str(message, max_size-1) + "}"
+    else:
+        return truncate_str(repr(value), max_size)
+
 ########## html tags
 # create a start tag with arbitrary attributes
 # tag_keywords('table', style='text-align:center') to get

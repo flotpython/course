@@ -8,53 +8,16 @@ from __future__ import print_function
 from IPython.display import HTML
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
-from rendering import ( #not yet used : Table, TableRow, TableCell,
-                       font_style, header_font_style,
-                       ok_style, ko_style)
+from rendering import (
+    #not yet used : Table, TableRow, TableCell,
+    font_style, header_font_style,
+    ok_style, ko_style,
+    truncate_value)
 
 from log import log_correction
 
 DEBUG=False
 #DEBUG=True
-
-########## helpers for rendering / truncating
-def html_escape(s):
-    return s
-    # xxx need to find code for < and >
-    return s.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
-
-def truncate_str(message, max_size):
-    # width = 0 or less means do not truncate
-    if max_size <= 0:
-        return message
-    truncated = message if len(message) <= max_size \
-        else message[:max_size-3]+'...'
-    return html_escape(truncated)
-
-# display functions as their name
-def custom_repr(x):
-    if isinstance(x, (FunctionType, BuiltinFunctionType, BuiltinMethodType)):
-        return x.__name__
-    elif isinstance(x, set):
-        return "{" + commas(x) + "}"
-    else:
-        return repr(x)
-
-def commas(iterable):
-    if isinstance(iterable, dict):
-        return ", ".join(["{}={}".format(k,custom_repr(v)) for k,v in iterable.items()])
-    elif isinstance(iterable, str): 
-        return str
-    else:
-        return ", ".join([custom_repr(x) for x in iterable])
-
-def truncate_value(value, max_size):
-    # this is the case where we may have a set and prefer to show it with {}
-    if isinstance(value, set):
-        message = "{" + commas(value)
-        return truncate_str(message, max_size-1) + "}"
-    else:
-        return truncate_str(repr(value), max_size)
 
 ########## defaults for columns widths - for FUN 
 default_correction_columns =    (30, 40, 40)
