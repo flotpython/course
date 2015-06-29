@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
 header_font_style = 'font-family:monospace;font-size:medium;'

@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
 from exercice import Args
 from exercice_class import ExerciceClass, ScenarioClass
 
