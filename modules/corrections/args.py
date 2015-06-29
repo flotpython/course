@@ -2,6 +2,8 @@
 
 from __future__ import print_function
 
+import copy
+
 ####################
 class ArgsKeywords(object):
     """

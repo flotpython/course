@@ -6,8 +6,6 @@ from __future__ import print_function
 # the low level interface - used to be used directly in the first exercices
 
 from IPython.display import HTML
-import traceback
-import copy
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
 from rendering import ( #not yet used : Table, TableRow, TableCell,
