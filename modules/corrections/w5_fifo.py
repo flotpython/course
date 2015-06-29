@@ -19,22 +19,26 @@ class Fifo(object):
         return self.items.pop(0)
 
 
-scenarios = []
 
 scenario1 = ScenarioClass()
+scenario1.set_init_args( Args() )
+scenario1.add_step( 'incoming', Args(1) )
+scenario1.add_step( 'incoming', Args(2) )
+scenario1.add_step( 'outgoing', Args() )
+scenario1.add_step( 'incoming', Args(3) )
+scenario1.add_step( 'incoming', Args(4) )
+scenario1.add_step( 'outgoing', Args() )
 
-scenario1.set_init_args ( Args() )
-scenario1.add_step ( 'incoming', Args(1) )
-scenario1.add_step ( 'incoming', Args(2) )
-scenario1.add_step ( 'outgoing', Args() )
-scenario1.add_step ( 'incoming', Args(3) )
-scenario1.add_step ( 'incoming', Args(4) )
-scenario1.add_step ( 'outgoing', Args() )
+scenario2 = ScenarioClass()
+scenario2.set_init_args(Args ())
+scenario1.add_step( 'outgoing', Args() )
+scenario2.add_step( 'incoming', Args(1) )
+scenario2.add_step( 'incoming', Args(2) )
+scenario2.add_step( 'incoming', Args(3) )
+scenario2.add_step( 'incoming', Args(4) )
+scenario2.add_step( 'outgoing', Args() )
 
-scenarios.append(scenario1)
-
-exo_fifo = ExerciceClass (Fifo,
-                          scenarios)
+exo_fifo = ExerciceClass (Fifo, [scenario1, scenario2] )
 
 if __name__ == '__main__':
     exo_fifo.correction(Fifo)

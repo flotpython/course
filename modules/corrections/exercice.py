@@ -15,6 +15,10 @@ import os
 import os.path
 import time
 
+from rendering import ( #not yet used : Table, TableRow, TableCell,
+                       font_style, header_font_style,
+                       ok_style, ko_style)
+
 DEBUG=False
 #DEBUG=True
 
@@ -71,14 +75,7 @@ def log_correction(exo_name, success):
     except:
         pass
 
-########## styles in html output
-font_style = 'font-family:monospace;font-size:small;'
-header_font_style = 'font-family:monospace;font-size:medium;'
-
-ok_style = 'background-color:#66CC66;'
-ko_style = 'background-color:#CC3300;color:#e8e8e8;'
-
-# defaults for columns widths - for FUN 
+########## defaults for columns widths - for FUN 
 default_correction_columns =    (30, 40, 40)
 default_exemple_columns =       (40, 40)
 
@@ -103,6 +100,8 @@ class ArgsKeywords(object):
         # in general this is defined in the Exercice instance
         # but can also be overridden here
         self.format=format
+        # can be overridden later on using 'render_function_name'
+        self.function_name = None
 
     def __repr__(self):
         cn = "Args" if not self.keywords else "ArgsKeywords"
@@ -159,7 +158,20 @@ class ArgsKeywords(object):
             actual_format = self.default_format
         return actual_format
 
-    def render_cell(self, function_name, exo_format, width):
+    def render_function_name(self, function_name):
+        """
+        if called, arguments will be rendered like this
+        function_name (arg1, ... argn)
+        instead of just
+        arg1, .. argn
+        """
+        self.function_name = function_name
+        
+    # tmp - glue with rendering     
+    def render(self, format):
+        return self.render_cell(format, 0)
+
+    def render_cell(self, exo_format, width):
         """ 
         return html for rendering in a table cell
         multiplexes to method render_<format> depending on
@@ -169,27 +181,31 @@ class ArgsKeywords(object):
         actual_format = self.actual_format(exo_format)
         method = getattr(self, 'render_' + actual_format)
         # the magic of bound methods !
-        return method(function_name, width)
+        return method(width)
 
-    def render_truncate(self, function_name, width):
+    def render_truncate(self, width):
         """
         render a list of arguments on a single line, truncated
         remember that width <= 0 means no truncation
         """
         text = commas(self.args)
+        if self.function_name:
+            text = "{}({})".format(self.function_name, text)
         if self.keywords:
             text += ", " + commas(self.keywords)
-        text = "{}({})".format(function_name, text)
         return truncate_str(text, width)
     
-    def render_multiline(self, function_name, width):
+    def render_multiline(self, width):
         """
         render a list of arguments in multiline mode
         """
         raw_lines = list(self.args) + [ "{}={}".format(k,v) for k,v in self.keywords ]
         lines = [ truncate_value(line, width) for line in raw_lines ]
         rendered_args = ",<br/>".join(lines)
-        return "{}(<br/>{}<br/>)".format(function_name, rendered_args)
+        if not self.function_name:
+            return rendered_args
+        else:
+            return "{}(<br/>{}<br/>)".format(function_name, rendered_args)
 
 class Args(ArgsKeywords):
     """
@@ -277,7 +293,7 @@ class Exercice(object):
         
         for dataset in self.datasets[:how_many_samples]:
             sample_dataset = dataset.clone(self.copy_mode)
-            rendered_input = sample_dataset.render_cell(self.name, self.format, width=c1)
+            rendered_input = sample_dataset.render_cell(self.format, width=c1)
             try:
                 expected = sample_dataset.call(self.solution)
             except Exception as e:
@@ -310,7 +326,7 @@ class Exercice(object):
             correct_dataset = dataset.clone(copy_mode)
             # compute rendering of dataset *before* running
             #in case there are side-effects
-            rendered_input = student_dataset.render_cell(self.name, self.format, width=c1)
+            rendered_input = student_dataset.render_cell(self.format, width=c1)
             
             # run both codes
             try:
