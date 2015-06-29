@@ -4,11 +4,11 @@ from __future__ import print_function
 
 from IPython.display import HTML
 
+from log import log_correction
 from rendering import (Table, TableRow, TableCell,
                        font_style, header_font_style,
                        ok_style, ko_style)
 
-from exercice import log_correction
 
 default_correction_columns = 40, 30, 30
 
@@ -104,7 +104,7 @@ class ExerciceClass(object):
                 error = "Exception {}".format(e)
                 cell2 = TableCell(error)
                 cell3 = TableCell('KO')
-                html += TableRow(cells=(cell1, cell2), style=ko_style).render()
+                html += TableRow(cells=(cell1, cell2, cell3), style=ko_style).render()
                 overall = False
                 continue
             
@@ -112,18 +112,24 @@ class ExerciceClass(object):
             for methodname, args in scenario[1:]:
                 # so that we display the function name
                 args.render_function_name(methodname)
-                #print("dealing with step {} - {}".format(methodname, args))
-                # xxx TODO : what if student's code raises an exception
-                result = [ args.call_obj(o, methodname) for o in objects ]
-                if result[0] == result[1]:
-                    style = ok_style
-                    msg = 'OK'
-                else:
+                ref_result = args.call_obj(objects[0], methodname)
+                try:
+                    student_result = args.call_obj(objects[1], methodname)
+                    if ref_result == student_result:
+                        style = ok_style
+                        msg = 'OK'
+                    else:
+                        style = ko_style
+                        msg = 'KO'
+                        overall = False
+                except Exception as e:
                     style = ko_style
                     msg = 'KO'
                     overall = False
-                cells = (TableCell(args), TableCell(result[0]),
-                         TableCell(result[1]), TableCell(msg))
+                    student_result = "Exception {}".format(e)
+                    
+                cells = (TableCell(args), TableCell(ref_result),
+                         TableCell(student_result), TableCell(msg))
                 html += TableRow (cells=cells, style=style).render()
 
         log_correction(self.name, overall)

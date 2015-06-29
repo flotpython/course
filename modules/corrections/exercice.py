@@ -10,14 +10,11 @@ import traceback
 import copy
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
-# for logging
-import os
-import os.path
-import time
-
 from rendering import ( #not yet used : Table, TableRow, TableCell,
                        font_style, header_font_style,
                        ok_style, ko_style)
+
+from log import log_correction
 
 DEBUG=False
 #DEBUG=True
@@ -60,20 +57,6 @@ def truncate_value(value, max_size):
         return truncate_str(message, max_size-1) + "}"
     else:
         return truncate_str(repr(value), max_size)
-
-########## logging
-def log_correction(exo_name, success):
-    try:
-        uid = os.getuid()
-        md5 = os.path.basename(os.path.normpath(os.getenv("HOME")))
-        now = time.strftime("%D-%H:%M", time.localtime())
-        logname = os.path.join(os.getenv("HOME"), ".correction")
-        message = "OK" if success else "KO"
-        with open(logname, 'a') as log:
-            line = "{now} {uid} {md5} {exo_name} {message}\n".format(**locals())
-            log.write(line)
-    except:
-        pass
 
 ########## defaults for columns widths - for FUN 
 default_correction_columns =    (30, 40, 40)

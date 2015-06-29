@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
 header_font_style = 'font-family:monospace;font-size:medium;'
@@ -5,7 +7,7 @@ header_font_style = 'font-family:monospace;font-size:medium;'
 ok_style = 'background-color:#66CC66;'
 ko_style = 'background-color:#CC3300;color:#e8e8e8;'
 
-
+########## html tags
 # create a start tag with arbitrary attributes
 # tag_keywords('table', style='text-align:center') to get
 # <table style='text-align:center'>
@@ -68,9 +70,3 @@ class TableCell(object):
         html += end_tag(self.tag)
         return html
 
-if __name__ == "__main__":
-    from w5_fifo import *
-    t = Table3(columns = (30,40,50))
-    print t.header()
-    for methodname, args in scenario1:
-        pass
