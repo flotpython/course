@@ -179,6 +179,7 @@ class ArgsKeywords(object):
         text = commas(self.args)
         if self.keywords:
             text += ", " + commas(self.keywords)
+        text = "{}({})".format(function_name, text)
         return truncate_str(text, width)
     
     def render_multiline(self, function_name, width):

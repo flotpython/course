@@ -4,7 +4,8 @@ from __future__ import print_function
 
 from IPython.display import HTML
 
-from exercice import log_correction, font_style, header_font_style
+from exercice import (log_correction, font_style, header_font_style,
+                      ok_style, ko_style)
 
 default_correction_columns = 40, 30, 30
 
@@ -62,39 +63,58 @@ class ExerciceClass(object):
         
         html = ""
         html += u"<table style='{}'>".format(font_style)
-        html += u"<tr style='{}'><th>Arguments</th><th>Attendu</th>"\
-                u"<th>Obtenu</th></tr>".format(header_font_style)
     
         ref_class = self.solution
-        print("Solution = {}".format(self.solution))
-        print("Student class = {}".format(student_class))
+        #print("Solution = {}".format(self.solution))
+        #print("Student class = {}".format(student_class))
         for i, scenario in enumerate(self.scenarios):
             # skip empty scenarios
             if not scenario: continue
             
-            # start of scenario
-            html += "<tr><th colspan=3 style='text-align:center;'>Scenario {}</th></tr>"\
-                    .format(i)
-
             # first step has to be a constructor
             methodname, args = scenario[0]
             if methodname != '__init__':
                 html += error_line("Error in scenario - first step must be a constructor")
                 continue
+
+            # start of scenario
+            html += "<tr><th colspan=3 style='text-align:center;'>Scenario {}</th></tr>"\
+                    .format(i+1)
+            html += u"<tr style='{}'><th>Arguments</th><th>Attendu</th>"\
+                    u"<th>Obtenu</th></tr>".format(header_font_style)
+
             # initialize both objects
-            objects = [ args.init_obj(klass) for klass in (ref_class, student_class) ]
+            constructor = args.render_cell(ref_class.__name__, self.format, c1+c2+c3 )
+            try:
+                objects = [ args.init_obj(klass) for klass in (ref_class, student_class) ]
+                html += "<tr style='ok_style'><th>o = {}</th><td>-</td><td>-</td></tr>"\
+                    .format(constructor)
+            except Exception as e:
+                error = "Exception {}".format(e)
+                html += "<tr style='{}'><th colspan=2>{}</th><td>{}</td></tr>"\
+                        .format(ko_style, constructor, error)
+                overall = False
+                continue
             
             # other steps of that scenario
             for methodname, args in scenario[1:]:
-                print("dealing with step {} - {}".format(methodname, args))
+                #print("dealing with step {} - {}".format(methodname, args))
+                # xxx TODO : what if student's code raises an exception
                 result = [ args.call_obj(o, methodname) for o in objects ]
-                print("OK" if result[0] == result[1] else "KO")
+                if result[0] == result[1]:
+                    style = ok_style
+                else:
+                    style = ko_style
+                    overall = False
+                call = args.render_cell(methodname, self.format, c1)
+                html += "<tr style='{}'><td>o.{}</td><td>{}</td><td>{}</td></tr>"\
+                        .format(style, call, result[0], result[1])
 
         log_correction(self.name, overall)
 
         html += "</table>"
         html = "<h2>Overall = {}</h2>".format(overall) + html
 
-        print(html)
+        #print(html)
 
         return HTML(html)
