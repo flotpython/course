@@ -75,6 +75,11 @@ W2
  * le quiz sur le formattage des strings, et "dans du code nouveau"
    a suscité pas mal d'émoi, il faudrait préciser mieux l'histoire
    des `%` qu'on ne compte pas comme corrects.
+   
+ * l'exo sur la liste des racines : trouver plus simple
+   par exemple exhiber les points d'une droite ou autre parabole
+   une liste d'abscisses - genre range(n)
+   on pourrait meme mettre un coup de matplotlib pour le fun si on mettait cet exo en dernier
 
 W3
 ===

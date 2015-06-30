@@ -15,13 +15,13 @@ def multi_tri(listes):
 inputs_multi_tri = [
     Args([[40, 12, 25], ['spam', 'egg', 'bacon']]), 
     Args([[32, 45], [200, 12], [-25, 37]]),
-    Args([[], range(5) + [2.5]]),
+    Args([[], range(5) + [2.5], [4, 2, 3, 1]]),
 ]
 
 exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
-    correction_columns=(40, 40, 40),
-    exemple_columns=(60, 60),
+    correction_columns=(30, 28, 28),
+    exemple_columns=(44, 44),
 )
                                
 ####################
@@ -49,19 +49,20 @@ inputs_multi_tri_reverse = [
 
 exo_multi_tri_reverse = ExerciceFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
-    correction_columns=(50, 40, 40),
-    exemple_columns=(60, 60),
+    correction_columns=(30, 28, 28),
+    exemple_columns=(44, 44),
     exemple_how_many=2)
 
 ####################
 # @BEG@ 2 7 liste_racines
+# xxx trouver autre chose de + simple
 from math import e, pi
 
 def liste_racines(p):
     "retourne la liste des racines p-ièmes de l'unité"
     # une simple compréhension fait l'affaire
     # souvenez vous que 1j c'est notre 'i' complexe
-    return [e**((2*pi*1j*n)/p) for n in range(p)]
+    return [e**((2j*pi*n)/p) for n in range(p)]
 
 # Il est tout à fait possible aussi de construire les racines pas à pas
 # C'est un peu moins élégant mais ça fonctionne très bien aussi
@@ -73,7 +74,7 @@ def liste_racines_bis(p):
     # pour chaque n dans {0 .. p-1}
     for n in range(p):
         # on ajoute dans le résultat la racine d'ordre n
-        resultat.append(e**((2*pi*1j*n)/p))
+        resultat.append(e**((2j*pi*n)/p))
     # et on retourne le résultat
     return resultat
 # @END@
@@ -83,7 +84,7 @@ inputs_liste_racines = [Args(2), Args(3), Args(4)]
 exo_liste_racines = ExerciceFunction(
     liste_racines,
     inputs_liste_racines,
-    correction_columns=(18, 40, 40))
+    correction_columns=(18, 30, 30))
 
 ####################
 # @BEG@ 2 7 produit_scalaire
