@@ -122,7 +122,7 @@ class ArgsKeywords(object):
             #print("simple_case too long {} > {}".format(len(simple_case), width))
             pass
         # else
-        indent = 4
+        indent = 2
         sep = indent*' '
         html = "<pre>"
         html += self.prefix
