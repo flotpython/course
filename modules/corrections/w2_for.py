@@ -15,13 +15,16 @@ def multi_tri(listes):
 inputs_multi_tri = [
     Args([[40, 12, 25], ['spam', 'egg', 'bacon']]), 
     Args([[32, 45], [200, 12], [-25, 37]]),
-    Args([[], range(10)]),
+    Args([[], range(5) + [2.5]]),
 ]
 
 exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
     correction_columns=(40, 40, 40),
-    exemple_columns=(60, 60))
+    exemple_columns=(60, 60),
+    layout='pprint',
+    render_name=True,
+)
                                
 ####################
 # @BEG@ 2 7 multi_tri_reverse

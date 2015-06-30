@@ -23,3 +23,7 @@ inputs_curve = [Args(0,1),
 
 exo_curve = ExerciceFunction(
     curve, inputs_curve)
+
+
+exo_curve_name = ExerciceFunction(
+    curve, inputs_curve, render_name=True)

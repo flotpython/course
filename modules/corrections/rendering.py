@@ -2,6 +2,8 @@
 
 from __future__ import print_function
 
+import pprint
+
 from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
 ########## styles in html output
@@ -11,6 +13,9 @@ header_font_style = 'font-family:monospace;font-size:medium;'
 ok_style = 'background-color:#66CC66;'
 ko_style = 'background-color:#CC3300;color:#e8e8e8;'
 
+center_cell_style = 'text-align: center;'
+left_cell_style = 'text-align: left;'
+right_cell_style = 'text-align: right;'
 ########## helpers for rendering / truncating
 def html_escape(s):
     return s
@@ -42,13 +47,39 @@ def commas(iterable):
     else:
         return ", ".join([custom_repr(x) for x in iterable])
 
-def truncate_value(value, max_size):
+def truncate_value(value, width):
     # this is the case where we may have a set and prefer to show it with {}
     if isinstance(value, set):
         message = "{" + commas(value)
-        return truncate_str(message, max_size-1) + "}"
+        return truncate_str(message, width-1) + "}"
     else:
-        return truncate_str(repr(value), max_size)
+        return truncate_str(repr(value), width)
+
+########## rendering usual objects (not Args or ArgsKeywords)
+class CellObj(object):
+    def __init__(self, torender):
+        self.torender = torender
+    def layout_truncate(self, width):
+        return truncate_value(self.torender, width)
+    def layout_multiline(self, width):
+        return "no multiline on std objs"
+    def layout_pprint(self, width):
+        indent = 4
+        html = "<pre>\n"
+        width = width if width >0 else 80
+        html += pprint.pformat(self.torender, indent=indent, width=width)
+        html += "</pre>"
+        return html
+
+class CellLegend(object):
+    def __init__(self, legend):
+        self.legend = legend
+    def __repr__(self):
+        return "<CellLegend {}>".format(self.legend)
+    def layout_truncate(self, width):
+        return truncate_str(self.legend, width)
+    layout_multiline = layout_truncate
+    layout_pprint = layout_truncate
 
 ########## html tags
 # create a start tag with arbitrary attributes
@@ -58,9 +89,9 @@ def truncate_value(value, max_size):
 # use hclass instead
 # use e.g. tag_keywords('tr', hclass='error') to get
 # <table class='error'>
-def tag_keywords(tag, **keywords):
+def tag_keywords(tag, **html_tags):
     html = "<{}".format(tag)
-    for k,v in keywords.items():
+    for k,v in html_tags.items():
         # ignore stuff that is defined by default as None
         if v is None:
             continue
@@ -74,42 +105,93 @@ def end_tag(tag):
 
 ##############################
 class Table(object):
-    def __init__(self, **keywords):
-        self.keywords = keywords
+    def __init__(self, **html_tags):
+        self.html_tags = html_tags
     def header(self):
-        return tag_keywords("table", **self.keywords)
+        return tag_keywords("table", **self.html_tags)
     def footer(self):
         return end_tag("table")
 
 class TableRow(object):
-    def __init__(self, cells, **keywords):
+    def __init__(self, cells, **html_tags):
         self.cells = cells
-        self.keywords = keywords
+        self.html_tags = html_tags
 
-    def render(self):
-        html = tag_keywords("tr", **self.keywords)
+    def html(self):
+        html = tag_keywords("tr", **self.html_tags)
         for cell in self.cells:
-            html += cell.render()
+            html += cell.html()
         html += end_tag("tr")
         return html
 
 class TableCell(object):
-    def __init__(self, content, tag='td', format='truncate', **keywords):
+    """
+    Something that will produce a table cell, based on 
+    (*) a content, that is expected to have the right 
+        layout method, like e.g. layout_truncate 
+        since truncate is our default layout
+        this typically applies to Args-like objects
+        otherwise, a CellObj object is created instead
+    (*) a width, 0 meaning no truncation/formatting occurs
+    (*) a layout
+    (*) a tag, default is 'td' but can be 'th'
+    (*) additional html tags can be set using **html_tags
+    """
+    def __init__(self, content, width=0, tag='td', layout='truncate', **html_tags):
         self.content = content
+        self.width = width
         self.tag = tag
-        self.format = format
-        self.keywords = keywords
+        self.layout = layout
+        self.html_tags = html_tags
 
     # if the 'content' object has a 'render' method, then use it
     # otherwise provide a few basic methods for that
-    def render(self):
-        if hasattr(self.content, 'render'):
-            cell = self.content.render(self.format)
-        else:
-            ### should plug the currently available formats
-            cell = str(self.content)
-        html = tag_keywords(self.tag, **self.keywords)
-        html += cell
+    def html(self):
+        html = tag_keywords(self.tag, **self.html_tags)
+        layout = self.computed_layout()
+        symbol = 'layout_{}'.format(layout)
+        try:
+            if hasattr(self.content, symbol):
+                method = getattr(self.content, symbol)
+                cell_html = method(self.width)
+                html += cell_html
+            else:
+                proxy = CellObj(self.content)
+                method = getattr(proxy, symbol)
+                html += method(self.width)
+        except:
+            import traceback
+            traceback.print_exc()
+            html += "TableCell.html({})".format(self.content)
         html += end_tag(self.tag)
         return html
+
+
+    # several layouts for rendering in a table
+    # the default is for when this is left unspecified
+    # or means something we cannot do
+    default_layout = 'truncate'
+    supported_layouts = ['truncate', 'multiline', 'pprint'] 
+
+    def computed_layout(self):
+        """
+        the layout to use
+        the one specified in self.content.layout, if it exists
+        takes precedence over self.layout
+        """
+        # the value specified in the instance wins if set
+        # as it is more specific
+        # second use the one provided at the exercice level
+        # last resort is this default
+        computed_layout = None
+        if hasattr(self.content, 'layout'):
+            computed_layout = self.content.layout
+        if computed_layout is None and self.layout:
+            computed_layout = self.layout
+        if computed_layout is None:
+            computed_layout = self.default_layout
+        if computed_layout not in self.supported_layouts:
+            print("WARNING: unsupported layout {}".format(computed_layout))
+            computed_layout = self.default_layout
+        return computed_layout
 

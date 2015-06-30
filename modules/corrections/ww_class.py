@@ -2,8 +2,8 @@
 
 from __future__ import print_function
 
-from exercice import Args
 from exercice_class import ExerciceClass, ScenarioClass
+from args import Args
 
 ####################
 class Fifo(object):
@@ -42,7 +42,8 @@ scenario2.add_step( 'incoming', Args(3) )
 scenario2.add_step( 'incoming', Args(4) )
 scenario2.add_step( 'outgoing', Args() )
 
-exo_fifo = ExerciceClass (Fifo, [scenario1, scenario2] )
+exo_fifo = ExerciceClass (Fifo, [scenario1, scenario2],
+                          layout='pprint')
 
 if __name__ == '__main__':
     exo_fifo.correction(Fifo)

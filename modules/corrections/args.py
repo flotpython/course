@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import copy
+import pprint
 
 from rendering import commas, truncate_str, truncate_value
 
@@ -18,7 +19,7 @@ class ArgsKeywords(object):
     would then return the result of
     foo (1, 2, a=[])
     """
-    def __init__(self, args=None, keywords=None, format=None):
+    def __init__(self, args=None, keywords=None, layout=None):
         # expecting a tuple or a list
         self.args = args if args is not None else tuple()
         # expecting a dictionary
@@ -26,13 +27,15 @@ class ArgsKeywords(object):
         # used when rendering - in exemple or correction
         # in general this is defined in the Exercice instance
         # but can also be overridden here
-        self.format=format
+        self.layout=layout
         # can be overridden later on using 'render_function_name'
         self.function_name = None
+        # can be overridden later on using 'render_prefix'
+        self.prefix = ""
 
     def __repr__(self):
         cn = "Args" if not self.keywords else "ArgsKeywords"
-        result = "<Args {} ".format(self.args)
+        result = "<Args {}{}{} ".format(self.prefix, self.function_name, self.args)
         if self.keywords:
             result += "Keywords:" + ",".join(["{}={}".format(k, v) for (k, v) in self.keywords.items() ])
         result += ">"
@@ -65,26 +68,6 @@ class ArgsKeywords(object):
         else:
             return self
 
-    # several formats for rendering in a table
-    # the default is for when this is left unspecified
-    # both in the Exercice instance and in the ArgsKeywords instance
-    default_format = 'truncate'
-    supported_formats = ['truncate', 'multiline'] 
-
-    def actual_format(self, exo_format):
-        "the format to use"
-        # the value specified in the instance wins if set
-        # as it is more specific
-        # second use the one provided at the exercice level
-        # last resort is this default
-        actual_format = self.format if self.format \
-           else exo_format if exo_format \
-                else self.default_format
-        if actual_format not in self.supported_formats:
-            print("WARNING: unsupported format {}".format(actual_format))
-            actual_format = self.default_format
-        return actual_format
-
     def render_function_name(self, function_name):
         """
         if called, arguments will be rendered like this
@@ -94,46 +77,66 @@ class ArgsKeywords(object):
         """
         self.function_name = function_name
         
-    # tmp - glue with rendering     
-    def render(self, format):
-        return self.render_cell(format, 0)
-
-    def render_cell(self, exo_format, width):
-        """ 
-        return html for rendering in a table cell
-        multiplexes to method render_<format> depending on
-        this instance's format and the one specified in the exercice
-        (former hs priority if set)
+    def render_prefix(self, prefix):
         """
-        actual_format = self.actual_format(exo_format)
-        method = getattr(self, 'render_' + actual_format)
-        # the magic of bound methods !
-        return method(width)
+        if called, arguments will be rendered like this
+        with the prefix prepended
+        """
+        self.prefix = prefix
 
-    def render_truncate(self, width):
+    def layout_truncate(self, width):
         """
         render a list of arguments on a single line, truncated
         remember that width <= 0 means no truncation
         """
         text = commas(self.args)
-        if self.function_name:
-            text = "{}({})".format(self.function_name, text)
         if self.keywords:
             text += ", " + commas(self.keywords)
+        if self.function_name:
+            text = "{}({})".format(self.function_name, text)
+        text = self.prefix + text
         return truncate_str(text, width)
     
-    def render_multiline(self, width):
+    def layout_multiline(self, width):
         """
         render a list of arguments in multiline mode
         """
         raw_lines = list(self.args) + [ "{}={}".format(k,v) for k,v in self.keywords ]
         lines = [ truncate_value(line, width) for line in raw_lines ]
-        rendered_args = ",<br/>".join(lines)
-        if not self.function_name:
-            return rendered_args
-        else:
-            return "{}(<br/>{}<br/>)".format(function_name, rendered_args)
+        text = ",<br/>".join(lines)
+        if self.function_name:
+            text = "{}(<br/>{}<br/>)".format(self.function_name, text)
+        text = self.prefix + text
+        return text
 
+    def layout_pprint(self, width):
+        """
+        render a list of arguments in pprint mode
+        """
+        # try to render with no width limit, if it fits it's OK
+        simple_case = self.layout_truncate(width=0)
+        if len(simple_case) <= width:
+            #print("using simple_case {}".format(simple_case))
+            return simple_case
+        else:
+            #print("simple_case too long {} > {}".format(len(simple_case), width))
+            pass
+        # else
+        indent = 4
+        html = "<pre>"
+        html += self.prefix
+        if self.function_name:
+            html += self.function_name + "(\n"
+        args_tokens = [ pprint.pformat(arg, width=width-indent, indent=indent) for arg in self.args ]
+        keyword_tokens =  [ "{}={}".format(k,pprint.pformat(v, width=width-indent, indent=indent))
+                            for k,v in self.keywords ]
+        tokens = args_tokens + keyword_tokens
+        html += (",\n"+(indent*' ')).join(tokens)
+        if self.function_name:
+            html += ")\n"
+        html += "</pre>"
+        return html
+        
 # simplified for when no keywords are required
 class Args(ArgsKeywords):
     """
@@ -146,7 +149,7 @@ class Args(ArgsKeywords):
     would then return the result of
     foo(1, 2, 3)
 
-    it is possible to specify format=multiline if desired,
+    it is possible to specify layout=multiline if desired,
     but it MUST be a named parameter of course
     """
     def __init__(self, *args, **kwds):

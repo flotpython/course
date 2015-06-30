@@ -8,9 +8,10 @@ from __future__ import print_function
 from IPython.display import HTML
 
 from rendering import (
-    #not yet used : Table, TableRow, TableCell,
+    Table, TableRow, TableCell, CellLegend,
     font_style, header_font_style,
     ok_style, ko_style,
+    center_cell_style,
     truncate_value)
 
 from log import log_correction
@@ -26,8 +27,9 @@ default_exemple_columns =       (40, 40)
 class ExerciceFunction(object):
     """The class for an exercice where students are asked to write a
     function The teacher version of that function is provided as
-    'solution' and is used against datasets - a list of Args (or
-    ArgsKeywords) to generate an online correction.
+    'solution' and is used against datasets to generate an online
+    correction or example.
+    A dataset is an instance of Args (or ArgsKeywords)
 
     The most useful method in this class is 'correction'; for each
     input in the dataset, we call both the teacher function and the
@@ -50,12 +52,15 @@ class ExerciceFunction(object):
     exemple_how_many allows you to specify how many inputs should be
     considered for generating the exemple table (starting of course at
     the top of the list).
+    Finally render_name, if set to True, will cause the function name
+    to appear in the first column together with arguments
     """
     def __init__(self, solution, datasets, 
                  correction_columns=None, exemple_columns=None,
                  exemple_how_many=1,
                  copy_mode='deep',
-                 format=None):
+                 layout=None,
+                 render_name=False):
         # the 'official' solution
         self.solution = solution
         # the inputs 
@@ -66,15 +71,16 @@ class ExerciceFunction(object):
         self.exemple_columns = exemple_columns 
         self.exemple_how_many = exemple_how_many
         self.copy_mode = copy_mode
-        # applicable to all cells whose Args instance has not specified a format
-        self.format = format
+        # applicable to all cells whose Args instance has not specified a layout
+        self.layout = layout
+        self.render_name = render_name
 
     # public interface
     def exemple(self):
         # the 'right' implementation
         how_many = self.exemple_how_many
         columns = self.exemple_columns if self.exemple_columns else default_exemple_columns
-        exo_format = self.format
+        exo_layout = self.layout
 
         how_many_samples = self.exemple_how_many if self.exemple_how_many \
                            else len(self.datasets)
@@ -83,22 +89,26 @@ class ExerciceFunction(object):
         columns = columns[:2]
         c1, c2 = columns
 
-        html = ""
-        html += u"<table style='{}'>".format(font_style)
-        html += u"<tr style='{}'><th>Arguments</th>"\
-                u"<th>Résultat attendu</th></tr>".format(header_font_style)
-        
+        table = Table(style=font_style)
+        html = table.header()
+
+        title1 = "Arguments" if not self.render_name else "Appel"
+        html += TableRow(style=header_font_style,
+                         cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
+                                   for x in (title1, 'Résultat Attendu') ]).html()
         for dataset in self.datasets[:how_many_samples]:
             sample_dataset = dataset.clone(self.copy_mode)
-            rendered_input = sample_dataset.render_cell(self.format, width=c1)
+            if self.render_name:
+                sample_dataset.render_function_name(self.name)
             try:
                 expected = sample_dataset.call(self.solution)
             except Exception as e:
                 expected = e
-            rendered_expected = truncate_value(expected, c2)
-            html += "<tr><td>{}</td><td>{}</td></tr>".format(rendered_input, rendered_expected)
+            html += TableRow(cells = [ TableCell(sample_dataset, layout=self.layout, width=c1),
+                                       TableCell(expected, layout=self.layout, width=c2)
+                                   ]).html()
     
-        html += "</table>"
+        html += table.footer()
         return HTML(html)
 
     def correction(self, student_function):
@@ -111,26 +121,32 @@ class ExerciceFunction(object):
         columns = self.correction_columns if self.correction_columns else default_correction_columns
 
         c1, c2, c3 = columns
-        html = ""
-        html += u"<table style='{}'>".format(font_style)
-        html += u"<tr style='{}'><th>Arguments</th><th>Attendu</th>"\
-                u"<th>Obtenu</th><th></th></tr>".format(header_font_style)
+
+        table = Table(style=font_style)
+        html = table.header()
+        
+        title1 = "Arguments" if not self.render_name else "Appel"
+        html += TableRow (
+            cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
+                      for x in ( title1, 'Attendu', 'Obtenu', '') ],
+            style=header_font_style).html()
     
         overall = True
         for dataset in datasets:
+            # will use original dataset for rendering to avoid any side-effects
+            # during running
+            if self.render_name:
+                dataset.render_function_name(self.name)
             # always clone all inputs
             student_dataset = dataset.clone(copy_mode)
-            correct_dataset = dataset.clone(copy_mode)
-            # compute rendering of dataset *before* running
-            #in case there are side-effects
-            rendered_input = student_dataset.render_cell(self.format, width=c1)
+            ref_dataset = dataset.clone(copy_mode)
             
             # run both codes
             try:
-                expected = correct_dataset.call(self.solution, debug=DEBUG)
+                expected = ref_dataset.call(self.solution, debug=DEBUG)
             except Exception as e:
                 expected = e
-            rendered_expected = truncate_value(expected, c2)
+
             try:
                 student_result = student_dataset.call(student_function, debug=DEBUG)
             except Exception as e:
@@ -144,15 +160,16 @@ class ExerciceFunction(object):
             result_cell = '<td style="background-color:green;">'
             message = 'OK' if ok else 'KO'
             style = ok_style if ok else ko_style
-            html += "<tr style='{}'>".format(style)
-            html += "<td>{}</td><td>{}</td><td>{}</td><td>{}</td>".\
-                    format(rendered_input,
-                           rendered_expected,
-                           truncate_value(student_result, c3),
-                           message)
+            html += TableRow(
+                style = style,
+                cells = [ TableCell(dataset, layout=self.layout, width=c1),
+                          TableCell(expected, layout=self.layout, width=c2),
+                          TableCell(student_result, layout=self.layout, width=c3),
+                          TableCell(CellLegend(message))]
+            ).html()
 
         log_correction(self.name, overall)
-        html += "</table>"
+        html += table.footer()
         return HTML(html)
 
 ##############################
