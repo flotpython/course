@@ -22,8 +22,6 @@ exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
     correction_columns=(40, 40, 40),
     exemple_columns=(60, 60),
-    layout='pprint',
-    render_name=True,
 )
                                
 ####################
@@ -85,7 +83,7 @@ inputs_liste_racines = [Args(2), Args(3), Args(4)]
 exo_liste_racines = ExerciceFunction(
     liste_racines,
     inputs_liste_racines,
-    correction_columns=(7, 40, 40))
+    correction_columns=(18, 40, 40))
 
 ####################
 # @BEG@ 2 7 produit_scalaire

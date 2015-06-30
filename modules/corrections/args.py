@@ -123,6 +123,7 @@ class ArgsKeywords(object):
             pass
         # else
         indent = 4
+        sep = indent*' '
         html = "<pre>"
         html += self.prefix
         if self.function_name:
@@ -131,7 +132,7 @@ class ArgsKeywords(object):
         keyword_tokens =  [ "{}={}".format(k,pprint.pformat(v, width=width-indent, indent=indent))
                             for k,v in self.keywords ]
         tokens = args_tokens + keyword_tokens
-        html += (",\n"+(indent*' ')).join(tokens)
+        html += sep + (",\n"+sep).join(tokens)
         if self.function_name:
             html += ")\n"
         html += "</pre>"

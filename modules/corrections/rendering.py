@@ -10,8 +10,11 @@ from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 font_style = 'font-family:monospace;font-size:small;'
 header_font_style = 'font-family:monospace;font-size:medium;'
 
-ok_style = 'background-color:#66CC66;'
-ko_style = 'background-color:#CC3300;color:#e8e8e8;'
+# iteration 1 was using this
+#ok_style = 'background-color:#66CC66;'
+#ko_style = 'background-color:#CC3300;color:#e8e8e8;'
+ok_style = 'background-color:#d6e9ce;'
+ko_style = 'background-color:#efd6d6;'
 
 center_cell_style = 'text-align: center;'
 left_cell_style = 'text-align: left;'

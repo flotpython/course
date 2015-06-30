@@ -59,8 +59,8 @@ class ExerciceFunction(object):
                  correction_columns=None, exemple_columns=None,
                  exemple_how_many=1,
                  copy_mode='deep',
-                 layout=None,
-                 render_name=False):
+                 layout='pprint',
+                 render_name=True):
         # the 'official' solution
         self.solution = solution
         # the inputs 
