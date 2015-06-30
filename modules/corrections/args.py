@@ -128,11 +128,13 @@ class ArgsKeywords(object):
         html += self.prefix
         if self.function_name:
             html += self.function_name + "(\n"
+        def indent_pformat(pformat_result):
+            return sep + pformat_result.replace("\n","\n"+sep)
         args_tokens = [ pprint.pformat(arg, width=width-indent, indent=indent) for arg in self.args ]
         keyword_tokens =  [ "{}={}".format(k,pprint.pformat(v, width=width-indent, indent=indent))
                             for k,v in self.keywords ]
-        tokens = args_tokens + keyword_tokens
-        html += sep + (",\n"+sep).join(tokens)
+        tokens = [ indent_pformat(x) for x in args_tokens + keyword_tokens ]
+        html += (",\n").join(tokens)
         if self.function_name:
             html += ")\n"
         html += "</pre>"
