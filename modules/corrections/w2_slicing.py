@@ -6,7 +6,7 @@ alphabet = "0123456789abcdef"
 
 # on calcule connue et inconnue comme une chaine aleatoire
 import random
-connue   = "".join(random.sample(alphabet, random.randint(3, 6)))
+connue   = "".join(random.sample(alphabet, random.randint(4, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
@@ -17,7 +17,14 @@ class ExerciceInconnue(ExerciceFunction):
         # une petite clôture..
         def target(inconnue): 
             return composite
-        ExerciceFunction.__init__(self, target, None)
+        ExerciceFunction.__init__(
+            self, target, None,
+            render_name = False,
+            column_headers = ("inconnue",
+                              "composite",
+                              "c + i + c"
+                          )
+        )
         self.connue = connue
         self.composite = composite
     def correction(self, inconnue):

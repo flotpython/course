@@ -31,7 +31,6 @@ inputs_liste_P = [
 exo_liste_P = ExerciceFunction(
     liste_P,
     inputs_liste_P,
-    correction_columns=()
 )
 
 ####################
@@ -56,7 +55,7 @@ inputs_multi_tri = [
 
 exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
-    correction_columns=(25, 25, 25),
+#    correction_columns=(25, 25, 25),
 )
                                
 ####################
@@ -86,8 +85,8 @@ inputs_multi_tri_reverse = [
 
 exo_multi_tri_reverse = ExerciceFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
-    correction_columns=(30, 28, 28),
-    exemple_columns=(44, 44),
+#    correction_columns=(30, 28, 28),
+#    exemple_columns=(44, 44),
     exemple_how_many=2)
 
 ####################
@@ -113,20 +112,26 @@ def produit_scalaire(X,Y):
 # pour faire la somme de toute une liste de valeurs
 def produit_scalaire_bis(X,Y):
     return sum([x*y for x, y in zip(X, Y)])
-# @END@
 
+# Et encore une; celle-ci par contre est
+# assez peu "pythonique"
+# on aime bien en général éviter
+# les boucles du genre
+# for i in range(l)
+#     ... l[i]
 def produit_scalaire_ter(X, Y):
     scalaire = 0
     n = len(X)
     for i in range(n):
         scalaire += X[i] * Y[i]
     return scalaire
-
+# @END@
 
 from fractions import Fraction
 
 inputs_produit_scalaire = [
-    Args(range(3, 13), range (5, 15)),
+    Args( (1, 2), (3, 4)),
+    Args(range(3, 9), range (5, 11)),
     Args([-2, 10] , [20, 4]),
     Args([Fraction(2, 15), Fraction(3, 4)], [Fraction(-7, 19), Fraction(4, 13)]),
     Args([],[]),
@@ -135,7 +140,8 @@ inputs_produit_scalaire = [
 exo_produit_scalaire = ExerciceFunction(
     produit_scalaire,
     inputs_produit_scalaire,
-    correction_columns=(42, 15, 15))
+#    correction_columns=(24, 10, 10)
+)
 
 ### ####################
 ### # restes de l'itération 1 - trop abscons
