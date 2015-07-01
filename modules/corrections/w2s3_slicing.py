@@ -22,7 +22,7 @@ class ExerciceComposite(ExerciceFunction):
             render_name = False,
             column_headers = ("inconnue",
                               "composite",
-                              "c + i + c"
+                              "connue + inconnue + connue"
                           )
         )
         self.connue = connue
