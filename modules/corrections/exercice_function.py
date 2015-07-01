@@ -20,8 +20,7 @@ DEBUG=False
 #DEBUG=True
 
 ########## defaults for columns widths - for FUN 
-default_correction_columns =    (30, 40, 40)
-default_exemple_columns =       (40, 40)
+default_columns =    (30, 40, 40)
 
 ####################        
 class ExerciceFunction(object):
@@ -75,42 +74,6 @@ class ExerciceFunction(object):
         self.layout = layout
         self.render_name = render_name
 
-    # public interface
-    def exemple(self):
-        # the 'right' implementation
-        how_many = self.exemple_how_many
-        columns = self.exemple_columns if self.exemple_columns else default_exemple_columns
-        exo_layout = self.layout
-
-        how_many_samples = self.exemple_how_many if self.exemple_how_many \
-                           else len(self.datasets)
-    
-        # can provide 3 args (convenient when it's the same as correction) or just 2
-        columns = columns[:2]
-        c1, c2 = columns
-
-        table = Table(style=font_style)
-        html = table.header()
-
-        title1 = "Arguments" if not self.render_name else "Appel"
-        html += TableRow(style=header_font_style,
-                         cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
-                                   for x in (title1, 'Résultat Attendu') ]).html()
-        for dataset in self.datasets[:how_many_samples]:
-            sample_dataset = dataset.clone(self.copy_mode)
-            if self.render_name:
-                sample_dataset.render_function_name(self.name)
-            try:
-                expected = sample_dataset.call(self.solution)
-            except Exception as e:
-                expected = e
-            html += TableRow(cells = [ TableCell(sample_dataset, layout=self.layout, width=c1),
-                                       TableCell(expected, layout=self.layout, width=c2)
-                                   ]).html()
-    
-        html += table.footer()
-        return HTML(html)
-
     def correction(self, student_function):
         """
         colums should be a 3-tuple for the 3 columns widths
@@ -118,9 +81,11 @@ class ExerciceFunction(object):
         """
         datasets = self.datasets
         copy_mode = self.copy_mode
-        columns = self.correction_columns if self.correction_columns else default_correction_columns
+        columns = self.correction_columns if self.correction_columns \
+                  else default_columns
 
         c1, c2, c3 = columns
+        print("Using columns={}".format(columns))
 
         table = Table(style=font_style)
         html = table.header()
@@ -169,6 +134,45 @@ class ExerciceFunction(object):
             ).html()
 
         log_correction(self.name, overall)
+        html += table.footer()
+        return HTML(html)
+
+    # public interface
+    def exemple(self):
+        # the 'right' implementation
+        how_many = self.exemple_how_many
+        columns = self.exemple_columns if self.exemple_columns \
+                  else self.correction_columns if self.correction_columns \
+                       else default_columns
+        exo_layout = self.layout
+
+        how_many_samples = self.exemple_how_many if self.exemple_how_many \
+                           else len(self.datasets)
+    
+        # can provide 3 args (convenient when it's the same as correction) or just 2
+        columns = columns[:2]
+        c1, c2 = columns
+        print("Using columns={}".format(columns))
+
+        table = Table(style=font_style)
+        html = table.header()
+
+        title1 = "Arguments" if not self.render_name else "Appel"
+        html += TableRow(style=header_font_style,
+                         cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
+                                   for x in (title1, 'Résultat Attendu') ]).html()
+        for dataset in self.datasets[:how_many_samples]:
+            sample_dataset = dataset.clone(self.copy_mode)
+            if self.render_name:
+                dataset.render_function_name(self.name)
+            try:
+                expected = sample_dataset.call(self.solution)
+            except Exception as e:
+                expected = e
+            html += TableRow(cells = [ TableCell(dataset, layout=self.layout, width=c1),
+                                       TableCell(expected, layout=self.layout, width=c2)
+                                   ]).html()
+    
         html += table.footer()
         return HTML(html)
 

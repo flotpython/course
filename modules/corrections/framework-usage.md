@@ -14,17 +14,6 @@ There remains some other usages of `ExerciceFunction` that are not straightforwa
 
 # reworking the framework
 
-## Improve rendering:
-check how to have full text of a truncated cell show up when hoverings
-
-## ExerciceFunction
-
-* should be mostly OK, but
-  * would need to move to using rendering `Table*` objects 
-  * once this is done we could decide to have some function exos (like the first ones chronologically) display the function name 
-
-## ExerciceClass
-
-* mostly working but
-  * no support for column widths for now
+* ExerciceFunction and ExerciceClass mostly OK
+* need a thorough review
 

@@ -67,7 +67,7 @@ class CellObj(object):
     def layout_multiline(self, width):
         return "no multiline on std objs"
     def layout_pprint(self, width):
-        indent = 4
+        indent = 2
         html = "<pre>\n"
         width = width if width >0 else 80
         html += pprint.pformat(self.torender, indent=indent, width=width)

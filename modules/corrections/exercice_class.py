@@ -12,8 +12,8 @@ from rendering import (Table, TableRow, TableCell, CellLegend,
 )
 
 
-default_correction_columns = 30, 40, 40
-default_exemple_columns = 40, 60
+# applicable for correction (use all 3) and exemple (first 2)
+default_columns = 30, 40, 40
 
 ##########
 class ScenarioClass(list):
@@ -84,7 +84,7 @@ class ExerciceClass(object):
         # should be customizable
         columns = self.correction_columns
         if not columns:
-            columns = default_correction_columns
+            columns = default_columns
         c1, c2, c3 = columns
         ref_class = self.solution
         
@@ -176,14 +176,19 @@ class ExerciceClass(object):
         display a table with example scenarios
         """
         how_many = self.exemple_how_many
-        columns = self.exemple_columns if self.exemple_columns else default_exemple_columns
-        c1, c2 = columns
+        columns = self.exemple_columns if self.exemple_columns \
+                  else self.correction_columns if self.correction_columns \
+                       else default_columns
         exo_layout = self.layout
         ref_class = self.solution
 
         how_many_samples = self.exemple_how_many if self.exemple_how_many \
                            else len(self.scenarios)
 
+        # can provide 3 args (convenient when it's the same as correction) or just 2
+        columns = columns[:2]
+        c1, c2 = columns
+        print("Using columns={}".format(columns))
         table = Table(style=font_style)
         html = table.header()
 
