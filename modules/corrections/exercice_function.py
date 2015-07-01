@@ -20,7 +20,7 @@ DEBUG=False
 #DEBUG=True
 
 ########## defaults for columns widths - for FUN 
-default_columns =    (30, 40, 40)
+default_columns =  (24, 28, 28)
 
 ####################        
 class ExerciceFunction(object):
@@ -55,24 +55,33 @@ class ExerciceFunction(object):
     to appear in the first column together with arguments
     """
     def __init__(self, solution, datasets, 
-                 correction_columns=None, exemple_columns=None,
-                 exemple_how_many=1,
-                 copy_mode='deep',
-                 layout='pprint',
-                 render_name=True):
+                 copy_mode = 'deep',
+                 layout = 'pprint',
+                 render_name = True,
+                 exemple_how_many = 1,
+                 correction_columns = None,
+                 exemple_columns = None,
+                 column_headers = None):
         # the 'official' solution
         self.solution = solution
         # the inputs 
         self.datasets = datasets
-        # in some weird cases this won't exist
-        self.name = getattr(solution, '__name__', "no_name")
-        self.correction_columns = correction_columns 
-        self.exemple_columns = exemple_columns 
-        self.exemple_how_many = exemple_how_many
+        # how to copy args
         self.copy_mode = copy_mode
         # applicable to all cells whose Args instance has not specified a layout
         self.layout = layout
         self.render_name = render_name
+        # how many exemples 
+        self.exemple_how_many = exemple_how_many
+        # column details - 3-tuples 
+        # sizes - defaults should be fine in most cases
+        self.correction_columns = correction_columns 
+        self.exemple_columns = exemple_columns 
+        # header names - for some odd cases
+        self.column_headers = column_headers
+        ###
+        # in some weird cases this won't exist
+        self.name = getattr(solution, '__name__', "no_name")
 
     def correction(self, student_function):
         """
@@ -90,10 +99,15 @@ class ExerciceFunction(object):
         table = Table(style=font_style)
         html = table.header()
         
-        title1 = "Arguments" if not self.render_name else "Appel"
+        if self.column_headers:
+            t1, t2, t3 = self.column_headers
+        else:
+            t1, t2, t3 = ("Arguments" if not self.render_name else "Appel",
+                         "Attendu",
+                         "Obtenu")
         html += TableRow (
             cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
-                      for x in ( title1, 'Attendu', 'Obtenu', '') ],
+                      for x in ( t1, t2, t3, '') ],
             style=header_font_style).html()
     
         overall = True
@@ -226,7 +240,8 @@ class ExerciceRegexpGroups(ExerciceFunction):
     def regexp_to_solution(regexp, groups):
         def solution(string):
             match = re.match(regexp, string)
-            return match and [ExerciceRegexpGroups.extract_group(match,group) for group in groups]
+            return match and [ExerciceRegexpGroups.extract_group(match, group)
+                              for group in groups]
         return solution
 
     def __init__(self, name, regexp, groups, inputs, *args, **keywords):

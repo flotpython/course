@@ -61,21 +61,23 @@ class ExerciceClass(object):
     """
     
     def __init__(self, solution, scenarios,
-                 correction_columns=None, exemple_columns=None,
-                 exemple_how_many=1,
-                 copy_mode='deep',
-                 layout=None,
-                 obj_name='o'):
+                 copy_mode = 'deep',
+                 layout = None,
+                 exemple_how_many = 1,
+                 obj_name = 'o',
+                 correction_columns = None,
+                 exemple_columns = None,
+                 ):
         self.solution = solution
         self.scenarios = scenarios
-        self.name = solution.__name__
+        self.copy_mode = copy_mode
+        self.layout = layout
+        self.exemple_how_many = exemple_how_many
+        self.obj_name = obj_name
         self.correction_columns = correction_columns 
         self.exemple_columns = exemple_columns 
-        self.exemple_how_many = exemple_how_many
-        self.copy_mode = copy_mode
-        # applicable to all cells whose Args instance has not specified a layout
-        self.layout = layout
-        self.obj_name = obj_name
+        # computed
+        self.name = solution.__name__
 
     def correction (self, student_class):
 
@@ -159,7 +161,7 @@ class ExerciceClass(object):
                     student_result = "Exception {}".format(e)
                     
                 # xxx styling maybe a little too much...
-                cells = (TableCell(args_obj, style=right_cell_style, layout=self.layout, width=c1),
+                cells = (TableCell(args_obj, layout=self.layout, width=c1),
                          TableCell(ref_result, layout=self.layout, width=c2),
                          TableCell(student_result, layout=self.layout, width=c3),
                          TableCell(CellLegend(msg)))
@@ -221,7 +223,7 @@ class ExerciceClass(object):
                 ref_args = args_obj.clone(self.copy_mode)
                 ref_args.render_function_name(methodname)
                 ref_result = ref_args.call_obj(ref_obj, methodname)
-                cells = ( TableCell(ref_args, style=right_cell_style, layout=self.layout, width=c1),
+                cells = ( TableCell(ref_args, layout=self.layout, width=c1),
                           TableCell(ref_result, layout=self.layout, width=c2))
                 html += TableRow(cells=cells).html()
 
