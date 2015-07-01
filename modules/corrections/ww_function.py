@@ -6,7 +6,7 @@ from args import Args
 # example how to use
 # 
 
-# @BEG@ 0 0 curve
+# @BEG@ week=0 sequence=0 name=curve
 def curve(a, b):
     return a ** 2 + 3 * a * b + 12
 # @END@

@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ 3 2 index
+# @BEG@ week=3 sequence=2 name=index
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
@@ -15,7 +15,7 @@ def index(bateaux):
     return {bateau[0]:bateau for bateau in bateaux}
 # @END@
 
-# @BEG@ 3 2 index
+# @BEG@ week=3 sequence=2 name=index
 def index2(bateaux):
     """
     La même chose mais de manière itérative
@@ -41,7 +41,7 @@ class ExerciceIndex(ExerciceFunction):
 exo_index = ExerciceIndex(index, "inputs_gets_overridden")
     
 
-# @BEG@ 3 2 merge
+# @BEG@ week=3 sequence=2 name=merge
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées
@@ -70,7 +70,7 @@ def merge(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ 3 2 merge
+# @BEG@ week=3 sequence=2 name=merge
 def merge2(extended, abbreviated):
     """
     Une deuxième version, linéaire également
@@ -95,7 +95,7 @@ def merge2(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ 3 2 merge
+# @BEG@ week=3 sequence=2 name=merge
 def merge3(extended, abbreviated):
     """
     Une troisième solution

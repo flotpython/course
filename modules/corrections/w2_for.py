@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ####################
-# @BEG@ 2 7 liste_P
+# @BEG@ week=2 sequence=7 name=liste_P
 def P(x):
     return 2*x**2 - 3*x - 2
 
@@ -34,7 +34,7 @@ exo_liste_P = ExerciceFunction(
 )
 
 ####################
-# @BEG@ 2 7 multi_tri
+# @BEG@ week=2 sequence=7 name=multi_tri
 def multi_tri(listes):
     """
     trie toutes les sous-listes
@@ -59,7 +59,7 @@ exo_multi_tri = ExerciceFunction(
 )
                                
 ####################
-# @BEG@ 2 7 multi_tri_reverse
+# @BEG@ week=2 sequence=7 name=multi_tri_reverse
 def multi_tri_reverse(listes, reverses):
     """
     trie toutes les sous listes, dans une direction
@@ -90,7 +90,7 @@ exo_multi_tri_reverse = ExerciceFunction(
     exemple_how_many=2)
 
 ####################
-# @BEG@ 2 7 produit_scalaire
+# @BEG@ week=2 sequence=7 name=produit_scalaire
 def produit_scalaire(X,Y):
     """
     retourne le produit scalaire
@@ -145,7 +145,7 @@ exo_produit_scalaire = ExerciceFunction(
 
 ### ####################
 ### # restes de l'itération 1 - trop abscons
-### # @BEGxxx@ 2 7 liste_racines
+### # @BEG@ week=2 sequence=7 name=liste_racines
 ### from math import e, pi
 ### 
 ### def liste_racines(p):
@@ -167,7 +167,7 @@ exo_produit_scalaire = ExerciceFunction(
 ###         resultat.append(e**((2j*pi*n)/p))
 ###     # et on retourne le résultat
 ###     return resultat
-### # @ENDxxx@
+### # @END@
 ### 
 ### inputs_liste_racines = [Args(2), Args(3), Args(4)] 
 ### 

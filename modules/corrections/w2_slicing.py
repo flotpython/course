@@ -10,7 +10,7 @@ connue   = "".join(random.sample(alphabet, random.randint(4, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
-class ExerciceInconnue(ExerciceFunction):
+class ExerciceComposite(ExerciceFunction):
     def __init__(self, connue, composite):
         # on appelle ExerciceFunction.__init__ pour remplir tous les champs
         # mais self.datasets sera en fait rempli plus tard
@@ -34,11 +34,11 @@ class ExerciceInconnue(ExerciceFunction):
             return self.connue + inconnue + self.connue
         return ExerciceFunction.correction(self, check)
 
-exo_inconnue = ExerciceInconnue(connue, composite)
+exo_composite = ExerciceComposite(connue, composite)
 
 ####################
 # la solution est bien sûr
-# @BEG@ 2 3 composite
+# @BEG@ week=2 sequence=3 name=composite
 # Pour calculer inconnue, on extrait une sous-chaine de composite
 # qui commence a l'index len(connue)
 # qui se termine a l'index len(composite)-len(connue)

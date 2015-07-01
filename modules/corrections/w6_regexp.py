@@ -10,7 +10,7 @@ for germ in germs:
         for seed in '-_':
             pythonid_strings.append(germ[:i]+seed+germ[i:])
 
-# @BEG@ 6 6 regexp_pythonid
+# @BEG@ week=6 sequence=6 name=regexp_pythonid
 # un identificateur commence par une lettre ou un underscore
 # et peut être suivi par n'importe quel nombre de
 # lettre, chiffre ou underscore, ce qui se trouve être \w
@@ -18,7 +18,7 @@ for germ in germs:
 regexp_pythonid = "[a-zA-Z_]\w*"
 # @END@
 
-# @BEG@ 6 6 regexp_pythonid
+# @BEG@ week=6 sequence=6 name=regexp_pythonid
 # on peut aussi bien sûr l'écrire en clair
 regexp_pythonid2 = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
@@ -33,7 +33,7 @@ specials_strings = [ '__y3s__', '_n0__', '___n0__',
                      '__0no__', '__n0_', '__n0___',
                      '__y3s_too__', '__y__', ]
 
-# @BEG@ 6 6 regexp_specials
+# @BEG@ week=6 sequence=6 name=regexp_specials
 # il faut commencer par exactement 2 underscores
 # donc le caractère suivant doit être une lettre
 # ensuite on peut mettre ce qu'on veut comme alphanumérique,
@@ -59,7 +59,7 @@ gopher://unsupported.proto.col/
 http:///missing/hostname/
 """.split()
 
-# @BEG@ 6 6 regexp_url
+# @BEG@ week=6 sequence=6 name=regexp_url
 # en ignorant la casse on pourra ne mentionner les noms de protocoles
 # qu'en minuscules
 i_flag = "(?i)"

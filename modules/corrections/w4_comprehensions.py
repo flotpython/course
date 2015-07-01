@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ##############################
-# @BEG@ 4 4 aplatir
+# @BEG@ week=4 sequence=4 name=aplatir
 def aplatir(conteneurs):
     "retourne une liste des éléments des éléments de conteneurs"
     # on peut concaténer les éléments de deuxième niveau 
@@ -25,7 +25,7 @@ exo_aplatir = ExerciceFunction(
     aplatir, aplatir_inputs, exemple_how_many=0)
 
 ##############################
-# @BEG@ 4 4 alternat
+# @BEG@ week=4 sequence=4 name=alternat
 def alternat(l1, l2):
     "renvoie une liste des éléments pris un sur deux dans l1 et dans l2"
     # pour réaliser l'alternance on peut combiner zip avec aplatir
@@ -39,7 +39,7 @@ alternat_inputs = [
     Args((1, (2, 3)), ('a', ['b', 'c'])),
 ]
 
-# @BEG@ 4 4 alternat
+# @BEG@ week=4 sequence=4 name=alternat
 def alternat2(l1, l2):
     "une deuxième version de alternat"
     # la même idée mais directement, sans utiliser aplatir
@@ -51,7 +51,7 @@ exo_alternat = ExerciceFunction(
     alternat, alternat_inputs, exemple_how_many=2)
 
 ##############################
-# @BEG@ 4 4 intersect
+# @BEG@ week=4 sequence=4 name=intersect
 def intersect(A, B):
     """
     prend en entrée deux listes de tuples de la forme

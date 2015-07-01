@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ 4 2 pgcd
+# @BEG@ week=4 sequence=2 name=pgcd
 def pgcd(a, b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # l'algorithme suppose que a >= b

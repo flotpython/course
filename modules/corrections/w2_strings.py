@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 
-# @BEG@ 2 8 affichage
+# @BEG@ week=2 sequence=8 name=affichage
 # un élève a remarqué très justement que ce code ne fait pas
 # exactement ce qui est demandé, en ce sens qu'avec
 # l'entrée correspondant à Ted Mosby on obtient A:><
@@ -51,7 +51,7 @@ exo_affichage = ExerciceFunction(
     exemple_how_many=4)
 
 ##############################
-# @BEG@ 2 8 carre
+# @BEG@ week=2 sequence=8 name=carre
 def carre(s):
     # on enlève les espaces et les tabulations
     s = s.replace(' ', '').replace('\t','')

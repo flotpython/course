@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ 3 5 decode_zen
+# @BEG@ week=3 sequence=5 name=decode_zen
 # le module this est implémenté comme une petite énigme 
 # comme le laissent entrevoir les indices, on y trouve
 # (*) dans l'attribut 's' une version encodée du manifeste
@@ -35,7 +35,7 @@ def decode_zen(this_module):
     return ''.join([code[c] if c in code else c for c in encoded])
 # @END@
 
-# @BEG@ 3 5 decode_zen
+# @BEG@ week=3 sequence=5 name=decode_zen
 # une autre version qui marche aussi, en utilisant 
 # dict.get(key, default)
 def decode_zen2(this):

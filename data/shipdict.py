@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# @BEG@ 5 6 shipdict 
+# @BEG@ week=5 sequence=6 name=shipdict 
 from __future__ import print_function
 
 # helpers - used for the verbose mode only
@@ -27,7 +27,7 @@ def lon_d_m_s(f):
     else:           return "{} W".format(d_m_s(-f))
 # @END@
 
-# @BEG@ 5 6 shipdict-suite
+# @BEG@ week=5 sequence=6 name=shipdict-suite
 class Position(object):
     "a position atom with timestamp attached"
     
@@ -49,7 +49,7 @@ class Position(object):
                                     self.lon_str(), self.timestamp)
 # @END@
 
-# @BEG@ 5 6 shipdict-suite
+# @BEG@ week=5 sequence=6 name=shipdict-suite
 class Ship(object):
     """
     a ship object, that requires a ship id, 
@@ -81,7 +81,7 @@ class Ship(object):
         self.positions.sort(key=lambda position: position.timestamp)
 # @END@
 
-# @BEG@ 5 6 shipdict-suite
+# @BEG@ week=5 sequence=6 name=shipdict-suite
 class ShipDict(dict):
     """
     a repository for storing all ships that we know about
@@ -127,7 +127,7 @@ class ShipDict(dict):
         self[id].add_position (Position (latitude, longitude, timestamp))
 # @END@
 
-# @BEG@ 5 6 shipdict-suite
+# @BEG@ week=5 sequence=6 name=shipdict-suite
     def add_chunk(self, chunk):
         """
         chunk is a plain list coming from the JSON data
@@ -166,7 +166,7 @@ class ShipDict(dict):
             del self[id]
 # @END@
 
-# @BEG@ 5 6 shipdict-suite
+# @BEG@ week=5 sequence=6 name=shipdict-suite
     def ships_by_name(self, name):
         """
         returns a list of all known ships with name <name>

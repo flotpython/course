@@ -65,7 +65,7 @@ def show_comptage(in_name, out_name, comptage, suffix):
 ####################
 # comptage ()
 @exercice_compliant
-# @BEG@ 4 1 comptage
+# @BEG@ week=4 sequence=1 name=comptage
 def comptage(in_filename, out_filename):
     """
     retranscrit le fichier in_filename dans le fichier out_filename

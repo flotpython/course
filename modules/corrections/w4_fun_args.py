@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args, ArgsKeywords
 
 ##############################
-# @BEG@ 4 8 distance
+# @BEG@ week=4 sequence=8 name=distance
 import math
 
 def distance(*args):
@@ -36,7 +36,7 @@ exo_distance = ExerciceFunction(
     distance, distance_inputs, exemple_how_many=3)
 
 ##############################
-# @BEG@ 4 8 doubler_premier
+# @BEG@ week=4 sequence=8 name=doubler_premier
 def doubler_premier(f, first, *args):
     """
     renvoie le résultat de la fonction f appliquée sur
@@ -72,7 +72,7 @@ exo_doubler_premier = ExerciceFunction(
     doubler_premier, doubler_premier_inputs, exemple_how_many=4)
 
 ##############################
-# @BEG@ 4 8 doubler_premier2
+# @BEG@ week=4 sequence=8 name=doubler_premier2
 def doubler_premier2(f, first, *args, **keywords):
     """
     équivalent à doubler_premier 
@@ -122,7 +122,7 @@ exo_doubler_premier2 = ExerciceFunction(
     doubler_premier2, doubler_premier2_inputs,
     exemple_how_many=5)
 ##############################
-# @BEG@ 4 8 validation2
+# @BEG@ week=4 sequence=8 name=validation2
 def validation2(f, g, argument_tuples):
     """
     retourne une liste de booléens, un par entree dans entrees

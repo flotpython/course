@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @BEG@ 5 6 RPCProxy
+# @BEG@ week=5 sequence=6 name=RPCProxy
 # une troisième implémentation de RPCProxy
 
 class Forwarder(object):
