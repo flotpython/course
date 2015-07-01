@@ -39,7 +39,7 @@ alternat_inputs = [
     Args((1, (2, 3)), ('a', ['b', 'c'])),
 ]
 
-# @BEG@ week=4 sequence=4 name=alternat
+# @BEG@ week=4 sequence=4 name=alternat more=v2
 def alternat2(l1, l2):
     "une deuxième version de alternat"
     # la même idée mais directement, sans utiliser aplatir

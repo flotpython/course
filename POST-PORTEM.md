@@ -52,6 +52,11 @@ Général
    "nous dirons plus tard que les variables référencent le même objet" thing
    when was it written, by whom, did valerie let this pass ?
 
+* function naming - some exercices have confusing names; sometimes we exhibit a function named foo2 which is a second solution to exercice 2; but we also have 2 real exercices that are named with '2'; would be cool to rename them
+  * doubler_premier2 into doubler_premier_kwds
+  * validation2 into validation_kwds
+  
+
 W1
 ===
 

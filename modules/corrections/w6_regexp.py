@@ -18,7 +18,7 @@ for germ in germs:
 regexp_pythonid = "[a-zA-Z_]\w*"
 # @END@
 
-# @BEG@ week=6 sequence=6 name=regexp_pythonid
+# @BEG@ week=6 sequence=6 name=regexp_pythonid more=v2
 # on peut aussi bien sûr l'écrire en clair
 regexp_pythonid2 = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@

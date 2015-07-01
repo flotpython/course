@@ -15,7 +15,7 @@ def index(bateaux):
     return {bateau[0]:bateau for bateau in bateaux}
 # @END@
 
-# @BEG@ week=3 sequence=2 name=index
+# @BEG@ week=3 sequence=2 name=index more=v2
 def index2(bateaux):
     """
     La même chose mais de manière itérative
@@ -70,7 +70,7 @@ def merge(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ week=3 sequence=2 name=merge
+# @BEG@ week=3 sequence=2 name=merge more=v2
 def merge2(extended, abbreviated):
     """
     Une deuxième version, linéaire également
@@ -95,7 +95,7 @@ def merge2(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ week=3 sequence=2 name=merge
+# @BEG@ week=3 sequence=2 name=merge more=v3
 def merge3(extended, abbreviated):
     """
     Une troisième solution
@@ -140,4 +140,3 @@ class ExerciceMerge(ExerciceFunction):
         return self.solution(extended, abbreviated)
 
 exo_merge = ExerciceMerge(merge, "inputs_gets_overridden")
-    
