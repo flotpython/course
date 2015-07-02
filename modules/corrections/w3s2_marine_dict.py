@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=2 name=index no_exemple=skip
+# @BEG@ week=3 sequence=2 name=index no_validation=skip 
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
@@ -41,7 +41,7 @@ class ExerciceIndex(ExerciceFunction):
 exo_index = ExerciceIndex(index, "inputs_gets_overridden")
     
 
-# @BEG@ week=3 sequence=2 name=merge
+# @BEG@ week=3 sequence=2 name=merge no_validation=skip
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées

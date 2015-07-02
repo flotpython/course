@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize
+# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize no_validation=skip
 def diff(extended, abbreviated):
     """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
 (*) les noms des bateaux seulement dans extended

@@ -36,6 +36,8 @@ class ExerciceInconnue(ExerciceFunction):
 
 exo_inconnue = ExerciceInconnue(connue, composite)
 
+ko_inconnue = "votre code"
+
 ####################
 # la solution est bien sûr
 # @BEG@ week=2 sequence=3 name=inconnue no_exemple=skip

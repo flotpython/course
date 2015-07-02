@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=5 name=decode_zen
+# @BEG@ week=3 sequence=5 name=decode_zen no_exemple=skip
 # le module this est implémenté comme une petite énigme 
 # comme le laissent entrevoir les indices, on y trouve
 # (*) dans l'attribut 's' une version encodée du manifeste
@@ -42,8 +42,10 @@ def decode_zen2(this):
     return "".join([this.d.get(c, c) for c in this.s])
 # @END@
 
+import this
+
 class ExerciceDecodeZen(ExerciceFunction):
-    def correction(self, student_decode_zen, this):
+    def correction(self, student_decode_zen):
         self.datasets = [Args(this)]
         return ExerciceFunction.correction(self, student_decode_zen)
     
