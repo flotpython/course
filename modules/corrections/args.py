@@ -19,19 +19,18 @@ class ArgsKeywords(object):
     would then return the result of
     foo (1, 2, a=[])
     """
-    def __init__(self, args=None, keywords=None, layout=None):
+    def __init__(self, args=None, keywords=None):
         # expecting a tuple or a list
         self.args = args if args is not None else tuple()
         # expecting a dictionary
         self.keywords = keywords if keywords is not None else {}
-        # used when rendering - in exemple or correction
-        # in general this is defined in the Exercice instance
-        # but can also be overridden here
-        self.layout=layout
         # can be overridden later on using 'render_function_name'
         self.function_name = None
         # can be overridden later on using 'render_prefix'
         self.prefix = ""
+        # default - no way to set this on the constructor
+        # because layout=x is already captured in self.keywords
+        self.layout = None
 
     def __repr__(self):
         cn = "Args" if not self.keywords else "ArgsKeywords"
@@ -41,6 +40,12 @@ class ArgsKeywords(object):
         result += ">"
         return result
 
+    def set_layout(self, layout):
+        # used when rendering - in exemple or correction
+        # in general this is defined in the Exercice instance
+        # but can also be overridden here
+        self.layout = layout
+        
     def call(self, function, debug=False):
         if debug:
             print("calling {} *{} **{}".format(function.__name__, self.args, self.keywords))

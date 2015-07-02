@@ -35,18 +35,22 @@ def decode_zen(this_module):
     return ''.join([code[c] if c in code else c for c in encoded])
 # @END@
 
-# @BEG@ week=3 sequence=5 name=decode_zen
+# @BEG@ week=3 sequence=5 name=decode_zen more=v2
 # une autre version qui marche aussi, en utilisant 
 # dict.get(key, default)
-def decode_zen2(this):
-    return "".join([this.d.get(c, c) for c in this.s])
+def decode_zen2(this_module):
+    return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
 
 import this
 
 class ExerciceDecodeZen(ExerciceFunction):
     def correction(self, student_decode_zen):
-        self.datasets = [Args(this)]
+        self.layout = 'truncate'
+        self.render_name = False
+        args_obj = Args(this)
+        args_obj.set_layout('pprint')
+        self.datasets = [ args_obj ]
         return ExerciceFunction.correction(self, student_decode_zen)
     
     def resultat(self, this):

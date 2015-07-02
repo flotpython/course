@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import pprint
 
-from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
+from types import StringTypes, FunctionType, BuiltinFunctionType, BuiltinMethodType
 
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
@@ -65,7 +65,16 @@ class CellObj(object):
     def layout_truncate(self, width):
         return truncate_value(self.torender, width)
     def layout_multiline(self, width):
-        return "no multiline on std objs"
+        torender = self.torender
+        if isinstance(torender, StringTypes):
+            html = "<pre>"
+            for line in torender.split("\n"):
+                html += truncate_value(line, width) + "\n"
+            html += "</pre>"
+            return html
+        else:    
+            #print("multiline on CellObj -> truncate")
+            return self.layout_truncate(width)
     def layout_pprint(self, width):
         indent = 2
         html = "<pre>\n"
