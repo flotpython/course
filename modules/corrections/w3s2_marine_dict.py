@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=2 name=index
+# @BEG@ week=3 sequence=2 name=index no_exemple=skip
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
