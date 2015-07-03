@@ -1,8 +1,59 @@
 # -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=2 name=index no_validation=skip 
+import json
+
+#################### load data
+def simplify(entry):
+    return entry[:8]
+
+with open("data/marine-e1-ext.json") as feed:
+    extended_full = json.load(feed)
+    
+with open("data/marine-e1-abb.json") as feed:
+    abbreviated_full = json.load(feed)
+
+# simplify extended entries - we don't need all these details
+extended_full = [ simplify(e) for e in extended_full ]
+
+### how many do we keep for this exercice
+extract = 4
+
+ids_all = [ t[0] for t in extended_full ]
+ids_extract = ids_all[:extract]
+
+extended = [ t for t in extended_full if t[0] in ids_extract ]
+abbreviated = [ t for t in abbreviated_full if t[0] in ids_extract ]
+
+def show():
+    print("extended_full has {} {}-entries".
+          format(len(extended_full), len(extended_full[0])))
+    print("abbreviated_full has {} {}-entries"
+          .format(len(abbreviated_full), len(abbreviated_full[0])))
+    print("extended has {} entries".format(len(extended)))
+    print("abbreviated has entries".format(len(abbreviated)))
+
+#show()
+
+def check(filename):
+    with open(filename) as feed:
+        extended = json.load(feed)
+    ids = { t[0] for t in extended }
+    full_ids = { (t[0], t[4]) for t in extended }
+    print("{} has {} entries - {} different ids and {} different (id, name) tuples"
+          .format(filename, len(extended),
+                  len(ids), len(full_ids)))
+
+#import glob
+#for input in glob.glob("data/marine*ext*json"):
+#    check(input)
+
+#################### index    
+# @BEG@ week=3 sequence=2 name=index no_exemple=skip
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
@@ -27,10 +78,15 @@ def index_bis(bateaux):
     return resultat
 # @END@
 
+def index_ko(ships):
+    return index(extended)
+
 class ExerciceIndex(ExerciceFunction):
 
     # on surcharge correction pour capturer les arguments
-    def correction(self, student_index, bateaux):
+    # par defaut on utilise 'abbreviated', utilisé dans le
+    # notebook de validation    
+    def correction(self, student_index, bateaux=abbreviated):
         self.datasets = [Args(bateaux)]
         return ExerciceFunction.correction(self, student_index)
 
@@ -41,7 +97,7 @@ class ExerciceIndex(ExerciceFunction):
 exo_index = ExerciceIndex(index, "inputs_gets_overridden")
     
 
-# @BEG@ week=3 sequence=2 name=merge no_validation=skip
+# @BEG@ week=3 sequence=2 name=merge no_exemple=skip
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées
@@ -131,7 +187,9 @@ def merge_ter(extended, abbreviated):
 class ExerciceMerge(ExerciceFunction):
 
     # on surcharge correction pour capturer les arguments
-    def correction(self, student_merge, extended, abbreviated):
+    # idem on definit les arguments par defaut pour le code de validation
+    def correction(self, student_merge,
+                   extended=extended, abbreviated=abbreviated):
         self.datasets = [Args(extended, abbreviated)]
         return ExerciceFunction.correction(self, student_merge)
 
