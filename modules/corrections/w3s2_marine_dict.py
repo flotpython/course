@@ -16,7 +16,7 @@ def index(bateaux):
 # @END@
 
 # @BEG@ week=3 sequence=2 name=index more=v2
-def index2(bateaux):
+def index_bis(bateaux):
     """
     La même chose mais de manière itérative
     """
@@ -71,7 +71,7 @@ def merge(extended, abbreviated):
 # @END@
 
 # @BEG@ week=3 sequence=2 name=merge more=v2
-def merge2(extended, abbreviated):
+def merge_bis(extended, abbreviated):
     """
     Une deuxième version, linéaire également
     """
@@ -96,7 +96,7 @@ def merge2(extended, abbreviated):
 # @END@
 
 # @BEG@ week=3 sequence=2 name=merge more=v3
-def merge3(extended, abbreviated):
+def merge_ter(extended, abbreviated):
     """
     Une troisième solution
     à cause du tri que l'on fait au départ, cette 

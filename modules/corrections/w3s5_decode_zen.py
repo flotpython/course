@@ -38,9 +38,12 @@ def decode_zen(this_module):
 # @BEG@ week=3 sequence=5 name=decode_zen more=v2
 # une autre version qui marche aussi, en utilisant 
 # dict.get(key, default)
-def decode_zen2(this_module):
+def decode_zen_bis(this_module):
     return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
+
+def decode_zen_ko(this_module):
+    return "".join([this_module.d.get(c, ' ') for c in this_module.s])    
 
 import this
 

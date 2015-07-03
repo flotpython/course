@@ -10,22 +10,24 @@ for germ in germs:
         for seed in '-_':
             pythonid_strings.append(germ[:i]+seed+germ[i:])
 
-# @BEG@ week=6 sequence=6 name=regexp_pythonid
+# @BEG@ week=6 sequence=6 name=pythonid more=regexp
 # un identificateur commence par une lettre ou un underscore
 # et peut être suivi par n'importe quel nombre de
 # lettre, chiffre ou underscore, ce qui se trouve être \w
 # si on ne se met pas en mode unicode
-regexp_pythonid = "[a-zA-Z_]\w*"
+pythonid = "[a-zA-Z_]\w*"
 # @END@
 
-# @BEG@ week=6 sequence=6 name=regexp_pythonid more=v2
+# @BEG@ week=6 sequence=6 name=pythonid more=v2
 # on peut aussi bien sûr l'écrire en clair
-regexp_pythonid2 = "[a-zA-Z_][a-zA-Z0-9_]*"
+pythonid_bis = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
-exo_pythonid = ExerciceRegexp('pythonid', regexp_pythonid,
+exo_pythonid = ExerciceRegexp('pythonid', pythonid,
                               [Args(x) for x in pythonid_strings],
                               exemple_how_many = 8)
+
+pythonid_ko = "\w+"
 
 ######################################## specials
 # on ne prend pas le dernier pour le premier exo
@@ -33,7 +35,7 @@ specials_strings = [ '__y3s__', '_n0__', '___n0__',
                      '__0no__', '__n0_', '__n0___',
                      '__y3s_too__', '__y__', ]
 
-# @BEG@ week=6 sequence=6 name=regexp_specials
+# @BEG@ week=6 sequence=6 name=specials more=regexp
 # il faut commencer par exactement 2 underscores
 # donc le caractère suivant doit être une lettre
 # ensuite on peut mettre ce qu'on veut comme alphanumérique,
@@ -41,12 +43,14 @@ specials_strings = [ '__y3s__', '_n0__', '___n0__',
 # un underscore
 # enfin pour traiter le cas où la partie centrale est réduite
 # à un seul caractère, on met une option - avec ()? 
-regexp_specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
+specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
 # @END@
 
-exo_specials = ExerciceRegexp('specials', regexp_specials,
+exo_specials = ExerciceRegexp('specials', specials,
                                [Args(x) for x in specials_strings],
                                exemple_how_many = 0)
+
+specials_ko = "__\w*__"
 
 ######################################## url
 url_strings = """
@@ -59,7 +63,7 @@ gopher://unsupported.proto.col/
 http:///missing/hostname/
 """.split()
 
-# @BEG@ week=6 sequence=6 name=regexp_url
+# @BEG@ week=6 sequence=6 name=url more=regexp
 # en ignorant la casse on pourra ne mentionner les noms de protocoles
 # qu'en minuscules
 i_flag = "(?i)"
@@ -87,17 +91,15 @@ port        = r"(:(?P<port>\d+))?"
 path        = r"(?P<path>.*)"
 
 # on assemble le tout
-regexp_url = i_flag + protos + "://" + user + hostname + port + '/' + path
+url = i_flag + protos + "://" + user + hostname + port + '/' + path
 # @END@
 
 groups = [ 'proto', 'user', 'password', 'hostname', 'port', 'path' ]
 
 exo_url = ExerciceRegexpGroups(
-    'url', regexp_url, groups,
+    'url', url, groups,
     [Args(x) for x in url_strings],
     exemple_how_many=0,
-    exemple_columns = (1000,1000),
-    correction_columns=(1000,1000,1000),
 )
 
-
+url_ko = i_flag + protos + "://" + hostname + '/' + path

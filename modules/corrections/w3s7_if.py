@@ -21,6 +21,9 @@ def dispatch1(a, b):
         return a*a - b*b
 # @END@
 
+def dispatch1_ko(a, b, *args):
+    return a*a + b*b
+
 exo_dispatch1 = ExerciceFunction(
     dispatch1, inputs_dispatch1)
 
@@ -47,6 +50,8 @@ def dispatch2(a, b, A, B):
     else:
         return (a-1)*b
 # @END@
+
+dispatch2_ko = dispatch1_ko
 
 exo_dispatch2 = ExerciceFunction(
     dispatch2, inputs_dispatch2,

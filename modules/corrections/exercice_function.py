@@ -213,6 +213,7 @@ class ExerciceRegexp(ExerciceFunction):
         ExerciceFunction.__init__(self, solution, inputs, *args, **keywords)
         self.regexp = regexp
         self.name = name
+        self.render_name = False
 
     def correction(self, student_regexp):
         student_solution = ExerciceRegexp.regexp_to_solution(student_regexp)
@@ -250,6 +251,7 @@ class ExerciceRegexpGroups(ExerciceFunction):
         self.name = name
         self.regexp = regexp
         self.groups = groups
+        self.render_name = False
 
     def correction(self, student_regexp):
         student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups)

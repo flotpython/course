@@ -22,9 +22,12 @@ def liste_P_bis(liste_x):
     return liste_y
 # @END@
 
+def liste_P_ko(l):
+    return [P(l[0])]
+
 inputs_liste_P = [
     Args(range(5)),
-    Args(range(-10,11,2)),
+    Args(range(-7,8,2)),
     Args([-100, 0, 100]),
 ]
 
@@ -55,7 +58,7 @@ inputs_multi_tri = [
 
 exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
-#    correction_columns=(25, 25, 25),
+    correction_columns=(20, 20, 20),
 )
                                
 ####################
@@ -74,6 +77,9 @@ def multi_tri_reverse(listes, reverses):
     return listes
 # @END@
 
+def multi_tri_reverse_ko(listes, reverses):
+    return multi_tri(listes)
+
 inputs_multi_tri_reverse = [ 
     Args([[1, 2], [3, 4]], [True, False]),
     Args([[1, 2], [3, 4]], (True, True)),
@@ -85,8 +91,7 @@ inputs_multi_tri_reverse = [
 
 exo_multi_tri_reverse = ExerciceFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
-#    correction_columns=(30, 28, 28),
-#    exemple_columns=(44, 44),
+    correction_columns=(24, 24, 24),
     exemple_how_many=2)
 
 ####################
@@ -126,6 +131,10 @@ def produit_scalaire_ter(X, Y):
         scalaire += X[i] * Y[i]
     return scalaire
 # @END@
+
+def produit_scalaire_ko(X, Y):
+    return [ x*y for x,y in zip(X, Y) ]
+
 
 from fractions import Fraction
 

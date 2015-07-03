@@ -12,23 +12,23 @@ def divisible(a, b):
     return a%b==0 or b%a==0
 # @END@
 
+def divisible_ko(a, b):
+    return a%b == 0
+
 inputs_divisible = [
-    Args(10, 1),
-    Args(10, -1),
-    Args(1, 10),
-    Args(1, -10),
-    Args(20, 10),
-    Args(200, -10),
-    Args(-200, 10),
-    Args(-200, -10),
-    Args(10, 200),
-    Args(10, -200),
-    Args(-10, 200),
-    Args(-10, -200),
+    Args(10, 30),
+    Args(10, -30),
+    Args(-10, 30),
+    Args(-10, -30),
     Args(8, 12),
     Args(12, -8),
     Args(-12, 8),
     Args(-12, -8),
+    Args(10, 1),
+    Args(30, 10),
+    Args(30, -10),
+    Args(-30, 10),
+    Args(-30, -10),
 ]
 
 exo_divisible = ExerciceFunction(
@@ -56,6 +56,11 @@ Prend en argument une liste, et retourne la liste modifiée:
     # et on n'oublie pas de retourner la liste dans tous les cas
     return l
 # @END@
+
+def spam_ko(l):
+    if len(l)%2 == 0:
+        l[0], l[1] = l[1], l[0]
+    return l
 
 inputs_spam = [
     Args([]),

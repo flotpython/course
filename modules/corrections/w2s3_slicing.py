@@ -36,7 +36,7 @@ class ExerciceInconnue(ExerciceFunction):
 
 exo_inconnue = ExerciceInconnue(connue, composite)
 
-ko_inconnue = "votre code"
+inconnue_ko = "votre code"
 
 ####################
 # la solution est bien sûr

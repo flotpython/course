@@ -23,9 +23,21 @@ def numbers(liste):
         reduce(mul, liste, 1),
         # les builtin 'min' et 'max' font ce qu'on veut aussi
         min(liste),
-        max(liste)
+        max(liste),
     )
 # @END@
+
+def numbers_ko(liste):
+    return ( 
+        # la builtin 'sum' renvoie la somme
+        sum(liste),
+        # pour la multiplication, reduce est nécessaire
+        2 * reduce(mul, liste, 1),
+        # les builtin 'min' et 'max' font ce qu'on veut aussi
+        max(liste),
+        min(liste),
+    )
+
 
 from random import randint
 
@@ -37,7 +49,9 @@ def numbers_input():
     return result
 numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
 
-exo_numbers = ExerciceFunction(numbers, numbers_inputs)
+exo_numbers = ExerciceFunction(
+    numbers, numbers_inputs,
+    correction_columns = (30, 25, 25) )
 
 ##############################
 # @BEG@ week=4 sequence=3 name=validation
@@ -51,6 +65,9 @@ def validation(f, g, entrees):
     # et on assemble le tout avec une comprehension de liste 
     return [f(entree) == g(entree) for entree in entrees]
 # @END@
+
+def validation_ko(*args):
+    return [not x for x in validation(*args)]
 
 validation_inputs = []
 
@@ -72,7 +89,7 @@ def broken_fact(n):
 validation_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 exo_validation = ExerciceFunction(
-    validation, validation_inputs, 
-    correction_columns=(50, 40, 40))
+    validation, validation_inputs,
+    correction_columns=(50, 8, 8))
 
 ##############################

@@ -16,12 +16,15 @@ def distance(*args):
 # @END@
 
 # ceci est testé mais je préfère ne pas l'exposer dans les corriges pour l'instant
-def distance2(*args):
+def distance_bis(*args):
     "idem mais avec une expression génératrice"
     # on n'a pas encore vu cette forme - cf Semaine 6
     # mais pour vous donner un avant-goût d'une expression
     # génératrice:
     return math.sqrt(sum( (x**2 for x in args) ))
+
+def distance_ko(*args):
+    return sum([x**2 for x in args])
 
 distance_inputs = [
     Args(),
@@ -29,7 +32,7 @@ distance_inputs = [
     Args(1, 1),
     Args(1, 1, 1),
     Args(1, 1, 1, 1),
-    Args(*range(100)),
+    Args(*range(10)),
 ]
 
 exo_distance = ExerciceFunction(
@@ -69,7 +72,12 @@ doubler_premier_inputs.insert(3, Args(distance, 2, 2, 2, 2))
 doubler_premier_inputs.insert(4, Args(distance, 3, 3, 3, 3, 3))
 
 exo_doubler_premier = ExerciceFunction(
-    doubler_premier, doubler_premier_inputs, exemple_how_many=4)
+    doubler_premier, doubler_premier_inputs, exemple_how_many=4,
+    layout='truncate', render_name=False,
+)
+
+def doubler_premier_ko(f, first, *args):
+    return f(3*first, *args)
 
 ##############################
 # @BEG@ week=4 sequence=8 name=doubler_premier2
@@ -120,7 +128,13 @@ dataset = ArgsKeywords((muln,1), dict());      doubler_premier2_inputs.append(da
 
 exo_doubler_premier2 = ExerciceFunction(
     doubler_premier2, doubler_premier2_inputs,
-    exemple_how_many=5)
+    exemple_how_many=5,
+    layout='truncate', render_name=False,
+)
+
+def doubler_premier2_ko(f, first, *args, **keywords):
+    return f(3*first, *args, **keywords)
+
 ##############################
 # @BEG@ week=4 sequence=8 name=validation2
 def validation2(f, g, argument_tuples):
@@ -133,6 +147,9 @@ def validation2(f, g, argument_tuples):
     # aux deux fonctions avec la forme * au lieu de les passer directement
     return [f(*tuple) == g(*tuple) for tuple in argument_tuples]
 # @END@
+
+def validation2_ko(*args, **keywords):
+    return [not x for x in validation2(*args, **keywords)]
 
 #################### les jeux de données
 validation2_inputs = []
@@ -179,7 +196,11 @@ def plus_broken(x1, x2):
 validation2_inputs.append(Args(add, plus_broken, add_inputs))
 
 #################### the exercice instance
-exo_validation2 = ExerciceFunction(
-    validation2, validation2_inputs, 
-    correction_columns=(50, 40, 40))
+for args_obj in validation2_inputs:
+    args_obj.layout = 'truncate'
 
+exo_validation2 = ExerciceFunction(
+    validation2, validation2_inputs,
+    correction_columns=(50, 8, 8),
+    render_name=False,
+)

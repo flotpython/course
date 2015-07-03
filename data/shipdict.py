@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# @BEG@ week=5 sequence=6 name=shipdict 
+# @BEG@ week=5 sequence=6 name=shipdict no_validation=skip
 from __future__ import print_function
 
 # helpers - used for verbose mode only

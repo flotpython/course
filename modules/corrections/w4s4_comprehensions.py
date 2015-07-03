@@ -11,6 +11,9 @@ def aplatir(conteneurs):
     return [element for conteneur in conteneurs for element in conteneur]
 # @END@
 
+def aplatir_ko(conteneurs):
+    return conteneurs
+
 aplatir_inputs = [
     Args([]),
     Args([(1,)]), 
@@ -40,12 +43,14 @@ alternat_inputs = [
 ]
 
 # @BEG@ week=4 sequence=4 name=alternat more=v2
-def alternat2(l1, l2):
+def alternat_bis(l1, l2):
     "une deuxième version de alternat"
     # la même idée mais directement, sans utiliser aplatir
     return [element for conteneur in zip(l1, l2) for element in conteneur]
 # @END@
 
+def alternat_ko(l1, l2):
+    return l1 + l2
 
 exo_alternat = ExerciceFunction(
     alternat, alternat_inputs, exemple_how_many=2)
@@ -81,6 +86,11 @@ def intersect(A, B):
          | {valb for b, valb in B if b in common_keys} 
 # @END@
 
+def intersect_ko(A, B):
+    A_vals = { v for k, v in A }
+    B_vals = { v for k, v in B }
+    return A_vals & B_vals
+    
 intersect_inputs = []
 
 A1 = {(12, 'douze'), (10, 'dixA'), (8, 'huit'),}
@@ -92,8 +102,8 @@ B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
 exo_intersect = ExerciceFunction(
-    intersect, intersect_inputs,
-    exemple_columns=(0,0),
-    correction_columns=(0, 0, 0),
-    format='multiline')
+    intersect, intersect_inputs)
+#    exemple_columns=(0,0),
+#    correction_columns=(0, 0, 0),
+#    format='multiline')
 ##############################
