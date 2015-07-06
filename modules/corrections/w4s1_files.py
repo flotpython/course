@@ -65,7 +65,7 @@ def show_comptage(in_name, out_name, comptage, suffix):
 ####################
 # comptage ()
 @exercice_compliant
-# @BEG@ week=4 sequence=1 name=comptage no_validation=skip
+# @BEG@ week=4 sequence=1 name=comptage 
 def comptage(in_filename, out_filename):
     """
     retranscrit le fichier in_filename dans le fichier out_filename
@@ -94,22 +94,35 @@ def comptage(in_filename, out_filename):
                 total_chars += nb_chars
                 # on écrit la ligne de sortie; pas besoin
                 # de newline (\n) car line en a déjà un
-                output.write("{}:{}:{}:{}".\
-                             format(lineno, nb_words, nb_chars, line))
+                output.write("{}:{}:{}:{}"
+                             .format(lineno, nb_words, nb_chars, line))
             # on écrit la ligne de synthèse
             output.write("{}:{}:{}\n".\
                          format(lineno, total_words, total_chars))
 # @END@
+
+def comptage_ko(in_filename, out_filename):
+    with open(in_filename) as input:
+        with open(out_filename, 'w') as output:
+            for lineno, line in enumerate(input):
+                output.write("{}:{}:{}:{}"
+                             .format(lineno,
+                                     len(line.split()),
+                                     len(line),
+                                     line))
 
 # on passe ceci à Exercice donc pas besoin de rajouter les **keywords
 comptage_args = [
     Args('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
     Args('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
 ]
+for arg in comptage_args:
+    arg.set_layout('void')
 
 class ExerciceComptage(ExerciceFunction):
 
     def correction(self, student_comptage):
+        self.layout = 'text'
         # call the decorator on the student code
         return ExerciceFunction.correction(self, exercice_compliant(student_comptage))
 

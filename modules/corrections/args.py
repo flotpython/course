@@ -89,6 +89,9 @@ class ArgsKeywords(object):
         """
         self.prefix = prefix
 
+    def layout_void(self, width):
+        return ""
+
     def layout_truncate(self, width):
         """
         render a list of arguments on a single line, truncated

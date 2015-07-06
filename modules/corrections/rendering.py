@@ -82,6 +82,14 @@ class CellObj(object):
         html += pprint.pformat(self.torender, indent=indent, width=width)
         html += "</pre>"
         return html
+    def layout_text(self, width):
+        """
+        torender is expected to be a plain string on multiple lines
+        """
+        html = "<pre>"
+        html += self.torender
+        html += "</pre>"
+        return html
 
 class CellLegend(object):
     def __init__(self, legend):
@@ -183,7 +191,7 @@ class TableCell(object):
     # the default is for when this is left unspecified
     # or means something we cannot do
     default_layout = 'truncate'
-    supported_layouts = ['truncate', 'multiline', 'pprint'] 
+    supported_layouts = ['truncate', 'multiline', 'pprint', 'void', 'text'] 
 
     def computed_layout(self):
         """
