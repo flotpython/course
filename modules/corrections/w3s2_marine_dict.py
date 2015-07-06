@@ -8,8 +8,10 @@ from args import Args
 import json
 
 #################### load data
+# simplification is about keeping fewer entries in extended
+simple_columns = 8
 def simplify(entry):
-    return entry[:8]
+    return entry[:simple_columns]
 
 with open("data/marine-e1-ext.json") as feed:
     extended_full = json.load(feed)

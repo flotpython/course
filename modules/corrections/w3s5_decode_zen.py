@@ -39,6 +39,7 @@ def decode_zen(this_module):
 # une autre version qui marche aussi, en utilisant 
 # dict.get(key, default)
 def decode_zen_bis(this_module):
+    "une autre version plus courte"
     return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
 
