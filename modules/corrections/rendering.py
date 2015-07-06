@@ -85,8 +85,10 @@ class CellObj(object):
     def layout_text(self, width):
         """
         torender is expected to be a plain string on multiple lines
+        WARNING: with this layout, width is expected to be a font size
         """
-        html = "<pre>"
+        style = "font-size:{};".format(width)
+        html = "<pre style={}>".format(style)
         html += self.torender
         html += "</pre>"
         return html
