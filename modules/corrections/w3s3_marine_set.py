@@ -2,7 +2,21 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize no_validation=skip
+# load all the data
+import json
+
+with open("data/marine-e2-ext.json") as feed:
+    extended_full = json.load(feed)
+    
+with open("data/marine-e2-abb.json") as feed:
+    abbreviated_full = json.load(feed)
+
+# shorten the data for nicer display
+
+extended = extended_full
+abbreviated = abbreviated_full
+
+# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize 
 def diff(extended, abbreviated):
     """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
 (*) les noms des bateaux seulement dans extended
@@ -39,7 +53,7 @@ def diff(extended, abbreviated):
 # xxx celui-ci serait + élégant mais ne marche pas et je ne comprends pas pourquoi...
 # possiblement parce que, comme l'a souligné une étudiante, il y a dans les données
 # deux bateaux qui portent le même nom
-def diff2(extended, abbreviated):
+def diff_bis(extended, abbreviated):
     extended_ids =     {ship[0] for ship in extended}
     abbreviated_only = {ship[0] for ship in abbreviated if ship[0] not in extended_ids}
     extended_only =    {ship[4] for ship in extended    if ship[0] not in abbreviated_only}
@@ -51,7 +65,7 @@ def diff2(extended, abbreviated):
 import copy
 
 class ExerciceDiff(ExerciceFunction):
-    def correction(self, student_diff, extended, abbreviated):
+    def correction(self, student_diff, extended=extended, abbreviated=abbreviated):
         # start with the full dataset
         self.datasets = [Args(extended, abbreviated)]
         # make up a samples by taking only <sample> entries in each
