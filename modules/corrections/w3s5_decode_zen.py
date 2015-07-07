@@ -50,10 +50,11 @@ import this
 
 class ExerciceDecodeZen(ExerciceFunction):
     def correction(self, student_decode_zen):
-        self.layout = 'truncate'
+        self.layout = 'text'
+        self.correction_columns = (None, 'xx-small', 'xx-small')
         self.render_name = False
         args_obj = Args(this)
-        args_obj.set_layout('pprint')
+        args_obj.set_layout('void')
         self.datasets = [ args_obj ]
         return ExerciceFunction.correction(self, student_decode_zen)
     
