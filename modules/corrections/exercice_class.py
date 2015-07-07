@@ -69,6 +69,7 @@ class ExerciceClass(object):
     def __init__(self, solution, scenarios,
                  copy_mode = 'deep',
                  layout = None,
+                 call_layout = None,
                  exemple_how_many = 1,
                  obj_name = 'o',
                  layout_args = None,
@@ -77,13 +78,26 @@ class ExerciceClass(object):
         self.scenarios = scenarios
         self.copy_mode = copy_mode
         self.layout = layout
+        self.call_layout = call_layout
         self.exemple_how_many = exemple_how_many
         self.obj_name = obj_name
         self.layout_args = layout_args 
         # computed
         self.name = solution.__name__
 
+    # adding this feature on ExerciceClass as a mirror of ExerciceFunction
+    # but this it is unclear if it's really useful as class exos will be likely
+    # to always use the same layout..
+    def set_call_layout(self):
+        "set layout on all Args if/as specified in call_layout"
+        if self.call_layout is not None:
+            for scenario in self.scenarios:
+                for step in scenario:
+                    step[1].set_layout(self.call_layout)
+
     def correction (self, student_class):
+
+        self.set_call_layout()
 
         overall = True
 
@@ -181,6 +195,7 @@ class ExerciceClass(object):
         """
         display a table with example scenarios
         """
+        self.set_call_layout()
         how_many = self.exemple_how_many
         columns = self.layout_args if self.layout_args \
                   else default_layout_args
@@ -193,7 +208,7 @@ class ExerciceClass(object):
         # can provide 3 args (convenient when it's the same as correction) or just 2
         columns = columns[:2]
         c1, c2 = columns
-        print("Using columns={}".format(columns))
+        #print("Using columns={}".format(columns))
         table = Table(style=font_style)
         html = table.header()
 

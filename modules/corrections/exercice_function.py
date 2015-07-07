@@ -109,7 +109,7 @@ class ExerciceFunction(object):
                   else default_layout_args
 
         c1, c2, c3 = columns
-        print("Using columns={}".format(columns))
+        #print("Using columns={}".format(columns))
 
         table = Table(style=font_style)
         html = table.header()
@@ -182,7 +182,7 @@ class ExerciceFunction(object):
         # can provide 3 args (convenient when it's the same as correction) or just 2
         columns = columns[:2]
         c1, c2 = columns
-        print("Using columns={}".format(columns))
+        #print("Using columns={}".format(columns))
 
         table = Table(style=font_style)
         html = table.header()
