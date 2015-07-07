@@ -123,7 +123,7 @@ class ExerciceComptage(ExerciceFunction):
 
     def correction(self, student_comptage):
         self.layout = 'text_backslash_n'
-        self.correction_columns = (None, 'xx-small', 'xx-small')
+        self.layout_args = (None, 'xx-small', 'xx-small')
         # call the decorator on the student code
         return ExerciceFunction.correction(self, exercice_compliant(student_comptage))
 

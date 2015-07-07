@@ -51,7 +51,7 @@ numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
 
 exo_numbers = ExerciceFunction(
     numbers, numbers_inputs,
-    correction_columns = (30, 25, 25) )
+    layout_args = (30, 25, 25) )
 
 ##############################
 # @BEG@ week=4 sequence=3 name=validation
@@ -90,6 +90,6 @@ validation_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 exo_validation = ExerciceFunction(
     validation, validation_inputs,
-    correction_columns=(50, 8, 8))
+    layout_args=(50, 8, 8))
 
 ##############################

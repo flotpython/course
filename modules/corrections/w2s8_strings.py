@@ -85,56 +85,7 @@ inputs_carre = [
 exo_carre = ExerciceFunction(
     carre, inputs_carre,
     exemple_how_many=0,
-    correction_columns = (40, 20, 20)
+    layout_args = (40, 20, 20)
     )
 
-
-# left over from iteration 1
-
-### # @BEG@ week=2 sequence=8 name=affichage
-### # un élève a remarqué très justement que ce code ne fait pas
-### # exactement ce qui est demandé, en ce sens qu'avec
-### # l'entrée correspondant à Ted Mosby on obtient A:><
-### # je préfère toutefois publier le code qui est en
-### # service pour la correction en ligne, et vous laisse
-### # le soin de l'améliorer si vous le souhaitez
-### def affichage(s):
-###     # pour ignorer les espaces et les tabulations 
-###     # le plus simple est de les enlever
-###     s=s.replace(' ', '').replace('\t','')
-###     # la liste des mots séparés par une virgule 
-###     # nous est donnée par un simple appel à split
-###     mots = s.split(',')
-###     # si on n'a même pas deux mots, on retourne None
-###     if len(mots) < 2:
-###         return None
-###     # maintenant qu'on sait qu'on a deux mots
-###     # on peut extraire le prénom et le nom
-###     prenom = mots.pop(0)
-###     nom = mots.pop(0)
-###     # on veut afficher "??" si l'âge est inconnu
-###     age = "??"
-###     # mais si l'âge est précisé dans la ligne
-###     if len(mots) >= 2:
-###         # alors on le prend
-###         age = mots.pop(1)
-###     # il ne reste plus qu'à formater
-###     return "N:>{}< P:>{}< A:>{}<".format(nom, prenom, age)
-### # @END@
-### 
-### inputs_affichage = [
-###     Args("Joseph, Dupont"),
-###     Args("Jules , Durand, G123, 21"),
-###     Args("Jean"), 
-###     Args("Ted, Mosby, F321, "),
-###     Args(" Jacques , Martin, L119, \t24 ,"),
-###     Args("Sheldon, Cooper ,"),
-###     Args("\t Sam, Does\t, F321, 23"),
-### ]
-### 
-### exo_affichage = ExerciceFunction(
-###     affichage, inputs_affichage,
-###     correction_columns=(40, 40, 40),
-###     exemple_columns=(40, 40),
-###     exemple_how_many=4)
 

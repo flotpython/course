@@ -64,17 +64,17 @@ class CellObj(object):
         self.torender = torender
     def layout_truncate(self, width):
         return truncate_value(self.torender, width)
-    def layout_multiline(self, width):
-        torender = self.torender
-        if isinstance(torender, StringTypes):
-            html = "<pre>"
-            for line in torender.split("\n"):
-                html += truncate_value(line, width) + "\n"
-            html += "</pre>"
-            return html
-        else:    
-            #print("multiline on CellObj -> truncate")
-            return self.layout_truncate(width)
+#    def layout_multiline(self, width):
+#        torender = self.torender
+#        if isinstance(torender, StringTypes):
+#            html = "<pre>"
+#            for line in torender.split("\n"):
+#                html += truncate_value(line, width) + "\n"
+#            html += "</pre>"
+#            return html
+#        else:    
+#            #print("multiline on CellObj -> truncate")
+#            return self.layout_truncate(width)
     def layout_pprint(self, width):
         indent = 2
         html = "<pre>\n"
@@ -92,7 +92,7 @@ class CellObj(object):
         html = "<pre 'style={}'>".format(style)
         contents = str(self.torender)
         if not show_backslash_n:
-            html += contenst.torender
+            html += contents.torender
         else:
             html += contents.replace("\n", "\\n\n")
         html += "</pre>"
@@ -111,7 +111,7 @@ class CellLegend(object):
         return "<CellLegend {}>".format(self.legend)
     def layout_truncate(self, width):
         return truncate_str(self.legend, width)
-    layout_multiline = layout_truncate
+#    layout_multiline = layout_truncate
     layout_pprint = layout_truncate
 
 ########## html tags
@@ -205,7 +205,7 @@ class TableCell(object):
     # or means something we cannot do
     default_layout = 'truncate'
     supported_layouts = [
-        'truncate', 'multiline', 'pprint',
+        'truncate', 'pprint', # 'multiline',
         'void', 'text', 'text_backslash_n',
     ] 
 

@@ -103,7 +103,4 @@ intersect_inputs.append(Args(A2, B2))
 
 exo_intersect = ExerciceFunction(
     intersect, intersect_inputs)
-#    exemple_columns=(0,0),
-#    correction_columns=(0, 0, 0),
-#    format='multiline')
 ##############################

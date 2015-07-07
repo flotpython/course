@@ -20,7 +20,13 @@ DEBUG=False
 #DEBUG=True
 
 ########## defaults for columns widths - for FUN 
-default_columns =  (24, 28, 28)
+# this historically was called 'columns' as it was used to specify
+# the width of the 3 columns (in correction mode)
+# or of the 2 columns (in exemple mode) 
+# however when adding new layouts like 'text', the argument passed to the layout
+# function ceased to be a column width, so we call this layout_args instead
+# but in most cases this does represent column widths
+default_layout_args =  (24, 28, 28)
 
 ####################        
 class ExerciceFunction(object):
@@ -59,8 +65,7 @@ class ExerciceFunction(object):
                  layout = 'pprint',
                  render_name = True,
                  exemple_how_many = 1,
-                 correction_columns = None,
-                 exemple_columns = None,
+                 layout_args = None,
                  column_headers = None):
         # the 'official' solution
         self.solution = solution
@@ -75,8 +80,7 @@ class ExerciceFunction(object):
         self.exemple_how_many = exemple_how_many
         # column details - 3-tuples 
         # sizes - defaults should be fine in most cases
-        self.correction_columns = correction_columns 
-        self.exemple_columns = exemple_columns 
+        self.layout_args = layout_args 
         # header names - for some odd cases
         self.column_headers = column_headers
         ###
@@ -90,8 +94,8 @@ class ExerciceFunction(object):
         """
         datasets = self.datasets
         copy_mode = self.copy_mode
-        columns = self.correction_columns if self.correction_columns \
-                  else default_columns
+        columns = self.layout_args if self.layout_args \
+                  else default_layout_args
 
         c1, c2, c3 = columns
         print("Using columns={}".format(columns))
@@ -155,9 +159,8 @@ class ExerciceFunction(object):
     def exemple(self):
         # the 'right' implementation
         how_many = self.exemple_how_many
-        columns = self.exemple_columns if self.exemple_columns \
-                  else self.correction_columns if self.correction_columns \
-                       else default_columns
+        columns = self.layout_args if self.layout_args \
+                  else default_layout_args
         exo_layout = self.layout
 
         how_many_samples = self.exemple_how_many if self.exemple_how_many \

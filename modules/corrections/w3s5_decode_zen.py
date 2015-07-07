@@ -51,7 +51,7 @@ import this
 class ExerciceDecodeZen(ExerciceFunction):
     def correction(self, student_decode_zen):
         self.layout = 'text'
-        self.correction_columns = (None, 'xx-small', 'xx-small')
+        self.layout_args = (None, 'xx-small', 'xx-small')
         self.render_name = False
         args_obj = Args(this)
         args_obj.set_layout('void')

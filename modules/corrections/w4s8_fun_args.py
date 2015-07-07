@@ -201,6 +201,6 @@ for args_obj in validation2_inputs:
 
 exo_validation2 = ExerciceFunction(
     validation2, validation2_inputs,
-    correction_columns=(50, 8, 8),
+    layout_args=(50, 8, 8),
     render_name=False,
 )

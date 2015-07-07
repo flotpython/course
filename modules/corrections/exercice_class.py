@@ -12,8 +12,14 @@ from rendering import (Table, TableRow, TableCell, CellLegend,
 )
 
 
-# applicable for correction (use all 3) and exemple (first 2)
-default_columns = 30, 40, 40
+########## defaults for columns widths - for FUN 
+# this historically was called 'columns' as it was used to specify
+# the width of the 3 columns (in correction mode)
+# or of the 2 columns (in exemple mode) 
+# however when adding new layouts like 'text', the argument passed to the layout
+# function ceased to be a column width, so we call this layout_args instead
+# but in most cases this does represent column widths
+default_layout_args =  (24, 28, 28)
 
 ##########
 class ScenarioClass(list):
@@ -65,8 +71,7 @@ class ExerciceClass(object):
                  layout = None,
                  exemple_how_many = 1,
                  obj_name = 'o',
-                 correction_columns = None,
-                 exemple_columns = None,
+                 layout_args = None,
                  ):
         self.solution = solution
         self.scenarios = scenarios
@@ -74,8 +79,7 @@ class ExerciceClass(object):
         self.layout = layout
         self.exemple_how_many = exemple_how_many
         self.obj_name = obj_name
-        self.correction_columns = correction_columns 
-        self.exemple_columns = exemple_columns 
+        self.layout_args = layout_args 
         # computed
         self.name = solution.__name__
 
@@ -84,9 +88,9 @@ class ExerciceClass(object):
         overall = True
 
         # should be customizable
-        columns = self.correction_columns
+        columns = self.layout_args
         if not columns:
-            columns = default_columns
+            columns = default_layout_args
         c1, c2, c3 = columns
         ref_class = self.solution
         
@@ -178,9 +182,8 @@ class ExerciceClass(object):
         display a table with example scenarios
         """
         how_many = self.exemple_how_many
-        columns = self.exemple_columns if self.exemple_columns \
-                  else self.correction_columns if self.correction_columns \
-                       else default_columns
+        columns = self.layout_args if self.layout_args \
+                  else default_layout_args
         exo_layout = self.layout
         ref_class = self.solution
 

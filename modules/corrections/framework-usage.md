@@ -34,12 +34,32 @@ As of iteration 1, all exos used the `ExerciceFunction` class. Their implementat
 
 * `w6s6_regexp.py` uses the `ExerciceRegexp` and `ExerciceRegexpGroups` subclasses; input is not a function but some form of regexp string, that is turned into a function.
 
+* ...
+
+## Layouts
+
+* default layout is `pprint` with columns `(24, 28, 28)`
+
+* `multi_tri` : changes columns to (20, 20, 20)
+* `multi_tri_reverse` : changes columns to (24, 24, 24)
+* `decode_zen` 
+  * hides call: `layout=void` at the Arg level (together with render_name=False, useful?)
+  * `layout=text` at the exo level
+  * layout_args=(None, 'x-small', 'x-small')
+
+* `dispatch2`: chanes default columns to 50, 30, 30
+
+* `comptage`
+  * hides call : set `layout=void` at the Arg level
+  * exo sets `layout=text_backslash_n`
+  * layout_args=(None, 'x-small', 'x-small')
 
 
-
-
-
-
-There remains some other usages of `ExerciceFunction` that are not straightforward, makes sense to document them as they come up.
-
-
+* `numbers` changes default columns to 30, 25, 25
+* `validation` changes default columns to 50, 8, 8
+* `doubler_premier` uses `layout=truncate` et `render_name=False`
+* `doubler_premier2` uses `layout=truncate` et `render_name=False`
+* `validation2` does
+  * render_name=False
+  * layout_args=50, 8, 8
+  * Arg.layout='truncate'

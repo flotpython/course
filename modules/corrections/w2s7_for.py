@@ -58,7 +58,7 @@ inputs_multi_tri = [
 
 exo_multi_tri = ExerciceFunction(
     multi_tri, inputs_multi_tri,
-    correction_columns=(20, 20, 20),
+    layout_args=(20, 20, 20),
 )
                                
 ####################
@@ -91,7 +91,7 @@ inputs_multi_tri_reverse = [
 
 exo_multi_tri_reverse = ExerciceFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
-    correction_columns=(24, 24, 24),
+    layout_args=(24, 24, 24),
     exemple_how_many=2)
 
 ####################
@@ -149,38 +149,5 @@ inputs_produit_scalaire = [
 exo_produit_scalaire = ExerciceFunction(
     produit_scalaire,
     inputs_produit_scalaire,
-#    correction_columns=(24, 10, 10)
 )
 
-### ####################
-### # restes de l'itération 1 - trop abscons
-### # @BEG@ week=2 sequence=7 name=liste_racines
-### from math import e, pi
-### 
-### def liste_racines(p):
-###     "retourne la liste des racines p-ièmes de l'unité"
-###     # une simple compréhension fait l'affaire
-###     # souvenez vous que 1j c'est notre 'i' complexe
-###     return [e**((2j*pi*n)/p) for n in range(p)]
-### 
-### # Il est tout à fait possible aussi de construire les racines pas à pas
-### # C'est un peu moins élégant mais ça fonctionne très bien aussi
-### def liste_racines_bis(p):
-###     "retourne la liste des racines p-ièmes de l'unité"
-###     # on va construire le résultat petit à petit
-###     # en partant d'une liste vide
-###     resultat = []
-###     # pour chaque n dans {0 .. p-1}
-###     for n in range(p):
-###         # on ajoute dans le résultat la racine d'ordre n
-###         resultat.append(e**((2j*pi*n)/p))
-###     # et on retourne le résultat
-###     return resultat
-### # @END@
-### 
-### inputs_liste_racines = [Args(2), Args(3), Args(4)] 
-### 
-### exo_liste_racines = ExerciceFunction(
-###     liste_racines,
-###     inputs_liste_racines,
-###     correction_columns=(18, 30, 30))

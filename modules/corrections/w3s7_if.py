@@ -55,5 +55,5 @@ dispatch2_ko = dispatch1_ko
 
 exo_dispatch2 = ExerciceFunction(
     dispatch2, inputs_dispatch2,
-    correction_columns=(50, 30, 30))
+    layout_args=(50, 30, 30))
 
