@@ -122,7 +122,7 @@ for arg in comptage_args:
 class ExerciceComptage(ExerciceFunction):
 
     def correction(self, student_comptage):
-        self.layout = 'text'
+        self.layout = 'text_backslash_n'
         self.correction_columns = (None, 'xx-small', 'xx-small')
         # call the decorator on the student code
         return ExerciceFunction.correction(self, exercice_compliant(student_comptage))
@@ -133,7 +133,6 @@ class ExerciceComptage(ExerciceFunction):
     # et là-dedans il nous faut regarder dans .args qui va contenir
     # un tuple avec les deux valeurs qu'on recherche
     def exemple(self):
-        print("premier dataset",self.datasets[0].args)
         (input, output) = self.datasets[0].args
         return show_comptage(input, output, comptage=comptage, suffix=".ok")
 

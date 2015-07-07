@@ -82,17 +82,28 @@ class CellObj(object):
         html += pprint.pformat(self.torender, indent=indent, width=width)
         html += "</pre>"
         return html
-    def layout_text(self, width):
+
+    def layout_text(self, width, show_backslash_n=False):
         """
         torender is expected to be a plain string on multiple lines
         WARNING: with this layout, width is expected to be a font size
         """
         style = "font-size:{};".format(width)
-        html = "<pre style={}>".format(style)
-        html += self.torender
+        html = "<pre 'style={}'>".format(style)
+        contents = str(self.torender)
+        if not show_backslash_n:
+            html += contenst.torender
+        else:
+            html += contents.replace("\n", "\\n\n")
         html += "</pre>"
         return html
 
+    def layout_text_backslash_n(self, width):
+        """
+        Same as layout_text but with \n at the end of lines
+        """
+        return self.layout_text(width, show_backslash_n=True)
+    
 class CellLegend(object):
     def __init__(self, legend):
         self.legend = legend
@@ -193,7 +204,10 @@ class TableCell(object):
     # the default is for when this is left unspecified
     # or means something we cannot do
     default_layout = 'truncate'
-    supported_layouts = ['truncate', 'multiline', 'pprint', 'void', 'text'] 
+    supported_layouts = [
+        'truncate', 'multiline', 'pprint',
+        'void', 'text', 'text_backslash_n',
+    ] 
 
     def computed_layout(self):
         """
@@ -217,3 +231,13 @@ class TableCell(object):
             computed_layout = self.default_layout
         return computed_layout
 
+
+if __name__ == '__main__':
+    size = 'small'
+    inputs = [ "abc\ndef" ]
+    for input in inputs:
+        cell = CellObj(input)
+        print("----------input [[{}]]".format(input))
+        print("----------text [[{}]]".format(cell.layout_text(size)))
+        print("text_backslash_n [[{}]]".format(cell.layout_text_backslash_n(size)))
+            
