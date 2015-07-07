@@ -17,7 +17,7 @@ with open("data/marine-e2-abb.json") as feed:
 from corrections.w3s2_marine_dict import simplify
 extended_full = [ simplify(e) for e in extended_full ]
 
-# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize no_exemple=skip
+# @BEG@ name=diff latex_size=footnotesize no_exemple=skip
 def diff(extended, abbreviated):
     """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
     (*) les noms des bateaux seulement dans extended
@@ -51,7 +51,7 @@ def diff(extended, abbreviated):
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
 
-# @BEG@ week=3 sequence=3 name=diff latex_size=footnotesize more=v2
+# @BEG@ name=diff latex_size=footnotesize more=v2
 def diff_bis(extended, abbreviated):
     """
     Idem avec seulement des compréhensions

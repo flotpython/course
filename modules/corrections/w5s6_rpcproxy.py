@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @BEG@ week=5 sequence=6 name=RPCProxy latex_size=footnotesize no_validation=skip
+# @BEG@ name=RPCProxy latex_size=footnotesize no_validation=skip
 # une troisième implémentation de RPCProxy
 
 class Forwarder(object):

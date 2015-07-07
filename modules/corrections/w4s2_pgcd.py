@@ -2,7 +2,7 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
-# @BEG@ week=4 sequence=2 name=pgcd
+# @BEG@ name=pgcd
 def pgcd(a, b):
     "le pgcd de a et b par l'algorithme d'Euclide"
     # l'algorithme suppose que a >= b
@@ -21,7 +21,7 @@ def pgcd(a, b):
         a, b = b, r
 # @END@
 
-# @BEG@ week=4 sequence=2 name=pgcd more=v2
+# @BEG@ name=pgcd more=v2
 # il se trouve qu'en fait la première inversion n'est
 # pas nécessaire
 # en effet si a <= b, la première itération de la boucle

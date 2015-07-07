@@ -40,7 +40,7 @@ inconnue_ko = "votre code"
 
 ####################
 # la solution est bien sûr
-# @BEG@ week=2 sequence=3 name=inconnue no_exemple=skip
+# @BEG@ name=inconnue no_exemple=skip
 # Pour calculer inconnue, on extrait une sous-chaine de composite
 # qui commence a l'index len(connue)
 # qui se termine a l'index len(composite)-len(connue)

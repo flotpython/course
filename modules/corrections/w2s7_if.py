@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ####################
-# @BEG@ week=2 sequence=7 name=divisible
+# @BEG@ name=divisible
 def divisible(a, b): 
     "renvoie True si un des deux arguments divise l'autre"
     # b divise a si et seulement si le reste 
@@ -35,7 +35,7 @@ exo_divisible = ExerciceFunction(
     divisible, inputs_divisible)
 
 ####################
-# @BEG@ week=2 sequence=7 name=spam
+# @BEG@ name=spam
 def spam(l):
     """
 Prend en argument une liste, et retourne la liste modifiée:

@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ##############################
-# @BEG@ week=4 sequence=3 name=numbers
+# @BEG@ name=numbers
 from operator import mul
 
 def numbers(liste):
@@ -54,7 +54,7 @@ exo_numbers = ExerciceFunction(
     layout_args = (30, 25, 25) )
 
 ##############################
-# @BEG@ week=4 sequence=3 name=validation
+# @BEG@ name=validation
 def validation(f, g, entrees):
     """
     retourne une liste de booléens, un par entree dans entrees

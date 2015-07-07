@@ -4,7 +4,7 @@ from args import Args
 
 inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
 
-# @BEG@ week=3 sequence=7 name=dispatch1
+# @BEG@ name=dispatch1
 def dispatch1(a, b):
     """dispatch1 comme spécifié"""
     # si les deux arguments sont pairs
@@ -35,7 +35,7 @@ inputs_dispatch2 = [
     Args(a, b, A, B) for a, A in zip(range(3, 5), samples_A) for b in range(7, 10) for B in samples_B
 ]
 
-# @BEG@ week=3 sequence=7 name=dispatch2
+# @BEG@ name=dispatch2
 def dispatch2(a, b, A, B):
     """dispatch2 comme spécifié"""
     # les deux cas de la diagonale \ 

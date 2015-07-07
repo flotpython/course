@@ -55,7 +55,7 @@ def check(filename):
 #    check(input)
 
 #################### index    
-# @BEG@ week=3 sequence=2 name=index no_exemple=skip
+# @BEG@ name=index no_exemple=skip
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
@@ -68,7 +68,7 @@ def index(bateaux):
     return {bateau[0]:bateau for bateau in bateaux}
 # @END@
 
-# @BEG@ week=3 sequence=2 name=index more=v2
+# @BEG@ name=index more=v2
 def index_bis(bateaux):
     """
     La même chose mais de manière itérative
@@ -99,7 +99,7 @@ class ExerciceIndex(ExerciceFunction):
 exo_index = ExerciceIndex(index, "inputs_gets_overridden")
     
 
-# @BEG@ week=3 sequence=2 name=merge no_exemple=skip
+# @BEG@ name=merge no_exemple=skip
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées
@@ -128,7 +128,7 @@ def merge(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ week=3 sequence=2 name=merge more=v2
+# @BEG@ name=merge more=v2
 def merge_bis(extended, abbreviated):
     """
     Une deuxième version, linéaire également
@@ -153,7 +153,7 @@ def merge_bis(extended, abbreviated):
     return result
 # @END@
 
-# @BEG@ week=3 sequence=2 name=merge more=v3
+# @BEG@ name=merge more=v3
 def merge_ter(extended, abbreviated):
     """
     Une troisième solution

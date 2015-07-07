@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ##############################
-# @BEG@ week=2 sequence=8 name=libelle
+# @BEG@ name=libelle
 def libelle(ligne):
     # on enlève les espaces et les tabulations
     ligne = ligne.replace(' ', '').replace('\t','')
@@ -56,7 +56,7 @@ exo_libelle = ExerciceFunction(
 )
 
 ##############################
-# @BEG@ week=2 sequence=8 name=carre
+# @BEG@ name=carre
 def carre(s):
     # on enlève les espaces et les tabulations
     s = s.replace(' ', '').replace('\t','')

@@ -3,7 +3,7 @@ from exercice_function import ExerciceFunction
 from args import Args
 
 ####################
-# @BEG@ week=2 sequence=7 name=liste_P
+# @BEG@ name=liste_P
 def P(x):
     return 2*x**2 - 3*x - 2
 
@@ -37,7 +37,7 @@ exo_liste_P = ExerciceFunction(
 )
 
 ####################
-# @BEG@ week=2 sequence=7 name=multi_tri
+# @BEG@ name=multi_tri
 def multi_tri(listes):
     """
     trie toutes les sous-listes
@@ -62,7 +62,7 @@ exo_multi_tri = ExerciceFunction(
 )
                                
 ####################
-# @BEG@ week=2 sequence=7 name=multi_tri_reverse
+# @BEG@ name=multi_tri_reverse
 def multi_tri_reverse(listes, reverses):
     """
     trie toutes les sous listes, dans une direction
@@ -95,7 +95,7 @@ exo_multi_tri_reverse = ExerciceFunction(
     exemple_how_many=2)
 
 ####################
-# @BEG@ week=2 sequence=7 name=produit_scalaire
+# @BEG@ name=produit_scalaire
 def produit_scalaire(X,Y):
     """
     retourne le produit scalaire
