@@ -54,12 +54,13 @@ As of iteration 1, all exos used the `ExerciceFunction` class. Their implementat
   * exo sets `layout=text_backslash_n`
   * layout_args=(None, 'x-small', 'x-small')
 
-
 * `numbers` changes default columns to 30, 25, 25
-* `validation` changes default columns to 50, 8, 8
-* `doubler_premier` uses `layout=truncate` et `render_name=False`
-* `doubler_premier2` uses `layout=truncate` et `render_name=False`
-* `validation2` does
-  * render_name=False
-  * layout_args=50, 8, 8
-  * Arg.layout='truncate'
+
+The following need `truncate` because some args are function objects (add, mul, etc..) and we want these to show by **their names** and **not** the `<function ...>` string that `pprint` would give us otherwise
+
+* `compare`, `compare_args`, `doubler_premier`  and `doubler_premier_kwds` use
+  *  `layout=pprint` 
+  *  `call_layout=truncate`
+  *  `render_name=False`
+
+

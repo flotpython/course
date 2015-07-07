@@ -63,18 +63,22 @@ class ExerciceFunction(object):
     def __init__(self, solution, datasets, 
                  copy_mode = 'deep',
                  layout = 'pprint',
+                 call_layout = None,
                  render_name = True,
                  exemple_how_many = 1,
                  layout_args = None,
                  column_headers = None):
         # the 'official' solution
         self.solution = solution
-        # the inputs 
+        # the inputs - actually Args instances
         self.datasets = datasets
         # how to copy args
         self.copy_mode = copy_mode
         # applicable to all cells whose Args instance has not specified a layout
         self.layout = layout
+        # supersedes the layout in the first column
+        self.call_layout = call_layout
+        # states if the function name should appear in the call cells
         self.render_name = render_name
         # how many exemples 
         self.exemple_how_many = exemple_how_many
@@ -87,11 +91,18 @@ class ExerciceFunction(object):
         # in some weird cases this won't exist
         self.name = getattr(solution, '__name__', "no_name")
 
+    def set_call_layout(self):
+        "set layout on all Args if/as specified in call_layout"
+        if self.call_layout is not None:
+            for dataset in self.datasets:
+                dataset.set_layout(self.call_layout)
+
     def correction(self, student_function):
         """
         colums should be a 3-tuple for the 3 columns widths
         copy_mode can be either None, 'shallow', or 'deep' (default)
         """
+        self.set_call_layout()
         datasets = self.datasets
         copy_mode = self.copy_mode
         columns = self.layout_args if self.layout_args \
@@ -157,7 +168,9 @@ class ExerciceFunction(object):
 
     # public interface
     def exemple(self):
-        # the 'right' implementation
+
+        self.set_call_layout()
+        
         how_many = self.exemple_how_many
         columns = self.layout_args if self.layout_args \
                   else default_layout_args

@@ -116,14 +116,10 @@ comptage_args = [
     Args('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
     Args('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
 ]
-for arg in comptage_args:
-    arg.set_layout('void')
 
 class ExerciceComptage(ExerciceFunction):
 
     def correction(self, student_comptage):
-        self.layout = 'text_backslash_n'
-        self.layout_args = (None, 'xx-small', 'xx-small')
         # call the decorator on the student code
         return ExerciceFunction.correction(self, exercice_compliant(student_comptage))
 
@@ -141,4 +137,9 @@ class ExerciceComptage(ExerciceFunction):
         return show_comptage(input, output, comptage=student_comptage, suffix="")
 
 
-exo_comptage = ExerciceComptage(comptage, comptage_args)
+exo_comptage = ExerciceComptage(
+    comptage, comptage_args,
+    layout='text_backslash_n',
+    layout_args=(None, 'xx-small', 'xx-small'),
+    call_layout='void'
+)

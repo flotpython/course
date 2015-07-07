@@ -54,8 +54,8 @@ exo_numbers = ExerciceFunction(
     layout_args = (30, 25, 25) )
 
 ##############################
-# @BEG@ name=validation
-def validation(f, g, entrees):
+# @BEG@ name=compare
+def compare(f, g, entrees):
     """
     retourne une liste de booléens, un par entree dans entrees
     qui indique si f(entree) == g(entree)
@@ -66,10 +66,10 @@ def validation(f, g, entrees):
     return [f(entree) == g(entree) for entree in entrees]
 # @END@
 
-def validation_ko(*args):
-    return [not x for x in validation(*args)]
+def compare_ko(*args):
+    return [not x for x in compare(*args)]
 
-validation_inputs = []
+compare_inputs = []
 
 # factoriel
 from operator import mul
@@ -79,17 +79,19 @@ def fact(n):
 from math import factorial
 fact_inputs = [0, 1, 5]
 
-validation_inputs.append(Args(fact, factorial, fact_inputs))
+compare_inputs.append(Args(fact, factorial, fact_inputs))
 
 def broken_fact(n):
     return 0 if n <= 0 \
         else 1 if n == 1 \
              else n*fact(n-1)
 
-validation_inputs.append(Args(broken_fact, factorial, fact_inputs))
+compare_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
-exo_validation = ExerciceFunction(
-    validation, validation_inputs,
+#################### the exercice instance
+exo_compare = ExerciceFunction(
+    compare, compare_inputs,
+    call_layout='truncate',
     layout_args=(50, 8, 8))
 
 ##############################

@@ -105,18 +105,6 @@ class ArgsKeywords(object):
         text = self.prefix + text
         return truncate_str(text, width)
     
-    def layout_multiline(self, width):
-        """
-        render a list of arguments in multiline mode
-        """
-        raw_lines = list(self.args) + [ "{}={}".format(k,v) for k,v in self.keywords ]
-        lines = [ truncate_value(line, width) for line in raw_lines ]
-        text = ",<br/>".join(lines)
-        if self.function_name:
-            text = "{}(<br/>{}<br/>)".format(self.function_name, text)
-        text = self.prefix + text
-        return text
-
     def layout_pprint(self, width):
         """
         render a list of arguments in pprint mode
@@ -160,8 +148,8 @@ class Args(ArgsKeywords):
     would then return the result of
     foo(1, 2, 3)
 
-    it is possible to specify layout=multiline if desired,
-    but it MUST be a named parameter of course
+    Like for ArgKeywords it is preferable to set the layout 
+    using the separate set_leyout method
     """
     def __init__(self, *args, **kwds):
         # it is NOT *args here, this is intentional

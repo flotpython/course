@@ -52,11 +52,13 @@ def doubler_premier(f, first, *args):
     return f(2*first, *args)
 # @END@
 
-# marche aussi mais moins élégant
+# @BEG@ name=doubler_premier more=v2
 def doubler_premier_bis(f, *args):
+    "marche aussi mais moins élégant"
     first = args[0]
     remains = args[1:]
     return f(2*first, *remains)
+# @END@
 
 doubler_premier_inputs = []
 from operator import add
@@ -72,16 +74,17 @@ doubler_premier_inputs.insert(3, Args(distance, 2, 2, 2, 2))
 doubler_premier_inputs.insert(4, Args(distance, 3, 3, 3, 3, 3))
 
 exo_doubler_premier = ExerciceFunction(
-    doubler_premier, doubler_premier_inputs, exemple_how_many=4,
-    layout='truncate', render_name=False,
+    doubler_premier, doubler_premier_inputs,
+    exemple_how_many=4, render_name=False,
+    call_layout='truncate'
 )
 
 def doubler_premier_ko(f, first, *args):
     return f(3*first, *args)
 
 ##############################
-# @BEG@ name=doubler_premier2
-def doubler_premier2(f, first, *args, **keywords):
+# @BEG@ name=doubler_premier_kwds
+def doubler_premier_kwds(f, first, *args, **keywords):
     """
     équivalent à doubler_premier 
     mais on peut aussi passer des arguments nommés
@@ -100,59 +103,62 @@ def doubler_premier2(f, first, *args, **keywords):
 #def muln(x=1, y=1): return x*y
 
 # alors ceci
-#doubler_premier2(muln, x=1, y=2)
+#doubler_premier_kwds(muln, x=1, y=2)
 # ne marche pas car on n'a pas les deux arguments requis
-# par doubler_premier2
+# par doubler_premier_kwds
 # 
 # et pour écrire, disons doubler_permier3, qui marcherait aussi comme cela
 # il faudrait faire une hypothèse sur le nom du premier argument...
 # @END@
 
-def addn(x, y=0):
-    return x+y
+def add3(x, y=0, z=0):
+    return x + y + z
 
-def muln(x=1, y=1):
-    return x*y
+def mul3(x=1, y=1, z=1):
+    return x * y * z
 
-doubler_premier2_inputs = []
-dataset = ArgsKeywords((addn,1), dict(y=3));   doubler_premier2_inputs.append(dataset)
-dataset = ArgsKeywords((muln,1), dict(y=3));   doubler_premier2_inputs.append(dataset)
+doubler_premier_kwds_inputs = []
+dataset = Args(add3, 1, 2, 3);                          doubler_premier_kwds_inputs.append(dataset)
+dataset = ArgsKeywords((add3, 1, 2), dict(z=3));        doubler_premier_kwds_inputs.append(dataset)
+dataset = ArgsKeywords((add3, 1), dict(y=2, z=3));      doubler_premier_kwds_inputs.append(dataset)
+#dataset = ArgsKeywords((add3,), dict(x=1, y=2, z=3));   doubler_premier_kwds_inputs.append(dataset)
+dataset = Args(mul3, 1, 2, 3);                          doubler_premier_kwds_inputs.append(dataset)
+dataset = ArgsKeywords((mul3, 1, 2), dict(z=3));        doubler_premier_kwds_inputs.append(dataset)
+dataset = ArgsKeywords((mul3, 1), dict(y=2, z=3));      doubler_premier_kwds_inputs.append(dataset)
+#dataset = ArgsKeywords((mul3,), dict(x=1, y=2, z=3));   doubler_premier_kwds_inputs.append(dataset)
 
 # remettre les datasets de doubler_premier
-doubler_premier2_inputs += doubler_premier_inputs
+doubler_premier_kwds_inputs \
+    += [ arg_obj for arg_obj in doubler_premier_inputs
+         if arg_obj.args[0] == distance ]
 
-dataset = ArgsKeywords((addn, 1, 3), dict());  doubler_premier2_inputs.append(dataset)
-dataset = ArgsKeywords((muln,1, 3), dict());   doubler_premier2_inputs.append(dataset)
-dataset = ArgsKeywords((addn,1), dict());      doubler_premier2_inputs.append(dataset)
-dataset = ArgsKeywords((muln,1), dict());      doubler_premier2_inputs.append(dataset)
-
-exo_doubler_premier2 = ExerciceFunction(
-    doubler_premier2, doubler_premier2_inputs,
-    exemple_how_many=5,
-    layout='truncate', render_name=False,
+exo_doubler_premier_kwds = ExerciceFunction(
+    doubler_premier_kwds, doubler_premier_kwds_inputs,
+    call_layout='truncate',
+    exemple_how_many=5, render_name=False,
 )
 
-def doubler_premier2_ko(f, first, *args, **keywords):
+def doubler_premier_kwds_ko(f, first, *args, **keywords):
     return f(3*first, *args, **keywords)
 
 ##############################
-# @BEG@ name=validation2
-def validation2(f, g, argument_tuples):
+# @BEG@ name=compare_args
+def compare_args(f, g, argument_tuples):
     """
     retourne une liste de booléens, un par entree dans entrees
     qui indique si f(*tuple) == g(*tuple)
     """
-    # c'est presque exactement comme validation, sauf qu'on s'attend 
+    # c'est presque exactement comme compare, sauf qu'on s'attend 
     # à recevoir une liste de tuples d'arguments, qu'on applique
     # aux deux fonctions avec la forme * au lieu de les passer directement
     return [f(*tuple) == g(*tuple) for tuple in argument_tuples]
 # @END@
 
-def validation2_ko(*args, **keywords):
-    return [not x for x in validation2(*args, **keywords)]
+def compare_args_ko(*args, **keywords):
+    return [not x for x in compare_args(*args, **keywords)]
 
 #################### les jeux de données
-validation2_inputs = []
+compare_args_inputs = []
 
 ########## dataset #1
 from math import factorial
@@ -165,7 +171,7 @@ def fact(n):
     "une version de factoriel à base de reduce"
     return reduce(mul, range(1, n+1), 1)
 
-validation2_inputs.append(Args(fact, factorial, fact_inputs))
+compare_args_inputs.append(Args(fact, factorial, fact_inputs))
 
 ########## dataset #2
 def broken_fact(n):
@@ -173,7 +179,7 @@ def broken_fact(n):
         else 1 if n == 1 \
              else n*fact(n-1)
 
-validation2_inputs.append(Args(broken_fact, factorial, fact_inputs))
+compare_args_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 ########## dataset #3
 from operator import add
@@ -184,7 +190,7 @@ add_inputs = [(2, 3), (0, 4), (4, 5)]
 def plus(x1, x2): 
     return x1 + x2
 
-validation2_inputs.append(Args(add, plus, add_inputs))
+compare_args_inputs.append(Args(add, plus, add_inputs))
 
 ########## dataset #4
 def plus_broken(x1, x2):
@@ -193,14 +199,12 @@ def plus_broken(x1, x2):
     else:
         return 1 + x2
 
-validation2_inputs.append(Args(add, plus_broken, add_inputs))
+compare_args_inputs.append(Args(add, plus_broken, add_inputs))
 
 #################### the exercice instance
-for args_obj in validation2_inputs:
-    args_obj.layout = 'truncate'
-
-exo_validation2 = ExerciceFunction(
-    validation2, validation2_inputs,
+exo_compare_args = ExerciceFunction(
+    compare_args, compare_args_inputs,
+    call_layout='truncate',
     layout_args=(50, 8, 8),
     render_name=False,
 )

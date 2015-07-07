@@ -50,11 +50,7 @@ import this
 
 class ExerciceDecodeZen(ExerciceFunction):
     def correction(self, student_decode_zen):
-        self.layout = 'text'
-        self.layout_args = (None, 'xx-small', 'xx-small')
-        self.render_name = False
         args_obj = Args(this)
-        args_obj.set_layout('void')
         self.datasets = [ args_obj ]
         return ExerciceFunction.correction(self, student_decode_zen)
     
@@ -63,4 +59,7 @@ class ExerciceDecodeZen(ExerciceFunction):
 
 # cannot copy nor deepcopy a module
 exo_decode_zen = ExerciceDecodeZen(
-    decode_zen, "inputs_gets_overridden", copy_mode='none')
+    decode_zen, "inputs_gets_overridden",
+    copy_mode='none',
+    layout='text', layout_args=(None, 'xx-small', 'xx-small'),
+    call_layout='void', render_name=False)

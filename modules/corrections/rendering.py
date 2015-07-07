@@ -64,17 +64,6 @@ class CellObj(object):
         self.torender = torender
     def layout_truncate(self, width):
         return truncate_value(self.torender, width)
-#    def layout_multiline(self, width):
-#        torender = self.torender
-#        if isinstance(torender, StringTypes):
-#            html = "<pre>"
-#            for line in torender.split("\n"):
-#                html += truncate_value(line, width) + "\n"
-#            html += "</pre>"
-#            return html
-#        else:    
-#            #print("multiline on CellObj -> truncate")
-#            return self.layout_truncate(width)
     def layout_pprint(self, width):
         indent = 2
         html = "<pre>\n"
@@ -92,7 +81,7 @@ class CellObj(object):
         html = "<pre 'style={}'>".format(style)
         contents = str(self.torender)
         if not show_backslash_n:
-            html += contents.torender
+            html += contents
         else:
             html += contents.replace("\n", "\\n\n")
         html += "</pre>"
@@ -100,7 +89,7 @@ class CellObj(object):
 
     def layout_text_backslash_n(self, width):
         """
-        Same as layout_text but with \n at the end of lines
+        Same as layout_text but with \n at the end of line that have it
         """
         return self.layout_text(width, show_backslash_n=True)
     
@@ -111,7 +100,6 @@ class CellLegend(object):
         return "<CellLegend {}>".format(self.legend)
     def layout_truncate(self, width):
         return truncate_str(self.legend, width)
-#    layout_multiline = layout_truncate
     layout_pprint = layout_truncate
 
 ########## html tags
@@ -185,6 +173,7 @@ class TableCell(object):
         symbol = 'layout_{}'.format(layout)
         try:
             if hasattr(self.content, symbol):
+                #print("Sending method {}".format(symbol))
                 method = getattr(self.content, symbol)
                 cell_html = method(self.width)
                 html += cell_html
@@ -205,7 +194,7 @@ class TableCell(object):
     # or means something we cannot do
     default_layout = 'truncate'
     supported_layouts = [
-        'truncate', 'pprint', # 'multiline',
+        'truncate', 'pprint', 
         'void', 'text', 'text_backslash_n',
     ] 
 
