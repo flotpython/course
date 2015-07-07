@@ -179,25 +179,4 @@ class ShipDict(dict):
         """
         return self.values()
 
-    def sort_ships_by_name (self, ships):
-        """
-        New in version 2.0
-
-        given a list of ships, returns a sorted version
-        this uses sorted() so a shallow copy is returned
-
-        sorting criteria is first on names, and then with
-        identical ship names use ship id instead
-
-        """
-        # to be completely deterministic, we cannot use only
-        # key=lambda ship: ship.name
-        # because of duplicate names in the fleet
-        # use good old cmp instead
-        def ship_compare (s1, s2):
-            return -1 if s1.name < s2.name \
-                else 1 if s1.name > s2.name \
-                     else s1.id - s2.id
-        return sorted (ships, cmp = ship_compare)
-        
 # @END@
