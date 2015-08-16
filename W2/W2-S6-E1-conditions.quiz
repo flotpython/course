@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Conditions (1)
+=====
+
+Regardez le code suivant :
+<pre>
+if 'a' in 'spam':
+ print 'oui'
+else:
+        print 'non'
+</pre>
+
+[x] Ce code affiche 'oui'
+[ ] Ce code affiche 'non'
+[ ] Ce code suit les recommandations de présentation du code en Python
+[x] Ce code ne suit pas les recommandations de présentation du code en Python
+
+
+[explanation]
+Ce code est valide, mais ne suit pas les recommandations de présentation du code en Python. En effet, la recommandation est de toujours indenter un bloc d'instructions de 4 caractères vers la droite. 
+[explanation]
+
+
+<hr/>
+Conditions (2)
+=====
+
+Que va afficher le <code>print x</code>
+<pre>
+x = ['debut']
+if x[0]:
+    if x[0] [0]:
+        x[0] = "spam"
+    else:
+        x[0] = 'spam'
+    if not x[0][5:6]:
+        x = True
+        if x:
+            x = x + 100
+    else:
+        x = -1
+else:
+    x = ()
+
+print x
+</pre>
+
+( ) ()
+( ) 'spam'
+( ) 100
+(x) 101
+( ) ['debut']
+
+[explanation]
+ <code>x&#91;0&#93;</code> donne la chaîne 'debut' qui est évaluée à True (puisque seule la chaîne vide
+ est évaluée à False). <code>x&#91;0&#93;&#91;0&#93;</code> donne la chaîne 'd' qui est également évaluée à True. <code>x&#91;0&#93;&#91;5:6&#93;</code> est un slice en dehors de la chaîne, ça donne donc une chaîne vide qui est évaluée à False. Pour finit, True est codée en Python comme un entier de valeur 1, donc x + 100 retourne 101. 
+[explanation]
+
+
+<hr/>
+
