@@ -52,11 +52,6 @@ Général
    "nous dirons plus tard que les variables référencent le même objet" thing
    when was it written, by whom, did valerie let this pass ?
 
-* function naming - some exercices have confusing names; sometimes we exhibit a function named foo2 which is a second solution to exercice 2; but we also have 2 real exercices that are named with '2'; would be cool to rename them
-  * doubler_premier2 into doubler_premier_kwds
-  * validation2 into validation_kwds
-  
-
 W1
 ===
 
@@ -66,25 +61,6 @@ W1
 
 W2
 ===
-
- * Le quiz sur les listes et la copie avec `3 * [[0]]` est assez foireux
-   il faudrait le supprimer ou le récrire avec un exemple plus
-   pertinent - c'est-à-dire sans le `*`
-
- * W2S8 - l'exercice 'affichage' donne un résultat discutable pour Ted Mosby,
-   * le dernier champ étant vide on pourrait s'attendre à afficher ??
-   * d'ailleurs la mise en page sur la plateforme pourrait être améliorée,
-     comme de toutes façons on se retrouve avec 2 lignes par input
-     autant ne pas abréger c'est inutile et confusant
-
- * le quiz sur le formattage des strings, et "dans du code nouveau"
-   a suscité pas mal d'émoi, il faudrait préciser mieux l'histoire
-   des `%` qu'on ne compte pas comme corrects.
-   
- * l'exo sur la liste des racines : trouver plus simple
-   par exemple exhiber les points d'une droite ou autre parabole
-   une liste d'abscisses - genre range(n)
-   on pourrait meme mettre un coup de matplotlib pour le fun si on mettait cet exo en dernier
 
 W3
 ===
