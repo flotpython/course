@@ -3,7 +3,7 @@
 Conditions (1)
 =====
 
-Regardez le code suivant :
+Que peut-on dire du code suivant:
 <pre>
 if 'a' in 'spam':
  print 'oui'
@@ -30,10 +30,10 @@ Que va afficher le <code>print x</code>
 <pre>
 x = ['debut']
 if x[0]:
-    if x[0] [0]:
+    if x[0][0]:
         x[0] = "spam"
     else:
-        x[0] = 'spam'
+        x[0] = 'spam-spam'
     if not x[0][5:6]:
         x = True
         if x:
@@ -46,17 +46,18 @@ else:
 print x
 </pre>
 
-( ) ()
-( ) 'spam'
-( ) 100
-(x) 101
-( ) ['debut']
+( ) <code>()</code>
+( ) <code>'spam'</code>
+( ) <code>100</code>
+(x) <code>101</code>
+( ) <code>['debut']</code>
 
 [explanation]
- <code>x&#91;0&#93;</code> donne la chaîne 'debut' qui est évaluée à True (puisque seule la chaîne vide
- est évaluée à False). <code>x&#91;0&#93;&#91;0&#93;</code> donne la chaîne 'd' qui est également évaluée à True. <code>x&#91;0&#93;&#91;5:6&#93;</code> est un slice en dehors de la chaîne, ça donne donc une chaîne vide qui est évaluée à False. Pour finit, True est codée en Python comme un entier de valeur 1, donc x + 100 retourne 101. 
+<code>x[0]</code> donne la chaîne 'debut' qui est évaluée à <code>True</code> (puisque seule la chaîne vide
+ est évaluée à <code>False</code>).
+<code>x[0][0]</code> donne la chaîne <code>'d'</code> qui est également évaluée à <code>True</code>.
+
+<code>x</code> devient donc <code>[ 'spam' ]</code>.
+
+<code>x[0][5:6]</code> est un slice en dehors de la chaîne <code>'spam'</code>, ça donne donc une chaîne vide qui est évaluée à <code>False</code>. Pour finir, <code>True</code> est codée en Python comme un entier de valeur <code>1</code>, donc <code>x + 100</code> retourne <code>101</code>. 
 [explanation]
-
-
-<hr/>
-

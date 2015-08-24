@@ -5,10 +5,10 @@ Types numériques (1)
 
 Comment calculer la 16-ème puissance de 2
 
-( ) 2 &amp; 16
-(x) 2 ** 16
-( ) 2 &amp;&amp; 16
-( ) 2 | 16
+( ) <code>2 &amp; 16</code>
+(x) <code>2 ** 16</code>
+( ) <code>2 &amp;&amp; 16</code>
+( ) <code>2 | 16</code>
 
 [explanation]
 Le signe puissance en python est **
@@ -20,10 +20,10 @@ Types numériques (2)
 
 Comment entrer la valeur du complexe 3 + 2i
 
-( ) 3 + 2i
-(x) 3 + 2j
-( ) 3 + 2 * i
-( ) 3 + 2 * j
+( ) <code>3 + 2i</code>
+(x) <code>3 + 2j</code>
+( ) <code>3 + 2 * i</code>
+( ) <code>3 + 2 * j</code>
 
 [explanation]
 Les anglais utilisent 'j' plutôt que notre 'i'
@@ -38,8 +38,8 @@ Que retourne la formule
 
 <pre>type(2 ** 16) == type(2 ** 8)</pre>
 
-(x) True
-( ) False
+(x) <code>True</code>
+( ) <code>False</code>
 
 [explanation]
 Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
@@ -53,8 +53,8 @@ Que retourne la formule
 
 <pre>type(2 ** 200) == type(2 ** 8)</pre>
 
-( ) True
-(x) False
+( ) <code>True</code>
+(x) <code>False</code>
 
 [explanation]
 Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
@@ -68,8 +68,8 @@ Que retourne la formule (avancé)
 
 <pre>(2 ** 200) >> 196 == 2 ** 4</pre>
 
-(x) True
-( ) False
+(x) <code>True</code>
+( ) <code>False</code>
 
 [explanation]
 On a vu que le décalage vers la droite représente une division entière par 2 ** n
@@ -78,4 +78,3 @@ Donc 2 puissance 200, décalé à droite de 196 vaut bien 2 puissance 4
 
 Par ailleurs, la comparaison d'un entier long et d'un entier simple de même valeur retourne - heureusement - True
 [explanation]
-

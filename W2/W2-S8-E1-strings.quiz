@@ -9,11 +9,11 @@ On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et
 <pre>chaine = "abc"  => chaine = "a-c"</pre>
 <pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
-Comment peut-on faire
+Comment peut-on faire (plusieurs réponses possibles) ?
 
-[ ] chaine [ len(chaine)/2 ] = "-"
-[ ] chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2:]
-[x] chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2+1:]
+[ ] <code>chaine [ len(chaine)/2 ] = "-"</code>
+[ ] <code>chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2:]</code>
+[x] <code>chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2+1:]</code>
 
 [explanation]
 Le premier choix n'est pas valide car le type chaîne n'est pas mutable
@@ -21,7 +21,6 @@ Le premier choix n'est pas valide car le type chaîne n'est pas mutable
 Le second choix n'est pas correct, car le résultat contient un caractère de trop
 
 Le troisième choix est correct
-
 [explanation]
 
 <hr/>
@@ -34,10 +33,10 @@ Strings (2)
 <pre>chaine = "a"  => resultat = "a"</pre>
 <pre>chaine = "abcd"  => resultat = "a-b-c-d"</pre>
 
-Comment peut-on faire (plusieurs réponses possibles)
+Comment peut-on faire ?
 
-[x] "-".join(chaine)
-[x] "-".join(list(chaine))
+[x] <code>"-".join(chaine)</code>
+[x] <code>"-".join(list(chaine))</code>
 
 [explanation]
 La première clause est correcte, c'est bien sûr le plus simple
@@ -50,61 +49,53 @@ La seconde est correcte également, et reste acceptable car elle convertit la ch
 Strings - formatage
 =====
 
-Dans du code nouveau on veut mettre en forme un message à partir de 3 variables (nom, no_secu, age) pour obtenir, par exemple
+On veut écrire une fonction <code>affichage</code> qui met en forme un message à partir de 3 variables (<code>nom</code>, <code>age</code>, <code>no_secu</code>) pour obtenir, par exemple:
 
-<pre>nom = "Dupont",  no_secu = "1975787", age = "25" 
-     => message = "Dupont, 25 ans, 1975787"</pre>
-
-<pre>nom = "Durand",  no_secu = None, age = "12" 
-     => message = "Durand, 12 ans, pas de no de SS"</pre>
-
-On envisage plusieurs solutions pour réaliser cela
-
-Solution 1
 <pre>
-message = "{nom}, {age} ans, {secu}".\
+>>> affichage("Dupont", 25, "1975787")
+'Dupont, 25 ans, 1975787'</pre>
+<pre>
+>>> affichage("Durand", 17, None)
+'Durand, 17 ans, pas de no de SS'</pre>
+
+Remarquez bien que la fonction <code>affichage</code> doit <b>retourner le message</b> en valeur, et non pas réaliser l'impression elle-même. On envisage plusieurs solutions pour réaliser cela.
+
+<h3>Solution 1</h3>
+<pre>
+def affichage(nom, age, no_secu):
+    return "{nom}, {age} ans, {secu}".\
           format(nom=nom, age=age, 
-                 secu = no_secu if no_secu else "pas de no de SS")
-</pre>
+                 secu = no_secu if no_secu else "pas de no de SS")</pre>
 
-Solution 2
+<h3>Solution 2</h3>
 <pre>
-message = "{}, {} ans, {}".\
-          format(nom, age, no_secu if no_secu else "pas de no de SS")
-</pre>
+def affichage(nom, age, no_secu):
+    return "{}, {} ans, {}".\
+          format(nom, age, no_secu if no_secu else "pas de no de SS")</pre>
 
-Solution 3
+<h3>Solution 3</h3>
 <pre>
-message = "%s, %s ans, %s".\
-          format(nom, age, no_secu if no_secu else "pas de no de SS")
-</pre>
+def affichage(nom, age, no_secu):
+    return "%s, %s ans, %s".\
+          format(nom, age, no_secu if no_secu else "pas de no de SS")</pre>
 
-Solution 4
+<h3>Solution 4</h3>
 <pre>
-message = nom + ", " + age + " ans, " +\
-          (no_secu if no_secu else "pas de no de SS")
-</pre>
-
-Solution 5
-<pre>
-message = "%s, %s ans, %s" % (nom, age, 
-                          no_secu if no_secu else "pas de no de SS" )
-</pre>
+def affichage(nom, age, no_secu):
+    print nom + ", " + age + " ans, " +\
+          (no_secu if no_secu else "pas de no de SS")</pre>
 
 Quelle(s) solution(s) est(sont) correcte(s) ?
 
-[x] 1
-[x] 2
-[ ] 3
-[x] 4
-[ ] 5
+[x] Solution 1
+[x] Solution 2
+[ ] Solution 3
+[ ] Solution 4
 
 [explanation]
-Les clauses 1, 2 et 4 sont correctes - on voit cependant que la clause 4 est plus difficile à relire et donc à modifier
+Les clauses 1, 2 sont correctes
 
 La clause 3 est erronée, elle mélange les '%s' de l'opérateur % avec la méthode format
 
-La dernière clause, quoique correcte, est à éviter dans du nouveau code.
-
+La clause 4 est erronée car elle fait <code>print</code> au lieu de <code>return</code>. Le code qui élabore les message serait par ailleurs correct, mais moins lisible que les options 1 et 2.
 [explanation]
-

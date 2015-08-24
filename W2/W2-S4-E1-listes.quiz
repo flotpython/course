@@ -5,15 +5,15 @@ Listes (1)
 
 On a 
 <pre>liste = [1, 3, 2, 4]</pre>
-On veut modifier liste pour obtenir [1, 3, 5, 2, 4]
+On veut <b>modifier</b> liste pour obtenir [1, 3, 5, 2, 4]
 
 Que faut-il faire (plusieurs réponses possibles):
 
-[ ] liste[2] = 5
-[ ] liste[2] = [5]
-[x] liste.insert(2,5)
-[ ] liste[2:3] = [5]
-[x] liste[2:2] = [5]
+[ ] <code>liste[2] = 5</code>
+[ ] <code>liste[2] = [5]</code>
+[x] <code>liste.insert(2,5)</code>
+[ ] <code>liste[2:3] = [5]</code>
+[x] <code>liste[2:2] = [5]</code>
 
 [explanation]
 La première formule remplace 2 par 5, la liste conserve 4 éléments
@@ -36,10 +36,10 @@ Plus précisément on veut affecter à la variable 'suivant' la valeur '1' de te
 
 Que faut-il faire:
 
-[ ] suivant = liste[0]
-[x] suivant = liste.pop(0)
-[ ] del liste[0]
-[ ] suivant = del liste[0]
+[ ] <code>suivant = liste[0]</code>
+[x] <code>suivant = liste.pop(0)</code>
+[ ] <code>del liste[0]</code>
+[ ] <code>suivant = del liste[0]</code>
 
 [explanation]
 La première formule retourne bien '1' mais ne modifie pas la liste
@@ -59,10 +59,10 @@ On veut trier la liste en ordre décroissant et en place, c'est-à-dire sans dup
 
 Faut-il faire (plusieurs réponses possibles) :
 
-[x] liste.sort(reverse=True)
-[ ] liste.sort()
-[ ] sorted(liste, reverse=True)
-[x] liste.sort(); liste.reverse()
+[x] <code>liste.sort(reverse=True)</code>
+[ ] <code>liste.sort()</code>
+[ ] <code>sorted(liste, reverse=True)</code>
+[x] <code>liste.sort(); liste.reverse()</code>
 
 [explanation]
 Il faut bien préciser reverse=True pour obtenir un tri décroissant
@@ -84,12 +84,12 @@ On veut ajouter à la fin de la liste les valeurs '5' et '6' pour obtenir ['1', 
 
 Faut-il faire (plusieurs réponses possibles) :
 
-[x] liste = liste + ['5', '6']
-[x] liste.extend(['5', '6'])
-[ ] liste.append(['5', '6'])
-[x] liste.append('5'); liste.append('6')
-[x] liste.extend('56')
-[x] liste += ['5', '6'] 
+[x] <code>liste = liste + ['5', '6']</code>
+[x] <code>liste.extend(['5', '6'])</code>
+[ ] <code>liste.append(['5', '6'])</code>
+[x] <code>liste.append('5'); liste.append('6')</code>
+[x] <code>liste.extend('56')</code>
+[x] <code>liste += ['5', '6']</code>
 
 [explanation]
 Toutes les formules sauf la 3 sont correctes

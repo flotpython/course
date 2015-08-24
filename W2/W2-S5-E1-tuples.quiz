@@ -8,10 +8,10 @@ On se donne en entrée
 
 Parmi les expressions et instructions ci-dessous, lesquelles sont valides
 
-[x] triple[0]
-[x] triple[:]
-[ ] triple[len(triple)]
-[ ] triple[0] = 0
+[x] <code>triple[0]</code>
+[x] <code>triple[:]</code>
+[ ] <code>triple[len(triple)]</code>
+[ ] <code>triple[0] = 0</code>
 
 [explanation]
 La première expression est correcte et renvoie 1
@@ -26,10 +26,10 @@ Tuples (2)
 
 Quelles sont les expressions qui renvoient True
 
-[x] [ ( [ ('spam') ] ) ] == [ [ 'spam' ] ]
-[ ] ('spam',) == ('spam')
-[x] [ ('spam',) ] [0][0] == 'spam'
-[ ] [ ('spam'), ] [0][0] == 'spam'
+[x] <code>[ ( [ ('spam') ] ) ] == [ [ 'spam' ] ]</code>
+[ ] <code>('spam',) == ('spam')</code>
+[x] <code>[ ('spam',) ] [0][0] == 'spam'</code>
+[ ] <code>[ ('spam'), ] [0][0] == 'spam'</code>
 
 [explanation]
 Dans la première expression, l'absence de virgule rend les parenthèses vides de sens
@@ -47,10 +47,10 @@ On pose
 
 Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 à four
 
-[ ] ( one, (two, three), ignored, ( ( four ) ) ) = quadruple
-[x] ( one, (two, three,), _, ( ( four, ), ) ) = quadruple
-[ ] ( (one,),  (two, three), _, [ [ four ] ] ) = quadruple
-[x] ( one,  (two, three), _, [ [ four ] ] ) = quadruple
+[ ] <code>( one, (two, three), ignored, ( ( four ) ) ) = quadruple</code>
+[x] <code>( one, (two, three,), _, ( ( four, ), ) ) = quadruple</code>
+[ ] <code>( (one,),  (two, three), _, [ [ four ] ] ) = quadruple</code>
+[x] <code>( one,  (two, three), _, [ [ four ] ] ) = quadruple</code>
 
 
 [explanation]
@@ -66,13 +66,12 @@ Listes
 
 On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui font bien ce qu'on veut
 
-[x] tmp = liste[-1]; liste[-1] = liste [-2]; liste[-2] = tmp
-[ ] liste.reverse(-2,-1)
-[x] liste[-2],liste[-1] = liste[-1],liste[-2]
+[x] <code>tmp = liste[-1]; liste[-1] = liste [-2]; liste[-2] = tmp</code>
+[ ] <code>liste.reverse(-2,-1)</code>
+[x] <code>liste[-2],liste[-1] = liste[-1],liste[-2]</code>
 
 [explanation] 
 La première formule fonctionne, quoi que pas très "pythonique"
 La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(reverse)
 La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à gauche de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
 [explanation]
-

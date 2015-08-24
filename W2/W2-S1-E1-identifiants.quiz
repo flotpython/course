@@ -3,15 +3,15 @@
 Noms de variables
 =====
 
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage (avec les choix multiples présentés comme ici avec des cases carrées, vous devez choisir toutes les réponses valides; il peut y en avoir zéro, une, ou plusieurs)
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage (avec les choix multiples présentés comme ici <b>avec des cases carrées</b>, vous devez choisir <b>toutes les réponses valides</b>; il peut y en avoir zéro, une, ou plusieurs)
 
-[x] nom_de_variable
-[ ] nom-de-variable
-[x] nom_de_variable2
-[ ] nom:de:variable
-[x] NomDeVariable
-[ ] 2eme_variable
-[x] _nom_de_variable
+[x] <code>nom_de_variable</code>
+[ ] <code>nom-de-variable</code>
+[x] <code>nom_de_variable2</code>
+[ ] <code>nom:de:variable</code>
+[x] <code>NomDeVariable</code>
+[ ] <code>2eme_variable</code>
+[x] <code>_nom_de_variable</code>
 
 [explanation]
 Seules les réponses d'indice impair sont correctes.
@@ -28,7 +28,7 @@ un identifiant ne peut pas commencer par un chiffre
 Accents dans les noms de variables
 =====
 
-On peut utiliser des caractères accentués dans les noms de variables (vous pouvez remarquer ici que les cases à cocher sont rondes; dans ces questions-là il y a exactement une bonne réponse)
+On peut utiliser des caractères accentués dans les noms de variables (vous pouvez remarquer ici que les <b>cases à cocher sont rondes</b>; dans ces questions-là il y a <b>exactement une bonne réponse</b>)
 
 ( ) Oui
 (x) Non
@@ -43,11 +43,11 @@ Tirets dans les noms de variables
 
 Parmi les noms de variables suivants, lesquels sont autorisés par le langage
 
-[x] _
-[x] _A
-[x] _a_
-[x] A_
-[x] __
+[x] <code>_</code>
+[x] <code>_A</code>
+[x] <code>_a_</code>
+[x] <code>A_</code>
+[x] <code>__</code>
 
 [explanation]
 Toutes ces formes sont légales, y compris la première malgré l'absence de caractère alphanumérique
