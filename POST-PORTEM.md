@@ -69,12 +69,6 @@ W3
    quelqu'un remarque que ceci renvoie False au lieu de None
    il faudrait mettre ça en contexte
 
- * W3S6 dans le notebook la section sur le short-circuit est foireuse,
-   il faudrait des trucs + simples comme tout simplement
-   True and 0/0
-   False and 0/0
-   qui est bcp + clair à comprendre - plutot que ces pop() qui sont confusants
-
  * W3S2 l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
    semble être trop raide pour certains
    j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
