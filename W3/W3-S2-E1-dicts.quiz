@@ -36,10 +36,10 @@ Dictionnaires (3)
 
 Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire
 
-[x] 1
-[ ] [1, 2]
-[x] (1, 2)
-[ ] ([1, 2], [3, 4])
+[x] <code>1</code>
+[ ] <code>[1, 2]</code>
+[x] <code>(1, 2)</code>
+[ ] <code>([1, 2], [3, 4])</code>
 
 [explanation]
 Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé
@@ -50,36 +50,36 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste
 Dictionnaires (4)
 =====
 
-Pour modifier la valeur de la clé 'marc' dont on sait qu'elle est dans le dictionnaire 'annuaire', on peut faire
+Pour modifier la valeur de la clé <code>marc</code> dont <b>on sait</b> qu'elle est dans le dictionnaire <code>annuaire</code>, on peut faire
 
-[x] annuaire['marc'] = 50
-[ ] annuaire.get('marc',50)
-[ ] annuaire.setdefault('marc',50)
+[x] <code>annuaire['marc'] = 50</code>
+[ ] <code>annuaire.get('marc', 50)</code>
+[ ] <code>annuaire.setdefault('marc', 50)</code>
 
 [explanation]
-La seconde forme retourne la valeur pour 'marc' si elle existe, et sinon 50, mais ne modifie pas la valeur.
+La seconde forme retourne la valeur pour <code>marc</code> si elle existe, et sinon 50, mais ne modifie pas <code>annuaire</code>.
 
-La troisième forme ne créé la clé 'marc' que si elle n'est pas encore présente
+La troisième forme ne modifie <code>dictionnaire</code> que lorsque la clé <code>marc</code> n'est pas encore présente.
 [explanation]
 
 <hr/>
 Dictionnaires (5)
 =====
 
-Pour accéder à la valeur de la clé 'marc' dont on ne sait pas si elle est dans le dictionnaire 'annuaire', on peut faire
+On considère un dictionnaire <code>annuaire</code>, dont on suppose pour simplifier qu'aucune clé n'a la valeur <code>False</code> ou <code>None</code>. Pour accéder à la valeur de la clé <code>marc</code> dont <b>on ne sait pas</b> si elle est dans le dictionnaire, on peut faire:
 
-[ ] annuaire['marc']
-[x] annuaire.get('marc')
-[x] annuaire.get('marc', None)
-[ ] get(annuaire, 'marc')
-[x] 'marc' in annuaire and annuaire['marc']
+[ ] <code>annuaire['marc']</code>
+[x] <code>annuaire.get('marc')</code>
+[x] <code>annuaire.get('marc', None)</code>
+[ ] <code>get(annuaire, 'marc')</code>
+[x] <code>'marc' in annuaire and annuaire['marc']</code>
 
 [explanation]
-La première forme lève une exception si 'marc' n'est pas présent
+La première forme lève une exception si la clé <code>marc</code> n'est pas présente
 
-Les formes 2 et 3 sont exactement équivalentes: on obtient la valeur, ou None si la clé n'est pas présente
+Les formes 2 et 3 sont exactement équivalentes: on obtient la valeur, ou <code>None</code> si la clé n'est pas présente
 
-La forme 4 est fantaisiste, il n'y a pas de fonction "built-in" get
+La forme 4 est fantaisiste, il n'y a pas de fonction <em>built-in</em> get
 
-La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne False - et non pas None - si la clé n'est pas présente
+La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne <code>False</code> - et non pas <code>None</code> - si la clé n'est pas présente
 [explanation]

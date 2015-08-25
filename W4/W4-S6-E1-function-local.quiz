@@ -5,7 +5,7 @@ Variable locale à une fonction (1)
 
 Dans quel cas la variable var est locale à la fonction.
 
-Proposition 1
+<h3>Proposition 1</h3>
 <pre>
 var = 'globale'
 def f():
@@ -13,7 +13,7 @@ def f():
     return var
 </pre>
 
-Proposition 2
+<h3>Proposition 2</h3>
 <pre>
 var = 'globale'
 def f():
@@ -21,7 +21,7 @@ def f():
     return var
 </pre>
 
-Proposition 3
+<h3>Proposition 3</h3>
 <pre>
 var = 'globale'
 def f():
@@ -31,7 +31,7 @@ def f():
 </pre>
 
 
-Choisissez une ou plusieurs propositions.
+Choisissez une ou plusieurs propositions
 
 [ ] Proposition 1
 [x] Proposition 2
@@ -49,7 +49,7 @@ Dans la proposition 3, la variable var est affectée à la deuxième ligne de la
 Portée (scope) des variables (2)
 =====
 
-Que va afficher : print f() ?
+Que va afficher : <code>print f()</code>  ?
 
 <pre>
 var = 10
@@ -63,13 +63,13 @@ print f()
 
 Choisissez une proposition.
 
-( ) 10
-(x) 20
-( ) None
+( ) <code>10</code>
+(x) <code>20</code>
+( ) <code>None</code>
 ( ) Une exception
 
 [explanation]
-Suivant la règle LEG, la valeur de var dans g est 20. Comme g retourne la valeur de var et que f retourne la valeur de retour de g, print f() affiche 20. 
+Suivant la règle LEG, la valeur de <code>var</code> dans <code>g</code> est <code>20</code>. Comme <code>g</code> retourne la valeur de <code>var</code> et que <code>f</code> retourne la valeur de retour de <code>g</code>, <code>print f()</code> affiche <code>20</code>. 
 
 Si ce résultat vous semble clair et que vous avez déjà lu l'errata de cette vidéo, vous pouvez passer l'explication suivante, sinon, lisez la attentivement.
 

@@ -62,20 +62,29 @@ W1
 W2
 ===
 
+ * W2S7 : TODOQUIZ - manque un quiz sur les boucles et fonctions
+
+
 W3
 ===
 
- * W3S2 - dans le quiz on propose une option qui est `'marc' in annuaire and annuaire['marc']`
-   quelqu'un remarque que ceci renvoie False au lieu de None
-   il faudrait mettre ça en contexte
-
- * W3S2 l'exo sur les bateaux (abbreviated et extended et les dictionnaires)
-   semble être trop raide pour certains
-   j'ai rangé dans la branche 'exo' une version 2.0 de cet exercice
-   qui se décline en deux versions basique et intermédiaire
+ * W3S3 : TODOQUIZ - manque un quiz sur les ensembles
+ * W3S4 : TODOQUIZ - le quiz avec 3 * [0] est foireux; on n'utilise jamais cette construction
+   à récrire
+ * W3S5 : TODOQUIZ - manque un quiz sur les modules
+ * W3S6 : TODOQUIZ - manque un quiz sur l'indentation comme syntaxe de base
+ * W3S7 : TODOQUIZ - manque un quiz sur les if et conditions
+ * W3S8 : TODOQUIZ 
+   * On devrait sans doute enrichir la partie 'basique' pour faire écrire aux élèves au moins une boucle simple
+   * comment noter les parties avancées par rapport aux 'basique' ? - je crains qu'il ne faille découper en morceaux pour pouvoir définir des poids différents
 
 W4
 ===
+
+ * W4S1 - TODOQUIZ - manque un quiz sur les fichiers
+ * W4S2 - TODOQUIZ - manque un quiz sur le while
+ * W4S3 - TODOQUIZ - manque un quiz sur les objets de type fontions
+ * W4S4 - TODOQUIZ - manque un quiz sur les compréhensions
 
  * W4S8 dans doubler_premier il faudrait au moins une fonction
    non-associative - la fonction distance est en fait associative ! Du

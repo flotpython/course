@@ -95,7 +95,7 @@ Quelle(s) solution(s) est(sont) correcte(s) ?
 [explanation]
 Les clauses 1, 2 sont correctes
 
-La clause 3 est erronée, elle mélange les '%s' de l'opérateur % avec la méthode format
+La clause 3 est erronée, elle mélange les <code>%s</code> de l'opérateur <code>%</code> avec la méthode <code>format</code>
 
-La clause 4 est erronée car elle fait <code>print</code> au lieu de <code>return</code>. Le code qui élabore les message serait par ailleurs correct, mais moins lisible que les options 1 et 2.
+La clause 4 est erronée car elle fait <code>print</code> au lieu de <code>return</code>. Le code qui élabore le message serait par ailleurs correct, mais paraît moins lisible que les options 1 et 2.
 [explanation]

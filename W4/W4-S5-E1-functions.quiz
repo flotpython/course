@@ -5,14 +5,14 @@ Fonctions (1)
 
 Une fonction en python 
 
-( ) doit contenir une instruction return 
-( ) peut contenir 0 ou 1 instruction return
-(x) peut contenir 0 on n instructions return
+( ) doit contenir une instruction <code>return</code> 
+( ) peut contenir 0 ou 1 instruction <code>return</code>
+(x) peut contenir 0 on n instructions <code>return</code>
 
 [explanation]
-Le return est opionnel, si la fonction retourne sans avoir rencontré return elle retourne 'None'
+Le return est opionnel, si la fonction retourne sans avoir rencontré <code>return</code> elle retourne <code>None</code>
 
-On peut utiliser autant de return que l'on veut dans une fonction
+On peut utiliser autant de <code>return</code> que l'on veut dans une fonction
 
 [explanation]
 
@@ -20,7 +20,7 @@ On peut utiliser autant de return que l'on veut dans une fonction
 Fonctions (2)
 =====
 
-Est-il possible pour une fonction de modifier l'objet qui lui est passé en argument
+Est-il possible pour une fonction de modifier l'objet qui lui est passé en argument ?
 
 (x) Oui, si l'objet est mutable
 ( ) Oui, on peut modifier tous les objets

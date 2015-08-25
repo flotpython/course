@@ -13,8 +13,8 @@ après quoi on fait
 
 qu'obtient-on si on imprime liste à ce stade ?
 
-(x) [1, 0, 0]
-( ) [1, 1, 1]
+(x) <code>[1, 0, 0]</code>
+( ) <code>[1, 1, 1]</code>
 
 [explanation]
 l'affectation de liste&#91;0&#93; ne change pas les deux autres éléments de la liste
@@ -34,8 +34,8 @@ après quoi on fait
 
 qu'obtient-on si on imprime liste à ce stade ?
 
-( ) [ [1], [0], [0] ]
-(x) [ [1], [1], [1] ]
+( ) <code>[ [1], [0], [0] ]</code>
+(x) <code>[ [1], [1], [1] ]</code>
 
 [explanation]
 Cette fois l'affectation concerne la liste à un élément qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les 3 élément de la liste
@@ -53,18 +53,20 @@ Dans l'exercice précédent, comment faire pour éviter que les trois éléments
 (x) il faut construire la liste autrement
 
 [explanation]
-Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc le même défaut que l'objet original. La seule solution est de construire la liste autrement, soit à la main 
+Dans ce cas, une shallow copy ou une deep copy ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc le même défaut que l'objet original. La seule solution est de construire la liste autrement, soit à la main:
 <pre>
-liste = &#91;&#91;0&#93;, &#91;0&#93;, &#91;0&#93;&#93;
-</pre> 
-soit dans une boucle for
-<pre>
-liste = &#91;&#93;
-for i in range(3):
-    liste.append(&#91;0&#93;)
+liste = &#91;[0], [0], [0]&#93; 
 </pre>
-soit dans une compréhension de liste que nous verrons plus tard
+
+soit dans une boucle for:
 <pre>
-liste = &#91;&#91;0&#93; for i in range(3)&#93;
+liste = []
+for i in range(3):
+    liste.append([0])
+</pre>
+
+soit dans une compréhension de liste que nous verrons plus tard:
+<pre>
+liste = [[0] for i in range(3)]
 </pre>
 [explanation]

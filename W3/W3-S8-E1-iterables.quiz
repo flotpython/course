@@ -5,43 +5,43 @@ Itérables (niveau basique)
 
 Parmi les types suivants, lesquels sont des itérables ?
 
-[x] list
-[x] tuple
-[x] dict
-[x] set
-[ ] float
-[x] str
-[ ] complex
+[x] <code>list</code>
+[x] <code>tuple</code>
+[x] <code>dict</code>
+[x] <code>set</code>
+[ ] <code>float</code>
+[x] <code>str</code>
+[ ] <code>complex</code>
 
 [explanation]
-On peut itérer sur tous les types de base qui constituent une collection d'autres objets (list, tuple, set)
+On peut itérer sur tous les types de base qui constituent une collection d'autres objets (<code>list</code>, <code>tuple</code>, <code>set</code>)
 On peut itérer sur les chaînes de caractères, dans ce cas on balaye autant de sous-chaînes que de caractères
 On peut itérer sur les dictionnaires, on balaye alors toutes les clés du dictionnaire
 
-On ne peut pas itérer sur les objets atomiques, en particulier float et complex.
+On ne peut pas itérer sur les objets atomiques, en particulier <code>float</code> et <code>complex</code>.
 [explanation]
 
 <hr/>
 Itérables (niveau intermédiaire)
 =====
 
-Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode __iter__() qui renvoie un itérateur ?
+Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode <code>__iter__()</code> qui renvoie un itérateur ?
 
 (x) Oui
 ( ) Non
 
 [explanation]
-Oui, et dans ce cas la boucle for va utiliser cet iterateur pour implementer son parcours.
+Oui, et dans ce cas la boucle for va utiliser cet itérateur pour implementer son parcours.
 [explanation]
 
 <hr/>
-Si on peut faire une boucle for sur un objet, est-ce qu'il implémente forcément une méthode next() ?
+Si on peut faire une boucle for sur un objet, est-ce qu'il implémente forcément une méthode <code>next()</code> ?
 
 ( ) Oui
 (x) Non
 
 [explanation]
-La méthode next() est requise sur les itérateurs, pas forcément sur les itérables.
+La méthode <code>next()</code> est requise sur les itérateurs, pas forcément sur les itérables.
 [explanation]
 
 <hr/>
@@ -50,16 +50,16 @@ Itérateurs (niveau avancé)
 
 Parmi les types suivants, lesquels sont des itérateurs ? N'hésitez pas à vous servir d'un interpréteur python en cas de doute:
 
-[ ] list
-[ ] tuple
-[ ] dict
-[ ] set
-[ ] float
-[ ] str
-[ ] complex
+[ ] <code>list</code>
+[ ] <code>tuple</code>
+[ ] <code>dict</code>
+[ ] <code>set</code>
+[ ] <code>float</code>
+[ ] <code>str</code>
+[ ] <code>complex</code>
 
 [explanation]
-float et complex ne sont pas itérables.
-str ne possède pas la méthode __iter__(), c'est un itérable implémenté avec la méthode __getitem__()
-S'agissant des 4 types restants (list, tuple, dict et set), les itérateurs sont implémentés comme des objets séparés de l'itérable. Cela permet notamment d'autoriser deux boucles imbriquées sur le même objet.
+<code>float</code> et <code>complex</code> ne sont pas itérables.
+<code>str</code> ne possède pas la méthode <code>__iter__()</code>, c'est un itérable implémenté avec la méthode <code>__getitem__()</code>
+S'agissant des 4 types restants (<code>list</code>, <code>tuple</code>, <code>dict</code> et <code>set</code>), les itérateurs sont implémentés comme des objets séparés de l'itérable. Cela permet notamment d'autoriser deux boucles imbriquées sur le même objet.
 [explanation]
