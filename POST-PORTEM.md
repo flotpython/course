@@ -90,6 +90,13 @@ W4
    non-associative - la fonction distance est en fait associative ! Du
    coup les gens utilisent reduce et trouvent un résultat légèrement différent.
 
+W5
+===
+ * W5S5 - TODOQUIZ : à mon goût trop fouillé, les questions sur `__class__` et `__bases__`
+ * W5S6 - TODOQUIZ - manque un quiz sur la surcharge des opérateurs
+ * W5S7 - TODOQUIZ - je ne suis pas trop d'accord avec l'exo numéro 2 (perso, je ne fais pas de module sans classe) et alors le #3, je ne comprends pas l'énoncé... Le quiz dans son ensemble me paraît bien prédictible.
+ * W5S8 - TODOQUIZ - je me demande si la deuxième question n'est pas un peu perverse, il faudrait arriver à la compter peu (ou alors supprimer la question?)
+
 W7
 ===
  * le complément sur les décorateurs : plutoôt que de rediriger vers

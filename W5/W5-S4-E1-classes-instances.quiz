@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Classes et instances
+=====
+
+Supposons que nous ayons le code suivant.
+<pre>
+class Parser:
+    def __init__(self, sep=' '):
+        self.sep = sep
+        self.parsed_line = ''
+        
+    def parse(self, line):
+        self.parsed_line = [i.strip() for i in line.split(self.sep)
+                            if i.strip().isdigit()]
+
+    def __repr__(self):
+        if self.parsed_line:
+            return ' '.join(self.parsed_line)
+        else:
+            return ''
+
+test = '123  : fj356:34:fjjd:    707'
+
+p = Parser(':')
+p.parse(test)
+print p
+</pre>
+
+<h3>Quels objets sont <code>Parser</code> et <code>p</code> ?</h3>
+( ) <code>Parser</code> est une classe et <code>p</code> une chaîne de caractères
+( ) <code>Parser</code> est un module et <code>p</code> une classe
+( ) <code>Parser</code> et <code>p</code> sont des classes
+(x) <code>Parser</code> est une classe et <code>p</code> est une instance
+
+[explanation]
+L'instruction <code>class</code> permet de créer une classe. Par conséquent, <code>Parser</code> est bien un objet de type classe. L'objet <code>p</code> est créé par <code>Parser(':')</code>, donc <code>p</code> est une instance de la classe <code>Parser</code>.
+[explanation]
+
+<h3>Que représente l'attribut <code>self</code> ?</h3>
+(x) Une référence vers une instance de la classe <code>Parser</code>
+( ) Une référence vers la classe <code>Parser</code>
+( ) Une chaîne de caractères
+( ) Un mot clef nécessaire pour définir une méthode dans une classe
+
+[explanation]
+<code>self</code> représente bien une référence vers une instance de la classe <code>Parser</code>. Cette référence est automatiquement celle de l'instance qui appelle les méthodes de la classe, explicitement comme <code>parse()</code> ou implicitement comme <code>__init__</code> (lors de la création de l'instance) ou <code>__repr__</code> (lors d'un <code>print</code> de l'instance). 
+[explanation]
+
+<h3>Que va afficher <code>print p</code> ?</h3>
+( ) Une exception
+(x) <code>123 34 707</code>
+( ) <code>None</code>
+( ) Une chaîne de caractères vide
+
+[explanation]
+La méthode <code>parse()</code> va découper la chaîne <code>test</code> en mots, chaque mot étant séparé par le caractère <code>:</code> dans <code>test(line.split(self.sep))</code>, et <code>parse()</code> va enlever tous les espaces autour de chaque mot (<code>i.strip()</code>) et créer une liste ne contenant que les mots qui représentent des nombres (<code>i.strip().isdigit()</code>). On notera que toutes ces opérations peuvent être faites en une seule compréhension de liste. 
+
+La méthode <code>__repr__</code> appelée par l'instruction <code>print</code> va retourner une chaîne de caractères.
+[explanation]

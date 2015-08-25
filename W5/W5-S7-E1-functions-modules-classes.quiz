@@ -13,7 +13,7 @@ Quand utiliser fonctions, modules ou classes ?
 Lorsque l'on a un morceau de code qui retourne un résultat et que l'on a besoin de fréquemment utiliser ce code, il est naturel d'utiliser une fonction python.
 [explanation]
 
->>J'ai un morceau code avec de nombreuses fonctions que j'ai besoin d'utiliser à différents endroits de mon programme. Quelle est la bonne manière de factoriser ce code?<<
+>>J'ai un morceau de code avec de nombreuses fonctions que j'ai besoin d'utiliser à différents endroits de mon programme. Quelle est la bonne manière de factoriser ce code?<<
 ( ) une fonction
 ( ) une classe
 (x) un module

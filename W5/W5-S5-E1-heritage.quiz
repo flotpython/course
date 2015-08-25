@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Héritage
+=====
+
+Supposons que nous ayons le code suivant, volontairement obscur.
+<pre>
+class C(object):
+    def f(self):
+        self.x = 1
+
+    def g(self):
+        self.y = 1
+
+class A(C):
+    def f(self):
+        self.x = 2
+
+c = C()
+a = A()
+c.f()
+c.g()
+a.f()
+a.g()
+</pre>
+
+La fonction <em>builtin</em> <code>vars()</code> retourne l'attribut <code>__dict__</code> sur un objet. 
+
+<h3>Que retourne <code>vars(c)</code> ?</h3>
+(x) <code>{'y': 1, 'x': 1}</code>
+( ) <code>{'y': 1, 'x': 2}</code>
+( ) <code>None</code>
+
+[explanation]
+<code>c</code> est une instance de la classe <code>C</code>. <code>c.f()</code> appelle la méthode <code>f</code> définie dans la classe <code>C</code>. Cette méthode définit l'attribut <code>x</code> dans l'instance à <code>1</code>. <code>c.g()</code> appelle la méthode <code>g</code> définie dans la classe <code>C</code>, cette méthode définit l'attribut <code>y</code> dans l'instance à <code>1</code>.
+[explanation]
+
+<h3>Que retourne <code>vars(a)</code> ?</h3>
+( ) <code>{'y': 1, 'x': 1}</code>
+(x) <code>{'y': 1, 'x': 2}</code>
+( ) <code>None</code>
+
+[explanation]
+<code>a</code> est une instance de la classe <code>A</code>. <code>a.f()</code> appelle la méthode <code>f</code> définie dans la classe <code>A</code>. Cette méthode définit l'attribut <code>x</code> dans l'instance à <code>2</code>. <code>a.g()</code> appelle la méthode <code>g</code> dans la classe <code>A</code>, mais la méthode <code>g</code> n'est pas définie dans <code>A</code>. Comme <code>A</code> est une sous classe de <code>C</code>, python remonte l'arbre d'héritage et cherche la méthode <code>g</code> dans la classe <code>C</code>. Cette méthode définit l'attribut <code>y</code> dans l'instance à <code>1</code>.
+[explanation]
+
+<h3>Que retourne <code>a.__class__</code> ?</h3>
+( ) Une référence de la classe <code>C</code>
+(x) Une référence de la classe <code>A</code>
+( ) Une exception
+
+[explanation]
+L'attribut __class__ sur une instance retourne une référence de la classe qui a créé cette instance. 
+[explanation]
+
+<h3>Que retourne A.__bases__ ?</h3>
+(x) Une référence de la classe C
+( ) Une référence de l'instance créée par la classe A
+( ) Une exception
+
+[explanation]
+L'attribut __bases__ sur une classe retourne le tuple des références des super classes de cette classe. 
+[explanation]
