@@ -3,7 +3,9 @@
 Noms de variables
 =====
 
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage (avec les choix multiples présentés comme ici <b>avec des cases carrées</b>, vous devez choisir <b>toutes les réponses valides</b>; il peut y en avoir zéro, une, ou plusieurs)
+<em>Avec les choix multiples présentés comme ici <b>avec des cases carrées</b>, vous devez choisir <b>toutes les réponses</b> valides; il peut y en avoir zéro, une, ou plusieurs.</em>
+
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? 
 
 [x] <code>nom_de_variable</code>
 [ ] <code>nom-de-variable</code>
@@ -28,7 +30,9 @@ un identifiant ne peut pas commencer par un chiffre
 Accents dans les noms de variables
 =====
 
-Peut-on utiliser des caractères accentués dans les noms de variables ? (vous pouvez remarquer ici que les <b>cases à cocher sont rondes</b>; dans ces questions-là il y a <b>exactement une bonne réponse</b>)
+<em>Remarquez qu'ici les <b>cases</b> à cocher sont <b>rondes</b>; dans ces questions-là il y a <b>exactement une</b> bonne réponse.</em>
+
+Peut-on utiliser des caractères accentués dans les noms de variables ? 
 
 ( ) Oui
 (x) Non

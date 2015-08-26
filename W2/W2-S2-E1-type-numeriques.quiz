@@ -60,21 +60,3 @@ Que retourne la formule
 Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
 [explanation]
 
-<hr/>
-Types numériques (5)
-=====
-
-Que retourne la formule (avancé)
-
-<pre>(2 ** 200) >> 196 == 2 ** 4</pre>
-
-(x) <code>True</code>
-( ) <code>False</code>
-
-[explanation]
-On a vu que le décalage vers la droite représente une division entière par 2 ** n
-
-Donc 2 puissance 200, décalé à droite de 196 vaut bien 2 puissance 4
-
-Par ailleurs, la comparaison d'un entier long et d'un entier simple de même valeur retourne - heureusement - True
-[explanation]
