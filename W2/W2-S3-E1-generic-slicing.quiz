@@ -6,34 +6,20 @@ On se donne la variable suivante
 
 <pre>chaine = "douarnenez"</pre>
 
-Trouver la valeur des expressions suivantes
+<h3>Longueur</h3>
+Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>True</code> ?
 
-<pre>chaine.index('z') == len(chaine) </pre>
+[ ] <code>chaine.index('z') == len(chaine)</code>
+[x] <code>chaine.index('z') == len(chaine) - 1</code>
 
-( ) <code>True</code>
-(x) <code>False</code>
+<h3>Appartenance</h3>
+Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>True</code> ?
 
-<pre>chaine.index('z') == len(chaine) - 1</pre>
+[ ] <code>'daz' in chaine</code>
+[x] <code>'nez' in chaine</code>
 
-(x) <code>True</code>
-( ) <code>False</code>
+<h3>Slicing</h3>
+Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>True</code> ?
 
-<pre>'daz' in chaine</pre>
-
-( ) <code>True</code>
-(x) <code>False</code>
-
-<pre>'nez' in chaine </pre>
-
-(x) <code>True</code>
-( ) <code>False</code>
-
-<pre>chaine[-3:] == 'nez'</pre>
-
-(x) <code>True</code>
-( ) <code>False</code>
-
-<pre>chaine[1:3] + chaine[3:5] + chaine[5:] == chaine[1:]</pre>
-
-(x) <code>True</code>
-( ) <code>False</code>
+[x] <code>chaine[-3:] == 'nez'</code>
+[x] <code>chaine[1:3] + chaine[3:5] + chaine[5:] == chaine[1:]</code>

@@ -20,10 +20,11 @@ Types numériques (2)
 
 Comment entrer la valeur du complexe 3 + 2i
 
-( ) <code>3 + 2i</code>
-(x) <code>3 + 2j</code>
-( ) <code>3 + 2 * i</code>
-( ) <code>3 + 2 * j</code>
+[ ] <code>3 + 2i</code>
+[x] <code>3 + 2j</code>
+[x] <code>3 + 2 * 1j</code>
+[ ] <code>3 + 2 * i</code>
+[ ] <code>3 + 2 * j</code>
 
 [explanation]
 Les anglais utilisent 'j' plutôt que notre 'i'
@@ -34,29 +35,14 @@ Les deux dernières formes font référence à une variable "normale" qui s'appe
 Types numériques (3)
 =====
 
-Que retourne la formule
 
-<pre>type(2 ** 16) == type(2 ** 8)</pre>
+Quelles sont les expressions qui retournent la valeur <code>True</code> ?
 
-(x) <code>True</code>
-( ) <code>False</code>
-
-[explanation]
-Ces deux puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples
-[explanation]
-
-<hr/>
-Types numériques (4)
-=====
-
-Que retourne la formule
-
-<pre>type(2 ** 200) == type(2 ** 8)</pre>
-
-( ) <code>True</code>
-(x) <code>False</code>
+[x] <code>type(2 ** 16) == type(2 ** 8)</code>
+[ ] <code>type(2 ** 200) == type(2 ** 8)</code>
 
 [explanation]
-Par contre ici 2 ** 200 est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
-[explanation]
+Les petites (8 et 16) puissances de 2 sont toutes deux assez petites pour être représentées par des entiers simples.
 
+Par contre <code>2**200</code> est beaucoup trop gros pour être représenté par un entier simple, c'est un entier long.
+[explanation]
