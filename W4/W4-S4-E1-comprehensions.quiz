@@ -1,28 +1,129 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
-Q1
+<b>Rappel</b> sur la fonction <code>sum</code>:
+
+<pre>
+>>> help(sum)
+
+Help on built-in function sum in module __builtin__:
+
+sum(...)
+    sum(sequence[, start]) -> value
+
+    Return the sum of a sequence of numbers (NOT strings) plus the value
+    of parameter 'start' (which defaults to 0).  When the sequence is
+    empty, return start.
+</pre>
+
+C'est à dire que par exemple
+<pre>
+>>> sum( [1, 2, 3] )
+6
+>>> sum( (1, 2, 3) )
+6
+>>> sum(1, 2)
+TypeError: 'int' object is not iterable
+</pre>
+<hr/>
+
+
+
+<hr/>
+Comprehensions de liste
+=====
+
+Cet énoncé vous est familer. On dispose de deux matrices <code>matrice1</code> et <code>matrice2</code>, chacune implémentée comme une liste de listes. On sait par ailleurs que les deux matrices sont de mêmes tailles (même nombre de lignes, même tailles de ligne deux à deux). On veut écrire un code qui calcule la somme des deux matrices.
+
+Par exemple si
+<pre>
+matrice1 = [
+   [1, 2, 3],
+   [4, 5, 6],
+   ]
+
+matrice2 = [
+   [10, 100, 1000],
+   [20, 200, 2000],
+   ]
+</pre>
+
+on veut obtenir dans la variable <code>somme</code> ceci
+<pre>
+somme = [
+   [11, 102, 1003],
+   [24, 205, 2006],
+   ]
+</pre>
+
+On propose cette fois ces solutions qui mettent en oeuvre les compréhensions de listes:
+
+<h3>Solution 1</h3>
+<pre>
+somme = []
+for ligne1, ligne2 in zip(matrice1, matrice2):
+    somme.append( [ x + y for x, y in zip(ligne1, ligne2) ] )
+</pre>
+
+<h3>Solution 2</h3>
+<pre>
+somme = [ [ x+y for x, y in zip(ligne1, ligne2) ]
+          for ligne1, ligne2 in zip(matrice1, matrice2) ]
+</pre>
+
+<h3>Solution 3</h3>
+<pre>
+somme = []
+for ligne1, ligne2 in zip(matrice1, matrice2):
+    somme.append( [ sum(xy) for xy in zip(ligne1, ligne2) ] )
+</pre>
+
+<h3>Solution 4</h3>
+<pre>
+somme = []
+for ligne1, ligne2 in zip(matrice1, matrice2):
+    somme.append( [ sum(x, y) for x, y in zip(ligne1, ligne2) ] )
+</pre>
+
+Quelles sont les solutions qui répondent à l'énoncé ?
+
+[x] Solution 1
+[x] Solution 2
+[x] Solution 3
+[ ] Solution 4
+
+[explanation]
+Toutes ces solutions fonctionnent sauf la dernière.
+
+La première calcule une ligne résultat comme un compréhension de liste, et assemble ces lignes dans le résultat final avec une méthode conventionnelle.
+
+La seconde utilise deux compréhensions, une pour élaborer chaque ligne, et une seconde pour assembler toutes les lignes.
+
+La troisième enfin utilise <code>sum</code> sur un couple de valeurs <code>xy</code> qui va prendre, dans notre exemple, une valeur comme <code>(1, 10)</code>; heureusement pour nous <code>sum</code> peut fonctionner sur un tuple aussi bien qu'une liste.
+
+Dans la dernière par contre, on essaie d'appeler <code>sum</code> avec <b>deux arguments</b> qui vont valoir par exemple <code>10</code> et <code>100</code>, ce que <code>sum</code> n'accepte pas.
+
+[explanation]
+
+
+<hr/>
+Compréhensions d'ensemble
 =====
 
 [explanation]
 [explanation]
 
 <hr/>
-Q2
+Compréhensions de dictionnaire
 =====
 
 [explanation]
 [explanation]
 
 <hr/>
-Q3
+Compréhensions imbriquées
 =====
 
 [explanation]
 [explanation]
 
-<hr/>
-Q4
-=====
-
-[explanation]
-[explanation]
