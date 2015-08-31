@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+<em><b>Rappel:</b>Les cases à cocher <b>rondes</b> appellent exactement une réponse valable, les cases <b>carrées</b> appellent zéro, une ou plusieurs réponses valables.</em>
+
 <hr/>
 Dictionnaires (1)
 =====
 
-Le type dictionnaire en python est un type
+Le type dictionnaire est un type
 
 ( ) immuable
 (x) mutable
@@ -27,7 +29,7 @@ Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash
 
 Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
 
-NB. la classe OrderedDict, dans le module collections, ajoute cette fonctionnalité.
+NB. la classe <code>OrderedDict</code>, dans le module <code>collections</code>, ajoute cette fonctionnalité.
 [explanation]
 
 <hr/>
@@ -50,36 +52,14 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste
 Dictionnaires (4)
 =====
 
-Pour modifier la valeur de la clé <code>marc</code> dont <b>on sait</b> qu'elle est dans le dictionnaire <code>annuaire</code>, on peut faire
+Pour modifier la valeur de la clé <code>marc</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire
 
 [x] <code>annuaire['marc'] = 50</code>
 [ ] <code>annuaire.get('marc', 50)</code>
 [ ] <code>annuaire.setdefault('marc', 50)</code>
 
 [explanation]
-La seconde forme retourne la valeur pour <code>marc</code> si elle existe, et sinon 50, mais ne modifie pas <code>annuaire</code>.
+La seconde forme retourne la valeur pour <code>marc</code> si elle existe, et sinon <code>50</code>, mais ne modifie pas <code>annuaire</code>.
 
 La troisième forme ne modifie <code>dictionnaire</code> que lorsque la clé <code>marc</code> n'est pas encore présente.
-[explanation]
-
-<hr/>
-Dictionnaires (5)
-=====
-
-On considère un dictionnaire <code>annuaire</code>, dont on suppose pour simplifier qu'aucune clé n'a la valeur <code>False</code> ou <code>None</code>. Pour accéder à la valeur de la clé <code>marc</code> dont <b>on ne sait pas</b> si elle est dans le dictionnaire, on peut faire:
-
-[ ] <code>annuaire['marc']</code>
-[x] <code>annuaire.get('marc')</code>
-[x] <code>annuaire.get('marc', None)</code>
-[ ] <code>get(annuaire, 'marc')</code>
-[x] <code>'marc' in annuaire and annuaire['marc']</code>
-
-[explanation]
-La première forme lève une exception si la clé <code>marc</code> n'est pas présente
-
-Les formes 2 et 3 sont exactement équivalentes: on obtient la valeur, ou <code>None</code> si la clé n'est pas présente
-
-La forme 4 est fantaisiste, il n'y a pas de fonction <em>built-in</em> get
-
-La dernière forme fonctionne aussi, mais remarquez qu'ici on retourne <code>False</code> - et non pas <code>None</code> - si la clé n'est pas présente
 [explanation]

@@ -1,30 +1,28 @@
 # -*- coding: utf-8 -*-
-<em><b>Rappel:</b>Les cases à cocher <b>rondes</b> appellent exactement une réponse valable, les cases <b>carrées</b> appellent zéro, une ou plusieurs réponses valables.</em>
 
 <hr/>
-Q1
+Listes
 =====
 
-[explanation]
-[explanation]
+Sélectionner les affirmations correctes
 
-<hr/>
-Q2
-=====
+[ ] La recherche d'un élément dans une liste se fait en temps constant
+[ ] On peut accéder à un élément dans une liste en utilisant un index non entier comme par exemple une chaîne de caractères
 
 [explanation]
+Ces deux bonnes propriétés sont précisément celles qui manquent aux listes.
 [explanation]
 
 <hr/>
-Q3
+Tables de hash
 =====
 
-[explanation]
-[explanation]
+Sélectionner les affirmations correctes
 
-<hr/>
-Q4
-=====
+[x] La recherche d'un élément dans une table de hash se fait en temps constant
+[x] On peut accéder à un élément dans une table de hash en utilisant un index non entier comme par exemple une chaîne de caractères
 
 [explanation]
+Les tables de hash comblent ces deux lacunes, et nous allons voir tout de suite comment on tire parti de cette notion dans les objets prédéfinis de python qui sont les dictionnaires et les ensembles. 
 [explanation]
+
