@@ -1,27 +1,64 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
-Q1
+Éléments dans un ensemble
 =====
 
+Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ensemble de type <code>set</code> ?
+
+[ ] un objet (de type) <code>set</code>
+[x] un objet <code>frozenset</code>
+[ ] un tuple de <code>set</code>'s
+[x] un tuple de <code>frozenset</code>'s
+[ ] une liste de <code>frozenset</code>'s
+
 [explanation]
+Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalament immuable.
+
+option 1: ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
+
+option 2: un objet <code>frozenset</code> est immuable; de plus comme c'est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
+
+option3: le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
+
+option 4: un tuple d'objets globalement immuables est immuable
+
+option 5: la liste elle-même est mutable.
 [explanation]
 
 <hr/>
-Q2
+Ensemble vide
 =====
 
+Pour créer un ensemble <code>set</code> vide en python on peut faire
+
+[ ] <code>{}</code>
+[x] <code>set()</code>
+[x] <code>set([])</code>
+
 [explanation]
+La première forme renvoie un objet de type <code>dict</code>
+
+Les deux autres formes fonctionnent très bien; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
+
+La fonction <code>set</code> accepte donc en argument un objet de type quelconque et s'efforce de le traduire dans un ensemble. Lorsqu'on ne passe aucun argument à <code>set</code> (option 2), ou qu'on lui passe une liste vide, <code>set</code> renvoie naturellement un ensemble vide; on aurait pu utiliser aussi bien, de la même manière, <code>set(())</code>, <code>set({})</code>, ou même <code>set('')</code> pour arriver au même résultat.
 [explanation]
 
 <hr/>
-Q3
+Test d'appartenance à un ensemble
 =====
 
+On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ?
+
+[ ] Le test peut s'écrire <code>x in s</code>, il prend un temps linéaire avec la taille de l'ensemble (linéaire: si l'ensemble est deux fois plus gros, le temps est deux fois plus long)
+[ ] Le test peut s'écrire <code>x in s</code>, il prend un temps constant
+[ ] On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>; par conséquent le test d'appartenance prend un temps qui grandit avec la taille de l'ensemble. 
+
 [explanation]
 [explanation]
 
 <hr/>
-Q4
+Manipulations d'ensembles, unions intersections...
 =====
 
 [explanation]
