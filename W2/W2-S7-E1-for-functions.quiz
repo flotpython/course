@@ -27,7 +27,7 @@ C'est à dire que par exemple
 Boucles <code>for</code>
 =====
 
-On dispose de deux matrices <code>matrice1</code> et <code>matrice2</code>, chacune implémentée comme une liste de listes. On sait par ailleurs que les deux matrices sont de mêmes tailles (même nombre de lignes, même tailles de ligne deux à deux). On veut écrire un code qui calcule la somme des deux matrices.
+On dispose de deux matrices <code>matrice1</code> et <code>matrice2</code>, chacune implémentée comme une liste de listes. On sait par ailleurs que les deux matrices sont de même taille (même nombre de lignes, même taille de ligne deux à deux). On veut écrire un code qui calcule la somme des deux matrices.
 
 Par exemple si
 <pre>
@@ -113,12 +113,17 @@ La solution 4 est correcte également, les deux appels à la fonction <code>zip<
 Compréhension de listes
 =====
 
+On suppose qu'on a dans l'environnement
+<pre>
+entree = range(10)
+</pre>
+
 Parmi les fragments suivants, lesquels sont valides en python:
 
 [ ] <code>carres = [ for x in entree: x**2 ]</code>
 [x] <code>carres = [ x**2 for x in entree ]</code>
 [ ] <code>carres = [ for x in entree: if x % 3 == 0: x**2 ]</code>
-[x] <code>carres = [ x**2 for x in entree: if x % 3 == 0 ]</code>
+[ ] <code>carres = [ x**2 for x in entree: if x % 3 == 0 ]</code>
 [x] <code>carres = [ x**2 for x in entree if x % 3 == 0 ]</code>
 
 [explanation]
@@ -130,11 +135,11 @@ Les compréhensions ne contiennent jamais de <code>:</code> qui est réservé au
 Fonctions
 =====
 
-On se donne une fonction <code>est_vide</code> définie arbitrairement comme ceci:
+On se donne une fonction <code>est_vide</code> définie arbitrairement comme suit. Dans cet exercice on dit qu'un objet est <em>vide</em> lorsqu'il est considéré comme faux dans un test; en pratique, s'il est None ou False ou 0 ou une chaîne vide, etc..
 
 <pre>
 def est_vide(entree):
-    # si entree est None ou vide ou 0, on considere que c'est OK
+    # si entree est vide, on considere que c'est OK
     if not entree:
         # cas #1
         return True
@@ -173,7 +178,7 @@ def assemble(x, y):
 est_vide(assemble(1, 2))
 </pre>
 
-Quels sont ceux qui sont valides et dont la dernière expression renvoie <code>True</code> ? <em><b>Indice</b> Faîtes bien attention aux valeurs de retour.</em>
+Quels sont ceux qui sont valides et dont la dernière expression renvoie <code>True</code> ? <em><b>Indice:</b> Faites bien attention aux valeurs de retour.</em>
 
 [x] Fragment 1
 [ ] Fragment 2

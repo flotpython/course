@@ -58,7 +58,7 @@ Listes (3)
 On a cette fois
 <pre>liste = [1, 0, 3, 2]</pre>
 
-On veut trier la liste en ordre décroissant et <b>en place</b>, c'est-à-dire <b>sans duplication</b>.
+On veut trier la liste en ordre décroissant et <b>en place</b>, c'est-à-dire <b>sans dupliquer</b> la liste ni ses éléments.
 
 Faut-il faire (plusieurs réponses possibles) :
 
