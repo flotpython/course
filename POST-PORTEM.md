@@ -61,10 +61,11 @@ W1
 
 W2
 ===
- * W2S7 : TODOQUIZ - manque un quiz sur les boucles et fonctions
+ * W2 Quizzes reviewed and complete
 
 W3
 ===
+ * W3 Quizzes under review & rewrite
 
  * W3S1 : TODOQUIZ - manque un quiz sur les tables de hash
  * W3S3 : TODOQUIZ - manque un quiz sur les ensembles
