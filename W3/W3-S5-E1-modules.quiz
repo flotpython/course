@@ -1,28 +1,87 @@
 # -*- coding: utf-8 -*-
-<hr/>
-Q1
-=====
-
-[explanation]
-[explanation]
 
 <hr/>
-Q2
+Import (1)
 =====
 
+On a écrit un module python dans le fichier <code>spam.py</code>, qui contient ceci:
+<pre>
+# spam.py
+eggs = "beans"
+</pre>
+
+On se place dans le même répertoire où se trouve <code>spam.py</code>, si bien que l'arborescence de fichiers ressemble à ceci:
+
+<div style="padding:20px;">
+<span style="text-align:center;"><img src="/static/quiz-module1.png" /></span>
+</div>
+
+On lance un interpréteur python et on fait:
+
+<pre>
+$ python
+Python 2.7.10 ...
+>>> import spam
+</pre>
+
+Parmi les affirmations suivantes, lesquelles sont correctes ?
+
+[x] la variable <code>spam</code> est définie
+[ ] la variable <code>eggs</code> est définie
+[x] la variable <code>spam.eggs</code> est définie
+[ ] la variable <code>spam.beans</code> est définie
+
 [explanation]
+La clause <code>import</code> définit en effet la variable <code>spam</code>, qui fait référence à l'objet module créé par l'import.
+
+Par contre la clause <code>import</code> ne définit pas la variable <code>eggs</code> dans l'environnement courant, mais à l'intérieur du module.
+
+Et naturellement, <code>beans</code> est seulement le contenu d'une chaîne de caractères, et pas du tout une variable.
 [explanation]
 
 <hr/>
-Q3
+Import (2)
 =====
+Dans la même configuration que pour l'exercice (1), on fait à présent:
+
+<pre>
+$ python
+Python 2.7.10 ...
+>>> eggs = "ham"
+>>> import spam
+</pre>
+
+Qu'obtient-on à ce stade pour la valeur de <code>eggs</code> ?
+
+(x) 'ham'
+( ) 'beans'
 
 [explanation]
+Les deux variables <code>eggs</code> et <code>spam.eggs</code> sont totalement indépendantes, l'import ne modifie pas la valeur de <code>eggs</code>.
 [explanation]
 
 <hr/>
-Q4
+Import (3)
 =====
+
+À présent, le module <code>spam.py</code> n'est plus dans le répertoire courant, mais dans un sous-répertoire <code>paquet</code> qui ne contient que <code>spam.py</code>. À présent l'arborescence de fichiers ressemble à ceci:
+
+<div style="padding:20px;">
+<span style="text-align:center;"><img src="/static/quiz-module2.png" /></span>
+</div>
+
+On lance un interpréteur python dans le directory <code>on-est-ici</code> et on veut importer le module <code>spam</code>, comment doit-on faire ?
+
+[ ] <code>import paquet.spam</code>
+[ ] <code>from paquet import spam</code>
+[ ] <code>import paquet; import paquet.spam</code>
+[x] On ne peut pas faire l'import dans cette configuration
+
+[explanation]
+On ne peut pas faire l'import de <code>spam</code>, car le package <code>paquet</code> ne possède pas le fichier <code>__init__.py</code> qui est indispensable dans ce cas (même vide).
+
+Une fois ce fichier créé, on pourrait importer le module <code>spam</code> avec la troisième clause présentée ici.
+[explanation]
 
 [explanation]
 [explanation]
