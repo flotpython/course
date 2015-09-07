@@ -1,28 +1,114 @@
 # -*- coding: utf-8 -*-
-<hr/>
-Q1
-=====
 
-[explanation]
-[explanation]
+<b>Pour tout le quiz:</b> dans toutes les questions, on suppose définies par ailleurs toutes les variables et fonctions utilisées.
 
 <hr/>
-Q2
+Blocs
 =====
+On s'intéresse à l'indentation du code:
+
+<h3>Fragment 1</h3>
+<pre>
+if condition:
+   a = x + y
+     action(a)
+else:
+   b = x - y
+     action(b)
+</pre>
+
+<h3>Fragment 2</h3>
+<pre>
+if condition:
+  a = x + y
+  action(a)
+else:
+      b = x - y
+      action(b)
+</pre>
+
+<h3>Fragment 3</h3>
+<pre>
+if condition:
+    a = x + y
+    action(a)
+else:
+    b = x - y
+    action(b)
+</pre>
+
+Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?
+
+[ ] Fragment 1
+[x] Fragment 2
+[x] Fragment 3
 
 [explanation]
+Dans le premier fragment, aucun des deux blocs (correspondant respectivement au <code>if</code> et au <code>else</code>) ne peut être reconnu par python, car chacun de ces deux blocs contient deux instructions et dans les deux cas les deux instructions ont une indentation différente. Le premier fragment n'est pas syntaxiquement correct.
+
+Le deuxième fragment est syntaxiquement correct; chacun des deux blocs a ses deux instructions alignées, tou va bien. Par contre cette présentation est tout à fait contraire aux recommendations habituelles, on ne voit jamais cela dans du code réel.
+
+Le troisième fragment utilise la convention habituelle de 4 espaces pour les deux blocs, il est syntaxiquement correct.
 [explanation]
 
 <hr/>
-Q3
+Espaces
 =====
 
+On s'intéresse à présent à l'utilisation des espaces. Parmi les extraits suivants, lesquels respectent les recommandations de codage de la librairie standard ?
+
+[ ] <code>a= b + c</code>
+
+[x] <code>ma_fonction(x, y, z)</code>
+
+[ ] <code>condition = (a and b)or(c and d)</code>
+
 [explanation]
+Il manque un espace dans le premier fragment entre `a` et `=`
+
+Le second fragment est correct
+
+Dans le troisième fragment, il manque à nouveau un espace de part et d'autre de `or`.
 [explanation]
 
 <hr/>
-Q4
+Coupures de ligne
 =====
 
+<h3>Extrait 1</h3>
+<pre>
+departements = {
+    'ain' : (1, 'Bourg-en-Bresse'),
+    'aisne' : (2, 'Laon'),
+    'allier' : (3, 'Moulins')
+    # etc..
+}
+</pre>
+
+<h3>Extrait 2</h3>
+<pre>
+if (condition1 and condition2)
+   or (condition3 and condition4):
+      faire_un_traitement()
+</pre>
+
+<h3>Extrait 3</h3>
+<pre>
+resultat = une_fonction (argument1, argument2,
+	   		 argument3, argument4)
+</pre>
+
+Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?
+
+[x] Extrait 1
+[ ] Extrait 2
+[x] Extrait 3
+
 [explanation]
+Dans le premier extrait, des <em>backslash</em> ne sont pas nécessaires, grâce à la présence de l'accolade ouvrante.
+
+Dans le second extrait, il faut un <em>backslash</em> à la fin de la première ligne.
+
+Dans le troisième extrait à nouveau, on peut se passer du <em>backslash</em> grâce à la présence de la parenthèse ouvrante.
+
 [explanation]
