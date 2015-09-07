@@ -6,11 +6,11 @@ Listes
 
 Sélectionner les affirmations correctes
 
-[ ] La recherche d'un élément dans une liste se fait en temps constant
-[ ] On peut accéder à un élément dans une liste en utilisant un index non entier comme par exemple une chaîne de caractères
+[x] La recherche d'un élément dans une liste se fait dans un temps qui grandit avec la taille de la liste
+[ ] On peut accéder à un élément dans une liste en utilisant un index non entier, comme par exemple une chaîne de caractères
 
 [explanation]
-Ces deux bonnes propriétés sont précisément celles qui manquent aux listes.
+Les deux premières propriétés (accès en temps constant, ensemble de clés plus riche que simplement des entiers) sont précisément celles qui manquent aux listes.
 [explanation]
 
 <hr/>
@@ -23,6 +23,6 @@ Sélectionner les affirmations correctes
 [x] On peut accéder à un élément dans une table de hash en utilisant un index non entier comme par exemple une chaîne de caractères
 
 [explanation]
-Les tables de hash comblent ces deux lacunes, et nous allons voir tout de suite comment on tire parti de cette notion dans les objets prédéfinis de python qui sont les dictionnaires et les ensembles. 
+Les tables de hash comblent ces deux lacunes, et nous allons voir très bientôt comment on tire parti de cette notion de hash dans les objets prédéfinis de python qui sont les dictionnaires et les ensembles. 
 [explanation]
 
