@@ -6,7 +6,7 @@
 Que peut-on dire du code suivant ?
 <pre>
 if range(1):
- print 'oui'
+  print 'oui'
 else:
         print 'non'
 </pre>
@@ -93,7 +93,7 @@ Quels sont ceux qui impriment <code>oui</code> ?
 [explanation]
 Le premier cas imprime clairement <code>non</code>, puisque le premier terme du <code>or</code> est <code>False</code>.
 
-Le second cas est plus subtil; en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>
+Dans le second cas, en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>.
 [explanation]
 
 <hr/>
