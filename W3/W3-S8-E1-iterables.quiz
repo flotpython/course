@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 <hr/>
-Itérables (niveau basique)
+Itérables
 =====
 
 Parmi les types suivants, lesquels sont des itérables ?
@@ -22,7 +22,7 @@ On ne peut pas itérer sur les objets atomiques, en particulier <code>float</cod
 [explanation]
 
 <hr/>
-Itérables (niveau intermédiaire)
+Itérateurs
 =====
 
 Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode <code>__iter__()</code> qui renvoie un itérateur ?
@@ -32,34 +32,4 @@ Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode <cod
 
 [explanation]
 Oui, et dans ce cas la boucle for va utiliser cet itérateur pour implementer son parcours.
-[explanation]
-
-<hr/>
-Si on peut faire une boucle for sur un objet, est-ce qu'il implémente forcément une méthode <code>next()</code> ?
-
-( ) Oui
-(x) Non
-
-[explanation]
-La méthode <code>next()</code> est requise sur les itérateurs, pas forcément sur les itérables.
-[explanation]
-
-<hr/>
-Itérateurs (niveau avancé)
-=====
-
-Parmi les types suivants, lesquels sont des itérateurs ? N'hésitez pas à vous servir d'un interpréteur python en cas de doute:
-
-[ ] <code>list</code>
-[ ] <code>tuple</code>
-[ ] <code>dict</code>
-[ ] <code>set</code>
-[ ] <code>float</code>
-[ ] <code>str</code>
-[ ] <code>complex</code>
-
-[explanation]
-<code>float</code> et <code>complex</code> ne sont pas itérables.
-<code>str</code> ne possède pas la méthode <code>__iter__()</code>, c'est un itérable implémenté avec la méthode <code>__getitem__()</code>
-S'agissant des 4 types restants (<code>list</code>, <code>tuple</code>, <code>dict</code> et <code>set</code>), les itérateurs sont implémentés comme des objets séparés de l'itérable. Cela permet notamment d'autoriser deux boucles imbriquées sur le même objet.
 [explanation]
