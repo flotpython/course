@@ -1,28 +1,86 @@
 # -*- coding: utf-8 -*-
-<hr/>
-Q1
-=====
-
-[explanation]
-[explanation]
 
 <hr/>
-Q2
+Conditions
 =====
 
+Une fois exécuté le code suivant:
+<pre>
+compteur = 0
+for temoin in [ [], True, {}, "", None, False ] + range(3):
+    if temoin:
+        compteur += 1
+</pre>
+
+Combien vaut <code>compteur</code> ?
+
+= 3
+
 [explanation]
+La liste de départ, une fois l'addition évaluée, contient comme éléments <em>vrais</em> seulement <code>True</code>, <code>1</code> et <code>2</code>. Les autres éléments de la liste sont tous considérés comme faux, parce que vides.
 [explanation]
 
 <hr/>
-Q3
+Instructions <code>if</code> imbriquées
 =====
 
+En se plaçant dans un environnement où
+<pre>
+n = 4
+u = None
+</pre>
+
+On considère plusieurs fragments de code
+
+<h3>Fragment 1</h3>
+<pre>
+if 'a' in 'spam':
+    if n - 4:
+        print 'oui'
+    else:
+        print 'non'
+</pre>
+
+<h3>Fragment 2</h3>
+<pre>
+if 10 in [1, 2, 3]:
+    print 'oui' if n-4 else 'non'
+else:
+    print 'oui' if not u else 'non'
+</pre>
+
+<h3>Fragment 3</h3>
+<pre>
+if 'a' in 'spam':
+    if n == 10:
+        print 'non'
+else:
+    print 'oui'
+</pre>
+
+Quels sont ceux qui impriment <code>oui</code> ?
+
+[ ] Fragment 1
+[x] Fragment 2
+[ ] Fragment 3
+
 [explanation]
+Dans le premier fragment, le premier test est positif, mais le second est négatif car <code>0</code> est considéré comme faux.
+
+Dans le second fragment, c'est le <code>else</code> qui est exécuté; et comme <code>u</code> vaut <code>None</code>, c'est à nouveau le <code>else</code> de l'expression conditionnelle qui est renvoyé.
+
+Dans le troisième fragment, le premier test est positif, mais le second est négatif, et par conséquent <b>rien n'est imprimé</b> car le <code>if</code> interne n'a pas de clause <code>else</code>.
 [explanation]
 
 <hr/>
-Q4
+Effets de bord
 =====
 
+Est-il possible qu'une variable soit modifiée pendant l'évaluation d'une condition ?
+
+(x) Oui
+( ) Non
+
 [explanation]
+Oui comme on l'a vu dans le complément sur l'évaluation des tests, lors par exemple d'un appel de fonction, il est tout à fait possible de modifier une variable pendant l'évaluation d'une condition, et c'est pourquoi d'ailleurs il est important de bien comprendre dans quels cas - et dans quel ordre - les différentes conditions sont évaluées.
 [explanation]

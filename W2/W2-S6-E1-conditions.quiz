@@ -6,7 +6,7 @@
 Que peut-on dire du code suivant ?
 <pre>
 if range(1):
- print 'oui'
+  print 'oui'
 else:
         print 'non'
 </pre>
@@ -21,7 +21,7 @@ else:
 [explanation]
 Comme <code>range(1)</code> retourne la liste <code>&#91;1&#93;</code>, le test est positif et donc on affiche <code>oui</code>.
 
-Par ailleurs ce code est valide - les deux blocs n'ont pas la même indentation mais ce n'est pas rédihibitoire; mais il ne suit pas les recommandations de présentation du code en python, qui sont de toujours indenter un bloc d'instructions de 4 espaces.
+Par ailleurs ce code est valide - les deux blocs n'ont pas la même indentation mais ce n'est pas rédhibitoire; en revanche il ne suit pas les recommandations de présentation du code en python, qui sont de toujours indenter un bloc d'instructions de 4 espaces.
 [explanation]
 
 
@@ -62,11 +62,11 @@ Quels sont ceux qui impriment <code>oui</code> ?
 [ ] Fragment 3
 
 [explanation]
-Le premier cas imprime <code>non</code> car on comapre une liste et un tuple.
+Le premier cas imprime <code>non</code> car on compare une liste et un tuple.
 
-Le second cas par contre imprime <code>oui</code>.
+Le second cas en revanche imprime <code>oui</code>, on compare deux listes qui ont le même contenu.
 
-Dans la dernière forme, les deux constantes None et False ne sont égaux ni par l'opérateur is (ce ne sont pas les mêmes objets) ni par l'opérateur == (ils ne sont de types différents).
+Dans la dernière forme, les deux constantes None et False ne sont égaux ni par l'opérateur <code>is</code> (ce ne sont pas les mêmes objets) ni par l'opérateur <code>==</code> (ils sont de types différents).
 [explanation]
 
 <hr/>
@@ -93,58 +93,6 @@ Quels sont ceux qui impriment <code>oui</code> ?
 [explanation]
 Le premier cas imprime clairement <code>non</code>, puisque le premier terme du <code>or</code> est <code>False</code>.
 
-Le second cas est plus subtil; en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>
+Dans le second cas, en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>.
 [explanation]
 
-<hr/>
-Instructions <code>if</code> imbriquées
-=====
-
-En se plaçant dans un environnement où
-<pre>
-n = 4
-u = None
-</pre>
-
-On considère plusieurs fragments de code
-
-<h3>Fragment 1</h3>
-<pre>
-if 'a' in 'spam':
-    if n - 4:
-        print 'oui'
-    else:
-        print 'non'
-</pre>
-
-<h3>Fragment 2</h3>
-<pre>
-if 10 in [1, 2, 3]:
-    print 'oui' if n-4 else 'non'
-else:
-    print 'oui' if not u else 'non'
-</pre>
-
-<h3>Fragment 3</h3>
-<pre>
-if 'a' in 'spam':
-    if n == 10:
-        print 'oui'
-else:
-    print 'non'
-</pre>
-
-Quels sont ceux qui impriment <code>oui</code> ?
-
-[ ] Fragment 1
-[x] Fragment 2
-[ ] Fragment 3
-
-[explanation]
-Dans le premier fragment, le premier test est positif, mais le second est négatif car <code>0</code> est considéré comme faux.
-
-Dans le second fragment, c'est le <code>else</code> qui est exécuté; et comme <code>u</code> vaut <code>None</code>, c'est à nouveau le <code>else</code> de l'expression conditionnelle qui est renvoyé.
-
-Dans le troisième fragment, le premier test est positif, mais le second est négatif, et par conséquent <b>rien n'est imprimé</b> car le <code>if</code> interne n'a pas de clause <code>else</code>.
-
-[explanation]
