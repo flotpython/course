@@ -1,6 +1,46 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
 Variables et objets (1)
+=====
+
+Peut-on modifier une variable globale depuis une fonction ?
+
+[ ] jamais
+[ ] toujours du moment qu'il y a une affectation dans la fonction
+[x] uniquement si la variable est déclarée globale avec la direction <code>global</code> dans le bloc de code de la fonction
+
+[explanation]
+Une variable globale ne peut être modifiée depuis une fonction que si elle est déclarée comme <code>global</code> dand la fonction.
+[explanation]
+
+<hr/>
+Variables et objets (2)
+=====
+
+<pre>
+def f():
+    global x
+    x = 10
+f()
+print x
+</pre> 
+
+
+Que va afficher l'exécution de ce code ?
+
+[x] 10
+[ ] Une exception
+[ ] <code>None</code>
+[ ] x
+
+[explanation]
+La directive <code>global</code> permet de modifier la variable <code>x</code> dans le scope global. Si la variable déclarée dans le scope global n'existe pas encore, elle est créée à la première affectation. 
+[explanation]
+
+
+<hr/>
+Variables et objets (3)
 =====
 
 Dans quel cas la fonction modifie en place l'objet référencé par la variable <code>var</code> ?

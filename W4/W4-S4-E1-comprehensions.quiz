@@ -1,129 +1,58 @@
 # -*- coding: utf-8 -*-
 
 <hr/>
-<b>Rappel</b> sur la fonction <code>sum</code>:
-
-<pre>
->>> help(sum)
-
-Help on built-in function sum in module __builtin__:
-
-sum(...)
-    sum(sequence[, start]) -> value
-
-    Return the sum of a sequence of numbers (NOT strings) plus the value
-    of parameter 'start' (which defaults to 0).  When the sequence is
-    empty, return start.
-</pre>
-
-C'est à dire que par exemple
-<pre>
->>> sum( [1, 2, 3] )
-6
->>> sum( (1, 2, 3) )
-6
->>> sum(1, 2)
-TypeError: 'int' object is not iterable
-</pre>
-<hr/>
-
-
-
-<hr/>
 Comprehensions de liste
 =====
 
-Cet énoncé vous est familer. On dispose de deux matrices <code>matrice1</code> et <code>matrice2</code>, chacune implémentée comme une liste de listes. On sait par ailleurs que les deux matrices sont de mêmes tailles (même nombre de lignes, même tailles de ligne deux à deux). On veut écrire un code qui calcule la somme des deux matrices.
-
-Par exemple si
 <pre>
-matrice1 = [
-   [1, 2, 3],
-   [4, 5, 6],
-   ]
-
-matrice2 = [
-   [10, 100, 1000],
-   [20, 200, 2000],
-   ]
+map(lambda x: x**2, filter(lambda x: x%2==0, range(10)))
 </pre>
 
-on veut obtenir dans la variable <code>somme</code> ceci
-<pre>
-somme = [
-   [11, 102, 1003],
-   [24, 205, 2006],
-   ]
-</pre>
+Valider toutes les réponses qui donnent un résultat équivalent au fragment de code ci-dessus.
 
-On propose cette fois ces solutions qui mettent en oeuvre les compréhensions de listes:
-
-<h3>Solution 1</h3>
-<pre>
-somme = []
-for ligne1, ligne2 in zip(matrice1, matrice2):
-    somme.append( [ x + y for x, y in zip(ligne1, ligne2) ] )
-</pre>
-
-<h3>Solution 2</h3>
-<pre>
-somme = [ [ x+y for x, y in zip(ligne1, ligne2) ]
-          for ligne1, ligne2 in zip(matrice1, matrice2) ]
-</pre>
-
-<h3>Solution 3</h3>
-<pre>
-somme = []
-for ligne1, ligne2 in zip(matrice1, matrice2):
-    somme.append( [ sum(xy) for xy in zip(ligne1, ligne2) ] )
-</pre>
-
-<h3>Solution 4</h3>
-<pre>
-somme = []
-for ligne1, ligne2 in zip(matrice1, matrice2):
-    somme.append( [ sum(x, y) for x, y in zip(ligne1, ligne2) ] )
-</pre>
-
-Quelles sont les solutions qui répondent à l'énoncé ?
-
-[x] Solution 1
-[x] Solution 2
-[x] Solution 3
-[ ] Solution 4
+[ ] <code>[x ** 2 : for x in range(10) : if x%2==0]</code>
+[ ] <code>[lambda x: x**2 for x in range(10) if x%2==0]</code>
+[x] <code>[x**2 for x in range(10) if x%2==0]</code>
+[x] <code>[(lambda x: x**2)(x) for x in range(10) if x%2 ==0]</code>
 
 [explanation]
-Toutes ces solutions fonctionnent sauf la dernière.
-
-La première calcule une ligne résultat comme un compréhension de liste, et assemble ces lignes dans le résultat final avec une méthode conventionnelle.
-
-La seconde utilise deux compréhensions, une pour élaborer chaque ligne, et une seconde pour assembler toutes les lignes.
-
-La troisième enfin utilise <code>sum</code> sur un couple de valeurs <code>xy</code> qui va prendre, dans notre exemple, une valeur comme <code>(1, 10)</code>; heureusement pour nous <code>sum</code> peut fonctionner sur un tuple aussi bien qu'une liste.
-
-Dans la dernière par contre, on essaie d'appeler <code>sum</code> avec <b>deux arguments</b> qui vont valoir par exemple <code>10</code> et <code>100</code>, ce que <code>sum</code> n'accepte pas.
-
+Les deux dernières expressions donnent un résultat équivalent au fragment de code donné. Cependant, la dernière expression est inutilement lourde avec l'utilisation d'une fonction <code>lambda</code>.
 [explanation]
 
 
 <hr/>
 Compréhensions d'ensemble
 =====
+<pre>
+ma_liste = [1, 2, 4, 1, 2, 7, 4, 2, 1, 3, 4, 2, 5, 1, 7, 4, 9, 5, 4, 2, 4]
+</pre>
+
+Valider toutes les réponses qui retournent l'ensemble de tous les éléments uniques de <code>ma_liste</code> élevés au carré ?
+
+[x] <code>{x**2 for x in ma_liste}</code>
+[x] <code>set([x**2 for x in ma_liste])</code>
+[ ] <code>{x**2: for x in ma_liste}</code>
+[ ] <code>x**2 for x in ma_liste if x is unique}</code>
 
 [explanation]
+Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble.
 [explanation]
 
 <hr/>
 Compréhensions de dictionnaire
 =====
+<pre>
+age_donnes = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
+age_mystere = {nom:age for nom, age in age_donnes.iteritems() if age>=18}
+</pre>
+
+Que va contenir age_mystere ?
+( ) le même dictionnaire que age_donnes
+(x) le même dictionnaire que age_donnes, mais qui ne contient que les entrées avec un âge supérieur à 18 ans 
+( ) le même dictionnaire que age_donnes, mais qui ne contient que les entrées avec un âge inférieur à 18 ans 
+( ) un dictionnaire vide
 
 [explanation]
-[explanation]
-
-<hr/>
-Compréhensions imbriquées
-=====
-
-[explanation]
+<code>age_mystere</code> est construit avec une compréhension de dictionnaire. Il va avoir comme clefs les noms et comme valeurs les âges. Il y a un test dans cette compréhension qui va garder uniquement les entrées pour lesquelles l'âge est supérieur à 18.
 [explanation]
 

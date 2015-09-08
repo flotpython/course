@@ -29,3 +29,17 @@ Est-il possible pour une fonction de modifier l'objet qui lui est passé en argu
 [explanation]
 Comme les arguments sont passés par référence, les objets de l'appelant, s'ils sont mutables, peuvent être modifiés à l'intérieur de la fonction.
 [explanation]
+
+<hr/>
+Fonctions (3)
+=====
+
+Est-il possible de passer une fonction comme argument d'une fonction lors d'un appel ?
+
+( ) Non, on ne peut pas passer une fonction comme argument
+( ) Oui, mais on ne peut passer qu'une fonction <code>lambda</code> comme argument
+(x) Oui, on peut passer n'importe quelle fonction comme argument d'une autre fonction
+
+[explanation]
+En Python, tout est un objet, vraiment tout, même une fonction. Comme une fonction peut accepter comme argument n'importe quel objet, on peut donc lui passer une fonction.
+[explanation]

@@ -1,9 +1,26 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
-Variable locale à une fonction (1)
+Portée des variables (1)
 =====
 
-Dans quel cas la variable var est locale à la fonction.
+Dans quel cas rencontre-t-on une exception <code>UnboundLocalError</code> ?
+
+[ ] si on référence un variable globale depuis  une fonction
+[ ] si on affecte dans une fonction une variable déjà définie globalement
+[x] si on référence dans une fonction une variable définie en dessous dans la fonction
+[ ] si on affecte deux fois une variable locale dans une fonction
+
+[explanation]
+L'exception <code>UnboundLocalError</code> ne se produit que si on référence dans une fonction une variable définie en dessous dans la fonction.
+[explanation]
+
+
+<hr/>
+Portée des variables (2)
+=====
+
+Dans quel cas la variable <code>var</code> est locale à la fonction.
 
 <h3>Proposition 1</h3>
 <pre>
@@ -42,11 +59,11 @@ Dans la proposition 1, la variable var n'est jamais affectée dans la fonction, 
 
 Dans la proposition 2, la variable var est affectée à la première ligne de la fonction. Elle devient donc locale à la fonction. 
 
-Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction, mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis : UnboundLocalError. Il y a un complément spécifique sur cette erreur qu'il est très important de comprendre. 
+Dans la proposition 3, la variable var est affectée à la deuxième ligne de la fonction, mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis : <code>UnboundLocalError</code>. Il y a un complément spécifique sur cette erreur qu'il est très important de comprendre. 
 [explanation]
 
 <hr/>
-Portée (scope) des variables (2)
+Portée des variables (3)
 =====
 
 Que va afficher : <code>print f()</code>  ?
@@ -85,3 +102,4 @@ On appelle l'accessibilité de la valeur d'une variable le scope (ou la portée)
 
 Lorsque l'on référence une variable, on va chercher sa valeur suivant la règle LEG. On cherche la variable localement au bloc de code dans lequel elle est référencée, puis, si elle n'est pas définie, dans le bloc de code des fonctions englobantes, puis, si elle n'est toujours pas définie,  dans le bloc de code du module. De manière équivalente, on pourrait dire que la valeur de la variable référencée est celle de la variable locale du même bloc de code, puis de la variable locale des fonctions englobantes, puis de la variable globale. 
 [explanation]
+
