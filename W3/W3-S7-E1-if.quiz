@@ -1,31 +1,40 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
-Q1
+Conditions (1)
 =====
 
+Une fois exécuté le code suivant:
+<pre>
+compteur = 0
+for temoin in [ [], True, {}, "", None, False ] + [ range(3) ]:
+    if temoin:
+        compteur += 1
+</pre>
+
+>>Combien vaut <code>compteur</code>?<<
+
+= 2
+
 [explanation]
+La liste de départ, une fois l'addition évaluée, contient comme éléments <em>vrais</em> seulement <code>True</code> et <code>range(3)</code>. Les autres éléments de la liste sont tous considérés comme faux, parce que vides.
 [explanation]
 
 <hr/>
 Q2
 =====
+</pre>
+for temoin in [ [], True, {}, "", None, False ] + range(3):
+    if temoin:
+        print temoin, "est vrai"
 
-[explanation]
-[explanation]
+for temoin in [ [], True, {}, "", None, False, range(3) ]:
+    if temoin:
+        print temoin, "est vrai"
+</pre>
 
-<hr/>
-Q3
-=====
-
-[explanation]
-[explanation]
-
-<hr/>
-Q4
-=====
-
-[explanation]
-[explanation]
+tests sur retour de fonction
+s.isdigit() => trouver autre chose dans le meme genre
 
 <hr/>
 Instructions <code>if</code> imbriquées
