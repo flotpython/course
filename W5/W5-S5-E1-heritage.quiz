@@ -50,14 +50,14 @@ La fonction <em>builtin</em> <code>vars()</code> retourne l'attribut <code>__dic
 ( ) Une exception
 
 [explanation]
-L'attribut __class__ sur une instance retourne une référence de la classe qui a créé cette instance. 
+L'attribut <code>__class__</code> sur une instance retourne une référence de la classe qui a créé cette instance. 
 [explanation]
 
-<h3>Que retourne A.__bases__ ?</h3>
+<h3>Que retourne <code>A.__bases__</code> ?</h3>
 (x) Une référence de la classe C
 ( ) Une référence de l'instance créée par la classe A
 ( ) Une exception
 
 [explanation]
-L'attribut __bases__ sur une classe retourne le tuple des références des super classes de cette classe. 
+L'attribut <code>__bases__</code> sur une classe retourne le tuple des références des super classes de cette classe. 
 [explanation]

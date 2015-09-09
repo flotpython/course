@@ -93,6 +93,11 @@ W4
 W5
 ===
  * W5S5 - TODOQUIZ : à mon goût trop fouillé, les questions sur `__class__` et `__bases__`; devrait sans doute au contraire parler de l'héritage avec `object`
+ AL: j'ai gardé comme ça. je trouve ça plus clair de rentrer dans ce détail. C'est évidement une question
+ de goût, mais comme c'est ce que je fais dans le vidéo, ils ne seront pas surpris pas ce quiz.
+ Je ne parle pas d'object parce que c'est introduit dans un complément intermédiaire en semaine 5
+ et discuté aussi en semaine 7. C'est donc trop avancé à mon avis pour un quiz. 
+ 
  * W5S6 - TODOQUIZ - manque un quiz sur la surcharge des opérateurs
  * W5S7 - TODOQUIZ - je ne suis pas trop d'accord avec l'exo numéro 2 (perso, je ne fais pas de module sans classe) et alors le #3, je ne comprends pas l'énoncé... Le quiz dans son ensemble me paraît bien prédictible.
  * W5S8 - TODOQUIZ - je me demande si la deuxième question n'est pas un peu perverse, il faudrait arriver à la compter peu (ou alors supprimer la question?)
