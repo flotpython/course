@@ -44,7 +44,7 @@ Choisissez une ou plusieurs propositions.
 [ ] Proposition 5
 
 [explanation]
-La proposition 1 est syntaxiquement incorrecte: on doit déclarer un argument par défaut avec le signe = et non ==.
+La proposition 1 est syntaxiquement incorrecte: on doit déclarer un argument par défaut avec le signe <code>=</code> et non <code>==</code>.
 
 La proposition 2 est correcte.
 
@@ -63,32 +63,19 @@ Comment passer les éléments de la liste suivante
 <pre>
 L = [1, 2, 'a']
 </pre>
+
 comme arguments de la fonction
 <pre>
 def f(a, b, c):
     print a, b, c
 </pre>
 
-<h3>Proposition 1</h3>
-<pre>
-f(L)
-</pre>
-
-<h3>Proposition 2</h3>
-<pre>
-f(L[0], L[1], L[2])
-</pre>
-
-<h3>Proposition 3</h3>
-<pre>
-f(*L)
-</pre>
-
 Choisissez une ou plusieurs propositions.
 
-[ ] Proposition 1
-[x] Proposition 2
-[x] Proposition 3
+[ ] <code>f(L)</code>
+[x] <code>f(L[0], L[1], L[2])</code>
+[x] <code>f(*L)</code>
+
 
 [explanation]
 La proposition 1 est incorrecte parce que <code>L</code> correspond à un seul argument alors que <code>f</code> attend 3 arguments.

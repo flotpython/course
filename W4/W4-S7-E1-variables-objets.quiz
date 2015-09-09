@@ -6,12 +6,12 @@ Variables et objets (1)
 
 Peut-on modifier une variable globale depuis une fonction ?
 
-[ ] jamais
-[ ] toujours du moment qu'il y a une affectation dans la fonction
-[x] uniquement si la variable est déclarée globale avec la direction <code>global</code> dans le bloc de code de la fonction
+[ ] Jamais
+[ ] Toujours du moment qu'il y a une affectation dans la fonction
+[x] Uniquement si la variable est déclarée globale avec la directive <code>global</code> dans la fonction
 
 [explanation]
-Une variable globale ne peut être modifiée depuis une fonction que si elle est déclarée comme <code>global</code> dand la fonction.
+Une variable globale ne peut être modifiée depuis une fonction que si elle est déclarée comme <code>global</code> dans la fonction.
 [explanation]
 
 <hr/>
@@ -43,7 +43,7 @@ La directive <code>global</code> permet de modifier la variable <code>x</code> d
 Variables et objets (3)
 =====
 
-Dans quel cas la fonction modifie en place l'objet référencé par la variable <code>var</code> ?
+Dans quel cas la fonction modifie en place <b>l'objet</b> référencé par la variable <code>var</code> ?
 
 <h3>Proposition 1</h3>
 <pre>
@@ -108,4 +108,3 @@ La fonction dans la proposition 4 ne modifie pas l'objet référencé. C'est le 
 
 La fonction dans la proposition 5 modifie bien en place l'objet référencé. Dans ce cas, l'utilisation de la directive <code>global</code> est inutile, mais légal. 
 [explanation]
-

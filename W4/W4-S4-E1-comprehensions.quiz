@@ -32,7 +32,7 @@ Valider toutes les réponses qui retournent l'ensemble de tous les éléments un
 [x] <code>{x**2 for x in ma_liste}</code>
 [x] <code>set([x**2 for x in ma_liste])</code>
 [ ] <code>{x**2: for x in ma_liste}</code>
-[ ] <code>x**2 for x in ma_liste if x is unique}</code>
+[ ] <code>{x**2 for x in ma_liste if x is unique}</code>
 
 [explanation]
 Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble.
@@ -42,14 +42,14 @@ Les deux premières réponses donnent un résultat valide. Cependant, si le rés
 Compréhensions de dictionnaire
 =====
 <pre>
-age_donnes = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
-age_mystere = {nom:age for nom, age in age_donnes.iteritems() if age>=18}
+age_donnees = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
+age_mystere = {nom:age for nom, age in age_donnees.iteritems() if age>=18}
 </pre>
 
 Que va contenir age_mystere ?
-( ) le même dictionnaire que age_donnes
-(x) le même dictionnaire que age_donnes, mais qui ne contient que les entrées avec un âge supérieur à 18 ans 
-( ) le même dictionnaire que age_donnes, mais qui ne contient que les entrées avec un âge inférieur à 18 ans 
+( ) le même dictionnaire que <code>age_donnees</code>
+(x) le même dictionnaire que <code>age_donnees</code>, mais qui ne contient que les entrées avec un âge supérieur à 18 ans 
+( ) le même dictionnaire que <code>age_donnees</code>, mais qui ne contient que les entrées avec un âge inférieur à 18 ans 
 ( ) un dictionnaire vide
 
 [explanation]
