@@ -1,6 +1,40 @@
 # -*- coding: utf-8 -*-
 <hr/>
-Modules et espaces de nommage 
+Modules et espaces de nommage (1)
+=====
+
+Sélectionnez les assertions suivantes qui sont vraies.
+
+[x] un module est un fichier qui finit en .py
+[x] un module peut contenir n'importe quel code Python
+[x] l'import d'un module va créer un objet 
+[x] on utilise les modules comme des boîtes à outils
+
+[explanation]
+Un module est un fichier finissant en .py qui contient du code Python. Lors de l'import, un objet module est créé, cet objet peut ensuite être utilisé comme une boîte à outils. 
+[explanation]
+
+<hr/>
+Modules et espaces de nommage (2)
+=====
+
+Sélectionnez les assertions suivantes qui sont vraies.
+
+[x] un espace de nommage sert à isoler les variables 
+[ ] un espace de nommage sert à isoler les objets
+[ ] une variable dans deux espaces de nommage référence toujours le même objet
+[x] chaque module définit son propre espace de nommage
+[x] je peux accéder à n'importe quelle variable <code>x</code> dans le module <code>mod</code> avec la notation <code>mod.x</code>
+
+
+[explanation]
+Les espaces de nommage servent à isoler les variables, mais pas les objets qui eux vivent dans un espace mémoire partagé. Chaque module crée son propre espace de nommage (c'est une des qualités des modules) et on peut accéder à une variable dans l'espace de nommage d'un module en utilisant la notation <code>nom_du_module.nom_variable</code>.
+[explanation]
+
+
+
+<hr/>
+Modules et espaces de nommage (3)
 =====
 
 Dans un fichier <code>spam.py</code> on a 

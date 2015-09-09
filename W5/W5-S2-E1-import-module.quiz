@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 <hr/>
-Processus d'importation d'un module
+Processus d'importation d'un module (1)
 =====
 
 Comment est-ce que l'interpréteur python trouve la localisation du fichier d'un module sur le disque dur ? Il y a un ou plusieurs choix possibles. 
@@ -14,5 +14,36 @@ Comment est-ce que l'interpréteur python trouve la localisation du fichier d'un
 
 [explanation]
 Lorsque l'on importe un module <code>mod</code>, l'interpréteur python cherche en premier le fichier correspondant (<code>mod.py</code>) dans le répertoire courant, puis dans la liste des répertoires contenue dans la variable d'environnement système <code>PYTHONPATH</code>, puis dans les répertoires de la librairie standard. Tous ces chemins sont contenus dans la variable <code>sys.path</code> au démarrage de l'interpréteur. 
+[explanation]
+
+<hr/>
+Processus d'importation d'un module (2)
+=====
+
+Comment forcer un module <code>mod</code> à être rechargé ?
+
+(x) <code>reload(mod)</code>
+( ) <code>import mod</code>
+( ) un module ne peut être chargé qu'une seule fois
+
+[explanation]
+
+L'instruction <code>import</code> ne charge qu'une seule fois l'objet module pour des raisons de performance. Si on veut recharger un objet module parce qu'il a était modifié, il faut utiliser la fonction <code>reload</code>.
+
+[explanation]
+
+
+<hr/>
+Processus d'importation d'un module (3)
+=====
+
+Comment est créé un fichier <code>mod.pyc</code> ?
+
+[x] lors de l'importation du module avec <code>import mod</code> si le fichier <code>mod.pyc</code> n'exite pas encore
+[ ] toujours lors de l'importation du module avec <code>reload(mod)</code> 
+[x] lors de l'importation du module avec <code>from mod import x</code> si le fichier <code>mod.pyc</code> n'exite pas encore
+
+[explanation]
+Un fichier <code>mod.pyc</code> est créé à chaque fois que le module est compilé ou recompilé, c'est-à-dire, si le fichier <code>mod.py</code> n'a jamais été compilé ou s'il a changé depuis la dernière compilation. Un <code>reload</code> suppose qu'il y a déjà eu un import, donc que le fichier <code>mod.pyc</code> existe déjà. Le <code>reload</code> ne va créer le fichier <code>mod.pyc</code> que si le fichier <code>mod.py</code> a changé depuis la dernière compilation. 
 [explanation]
 

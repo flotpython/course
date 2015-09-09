@@ -1,6 +1,47 @@
 # -*- coding: utf-8 -*-
 <hr/>
-Importation et espace de nommage
+Importation et espace de nommage (1)
+=====
+
+Quelle variable va être créée dans l'espace de nommage du module avec l'import suivant ?
+<pre>
+import os
+</pre>
+
+(x) la variable <code>os</code>
+( ) la variable <code>mod.os</code>
+( ) la variable <code>import</code>
+( ) aucune variable
+
+
+[explanation]
+
+<code>import os</code> va charger le module <code>os</code> et créer une variable <code>os</code> qui va référencer l'objet module. 
+
+[explanation]
+
+
+<hr/>
+Importation et espace de nommage (2)
+=====
+
+Quelle variable va être créée dans l'espace de nommage du module avec l'import suivant ?
+<pre>
+from os import path
+</pre>
+
+( ) la variable <code>os</code>
+( ) la variable <code>os.path</code>
+(x) la variable <code>path</code>
+( ) aucune variable
+
+[explanation]
+<code>from os import path</code> va charger le module <code>os.path</code> et va créer une variable <code>path</code> qui va référencer l'objet module. 
+[explanation]
+
+
+<hr/>
+Importation et espace de nommage (3)
 =====
 
 Supposons que nous avons le code suivant.
