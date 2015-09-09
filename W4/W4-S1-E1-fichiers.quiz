@@ -9,7 +9,6 @@ Fichiers (1)
 Un objet de type fichier (<code>file</code>) est 
 
 ( ) une liste
-( ) un itérable
 ( ) un tuple
 (x) un itérateur
 

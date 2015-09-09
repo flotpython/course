@@ -95,7 +95,7 @@ def f(*args):
 L = [1, 2, 'a']
 </pre>
 
-Sélectionnez tous les appels qui sont syntaxiquement valides
+Sélectionnez tous les appels qui sont valides
 
 [x] f(1, 2)
 [x] f('a', 4, 5, 6, 7, [1,2])

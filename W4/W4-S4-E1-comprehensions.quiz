@@ -16,6 +16,7 @@ Valider toutes les réponses qui donnent un résultat équivalent au fragment de
 [x] <code>[(lambda x: x**2)(x) for x in range(10) if x%2 ==0]</code>
 
 [explanation]
+La première expression n'est pas valide syntaxiquement, on ne doit pas avoir un <code>:</code> entre le <code>x**2</code> et le <code>for</code> et entre le <code>for</code> et le <code>if</code>. La deuxième expression va retourner une liste de fonctions lambda (au lieu d'exécuter ces fonctions comme on le fait dans la quatrième expression). 
 Les deux dernières expressions donnent un résultat équivalent au fragment de code donné. Cependant, la dernière expression est inutilement lourde avec l'utilisation d'une fonction <code>lambda</code>.
 [explanation]
 
@@ -35,7 +36,7 @@ Valider toutes les réponses qui retournent l'ensemble de tous les éléments un
 [ ] <code>{x**2 for x in ma_liste if x is unique}</code>
 
 [explanation]
-Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble.
+Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble. La troisième expression n'est pas syntaxiquement valide, il ne faut pas un <code>:</code> entre le <code>x**2</code> et le <code>for</code>. La dernière expression est fausse parce que le <code>if x is unique</code> teste si la variable <code>x</code> référence le même objet que la variable <code>unique</code>, ce qui n'a pas de sens dans notre exemple. 
 [explanation]
 
 <hr/>

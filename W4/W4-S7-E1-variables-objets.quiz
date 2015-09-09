@@ -19,6 +19,7 @@ Variables et objets (2)
 =====
 
 <pre>
+x = 1
 def f():
     global x
     x = 10
@@ -31,7 +32,7 @@ Que va afficher l'exécution de ce code ?
 
 [x] 10
 [ ] Une exception
-[ ] <code>None</code>
+[ ] 1
 [ ] x
 
 [explanation]

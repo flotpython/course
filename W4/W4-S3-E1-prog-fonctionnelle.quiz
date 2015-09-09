@@ -10,10 +10,9 @@ Quelles expressions sont des fonctions <code>lambda</code> syntaxiquement valide
 [ ] <code> lambda(x) x**3</code>
 [x] <code> lambda x, y: x * y</code>
 [x] <code> lambda x, y: x ** 2</code>
-[ ] <code> lambda x: for i in range(x): print i</code>
 
 [explanation]
-Une fonction <code>lambda</code> commence toujours par le mot clef <code>lambda</code> suivi d'une liste d'arguments séparés par une virgule. Un <code>:</code> sépare la liste des arguments d'une expression utilisant tout ou partie des arguments. Cette expression sera retournée lors de l'appel de la fonction. On ne peut pas avoir une instruction (comme une boucle <code>for</code>, ou une affectation) dans une fonction <code>lambda</code>.
+Une fonction <code>lambda</code> commence toujours par le mot clef <code>lambda</code> suivi d'une liste d'arguments séparés par une virgule. Un <code>:</code> sépare la liste des arguments d'une expression utilisant tout ou partie des arguments. Cette expression sera retournée lors de l'appel de la fonction. 
 [explanation]
 
 <hr/>
