@@ -24,11 +24,11 @@ Fichier (2)
 
 Que va faire le code suivant ?
 
-<code> f = open('base_bateaux.txt', 'r')</code>
+<pre> f = open('base_bateaux.txt', 'r')</pre>
 
-[ ] créer le fichier base_bateaux.txt
-[x] ouvrir le fichier base_bateaux.txt s'il existe déjà et sinon produire une exception
-[ ] ouvrir le fichier base_bateaux.txt s'il existe déjà et le créer sinon
+[ ] créer le fichier <code>base_bateaux.txt</code>
+[x] ouvrir le fichier <code>base_bateaux.txt</code> s'il existe déjà et sinon produire une exception
+[ ] ouvrir le fichier <code>base_bateaux.txt</code> s'il existe déjà et le créer sinon
 [x] permettre de lire le fichier
 [ ] permettre d'écrire dans le fichier
 
@@ -40,14 +40,13 @@ L'ouverture d'un fichier en mode <code>'r'</code> va ouvrir le fichier en lectur
 Fichier (3)
 =====
 
-Quel module de la librairie standard va-t-on utiliser si l'on veut chercher tous les fichiers se terminant par .tmp ?
+Quel module de la librairie standard va-t-on utiliser si l'on veut chercher tous les fichiers se terminant par <code>.tmp</code> ?
 
-( ) os.path
-(x) glob
-( ) json
-( ) sys
+( ) <code>os.path</code>
+(x) <code>glob</code>
+( ) <code>json</code>
+( ) <code>sys</code>
 
 [explanation]
 Le module <code>glob</code> permet de facilement chercher des fichiers en utilisant les notations classique Unix * ou ?. Dans notre cas on utilisera <code>glob.glob('*.tmp')</code>.
 [explanation]
-
