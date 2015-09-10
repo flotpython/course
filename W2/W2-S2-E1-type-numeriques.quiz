@@ -3,7 +3,7 @@
 Types numériques (1)
 =====
 
-Comment calculer la 16-ème puissance de 2
+Comment calculer la 16-ème puissance de 2 ?
 
 ( ) <code>2 &amp; 16</code>
 (x) <code>2 ** 16</code>
@@ -18,7 +18,7 @@ Le signe puissance en python est **
 Types numériques (2)
 =====
 
-Comment entrer la valeur du complexe 3 + 2i
+Comment entrer la valeur du complexe 3 + 2i ? (plusieurs réponses possibles)
 
 [ ] <code>3 + 2i</code>
 [x] <code>3 + 2j</code>

@@ -3,13 +3,13 @@
 Strings (1)
 =====
 
-On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on veut écrire dans la case du milieu un caractère "-", c'est-à-dire que par exemple
+On reçoit en entrée une chaîne dont on sait qu'elle est de taille impaire, et on veut écrire dans la case du milieu un caractère "-", c'est-à-dire que par exemple : 
 
 <pre>chaine = "a"  => chaine = "-"</pre>
 <pre>chaine = "abc"  => chaine = "a-c"</pre>
 <pre>chaine = "abcde"  => chaine = "ab-de"</pre>
 
-Comment peut-on faire (plusieurs réponses possibles) ?
+Comment peut-on faire ?
 
 [ ] <code>chaine [ len(chaine)/2 ] = "-"</code>
 [ ] <code>chaine = chaine [:len(chaine)/2] + "-" + chaine [len(chaine)/2:]</code>
@@ -27,7 +27,7 @@ Le troisième choix est correct
 Strings (2)
 =====
 
-À partir d'une chaîne, on veut calculer une chaîne dérivée où le caractère '-' est inséré entre les caractères de la chaîne originelle, c'est-à-dire que par exemple
+À partir d'une chaîne, on veut calculer une chaîne dérivée où le caractère '-' est inséré entre les caractères de la chaîne originelle, c'est-à-dire que par exemple : 
 
 <pre>chaine = ""  => resultat = ""</pre>
 <pre>chaine = "a"  => resultat = "a"</pre>
@@ -49,7 +49,7 @@ La seconde est correcte également, et reste acceptable car elle convertit la ch
 Strings - formatage
 =====
 
-On veut écrire une fonction <code>affichage</code> qui met en forme un message à partir de 3 variables (<code>nom</code>, <code>age</code>, <code>no_secu</code>) pour obtenir, par exemple:
+On veut écrire une fonction <code>affichage</code> qui met en forme un message à partir de 3 variables (<code>nom</code>, <code>age</code>, <code>no_secu</code>) pour obtenir, par exemple :
 
 <pre>
 >>> affichage("Dupont", 25, "1975787")
