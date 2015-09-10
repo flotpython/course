@@ -32,7 +32,7 @@ Listes (2)
 <pre>liste = [0, 1, 2, 3]</pre>
 
 On souhaite "extraire" et retourner la valeur <code>0</code>, tout en la retirant de la liste.
-Plus précisément on veut affecter à la variable '<code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>
+Plus précisément on veut affecter à la variable <code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>
 
 Que faut-il faire ? (plusieurs réponses possibles)
 
