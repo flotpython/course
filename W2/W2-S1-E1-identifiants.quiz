@@ -3,9 +3,7 @@
 Noms de variables
 =====
 
-<em>Avec les choix multiples présentés comme ici <b>avec des cases carrées</b>, vous devez choisir <b>toutes les réponses</b> valides; il peut y en avoir zéro, une, ou plusieurs.</em>
-
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? 
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? <em>(plusieurs réponses possibles)</em>
 
 [x] <code>nom_de_variable</code>
 [ ] <code>nom-de-variable</code>
@@ -14,6 +12,9 @@ Parmi les noms de variables suivants, lesquels sont autorisés par le langage ?
 [x] <code>NomDeVariable</code>
 [ ] <code>2eme_variable</code>
 [x] <code>_nom_de_variable</code>
+
+
+<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides; il peut y en avoir une ou plusieurs.</em>
 
 [explanation]
 Seules les réponses d'indice impair sont correctes.
@@ -30,12 +31,12 @@ un identifiant ne peut pas commencer par un chiffre
 Accents dans les noms de variables
 =====
 
-<em>Remarquez qu'ici les <b>cases</b> à cocher sont <b>rondes</b>; dans ces questions-là il y a <b>exactement une</b> bonne réponse.</em>
-
 Peut-on utiliser des caractères accentués dans les noms de variables ? 
 
 ( ) Oui
 (x) Non
+
+<em>Remarquez qu'ici les <b>cases</b> à cocher sont <b>rondes</b>; dans ces questions-là il y a <b>exactement une</b> bonne réponse.</em>
 
 [explanation]
 On ne peut utiliser des accents que dans les commentaires, et à l'intérieur des chaînes de caractères.
@@ -45,7 +46,7 @@ On ne peut utiliser des accents que dans les commentaires, et à l'intérieur de
 Tirets dans les noms de variables
 =====
 
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ?
 
 [x] <code>_</code>
 [x] <code>_A</code>

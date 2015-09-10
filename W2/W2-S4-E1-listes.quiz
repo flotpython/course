@@ -7,7 +7,7 @@ On a
 <pre>liste = [0, 1, 2, 3]</pre>
 On veut <b>modifier</b> l'objet <code>liste</code> pour que sa valeur devienne <code>[0, 1, 4, 2, 3]</code>
 
-Que faut-il faire (plusieurs réponses possibles):
+Que faut-il faire ? (plusieurs réponses possibles)
 
 [ ] <code>liste[2] = 4</code>
 [ ] <code>liste[2] = [4]</code>
@@ -34,7 +34,7 @@ Listes (2)
 On souhaite "extraire" et retourner la valeur <code>0</code>, tout en la retirant de la liste.
 Plus précisément on veut affecter à la variable '<code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>
 
-Que faut-il faire:
+Que faut-il faire ? (plusieurs réponses possibles)
 
 [ ] <code>suivant = liste[0]</code>
 [x] <code>suivant = liste.pop(0)</code>
@@ -60,7 +60,7 @@ On a cette fois
 
 On veut trier la liste en ordre décroissant et <b>en place</b>, c'est-à-dire <b>sans dupliquer</b> la liste ni ses éléments.
 
-Faut-il faire (plusieurs réponses possibles) :
+Faut-il faire : (plusieurs réponses possibles)
 
 [x] <code>liste.sort(reverse=True)</code>
 [ ] <code>liste.sort()</code>

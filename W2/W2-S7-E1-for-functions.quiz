@@ -15,7 +15,7 @@ zip(...)
     in length to the length of the shortest argument sequence.
 </pre>
 
-C'est à dire que par exemple
+C'est à dire que par exemple :
 <pre>
 >>> zip( [1, 2, 3], [4, 5, 6])
 [(1, 4), (2, 5), (3, 6)]
@@ -29,7 +29,7 @@ Boucles <code>for</code>
 
 On dispose de deux matrices <code>matrice1</code> et <code>matrice2</code>, chacune implémentée comme une liste de listes. On sait par ailleurs que les deux matrices sont de même taille (même nombre de lignes, même taille de ligne deux à deux). On veut écrire un code qui calcule la somme des deux matrices.
 
-Par exemple si
+Par exemple si :  
 <pre>
 matrice1 = [
    [1, 2, 3],
@@ -42,7 +42,7 @@ matrice2 = [
    ]
 </pre>
 
-on veut obtenir dans la variable <code>somme</code> ceci
+on veut obtenir dans la variable <code>somme</code> ceci : 
 <pre>
 somme = [
    [11, 102, 1003],
@@ -118,7 +118,7 @@ On suppose qu'on a dans l'environnement
 entree = range(10)
 </pre>
 
-Parmi les fragments suivants, lesquels sont valides en python:
+Parmi les fragments suivants, lesquels sont valides en python ? 
 
 [ ] <code>carres = [ for x in entree: x**2 ]</code>
 [x] <code>carres = [ x**2 for x in entree ]</code>
