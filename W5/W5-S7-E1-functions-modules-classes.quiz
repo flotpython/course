@@ -6,8 +6,6 @@ Quand utiliser fonctions, modules ou classes ?
 <h3>Cochez les assertions vraies pour une fonction.</h3>
 [x] Permet une factorisation du code
 [ ] Permet de créer une boîte à outils
-[ ] Ne peut avoir qu'une seule instance par programme
-[ ] Peut avoir des instances multiples
 [ ] Permet l'héritage
 
 [explanation]

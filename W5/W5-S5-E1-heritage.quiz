@@ -54,7 +54,7 @@ L'attribut <code>__class__</code> sur une instance retourne une référence de l
 [explanation]
 
 <h3>Que retourne <code>A.__bases__</code> ?</h3>
-(x) Une référence de la classe C
+(x) Un tuple contenant une référence de la classe C
 ( ) Une référence de l'instance créée par la classe A
 ( ) Une exception
 
