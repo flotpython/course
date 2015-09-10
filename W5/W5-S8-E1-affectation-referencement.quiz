@@ -1,6 +1,45 @@
 # -*- coding: utf-8 -*-
+
 <hr/>
-Affectation et référencement ?
+Affectation et référencement (1)
+=====
+
+Comment va-t-être cherché un attribut <code>att</code> d'une instance <code>inst</code> lorsqu'il est référencé avec la notation <code>inst.att</code> ?
+
+(x) Suivant l'arbre d'héritage de l'instance
+( ) Suivant la règle LEGB
+( ) S'il n'est pas trouvé dans l'espace de nommage de l'instance, il y a une exception
+
+[explanation]
+L'attribut d'une instance est toujours cherché le long de l'arbre d'héritage de l'instance en commençant par l'instance puis en remontant l'arbre d'héritage jusqu'à trouver l'attribut. 
+[explanation]
+
+<hr/>
+Affectation et référencement (2)
+=====
+Supposons que l'on ait le code suivant
+<pre>
+x = 1
+def f():
+    print x
+    x = 2
+f()
+</pre>
+
+<h3>Que va être le résultat de l'exécution de ce code ?</h3>
+( ) affichage de <code>1</code> sur le terminal
+( ) affichage de <code>2</code> sur le terminal
+( ) affichage de <code>None</code> sur le terminal
+(x) une exception
+
+[explanation]
+Il s'agit d'un cas subtil en python. On s'attendrait à ce que la fonction affiche <code>1</code>, c'est-à-dire la valeur de la variable globale <code>x</code> au moment du <code>print</code>. Cependant, on définit cette variable <code>x</code> comme étant locale à la <b>ligne suivante !</b> Comme c'est une mauvaise idée de mélanger dans la même fonction une variable locale et une variable globale de même nom, python interdit cela en lançant une exception spécifique : <code>UnboundLocalError</code>. Ce problème est discuté dans un complément dédié en semaine 4. 
+[explanation]
+
+
+
+<hr/>
+Affectation et référencement (3)
 =====
 
 Supposons que l'on ait le code suivant
@@ -30,25 +69,5 @@ C().f()
 L'interpréteur python suit toujours la règle LEG pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobante uniquement. Lorsque l'on execute <code>print a</code>, <code>a</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>) puis dans le module. C'est donc la valeur de <code>a</code> définie dans le module qui sera utilisée (on note que l'on saute la classe englobante lors de la recherche de la variable). 
 
 Lorsque l'on execute <code>print b</code>, <code>b</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>). <code>b</code> est définie dans la fonction englobante <code>f</code>, c'est donc cette valeur de <code>b</code> qui sera utilisée. 
-[explanation]
-
-=====
-Supposons que l'on ait le code suivant
-<pre>
-x = 1
-def f():
-    print x
-    x = 2
-f()
-</pre>
-
-<h3>Que va être le résultat de l'exécution de ce code ?</h3>
-( ) affichage de <code>1</code> sur le terminal
-( ) affichage de <code>2</code> sur le terminal
-( ) affichage de <code>None</code> sur le terminal
-(x) une exception
-
-[explanation]
-Il s'agit d'un cas subtil en python. On s'attendrait à ce que la fonction affiche <code>1</code>, c'est-à-dire la valeur de la variable globale <code>x</code> au moment du <code>print</code>. Cependant, on définit cette variable <code>x</code> comme étant locale à la <b>ligne suivante!</b> Comme c'est une mauvaise idée de mélanger dans la même fonction une variable locale et une variable globale de même nom, python interdit cela en lançant une exception spécifique : <code>UnboundLocalError</code>. Ce problème est discuté dans un complément dédié en semaine 4. 
 [explanation]
 

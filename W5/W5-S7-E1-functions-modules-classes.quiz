@@ -3,33 +3,35 @@
 Quand utiliser fonctions, modules ou classes ?
 =====
 
->>J'ai un morceau de code qui effectue un calcul et j'utilise très fréquemment ce code. Quelle est la bonne manière de factoriser ce code?<<
-(x) une fonction
-( ) une classe
-( ) un module
-( ) aucune factorisation possible
+<h3>Cochez les assertions vraies pour une fonction.</h3>
+[x] Permet une factorisation du code
+[ ] Permet de créer une boîte à outils
+[ ] Ne peut avoir qu'une seule instance par programme
+[ ] Peut avoir des instances multiples
+[ ] Permet l'héritage
 
 [explanation]
-Lorsque l'on a un morceau de code qui retourne un résultat et que l'on a besoin de fréquemment utiliser ce code, il est naturel d'utiliser une fonction python.
+Une fonction permet de factoriser du code. C'est la plus petite unité de factorisation (par rapport à un module ou une classe) et une fonction est optimisée pour être efficace lors d'un appel. 
 [explanation]
 
->>J'ai un morceau de code avec de nombreuses fonctions que j'ai besoin d'utiliser à différents endroits de mon programme. Quelle est la bonne manière de factoriser ce code?<<
-( ) une fonction
-( ) une classe
-(x) un module
-( ) aucune factorisation possible
+<h3>Cochez les assertions vraies pour un module.</h3>
+[x] Permet une factorisation du code
+[x] Permet de créer une boîte à outils
+[x] Ne peut avoir qu'une seule instance par programme
+[ ] Peut avoir des instances multiples
+[ ] Permet l'héritage
 
 [explanation]
-La manière naturelle de factoriser un code avec des fonctions est de faire un module qui jouera le rôle d'une boite à outils pour mon programme. 
+Un module permet à la fois de factoriser du code et de créer une boîte à outils. Un module permet en général de regrouper un ensemble d'outils permettant de résoudre un problème bien défini. Il ne peut exister qu'une seule instance d'un module particulier dans un programme (on rappelle que l'instruction <code>import mod</code> ne charque qu'une seule fois le module <code>mod</code> quelque soit le nombre de fois qu'on fasse l'import.
 [explanation]
 
->>J'ai un morceau code avec des fonctions et j'ai besoin de l'utiliser à différents endroits de mon programme. De plus, je modifie à différents endroits de mon programme quelques fonctions de ce morceau de code. Quelle est la bonne manière de factoriser ce code?<<
-( ) une fonction
-(x) une classe
-( ) un module
-( ) aucune factorisation possible
+<h3>Cochez les assertions vraies pour une classe.</h3>
+[x] Permet une factorisation du code
+[x] Permet de créer une boîte à outils
+[ ] Ne peut avoir qu'une seule instance par programme
+[x] Peut avoir des instances multiples
+[x] Permet l'héritage
 
 [explanation]
-Dans ce cas, on peut difficilement utiliser un module puisque l'on doit suivant l'endroit du programme utiliser des fonctions différentes. La manière naturelle de factoriser ce code est de faire des classes et des sous classes qui définissent les fonctions différentes suivant l'endroit de mon programme. Notons que l'on peut tout à fait créer des fonctions qui avec certains paramètres changent leur comportement et tout mettre dans un module. Cependant, la maintenance sera plus difficile puisque l'on ne bénéficiera pas de l'héritage qui, lorsqu'il est bien utilisé, permet une meilleure factorisation et maintenance du code. 
+Une classe permet de factoriser du code et de créer une boîte à outils, mais elle se différencie d'un module en permettant la création d'instances multiples et la notion d'héritage. 
 [explanation]
-

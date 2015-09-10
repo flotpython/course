@@ -99,8 +99,14 @@ W5
  et discuté aussi en semaine 7. C'est donc trop avancé à mon avis pour un quiz. 
  
  * W5S6 - TODOQUIZ - manque un quiz sur la surcharge des opérateurs
+ AL: Done
+ 
  * W5S7 - TODOQUIZ - je ne suis pas trop d'accord avec l'exo numéro 2 (perso, je ne fais pas de module sans classe) et alors le #3, je ne comprends pas l'énoncé... Le quiz dans son ensemble me paraît bien prédictible.
+AL: j'ai totalement refait ce quiz. Je pense que c'est mieux.
+
  * W5S8 - TODOQUIZ - je me demande si la deuxième question n'est pas un peu perverse, il faudrait arriver à la compter peu (ou alors supprimer la question?)
+ AL: c'est une question déjà abordée en W4S6 et il y avait déjà un quiz dessus (ça devrait donc commencer à être assimilé par les étudiants). C'est un problème important et classique, 
+ c'est pourquoi je le remets ici
 
 W7
 ===
