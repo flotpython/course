@@ -70,4 +70,3 @@ L'interpréteur python suit toujours la règle LEG pour trouver la valeur d'une 
 
 Lorsque l'on execute <code>print b</code>, <code>b</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>). <code>b</code> est définie dans la fonction englobante <code>f</code>, c'est donc cette valeur de <code>b</code> qui sera utilisée. 
 [explanation]
-
