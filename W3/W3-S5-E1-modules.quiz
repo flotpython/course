@@ -79,9 +79,4 @@ On lance un interpréteur python dans le directory <code>on-est-ici</code> et on
 
 [explanation]
 On ne peut pas faire l'import de <code>spam</code>, car le package <code>paquet</code> ne possède pas le fichier <code>__init__.py</code> qui est indispensable dans ce cas (même vide).
-
-Une fois ce fichier créé, on pourrait importer le module <code>spam</code> avec la troisième clause présentée ici.
-[explanation]
-
-[explanation]
 [explanation]

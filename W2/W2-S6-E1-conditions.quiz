@@ -66,7 +66,7 @@ Le premier cas imprime <code>non</code> car on compare une liste et un tuple.
 
 Le second cas en revanche imprime <code>oui</code>, on compare deux listes qui ont le même contenu.
 
-Dans la dernière forme, les deux constantes None et False ne sont égaux ni par l'opérateur <code>is</code> (ce ne sont pas les mêmes objets) ni par l'opérateur <code>==</code> (ils sont de types différents).
+Dans la dernière forme, les deux constantes <code>None</code> et <code>False</code> ne sont égaux ni par l'opérateur <code>is</code> (ce ne sont pas les mêmes objets) ni par l'opérateur <code>==</code> (ils sont de types différents).
 [explanation]
 
 <hr/>

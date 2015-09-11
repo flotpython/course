@@ -46,7 +46,7 @@ Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?
 [explanation]
 Dans le premier fragment, aucun des deux blocs (correspondant respectivement au <code>if</code> et au <code>else</code>) ne peut être reconnu par python, car chacun de ces deux blocs contient deux instructions et dans les deux cas les deux instructions ont une indentation différente. Le premier fragment n'est pas syntaxiquement correct.
 
-Le deuxième fragment est syntaxiquement correct; chacun des deux blocs a ses deux instructions alignées, tou va bien. Par contre cette présentation est tout à fait contraire aux recommendations habituelles, on ne voit jamais cela dans du code réel.
+Le deuxième fragment est syntaxiquement correct; chacun des deux blocs a ses deux instructions alignées, tout va bien. Par contre, cette présentation est tout à fait contraire aux recommendations habituelles, on ne voit jamais cela dans du code réel.
 
 Le troisième fragment utilise la convention habituelle de 4 espaces pour les deux blocs, il est syntaxiquement correct.
 [explanation]
@@ -94,8 +94,8 @@ if (condition1 and condition2)
 
 <h3>Extrait 3</h3>
 <pre>
-resultat = une_fonction (argument1, argument2,
-	   		 argument3, argument4)
+resultat = une_fonction(argument1, argument2,
+	   		argument3, argument4)
 </pre>
 
 Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?

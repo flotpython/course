@@ -13,14 +13,30 @@ Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>Tr
 [ ] <code>chaine.index('z') == len(chaine)</code>
 [x] <code>chaine.index('z') == len(chaine) - 1</code>
 
+[explanation]
+En effet, <code>chaine.index(x)</code> renvoye un index valide dans <code>chaine</code>, ça ne peut donc pas être la longueur de <code>chaine</code>; le dernier index valide dans une chaine non vide est toujours un de moins que la longueur de la chaine.
+[explanation]
+
 <h3>Appartenance</h3>
 Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>True</code> ?
 
 [ ] <code>'daz' in chaine</code>
 [x] <code>'nez' in chaine</code>
 
+[explanation]
+On trouve bien la sous-chaine <code>'nez'</code> dans la chaine de départ.
+
+S'agissant de la première sous-chaine, bien que naturellement toutes les lettres prises individuellement sont présentes, on ne trouve pas la sous-chaîne telle quelle.
+[explanation]
+
 <h3>Slicing</h3>
 Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>True</code> ?
 
 [x] <code>chaine[-3:] == 'nez'</code>
 [x] <code>chaine[1:3] + chaine[3:5] + chaine[5:] == chaine[1:]</code>
+
+[explanation]
+<code>chaine&#91;-3:&#93;</code> consiste à prendre les trois derniers caractères, c'est bien correct.
+
+Dans le deuxième cas, vous pouvez remarquer que la notation des slices fonctionne de telle sorte que <em>chaine&#91;a:b&#93; + chaine&#91;b:c&#93;</em> donne toujours <em>chaine&#91;a:c&#93;</em> lorsque <em>a</em>, <em>b</em> et <em>c</em> sont en ordre croissant.
+[explanation]

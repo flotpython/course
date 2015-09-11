@@ -12,12 +12,12 @@ for temoin in [ [], True, {}, "", None, False ] + range(3):
         compteur += 1
 </pre>
 
-Combien vaut <code>compteur</code> ?
+Combien vaut <code>compteur</code> ? (Vous devez bien entendu entrer la valeur numérique dans la case)
 
 = 3
 
 [explanation]
-La liste de départ, une fois l'addition évaluée, contient comme éléments <em>vrais</em> seulement <code>True</code>, <code>1</code> et <code>2</code>. Les autres éléments de la liste sont tous considérés comme faux, parce que vides.
+La liste de départ, une fois l'addition évaluée, contient comme éléments <em>vrais</em> seulement <code>True</code>, <code>1</code> et <code>2</code>. Les autres éléments de la liste sont tous considérés comme faux.
 [explanation]
 
 <hr/>
@@ -67,7 +67,7 @@ Quels sont ceux qui impriment <code>oui</code> ?
 [explanation]
 Dans le premier fragment, le premier test est positif, mais le second est négatif car <code>0</code> est considéré comme faux.
 
-Dans le second fragment, c'est le <code>else</code> qui est exécuté; et comme <code>u</code> vaut <code>None</code>, c'est à nouveau le <code>else</code> de l'expression conditionnelle qui est renvoyé.
+Dans le second fragment, c'est le <code>else</code> qui est exécuté; et comme <code>u</code> vaut <code>None</code>, l'expression conditionnelle renvoie <code>'oui'</code>.
 
 Dans le troisième fragment, le premier test est positif, mais le second est négatif, et par conséquent <b>rien n'est imprimé</b> car le <code>if</code> interne n'a pas de clause <code>else</code>.
 [explanation]

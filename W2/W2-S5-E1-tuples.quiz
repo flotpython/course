@@ -73,5 +73,5 @@ On cherche à écrire un code qui permette d'intervertir les deux derniers élé
 [explanation] 
 La première formule fonctionne, quoi que pas très "pythonique"
 La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(reverse)
-La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à gauche de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
+La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à droite de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
 [explanation]
