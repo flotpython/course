@@ -6,22 +6,22 @@
 
 Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ensemble de type <code>set</code> ?
 
-[ ] un objet (de type) <code>set</code>
-[x] un objet <code>frozenset</code>
-[ ] un tuple de <code>set</code>'s
-[x] un tuple de <code>frozenset</code>'s
-[ ] une liste de <code>frozenset</code>'s
+[ ] Un objet (de type) <code>set</code>
+[x] Un objet <code>frozenset</code>
+[ ] Un tuple de <code>set</code>'s
+[x] Un tuple de <code>frozenset</code>'s
+[ ] Une liste de <code>frozenset</code>'s
 
 [explanation]
 Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalament immuable.
 
 option 1: ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
 
-option 2: un objet <code>frozenset</code> est immuable; de plus comme c'est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
+option 2: le type <code>frozenset</code> est immuable; de plus comme un <code>frozenset</code> est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
 
 option3: le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
 
-option 4: un tuple d'objets globalement immuables est immuable
+option 4: un tuple d'objets globalement immuables est immuable.
 
 option 5: la liste elle-même est mutable.
 [explanation]
@@ -51,15 +51,9 @@ Test d'appartenance à un ensemble
 On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ?
 
 [ ] Le test peut s'écrire <code>x in s</code>, il prend un temps linéaire avec la taille de l'ensemble (linéaire: si l'ensemble est deux fois plus gros, le temps est deux fois plus long)
-[ ] Le test peut s'écrire <code>x in s</code>, il prend un temps constant
+[x] Le test peut s'écrire <code>x in s</code>, il prend un temps constant
 [ ] On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>; par conséquent le test d'appartenance prend un temps qui grandit avec la taille de l'ensemble. 
 
 [explanation]
-[explanation]
-
-<hr/>
-Manipulations d'ensembles, unions intersections...
-=====
-
-[explanation]
+Les ensembles sont implémentés comme des tables de hachage, au même titre que les dictionnaires. Que <code>s</code> soit un <code>set</code> ou un <code>frozenset</code>, on peut donc tester l'appartenance de <code>x</code> avec <code>s in x</code>, et cette opération prend un temps qui ne dépend pas de la taille de l'ensemble.
 [explanation]
