@@ -95,4 +95,3 @@ Le premier cas imprime clairement <code>non</code>, puisque le premier terme du 
 
 Dans le second cas, en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>.
 [explanation]
-
