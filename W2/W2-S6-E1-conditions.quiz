@@ -19,7 +19,7 @@ else:
 
 
 [explanation]
-Comme <code>range(1)</code> retourne la liste <code>&#91;1&#93;</code>, le test est positif et donc on affiche <code>oui</code>.
+Comme <code>range(1)</code> retourne la liste <code>&#91;0&#93;</code>, le test est positif et donc on affiche <code>oui</code>.
 
 Par ailleurs ce code est valide - les deux blocs n'ont pas la même indentation mais ce n'est pas rédhibitoire; en revanche il ne suit pas les recommandations de présentation du code en python, qui sont de toujours indenter un bloc d'instructions de 4 espaces.
 [explanation]
