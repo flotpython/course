@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
-<em><b>Rappel:</b>Les cases à cocher <b>rondes</b> appellent exactement une réponse valable, les cases <b>carrées</b> appellent zéro, une ou plusieurs réponses valables.</em>
-
 <hr/>
 Dictionnaires (1)
 =====
 
-Le type dictionnaire est un type
+Le type dictionnaire est un type : 
 
 ( ) immuable
 (x) mutable
@@ -19,7 +16,7 @@ On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
 Dictionnaires (2)
 =====
 
-Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ?
+Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ? : 
 
 ( ) oui
 (x) non
@@ -36,7 +33,7 @@ NB. la classe <code>OrderedDict</code>, dans le module <code>collections</code>,
 Dictionnaires (3)
 =====
 
-Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire
+Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire : 
 
 [x] <code>1</code>
 [ ] <code>[1, 2]</code>
@@ -52,7 +49,7 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste
 Dictionnaires (4)
 =====
 
-Pour modifier la valeur de la clé <code>marc</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire
+Pour modifier la valeur de la clé <code>marc</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire : 
 
 [x] <code>annuaire['marc'] = 50</code>
 [ ] <code>annuaire.get('marc', 50)</code>

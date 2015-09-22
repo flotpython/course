@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
+
 
 <b>Pour tout le quiz:</b> dans toutes les questions, on suppose définies par ailleurs toutes les variables et fonctions utilisées.
 
-<hr/>
 Blocs
 =====
-On s'intéresse à l'indentation du code:
+On s'intéresse à l'indentation du code :
 
 <h3>Fragment 1</h3>
 <pre>
@@ -37,7 +36,7 @@ else:
     action(b)
 </pre>
 
-Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?
+Quels sont, parmi ces fragments, ceux qui sont syntaxiquement corrects ? : 
 
 [ ] Fragment 1
 [x] Fragment 2
@@ -55,7 +54,7 @@ Le troisième fragment utilise la convention habituelle de 4 espaces pour les de
 Espaces
 =====
 
-On s'intéresse à présent à l'utilisation des espaces. Parmi les extraits suivants, lesquels respectent les recommandations de codage de la librairie standard ?
+On s'intéresse à présent à l'utilisation des espaces. Parmi les extraits suivants, lesquels respectent les recommandations de codage de la librairie standard ? : 
 
 [ ] <code>a= b + c</code>
 
@@ -98,7 +97,7 @@ resultat = une_fonction(argument1, argument2,
 	   		argument3, argument4)
 </pre>
 
-Quels sont parmi ces fragments ceux qui sont syntaxiquement corrects ?
+Quels sont, parmi ces fragments, ceux qui sont syntaxiquement corrects ? : 
 
 [x] Extrait 1
 [ ] Extrait 2

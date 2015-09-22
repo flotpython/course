@@ -1,22 +1,20 @@
-# -*- coding: utf-8 -*-
 
-<hr/>
 Import (1)
 =====
 
-On a écrit un module python dans le fichier <code>spam.py</code>, qui contient ceci:
+On a écrit un module python dans le fichier <code>spam.py</code>, qui contient ceci :
 <pre>
 # spam.py
 eggs = "beans"
 </pre>
 
-On se place dans le même répertoire où se trouve <code>spam.py</code>, si bien que l'arborescence de fichiers ressemble à ceci:
+On se place dans le même répertoire où se trouve <code>spam.py</code>, si bien que l'arborescence de fichiers ressemble à ceci :
 
 <div style="padding:20px;">
 <span style="text-align:center;"><img src="/static/quiz-module1.png" /></span>
 </div>
 
-On lance un interpréteur python et on fait:
+On lance un interpréteur python et on fait :
 
 <pre>
 $ python
@@ -24,7 +22,7 @@ Python 2.7.10 ...
 >>> import spam
 </pre>
 
-Parmi les affirmations suivantes, lesquelles sont correctes ?
+Parmi les affirmations suivantes, lesquelles sont correctes ? : 
 
 [x] la variable <code>spam</code> est définie
 [ ] la variable <code>eggs</code> est définie
@@ -42,7 +40,7 @@ Et naturellement, <code>beans</code> est seulement le contenu d'une chaîne de c
 <hr/>
 Import (2)
 =====
-Dans la même configuration que pour l'exercice (1), on fait à présent:
+Dans la même configuration que pour l'exercice (1), on fait à présent :
 
 <pre>
 $ python
@@ -51,7 +49,7 @@ Python 2.7.10 ...
 >>> import spam
 </pre>
 
-Qu'obtient-on à ce stade pour la valeur de <code>eggs</code> ?
+Qu'obtient-on à ce stade pour la valeur de <code>eggs</code> ? : 
 
 (x) 'ham'
 ( ) 'beans'
@@ -64,13 +62,13 @@ Les deux variables <code>eggs</code> et <code>spam.eggs</code> sont totalement i
 Import (3)
 =====
 
-À présent, le module <code>spam.py</code> n'est plus dans le répertoire courant, mais dans un sous-répertoire <code>paquet</code> qui ne contient que <code>spam.py</code>. À présent l'arborescence de fichiers ressemble à ceci:
+À présent, le module <code>spam.py</code> n'est plus dans le répertoire courant, mais dans un sous-répertoire <code>paquet</code> qui ne contient que <code>spam.py</code>. À présent l'arborescence de fichiers ressemble à ceci :
 
 <div style="padding:20px;">
 <span style="text-align:center;"><img src="/static/quiz-module2.png" /></span>
 </div>
 
-On lance un interpréteur python dans le directory <code>on-est-ici</code> et on veut importer le module <code>spam</code>, comment doit-on faire ?
+On lance un interpréteur python dans le directory <code>on-est-ici</code> et on veut importer le module <code>spam</code>, comment doit-on faire ? :
 
 [ ] <code>import paquet.spam</code>
 [ ] <code>from paquet import spam</code>
