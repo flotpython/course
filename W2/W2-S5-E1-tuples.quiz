@@ -17,7 +17,7 @@ Parmi les expressions et instructions ci-dessous, lesquelles sont valides ?
 La première expression est correcte et renvoie 1
 La seconde expression est correcte et renvoie une copie du tuple
 La troisième expression n'est pas valable et renvoie une exception <em>IndexError</em>, car <code>triple</code> n'a pas de case numéro 3 (<em>index out of range</em>)
-L'affection en quatrième position n'est pas autorisée, un tuple est un objet immuable
+L'affection de la quatrième réponse n'est pas autorisée, un tuple est un objet immuable
 [explanation]
 
 <hr/>
@@ -72,6 +72,6 @@ On cherche à écrire un code qui permette d'intervertir les deux derniers élé
 
 [explanation] 
 La première formule fonctionne, quoi que pas très "pythonique"
-La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(reverse)
+La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(list.reverse)
 La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à droite de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
 [explanation]
