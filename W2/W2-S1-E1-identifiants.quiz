@@ -31,7 +31,7 @@ un identifiant ne peut pas commencer par un chiffre
 Accents dans les noms de variables
 =====
 
-Peut-on utiliser des caractères accentués dans les noms de variables ? 
+Peut-on utiliser des caractères accentués dans les noms de variables en python2 ? 
 
 ( ) Oui
 (x) Non
@@ -46,7 +46,7 @@ On ne peut utiliser des accents que dans les commentaires, et à l'intérieur de
 Tirets dans les noms de variables
 =====
 
-Parmi les noms de variables suivants, lesquels sont autorisés par le langage ?
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? Pour être très clair, on parle bien de ce qui est <b>permis</b> par le langage, sans tenir compte de ce qui est <b>recommandé</b> ou pas.
 
 [x] <code>_</code>
 [x] <code>_A</code>
