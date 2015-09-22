@@ -91,7 +91,7 @@ Quels sont ceux qui impriment <code>oui</code> ?
 [x] Fragment 2
 
 [explanation]
-Le premier cas imprime clairement <code>non</code>, puisque le premier terme du <code>or</code> est <code>False</code>.
+Le premier cas imprime clairement <code>non</code>, puisque le premier terme du <code>and</code> est <code>False</code>.
 
 Dans le second cas, en l'absence de parenthèses la condition est interprétée comme <code>(False and False) or True</code>.
 [explanation]
