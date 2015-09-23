@@ -97,5 +97,5 @@ Les clauses 1, 2 sont correctes
 
 La clause 3 est erronée, elle mélange les <code>%s</code> de l'opérateur <code>%</code> avec la méthode <code>format</code>
 
-La clause 4 est erronée car elle fait <code>print</code> au lieu de <code>return</code>. Le code qui élabore le message serait par ailleurs correct, mais paraît moins lisible que les options 1 et 2.
+La clause 4 est erronée car elle fait <code>print</code> au lieu de <code>return</code>. De plus le code qui élabore le message ne fonctionne pas car on essaie de concaténer un string avec un entier. Enfin, cette méthode paraît moins lisible que les options 1 et 2.
 [explanation]
