@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-<hr/>
 Conditions
 =====
 
@@ -12,7 +11,7 @@ for temoin in [ [], True, {}, "", None, False ] + range(3):
         compteur += 1
 </pre>
 
-Combien vaut <code>compteur</code> ? (Vous devez bien entendu entrer la valeur numérique dans la case)
+Combien vaut <code>compteur</code> ? (Vous devez entrer la valeur numérique dans la case)
 
 = 3
 
@@ -58,7 +57,7 @@ else:
     print 'oui'
 </pre>
 
-Quels sont ceux qui impriment <code>oui</code> ?
+Quels sont ceux qui impriment <code>oui</code> ? : 
 
 [ ] Fragment 1
 [x] Fragment 2

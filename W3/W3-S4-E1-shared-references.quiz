@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-<hr/>
+
 Références partagées (1)
 =====
 
@@ -14,7 +14,7 @@ après quoi on fait
 liste[0] = 1
 </pre>
 
-Qu'obtient-on si on imprime <code>liste</code> à ce stade ?
+Qu'obtient-on si on imprime <code>liste</code> à ce stade ? : 
 
 ( ) <code>[0, 0, 0]</code>
 (x) <code>[1, 0, 0]</code>
@@ -27,7 +27,7 @@ Qu'obtient-on si on imprime <code>liste</code> à ce stade ?
 <hr/>
 Références partagées (2)
 =====
-On considère le scénario suivant:
+On considère le scénario suivant :
 
 <pre>
 cellule = [0]
@@ -36,7 +36,7 @@ liste = [cellule, cellule, cellule]
 liste[0][0] = 1
 </pre>
 
-Qu'obtient-on comme valeur pour <code>liste</code> ?
+Qu'obtient-on comme valeur pour <code>liste</code> ? : 
 
 ( ) <code>&#91;&#91;0], [0], [0]]</code>
 ( ) <code>&#91;&#91;1], [0], [0]]</code>
@@ -59,7 +59,7 @@ liste = [cellule, cellule, cellule]
 cellule[0] = 1
 </pre>
 
-Qu'obtient-on comme valeur pour <code>liste</code> ?
+Qu'obtient-on comme valeur pour <code>liste</code> ? : 
 
 ( ) <code>&#91;&#91;0], [0], [0]]</code>
 ( ) <code>&#91;&#91;1], [0], [0]]</code>
@@ -82,7 +82,7 @@ liste = [cellule, cellule, cellule]
 cellule = [1]
 </pre>
 
-Qu'obtient-on comme valeur pour <code>liste</code> ?
+Qu'obtient-on comme valeur pour <code>liste</code> ? : 
 
 (x) <code>&#91;&#91;0], [0], [0]]</code>
 ( ) <code>&#91;&#91;1], [0], [0]]</code>
@@ -98,7 +98,7 @@ Si vous avez encore des difficultés avec l'une de ces 4 premières questions, v
 Les limites de la copie
 =====
 
-L'opérateur <code>*</code> sur les listes crée des références partagées, comme on peut le voir ici:
+L'opérateur <code>*</code> sur les listes crée des références partagées, comme on peut le voir ici : 
 
 <pre>
 >>> liste = 3 * &#91; &#91;0&#93; &#93;
@@ -109,7 +109,7 @@ L'opérateur <code>*</code> sur les listes crée des références partagées, co
 &#91;&#91;1&#93;, &#91;1&#93;, &#91;1&#93;&#93;
 </pre>
 
-Comment faire pour éviter que les trois éléments de liste ne soient modifiées ?
+Comment faire pour éviter que les trois éléments de liste ne soient modifiées ? : 
 
 ( ) il faut faire une <em>shallow copy</em>
 ( ) il faut faire une <em>deep copy</em>

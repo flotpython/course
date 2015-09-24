@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-<hr/>
 Éléments dans un ensemble
 =====
 
-Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ensemble de type <code>set</code> ?
+Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ensemble de type <code>set</code> ? : 
 
 [ ] Un objet (de type) <code>set</code>
 [x] Un objet <code>frozenset</code>
@@ -30,7 +29,7 @@ option 5: la liste elle-même est mutable.
 Ensemble vide
 =====
 
-Pour créer un ensemble <code>set</code> vide en python on peut faire
+Pour créer un ensemble <code>set</code> vide en python on peut faire : 
 
 [ ] <code>{}</code>
 [x] <code>set()</code>
@@ -48,7 +47,7 @@ La fonction <code>set</code> accepte donc en argument un objet de type quelconqu
 Test d'appartenance à un ensemble
 =====
 
-On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ?
+On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ? : 
 
 [ ] Le test peut s'écrire <code>x in s</code>, il prend un temps linéaire avec la taille de l'ensemble (linéaire: si l'ensemble est deux fois plus gros, le temps est deux fois plus long)
 [x] Le test peut s'écrire <code>x in s</code>, il prend un temps constant

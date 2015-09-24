@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-<hr/>
 Listes
 =====
 
-Sélectionner les affirmations correctes
+Sélectionner les affirmations correctes : 
 
 [x] La recherche d'un élément dans une liste se fait dans un temps qui grandit avec la taille de la liste
 [ ] On peut accéder à un élément dans une liste en utilisant un index non entier, comme par exemple une chaîne de caractères
@@ -17,7 +16,7 @@ Les deux premières propriétés (accès en temps constant, ensemble de clés pl
 Tables de hash
 =====
 
-Sélectionner les affirmations correctes
+Sélectionner les affirmations correctes : 
 
 [x] La recherche d'un élément dans une table de hash se fait en temps constant
 [x] On peut accéder à un élément dans une table de hash en utilisant un index non entier comme par exemple une chaîne de caractères
