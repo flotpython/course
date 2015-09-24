@@ -12,7 +12,7 @@ Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ens
 [ ] Une liste de <code>frozenset</code>'s
 
 [explanation]
-Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalament immuable.
+Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalement immuable.
 
 option 1: ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
 
@@ -49,10 +49,10 @@ Test d'appartenance à un ensemble
 
 On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ? : 
 
-[ ] Le test peut s'écrire <code>x in s</code>, il prend un temps linéaire avec la taille de l'ensemble (linéaire: si l'ensemble est deux fois plus gros, le temps est deux fois plus long)
-[x] Le test peut s'écrire <code>x in s</code>, il prend un temps constant
-[ ] On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>; par conséquent le test d'appartenance prend un temps qui grandit avec la taille de l'ensemble. 
+( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble
+(x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant
+( ) On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>
 
 [explanation]
-Les ensembles sont implémentés comme des tables de hachage, au même titre que les dictionnaires. Que <code>s</code> soit un <code>set</code> ou un <code>frozenset</code>, on peut donc tester l'appartenance de <code>x</code> avec <code>s in x</code>, et cette opération prend un temps qui ne dépend pas de la taille de l'ensemble.
+Les ensembles sont implémentés comme des tables de hachage, au même titre que les dictionnaires. Que <code>s</code> soit un <code>set</code> ou un <code>frozenset</code>, on peut donc tester l'appartenance de <code>x</code> avec <code>x in s</code>, et cette opération prend un temps qui ne dépend pas de la taille de l'ensemble.
 [explanation]
