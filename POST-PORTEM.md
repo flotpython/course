@@ -1,4 +1,4 @@
-<!--- -*- coding: utf-8 -*- --->
+[comment]: <url> "-*- coding: utf-8 -*-"
 
 Plateforme
 =======
