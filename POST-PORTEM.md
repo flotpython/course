@@ -61,7 +61,10 @@ W1
 
 W2
 ===
- * W2 Quizzes reviewed and complete
+ * W2-S6-E1 : dans le quiz on parle de l'opérateur `is` qui n'a pas
+   encore été introduit à ce stade du cours
+ * W2-S8-C3-la-fonction-raw_input.ipynb : il semble que readline ne
+   soit pas par défaut sur windows
 
 W3
 ===
