@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-<hr/>
 Dictionnaires (1)
 =====
 
@@ -42,7 +41,7 @@ Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une
 [ ] <code>([1, 2], [3, 4])</code>
 
 [explanation]
-Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé
+Les objets des réponses 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé.
 [explanation]
 
 
@@ -50,14 +49,14 @@ Les objets 2 et 4 peuvent être modifiés car ils contiennent au moins une liste
 Dictionnaires (4)
 =====
 
-Pour modifier la valeur de la clé <code>marc</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire : 
+Pour modifier la valeur de la clé <code>'marc'</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire : 
 
 [x] <code>annuaire['marc'] = 50</code>
 [ ] <code>annuaire.get('marc', 50)</code>
 [ ] <code>annuaire.setdefault('marc', 50)</code>
 
 [explanation]
-La seconde forme retourne la valeur pour <code>marc</code> si elle existe, et sinon <code>50</code>, mais ne modifie pas <code>annuaire</code>.
+La seconde forme retourne la valeur pour <code>'marc'</code> si elle existe, et sinon <code>50</code>, mais ne modifie pas <code>annuaire</code>.
 
-La troisième forme ne modifie <code>dictionnaire</code> que lorsque la clé <code>marc</code> n'est pas encore présente.
+La troisième forme ne modifie <code>annuaire</code> que lorsque la clé <code>'marc'</code> n'est pas encore présente.
 [explanation]

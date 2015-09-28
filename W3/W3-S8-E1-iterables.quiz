@@ -31,5 +31,5 @@ Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode <cod
 ( ) Non
 
 [explanation]
-Oui, et dans ce cas la boucle for va utiliser cet itérateur pour implémenter son parcours.
+Oui, et dans ce cas la boucle <code>for</code> va utiliser cet itérateur pour implémenter son parcours.
 [explanation]

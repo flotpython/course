@@ -73,9 +73,10 @@ On lance un interpréteur python dans le directory <code>on-est-ici</code> et on
 
 [ ] <code>import paquet.spam</code>
 [ ] <code>from paquet import spam</code>
-[ ] <code>import paquet; import paquet.spam</code>
 [x] On ne peut pas faire l'import dans cette configuration
 
 [explanation]
 On ne peut pas faire l'import de <code>spam</code>, car le package <code>paquet</code> ne possède pas le fichier <code>__init__.py</code> qui est indispensable dans ce cas (même vide).
+
+Si par contre le fichier <code>paquet/__init__.py</code> était présent, les deux premières réponses seraient valides.
 [explanation]
