@@ -15,6 +15,8 @@ Plateforme
 
 * peut-on faire du peer-review sur des miniprojets ?
 
+* utiliser un *submodule* git pour isoler `modules/nbautoeval` et le rendre réutilisable pat ***flotbioinfo***
+
 
 Général
 =======
