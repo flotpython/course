@@ -2,6 +2,18 @@
 from exercice_function import ExerciceFunction
 from args import Args
 
+### XXX
+# un étudiant de la saison 2 a fait remarquer qu'on était trop laxiste
+# avec par exemple en entrée
+# John, Smith, , , , 3
+# on ne se plaint pas
+# la solution proposée par l'étudiant
+## l = ligne.replace(" ","").replace("\t","").split(',')
+## if (len(l) < 3):
+##     return None
+## if (len([x for x in l[3:] if x]) != 0):
+##     return None
+
 ##############################
 # @BEG@ name=libelle
 def libelle(ligne):
