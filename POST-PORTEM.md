@@ -21,6 +21,9 @@ Plateforme
 Général
 =======
 
+* un élève a suggéré un tableau de synthèse pour rappeler / comparer
+  les types de base; ça pourrait faire du sens..
+
 * classes new-style
   * trop de décalage dans le temps entre le cours semaine 5
      et celui de la semaine 7
