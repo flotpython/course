@@ -68,54 +68,23 @@ W2
 ===
  * W2-S6-E1 : dans le quiz on parle de l'opérateur `is` qui n'a pas
    encore été introduit à ce stade du cours
- * W2-S8-C3-la-fonction-raw_input.ipynb : il semble que readline ne
-   soit pas par défaut sur windows
+ * W2-S8-C3-la-fonction-raw_input.ipynb : il semble que `readline` ne
+ soit pas par défaut sur windows
+  * w2-s8-e2-chaines : voir la correction dans
+  corrections/w2s8_strings.py - un étudiant a remarqué une erreur - on
+  est trop laxiste
+ * vérifier qu'on montre au moins une fois un exemple de `if` sans `else`
+  
 
 W3
 ===
- * W3 Quizzes under review & rewrite
-
- * W3S1 : TODOQUIZ - manque un quiz sur les tables de hash
- * W3S3 : TODOQUIZ - manque un quiz sur les ensembles
- * W3S4 : TODOQUIZ - le quiz avec 3 * [0] est foireux; on n'utilise jamais cette construction
-   à récrire
- * W3S5 : TODOQUIZ - manque un quiz sur les modules
- * W3S6 : TODOQUIZ - manque un quiz sur l'indentation comme syntaxe de base
- * W3S7 : TODOQUIZ - manque un quiz sur les if et conditions
- * W3S8 : TODOQUIZ 
-   * On devrait sans doute enrichir la partie 'basique' pour faire écrire aux élèves au moins une boucle simple
-   * comment noter les parties avancées par rapport aux 'basique' ? - je crains qu'il ne faille découper en morceaux pour pouvoir définir des poids différents
 
 W4
 ===
 
- * W4S1 - TODOQUIZ - manque un quiz sur les fichiers
- * W4S2 - TODOQUIZ - manque un quiz sur le while
- * W4S3 - TODOQUIZ - manque un quiz sur les objets de type fontions
- * W4S4 - TODOQUIZ - manque un quiz sur les compréhensions
-
- * W4S8 dans doubler_premier il faudrait au moins une fonction
-   non-associative - la fonction distance est en fait associative ! Du
-   coup les gens utilisent reduce et trouvent un résultat légèrement différent.
-
 W5
 ===
- * W5S5 - TODOQUIZ : à mon goût trop fouillé, les questions sur `__class__` et `__bases__`; devrait sans doute au contraire parler de l'héritage avec `object`
- AL: j'ai gardé comme ça. je trouve ça plus clair de rentrer dans ce détail. C'est évidement une question
- de goût, mais comme c'est ce que je fais dans le vidéo, ils ne seront pas surpris pas ce quiz.
- Je ne parle pas d'object parce que c'est introduit dans un complément intermédiaire en semaine 5
- et discuté aussi en semaine 7. C'est donc trop avancé à mon avis pour un quiz. 
  
- * W5S6 - TODOQUIZ - manque un quiz sur la surcharge des opérateurs
- AL: Done
- 
- * W5S7 - TODOQUIZ - je ne suis pas trop d'accord avec l'exo numéro 2 (perso, je ne fais pas de module sans classe) et alors le #3, je ne comprends pas l'énoncé... Le quiz dans son ensemble me paraît bien prédictible.
-AL: j'ai totalement refait ce quiz. Je pense que c'est mieux.
-
- * W5S8 - TODOQUIZ - je me demande si la deuxième question n'est pas un peu perverse, il faudrait arriver à la compter peu (ou alors supprimer la question?)
- AL: c'est une question déjà abordée en W4S6 et il y avait déjà un quiz dessus (ça devrait donc commencer à être assimilé par les étudiants). C'est un problème important et classique, 
- c'est pourquoi je le remets ici
-
 W7
 ===
  * le complément sur les décorateurs : plutoôt que de rediriger vers
