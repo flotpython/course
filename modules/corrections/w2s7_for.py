@@ -22,8 +22,8 @@ def liste_P_bis(liste_x):
     return liste_y
 # @END@
 
-def liste_P_ko(l):
-    return [P(l[0])]
+def liste_P_ko(liste):
+    return [P(liste[0])]
 
 inputs_liste_P = [
     Args(range(5)),
