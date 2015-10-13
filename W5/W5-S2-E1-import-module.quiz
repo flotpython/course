@@ -27,7 +27,7 @@ Comment forcer un module <code>mod</code> à être rechargé ?
 ( ) Un module ne peut être chargé qu'une seule fois
 
 [explanation]
-L'instruction <code>import</code> ne charge qu'une seule fois l'objet module pour des raisons de performance. Si on veut recharger un objet module parce qu'il a était modifié, il faut utiliser la fonction <code>reload</code>.
+L'instruction <code>import</code> ne charge qu'une seule fois l'objet module pour des raisons de performance. Si on veut recharger un objet module parce qu'il a été modifié, il faut utiliser la fonction <code>reload</code>.
 [explanation]
 
 
