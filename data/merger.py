@@ -181,7 +181,7 @@ class Merger(object):
             # if --ship was specified
             else:
                 # restrict to ships that match the selected ship name
-                ships = self.ship_dict.ships_by_name(ship_name)
+                ships = self.ship_dict.ships_by_name(self.args.ship_name)
                 output_name = self.args.ship_name
 
             # sort ships once and for good
