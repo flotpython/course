@@ -56,6 +56,7 @@ Général
 * minor: bisect the repo to find out about this
    "nous dirons plus tard que les variables référencent le même objet" thing
    when was it written, by whom, did valerie let this pass ?
+   
 
 W1
 ===
@@ -74,6 +75,7 @@ W2
   corrections/w2s8_strings.py - un étudiant a remarqué une erreur - on
   est trop laxiste
  * vérifier qu'on montre au moins une fois un exemple de `if` sans `else`
+
   
 
 W3
