@@ -41,6 +41,17 @@ def pgcd_bis(a, b):
         a, b = b, r
 # @END@
 
+# xxx à publier ?
+# le code proposé par un étudiant, et qui serait en mesure de gérer
+# le cas b=0 qui semble-t-il provoque un ZeroDivisionError
+def pgcd_ter(a, b):
+    if b > a : 
+        a, b = b, a
+    while b:
+        a, b = b, a % b
+    return a
+
+
 def pgcd_ko(a, b):
     return a % b
 
