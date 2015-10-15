@@ -13,29 +13,20 @@ Plateforme
   * parler aussi de la possibilité de publier les notebooks (liens statiques)
   * et donc du point précédent (un site pour exposer le code ?)
 
-* peut-on faire du peer-review sur des miniprojets ?
-
 * utiliser un *submodule* git pour isoler `modules/nbautoeval` et le rendre réutilisable pat ***flotbioinfo***
 
 
 Général
 =======
 
+* la mise à disposition au format html
+  une idée sans doute intéressante, proposée dans les questionnaires:
+  ce serait bien si les cellules pouvaient être **évaluées avant de
+     générer le html** - mais ça semble peut-être un peu dur à faire
+
 * un élève a suggéré un tableau de synthèse pour rappeler / comparer
   les types de base; ça pourrait faire du sens..
-
-* classes new-style
-  * trop de décalage dans le temps entre le cours semaine 5
-     et celui de la semaine 7
-
-* équilibre cours
-   * la semaine 2 est très chargée
-   * les libellés des différentes semaines sont imprécis
-
-* équilibre cours - suite
-  * essayer de parler de plus de librairies standard
-  * mentionner le debugger
-  * on ne parle pas du tout de la pile par exemple
+* un autre aurait apprécié un glossaire...
 
 * exercices sans doute trop difficiles en moyenne
    on observe un taux de 1 succès pour 3 échecs dans les stats
@@ -44,21 +35,28 @@ Général
    rater la deuxième; il suffirait de reprendre un peu la présentation
    pour rendre ça + explicite (un message AVANT la première vidéo).
 
-* alléger data/ as far as possible
 
-* la mise à disposition au format html
-   * il faut penser aux accessoires (surtout media/ et peut-être
-   data/ - sachant que dans data/ on a les cities*.json qui prennent
-   dans les 140 Mb à eux tous seuls)
-   * ce serait bien si les cellules pouvaient être évaluées avant de
-     générer le html - mais ça semble peut-être un peu dur à faire
+Pour Python3
+=========
 
-* minor: bisect the repo to find out about this
-   "nous dirons plus tard que les variables référencent le même objet" thing
-   when was it written, by whom, did valerie let this pass ?
-   
+* équilibre cours
+   * la semaine 2 est très chargée
+   * les libellés des différentes semaines sont imprécis
+   * -> plus de semaines, moins chargées
+   * faire davantage de 101 avant de passer en mode balayage du manuel
+     de référence (pourquoi pas un primer de niveau super basique
+     pendant 2 semaines)
 
-W1
+* équilibre cours - suite
+  * essayer de parler de plus de librairies standard
+  * mentionner le debugger
+  * on ne parle pas du tout de la pile par exemple
+
+* classes new-style
+  * trop de décalage dans le temps entre le cours semaine 5
+     et celui de la semaine 7
+
+ W1
 ===
 
  * installation sur windows
@@ -75,8 +73,6 @@ W2
   corrections/w2s8_strings.py - un étudiant a remarqué une erreur - on
   est trop laxiste
  * vérifier qu'on montre au moins une fois un exemple de `if` sans `else`
-
-  
 
 W3
 ===
