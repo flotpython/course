@@ -80,7 +80,7 @@ W3
 W4
 ===
 
- * voir pgcd_ter, faut-il le publier dans les corrigés ?
+ * voir `pgcd_ter`, faut-il le publier dans les corrigés ?
 
 W5
 ===

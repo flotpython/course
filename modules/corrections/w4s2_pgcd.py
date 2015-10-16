@@ -44,6 +44,7 @@ def pgcd_bis(a, b):
 # xxx à publier ?
 # le code proposé par un étudiant, et qui serait en mesure de gérer
 # le cas b=0 qui semble-t-il provoque un ZeroDivisionError
+# à voir aussi: l'inversion des deux entrées est probablement inutile
 def pgcd_ter(a, b):
     if b > a : 
         a, b = b, a
