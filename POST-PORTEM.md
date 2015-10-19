@@ -56,6 +56,12 @@ Pour Python3
   * trop de décalage dans le temps entre le cours semaine 5
      et celui de la semaine 7
 
+* Le libellé de 'fonction lambda' est à revoir car dans cette section
+  on parle des fonctions comme objets, les lambda c'est juste un cas
+  particulier. Pourquoi pas un titre comme "Les fonctions sont des
+  objets comme les autres"
+  
+
  W1
 ===
 
