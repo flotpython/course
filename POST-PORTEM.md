@@ -90,6 +90,9 @@ W4
 
 W5
 ===
+
+* exercice bateau : voir s'il ne serait pas mieux d'utiliser le module
+  LatLon ? 
  
 W7
 ===
