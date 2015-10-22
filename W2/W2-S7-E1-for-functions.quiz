@@ -134,10 +134,10 @@ Les compréhensions ne contiennent jamais de <code>:</code> qui est réservé au
 Fonctions
 =====
 
-On se donne une fonction <code>est_vide</code> définie arbitrairement comme suit. Dans cet exercice on dit qu'un objet est <em>vide</em> lorsqu'il est considéré comme faux dans un test; en pratique, s'il est <code>None</code> ou <code>False</code> ou <code>0</code> ou une chaîne vide, etc..
+On se donne une fonction <code>est_ou_contient_vide</code> définie arbitrairement comme suit. Dans cet exercice on dit qu'un objet est <em>vide</em> lorsqu'il est considéré comme faux dans un test; en pratique, s'il est <code>None</code> ou <code>False</code> ou <code>0</code> ou une chaîne vide, etc..
 
 <pre>
-def est_vide(entree):
+def est_ou_contient_vide(entree):
     # si entree est vide, on considere que c'est OK
     if not entree:
         # cas #1
@@ -158,7 +158,7 @@ Parmi les fragments suivants:
 
 <h3>Fragment 1</h3>
 <pre>
-est_vide([1, [], 3])
+est_ou_contient_vide([1, [], 3])
 </pre>
 
 <h3>Fragment 2</h3>
@@ -166,7 +166,7 @@ est_vide([1, [], 3])
 def filtre(liste):
     # on ne garde que les élément représentatifs
     return [x for x in liste if x]
-est_vide(filtre([1, [], 3]))
+est_ou_contient_vide(filtre([1, [], 3]))
 </pre>
 
 <h3>Fragment 3</h3>
@@ -174,7 +174,7 @@ est_vide(filtre([1, [], 3]))
 def assemble(x, y):
     # on calcule un tuple formé de x et y
     z = (x, y)
-est_vide(assemble(1, 2))
+est_ou_contient_vide(assemble(1, 2))
 </pre>
 
 Quels sont ceux qui sont valides et dont la dernière expression renvoie <code>True</code> ? <em><b>Indice:</b> Faites bien attention aux valeurs de retour.</em>
@@ -184,9 +184,9 @@ Quels sont ceux qui sont valides et dont la dernière expression renvoie <code>T
 [x] Fragment 3
 
 [explanation]
-Le premier appel retourne évidemment <code>True</code>, puisque dans la liste passée en argument à <code>est_vide</code> se trouve un élément qui est la liste vide, qui déclenche le cas #2.
+Le premier appel retourne évidemment <code>True</code>, puisque dans la liste passée en argument à <code>est_ou_contient_vide</code> se trouve un élément qui est la liste vide, qui déclenche le cas #2.
 
-Dans le second appel au contraire; le rôle de la fonction <code>filtre</code> est précisément d'enlever de <code>liste</code> les éléments qui sont vides. C'est donc comme si on appelait en réalité <code>est_vide(&#91;1, 3&#93;)</code>.
+Dans le second appel au contraire; le rôle de la fonction <code>filtre</code> est précisément d'enlever de <code>liste</code> les éléments qui sont vides. C'est donc comme si on appelait en réalité <code>est_ou_contient_vide(&#91;1, 3&#93;)</code>.
 
-Le dernier exemple comporte un piège; la fonction <code>assemble</code> calcule bien un tuple, mais elle le range dans une variable locale <code>z</code> et oublie de le retourner en valeur. Ce qui fait qu'en définitive l'appel à <code>assemble(1, 2)</code> renvoie en fait <code>None</code>, qui est bien considéré comme vide par <code>est_vide</code> (cas #1).
+Le dernier exemple comporte un piège; la fonction <code>assemble</code> calcule bien un tuple, mais elle le range dans une variable locale <code>z</code> et oublie de le retourner en valeur. Ce qui fait qu'en définitive l'appel à <code>assemble(1, 2)</code> renvoie en fait <code>None</code>, qui est bien considéré comme vide par <code>est_ou_contient_vide</code> (cas #1).
 [explanation]
