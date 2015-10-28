@@ -101,6 +101,9 @@ W7
    fin, ce serait mieux de le refaire en le commentant; rien que
    d'utiliser des noms un peu moins space ça va rendre le tout déjà beaucoup + lisible.
 
+ * il semble que dans une vidéo on a annoncé un complément sur le
+   binding avec C/C++, qu'on n'a jamais fait.. faire a minima un
+   erratum là-dessus 
 
 Exos
 ===

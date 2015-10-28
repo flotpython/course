@@ -37,7 +37,7 @@ print p
 L'instruction <code>class</code> permet de créer une classe. Par conséquent, <code>Parser</code> est bien un objet de type classe. L'objet <code>p</code> est créé par <code>Parser(':')</code>, donc <code>p</code> est une instance de la classe <code>Parser</code>.
 [explanation]
 
-<h3>Que représente l'attribut <code>self</code> ?</h3>
+<h3>Que représente le paramètre <code>self</code> ?</h3>
 (x) Une référence vers une instance de la classe <code>Parser</code>
 ( ) Une référence vers la classe <code>Parser</code>
 ( ) Une chaîne de caractères
