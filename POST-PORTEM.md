@@ -46,6 +46,7 @@ Pour Python3
    * faire davantage de 101 avant de passer en mode balayage du manuel
      de référence (pourquoi pas un primer de niveau super basique
      pendant 2 semaines)
+   * passage semaine5 -> semaine6 trop raide de l'avis de tous
 
 * équilibre cours - suite
   * essayer de parler de plus de librairies standard
@@ -61,8 +62,7 @@ Pour Python3
   particulier. Pourquoi pas un titre comme "Les fonctions sont des
   objets comme les autres"
   
-
- W1
+W1
 ===
 
  * installation sur windows
@@ -147,13 +147,17 @@ Exercices
 ====================
 * ai rencontré une mention aux tags MP3 (Id3) qui pourrait peut-être
   faire un bon exo, surtout dans la perspective de python3 et
-  bytearray ?
+  bytes ?
   
 
 Notes on python3
 ====================
 
 * subprocess & universal_newlines=True, so that the module knows it
-  should return strings and not bytearrays
+  should return a `str` and not a `bytes`
 
-* XMLRPC & <base64> tags vs <string> - or whatever it is
+* XMLRPC & `<base64>` tags vs `<string>` - or whatever it is
+
+* Un étudiant de session2 nous fait remarquer que la technique qui consiste à définir `__repr__` sur une instance ne fonctionne pas telle quelle en python3.
+
+
