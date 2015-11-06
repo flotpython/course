@@ -91,6 +91,10 @@ W4
 W5
 ===
 
+* quiz 'modules et espaces de nommage' : beaucoup d'émoi suscité par
+  la formule 'toutes les variables du module'; j'avoue que je suis
+  d'accord que la formulation est ambigüe.
+
 * exercice bateau : voir s'il ne serait pas mieux d'utiliser le module
   LatLon ? 
  
