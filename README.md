@@ -1,6 +1,6 @@
 # `nbautoeval`
 
-`nbautoeval` is a very lightweight framework for creating auto-evaluated exercices inside a jupyter python notebook.
+`nbautoeval` is a very lightweight python framework for creating **auto-evaluated** exercices inside a jupyter (python) notebook.
 
 Given a text that describes the expectations, students are invited to write their own code, 
 and can then see the outcome on teacher-defined data samples, compared with the results obtained through a teacher-provided solution, with a visual feedback.
@@ -13,7 +13,7 @@ There indeed are provisions in the code to accumulate statistics on all attempte
 
 This was initially embedded into a [MOOC on python2](https://github.com/parmentelat/flotpython) 
 that ran for the first time on [the French FUN platform](https://www.france-universite-numerique-mooc.fr/) in Fall 2014. 
-It was then duplicated into a [MOOC on bioinfirmatics](https://github.com/parmentelat/flotbioinfo) 
+It was then duplicated into a [MOOC on bioinformatics](https://github.com/parmentelat/flotbioinfo) 
 in Spring 2016 where it was named `nbautoeval` for the first time, but still embedded in a greater git module.
 
 The current git repo is created in June 2016 from that basis, with the intention to be used as a submodule from these 2 repos, 
@@ -23,6 +23,8 @@ and possibly others since a few people have proved interested.
 
 Target currently is any python-based notebook running on jupyter-v4. It is not quite clear at this moment which version(s) 
 specifically will work smoothly with `nbautoeval`, but in essence there is very little dependency to the jupyter version.
+
+It was initially written in python2 but should be oblivious to a change of version to python3.
 
 # Overview
 
@@ -42,4 +44,8 @@ A teacher who wishes to implement an exercice needs to write 2 parts :
   * invoke `exemple` on  the  exercice  object to show examples of the expected output
   * invite the student to write their own code
   * invoke `correction` on  the  exercice  object to display the outcome.
+
+# Known issues
+
+* Some terms are still phrased in French, like *exemple*, *exercice*, and similar.
 
