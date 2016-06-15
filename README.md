@@ -11,7 +11,8 @@ There indeed are provisions in the code to accumulate statistics on all attempte
 
 # Try it on `mybinder`
 
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
+Click this badge [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
+ to get to run the sample demos under `mybinder.org`
 
 # History
 
@@ -52,4 +53,5 @@ A teacher who wishes to implement an exercise needs to write 2 parts :
 # Known issues
 
 * the regexp-based exercises come in too many variants and are thus not very well tested
+
 
