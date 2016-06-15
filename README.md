@@ -9,6 +9,10 @@ At this point, due to lack of knowledge/documentation about open/edx (read: the 
 
 There indeed are provisions in the code to accumulate statistics on all attempted corrections, as an attempt to provide feedback to teachers.
 
+# Try it on `mybinder`
+
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
+
 # History
 
 This was initially embedded into a [MOOC on python2](https://github.com/parmentelat/flotpython) 
