@@ -2,8 +2,8 @@
 
 from __future__ import print_function
 
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 # load all the data
 import json
@@ -17,7 +17,7 @@ with open("data/marine-e2-abb.json") as feed:
 from corrections.w3s2_marine_dict import simplify
 extended_full = [ simplify(e) for e in extended_full ]
 
-# @BEG@ name=diff latex_size=footnotesize no_exemple=skip
+# @BEG@ name=diff latex_size=footnotesize no_example=skip
 def diff(extended, abbreviated):
     """Calcule comme demandé dans l'exercice, et sous formes d'ensembles
     (*) les noms des bateaux seulement dans extended
@@ -117,15 +117,15 @@ abbreviated = b_a + a_o
 import copy
 
 # a single dataset is enough
-class ExerciceDiff(ExerciceFunction):
+class ExoDiff(ExerciseFunction):
     def correction(self, student_diff, extended=extended, abbreviated=abbreviated):
         self.datasets = [Args(extended, abbreviated).clone('deep')]
-        return ExerciceFunction.correction(self, student_diff)
+        return ExerciseFunction.correction(self, student_diff)
 
     def resultat(self, extended, abbreviated):
         return self.solution(extended, abbreviated)
 
-exo_diff = ExerciceDiff(diff, "inputs_gets_overridden")
+exo_diff = ExoDiff(diff, "inputs_gets_overridden")
 
 ##############################
 # one-shot code

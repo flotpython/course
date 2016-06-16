@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
-# @BEG@ name=decode_zen no_exemple=skip
+# @BEG@ name=decode_zen no_example=skip
 # le module this est implémenté comme une petite énigme 
 # comme le laissent entrevoir les indices, on y trouve
 # (*) dans l'attribut 's' une version encodée du manifeste
@@ -48,17 +48,17 @@ def decode_zen_ko(this_module):
 
 import this
 
-class ExerciceDecodeZen(ExerciceFunction):
+class ExoDecodeZen(ExerciseFunction):
     def correction(self, student_decode_zen):
         args_obj = Args(this)
         self.datasets = [ args_obj ]
-        return ExerciceFunction.correction(self, student_decode_zen)
+        return ExerciseFunction.correction(self, student_decode_zen)
     
     def resultat(self, this):
         return self.solution(this)
 
 # cannot copy nor deepcopy a module
-exo_decode_zen = ExerciceDecodeZen(
+exo_decode_zen = ExoDecodeZen(
     decode_zen, "inputs_gets_overridden",
     copy_mode='none',
     layout='text', layout_args=(None, 'xx-small', 'xx-small'),

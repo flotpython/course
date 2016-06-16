@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ##############################
 # @BEG@ name=numbers
@@ -49,7 +49,7 @@ def numbers_input():
     return result
 numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
 
-exo_numbers = ExerciceFunction(
+exo_numbers = ExerciseFunction(
     numbers, numbers_inputs,
     layout_args = (30, 25, 25) )
 
@@ -89,7 +89,7 @@ def broken_fact(n):
 compare_inputs.append(Args(broken_fact, factorial, fact_inputs))
 
 #################### the exercice instance
-exo_compare = ExerciceFunction(
+exo_compare = ExerciseFunction(
     compare, compare_inputs,
     call_layout='truncate',
     layout_args=(50, 8, 8))

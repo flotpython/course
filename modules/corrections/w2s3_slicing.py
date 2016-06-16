@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 alphabet = "0123456789abcdef"
 
@@ -10,14 +10,14 @@ connue   = "".join(random.sample(alphabet, random.randint(4, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
-class ExerciceInconnue(ExerciceFunction):
+class ExoInconnue(ExerciseFunction):
     def __init__(self, connue, composite):
-        # on appelle ExerciceFunction.__init__ pour remplir tous les champs
+        # on appelle ExerciseFunction.__init__ pour remplir tous les champs
         # mais self.datasets sera en fait rempli plus tard
         # une petite clôture..
         def target(inconnue): 
             return composite
-        ExerciceFunction.__init__(
+        ExerciseFunction.__init__(
             self, target, None,
             render_name = False,
             column_headers = ("inconnue",
@@ -32,15 +32,15 @@ class ExerciceInconnue(ExerciceFunction):
         self.datasets = [ Args(inconnue) ]
         def check(inconnue):
             return self.connue + inconnue + self.connue
-        return ExerciceFunction.correction(self, check)
+        return ExerciseFunction.correction(self, check)
 
-exo_inconnue = ExerciceInconnue(connue, composite)
+exo_inconnue = ExoInconnue(connue, composite)
 
 inconnue_ko = "votre code"
 
 ####################
 # la solution est bien sûr
-# @BEG@ name=inconnue no_exemple=skip
+# @BEG@ name=inconnue no_example=skip
 # Pour calculer inconnue, on extrait une sous-chaine de composite
 # qui commence a l'index len(connue)
 # qui se termine a l'index len(composite)-len(connue)

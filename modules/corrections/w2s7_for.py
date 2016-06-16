@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ####################
 # @BEG@ name=liste_P
@@ -31,7 +31,7 @@ inputs_liste_P = [
     Args([-100, 0, 100]),
 ]
 
-exo_liste_P = ExerciceFunction(
+exo_liste_P = ExerciseFunction(
     liste_P,
     inputs_liste_P,
 )
@@ -56,7 +56,7 @@ inputs_multi_tri = [
     Args([[], range(6) + [2.5], [4, 2, 3, 1]]),
 ]
 
-exo_multi_tri = ExerciceFunction(
+exo_multi_tri = ExerciseFunction(
     multi_tri, inputs_multi_tri,
     layout_args=(20, 20, 20),
 )
@@ -89,10 +89,10 @@ inputs_multi_tri_reverse = [
     Args([[], ['a', 'z', 'c']], [False, True],),
 ]
 
-exo_multi_tri_reverse = ExerciceFunction(
+exo_multi_tri_reverse = ExerciseFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
     layout_args=(24, 24, 24),
-    exemple_how_many=2)
+    nb_examples=2)
 
 ####################
 # @BEG@ name=produit_scalaire
@@ -146,7 +146,7 @@ inputs_produit_scalaire = [
     Args([],[]),
 ]
 
-exo_produit_scalaire = ExerciceFunction(
+exo_produit_scalaire = ExerciseFunction(
     produit_scalaire,
     inputs_produit_scalaire,
 )

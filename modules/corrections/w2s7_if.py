@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ####################
 # @BEG@ name=divisible
@@ -31,7 +31,7 @@ inputs_divisible = [
     Args(-30, -10),
 ]
 
-exo_divisible = ExerciceFunction(
+exo_divisible = ExerciseFunction(
     divisible, inputs_divisible)
 
 ####################
@@ -71,5 +71,5 @@ inputs_spam = [
     Args([1, 2, 3, 4, 5]),
 ]
 
-exo_spam = ExerciceFunction(
-    spam, inputs_spam, exemple_how_many=4)
+exo_spam = ExerciseFunction(
+    spam, inputs_spam, nb_examples=4)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
 
@@ -24,7 +24,7 @@ def dispatch1(a, b):
 def dispatch1_ko(a, b, *args):
     return a*a + b*b
 
-exo_dispatch1 = ExerciceFunction(
+exo_dispatch1 = ExerciseFunction(
     dispatch1, inputs_dispatch1)
 
 ####################
@@ -53,7 +53,7 @@ def dispatch2(a, b, A, B):
 
 dispatch2_ko = dispatch1_ko
 
-exo_dispatch2 = ExerciceFunction(
+exo_dispatch2 = ExerciseFunction(
     dispatch2, inputs_dispatch2,
     layout_args=(50, 30, 30))
 

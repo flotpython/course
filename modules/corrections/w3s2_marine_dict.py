@@ -2,8 +2,8 @@
 
 from __future__ import print_function
 
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 import json
 
@@ -22,7 +22,7 @@ with open("data/marine-e1-abb.json") as feed:
 # simplify extended entries - we don't need all these details
 extended_full = [ simplify(e) for e in extended_full ]
 
-### how many do we keep for this exercice
+### how many do we keep for this exercise
 extract = 4
 
 ids_all = [ t[0] for t in extended_full ]
@@ -55,7 +55,7 @@ def check(filename):
 #    check(input)
 
 #################### index    
-# @BEG@ name=index no_exemple=skip
+# @BEG@ name=index no_example=skip
 def index(bateaux):
     """
     Calcule sous la forme d'un dictionnaire indexé par les ids
@@ -83,23 +83,23 @@ def index_bis(bateaux):
 def index_ko(ships):
     return index(extended)
 
-class ExerciceIndex(ExerciceFunction):
+class ExoIndex(ExerciseFunction):
 
     # on surcharge correction pour capturer les arguments
     # par defaut on utilise 'abbreviated', utilisé dans le
     # notebook de validation    
     def correction(self, student_index, bateaux=abbreviated):
         self.datasets = [Args(bateaux)]
-        return ExerciceFunction.correction(self, student_index)
+        return ExerciseFunction.correction(self, student_index)
 
     # une fonction pour exposer le resultat attendu
     def resultat(self, bateaux):
         return self.solution(bateaux)
 
-exo_index = ExerciceIndex(index, "inputs_gets_overridden")
+exo_index = ExoIndex(index, "inputs_gets_overridden")
     
 
-# @BEG@ name=merge no_exemple=skip
+# @BEG@ name=merge no_example=skip
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées
@@ -186,17 +186,17 @@ def merge_ter(extended, abbreviated):
         }
 # @END@
 
-class ExerciceMerge(ExerciceFunction):
+class ExoMerge(ExerciseFunction):
 
     # on surcharge correction pour capturer les arguments
     # idem on definit les arguments par defaut pour le code de validation
     def correction(self, student_merge,
                    extended=extended, abbreviated=abbreviated):
         self.datasets = [Args(extended, abbreviated)]
-        return ExerciceFunction.correction(self, student_merge)
+        return ExerciseFunction.correction(self, student_merge)
 
     # une fonction pour exposer le resultat attendu
     def resultat(self, extended, abbreviated):
         return self.solution(extended, abbreviated)
 
-exo_merge = ExerciceMerge(merge, "inputs_gets_overridden")
+exo_merge = ExoMerge(merge, "inputs_gets_overridden")

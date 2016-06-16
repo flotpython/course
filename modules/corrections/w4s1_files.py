@@ -6,8 +6,8 @@ from __future__ import print_function
 # I expect some parts of the file make it to the platform itself, or something
 # in any case there is a hack in corriges.py to take care of that
 
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 import os
 
@@ -111,17 +111,17 @@ def comptage_ko(in_filename, out_filename):
                                      len(line),
                                      line))
 
-# on passe ceci à Exercice donc pas besoin de rajouter les **keywords
+# on passe ceci à ExerciseFunction donc pas besoin de rajouter les **keywords
 comptage_args = [
     Args('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
     Args('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
 ]
 
-class ExerciceComptage(ExerciceFunction):
+class ExoComptage(ExerciseFunction):
 
     def correction(self, student_comptage):
         # call the decorator on the student code
-        return ExerciceFunction.correction(self, exercice_compliant(student_comptage))
+        return ExerciseFunction.correction(self, exercice_compliant(student_comptage))
 
     # on recherche les noms des fichers d'entrée et de sortie
     # à utiliser pour l'exemple (ou le debug, on prend le même)
@@ -137,7 +137,7 @@ class ExerciceComptage(ExerciceFunction):
         return show_comptage(input, output, comptage=student_comptage, suffix="")
 
 
-exo_comptage = ExerciceComptage(
+exo_comptage = ExoComptage(
     comptage, comptage_args,
     layout='text_backslash_n',
     layout_args=(None, 'xx-small', 'xx-small'),

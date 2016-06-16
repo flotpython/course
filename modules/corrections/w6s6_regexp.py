@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceRegexp, ExerciceRegexpGroups
-from args import Args
+from nbautoeval.exercise_regexp import ExerciseRegexp, ExerciseRegexpGroups
+from nbautoeval.args import Args
 
 ######################################## pythonid
 germs = [ 'aa1', 'A1a', '1Aa']
@@ -23,9 +23,9 @@ pythonid = "[a-zA-Z_]\w*"
 pythonid_bis = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
-exo_pythonid = ExerciceRegexp('pythonid', pythonid,
+exo_pythonid = ExerciseRegexp('pythonid', pythonid,
                               [Args(x) for x in pythonid_strings],
-                              exemple_how_many = 8)
+                              nb_examples = 8)
 
 pythonid_ko = "\w+"
 
@@ -46,9 +46,9 @@ specials_strings = [ '__y3s__', '_n0__', '___n0__',
 specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
 # @END@
 
-exo_specials = ExerciceRegexp('specials', specials,
-                               [Args(x) for x in specials_strings],
-                               exemple_how_many = 0)
+exo_specials = ExerciseRegexp('specials', specials,
+                              [Args(x) for x in specials_strings],
+                              nb_examples = 0)
 
 specials_ko = "__\w*__"
 
@@ -96,10 +96,10 @@ url = i_flag + protos + "://" + user + hostname + port + '/' + path
 
 groups = [ 'proto', 'user', 'password', 'hostname', 'port', 'path' ]
 
-exo_url = ExerciceRegexpGroups(
+exo_url = ExerciseRegexpGroups(
     'url', url, groups,
     [Args(x) for x in url_strings],
-    exemple_how_many=0,
+    nb_examples=0,
 )
 
 url_ko = i_flag + protos + "://" + hostname + '/' + path

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args, ArgsKeywords
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ##############################
 # @BEG@ name=distance
@@ -35,8 +35,8 @@ distance_inputs = [
     Args(*range(10)),
 ]
 
-exo_distance = ExerciceFunction(
-    distance, distance_inputs, exemple_how_many=3)
+exo_distance = ExerciseFunction(
+    distance, distance_inputs, nb_examples=3)
 
 ##############################
 # @BEG@ name=doubler_premier
@@ -73,9 +73,9 @@ doubler_premier_inputs.insert(2, Args(distance, 1, 1, 1))
 doubler_premier_inputs.insert(3, Args(distance, 2, 2, 2, 2))
 doubler_premier_inputs.insert(4, Args(distance, 3, 3, 3, 3, 3))
 
-exo_doubler_premier = ExerciceFunction(
+exo_doubler_premier = ExerciseFunction(
     doubler_premier, doubler_premier_inputs,
-    exemple_how_many=4, render_name=False,
+    nb_examples=4, render_name=False,
     call_layout='truncate'
 )
 
@@ -117,25 +117,26 @@ def add3(x, y=0, z=0):
 def mul3(x=1, y=1, z=1):
     return x * y * z
 
-doubler_premier_kwds_inputs = []
-dataset = Args(add3, 1, 2, 3);                          doubler_premier_kwds_inputs.append(dataset)
-dataset = ArgsKeywords((add3, 1, 2), dict(z=3));        doubler_premier_kwds_inputs.append(dataset)
-dataset = ArgsKeywords((add3, 1), dict(y=2, z=3));      doubler_premier_kwds_inputs.append(dataset)
-#dataset = ArgsKeywords((add3,), dict(x=1, y=2, z=3));   doubler_premier_kwds_inputs.append(dataset)
-dataset = Args(mul3, 1, 2, 3);                          doubler_premier_kwds_inputs.append(dataset)
-dataset = ArgsKeywords((mul3, 1, 2), dict(z=3));        doubler_premier_kwds_inputs.append(dataset)
-dataset = ArgsKeywords((mul3, 1), dict(y=2, z=3));      doubler_premier_kwds_inputs.append(dataset)
-#dataset = ArgsKeywords((mul3,), dict(x=1, y=2, z=3));   doubler_premier_kwds_inputs.append(dataset)
+doubler_premier_kwds_inputs = [
+    Args(add3, 1, 2, 3),
+    Args(add3, 1, 2, z=3),
+    Args(add3, 1, y=2, z=3),
+    # Args(add3, x=1, y=2, z=3),
+    Args(mul3, 1, 2, 3),
+    Args(mul3, 1, 2, z=3),
+    Args(mul3, 1, y=2, z=3),
+    # Args(mul3, x=1, y=2, z=3),
+]
 
 # remettre les datasets de doubler_premier
 doubler_premier_kwds_inputs \
     += [ arg_obj for arg_obj in doubler_premier_inputs
          if arg_obj.args[0] == distance ]
 
-exo_doubler_premier_kwds = ExerciceFunction(
+exo_doubler_premier_kwds = ExerciseFunction(
     doubler_premier_kwds, doubler_premier_kwds_inputs,
     call_layout='truncate',
-    exemple_how_many=5, render_name=False,
+    nb_examples=5, render_name=False,
 )
 
 def doubler_premier_kwds_ko(f, first, *args, **keywords):
@@ -201,8 +202,8 @@ def plus_broken(x1, x2):
 
 compare_args_inputs.append(Args(add, plus_broken, add_inputs))
 
-#################### the exercice instance
-exo_compare_args = ExerciceFunction(
+#################### the exercise instance
+exo_compare_args = ExerciseFunction(
     compare_args, compare_args_inputs,
     call_layout='truncate',
     layout_args=(50, 8, 8),

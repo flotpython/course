@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ### XXX
 # un étudiant de la saison 2 a fait remarquer qu'on était trop laxiste
@@ -61,9 +61,9 @@ inputs_libelle = [
     Args("\t John, Doe\t, "),
 ]
 
-exo_libelle = ExerciceFunction(
+exo_libelle = ExerciseFunction(
     libelle, inputs_libelle,
-    exemple_how_many = 0,
+    nb_examples = 0,
     render_name = False,
 )
 
@@ -94,9 +94,9 @@ inputs_carre = [
     Args("; -12 ; ; -23; 1 ;;\t"),
 ]
 
-exo_carre = ExerciceFunction(
+exo_carre = ExerciseFunction(
     carre, inputs_carre,
-    exemple_how_many=0,
+    nb_examples=0,
     layout_args = (40, 20, 20)
     )
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval.args import Args
 
 ##############################
 # @BEG@ name=aplatir
@@ -24,8 +24,8 @@ aplatir_inputs = [
     Args((( 1, [2, 3]), [], ('a'), ['b', 'c'])),
 ]
 
-exo_aplatir = ExerciceFunction(
-    aplatir, aplatir_inputs, exemple_how_many=0)
+exo_aplatir = ExerciseFunction(
+    aplatir, aplatir_inputs, nb_examples=0)
 
 ##############################
 # @BEG@ name=alternat
@@ -52,8 +52,8 @@ def alternat_bis(l1, l2):
 def alternat_ko(l1, l2):
     return l1 + l2
 
-exo_alternat = ExerciceFunction(
-    alternat, alternat_inputs, exemple_how_many=2)
+exo_alternat = ExerciseFunction(
+    alternat, alternat_inputs, nb_examples=2)
 
 ##############################
 # @BEG@ name=intersect
@@ -101,6 +101,6 @@ A2 = {(1, 'unA'), (2, 'deux'), (3, 'troisA')}
 B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
-exo_intersect = ExerciceFunction(
+exo_intersect = ExerciseFunction(
     intersect, intersect_inputs)
 ##############################
