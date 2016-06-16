@@ -52,6 +52,7 @@ A teacher who wishes to implement an exercise needs to write 2 parts :
 
 # Known issues
 
+* there remains some hard-wired labels in French
 * the regexp-based exercises come in too many variants and are thus not very well tested
 
 
