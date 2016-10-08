@@ -68,6 +68,7 @@ W1
  * installation sur windows
    * donner un peu plus d'indications a propos du PATH
    * idem peut-être pour le shebang sur windows
+ * le notebook sur le shebang ne doit psa être tout à fait clair par rapport au PATH, pas mal de monde en effet n'a pas '.' dans son PATH
 
 W2
 ===
@@ -82,6 +83,8 @@ W2
 
 W3
 ===
+
+ * je ne suis plus très sûr de la semaine, mais la digression sur les clés de dictionnaires qui doivent être globalement immutables est assez erronée en ce qui concernent les objets, qui peuvent être utilisés dans les ensembles, donc sans doute comme clé de dictionnaires.
 
 W4
 ===
@@ -165,3 +168,4 @@ Notes on python3
 * Un étudiant de session2 nous fait remarquer que la technique qui consiste à définir `__repr__` sur une instance ne fonctionne pas telle quelle en python3.
 
 
+* idée d'exo : calculer la suite dérivée d'une suite; la série de la suite
