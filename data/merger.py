@@ -152,7 +152,7 @@ class Merger(object):
 
         then creates a summary file, and a kml file
 
-        as per usual convention, this returns 0 if everythong goes fine
+        as per usual convention, this returns 0 if everything goes fine
         and non-zero otherwise, and specifically
           (*) 1 if both output files were created but they do not match 
               the reference result

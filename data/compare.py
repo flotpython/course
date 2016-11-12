@@ -31,7 +31,7 @@ class Compare(object):
             except Exception as e:
                 print ("Could not read output {}".format(name))
                 return False
-        # result if True iff both contents match
+            # result is True iff both contents match
         return contents[0] == contents[1]
 
     def compare_and_print(self):
