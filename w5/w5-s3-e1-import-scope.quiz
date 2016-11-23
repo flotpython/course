@@ -3,7 +3,7 @@
 Importation et espace de nommage (1)
 =====
 
-Quelle variable va être créée dans l'espace de nommage du module avec l'import suivant ?
+Quelle variable va être créée dans l'espace de nommage du module courant avec l'import suivant ?
 <pre>
 import os
 </pre>
