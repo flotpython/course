@@ -10,7 +10,7 @@ Une fonction en python
 (x) peut contenir 0 on n instructions <code>return</code>
 
 [explanation]
-Le <code>return</code> est opionnel, si la fonction termine sans avoir rencontré <code>return</code> elle retourne <code>None</code>.
+Le <code>return</code> est optionnel, si la fonction termine sans avoir rencontré <code>return</code> elle retourne <code>None</code>.
 
 Par ailleurs on peut utiliser autant de <code>return</code> que l'on veut dans une fonction.
 [explanation]
