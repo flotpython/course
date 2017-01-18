@@ -11,8 +11,10 @@ There indeed are provisions in the code to accumulate statistics on all attempte
 
 # Try it on `mybinder`
 
-Click this badge [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
- to get to run the sample demos under `mybinder.org`
+Click the badge below to see a few sample demos under `mybinder.org` - it's all in the `demo-notebooks` subdir.
+
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
+
 
 # History
 
