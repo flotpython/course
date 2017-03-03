@@ -33,6 +33,18 @@ specifically will work smoothly with `nbautoeval`, but in essence there is very 
 
 It was initially written in python2 but should be oblivious to a change of version to python3.
 
+# Installation
+
+Initially, `nbautoeval` was used in MOOC courses, that in turn were
+implemented as git repos; in this context `nbautoeval` was simply
+injected in this code using git *subtree*.
+
+It is now also available at pypi
+
+```
+pip install nbautoeval
+```
+
 # Overview
 
 In this early stage the framework supports the following types of exercises
