@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 from nbautoeval.version import version
 
@@ -20,7 +20,7 @@ setup(
     license          = "CC BY-SA 4.0",
     keywords         = "jupyter notebooks exercises",
     url              = "https://github.com/parmentelat/nbautoeval",
-    packages         = [ 'nbautoeval' ],
+    packages         = find_packages(),
     classifiers      = [
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
