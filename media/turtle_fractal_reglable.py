@@ -2,7 +2,7 @@
 import turtle
 
 def left_triangle(length):
-    for i in xrange(3):
+    for i in range(3):
         turtle.forward(length)
         turtle.left(120)
 
@@ -20,7 +20,7 @@ def fractal_side(length, fractal, proportions):
         fractal_side(l3, fractal-1, proportions)
 
 def fractal_triangle(length, fractal, proportions):
-    for i in xrange(3):
+    for i in range(3):
         fractal_side(length,fractal, proportions)
         turtle.left(120)
 
