@@ -6,30 +6,34 @@ alphabet = "0123456789abcdef"
 
 # on calcule connue et inconnue comme une chaine aleatoire
 import random
-connue   = "".join(random.sample(alphabet, random.randint(4, 6)))
+connue = "".join(random.sample(alphabet, random.randint(4, 6)))
 inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
 composite = connue + inconnue + connue
 
+
 class ExoInconnue(ExerciseFunction):
+
     def __init__(self, connue, composite):
         # on appelle ExerciseFunction.__init__ pour remplir tous les champs
         # mais self.datasets sera en fait rempli plus tard
         # une petite clôture..
-        def target(inconnue): 
+        def target(inconnue):
             return composite
         ExerciseFunction.__init__(
             self, target, None,
-            render_name = False,
-            column_headers = ("inconnue",
-                              "composite",
-                              "connue + inconnue + connue"
-                          )
+            render_name=False,
+            column_headers=("inconnue",
+                            "composite",
+                            "connue + inconnue + connue"
+                            )
         )
         self.connue = connue
         self.composite = composite
+
     def correction(self, inconnue):
         # dans notre cas il n'y a qu'un seul jeu d'entrées
-        self.datasets = [ Args(inconnue) ]
+        self.datasets = [Args(inconnue)]
+
         def check(inconnue):
             return self.connue + inconnue + self.connue
         return ExerciseFunction.correction(self, check)

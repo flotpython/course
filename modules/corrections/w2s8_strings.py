@@ -33,7 +33,7 @@ def libelle(ligne):
     # comment presenter le rang
     msg_rang = "1er" if rang == "1" \
                else "2nd" if rang == "2" \
-                    else "{}-eme".format(rang)
+                    else "{}-ème".format(rang)
     return "{prenom}.{nom} ({msg_rang})"\
         .format(nom=nom, prenom=prenom, msg_rang=msg_rang)
     # NOTE:
@@ -64,6 +64,7 @@ inputs_libelle = [
 exo_libelle = ExerciseFunction(
     libelle, inputs_libelle,
     nb_examples = 0,
+    layout_args = (25, 25, 25),
     render_name = False,
 )
 

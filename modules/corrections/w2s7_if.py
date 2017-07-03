@@ -4,16 +4,16 @@ from nbautoeval.args import Args
 
 ####################
 # @BEG@ name=divisible
-def divisible(a, b): 
+def divisible(a, b):
     "renvoie True si un des deux arguments divise l'autre"
-    # b divise a si et seulement si le reste 
+    # b divise a si et seulement si le reste
     # de la division de a par b est nul
     # et il faut regarder aussi si a divise b
     return a % b == 0 or b % a == 0
 # @END@
 
 def divisible_ko(a, b):
-    return a%b == 0
+    return a % b == 0
 
 inputs_divisible = [
     Args(10, 30),
