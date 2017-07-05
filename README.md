@@ -11,8 +11,10 @@ There indeed are provisions in the code to accumulate statistics on all attempte
 
 # Try it on `mybinder`
 
-Click this badge [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
- to get to run the sample demos under `mybinder.org`
+Click the badge below to see a few sample demos under `mybinder.org` - it's all in the `demo-notebooks` subdir.
+
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
+
 
 # History
 
@@ -30,6 +32,18 @@ Target currently is any python-based notebook running on jupyter-v4. It is not q
 specifically will work smoothly with `nbautoeval`, but in essence there is very little dependency to the jupyter version.
 
 It was initially written in python2 but should be oblivious to a change of version to python3.
+
+# Installation
+
+Initially, `nbautoeval` was used in MOOC courses, that in turn were
+implemented as git repos; in this context `nbautoeval` was simply
+injected in this code using git *subtree*.
+
+It is now also available at pypi
+
+```
+pip install nbautoeval
+```
 
 # Overview
 

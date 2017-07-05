@@ -1,6 +1,6 @@
 # 0.2.0 - 2017 Jul 3
 
-* env. variable NBAUTOEVAL_LOG can set location for the logs
+* env. variable NBAUTOEVAL_LOG can set location for the log file
 * default is now $HOME/.nbautoeval
 
 # 0.1.3 - 2017 Feb 3
