@@ -1,5 +1,7 @@
-*.comment.py
 *.pyc
+semainex-a-ranger/
+w0-teaser/
+*.comment.py
 daily_14*
 forecast_canonical*
 .du
@@ -27,3 +29,8 @@ connect.html
 *.json
 html/*.ipynb
 html/*.html
+*.out
+corriges/*.txt
+corriges/*.toc
+*foo*
+*.pure
