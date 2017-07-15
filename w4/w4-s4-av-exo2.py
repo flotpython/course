@@ -1,64 +1,64 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Une compréhension de sets s'écrit exactement comme
-## une compréhension de listes à la différence
-## qu'au lieu de délimiter la compréhension par des crochets
-## on la délimite par des accolades.
+## Une comprÃ©hension de sets s'Ã©crit exactement comme
+## une comprÃ©hension de listes Ã  la diffÃ©rence
+## qu'au lieu de dÃ©limiter la comprÃ©hension par des crochets
+## on la dÃ©limite par des accolades.
 
 print {i**3 for i in range(10)}
 
-## la compréhension de set est un moyen simple d'obtenir
-## un set à partir d'une liste en effectuant au moment
-## de la conversion des opérations et des filtres. Je
+## la comprÃ©hension de set est un moyen simple d'obtenir
+## un set Ã  partir d'une liste en effectuant au moment
+## de la conversion des opÃ©rations et des filtres. Je
 ## rappelle qu'en Python, le set est la meilleure stucture
-## de données pour faire des tests d'appartenance. 
+## de donnÃ©es pour faire des tests d'appartenance. 
 
 print {i**2 + 3*i - 1 for i in range(100) if i % 11 == 0}
 
-## Regardons maintenant la compréhension de dictionnaire.
-## Elle s'écrit exactement comme une compréhension de set,
-## sauf que l'on sépare les clefs et les valeurs par un :
+## Regardons maintenant la comprÃ©hension de dictionnaire.
+## Elle s'Ã©crit exactement comme une comprÃ©hension de set,
+## sauf que l'on sÃ©pare les clefs et les valeurs par un :
 
 print {i : i**2 for i in range(10)}
 
-## Cette exemple est destiné à montrer de manière simple
-## la syntaxe de la compréhension de dictionnaire. Mais
-## il est évident qu'un dictionnaire qui à une clef
-## entière associe comme valeur le carré de la clef n'a
-## aucun intérêt.
+## Cette exemple est destinÃ© Ã  montrer de maniÃ¨re simple
+## la syntaxe de la comprÃ©hension de dictionnaire. Mais
+## il est Ã©vident qu'un dictionnaire qui Ã  une clef
+## entiÃ¨re associe comme valeur le carrÃ© de la clef n'a
+## aucun intÃ©rÃªt.
 
-## La compréhension de dictionnaires est par contre très utile
-## pour convertir un dictionnaire déjà existant.
-## Prenons un dictionnaire qui a pour clef un numéro client
+## La comprÃ©hension de dictionnaires est par contre trÃ¨s utile
+## pour convertir un dictionnaire dÃ©jÃ  existant.
+## Prenons un dictionnaire qui a pour clef un numÃ©ro client
 ## et pour valeur un nom
 
 d = {123 : 'marc', 145 : 'eric', 543 : 'jean'}
 print d
 
-## Les dictionnaires sont optimisés pour accéder à des valeurs
+## Les dictionnaires sont optimisÃ©s pour accÃ©der Ã  des valeurs
 ## lorsque l'on connait la clef. Je rappelle que le temps
-## d'accès, d'effacement et d'insertion est constant indépendamment
+## d'accÃ¨s, d'effacement et d'insertion est constant indÃ©pendamment
 ## de la taille du dictionnaire. Cependant, trouver une clef
-## correspondant à une valeur donnée dans un dictionnaire
-## est un processus itératif, donc lent.
-## Si je connais un nom et que je veuille le numéro client
+## correspondant Ã  une valeur donnÃ©e dans un dictionnaire
+## est un processus itÃ©ratif, donc lent.
+## Si je connais un nom et que je veuille le numÃ©ro client
 ## correspondant, je ne pourrai pas avoir une recherche efficace
 ## avec le dictionnaire d. Pour avoir une recherche efficace, 
 ## il faudrait avoir un nouveau dictionnaire qui a pour clef
 ## les noms (je suppose ici qu'ils sont uniques) et pour valeur
-## les numéros clients.
+## les numÃ©ros clients.
 ## 
-## Avec la compréhension de dictionnaires je peux faire ça
-## très simplement.
+## Avec la comprÃ©hension de dictionnaires je peux faire Ã§a
+## trÃ¨s simplement.
 
 d2 = {d[k] : k for k in d}
 print d2
 
-## Je rappelle que lorsque j'itére sur un dictionnaire, je parcours
+## Je rappelle que lorsque j'itÃ©re sur un dictionnaire, je parcours
 ## les clefs. 
 
-## Je peux aussi avec la compréhension de dictionnaires, ajouter des filtres
-## comme avec les autres compréhensions
+## Je peux aussi avec la comprÃ©hension de dictionnaires, ajouter des filtres
+## comme avec les autres comprÃ©hensions
 
 d3 = {d[k] : k for k in d if k < 300}
 print d3

@@ -1,6 +1,6 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## créons une classe C et une sous classe sousC heritant de C
+## crÃ©ons une classe C et une sous classe sousC heritant de C
 
 class C:
     def set_x(self, x):
@@ -8,8 +8,8 @@ class C:
     def get_x(self):
         print self.x
 
-## sousC hérite de C et surcharge la méthode get_x, c'est-à-dire
-## redéfini une méthode déjà définie dans une super classe. 
+## sousC hÃ©rite de C et surcharge la mÃ©thode get_x, c'est-Ã -dire
+## redÃ©fini une mÃ©thode dÃ©jÃ  dÃ©finie dans une super classe. 
 class sousC(C):
     def get_x(self):
         print 'x est :', self.x
@@ -18,14 +18,14 @@ class sousC(C):
 c = sousC()
 sc = C()
 
-## on peut remonter tout l'arbre d'héritage avec la variable
-##  __class__ que l'on a déjà vu et __bases__ qui
+## on peut remonter tout l'arbre d'hÃ©ritage avec la variable
+##  __class__ que l'on a dÃ©jÃ  vu et __bases__ qui
 ## sur un classe retourne un tuple de ses super-classes. 
 
 print c.__class__, c.__class__.__bases__
 print sc.__class__, sc.__class__.__bases__
 
-## On voit que donc que c et sc n'ont pas le même arbre d'héritage.
+## On voit que donc que c et sc n'ont pas le mÃªme arbre d'hÃ©ritage.
 ## get_x sera celle de sousC pour c et celle de C pour sc
 
 c.set_x(10) # set_x de C
@@ -34,18 +34,18 @@ sc.set_x(20) # set_x de C
 c.get_x() #get_x de sousC
 sc.get_x() #get_x de sousC
 
-## finissons par regarder les différents espaces de nommage
+## finissons par regarder les diffÃ©rents espaces de nommage
 print c.__dict__, C.__dict__, sousC.__dict__ #noter les addresses differentes
                                              # de get_x dans C et sousC
 
 ## En Python tout est un objet, et les classes sont mutables,
-## on peut donc ajouter une fonction a une classe après sa création
+## on peut donc ajouter une fonction a une classe aprÃ¨s sa crÃ©ation
 
 def f(self):
     print 'depuis C, x est:', self.x
 
-## je redéfinis simplement la variable get_x dans l'espace de nommage
-## de C pour référencer l'objet fonction référencé par f
+## je redÃ©finis simplement la variable get_x dans l'espace de nommage
+## de C pour rÃ©fÃ©rencer l'objet fonction rÃ©fÃ©rencÃ© par f
 C.get_x = f
 
 ## et sc vois la nouvelle fonction dans C

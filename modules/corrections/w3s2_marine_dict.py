@@ -65,7 +65,7 @@ def index(bateaux):
     avec les deux types de données
     """
     # c'est une simple compréhension de dictionnaire
-    return {bateau[0]:bateau for bateau in bateaux}
+    return {bateau[0] : bateau for bateau in bateaux}
 # @END@
 
 # @BEG@ name=index more=v2
@@ -99,21 +99,22 @@ class ExoIndex(ExerciseFunction):
 exo_index = ExoIndex(index, "inputs_gets_overridden")
     
 
+##############################
+##############################
 # @BEG@ name=merge no_example=skip
 def merge(extended, abbreviated):
     """
     Consolide des données étendues et des données abrégées
     comme décrit dans l'énoncé
     Le coût de cette fonction est linéaire dans la taille 
-    des données (longueur des listes)
+    des données (longueur commune des deux listes)
     """
     # on initialise le résultat avec un dictionnaire vide
     result = {}
     # pour les données étendues
-    for ship in extended:
-        # on affecte les 6 premiers champs
-        # et on ignore les champs de rang 6 et au delà
-        id, latitude, longitude, timestamp, name, country = ship[:6]
+    # on affecte les 6 premiers champs
+    # et on ignore les champs de rang 6 et au delà
+    for id, latitude, longitude, timestamp, name, country, *ignore in extended:
         # on crée une entrée dans le résultat, 
         # avec la mesure correspondant aux données étendues
         result[id] = [name, country, (latitude, longitude, timestamp)]
@@ -127,6 +128,7 @@ def merge(extended, abbreviated):
     # et retourner le résultat
     return result
 # @END@
+
 
 # @BEG@ name=merge more=v2
 def merge_bis(extended, abbreviated):
@@ -152,6 +154,7 @@ def merge_bis(extended, abbreviated):
         result[id].append(tuple(ship[1:4]))
     return result
 # @END@
+
 
 # @BEG@ name=merge more=v3
 def merge_ter(extended, abbreviated):

@@ -27,10 +27,10 @@ def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
     """
     # check this is a module
     if type(module) is not type(sys):
-        print "show_module: Unexpected input {}".format(module)
+        print("show_module: Unexpected input {}".format(module))
         return
     if not check_legit(module):
-        print "Nice try"
+        print("Nice try")
         return
     try:
         name = module.__name__
@@ -38,15 +38,15 @@ def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
         file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
-                print "Cannot display {}, wrong type".format(file)
+                print("Cannot display {}, wrong type".format(file))
                 return
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         with open(file) as input:
-            print "Fichier {}".format(file)
-            print 40*"-"
+            print("Fichier {}".format(file))
+            print(40*"-")
             if not showing: 
-                print "<...>"
+                print("<...>")
             lineno = 0
             for line in input.readlines():
                 lineno += 1
@@ -55,16 +55,16 @@ def show_module(module, beg=None, end=None, prefix='|',lineno_width=0):
                     showing = True
                 # get out if in showing mode and end string is seen
                 if showing and end and line.find(end)>=0:
-                    print "<...>"
+                    print("<...>")
                     return
                 # print this line if in showing mode
                 if showing: 
                     mark = '' if lineno_width <= 0 else line_mark(lineno, lineno_width)
-                    print mark+prefix+line,
+                    print(mark+prefix+line, end=' ')
     except AttributeError as e:
-        print "show_module: Could not find module {}".format(module)
+        print("show_module: Could not find module {}".format(module))
     except Exception as e:
-        print "show_module: Could not show module {}".format(name)
+        print("show_module: Could not show module {}".format(name))
         import traceback
         traceback.print_exc()
 

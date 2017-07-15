@@ -1,7 +1,7 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-print "Chargement du module", __name__
+print("Chargement du module", __name__)
 
 def spam(n):
-    "Le polynome (n+1)*(n-3)"
+    "Le polynôme (n+1)*(n-3)"
     return n**2 - 2*n - 3

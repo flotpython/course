@@ -1,16 +1,16 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-## Je vous rappelle que Python utilise le typage dynamique, c'est-à-dire
-## que l'on ne donne pas le type d'un objet à l'écriture du programme,
-## ce type est déterminé à l'ex'ecution. Ça simplifie beaucoup l'écriture
+## Je vous rappelle que Python utilise le typage dynamique, c'est-Ã -dire
+## que l'on ne donne pas le type d'un objet Ã  l'Ã©criture du programme,
+## ce type est dÃ©terminÃ© Ã  l'exÃ©cution. Ã‡a simplifie beaucoup l'Ã©criture
 ## des programmes.
 
 ## le type entier
-## pour entrer un entier, on n'a rien d'autre à faire que d'écrire
+## pour entrer un entier, on n'a rien d'autre Ã  faire que d'Ã©crire
 ## cet entier
 1
 
-## comme on l'a vu dans la vidéo 1, on peut également l'affecter à une variable
+## comme on l'a vu dans la vidÃ©o 1, on peut Ã©galement l'affecter Ã  une variable
 i = 1
 
 ## Comment on connait le type d'un objet en Python ?
@@ -20,38 +20,38 @@ i = 1
 type(i)
 
 ## en python on a deux type entiers, les int et les long
-i = 10 ## codé sur 32 bits sur une machine 32 bits
-l = 23480284028402840289482184018 # précision illimitée
-print l * l     # précision illimitée sur les long
+i = 10 ## codÃ© sur 32 bits sur une machine 32 bits
+l = 23480284028402840289482184018 # prÃ©cision illimitÃ©e
+print l * l     # prÃ©cision illimitÃ©e sur les long
 
 ## Pourquoi avons nous deux types 'entier' en Python ?
-## le type int est plus compact que le type long, par conséquent
-## pour les petits entiers, Python va utiliser le type int pour réduire
-## la consommation mémoire, et le type long s'il y a vraiment besoin de
+## le type int est plus compact que le type long, par consÃ©quent
+## pour les petits entiers, Python va utiliser le type int pour rÃ©duire
+## la consommation mÃ©moire, et le type long s'il y a vraiment besoin de
 ## grands entiers.
 
 ## Heureusement, Python fait automatiquement la conversion
 ## de int vers long s'il y a besoin. Donc en pratique vous n'avez
-## pas à vous préocupper du type d'entier que vous utilisez
+## pas Ã  vous prÃ©ocupper du type d'entier que vous utilisez
 
 type(i + l)     
 
-## Les décimaux, qu'on appelle aussi 'flottants' on une
-## précision limité à environ 15 chiffres significatifs
-# On sépare la partie entière et décimale par un .
+## Les dÃ©cimaux, qu'on appelle aussi 'flottants' on une
+## prÃ©cision limitÃ© Ã  environ 15 chiffres significatifs
+# On sÃ©pare la partie entiÃ¨re et dÃ©cimale par un .
 f = 4.3
 
 ## Pour finir on a les nombres complexes qui sont
-## construit comme deux nombre décimaux. Ils ont donc
-## les mêmes limitations de précision. 
+## construit comme deux nombre dÃ©cimaux. Ils ont donc
+## les mÃªmes limitations de prÃ©cision. 
 
 c = 1 + 3j
 
 print c.real, c.imag
 
-## On peut 'mélanger' les types numériques dans une expression, 
+## On peut 'mÃ©langer' les types numÃ©riques dans une expression, 
 ## par exemple en ajoutant un entier et un flottant
-## Par contre on peut perdre en précision.
+## Par contre on peut perdre en prÃ©cision.
 ## Un int et un long donne toujours un long
 ## Un type entier (int, long) et un float donne toujours un float
 ## Un type entier (int, long) ou un float et un complex
@@ -63,21 +63,21 @@ print i + l + f
 
 print i + l + f + c
 
-## On peut convertir des types de bases entre eux (avec risque là aussi
-## de perte de précision ou d'information, troncation).
+## On peut convertir des types de bases entre eux (avec risque lÃ  aussi
+## de perte de prÃ©cision ou d'information, troncation).
 
 print int(4.32)
 print long(5.3)
 print float(9879729572895792375948)
 print complex(10)
 
-## opérations de base
+## opÃ©rations de base
 
 print 5 + 3
 print 5 - 3
 print -3
-print 5/3       # division entière
-print 5%3       # reste de la division entière
+print 5/3       # division entiÃ¨re
+print 5%3       # reste de la division entiÃ¨re
 print 5/3.0     # division sur des floats
 print 5/float(3)
 print 5.2//3.1  # force la division sur des entiers (5.0/3.0)
@@ -85,15 +85,15 @@ print 2 ** 32   # puissances
 print abs(-5.3) # valeur absolue
 
 ## pour finir, j'aimerais introduire un dernier type qui n'est pas
-## à proprement parler un type numérique, mais qui est implémenté comme
-## tel, c'est le type booléen. Ce type est utilisé pour le résultat
+## Ã  proprement parler un type numÃ©rique, mais qui est implÃ©mentÃ© comme
+## tel, c'est le type boolÃ©en. Ce type est utilisÃ© pour le rÃ©sultat
 ## de tous les tests en Python et ne contient que deux valeurs True et False
-## On verra bientôt cette notion de test en Python, mais regardons un exemple
-## simple pour illustrer les booléens
+## On verra bientÃ´t cette notion de test en Python, mais regardons un exemple
+## simple pour illustrer les boolÃ©ens
 
 1 < 2
 1 > 2
 
 ## noter la premiere lettre qui est une majuscule
 
-## nous reviendrons très bientôt sur l'utilisation des Booléens
+## nous reviendrons trÃ¨s bientÃ´t sur l'utilisation des BoolÃ©ens

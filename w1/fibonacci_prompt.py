@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: iso-8859-15
+# -*- coding: utf-8
 
 def fibonacci (n):
     if n <= 1 : 

@@ -1,7 +1,7 @@
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
-print "chargement du package", __name__
+print("chargement du package", __name__)
 
-spam = range(3)
+spam = ['a', 'b', 'c']
 
 __all__ = ['module_jouet']
