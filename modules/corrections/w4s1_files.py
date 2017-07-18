@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-
 ### cannot remember why this one file is unicode but there was a good reason
 # I expect some parts of the file make it to the platform itself, or something
 # in any case there is a hack in corriges.py to take care of that
@@ -16,7 +14,7 @@ import os
 # so here create helpers to make all this compliant
 def file_contents(filename):
     try:
-        with open(filename) as input:
+        with open(filename, encoding='utf-8') as input:
             return input.read()
     except:
         return ""
@@ -73,19 +71,16 @@ def comptage(in_filename, out_filename):
     et de caractères
     """
     # on ouvre le fichier d'entrée en lecture
-    # on aurait pu mettre open (in_filename, 'r')
-    with open(in_filename) as input:
+    # on aurait pu mettre open(in_filename, 'r')
+    with open(in_filename, encoding='utf-8') as input:
         # on ouvre la sortie en écriture
-        with open(out_filename, "w") as output:
+        with open(out_filename, "w", encoding='utf-8') as output:
             # initialisations
-            lineno = 0
             total_words = 0
             total_chars = 0
             # pour toutes les lignes du fichier d'entrée
-            for line in input:
-                # on maintient le nombre de lignes
-                # qui est aussi la ligne courante
-                lineno += 1
+            # le numéro de ligne commence à 1
+            for lineno, line in enumerate(input, 1):
                 # autant de mots que d'éléments dans split()
                 nb_words = len(line.split())
                 total_words += nb_words
@@ -97,8 +92,12 @@ def comptage(in_filename, out_filename):
                 output.write("{}:{}:{}:{}"
                              .format(lineno, nb_words, nb_chars, line))
             # on écrit la ligne de synthèse
-            output.write("{}:{}:{}\n".\
-                         format(lineno, total_words, total_chars))
+            # lineno est une variable de boucle, elle "fuite"
+            # on peut donc utiliser sa dernière valeur
+            # mais remarquez que ce code ne fonctionnerait
+            # pas sur un fichier vide, ou on aurait lineno non définie
+            output.write("{}:{}:{}\n"
+                         .format(lineno, total_words, total_chars))
 # @END@
 
 def comptage_ko(in_filename, out_filename):
@@ -115,6 +114,7 @@ def comptage_ko(in_filename, out_filename):
 comptage_args = [
     Args('data/romeo_and_juliet.txt', 'romeo_and_juliet.out'),
     Args('data/lorem_ipsum.txt', 'lorem_ipsum.out'),
+    Args('data/une_charogne_unicode.txt', 'une_charogne_unicode.out'),
 ]
 
 class ExoComptage(ExerciseFunction):
@@ -128,7 +128,7 @@ class ExoComptage(ExerciseFunction):
     # associés au premier jeu de données (self.datasets[0])
     # et là-dedans il nous faut regarder dans .args qui va contenir
     # un tuple avec les deux valeurs qu'on recherche
-    def exemple(self):
+    def example(self):
         (input, output) = self.datasets[0].args
         return show_comptage(input, output, comptage=comptage, suffix=".ok")
 

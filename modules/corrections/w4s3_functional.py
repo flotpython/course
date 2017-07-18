@@ -4,6 +4,8 @@ from nbautoeval.args import Args
 
 ##############################
 # @BEG@ name=numbers
+from functools import reduce
+
 from operator import mul
 
 def numbers(liste):
@@ -44,10 +46,10 @@ from random import randint
 def numbers_input():
     length = randint(3,6)
     result = []
-    for i in xrange(length):
+    for i in range(length):
         result.append(randint(5, 15))
     return result
-numbers_inputs = [Args(numbers_input()) for i in xrange (3)]
+numbers_inputs = [Args(numbers_input()) for i in range (3)]
 
 exo_numbers = ExerciseFunction(
     numbers, numbers_inputs,
@@ -91,6 +93,7 @@ compare_inputs.append(Args(broken_fact, factorial, fact_inputs))
 #################### the exercice instance
 exo_compare = ExerciseFunction(
     compare, compare_inputs,
+    nb_examples = 2,
     call_layout='truncate',
     layout_args=(50, 8, 8))
 

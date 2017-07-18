@@ -67,23 +67,19 @@ def intersect(A, B):
     # pour montrer un exemple de fonction locale:
     # une fonction qui renvoie l'ensemble des entiers
     # présents dans une des deux listes d'entrée
-    def values(S):
-        return {i for i, val in S}
+    def keys(S):
+        return {k for k, val in S}
     # on l'applique à A et B
-    val_A = values(A)
-    val_B = values(B)
-    #
-    # bien sûr on aurait pu écrire directement
-    # val_A = {i for i, val in A}
-    # val_B = {i for i, val in B}
+    keys_A = keys(A)
+    keys_B = keys(B)
     # 
     # les entiers présents dans A et B 
     # avec une intersection d'ensembles
-    common_keys = val_A & val_B
+    common_keys = keys_A & keys_B
     # et pour conclure on fait une union sur deux
     # compréhensions d'ensembles
-    return {vala for a, vala in A if a in common_keys} \
-         | {valb for b, valb in B if b in common_keys} 
+    return {vala for k, vala in A if k in common_keys} \
+         | {valb for k, valb in B if k in common_keys} 
 # @END@
 
 def intersect_ko(A, B):
@@ -102,5 +98,5 @@ B2 = {(1, 'unB'), (2, 'deux'), (4, 'quatreB')}
 intersect_inputs.append(Args(A2, B2))
 
 exo_intersect = ExerciseFunction(
-    intersect, intersect_inputs)
+    intersect, intersect_inputs, nb_examples=2)
 ##############################

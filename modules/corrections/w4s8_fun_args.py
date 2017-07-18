@@ -162,6 +162,7 @@ def compare_args_ko(*args, **keywords):
 compare_args_inputs = []
 
 ########## dataset #1
+from functools import reduce
 from math import factorial
 from operator import mul
 
