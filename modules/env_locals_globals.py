@@ -6,21 +6,21 @@ un module pour illustrer les fonctions globals et locals
 
 globale = "variable globale au module"
 
-def environnement(env):
+def display_env(env):
     """
     affiche un environnement
-    pour faire court on affiche juste le type de chaque nom
+    on affiche juste le nom et le type de chaque variable
     """
-    for variable, valeur in env.items():
-        print variable.ljust(20), ":", type(valeur).__name__
+    for variable, valeur in sorted(env.items()):
+        print("{:>20} → {}".format(variable, type(valeur).__name__))
 
 def temoin(x):
     "la fonction témoin"
     y = x ** 2
-    print 20*'-', 'globals:'
-    environnement(globals())
-    print 20*'-', 'locals:'
-    environnement(locals())
+    print(20*'-', 'globals:')
+    display_env(globals())
+    print(20*'-', 'locals:')
+    display_env(locals())
 
 class Foo:
     "une classe vide"
