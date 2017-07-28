@@ -1,7 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-from __future__ import print_function
 
 # we use random to create different colors for ships
 import random
@@ -36,7 +34,7 @@ class KML():
         that we found in some ship names
         """
         # xxx a more robust version would need to be more thorough 
-        return name.replace("&","")
+        return name.replace("&", "")
     
     def _random_color(self):
         """
@@ -45,7 +43,7 @@ class KML():
         essentially the exact opposite of what you would expect
         we set alpha = 80 (128) and compute the other 3 in the 10-245 range
         """
-        colors = [128] + [random.randint(10,245) for i in range(3)]
+        colors = [128] + [random.randint(10, 245) for i in range(3)]
         # format in hexadecimal on 2 caracters padded with zeroes if needed
         return "".join(["{:02x}".format(c) for c in colors])
 

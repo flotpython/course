@@ -1,10 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Version : 2.0
-
-# this must come first
-from __future__ import print_function
+# Version : 3.0
 
 # standard library imports
 import gzip
@@ -185,7 +182,9 @@ class Merger(object):
                 output_name = self.args.ship_name
 
             # sort ships once and for good
-            ships.sort(key=lambda ship: ship.name)
+            # we can't sort these objects inline as they are
+            # typically dict_values objects
+            ships = sorted(ships, key=lambda ship: ship.name)
 
             # create summary file
             summary_filename = self.write_ships_summary(ships, output_name)

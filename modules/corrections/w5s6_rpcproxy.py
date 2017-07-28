@@ -2,7 +2,7 @@
 # @BEG@ name=RPCProxy latex_size=footnotesize no_validation=skip
 # une troisième implémentation de RPCProxy
 
-class Forwarder(object):
+class Forwarder:
     """
     Une instance de la classe Forwarder est un callable
     qui peut être utilisée comme une méthode sur l
@@ -25,7 +25,7 @@ class Forwarder(object):
             format(self.rpc_proxy.url, self.methodname, args)
         return "retour de la fonction " + self.methodname
 
-class RPCProxy(object):
+class RPCProxy:
     """
     Une troisième implémentation de RPCProxy qui sous-traite
     à une classe annexe `Forwarder` qui se comporte comme

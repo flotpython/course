@@ -50,3 +50,34 @@ On pourra découper en deux notebooks distincts:
 * p.r. à python3, manque
   * le fait que l'on peut mettre un * avant des paramètres nommés
 * envisager de le couper en deux ?
+
+## `w5-s1-c2-fonctions-globals-et-locals`
+
+* je mentionne les f-strings, qui ne sont décrits nulle part encore
+* je donne un petit exemple avec les f-strings
+
+## `w5-s3-c1-import-as`
+
+* il semble qu'il y a ici des redites par rapport à des choses vues en semaine 3 (`import as`)
+
+## `w5-s6-c2-surcharge-operateurs-2`
+
+* 2ème tiers: on introduit `__getattr__` en suggérant que c'est la seule façon de customiser `obj.attribute`; selon ce qu'on décide de faire par rapport aux `__get__`, `__getattribute__`, et autres, il faudra rectifier ça...
+
+## `w5-s8-c1-espaces-de-nommage`
+
+Le complément avancé dans ce notebook ne me paraît pas forcément très utile, et de plus je ne sais pas dire s'il est toujours réellement courant; cette histoire de `global` et `nonlocal` ne m'inspire pas vraiment de toutes les façons..
+
+## CLASSES
+
+* il manque cruellement un complément sur les properties
+* je supprime entièrement `w5-s5-c2-classes-new-style.ipynb` qui n'est plus pertinent en python3.
+
+
+## Type hints
+* un impact sans doute sur le ou les compléments `w5-s5-c3-heritage-multiple` et/ou `w5-s5-c4-heritage-typage`
+
+
+## divers
+
+* renommer `w5-s6-e2-classes` en `w5-s6-e2-classes-shipdict` ?

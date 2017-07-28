@@ -1,8 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # @BEG@ week=5 sequence=6 name=shipdict no_validation=skip
-from __future__ import print_function
 
 # helpers - used for verbose mode only
 # could have been implemented as static methods in Position
@@ -19,12 +18,22 @@ def d_m_s(f):
     return "{:02d}.{:02d}'{:02d}''".format(d,m,s)
 
 def lat_d_m_s(f):
-    if f>=0:        return "{} N".format(d_m_s(f))
-    else:           return "{} S".format(d_m_s(-f))
+    """
+    degree-minute-second conversion on a latitude float
+    """
+    if f >= 0:
+        return "{} N".format(d_m_s(f))
+    else:
+        return "{} S".format(d_m_s(-f))
         
 def lon_d_m_s(f):
-    if f>=0:        return "{} E".format(d_m_s(f))
-    else:           return "{} W".format(d_m_s(-f))
+    """
+    degree-minute-second conversion on a longitude float
+    """
+    if f >= 0:
+        return "{} E".format(d_m_s(f))
+    else:
+        return "{} W".format(d_m_s(-f))
 # @END@
 
 # @BEG@ week=5 sequence=6 name=shipdict more=suite
@@ -38,15 +47,17 @@ class Position(object):
         self.timestamp = timestamp
 
 # all these methods are only used when merger.py runs in verbose mode
-    def lat_str(self):  return lat_d_m_s(self.latitude)
-    def lon_str(self):  return lon_d_m_s(self.longitude)
+    def lat_str(self):
+        return lat_d_m_s(self.latitude)
+    def lon_str(self):
+        return lon_d_m_s(self.longitude)
 
     def __repr__(self):
         """
         only used when merger.py is run in verbose mode
         """
         return "<{} {} @ {}>".format(self.lat_str(),
-                                    self.lon_str(), self.timestamp)
+                                     self.lon_str(), self.timestamp)
 # @END@
 
 # @BEG@ week=5 sequence=6 name=shipdict more=suite
@@ -105,7 +116,7 @@ class ShipDict(dict):
         """
         adds an abbreviated data chunk to the repository
         """
-        id, latitude, longitude, _, _, _, timestamp = chunk
+        id, latitude, longitude, *_, timestamp = chunk
         if id not in self:
             self[id] = Ship(id)
         ship = self[id]
@@ -146,7 +157,7 @@ class ShipDict(dict):
         makes sure all the ships have their positions
         sorted in chronological order
         """
-        for id, ship in self.iteritems():
+        for id, ship in self.items():
             ship.sort_positions()
 
     def clean_unnamed(self):
@@ -159,7 +170,7 @@ class ShipDict(dict):
         # we cannot do all in a single loop as this would amount to
         # changing the loop subject
         # so let us collect the ids to remove first
-        unnamed_ids = { id for id, ship in self.iteritems()
+        unnamed_ids = { id for id, ship in self.items()
                         if ship.name is None }
         # and remove them next
         for id in unnamed_ids:
@@ -175,8 +186,11 @@ class ShipDict(dict):
 
     def all_ships(self):
         """
-        returns a list of all ships known to us 
+        returns a list of all ships known to us
         """
+        # we need to create an actual list because it
+        # may need to be sorted later on, and so
+        # a raw dict_values object won't be good enough
         return self.values()
 
 # @END@
