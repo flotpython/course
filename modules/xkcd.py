@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # re-writing a free adaptation of http://xkcd.com/519/
 
@@ -7,15 +7,15 @@ import matplotlib
 # but it is not needed within a notebook
 #matplotlib.use('TkAgg')
 
-from matplotlib import pyplot as plot
+from matplotlib import pyplot as plt
 
 # the magical trick to get friendly pictures
 # that remind of the xkcd style
-plot.xkcd()
+plt.xkcd()
 
 # create figure
 my_dpi=80
-fig = plot.figure(dpi=my_dpi,figsize=(9,6))
+fig = plt.figure(dpi=my_dpi,figsize=(9,6))
 
 # we need more space for the labels and all
 fig.subplots_adjust(left=0.25,bottom=0.22,top=0.65)
@@ -52,7 +52,7 @@ ax.set_xticklabels(["900\nHEURES\nDE COURS",
 for tick in ax.xaxis.get_major_ticks():
     tick.label.set_fontsize(26) 
 
-plot.yticks([])
+plt.yticks([])
 ax.set_ylabel(
 """utilite
 pour une
@@ -64,4 +64,4 @@ reussie""",
               fontsize=26)
 
 # show it
-plot.show()
+plt.show()
