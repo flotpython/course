@@ -68,6 +68,18 @@ On pourra découper en deux notebooks distincts:
 
 Le complément avancé dans ce notebook ne me paraît pas forcément très utile, et de plus je ne sais pas dire s'il est toujours réellement courant; cette histoire de `global` et `nonlocal` ne m'inspire pas vraiment de toutes les façons..
 
+# mini-projets
+
+## `diskusage`
+
+* pourrait constructivement utiliser `pathlib` plutôt que ces vieux trucs
+
+## `crawler`
+
+* laissé en python2
+
+# commentaires généraux
+
 ## CLASSES
 
 * il manque cruellement un complément sur les properties
