@@ -68,6 +68,15 @@ On pourra découper en deux notebooks distincts:
 
 Le complément avancé dans ce notebook ne me paraît pas forcément très utile, et de plus je ne sais pas dire s'il est toujours réellement courant; cette histoire de `global` et `nonlocal` ne m'inspire pas vraiment de toutes les façons..
 
+## divers
+
+* renommer `w5-s6-e2-classes` en `w5-s6-e2-classes-shipdict` ?
+
+## `w7`
+
+* `w7-s2-c1-decorateurs.ipynb` doit être revu car `singleton` ne marche plus en l'état
+* `w7-s6-c1-python3-vs-python2.ipynb` est essentiellement tel-quel, j'ai failli le supprimer en fait.
+
 # mini-projets
 
 ## `diskusage`
@@ -76,7 +85,9 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 
 ## `crawler`
 
-* laissé en python2
+* passé en python3 mais nécessite sans doute une passe par Arnaud
+* notamment les outputs obtenus sur sa page ne sont pas à jour
+
 
 # commentaires généraux
 
@@ -89,7 +100,11 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 ## Type hints
 * un impact sans doute sur le ou les compléments `w5-s5-c3-heritage-multiple` et/ou `w5-s5-c4-heritage-typage`
 
+## Introspection
+* parler du module `inspect` et de `inspect.signature` ?
 
-## divers
+## Décorateurs
+* check out `functools.update_wrapper`
+* apparemment il n'y a rien à faire pour refaire marcher le décorateur de classe `singleton` (sans imposer de redéfinir `__new__` sur la classe à décorer, ce qui est une contrainte trop forte)
 
-* renommer `w5-s6-e2-classes` en `w5-s6-e2-classes-shipdict` ?
+
