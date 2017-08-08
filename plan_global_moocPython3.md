@@ -1,5 +1,5 @@
 Plan général du MOOC sur Python 3
-======================================
+=================================
 
 ## Week 1
 **Thème de la semaine**: introduction au MOOC et aux outils Python utilisés dans le MOOC
@@ -7,16 +7,16 @@ Plan général du MOOC sur Python 3
 * W1-S1: Organisation du MOOC
 * W1-S2: Pourquoi Python 3
 * W1-S3: iPython
-* W1-S4: les notebooks
+* W1-S4: Les notebooks
 * W1-S5: IDLE
 	* dire un mot sur pycharm pour expliquer que IDLE c'est super pour taper des petits exemples dans un environement de dev, les notebooks, c'est super pour faire pleins de petits exemples avec du texte formaté, des figures et voir immédiatement le résultat. Mais pour faire un gros programme (disons à partir d'une centaine de ligne), seul un vrai éditeur avec du refactoring intégré, des suggestions avancés, lint, etc. comme pycharm est utilisable. 
-* W1-S6: Introduction aux variables et au typage dynamique
+* W1-S6: Introduction aux notions de variables, objets et typage dynamique
 * W1-S7: Les types numériques 
 
 ## Week 2
 **Thème de la semaine**: découverte des types builtins (entiers, listes, chaines de caractères)
 
-* W2-S1: Les chaines de caractères, explication unicode, print (format, f-string) (2 vidéos probablement)
+* W2-S1: Les chaînes de caractères, explication unicode, print (format, f-string) (2 vidéos probablement)
 	* ne pas passer du temps sur des choses peu importante pour ne pas alourdir la vidéo (comme les docstrings)
 * W2-S2: Les séquences
 * W2-S3: Les listes

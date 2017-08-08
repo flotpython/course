@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+## Vidéo 1 (Organisation du MOOC)
+
+TODO: TP
+
+## Compléments Vidéo 1
+
+TODO: TP
+
+## Quizz Vidéo 1
+
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (Pourquoi Python 3)
+
+TODO: TP
+
+## Compléments Vidéo 2
+
+TODO TP
+
+## Quizz Vidéo 2
+
+## Exercices Vidéo 2
+
+###################################################################
+
+## Vidéo 3 (iPython)
+
+TODO: TP
+
+## Compléments Vidéo 3
+
+TODO: TP
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+
+
+###################################################################
+
+## Vidéo 4 (Les notebooks)
+
+TODO: TP
+
+## Compléments Vidéo 4
+
+TODO: TP
+
+## Quizz Vidéo 4
+
+## Exercices Vidéo 4
+
+
+###################################################################
+
+## Vidéo 5 (IDLE)
+
+TODO: TP
+
+## Compléments Vidéo 5
+
+TODO: TP
+
+## Quizz Vidéo 5
+
+## Exercices Vidéo 5
+
+
+###################################################################
+
+## Vidéo 6 (Introduction aux notions de variables, objets et typage dynamique)
+
+
+## Compléments Vidéo 6
+
+ * montrer l'importance de bien choisir les noms de variables pour
+   auto-documenter du code.
+
+ * faire un complément sur print (je n'en parle plus dans la vidéo)
+   On peut faire un complément basique et faire un complément plus
+   avancé (f-string, format) en semaine 2 lorsque je parle des chaines
+   de caractères. 
+
+## Quizz Vidéo 6
+
+## Exercices Vidéo 6
+
+
+###################################################################
+
+## Vidéo 7 (Les types numériques)
+
+
+## Compléments Vidéo 7
+
+parler de la notation 110_220_434 (comme séparateur sur les int et float literals)
+
+
+## Quizz Vidéo 7
+
+## Exercices Vidéo 7
+
+
+###################################################################
