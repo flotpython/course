@@ -101,7 +101,11 @@ TODO: TP
 
 ## Compléments Vidéo 7
 
-parler de la notation 110_220_434 (comme séparateur sur les int et float literals)
+ * parler de la notation 110_220_434 (comme séparateur sur les int et
+   float literals)
+   
+ * compléments sur les module decimal, fractions et math. Parler de
+   sys.float_info
 
 
 ## Quizz Vidéo 7

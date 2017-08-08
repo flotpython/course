@@ -9,7 +9,7 @@
 ## le slide i
 
 ## TITRE : Introduction aux notions de variables, objets et typage dynamique
-## Temp total: 6m10
+## Temp total: 6m15
 
 ## Résumé de la vidéo (30s)
 
@@ -155,9 +155,12 @@ l'interpréteur crée une référence entre la variable a et l'objet
 'spam' du type chaine de caractères, puis va changer la référence de
 la variable a pour qu'elle référence maintenant l'objet 'spam'
 
-## Résumé typage dynamique (15s)
+## Résumé typage dynamique (20s)
 
-Nous verrons dans la suite que le typage dynamique est une notion
+Pourquoi appelons nous ce mécanisme le typage dynamique ? Parce que,
+comme nous venons de le voir, le type des objets référencés par les
+variables est déterminé dynamiquement à l'exécution du programme.  Nous
+verrons dans la suite que le typage dynamique est une notion
 essentielle de Python qui offre beaucoup de flexibilité et facilite
 grandement l'écriture des programmes.
 
