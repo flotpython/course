@@ -16,14 +16,19 @@ Plan général du MOOC sur Python 3
 ## Week 2
 **Thème de la semaine**: découverte des types builtins (entiers, listes, chaines de caractères)
 
-* W2-S1: Les chaînes de caractères, explication unicode, print (format, f-string) (2 vidéos probablement)
+* W2-S1: Les chaînes de caractères, unicode et print (2 vidéos
+  probablement)
+    * format, f-string
 	* ne pas passer du temps sur des choses peu importante pour ne pas alourdir la vidéo (comme les docstrings)
 * W2-S2: Les séquences
 * W2-S3: Les listes
-* W2-S4: Introduction aux tests if/else et aux expressions conditionnelles + indentation comme syntaxe de base
+* W2-S4: Introduction aux tests if/else et aux expressions
+  conditionnelles
+	* indentation comme syntaxe de base
 * W2-S5: Introduction aux boucles for et aux fonctions
 * W2-S6: Introduction aux modules
-* W2-S7: Les fichiers (introduction aux contexts managers)
+* W2-S7: Les fichiers
+	* introduction aux contexts managers
 
 ## Week 3
 **Thème de la semaine**: Fin des types builtins et introduction aux modules et aux classes
@@ -43,10 +48,12 @@ Plan général du MOOC sur Python 3
 
 * W4-S1: Fonctions
 	* une fonction crée une référence partagée
-* W4-S2: Les tests if/elif/else et les opérateurs booléens (faire un exemple d'analyseur de syntaxe)
-* W4-S3: Boucle while (continuer l'exemple d'analyseur de syntaxe)
+* W4-S2: Les tests if/elif/else et les opérateurs booléens
+	* faire un exemple d'analyseur de syntaxe
+* W4-S3: Boucle while
+	* continuer l'exemple d'analyseur de syntaxe
 * W4-S4: Portée des variables dans les fonctions: règle LEG
-		* variable liaison statique, attributs calculés à runtime ?
+	* variable liaison statique, attributs calculés à runtime ?
 * W4-S5: Portée des variables dans les fonctions et références partagées
 * W4-S6: Passage d'arguments et appel de fonctions
 	* exemple pratique de passage d'arguments/unpacking
@@ -56,7 +63,8 @@ Plan général du MOOC sur Python 3
 
 * W5-S1: Les boucles for et les itérateurs
 * W5-S2: Fonction lambda, programmation fonctionnelle
-* W5-S3: Compréhension de listes, sets et dictionnaires + expressions génératrices
+* W5-S3: Compréhension de listes, sets et dictionnaires
+	* expressions génératrices
 * W5-S4: Fonctions génératrices
 * W5-S5: L'itération en Python
 	* expliquer que Python est construit autour de cette notion d'itération, qu'il faut toujours utiliser l'itération, qu'il faut éviter de créer des structures de données si on n'en n'a pas besoin tout de suite (expression génératrice plutôt que compréhension)
@@ -91,7 +99,7 @@ Plan général du MOOC sur Python 3
 * W8-S1: Méthodes statiques et de classe
 * W8-S2: Les décorateurs
 * W8-S3: La gestion avancée des attributs
-: property et descripteurs 
+	* property et descripteurs 
 * W8-S4: Les métaclasses
 * W8-S5: La performance en Python
 

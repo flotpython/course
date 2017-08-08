@@ -77,7 +77,7 @@ TODO: TP
 ###################################################################
 
 ## Vidéo 6 (Introduction aux notions de variables, objets et typage dynamique)
-
+NIVEAU: BASIC
 
 ## Compléments Vidéo 6
 
@@ -87,17 +87,27 @@ TODO: TP
  * faire un complément sur print (je n'en parle plus dans la vidéo)
    On peut faire un complément basique et faire un complément plus
    avancé (f-string, format) en semaine 2 lorsque je parle des chaines
-   de caractères. 
+   de caractères.
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-noms-de-variables.ipynb : noms de variables
+  * Complement-mots-cles.ipynb: liste des mots clés
+  * Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 6
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S1-E1-identifiants.quiz
+
 ## Exercices Vidéo 6
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * pas d'exo
 
 
 ###################################################################
 
 ## Vidéo 7 (Les types numériques)
-
+NIVEAU: BASIC
 
 ## Compléments Vidéo 7
 
@@ -107,10 +117,22 @@ TODO: TP
  * compléments sur les module decimal, fractions et math. Parler de
    sys.float_info
 
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
+  * Complement-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
+  * Complement-precision-flottants.ipynb : limitation de la précision des floats  
+  * Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 7
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S2-E1-type-numeriques.quiz
+
+
 ## Exercices Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
 
 
 ###################################################################
