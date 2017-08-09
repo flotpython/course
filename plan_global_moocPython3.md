@@ -16,18 +16,17 @@ Plan général du MOOC sur Python 3
 ## Week 2
 **Thème de la semaine**: découverte des types builtins (entiers, listes, chaines de caractères)
 
-* W2-S1: Les chaînes de caractères, unicode et print (2 vidéos
-  probablement)
+* W2-S1: Codage, jeux de caractères et unicode
+* W2-S2: Les chaînes de caractères
     * format, f-string
-	* ne pas passer du temps sur des choses peu importante pour ne pas alourdir la vidéo (comme les docstrings)
-* W2-S2: Les séquences
-* W2-S3: Les listes
-* W2-S4: Introduction aux tests if/else et aux expressions
+* W2-S3: Les séquences
+* W2-S4: Les listes
+* W2-S5: Introduction aux tests if/else et aux expressions
   conditionnelles
 	* indentation comme syntaxe de base
-* W2-S5: Introduction aux boucles for et aux fonctions
-* W2-S6: Introduction aux modules
-* W2-S7: Les fichiers
+* W2-S6: Introduction aux boucles for et aux fonctions
+* W2-S7: Introduction aux modules
+* W2-S8: Les fichiers
 	* introduction aux contexts managers
 
 ## Week 3

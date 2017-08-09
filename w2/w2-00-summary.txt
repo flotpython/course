@@ -1,0 +1,189 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+## Vidéo 1 (Codage, jeux de caractères et unicode)
+NIVEAU: BASIC
+
+## Compléments Vidéo 1
+
+   * parler d'UTF-8, UTF-16, UTF-32
+   * faire un peu d'historique avec ASCII et les pages de code
+   * donner des exemples de problème d'encodage aujoud'hui
+
+## Quizz Vidéo 1
+
+
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (Les chaînes de caractères, unicode et print)
+NIVEAU: BASIC
+
+## Compléments Vidéo 2
+
+   * parler de bytearray
+   * citer https://docs.python.org/3.5/howto/unicode.html
+   * citer http://nedbatchelder.com/text/unipain.html (PyCon 2012)
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * raw-strings.ipynb - backslashes - \n \t
+  * Complement-formatage-de-chaines.ipynb : format et % - je laisse
+    tomber rjust/ljust/center pour le moment
+  * Complement-outils-sur-chaines.ipynb : # help(str)  #split join
+    #replace strip #index find rfind count startswith endswith upper
+    lower swapcase capitalize title  renvoi sur la doc
+  * Complement-la-fonction-raw_input.ipynb
+
+
+## Quizz Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
+
+
+## Exercices Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-chaines.ipynb - split, replace, format...
+
+
+
+###################################################################
+
+
+## Vidéo 3 (Les séquences)
+NIVEAU: BASIC
+
+## Compléments Vidéo 3
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
+
+
+## Vidéo 4 (Les listes)
+NIVEAU: BASIC
+
+parle du passe str <-> list avec join() et split()
+
+
+## Compléments Vidéo 4
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
+
+
+## Vidéo 5 (Introduction aux tests if/else et aux expressions conditionnelles)
+NIVEAU: BASIC
+
+
+parler de l'indentation comme syntaxe de base
+
+## Compléments Vidéo 5
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
+
+
+## Vidéo 6 (Introduction aux boucles for et aux fonctions)
+NIVEAU: BASIC
+
+## Compléments Vidéo 6
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
+
+
+## Vidéo 7 (Introduction aux modules)
+NIVEAU: BASIC
+
+## Compléments Vidéo 7
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
+
+
+## Vidéo 8 (Les fichiers)
+NIVEAU: BASIC
+
+introduction aux contexts managers
+
+## Compléments Vidéo 8
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 8
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 8
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+###################################################################
