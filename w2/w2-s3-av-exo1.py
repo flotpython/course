@@ -11,17 +11,17 @@ s = 'egg, bacon' # dix lettres
 print s[0]
 print s[9]
 
-## il existe des fonctions et des opérations communes à toutes les séquences
-## c'est-à-dire non seulement aux chaînes de caractères mais aussi aux listes
-## et aux tuples. Commençons par regarder ces fonctions et opérations communes
-## à toutes les séquences
+## il existe des fonctions et des opérations communes à toutes les
+## séquences c'est-à-dire non seulement aux chaînes de caractères mais
+## aussi aux listes et aux tuples. Commençons par regarder ces
+## fonctions et opérations communes à toutes les séquences
 
 ## test d'appartenance
 
 print 'g' in s
 print 'g' not in s # noter que c'est presque du langage naturel
 
-## concaténation, retourne une nouvelle séquence de même type
+## concaténation, retourne une **nouvelle** séquence de même type
 
 print s + ' and spam'
 
@@ -46,8 +46,8 @@ print s.index('g')
 
 print s.count('g')
 
-## n shallow copy de s concaténés, on reviendra sur la notion de shallow copy
-## cette semaine.
+## n shallow copy de s concaténés, on reviendra sur la notion de
+## shallow copy dans une autre vidéo
 
 print s*3
 

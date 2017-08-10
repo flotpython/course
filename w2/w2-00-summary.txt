@@ -97,13 +97,17 @@ parle du passe str <-> list avec join() et split()
 
 ## Compléments Vidéo 4
 
+   * faire un complément sur range()
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-listes.ipynb: un complément sur les méthodes des listes
+  * Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
 
 
 ## Quizz Vidéo 4
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
 
 
 ## Exercices Vidéo 4

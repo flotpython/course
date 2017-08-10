@@ -31,3 +31,5 @@ commune que nous allons présenter dans cette vidéo.
 On a vu dans cette vidéo les caractéristiques des types séquences.
 Ce sont des types puissants qui permettent de faire simplement
 des opérations sophistiquées comme le slicing. 
+
+À bientôt
