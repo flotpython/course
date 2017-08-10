@@ -109,14 +109,18 @@ soit la vitesse de codage, soit la taille du texte codé. En pratique,
 UTF-8 est le codage le plus utilisé puisqu'il représente un très bon
 compromis entre vitesse de codage et taille du code.
 
+Notons qu'UTF-8 est un codage inventé pour le jeux de caractères
+unicode. Dans la suite, lorsque nous parlerons d'UTF-8 cela signifiera
+implicitement que l'on utilise le jeux de caractère unicode. 
+
 [SB]
 
 ## Unicode en pratique (50s)
 
-La bonne nouvelle est que Python supporte nativement l'unicode et
-UTF-8. Est-ce que ça veut dire que tous les problèmes de codage sont
-résolus ? Malheureusement non !  En effet, même si unicode est devenu
-un standard incontournable, il existe encore beaucoup de documents
+La bonne nouvelle est que Python supporte nativement l'UTF-8. Est-ce
+que ça veut dire que tous les problèmes de codage sont résolus ?
+Malheureusement non !  En effet, même si unicode est devenu un
+standard incontournable, il existe encore beaucoup de documents
 utilisant des anciens codages et jeux de caractères et il n'exite
 aucune technique fiable à 100% pour identifier le codage et le jeux de
 caractère utilisé par un document. Si la personne qui vous fourni le

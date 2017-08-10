@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les chaînes de caractères 
+## Temp total: 12m45
+
+## Résumé de la vidéo (15 s)
+
+Dans cette vidéo nous allons voir le fonctionnement des chaînes de
+caractères et comment gérer l'encodage en Python .
+
+
+## chaînes de caractères 
+
+
+
+passons dans un terminal pour commencer à jouer avec les chaînes
+de caractères...
+
+>>>>>>>>>>  W2-S2-AV-exo1.py  <<<<<<<<<< (12m10s)
+
+
+## Résumé de la vidéo (20s)
+En résumé, il faut prendre l'habitude de toujours gérer l'encodage
+et d'utiliser UTF-8 sauf si on a une bonne raison de faire
+autrement. Dans notre programme on manipule toujours le texte avec
+le type str, mais dès qu'on lit ou écrit des données on encode
+notre chaine en utf-8 sous forme de bytes. Nous reviendrons sur ce
+sujet important dans les compléments.
+
+À bientôt
+
+
