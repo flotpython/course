@@ -19,14 +19,22 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 2 (Les chaînes de caractères, unicode et print)
+## Vidéo 2 (Les chaînes de caractères)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
+   * parler des doctring (triple guillemet ou apostrophe)
+   * parler des différences entre isdigit, isnumeric, isdecimal
    * parler de bytearray
    * citer https://docs.python.org/3.5/howto/unicode.html
    * citer http://nedbatchelder.com/text/unipain.html (PyCon 2012)
+   * parler dans format du nouveau séparateur , pour les nombre qui
+     permet de formatter automatiquement comme ça : 100,133,589
+   * faire un complément sur print et montrer la différence en print
+     et la représentation interne
+   * complément unicode en Python (str, bytes, \u, chr, ord, hex,
+   * etc.) et parler de librairie chardet et unidecode
 
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
@@ -36,6 +44,8 @@ NIVEAU: BASIC
   * Complement-outils-sur-chaines.ipynb : # help(str)  #split join
     #replace strip #index find rfind count startswith endswith upper
     lower swapcase capitalize title  renvoi sur la doc
+    	  * AL: déplacer la discution sur join et split en vidéo 4
+  	    	lorsque je parle des listes
   * Complement-la-fonction-raw_input.ipynb
 
 
@@ -62,16 +72,19 @@ NIVEAU: BASIC
 
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
-
+  * Complement-slices.ipynb : reprend le slicing 
 
 ## Quizz Vidéo 3
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-
+   * W2-S3-E1-generic-slicing.quiz : opérations génériques sur les
+     séquences en prenant une str comme exemple 
 
 ## Exercices Vidéo 3
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-slicing.ipynb: un peu de slicing, et des indices
+     négatifs, le slicing avec pas, utilisation de la longueur 
 
 ###################################################################
 
