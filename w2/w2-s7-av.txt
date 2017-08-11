@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Introduction aux modules
+## Temp total: 3m50
+
+
+## Résumé de la vidéo (50s)
+
+Dans cette vidéo, nous allons introduire la notion de modules et 
+en particulier comment utiliser des modules.
+
+Un module est un fichier python standard finissant par .py et tous les
+fichiers python sont des modules. Donc les notions de fichier python
+et de module sont équivalentes. Alors pourquoi introduire cette notion
+de module ? En Python tout est un objet et lorsque l'on importe un
+fichier python dans un programme, cela crée un objet que l'on appelle
+un module. On peut accéder a tout ce qui a été défini dans le fichier
+importé, en particulier les fonctions, par l'objet module.
+
+Par conséquent, on peut voir un module comme une boite à outils,
+c'est-à-dire un fichier définissant des fonctions pour une tâche
+particulière. Si l'on veut utiliser un module il suffit de 
+l'importer avec l'instruction import et ensuite appeler des méthodes
+dessus. 
+
+Ouvrons un terminal pour commencer à jouer avec les modules...
+
+>>>>>>>>>> INCLUDE W2-S7-AV-exo1.py <<<<<<<<<< (1m50s)
+
+
+## Librairie standard (1m10)
+
+>>>>>>>>>> INCLUDE W2-S7-AV-slide1.py <<<<<<<<<<
+
+On a vu une introduction rapide à l'utilisation des modules, mais il y
+a en Python des dizaines de modules dans ce que l'on appelle la
+librairie standard. C'est la librairie qui est disponible avec toutes
+les installations de Python. Donc quelque soit le système
+d'exploitation que l'on utilise, un programme utilisant les librairies
+standards fonctionnera avec toutes les installations de Python.
+
+Il y a dans la librairie standard des modules pour faire toutes les
+tâches courantes en programmation, comme par exemple, faire de la
+programmation parallèle ou asynchrone, faire de la persistance de
+données, communiquer sur internet et gérer les format de données,
+utiliser des fractions ou des nombre décimaux, utiliser des
+expressions régulières, gérer les dates et les calendriers, gérer le
+système de fichier, compresser des fichiers, faire des interfaces
+graphiques, et bien plus encore.
+
+Il y a bien sûr un grand nombre d'autres modules externes pour faire
+des tâches spécialisées, nous verrons notamment dans ce MOOC un rapide
+introduction aux outils de data science. Ces modules n'étant pas
+standard, ils demandent une installation supplémentaire à Python, mais
+ils s'importent et s'utilisent ensuite comme un module de la librairie
+standard.
+
+À bientôt
