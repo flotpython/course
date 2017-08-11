@@ -146,6 +146,8 @@ NIVEAU: BASIC
 ## Exercices Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de
+     this (de import this)  
 
 ###################################################################
 
@@ -157,6 +159,18 @@ NIVEAU: BASIC
 
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans
+    un for, la fonction zip
+  * Complement-comprehension-de-liste.ipynb: [ exp(x) for x in .... if
+    ] - XXX reduce ?
+  * Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort
+    avec le paramètre key (une fonction), et sorted
+  * Complement-valeur-de-retour.ipynb : il nous faut 'return' pour les
+    exe rcices please
+  * Arnaud : ajouter sur les conventions de style: un espace après les
+    virgules, en espace avant et après les opérateurs
+    (a = f(1, 2) + g(3, 4)), un saut
+    de ligne pour séparer les bloc d'instructions et les fonctions. 
 
 
 ## Quizz Vidéo 6
@@ -167,6 +181,11 @@ NIVEAU: BASIC
 ## Exercices Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-if-et-def.ipynb : une petite fonction qui calcule si
+     deux entiers sont divisibles ou pas
+   * Exercice-boucle-for.ipynb : trier toutes les listes dans une
+     liste; idem avec une direction
+   * Arnaud: montrer une boucle for sur une chaine de caractères.
 
 ###################################################################
 
@@ -178,6 +197,12 @@ NIVEAU: BASIC
 
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-packages.ipynb
+  * Complement-modules-et-chemins.ipynb
+  * Complement-recapitulatif-import.ipynb : pourquoi il ne faut pas
+    utiliser import *
+  * Complement-module-collections.ipynb: des variantes utiles aux
+    types de base 
 
 
 ## Quizz Vidéo 7
@@ -188,6 +213,7 @@ NIVEAU: BASIC
 ## Exercices Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
 
 ###################################################################
 

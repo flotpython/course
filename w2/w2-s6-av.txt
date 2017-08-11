@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Introduction aux boucles for et aux fonctions
+## Temp total: 7m40
+
+## Boucle for (15 secondes)
+
+Un principe fondateur de la programmation est la factorisation du
+code, c'est-à-dire que l'on réduit le code écrit pour en faciliter la
+maintenance.  On va voir dans cette vidéo deux techniques de
+factorisation de code, les boucles for et les fonctions.
+
+ouvrons un terminal et commençons à jouer avec les boucles for...
+
+>>>>>>>>>>  W2-S7-AV-exo1.py  (7 minutes 10) <<<<<<<<<<
+
+## résumé (15 secondes)
+
+On a vu dans cette vidéo deux notions nécessaire à l'écriture de vrais
+programmes, les boucles for et les fonctions. Cependant, il ne s'agit
+que d'une survol rapide destiné à vous permettre de jouer avec Python
+dès maintenant, nous verrons toutes les subtilités des ces notions
+dans de prochaines vidéos.
+
+À bientôt
