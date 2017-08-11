@@ -24,9 +24,11 @@ quelle référence.
 
 Les listes sont mutables, c'est-à-dire que l'on peut les modifier en
 place. On dit qu'une modification est en place lorsque l'on modifie
-directement l'objet en mémoire sans en faire une copie
-temporaire. L'intérêt d'une modification en place est qu'elle est
-économe en mémoire puisqu'elle ne demande pas de copie temporaire.
+directement l'objet en mémoire sans en faire une copie temporaire, ce
+qui est très efficace. Les listes sont souples et flexible et très
+facile à utiliser. On peut ajouter des objets au début, à la fin, au
+milieu, une liste peux s'étendre, se contracter, tout cela se fait par
+l'intermédiaires de méthodes simples et intuitives. 
 
 Ouvrons un terminal interactif et commençons a jouer avec les listes. 
 

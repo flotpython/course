@@ -21,8 +21,7 @@ Plan général du MOOC sur Python 3
     * format, f-string
 * W2-S3: Les séquences
 * W2-S4: Les listes
-* W2-S5: Introduction aux tests if/else et aux expressions
-  conditionnelles
+* W2-S5: Introduction aux tests if/else et aux conventions de codage
 	* indentation comme syntaxe de base
 * W2-S6: Introduction aux boucles for et aux fonctions
 * W2-S7: Introduction aux modules
