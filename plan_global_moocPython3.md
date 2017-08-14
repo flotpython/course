@@ -135,6 +135,14 @@ Compléments
   * [AL] C'est une bonne idée, dans un genre similaire, on pourrait faire une review de code et expliquer comment l'améliorer (e.g., http://sametmax.com/revue-de-code-publique/)
   
 
+
+IDEA TO DISCUSS
+===============
+au lieu d'introduire le contenu de la semaine dans la premiere vidéo
+(ce qui fige la réorganization des vidéo), faire une vidéo 0 en chaque 
+début de semaine pour introduire le contenu de la semaine. 
+
+
 DRAFT
 ======
 Python 3:

@@ -20,18 +20,19 @@ for i in range(11):
 ## La boucle for utilise (comment souvent en Python), une notation
 ## simple et intuitive. On commence une boucle for par l'instruction
 ## for puis, on spécifie une variable (x dans notre cas),
-## l'instruction in, et un itérable. Pour le moment, on peut considérer
-## qu'un itérable est une séquence. On fini la ligne avec un : ce qui
-## veut dire que l'on va avoir un nouveau bloc d'instruction décalé de
-## 4 caractères vers la droite par rapport au for.  La boucle for va
-## répéter le bloc d'instruction autant fois qu'il y a d'éléments dans
-## la séquence. À la premiere exécution du bloc d'instruction, la
-## variable x référence le premier élément de la séquence et à chaque
-## nouvelle répétition du bloc d'instruction x référencera l'élément
-## suivant dans la séquence jusqu'au dernier élément de la séquence.
-## Lorsqu'il n'y a plus d'élément dans la séquence on sort de la
-## boucle for, c'est-à dire que l'on continu avec le bloc de code
-## aligné avec la boucle for.
+## l'instruction in, et un itérable. Un itérable est un objet que l'on
+## peut parcourir avec un boucle for. En particulier les séquence et
+## la fonction range() sont itérable. On fini la ligne avec un : ce
+## qui veut dire que l'on va avoir un nouveau bloc d'instruction
+## décalé de 4 caractères vers la droite par rapport au for.  La
+## boucle for va répéter le bloc d'instruction autant fois qu'il y a
+## d'éléments dans la séquence. À la premiere exécution du bloc
+## d'instruction, la variable x référence le premier élément de la
+## séquence et à chaque nouvelle répétition du bloc d'instruction x
+## référencera l'élément suivant dans la séquence jusqu'au dernier
+## élément de la séquence.  Lorsqu'il n'y a plus d'élément dans la
+## séquence on sort de la boucle for, c'est-à dire que l'on continu
+## avec le bloc de code aligné avec la boucle for.
 
 ## comme une boucle for fonctionne sur toutes les séquences, on peut
 ## faire une boucle for sur un chaîne de caractères par exemple

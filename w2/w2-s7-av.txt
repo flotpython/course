@@ -5,8 +5,10 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
 ## TITRE : Introduction aux modules
 ## Temp total: 3m50
