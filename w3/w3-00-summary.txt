@@ -1,0 +1,116 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+## Vidéo 1 (Les tuples)
+NIVEAU: BASIC
+
+## Compléments Vidéo 1
+   * Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+   * Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
+
+## Quizz Vidéo 1
+   * W2-S5-E1-tuples.quiz
+
+
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (Tables de hash)
+NIVEAU: BASIC
+
+## Compléments Vidéo 2
+
+
+## Quizz Vidéo 2
+
+
+## Exercices Vidéo 2
+
+
+###################################################################
+
+## Vidéo 3 (Les dictionnaires)
+NIVEAU: BASIC
+
+## Compléments Vidéo 3
+
+
+## Quizz Vidéo 3
+
+
+## Exercices Vidéo 3
+
+
+###################################################################
+
+## Vidéo 4 (Les ensembles)
+NIVEAU: BASIC
+
+## Compléments Vidéo 4
+
+
+## Quizz Vidéo 4
+
+
+## Exercices Vidéo 4
+
+
+###################################################################
+
+## Vidéo 5 (Les exceptions)
+NIVEAU: BASIC
+
+## Compléments Vidéo 5
+
+
+## Quizz Vidéo 5
+
+
+## Exercices Vidéo 5
+
+
+###################################################################
+
+## Vidéo 6 (Les références partagées)
+NIVEAU: BASIC
+
+## Compléments Vidéo 6
+
+
+## Quizz Vidéo 6
+
+
+## Exercices Vidéo 6
+
+
+###################################################################
+
+## Vidéo 7 (Les modules pour créer nos objets)
+NIVEAU: BASIC
+
+## Compléments Vidéo 7
+
+
+## Quizz Vidéo 7
+
+
+## Exercices Vidéo 7
+
+
+###################################################################
+
+## Vidéo 8 (Les classes pour créer nos objets )
+NIVEAU: BASIC
+
+## Compléments Vidéo 8
+
+
+## Quizz Vidéo 8
+
+
+## Exercices Vidéo 8
+
+

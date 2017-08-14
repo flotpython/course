@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Les tuples
+
+## Résumé de la vidéo (1 minute)
+
+Dans cette vidéo nous allons presenter un type séquence très proche
+des listes, c'est le tuple.  Comme une liste, un tuple regroupe sous
+forme d'une séquence des objets de type quelconque.
+
+Mais, il existe une différence fondamentale entre les listes et les
+tuples.  Contrairement aux liste qui sont mutables, les tuples sont
+immuables, c'est à dire que les modification en place sont interdites,
+on ne peut donc pas modifier un tuple déjà créé.
+
+Nous discuterons l'intérêt des objets immuables lorsque nous parlerons
+des dictionnaires et des références partagées dans de prochaines
+vidéos. 
+
+Ouvrons un terminal interactif pour jouer avec les tuples.
+
+>>>>>>>>>> INCLUDE W2-S5-AV-exo1.py  <<<<<<<<<<
+
+## Résumé de la vidéo (1 minute)
+
+Le tuple est un objet proche de la liste, mais immuable. C'est cette
+immuablité qui est recherchée dans certain usage comme les clefs de
+dictionnaires. Nous en reparlerons dans une prochaine vidéo.
+
+À bientôt.
