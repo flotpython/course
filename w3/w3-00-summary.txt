@@ -23,6 +23,10 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
+   * donner des pointeurs vers le fonctionnement des tables de hash et
+     la gestion des collisions. Donner également un pointeur vers
+     l'implementation en Python des tables de hash.
+     https://docs.python.org/3.6/faq/design.html#how-are-dictionaries-implemented
 
 ## Quizz Vidéo 2
 
@@ -36,13 +40,18 @@ NIVEAU: BASIC
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
-
+   * Complement-dictionnaires.ipynb - recapitulatif sur comment
+     utiliser un dict + url vers la doc python
+   * Complement-cles-immuables.ipynb - types immuables et clés
+     globalement immuables
+   * Complement-record-et-dictionnaire.ipynb - une utilisation
+     standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 3
-
+   * W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
 ## Exercices Vidéo 3
-
+   * Exercice-marine-dictionnaire.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections 
 
 ###################################################################
 

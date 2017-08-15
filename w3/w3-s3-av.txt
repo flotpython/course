@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les dictionnaires 
+## Temp total: 7m40s
+
+
+## Résumé de la vidéo (1m00s)
+
+Dans cette vidéo nous allons voir comment utiliser les dictionnaires
+en Python. Un dictionnaire est une table de hash qui prend comme clef
+n'importe quel objet immuable et comme valeur n'importe quel objet.
+
+Pourquoi est-ce que la clef doit être un immuable ?  Comme la fonction
+de hash fait un calcul sur la clef et que pour une même clef, elle
+doit toujours donner la même case dans le tableau, une clef ne peut
+pas changer en cours d'exécution, elle doit être immuable.  Donc une
+clef en Python peut-être, par exemple, un type numérique, une chaîne
+de caractères, ou un tuple d'immuable.
+
+Il n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le
+voir comme une collection non ordonnée de couples (clef, valeur). Le
+dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
+le modifier en place.
+
+Les dictionnaires sont des objets très puissants qui permettent de
+faire facilement certaines taches qui sont avec d'autres langages
+longue et fastidieuse à écrire. Ouvrons un terminal interactif pour
+commencer à jouer avec les dictionnaires.
+
+
+>>>>>>>>>> W3-S3-AV-exo1.py <<<<<<<<<< (6m10s)
+
+## Résumé de la vidéo (30s)
+
+Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, un
+nouveau type puissant qui permet de créer un agenda ou un annuaire en
+seulement quelques lignes de code et nous avons vu le concept de vue.
+Les dictionnaires sont également optimisés pour la recherche de clef,
+c'est donc le type à utiliser lorsque vous avez besoin de performance
+pour la recherche d'éléments.
+
+À bientôt
