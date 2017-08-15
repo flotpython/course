@@ -110,6 +110,22 @@ NIVEAU: BASIC
 ## Compléments Vidéo 5
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
+   * NICETOHAVE un complement sur le debugger, la pile, traceback, etc.
+     la pile; montrer la pile lorsqu'on attrape une exception
+     pourquoi ne pas mentionner le debugger ?
+
+   * parler des Warning et du module warning
+     https://docs.python.org/2.7/library/warnings.html#module-warnings
+
+   * donner la référence de la documentation de toutes les 
+     exceptions built-in https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions
+     et du tutorial Python sur les exceptions
+     https://docs.python.org/2.7/tutorial/errors.html
+
+     en profiter pour signaler les dangers du except sans clause - parler
+     du print_exc()
+
+   * parler de assert
 
 
 ## Quizz Vidéo 5
@@ -130,18 +146,36 @@ NIVEAU: BASIC
 ## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-
+   * OK Complement-operateur-is-et-fonction-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+   * OK Complement-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+   * OK Complement-les-differentes-copies.ipynb - make sure this comes after is-id 
+   * OK Complement-instruction-del.ipynb *del a;  del L[i:j:k]; del d[clef]
+   * OK Complement-affectation-simultanee.ipynb   a = b = []
+   * BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
+     en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
+   * sys.getrefcount()
 
 ## Quizz Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W3-S4-E1-multiply.quiz liste=[[1]]*5 et demander une solution
+     pour ne pas avoir de ref. partagées  
 
 
 ## Exercices Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-
-
+   
+	DROPPED* exo pour voir jusqu'à quelle taille de chaîne de
+                 caractères (et quelle taille d'entier) Python arrête
+                 de faire des références partagées pour optimiser la
+                 mémoire.  je laisse tomber car la fonction
+                 is_singleton se comporte de maniere bizarre
+		 
+	NICETOHAVE * essayer d'écrire un bout de code buggé et
+                 demander aux gens detrouver l'erreur en rajoutant une
+                 copie
+		 
 ###################################################################
 
 ## Vidéo 7 (Les modules pour créer nos objets)
