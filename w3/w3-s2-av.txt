@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Tables de hash
+
+## Résumé de la vidéo (20s)
+
+Nous avons vu jusqu'à maintenant les types séquences qui sont des
+types très puissants combinant souplesse et facilité d'utilisation.
+Mais est-ce qu'il y a des limitations à l'utilisation des types
+séquences.  Ouvrons un terminal interactif pour répondre à cette
+question...
+
+>>>>>>>>>> W3-S2-AV-exo1.py (3m40) <<<<<<<<<<
+
+>>>>>>>>>> W3-S2-AV-slide1.pptx (??) <<<<<<<<<<
+
+## Résumé de la vidéo (30s)
+
+Les tables de hash permettent un temps d'insertion, d'accès mais aussi
+de test d'appartenance indépendant du nombre d'éléments. Les tables de
+hash permettent également d'indéxer les éléments non pas uniquement
+avec des entiers, mais égalememt avec des objets plus complexe comme
+des chaînes de caractères. 
+
+Il existe en Python deux implémentations de tables de hash, ce sont
+les dictionnaires et les ensembles. Nous verrons comment utiliser ces
+deux nouveaux types dans de prochaines vidéos.
+
+À bientôt.
