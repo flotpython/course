@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les ensembles
+## Temp total: 
+
+## Résumé de la vidéo (35s)
+
+Un 'set' est un ensemble non ordonné d'objets uniques. Il est
+implémenté avec une table de hash, donc il est optimisé pour l'accés,
+l'insertion, l'effacement et surtout le test d'appartenance.  Il faut
+donc toujours les préférer à des listes lorsque l'on fait un test
+d'appartenance.
+
+Comme le dictionnaire, un set ne peut accepter que des clefs
+immuables (nombre, chaîne de caractères, tuple d'immuable).
+Par contre, contrairement au dictionnaire, on ne peut pas stocker
+de valeur associée à une clef. 
+
+Les sets sont des objets mutables ça veut dire qu'on peut le modifier
+en place. 
+
+Ouvrons un terminal interactif pour jouer avec les set. 
+
+>>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (7m00s)
+
+## Résumé de la vidéo (35s)
+
+Nous avons découvers le type set qui est très utilisé en Python soit
+pour obtenir les éléments uniques d'une liste soit pour faire des
+tests d'appartenance. Nous avons en vu particulier que le test
+d'appartenance sur les set est extrêment efficace et que c'était
+toujours plus efficace de convertir vos listes en set et de faire le
+test d'appartenance sur le set. 
+
+À bientôt.

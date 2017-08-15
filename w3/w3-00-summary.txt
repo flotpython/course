@@ -6,14 +6,20 @@
 NIVEAU: BASIC
 
 ## Compléments Vidéo 1
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
    * Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 1
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
    * W2-S5-E1-tuples.quiz
 
 
 ## Exercices Vidéo 1
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
@@ -27,11 +33,18 @@ NIVEAU: BASIC
      la gestion des collisions. Donner également un pointeur vers
      l'implementation en Python des tables de hash.
      https://docs.python.org/3.6/faq/design.html#how-are-dictionaries-implemented
+     
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+
 
 ## Quizz Vidéo 2
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
@@ -40,6 +53,8 @@ NIVEAU: BASIC
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-dictionnaires.ipynb - recapitulatif sur comment
      utiliser un dict + url vers la doc python
    * Complement-cles-immuables.ipynb - types immuables et clés
@@ -48,9 +63,13 @@ NIVEAU: BASIC
      standard du dictionnaire pour faire un struct
 
 ## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
    * W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
 ## Exercices Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2	
    * Exercice-marine-dictionnaire.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections 
 
 ###################################################################
@@ -60,11 +79,27 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 4
 
+   * introduire les frozensets (je n'en parle plus dans la vidéo)
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * Complement-ensembles.ipynb : recap. fonctions/methodes sur les
+   ensembles
+   
 
 ## Quizz Vidéo 4
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * NICETOHAVE : un quiz qui met l'accent sur le choix judicieux du
+     type de base en fonction du probleme posé entre tuple, liste,
+     dict, set (et pourquoi pas aussi frozenset si il faut hacher)
+
+   * OK Exercice-marine-ensembles.ipynb - avec le même genre de données de marine traffic xxx version python à 
+
 
 
 ###################################################################
@@ -74,11 +109,17 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 5
 
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+
 
 ## Quizz Vidéo 5
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
@@ -88,11 +129,17 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 6
 
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+
 
 ## Quizz Vidéo 6
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
@@ -102,11 +149,16 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 7
 
+   Pour mémoire, notebook du précédent MOOC sur Python 2
 
 ## Quizz Vidéo 7
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
@@ -116,10 +168,16 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 8
 
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+
 
 ## Quizz Vidéo 8
 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 8
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
