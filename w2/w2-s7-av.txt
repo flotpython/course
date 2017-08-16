@@ -23,7 +23,8 @@ liste. Nous avons vu qu'une boucle for permettait de parcourir de
 manière simple et intuitive une liste. Mais, il existe une manière
 encore plus simple de parcourir une liste et de faire une opération
 sur chaque élément de la liste, c'est ce qu'on appelle une
-compréhension de liste.
+compréhension de liste que l'on appelle également listes en
+intention. 
 
 Nous allons dans cette vidéo vous expliquer comment faire de
 compréhension de liste en Python. 

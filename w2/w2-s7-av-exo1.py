@@ -5,11 +5,11 @@
 ## suivante
 
 import math
-ma_liste = [1, 3, 6, 9, 13, 5, 2]
+my_list = [1, 3, 6, 9, 13, 5, 2]
 
-log_liste = []
-for i in ma_liste:
-    log_liste.append(math.log(i))
+log_list = []
+for i in my_list:
+    log_list.append(math.log(i))
 
 ## Il est très courant d'appliquer une opération ou une fonction à
 ## chaque élément d'une liste et de retourner une nouvelle liste qui
@@ -26,18 +26,18 @@ for i in ma_liste:
 ## suivi de for, du nom de variable utilisé dans l'expression
 ## suivi de in et de l'objet itérable que va parcourir la variable.
 
-log_liste = [math.log(x) for x in ma_liste]
+log_list = [math.log(x) for x in my_list]
 
 ## notez que cette compréhension est quasiment du langage
 ## naturel. Elle se lit prenons le log de chaque x pour x qui parcours
-## les éléments de ma_liste
+## les éléments de my_list
 
 
 ## On peut en plus ajouter une condition dans la compréhension de
 ## liste. Par exemple si l'on veut le logarithme de tous les éléments
 ## de ma liste qui sont strictement plus grand que 1, je peux écrire
 
-log_liste = [math.log(x) for x in ma_liste if x > 1]
+log_list = [math.log(x) for x in my_list if x > 1]
 
 ## notons de nouveaux que lorsque l'on lit cette expression on est
 ## proche du langage naturel et que l'on peut en une seule expression
