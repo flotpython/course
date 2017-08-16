@@ -187,13 +187,33 @@ NIVEAU: BASIC
      liste; idem avec une direction
    * Arnaud: montrer une boucle for sur une chaine de caractères.
 
+
 ###################################################################
 
-
-## Vidéo 7 (Introduction aux modules)
+## Vidéo 7 (Introduction aux compréhensions de listes)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 7
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+###################################################################
+
+## Vidéo 8 (Introduction aux modules)
+NIVEAU: BASIC
+
+## Compléments Vidéo 8
 
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
@@ -205,42 +225,6 @@ NIVEAU: BASIC
     types de base 
 
 
-## Quizz Vidéo 7
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-
-
-## Exercices Vidéo 7
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
-
-###################################################################
-
-
-## Vidéo 8 (Les fichiers)
-NIVEAU: BASIC
-
-introduction aux contexts managers
-
-## Compléments Vidéo 8
-
-   * parler de l'encodage des fichiers et du lien avec str et bytes
-     (j'en parle rapidement dans la vidéo, mais il faut plus
-     d'exemple). 
-
-  Pour mémoire, notebook du précédent MOOC sur Python 2
-  * Complement-fichiers.ipynb
-  * Complement-utilitaires-sur-fichiers.ipynb
-  * Complement-format-json-et-autres.ipynb : parler de json, pickle,
-    csv ...
-  * Complement-fichiers-systeme.ipynb :
-  * DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
-    Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger
-    les print vers un fichier. (c'est très sale cette façon de faire..) 
-
-
-
 ## Quizz Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
@@ -249,6 +233,8 @@ introduction aux contexts managers
 ## Exercices Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * Exercice-fichiers.ipynb
+   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
+
+
 
 ###################################################################

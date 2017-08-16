@@ -22,19 +22,20 @@ Plan général du MOOC sur Python 3
 * W2-S4: Les listes
 * W2-S5: Introduction aux tests if/else et aux conventions de codage
 * W2-S6: Introduction aux boucles for et aux fonctions
-* W2-S7: Introduction aux modules
-* W2-S8: Les fichiers
+* W2-S7: Introduction aux compréhensions de listes
+* W2-S8: Introduction aux modules
 
 ## Week 3
 **Thème de la semaine**: Fin des types builtins et introduction aux modules et aux classes
 
-* W3-S1: Les tuples
-* W3-S2: Tables de hash
-* W3-S3: Les dictionnaires
-* W3-S4: Les ensembles
-* W3-S5: Les exceptions
-* W3-S6: Les références partagées
-* W3-S7: Introduction aux classes
+* W3-S1: Les fichiers
+* W3-S2: Les tuples
+* W3-S3: Tables de hash
+* W3-S4: Les dictionnaires
+* W3-S5: Les ensembles
+* W3-S6: Les exceptions
+* W3-S7: Les références partagées
+* W3-S8: Introduction aux classes
 
 ## Week 4
 **Thème de la semaine**: Fonctions
