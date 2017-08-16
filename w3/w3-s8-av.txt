@@ -49,7 +49,7 @@ nous reviendrons largement dans de prochaines vidéos.
 Ouvrons un éditeur IDLE pour commencer à jouer avec les classes et les
 instances.
 
->>>>>>>>>> W3-S7-AV-exo1.py <<<<<<<<<< (6m30s)
+>>>>>>>>>> W3-S8-AV-exo1.py <<<<<<<<<< (6m30s)
 
 ## Résumé de la vidéo (20 s)
 

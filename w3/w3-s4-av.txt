@@ -38,7 +38,7 @@ longue et fastidieuse à écrire. Ouvrons un terminal interactif pour
 commencer à jouer avec les dictionnaires.
 
 
->>>>>>>>>> W3-S3-AV-exo1.py <<<<<<<<<< (6m10s)
+>>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (6m10s)
 
 ## Résumé de la vidéo (30s)
 

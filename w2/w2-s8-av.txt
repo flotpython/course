@@ -35,12 +35,12 @@ dessus.
 
 Ouvrons un terminal pour commencer à jouer avec les modules...
 
->>>>>>>>>> INCLUDE W2-S7-AV-exo1.py <<<<<<<<<< (1m50s)
+>>>>>>>>>> INCLUDE W2-S8-AV-exo1.py <<<<<<<<<< (1m50s)
 
 
 ## Librairie standard (1m10)
 
->>>>>>>>>> INCLUDE W2-S7-AV-slide1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S8-AV-slide1.py <<<<<<<<<<
 
 On a vu une introduction rapide à l'utilisation des modules, mais il y
 a en Python des dizaines de modules dans ce que l'on appelle la

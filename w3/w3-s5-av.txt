@@ -11,7 +11,7 @@
 ## le slide i
 
 ## TITRE : Les ensembles
-## Temp total: 
+## Temp total: 8m10s
 
 ## Résumé de la vidéo (35s)
 
@@ -32,7 +32,7 @@ en place.
 
 Ouvrons un terminal interactif pour jouer avec les set. 
 
->>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (7m00s)
+>>>>>>>>>> W3-S5-AV-exo1.py <<<<<<<<<< (7m00s)
 
 ## Résumé de la vidéo (35s)
 

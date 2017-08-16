@@ -27,7 +27,7 @@ Regardons le fonctionnement des références partagées sur
 les mutables et les immuables. 
 
 
->>>>>>>>>> W3-S6-AV-slide1.pptx <<<<<<<<<< (9m30)
+>>>>>>>>>> W3-S7-AV-slide1.pptx <<<<<<<<<< (9m30)
 
 ## Résumé de la vidéo (40 s)
 

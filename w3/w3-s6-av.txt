@@ -9,7 +9,7 @@
 ## le slide i
 
 ## TITRE : Exceptions
-## Temp total: 
+## Temp total: 9m30s
 
 ## Résumé de la vidéo (45s)
 
@@ -33,7 +33,7 @@ fonctionnement normal d'un programme.
 Ouvrons maintenant un éditeur IDLE pour commencer à jouer avec les
 exceptions...
 
->>>>>>>>>> INCLUDE W3-S5-AV-exo1.py (8 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W3-S6-AV-exo1.py (8 minutes) <<<<<<<<<<
 
 
 ## Résumé de la vidéo (45s)

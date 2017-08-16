@@ -21,9 +21,9 @@ Dans cette vidéo nous allons parler des tables de hash, une structure
 de données qui permet de répondre aux limitations des types séquences.
 Ouvrons un terminal interactif pour comprendre ces limitations.
 
->>>>>>>>>> W3-S2-AV-exo1.py (3m40) <<<<<<<<<<
+>>>>>>>>>> W3-S3-AV-exo1.py (3m40) <<<<<<<<<<
 
->>>>>>>>>> W3-S2-AV-slide1.pptx (3m30) <<<<<<<<<<
+>>>>>>>>>> W3-S3-AV-slide1.pptx (3m30) <<<<<<<<<<
 
 ## Résumé de la vidéo (30s)
 

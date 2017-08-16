@@ -11,7 +11,7 @@
 ## le slide i
 
 ## TITRE : Les fichiers
-## Temp total: 
+## Temp total: Part1 (6m30), Part2 (7m55)
 
 ## Résumé de la vidéo (30 secondes)
 
@@ -25,7 +25,7 @@ les fichiers et la notion de contextes managers.
 Ouvrons un terminal pour commencer à jouer avec les fichiers et
 maitriser ces trois notions. 
 
->>>>>>>>>> W2-S8-AV-exo1.py <<<<<<<<<< (6m00s)
+>>>>>>>>>> W3-S1-AV-exo1.py <<<<<<<<<< (6m00s)
 
 ## Fin PART 1 (on coupe cette vidéo en 2 parties)
 
@@ -92,7 +92,7 @@ programme plante. C'est ce qu'on appelle un context manager.
 Ouvrons de nouveau un terminal pour commencer à jouer avec les
 contexts managers. 
 
->>>>>>>>>> W2-S8-AV-exo2.py <<<<<<<<<< (4m15)
+>>>>>>>>>> W3-S1-AV-exo2.py <<<<<<<<<< (4m15)
 
 
 ## Résumé de la vidéo (30 secondes)
