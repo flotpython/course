@@ -37,9 +37,9 @@ with open(r"c:\tmp\spam.txt", "r", encoding="utf8") as f: # expliquer
 
 with open(r'C:\tmp\spam.bin', 'bw') as f:# pas d'encodage
     for i in range(100):
-        line = b"\x3d"  # \x3d est le signe =. attention au b devant la
-                        # chaine pour forcer le type bytes
-        f.write(line)  # écrit la chaine line dans le fichier 
+        f.write(b"\x3d")  # \x3d est le signe =. attention au b devant la
+                          # chaine pour forcer le type bytes
+                          # écrit la chaine line dans le fichier 
 
 ## Pour résumer, lorsqu'un fichier est ouvert en mode texte, on doit
 ## controller l'encodage et on peut lire ou écrire directement des
