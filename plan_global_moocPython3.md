@@ -37,12 +37,10 @@ Plan général du MOOC sur Python 3
 * W3-S4: Les ensembles
 * W3-S5: Les exceptions
 * W3-S6: Les références partagées
-* W3-S7: Les modules pour créer nos objets
-* W3-S8: Les classes pour créer nos objets 
-	* quoi utiliser pour créer des objets en Python fonction, module ou classe
+* W3-S7: Introduction aux classes
 
 ## Week 4
-**Thème de la semaine**: Fontions
+**Thème de la semaine**: Fonctions
 
 * W4-S1: Fonctions
 	* une fonction crée une référence partagée
@@ -79,9 +77,10 @@ Plan général du MOOC sur Python 3
 * W6-S2: Héritage
 * W6-S3: Surcharge d'opérateurs
 * W6-S4: Assignation et référencement des variables et des attributs
-* W6-S5: Conception d'itérateurs
-* W6-S6: Conception d'exceptions personnalisées
-* W6-S7: Conception de context manager
+* W6-S5: Quand utiliser fonctions, modules ou classes ?
+* W6-S6: Conception d'itérateurs
+* W6-S7: Conception d'exceptions personnalisées
+* W6-S8: Conception de context manager
 
 ## Week 7
 **Thème de la semaine**: l'ecosystème data science Python

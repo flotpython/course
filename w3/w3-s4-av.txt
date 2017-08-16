@@ -15,7 +15,8 @@
 
 ## Résumé de la vidéo (35s)
 
-Un 'set' est un ensemble non ordonné d'objets uniques. Il est
+Dans cette vidéo, nous allons introduire un nouveau type built-in, les
+set. Un 'set' est un ensemble non ordonné d'objets uniques. Il est
 implémenté avec une table de hash, donc il est optimisé pour l'accés,
 l'insertion, l'effacement et surtout le test d'appartenance.  Il faut
 donc toujours les préférer à des listes lorsque l'on fait un test

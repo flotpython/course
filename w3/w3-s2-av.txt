@@ -17,9 +17,9 @@
 
 Nous avons vu jusqu'à maintenant les types séquences qui sont des
 types très puissants combinant souplesse et facilité d'utilisation.
-Mais est-ce qu'il y a des limitations à l'utilisation des types
-séquences.  Ouvrons un terminal interactif pour répondre à cette
-question...
+Dans cette vidéo nous allons parler des tables de hash, une structure
+de données qui permet de répondre aux limitations des types séquences.
+Ouvrons un terminal interactif pour comprendre ces limitations.
 
 >>>>>>>>>> W3-S2-AV-exo1.py (3m40) <<<<<<<<<<
 

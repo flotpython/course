@@ -178,8 +178,8 @@ NIVEAU: BASIC
 		 
 ###################################################################
 
-## Vidéo 7 (Les modules pour créer nos objets)
-NIVEAU: BASIC
+## Vidéo 7 (Introduction aux classes)
+NIVEAU: INTERMÉDIAIRE
 
 ## Compléments Vidéo 7
 
@@ -191,26 +191,6 @@ NIVEAU: BASIC
 
 
 ## Exercices Vidéo 7
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-
-
-###################################################################
-
-## Vidéo 8 (Les classes pour créer nos objets )
-NIVEAU: BASIC
-
-## Compléments Vidéo 8
-
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-
-
-## Quizz Vidéo 8
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-
-
-## Exercices Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 

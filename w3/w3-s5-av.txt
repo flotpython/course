@@ -17,13 +17,14 @@ Depuis que nous avons commencé à jouer avec Python, vous les avez sans
 doute rencontré, mais vous ne savez toujours pas quoi en faire, ni
 exactement ce que c'est...  Ce sont les exceptions.
 
-Les exceptions sont le moyen en Python de gérer toutes les erreurs de
-fonctionnement de votre programme.  Et comme en Python tout est un
-objet, les exceptions aussi sont des objets. Mais il y a deux choses
-importantes à savoir sur les exceptions.  Premièrement, une exception
-n'est pas une fatalité qui conduit à l'arrêt du programme, on peut
-capturer les exceptions et prévoir des traitements spécifiques pour
-continuer le programme. C'est ce que nous allons voir dans cette
+Dans cette vidéo nous allons expliquer le fonctionnement des
+exceptions en python. Les exceptions sont le moyen de gérer toutes les
+erreurs de fonctionnement de votre programme.  Et comme en Python tout
+est un objet, les exceptions aussi sont des objets. Mais il y a deux
+choses importantes à savoir sur les exceptions.  Premièrement, une
+exception n'est pas une fatalité qui conduit à l'arrêt du programme,
+on peut capturer les exceptions et prévoir des traitements spécifiques
+pour continuer le programme. C'est ce que nous allons voir dans cette
 vidéo.  Deuxièmement, les exceptions sont très performantes en Python,
 c'est donc fréquent d'utiliser des exceptions dans le cadre du
 fonctionnement normal d'un programme.
