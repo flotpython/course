@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la troisième semaine
+## Temp total: 
+
+
+Cette semaine vous apprendrez à utiliser les fichiers, et vous
+découvrirez de nouveaux types built-in : les tuples, les dictionnaires
+et les set. Nous verrons ensuite comment gérer les erreurs d'exécution
+avec les exceptions. Puis nous expliquerons la notion de références
+partagées qui est centrale en Python puisque c'est le mécanisme qui
+permet de comprendre comment une variable référence un objet.
+
+Nous finirons cette semaine avec une introduction à la notion de
+classes en Python. Notre objectif à ce stade du MOOC n'est pas de vous
+faire une présentation exhaustive de cette notion, mais de vous faire
+sentir la puissance de Python qui vous permet de créer et de manipuler
+vos objets exactement comme des objets built-in. 

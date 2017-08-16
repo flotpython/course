@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la deuxième semaine
+## Temp total: 
+
+
+Cette semaine vous apprendrez à utiliser deux types built-in centraux
+en Python, les chaînes de caractères et les listes. Nous en
+profiterons pour vous expliquer ce qu'est le codage, un jeux de
+caractères et unicode, trois notions que vous devez maitriser dès que
+vous manipulez des chaînes de caractères. Nous presenterons également
+les propriétés commune des types séquence dont les chaînes de
+caractères et les listes font partie.
+
+Finalement, nous introduirons plusieurs (5) notions nécessaires à la
+création de vrais programmes : les tests if/else, les boucles for, les
+fonctions, la compréhension de listes et les modules. Notre objectif
+est de vous permettre le plus rapidement possible commencer à jouer en
+Python en utilisant des habitudes de codage modernes et
+efficaces. Nous reviendrons évidemment en profondeur sur toutes ces
+notions dans les semaines qui viennent.

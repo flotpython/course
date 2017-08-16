@@ -4,6 +4,7 @@ Plan général du MOOC sur Python 3
 ## Week 1
 **Thème de la semaine**: introduction au MOOC et aux outils Python utilisés dans le MOOC
 
+* W1-S0: Présentation de la première semaine
 * W1-S1: Organisation du MOOC
 * W1-S2: Pourquoi Python 3
 * W1-S3: iPython
@@ -16,6 +17,7 @@ Plan général du MOOC sur Python 3
 ## Week 2
 **Thème de la semaine**: découverte des types builtins (entiers, listes, chaines de caractères)
 
+* W2-S0: Présentation de la deuxième semaine
 * W2-S1: Codage, jeux de caractères et unicode
 * W2-S2: Les chaînes de caractères
 * W2-S3: Les séquences
@@ -28,6 +30,7 @@ Plan général du MOOC sur Python 3
 ## Week 3
 **Thème de la semaine**: Fin des types builtins et introduction aux modules et aux classes
 
+* W3-S0: Présentation de la troisième semaine
 * W3-S1: Les fichiers
 * W3-S2: Les tuples
 * W3-S3: Tables de hash
@@ -40,6 +43,7 @@ Plan général du MOOC sur Python 3
 ## Week 4
 **Thème de la semaine**: Fonctions
 
+* W4-S0: Présentation de la quatrième semaine
 * W4-S1: Fonctions
 	* une fonction crée une référence partagée
 * W4-S2: Les tests if/elif/else et les opérateurs booléens
@@ -55,6 +59,7 @@ Plan général du MOOC sur Python 3
 ## Week 5
 **Thème de la semaine**: Itération et importation
 
+* W5-S0: Présentation de la cinquième semaine
 * W5-S1: Les boucles for et les itérateurs
 * W5-S2: Fonction lambda, programmation fonctionnelle
 * W5-S3: Compréhension de listes, sets et dictionnaires
@@ -71,6 +76,7 @@ Plan général du MOOC sur Python 3
 ## Week 6
 **Thème de la semaine**: Conception des classes
 
+* W6-S0: Présentation de la sixième semaine
 * W6-S1: Classes, instances et méthodes
 * W6-S2: Héritage
 * W6-S3: Surcharge d'opérateurs
@@ -83,6 +89,7 @@ Plan général du MOOC sur Python 3
 ## Week 7
 **Thème de la semaine**: l'ecosystème data science Python
 
+* W7-S0: Présentation de la septième semaine
 * W7-S1: installer son environement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
 * W7-S2: présentation de numpy
 * W7-S3: présentation de pandas
@@ -91,6 +98,7 @@ Plan général du MOOC sur Python 3
 ## Week 8 
 **Thème de la semaine**: Sujets avancés de Python
 
+* W8-S0: Présentation de la huitième semaine
 * W8-S1: Méthodes statiques et de classe
 * W8-S2: Les décorateurs
 * W8-S3: La gestion avancée des attributs
@@ -105,6 +113,7 @@ Plan général du MOOC sur Python 3
 
 **Thème de la semaine**: asyncio
 
+* W9-S0: Présentation de la neuvième semaine
 * W9-S1: co-routines
 * W9-S2: asyncio
 

@@ -2,6 +2,11 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
+## Vidéo 0 (Présentation de la deuxième semaine)
+
+
+###################################################################
+
 ## Vidéo 1 (Codage, jeux de caractères et unicode)
 NIVEAU: BASIC
 
