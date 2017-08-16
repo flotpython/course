@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
@@ -8,50 +10,37 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Exceptions
+## TITRE : Les ensembles
 ## Temp total: 
 
-## Résumé de la vidéo (45s)
+## Résumé de la vidéo (35s)
 
-Depuis que nous avons commencé à jouer avec Python, vous les avez sans
-doute rencontré, mais vous ne savez toujours pas quoi en faire, ni
-exactement ce que c'est...  Ce sont les exceptions.
+Dans cette vidéo, nous allons introduire un nouveau type built-in, les
+set. Un 'set' est un ensemble non ordonné d'objets uniques. Il est
+implémenté avec une table de hash, donc il est optimisé pour l'accés,
+l'insertion, l'effacement et surtout le test d'appartenance.  Il faut
+donc toujours les préférer à des listes lorsque l'on fait un test
+d'appartenance.
 
-Dans cette vidéo nous allons expliquer le fonctionnement des
-exceptions en python. Les exceptions sont le moyen de gérer toutes les
-erreurs de fonctionnement de votre programme.  Et comme en Python tout
-est un objet, les exceptions aussi sont des objets. Mais il y a deux
-choses importantes à savoir sur les exceptions.  Premièrement, une
-exception n'est pas une fatalité qui conduit à l'arrêt du programme,
-on peut capturer les exceptions et prévoir des traitements spécifiques
-pour continuer le programme. C'est ce que nous allons voir dans cette
-vidéo.  Deuxièmement, les exceptions sont très performantes en Python,
-c'est donc fréquent d'utiliser des exceptions dans le cadre du
-fonctionnement normal d'un programme.
+Comme le dictionnaire, un set ne peut accepter que des clefs
+immuables (nombre, chaîne de caractères, tuple d'immuable).
+Par contre, contrairement au dictionnaire, on ne peut pas stocker
+de valeur associée à une clef. 
 
- 
-Ouvrons maintenant un éditeur IDLE pour commencer à jouer avec les
-exceptions...
+Les sets sont des objets mutables ça veut dire qu'on peut le modifier
+en place. 
 
->>>>>>>>>> INCLUDE W3-S5-AV-exo1.py (8 minutes) <<<<<<<<<<
+Ouvrons un terminal interactif pour jouer avec les set. 
 
+>>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (7m00s)
 
-## Résumé de la vidéo (45s)
+## Résumé de la vidéo (35s)
 
-Vous avez remarqué que je faisais toujours suivre une clause except
-d'un nom d'exception. Ça n'est pas une obligation, je peux avoir
-une clause except sans nom d'exception, et dans ce cas, ma clause
-va capturer toutes les exceptions. C'est toujours une très mauvaise
-idée de faire ça parce que vous risquez de capturer des exceptions
-que vous n'avez pas prévu ou que vous ne connaissez pas. Votre
-traitement ne sera donc pas approprié et votre programme risque
-de planter sans message d'erreur ou avec un message d'erreur
-ne correspondant pas au problème. 
+Nous avons découvers le type set qui est très utilisé en Python soit
+pour obtenir les éléments uniques d'une liste soit pour faire des
+tests d'appartenance. Nous avons en vu particulier que le test
+d'appartenance sur les set est extrêment efficace et que c'était
+toujours plus efficace de convertir vos listes en set et de faire le
+test d'appartenance sur le set. 
 
-Pour finir, vous devez sans doute vous demander comment connaître les
-exceptions à capturer et leur signification. Il n'y a ici
-aucune magie, la seule solution est de lire la documentation
-pour connaître les exceptions built-in et la documentation
-des modules que vous utilisez.  
-
-À bientôt
+À bientôt.

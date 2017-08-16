@@ -1,126 +1,100 @@
 # -*- coding: utf-8 -*-
 
-def div(a, b):
-    x = a / b
+## un set vide se crée toujours à partir de la fonction set
 
-## si b est 0, il y aura une exception ZeroDivisionError
-## On voit que l'exception a un nom spécifique et
-## contient un message d'explication. C'est 
-## le cas pour toutes les exceptions built-in
+s = set()
 
-#div(1,0)
+## Pour initialiser un set avec des élements, on peut utiliser la
+## notation accolade 
 
-## prenons quelques instants pour regarder cette exception.
-## Le message d'erreur indique la ligne qui a produit l'exception,
-## le nom de l'exception ZeroDivisionError et un message d'erreur
+s = {1, 2, 3, 4, 4, 4, 5} # noter que ça ne garde que les éléments
+                          # uniques
 
-## Heureusement, il est possible de capturer une exception
-## pour continuer le programme. 
-## Les exceptions se capturent avec l'instruction try/except
+## on peut également passer une liste comme argument de la fonction
+## set
 
-def div(a, b):
-    try:
-        x = a/b
-    except ZeroDivisionError:
-        print("Division par 0")
-    print('continuons...')
+a = [3, 4, 8]
+s = set(a)
 
-print(div(10, 2))
-print(div(1,0))
+print(s1, s2)
 
-## mais maintenant, comment afficher le résultat que s'il
-## n'y a pas d'exception. On pourrait mettre un print juste
-## après x = a/b. S'il y a une exception le print n'est pas
-## exécuté, et s'il n'y a pas de exception il est exécuté
-## Cependant, l'instruction print pourrait elle même générer
-## une exception qui serait capturée par erreur.
+## notons que utiliser un set pour ne garder que les éléments unique
+## d'une liste est courant en Python
 
-def div(a, b):
-    try:
-        x = a/b
-        print(b/a) #au lieu de faire str(x)
-    except ZeroDivisionError:
-        print("Division par 0")        
-    print('continuons...')
+nom = ['eve', 'eve', 'bob', 'alice', 'bob']
+s = set(nom)
+len(s)
 
-div(0, 2)
+## on peut ajouter ou enlever des éléments d'un set
+s.add('spam')
+s.update([38, 9, 'egg']) # applique add à chaque élément de la sequence
+s.remove(38) # enlève un élément
 
-## Une bonne pratique et de ne mettre entre le try/except
-## que l'instruction ou l'ensemble d'instructions
-## que l'on veut évaluer pour une exception donnée.
-## On peut alors mettre le code qui doit être exécuté
-## que s'il n'y a pas d'exception dans une clause else
 
-def div(a, b):
-    try:
-        x = a/b
-    except ZeroDivisionError:
-        print("Division par 0")
-    else:
-        print(x)
-    print('continuons...')
-    
-div(2, 0)
-div(10,2)
+## je peux calculer la différence, l'union et l'intersection
+## de deux sets
 
-## Lorsqu'il y a une exception non capturée le programme
-## s'arrête à la ligne de l'exception. Cependant, il y a des
-## cas dans lequels on veut exécuter une derniere instruction
-## même s'il y a une exception non capturée. C'est
-## par exemple le cas lorsque l'on travaille sur des fichiers.
-## il faut toujours fermer les fichiers avant que le programme
-## ne s'arrête. Il existe
-## pour cela la clause finally. La clause finally s'exécute
-## toujours même en cas d'exception non capturée.
+s1 = {1, 2, 3}
+s2 = {3, 4, 5}
 
-def div(a, b):
-    try:
-        x = a/b
-    except ZeroDivisionError:
-        print("Division par 0")
-    else:
-        print(x)
-    finally:
-        print('dans finally')
-    print('continuons...')
+print s1 - s2 # enlève les élément des s2 dans s1
+print s1 | s2
+print s1 & s2
 
-#div(1, 'b')
+## Un des usages le plus important des set est le test d'appartenance.
+## Le test d'appartenance est sans surprise fait avec l'instruction in
+## et not in
 
-## on peut avoir plusieurs except pour un même try et avoir un
-## comportement spécifique par exception. 
-def div(a, b):
-    try:
-        x = a/b
-    except ZeroDivisionError:
-        print("Division par 0")
-    except TypeError:
-        print("Il faut des int !")
-    else:
-        print(x)
-    finally:
-        print('dans finally')
-    print('continuons...')
+print('eve' in s)
+print(8 not in s)
 
-div(1, 'b')
+########################## 3m50s ######################
 
-## Finalement, il est possible de récupérer l'instance de l'exception
-## générée pour en afficher son contenu.  les informations de
-## l'exceptions sont toujours stockée dans le tuple args
+## regardons maintenant l'efficacité du test d'appartenance sur les
+## set.
 
-def div(a, b):
-    try:
-        x = a/b
-    except ZeroDivisionError as i:
-        print("Division par 0", i.args)
-    except TypeError as i:
-        print("Il faut des int !", i.args)
-    else:
-        print(x)
-    finally:
-        print('dans finally')
-    print('continuons...')
+## Nous savons que le temps du test d'appartenance est constant sur un
+## set mais qu'il est lineaire avec le nombre d'éléments sur une
+## liste. Toute la question est de savoir quel est l'ordre de grandeur
+## de ce temps constant pour le test d'appartenance sur les set. Plus
+## il sera grand, et moins il sera interessant d'utiliser un set pour
+## faire un test d'appartenance sur un petit nombre
+## d'éléments. Imaginons qu'il faille 1 seconde pour faire un test
+## d'appartenance sur un set et 1 ms pour accéder à un élément d'une
+## liste. Il faudra au maximum 3 ms pour tester l'apparteance d'un
+## élément dans une liste.
+##
+## Essayons d'estimer ce temps et de le comparer avec le temps d'accès
+## à l'élément d'une liste
 
-div(1, 'b')
-div(1,0)
+a = [0]
+s = set(a)
 
-######################## 8 minutes #####################
+%timeit 0 in s
+%timeit a[0]
+
+## le temps pour faire un test d'appartenance sur un set est de
+## l'ordre de grandeur de l'accès à un élément d'une liste. C'est
+## extrêment rapide. 
+
+## En résumé quelque soit le nombre d'élément dans votre set il faudra
+## de l'ordre de 40 ns (sur ma machine) pour faire un test
+## d'appartenance, il faudra de l'ordre de 40ns fois le nombre
+## d'élément pour faire le même test sur une liste.
+
+a = list(range(100))
+s = set(a)
+%timeit 'c' in a # environ 50 fois plus lent
+%timeit 'c' in s # toujours 40ns
+
+## Pour finir, convertir une liste en set prend du temps, mais c'est
+## en général négligeable. En effet, convertir une liste en set prend
+## à peu prêt le même temps que pour parcourir tous les éléments de la
+## liste. Donc couvertir tous les éléments d'une liste en set prend
+## environ le même temps que de faire un seul test d'appartenance sur
+## cette liste qui retourne False.
+
+## En conclusion, il faut toujours convertir vos liste en set pour
+## faire vos tests d'appartenance.
+
+############################### 7m00s ###########################

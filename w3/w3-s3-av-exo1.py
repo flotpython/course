@@ -1,86 +1,51 @@
 # -*- coding: utf-8 -*-
 
-## Il existe deux manières de créer un dictionnaire, la
-## plus simple lorsque l'on crée un dictionnaire à la main
-## est d'utiliser les accolades
+## les séquences sont des structures de données qui
+## ont été optimisées pour l'accès, la modification,
+## et l'effacement d'éléments par numéro de séquence.
+## Donc lorsque je connais le numéro de séquence
+## d'un élément, la vitesse d'accès, de modification,
+## et d'effacement est indépendante de la position
+## de l'élément dans la séquence. 
+##
+## Mais comment se comporte une séquence avec
+## le test d'appartenance...
 
-age = {}
+%timeit 'x' in range(100)
 
-age = {'ana':35, 'eve':30, 'bob':38}
+## prenons quelques secondes pour comprende le résultat du %timeit.
+## on a le temps moyen d'exécution et son équart type. Cette
+## statistique a été éxécutée sur 7 exécution de 1 000 000 de boucles.
 
-## la deuxième manière est très utile lorsque les couples
-## clefs-valeurs sont obtenues par une opération dans notre programme,
-## dans ce cas on peut automatiquement créer un dictionnaire à partir
-## d'une liste de tuples clef,valeur
+%timeit 'x' in range(10_000) #100x plus lent
+%timeit 'x' in range(1_000_000) #100x plus lent
 
-a = [('ana', 35), ('eve', 30), ('bob', 38)]
-age = dict(a)
+## on voit que le temp d'exécution du test d'appartenance est une
+## fonction linéaire du nombre d'éléments dans la séquence. C'est
+## normal puisque le seul moyen de trouver un élément dans une
+## séquence est de la parcourir séquentiellement. Donc si on teste un
+## élément qui n'est pas dans la séquence on doit comparer cet élément
+## avec tous ceux de la séquence, plus il y a d'éléments plus c'est
+## long.
 
-## je rappelle qu'il n'y a pas d'ordre dans un dictionnaire
-## donc le dictionnaire n'affiche pas nécéssairement
-## les valeurs dans l'ordre dans lequel on les a entrées
+## Cependant, le test d'appartenance est une opération très
+## courante, par conséquent, il serait très utile d'avoir
+## une structure de données optimisée non seulement pour
+## l'accès, la modification et l'effacement, mais aussi pour
+## le test d'appartenance.
 
-print(age)
+## Mais, il y a une autre limitation des séquences. Supposons
+## que je veuille utiliser autre chose que des entiers comme
+## indice, par exemple des chaînes des caractères pour faire
+## un annuaire, ça n'est pas possible avec les séquences.
 
-## il existe de très nombreuse opérations et fonctions
-## sur les dictionnaires, nous allons voir les principales
+a = []
+#a['sonia'] = '0118252627'
 
-## on peut accéder et modifier la valeur d'une clef de la
-## manière suivante
-
-print age['ana']
-age['ana'] = 40
-
-## je peux ajouter une nouvelle clef ainsi
-age['bill'] = 12
-
-## on peut effacer la clef et sa valeur dans le dictionnaire
-## avec l'instruction del
-
-del age['ana']
-
-## même si les dictionnaires ne sont pas des séquences,
-## dans un soucis d'uniformité et de simplification,
-## la fonction len et l'opérateur in ont été implémentés
-## sur les dictionnaires.
-print(len(age))
-print('eve' in age)
-print('eve' not in age)
-
-
-## et on a des méthodes pour récupérer sous forme de vues:
-## les clefs, les valeurs, et les tuples (clefs, valeur)
-
-print age.keys()
-print age.values()
-print age.items()
-
-## mais qu'est-ce qu'une vue et comment l'utilise-t on ?  une vue est
-## un objet compact (dont la taille est indépendante de nombre
-## d'éléments dans le dictionnaire) que l'on peut parcourir comme une
-## liste (il dit qu'une vue est itérable) et autorise le test
-## d'appartenance.
-
-k = age.keys()
-
-'eve' in k
-
-
-## Une caractéristique majeur de la vue est que comme son nom
-## l'indique, elle est une vue sur l'objet dictionnaire, donc si le
-## dictionnaire change, la vue change avec.
-
-age['meg'] = 20
-
-list(k)
-
-## une précaution sur les vue est de ne jamais changer le dictionnaire
-## pendant que l'on parcours la vue. Le résultat pourrait être
-## inconsistant.
-
-## pour finir, je vais vous montrer un schema classique en Python
-## lorsque l'on veut parcourir les clefs et les valeurs en même temps
-
-for k, v in age.items():
-    print(f"{k}: {v}")
+## il existe une structure de données qui permet un accès
+## une modification, un effacement et un test d'appartenance
+## avec une performance indépendante de la taille de la
+## structure, et qui, de plus, permet d'avoir des indices
+## d'un type immuable quelconque, c'est la table de hash.
+## regardons comment fonctionne une table de hash
 

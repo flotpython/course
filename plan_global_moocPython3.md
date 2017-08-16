@@ -18,15 +18,12 @@ Plan général du MOOC sur Python 3
 
 * W2-S1: Codage, jeux de caractères et unicode
 * W2-S2: Les chaînes de caractères
-    * format, f-string
 * W2-S3: Les séquences
 * W2-S4: Les listes
 * W2-S5: Introduction aux tests if/else et aux conventions de codage
-	* indentation comme syntaxe de base
 * W2-S6: Introduction aux boucles for et aux fonctions
 * W2-S7: Introduction aux modules
 * W2-S8: Les fichiers
-	* introduction aux contexts managers
 
 ## Week 3
 **Thème de la semaine**: Fin des types builtins et introduction aux modules et aux classes

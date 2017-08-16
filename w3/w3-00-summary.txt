@@ -2,44 +2,55 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
-## Vidéo 1 (Les tuples)
+
+## Vidéo 1 (Les fichiers)
 NIVEAU: BASIC
+
+introduction aux contexts managers
 
 ## Compléments Vidéo 1
 
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-   * Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
-   * Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
+   * parler de l'encodage des fichiers et du lien avec str et bytes
+     (j'en parle rapidement dans la vidéo, mais il faut plus
+     d'exemple). 
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-fichiers.ipynb
+  * Complement-utilitaires-sur-fichiers.ipynb
+  * Complement-format-json-et-autres.ipynb : parler de json, pickle,
+    csv ...
+  * Complement-fichiers-systeme.ipynb :
+  * DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
+    Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger
+    les print vers un fichier. (c'est très sale cette façon de faire..) 
+
+
 
 ## Quizz Vidéo 1
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * W2-S5-E1-tuples.quiz
 
 
 ## Exercices Vidéo 1
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-
-
+   * Exercice-fichiers.ipynb
+   
 ###################################################################
 
-## Vidéo 2 (Tables de hash)
+## Vidéo 2 (Les tuples)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
-   * donner des pointeurs vers le fonctionnement des tables de hash et
-     la gestion des collisions. Donner également un pointeur vers
-     l'implementation en Python des tables de hash.
-     https://docs.python.org/3.6/faq/design.html#how-are-dictionaries-implemented
-     
    Pour mémoire, notebook du précédent MOOC sur Python 2
-
+   * Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+   * Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
 
 ## Quizz Vidéo 2
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S5-E1-tuples.quiz
 
 
 ## Exercices Vidéo 2
@@ -49,10 +60,35 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 3 (Les dictionnaires)
+## Vidéo 3 (Tables de hash)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
+
+   * donner des pointeurs vers le fonctionnement des tables de hash et
+     la gestion des collisions. Donner également un pointeur vers
+     l'implementation en Python des tables de hash.
+     https://docs.python.org/3.6/faq/design.html#how-are-dictionaries-implemented
+     
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+
+
+## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+###################################################################
+
+## Vidéo 4 (Les dictionnaires)
+NIVEAU: BASIC
+
+## Compléments Vidéo 4
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-dictionnaires.ipynb - recapitulatif sur comment
@@ -62,22 +98,22 @@ NIVEAU: BASIC
    * Complement-record-et-dictionnaire.ipynb - une utilisation
      standard du dictionnaire pour faire un struct
 
-## Quizz Vidéo 3
+## Quizz Vidéo 4
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
 
-## Exercices Vidéo 3
+## Exercices Vidéo 4
 
    Pour mémoire, quizz du précédent MOOC sur Python 2	
    * Exercice-marine-dictionnaire.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections 
 
 ###################################################################
 
-## Vidéo 4 (Les ensembles)
+## Vidéo 5 (Les ensembles)
 NIVEAU: BASIC
 
-## Compléments Vidéo 4
+## Compléments Vidéo 5
 
    * introduire les frozensets (je n'en parle plus dans la vidéo)
 
@@ -86,12 +122,12 @@ NIVEAU: BASIC
    ensembles
    
 
-## Quizz Vidéo 4
+## Quizz Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
-## Exercices Vidéo 4
+## Exercices Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * NICETOHAVE : un quiz qui met l'accent sur le choix judicieux du
@@ -104,10 +140,10 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 5 (Les exceptions)
+## Vidéo 6 (Les exceptions)
 NIVEAU: BASIC
 
-## Compléments Vidéo 5
+## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * NICETOHAVE un complement sur le debugger, la pile, traceback, etc.
@@ -128,22 +164,22 @@ NIVEAU: BASIC
    * parler de assert
 
 
-## Quizz Vidéo 5
+## Quizz Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
-## Exercices Vidéo 5
+## Exercices Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
 ###################################################################
 
-## Vidéo 6 (Les références partagées)
+## Vidéo 7 (Les références partagées)
 NIVEAU: BASIC
 
-## Compléments Vidéo 6
+## Compléments Vidéo 7
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-operateur-is-et-fonction-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
@@ -155,14 +191,14 @@ NIVEAU: BASIC
      en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
    * sys.getrefcount()
 
-## Quizz Vidéo 6
+## Quizz Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * W3-S4-E1-multiply.quiz liste=[[1]]*5 et demander une solution
      pour ne pas avoir de ref. partagées  
 
 
-## Exercices Vidéo 6
+## Exercices Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    
@@ -178,19 +214,19 @@ NIVEAU: BASIC
 		 
 ###################################################################
 
-## Vidéo 7 (Introduction aux classes)
+## Vidéo 8 (Introduction aux classes)
 NIVEAU: INTERMÉDIAIRE
 
-## Compléments Vidéo 7
+## Compléments Vidéo 8
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
 
-## Quizz Vidéo 7
+## Quizz Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
-## Exercices Vidéo 7
+## Exercices Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
 

@@ -1,51 +1,65 @@
 # -*- coding: utf-8 -*-
 
-## les séquences sont des structures de données qui
-## ont été optimisées pour l'accès, la modification,
-## et l'effacement d'éléments par numéro de séquence.
-## Donc lorsque je connais le numéro de séquence
-## d'un élément, la vitesse d'accès, de modification,
-## et d'effacement est indépendante de la position
-## de l'élément dans la séquence. 
-##
-## Mais comment se comporte une séquence avec
-## le test d'appartenance...
+## Pour définir un tuple on utilise des paranthèses
 
-%timeit 'x' in range(100)
+t = () #tuple vide
 
-## prenons quelques secondes pour comprende le résultat du %timeit.
-## on a le temps moyen d'exécution et son équart type. Cette
-## statistique a été éxécutée sur 7 exécution de 1 000 000 de boucles.
+t = (4,) # tuple avec un seul élément. Attention à la virgule à la fin,
+         # Python pense que les parenthèse sont juste pour regrouper des
+         # opérations
+print(t)
+## les parenthèses sont facultatives. !! attention ça n'est pas le cas
+## avec les listes
 
-%timeit 'x' in range(10_000) #100x plus lent
-%timeit 'x' in range(1_000_000) #100x plus lent
+t = 5,
 
-## on voit que le temp d'exécution du test d'appartenance est une
-## fonction linéaire du nombre d'éléments dans la séquence. C'est
-## normal puisque le seul moyen de trouver un élément dans une
-## séquence est de la parcourir séquentiellement. Donc si on teste un
-## élément qui n'est pas dans la séquence on doit comparer cet élément
-## avec tous ceux de la séquence, plus il y a d'éléments plus c'est
-## long.
+## lorsque j'ai plusieurs éléments, je les sépare par des virgules
 
-## Cependant, le test d'appartenance est une opération très
-## courante, par conséquent, il serait très utile d'avoir
-## une structure de données optimisée non seulement pour
-## l'accès, la modification et l'effacement, mais aussi pour
-## le test d'appartenance.
+t = (3, 4.1, 'spam')
 
-## Mais, il y a une autre limitation des séquences. Supposons
-## que je veuille utiliser autre chose que des entiers comme
-## indice, par exemple des chaînes des caractères pour faire
-## un annuaire, ça n'est pas possible avec les séquences.
+t = 3, 4.1, 'spam'
 
-a = []
-#a['sonia'] = '0118252627'
+## on a sur les tuples, toutes les opérations des séquences
 
-## il existe une structure de données qui permet un accès
-## une modification, un effacement et un test d'appartenance
-## avec une performance indépendante de la taille de la
-## structure, et qui, de plus, permet d'avoir des indices
-## d'un type immuable quelconque, c'est la table de hash.
-## regardons comment fonctionne une table de hash
+print(3 in t)
+print(len(t))
 
+## par contre on ne peut pas modifier un tuple et on a donc aucune
+## fonction pour modifier en place un tuple
+
+#t[1] = 8
+
+## on peut facilement convertir un tuple en list et une liste en tuple
+## en utilisant les fonction built-in list() et tuple()
+
+a = list(t)
+
+print(a)
+
+a.append(11)
+print(a)
+
+t = tuple(a)
+
+print(t)
+
+## Pour finir avec le tuple, je vais parler d'une opération très
+## fréquente en Python, le tuple unpacking. Cette opération est
+## utilisée pour faire plusieurs affectations de variables à la
+## fois. Regardons un exemple
+
+(a, b) = (1, 2)
+
+## a va référencer 1 et b va référencer 2. Une des raisons de pouvoir
+## écrire un tuple sans paranthèse est d'alléger cette notation
+## en écrivant
+
+a, b = 1, 2
+
+## Cette opération de tuple unpacking fonctionne pour toutes les
+## séquence (on l'appelle également sequence unpacking), du moment que
+## l'on a le même nombre d'éléments à gauche et à droite
+
+a, b, c = 'xyz'
+
+a, b = 'xyz'

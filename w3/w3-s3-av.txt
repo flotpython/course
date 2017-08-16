@@ -10,43 +10,31 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Les dictionnaires 
-## Temp total: 7m40s
+## TITRE : Tables de hash
+## Temp total: 8m00s
 
+## Résumé de la vidéo (20s)
 
-## Résumé de la vidéo (1m00s)
+Nous avons vu jusqu'à maintenant les types séquences qui sont des
+types très puissants combinant souplesse et facilité d'utilisation.
+Dans cette vidéo nous allons parler des tables de hash, une structure
+de données qui permet de répondre aux limitations des types séquences.
+Ouvrons un terminal interactif pour comprendre ces limitations.
 
-Dans cette vidéo nous allons voir comment utiliser les dictionnaires
-en Python. Un dictionnaire est une table de hash qui prend comme clef
-n'importe quel objet immuable et comme valeur n'importe quel objet.
+>>>>>>>>>> W3-S2-AV-exo1.py (3m40) <<<<<<<<<<
 
-Pourquoi est-ce que la clef doit être un immuable ?  Comme la fonction
-de hash fait un calcul sur la clef et que pour une même clef, elle
-doit toujours donner la même case dans le tableau, une clef ne peut
-pas changer en cours d'exécution, elle doit être immuable.  Donc une
-clef en Python peut-être, par exemple, un type numérique, une chaîne
-de caractères, ou un tuple d'immuable.
-
-Il n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le
-voir comme une collection non ordonnée de couples (clef, valeur). Le
-dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
-le modifier en place.
-
-Les dictionnaires sont des objets très puissants qui permettent de
-faire facilement certaines taches qui sont avec d'autres langages
-longue et fastidieuse à écrire. Ouvrons un terminal interactif pour
-commencer à jouer avec les dictionnaires.
-
-
->>>>>>>>>> W3-S3-AV-exo1.py <<<<<<<<<< (6m10s)
+>>>>>>>>>> W3-S2-AV-slide1.pptx (3m30) <<<<<<<<<<
 
 ## Résumé de la vidéo (30s)
 
-Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, un
-nouveau type puissant qui permet de créer un agenda ou un annuaire en
-seulement quelques lignes de code et nous avons vu le concept de vue.
-Les dictionnaires sont également optimisés pour la recherche de clef,
-c'est donc le type à utiliser lorsque vous avez besoin de performance
-pour la recherche d'éléments.
+Les tables de hash permettent un temps d'insertion, d'accès mais aussi
+de test d'appartenance indépendant du nombre d'éléments. Les tables de
+hash permettent également d'indéxer les éléments non pas uniquement
+avec des entiers, mais égalememt avec des objets plus complexe comme
+des chaînes de caractères. 
 
-À bientôt
+Il existe en Python deux implémentations de tables de hash, ce sont
+les dictionnaires et les ensembles. Nous verrons comment utiliser ces
+deux nouveaux types dans de prochaines vidéos.
+
+À bientôt.

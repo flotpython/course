@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- fill-column: 54 -*-
-#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
-##
 ##
 ## le texte entre double crochets ouvrants et fermants
 ## est à synchroniser avec les slides. [SB] signifie slide blanc,
@@ -11,37 +8,50 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Les références partagées
-## Temp total: 10m30s
+## TITRE : Exceptions
+## Temp total: 
 
-## Résumé de la vidéo (20 s)
+## Résumé de la vidéo (45s)
+
+Depuis que nous avons commencé à jouer avec Python, vous les avez sans
+doute rencontré, mais vous ne savez toujours pas quoi en faire, ni
+exactement ce que c'est...  Ce sont les exceptions.
+
+Dans cette vidéo nous allons expliquer le fonctionnement des
+exceptions en python. Les exceptions sont le moyen de gérer toutes les
+erreurs de fonctionnement de votre programme.  Et comme en Python tout
+est un objet, les exceptions aussi sont des objets. Mais il y a deux
+choses importantes à savoir sur les exceptions.  Premièrement, une
+exception n'est pas une fatalité qui conduit à l'arrêt du programme,
+on peut capturer les exceptions et prévoir des traitements spécifiques
+pour continuer le programme. C'est ce que nous allons voir dans cette
+vidéo.  Deuxièmement, les exceptions sont très performantes en Python,
+c'est donc fréquent d'utiliser des exceptions dans le cadre du
+fonctionnement normal d'un programme.
+
+ 
+Ouvrons maintenant un éditeur IDLE pour commencer à jouer avec les
+exceptions...
+
+>>>>>>>>>> INCLUDE W3-S5-AV-exo1.py (8 minutes) <<<<<<<<<<
 
 
-Nous allons voir dans cette vidéo une des notions les plus importantes
-et les plus subtiles en Python : les références partagées.  Alors que
-les références partagées ne pose aucune difficulté lorsqu'elles sont
-sur un objet immuable, elles peuvent être source de difficultés chez
-les débutants en Python lorsque'elles sont sur un objet mutable.
+## Résumé de la vidéo (45s)
 
-Regardons le fonctionnement des références partagées sur 
-les mutables et les immuables. 
+Vous avez remarqué que je faisais toujours suivre une clause except
+d'un nom d'exception. Ça n'est pas une obligation, je peux avoir
+une clause except sans nom d'exception, et dans ce cas, ma clause
+va capturer toutes les exceptions. C'est toujours une très mauvaise
+idée de faire ça parce que vous risquez de capturer des exceptions
+que vous n'avez pas prévu ou que vous ne connaissez pas. Votre
+traitement ne sera donc pas approprié et votre programme risque
+de planter sans message d'erreur ou avec un message d'erreur
+ne correspondant pas au problème. 
 
+Pour finir, vous devez sans doute vous demander comment connaître les
+exceptions à capturer et leur signification. Il n'y a ici
+aucune magie, la seule solution est de lire la documentation
+pour connaître les exceptions built-in et la documentation
+des modules que vous utilisez.  
 
->>>>>>>>>> W3-S6-AV-slide1.pptx <<<<<<<<<< (9m30)
-
-## Résumé de la vidéo (40 s)
-
-En résumé, il vaut se rappeler que les références partagées sur un
-immutable ne pose aucun problème, par contre les références partagées
-sur un mutable peuvent conduire à des effets de bords, c'est-à-dire à
-une modification de l'objet par une variable sans que cela soit voulu
-pour les autres variables référençant cet objet.
-
-Cependant, vous verrez qu'avec un peu d'habitude, il est facile de
-maitriser cette notion. De plus, les référecences partagées ont un gros
-avantage, elles permettent de minimiser le nombre d'objets en
-mémoire. C'est une caractéristique très importante dans un langage
-comme Python ou tout est objet.
-
-À bientôt.
-
+À bientôt

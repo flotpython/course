@@ -1,40 +1,36 @@
 # -*- coding: utf-8 -*-
-# -*- fill-column: 54 -*-
-#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à synchroniser avec les slides. [SB] signifie slide blanc,
-## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
-## un transparent blanc). [Si] signifie que l'on doit se trouver sur
-## le slide i
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
 
-## TITRE : Tables de hash
-## Temp total: 8m00s
+## TITRE : Les tuples
 
-## Résumé de la vidéo (20s)
+## Résumé de la vidéo (1 minute)
 
-Nous avons vu jusqu'à maintenant les types séquences qui sont des
-types très puissants combinant souplesse et facilité d'utilisation.
-Dans cette vidéo nous allons parler des tables de hash, une structure
-de données qui permet de répondre aux limitations des types séquences.
-Ouvrons un terminal interactif pour comprendre ces limitations.
+Dans cette vidéo nous allons presenter un type séquence très proche
+des listes, c'est le tuple.  Comme une liste, un tuple regroupe sous
+forme d'une séquence des objets de type quelconque.
 
->>>>>>>>>> W3-S2-AV-exo1.py (3m40) <<<<<<<<<<
+Mais, il existe une différence fondamentale entre les listes et les
+tuples.  Contrairement aux liste qui sont mutables, les tuples sont
+immuables, c'est à dire que les modification en place sont interdites,
+on ne peut donc pas modifier un tuple déjà créé.
 
->>>>>>>>>> W3-S2-AV-slide1.pptx (3m30) <<<<<<<<<<
+Nous discuterons l'intérêt des objets immuables lorsque nous parlerons
+des dictionnaires et des références partagées dans de prochaines
+vidéos. 
 
-## Résumé de la vidéo (30s)
+Ouvrons un terminal interactif pour jouer avec les tuples.
 
-Les tables de hash permettent un temps d'insertion, d'accès mais aussi
-de test d'appartenance indépendant du nombre d'éléments. Les tables de
-hash permettent également d'indéxer les éléments non pas uniquement
-avec des entiers, mais égalememt avec des objets plus complexe comme
-des chaînes de caractères. 
+>>>>>>>>>> INCLUDE W2-S5-AV-exo1.py  <<<<<<<<<<
 
-Il existe en Python deux implémentations de tables de hash, ce sont
-les dictionnaires et les ensembles. Nous verrons comment utiliser ces
-deux nouveaux types dans de prochaines vidéos.
+## Résumé de la vidéo (1 minute)
+
+Le tuple est un objet proche de la liste, mais immuable. C'est cette
+immuablité qui est recherchée dans certain usage comme les clefs de
+dictionnaires. Nous en reparlerons dans une prochaine vidéo.
 
 À bientôt.

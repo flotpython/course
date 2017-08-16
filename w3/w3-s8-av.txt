@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Introduction aux classes
+## Temp total: 8m30
+
+## Résumé de la vidéo (1m40s)
+
+Nous avons vu les principaux types built-in en Python: les types
+séquences avec les listes, les chaines de caractères, et les tuples,
+et nous avons vu les dictionnaires et les sets. Nous avons remarqué
+que tous ces types ont une utilisation très uniforme. Par exemple, la
+fonction built-in len permet de connaitre le nombre d'éléments et le
+test d'appartenance se fait avec in pour tous les types built-in.
+C'est une grande force de Python d'avoir cette uniformité. Ça permet
+d'écrire du code plus simple et plus expressif, et d'avoir une courbe
+d'apprentissage plus douce.
+
+Mais Python va bien au delà de ce que nous avons vu jusqu'à
+maintenant. Vous pouvez créer vos propres objets qui se comportent
+exactement comme des types built-in. En fait, Python ne fait aucune
+différence entre vos objets et les objets built-in. Ça permet donc de
+créer des objets qui s'utilisent comme les types built-in.
+
+Nous avons vu que le type d'un objet peut-être vu comme une chaîne de
+montage. Le type définie les caractéristiques communes des objets
+qu'il produit. Pour créer vos propre objet, vous devez créer vos
+types, on appelle cela une classe. La classe est la chaîne de montage
+qui va permettre de créer vos propres objets que l'on appelle
+instances de la classe.
+
+Dans cette vidéo nous allons rapidement présenter comment créer vos
+classes et vos instances. Il ne s'agit que d'une rapide introduction
+pous vous faire toucher du doigt ces notions. Si vous trouvez ce sujet
+difficile ou que vous souhaitez plus de détails, n'ayez pas
+d'inquiétude, il s'agit effectivement d'un sujet difficile sur lequel
+nous reviendrons largement dans de prochaines vidéos.
+
+Ouvrons un éditeur IDLE pour commencer à jouer avec les classes et les
+instances.
+
+>>>>>>>>>> W3-S7-AV-exo1.py <<<<<<<<<< (6m30s)
+
+## Résumé de la vidéo (20 s)
+
+Nous avons introduit dans cette vidéo la notion de classes et
+d'instances et nous avons montré que nos objets pouvaient se comporter
+exactement comme les type built-in. Nous avons fait un survol très
+rapide sans expliquer en détails toutes les notions. N'ayez pas
+d'inquiétude, nous reviendrons largement sur ces notions dans de
+prochaines vidéos.
+
+À bientôt.
+
