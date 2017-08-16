@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Introduction aux compréhensions de listes
+## Temp total: 6m10s
+
+
+## Résumé de la vidéo (30s)
+
+Nous avons déjà expliqué que les listes étaient au coeur de tous les
+programmes en Python. Il est extrêment courant de stocker nos objets
+dans une liste et de faire une opération sur tous les objets de cette
+liste. Nous avons vu qu'une boucle for permettait de parcourir de
+manière simple et intuitive une liste. Mais, il existe une manière
+encore plus simple de parcourir une liste et de faire une opération
+sur chaque élément de la liste, c'est ce qu'on appelle une
+compréhension de liste.
+
+Nous allons dans cette vidéo vous expliquer comment faire de
+compréhension de liste en Python. 
+
+Ouvrons un terminal pour commencer à jouer avec les compréhensions de
+liste...
+
+>>>>>>>>>> INCLUDE W2-S7-AV-exo1.py <<<<<<<<<< (5m00s)
+
+## Résumé de la vidéo (40s)
+
+On pourrait croire que les compréhensions de liste sont uniquement un
+raccourci syntaxique aux boucles for. Il n'en est rien, une
+compréhension de liste s'exécute en général plus rapidement qu'une
+boucle for.
+
+De plus, vous verrez qu'avec un peu de pratique, les compréhensions
+sont plus rapide à écrire et plus facile à lire. C'est la méthode à
+privilégié lorsque vous avez un traitement simple à faire sur chaque
+élément d'une liste avec évantuellement une condition à vérifier pour
+faire ce traitement. N'hésitez à pratiquer les compréhensions, vous
+verrez qu'elle deviendrons votre meilleur amis lorsque vous avez à
+manipuler des listes. 
+
+À bientôt
