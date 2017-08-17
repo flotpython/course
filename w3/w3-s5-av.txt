@@ -22,10 +22,11 @@ l'insertion, l'effacement et surtout le test d'appartenance.  Il faut
 donc toujours les préférer à des listes lorsque l'on fait un test
 d'appartenance.
 
-Comme le dictionnaire, un set ne peut accepter que des clefs
-immuables (nombre, chaîne de caractères, tuple d'immuable).
-Par contre, contrairement au dictionnaire, on ne peut pas stocker
-de valeur associée à une clef. 
+Comme le dictionnaire, un set ne peut accepter que des clefs hashable,
+donc en particulie tous les type built-in immuable: les nombres, les
+chaînes de caractères, les tuples d'immuable, mais pas un objet
+built-in mutable comme une liste.  Par contre, contrairement aux
+dictionnaires, on ne peut pas stocker de valeur associée à une clef.
 
 Les sets sont des objets mutables ça veut dire qu'on peut le modifier
 en place. 

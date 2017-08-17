@@ -66,7 +66,7 @@ NIVEAU: BASIC
 ## Compléments Vidéo 3
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-boucle-while.ipynb
 
 ## Quizz Vidéo 3
 
@@ -76,7 +76,7 @@ NIVEAU: BASIC
 ## Exercices Vidéo 3
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   * OK Exercice-pgcd.ipynb
 
 
 ###################################################################
@@ -87,12 +87,13 @@ NIVEAU: BASIC
 ## Compléments Vidéo 4
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK S6-C1-scopebuiltin.ipynb
+   * OK Complement-exception-unboundlocalerror.ipynb
 
 ## Quizz Vidéo 4
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W4-S6-E1.quiz
 
 ## Exercices Vidéo 4
 

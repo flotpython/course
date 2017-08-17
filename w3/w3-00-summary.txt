@@ -95,6 +95,10 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 4
 
+   * faire un complément sur les objets hashable.  Partir de
+     https://docs.python.org/3.6/glossary.html#term-hashable est de la
+     fonction built-in hash
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-dictionnaires.ipynb - recapitulatif sur comment
      utiliser un dict + url vers la doc python
