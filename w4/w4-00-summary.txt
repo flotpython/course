@@ -1,0 +1,182 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+## Vidéo 0 (Présentation de la quatrième semaine)
+
+
+###################################################################
+
+## Vidéo 1 (Fonctions)
+NIVEAU: BASIC
+
+## Compléments Vidéo 1
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * Complement-docstring.ipynb
+   * Complement-fonction-isinstance.ipynb
+   * W4-S5-C1-arg-reference.ipynb
+   * DROPPED cas pratique de plusieurs return - TP: on en fait à longueur d'exemples ça non ?
+
+
+## Quizz Vidéo 1
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W4-S5-E1-functions.quiz
+   * NICETOHAVE : un peu juste ?
+
+## Exercices Vidéo 1
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   * NICETOHAVE leur faire faire un exo des fonction polymorphe qui
+     prenne en argument un entier ou un nom - par exemple avec les
+     bateaux de marine..
+   * BOF aplatir un arbre - pour isinstance() le faire en deux
+     versions, copie ou modif inline (essayer d'abord)
+
+
+###################################################################
+
+## Vidéo 2 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 2
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 2
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 3 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 3
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 3
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 4 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 4
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 4
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 5 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 5
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 5
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 6 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 6
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 6
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 7 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 7
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 7
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+## Vidéo 8 ()
+NIVEAU: BASIC
+
+## Compléments Vidéo 8
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 8
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 8
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *

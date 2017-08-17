@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les fonctions
+## Temp total: 9m00s
+
+
+## Résumé de la vidéo (15s)
+
+Nous avons précédemment succinctement introduit les fonctions.  Nous
+allons dans cette vidéo et de prochaines vidéos approfondir cette
+notion importante. Commençons par revenir sur la déclaration d'une
+fonction.
+
+ouvrons un terminal pour jouer avec les fonctions...
+
+>>>>>>>>>> W4-S1-AV-exo1.py <<<<<<<<<< ()
+
+
+## conclusion (45s)
+
+Nous avons, dans cette vidéo, présenté les caractéristiques générales
+des fonctions. Les fonctions en Python sont des objets référencés par
+une variable qui est le nom de la fonction. Tous les arguments sont
+passés par référence, il faut donc faire attention aux effets de bord
+sur les types mutables. Une fonction retourne toujours une valeur,
+soit None, soit la valeur spécifiée par l'instruction return. Et, pour
+finir, les fonctions en python sont polymorphes, ce qui veut
+simplement dire que les fonctions acceptent en argument des objets de
+n'importe quel type. Cela simplifie grandement votre code puisque vous
+n'avez pas besoin de définir une fonction par type d'objet.
+
+À bientôt.
