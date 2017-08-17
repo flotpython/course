@@ -3,11 +3,13 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-
-## Les tests if/elif/else et les opérateurs booléens
+## TITRE : Les tests if/elif/else et les opérateurs booléens
+## Temp total: 6m30
 
 ## Résumé de la vidéo (15s)
 
@@ -77,7 +79,8 @@ Regardons un exemple...
 Vous pouvez remarquer ici que Python est très proche du langage
 naturel ce qui rend l'interprétation du code simple et intuitive.
 
-Regardons maintenant un dernier exemple. 
+Regardons maintenant un dernier exemple ou l'on va implémenter une
+intelligence artificielle.
 
 ## Résumé de la vidéo (15s)
 

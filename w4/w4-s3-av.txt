@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Boucle while
+## Temp total: 6m30
+
+## Résumé de la vidéo (20s)
+
+Nous avons vu l'instruction if qui permet d'exécuter des blocs 
+d'instructions en fonction de tests et l'instruction for qui permet,
+entres autres, de répéter des blocs d'instructions.
+Il existe une autre instruction, while qui combine ces deux 
+possibilités.
+
+Ouvrons un éditeur IDLE pour jouer avec l'instruction while...
+
+
+>>>>>>>>>> W4-S2-AV-exo1.py <<<<<<<<<< (6m00s)
+
+## Résumé de la vidéo (20s)
+
+L'instruction while ne présente pas de difficultés particulières et
+son utilisation est limitée à la répétition d'un bloc d'instruction
+tant qu'un test n'est pas évalué à True. Nous avons cependant vu que
+cette instruction peut se révéler très utile lorsqu'on a un traitement
+systématique à faire, mais que l'on ne connait pas a priori quand il
+se terminera.
+
+À bientôt

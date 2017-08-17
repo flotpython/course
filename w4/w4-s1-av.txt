@@ -23,7 +23,7 @@ fonction.
 
 ouvrons un terminal pour jouer avec les fonctions...
 
->>>>>>>>>> W4-S1-AV-exo1.py <<<<<<<<<< ()
+>>>>>>>>>> W4-S1-AV-exo1.py <<<<<<<<<< (8m00s)
 
 
 ## conclusion (45s)
