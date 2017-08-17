@@ -37,28 +37,30 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 2 ()
+## Vidéo 2 (Les tests if/elif/else et les opérateurs booléens)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-evaluation-conditions.ipynb: évaluation paresseuse (repris et aménagé de W2-S6)
+   * OK Complement-conditions-2.ipynb:  recap expressions dans un if
 
 ## Quizz Vidéo 2
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
 
 ## Exercices Vidéo 2
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   * OK Exercice-if.ipynb: des exercices sur des ifs un peu torturés 
+   * NICETOHAVE : c'est un peu léger dans l'état
+   
 
 
 ###################################################################
 
-## Vidéo 3 ()
+## Vidéo 3 (Boucle while)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
@@ -79,7 +81,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 4 ()
+## Vidéo 4 (Portée des variables dans les fonctions: règle LEG)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
@@ -100,7 +102,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 5 ()
+## Vidéo 5 (Portée des variables dans les fonctions et références partagées)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5
@@ -121,7 +123,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 6 ()
+## Vidéo 6 (Passage d'arguments et appel de fonctions)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 6
@@ -141,42 +143,3 @@ NIVEAU: BASIC
 
 
 ###################################################################
-
-## Vidéo 7 ()
-NIVEAU: BASIC
-
-## Compléments Vidéo 7
-
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
-
-## Quizz Vidéo 7
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
-
-## Exercices Vidéo 7
-
-   Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
-
-
-###################################################################
-
-## Vidéo 8 ()
-NIVEAU: BASIC
-
-## Compléments Vidéo 8
-
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
-
-## Quizz Vidéo 8
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
-
-## Exercices Vidéo 8
-
-   Pour mémoire, exercices du précédent MOOC sur Python 2
-   *

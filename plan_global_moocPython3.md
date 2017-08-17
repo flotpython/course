@@ -45,7 +45,6 @@ Plan général du MOOC sur Python 3
 
 * W4-S0: Présentation de la quatrième semaine
 * W4-S1: Fonctions
-	* une fonction crée une référence partagée
 * W4-S2: Les tests if/elif/else et les opérateurs booléens
 	* faire un exemple d'analyseur de syntaxe
 * W4-S3: Boucle while
