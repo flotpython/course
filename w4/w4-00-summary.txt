@@ -81,7 +81,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 4 (Portée des variables dans les fonctions: règle LEG)
+## Vidéo 4 (Portée des variables dans les fonctions: règle LEGB)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
@@ -103,20 +103,43 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 5 (Portée des variables dans les fonctions et références partagées)
+## Vidéo 5 (Modification de la portée avec global et nonlocal)
 NIVEAU: BASIC
-
-	PARLER DE NONLOCAL
 
 ## Compléments Vidéo 5
 
+   * complément global et nonlocal. Expliquer que global peut créer
+     une variable global si elle n'exite pas. Par contre nonlocal ne
+     peut pas créer une variable dans une fonction englobante (comme
+     il peut y avoir plusieur niveau il y aurait ambiguité) et
+     nonlocal ne peut pas accéder aux variable globale. Une variable
+     dans l'entête d'une fonction ne peut pas être déclarée nonlocal
+
+   * Ajouter des compléments avec Pythontutor pour pratiquer global,
+     nonlocal et modification d'objet mutable. **Je n'en parle plus
+     dans les vidéos**. C'est important de faire un point sur les
+     connaissances à ce niveau. L'idée est de bien voir le variable
+     local disparaitre au retour de la fonction, le objet mutable
+     modifié par effet de bord alors qu'on ne change pas la référence
+     de la variable, etc. Par exemple (sans doute faire mieux):
+     
+     >>> L = [1,2]
+     >>> def f(L):
+	   L.append(3) 
+	   L = [4, 5, 6]
+     >>> f(L)
+     >>> print L
+     [1, 2, 3]
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * DROPPED pas de complément ici - la vidéo est déjà très copieuse et détaillée
+     montrer que global crée une variable global si elle n'existe pas encore. 
+     je trouve qu'on en a déjà bcp trop dit sur `global`
 
 ## Quizz Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W4-S7-E1.quiz
 
 ## Exercices Vidéo 5
 

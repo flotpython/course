@@ -63,3 +63,18 @@ a, b = 1, 2
 a, b, c = 'xyz'
 
 a, b = 'xyz'
+
+## python supporte également un opération appelée extended unpacking
+## qui est très pratique lorsque l'on veut séparer le premier ou
+## dernier élément du reste, regardons un exemple
+
+a, *b = range(10)
+print(a)
+print(b)
+
+## avec l'extended unpacking, la variable b référencera tous les
+## éléments restant dans un tuple.
+*b, c = range(10)
+print(b)
+print(c)
+

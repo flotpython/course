@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Modification de la portée avec global et nonlocal
+
+## Résumé de la vidéo (40s)
+
+Nous avons vu dans une précédente vidéo la notion de portée de
+variables et la règle LEGB qui est appliqée lorsque je référence une
+variable. On a vu également que lorsque l'on affectait une variable
+dans une fonction, cette variable devenait locale à la fonction. Mais
+alors comment peut-on modifier une variable globale depuis une
+fonction. 
+
+La solution est de changer la porté de la variable avec les
+instructions global et nonlocal. global permet de rendre une variable
+locale de portée globale. nonlocal permet de rendre une variable
+locale de portée locale dans une fonction englobante.
+
+Ouvrons maintenant un éditeur IDLE pour jouer avec la portée des
+variables.
+
+
+>>>>>>>>>> W4-S5-AV-exo1.py <<<<<<<<<< (8m00)
+
+## Résumé de la vidéo (20s)
+
+Nous avons vu dans cette vidéo qu'il était possible de modifier la
+portée d'une variable local en utilisant les instruction nonlocal et
+global. Cependant, ces instructions favorisent la modification
+implicite des variables, ce qui est souvent une mauvaise idée. On vous
+encourage à préférer les passages d'arguments et les retours de
+fonction pour accéder à des variables globale et les modifier.
+
+À bientôt. 

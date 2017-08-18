@@ -46,12 +46,9 @@ Plan général du MOOC sur Python 3
 * W4-S0: Présentation de la quatrième semaine
 * W4-S1: Fonctions
 * W4-S2: Les tests if/elif/else et les opérateurs booléens
-	* faire un exemple d'analyseur de syntaxe
 * W4-S3: Boucle while
-	* continuer l'exemple d'analyseur de syntaxe
-* W4-S4: Portée des variables dans les fonctions: règle LEG
-	* variable liaison statique, attributs calculés à runtime ?
-* W4-S5: Portée des variables dans les fonctions et références partagées
+* W4-S4: Portée des variables dans les fonctions: règle LEGB
+* W4-S5: Modification de la portée avec global et nonlocal
 * W4-S6: Passage d'arguments et appel de fonctions
 	* exemple pratique de passage d'arguments/unpacking
 

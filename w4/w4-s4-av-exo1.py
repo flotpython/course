@@ -20,8 +20,8 @@ g()
 ## règle LEGB.
 ##
 ## Commençons avec a. a n'est pas locale à h, a n'est pas dans une
-## fonction englobante, mais a est définie globalement. C'est donc le a
-## global que l'on va utiliser, il référence l'objet 1.
+## fonction englobante, mais a est définie globalement. C'est donc le
+## a global que l'on va utiliser, il référence l'objet 1.
 ##
 ## Regardons maintenant b. b n'est pas définie localement à h, mais b
 ## est définie dans la fonction englobante g, c'est donc ce b que l'on
