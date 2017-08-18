@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Portée des variables dans les fonctions : règle LEG
+## Temp total: 9m35s
+
+## Résumé de la vidéo (3m15s)
+
+>>>>>>>>>> W4-S4-AV-slide1.pptx <<<<<<<<<< 
+
+[s1]
+
+Nous avons déjà parlé de la notion de bloc de code. Un [bloc de code]
+est un ensemble de lignes de code contigues qui ont la même
+indendation et qui sont précédée par un ":". Après chaque if, elif ou
+else j'ai un bloc de code, après chaque boucle for, j'ai un bloc de
+code et après chaque fonction j'ai un bloc de code.
+
+[s2]
+
+[Une variable définie dans un bloc de code] peut être accédée par toutes
+les lignes dans le même bloc de code. Par contre, est-ce que [d'autres
+blocs de code peuvent accéder à cette variable] ? La portée d'une
+variable définie dans quels blocs de code cette variable peut-être
+accédée. 
+
+[s3]
+
+Nous allons voir dans cette vidéo la notion de portée des
+variables. Python utilise ce que l'on appelle la portée lexicale,
+c'est-à-dire que la portée d'une variable est déterminée en fonction
+de l'endroit où elle est définie dans le code source.  On dit qu'une
+variable est définie lorsqu'elle référence un objet. On peut par
+exemple faire [x = 1] pour définir la variable x. 
+
+Les termes [définition, affectation, assignation et binding] sont tous
+équivalents.
+
+Il existe deux types de portée de variables. La portée locale et la
+portée globale. Une variable définie dans le bloc de code d'une
+fonction sera une variable de portée locale au bloc de code de cette
+fonction. Elle ne pourra pas être accédée en dehors de ce bloc de
+code.
+
+Une variable qui n'est définie dans aucun bloc de code de fonctions
+sera une variable de portée globale, elle sera accessible n'importe où
+dans le module où est définie cette variable.
+
+Il y a ici une subtilité importante. Une variable globale est visible
+dans tout le module dans lequel elle est défini. Il n'y a rien de plus
+visible ou accessible qu'une variable globale. Cela veut donc dire
+qu'une variable définie dans un module ne peut pas être directement
+vue dans un autre module. Par conséquent, deux variables de même nom
+dans deux modules différents seront totalement indépendantes. Ce
+mécanisme d'isolation que l'on appelle espace de nommage est une des
+grandes forces de Python et nous reviendrons largement dessus en
+expliquant notamment comment accéder aux variables définies dans un
+autre espace de nommage.
+
+En résumé, il y a donc deux mécanismes très différents qui entre jeux
+lorsqu'on veut accéder à une variable. Si on veut accéder à une
+variable qui est définie dans le même module (qu'elle soit locale ou
+globale), c'est le mécanisme de portée des variables qui entre en
+jeux. Si on veut accéder à une variable définie dans un autre module,
+c'est le mécanisme des espaces de nommage qui entre en jeux. 
+
+
+[s4]
+
+Dans cette vidéo nous nous concentrerons sur la notion de portée de
+variable. Python utilise une règle que l'on appelle [LEGB] lorsque
+l'on référence une variable, c'est-à-dire lorsque l'on utilise son nom
+en dehors d'une affectation. Lorsque l'on référence une variable, si
+c'est une variable locale à une fonction, on la cherche d'abord
+[localement] au bloc de code de cette fonction, puis on la cherche
+dans les [fonction englobante] s'il y en a de l'intérieur vers
+l'extérieur, ensuite on la cherche [globalement] au niveau des
+variables globales du module. Si elle n'est toujours pas trouvée on la
+cherche en dernier ressort dans le module [builtins].
+
+Ouvrons un éditeur IDLE pour commencer à jouer avec la notion de
+portée des variables.
+
+
+>>>>>>>>>> W4-S4-AV-exo1.py <<<<<<<<<< (5 minutes 40)
+
+
+## conclusion (40s)
+
+On vient de voir la notion de portée des variables et la règle
+LEGB. Lorsque vous affectez une variable elle devient locale à son
+bloc de code. Si le bloc de code est celui d'une fonction, la variable
+sera locale, si le bloc de code est en dehors de toute fonction, la
+variable sera globale dans le module. Lorsque l'on référence une
+variable, on la cherche d'abord localement, puis dans les fonctions
+englobante, puis globalement, et pour finir dans le module builtins. 
+Prenez le temps de bien assimiler ces notions. Nous les compléterons
+dans une prochaine vidéo lorsque nous parlerons des classes.
+
+À bientôt. 

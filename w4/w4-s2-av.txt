@@ -19,7 +19,7 @@ syntaxe de if/else et nous allons couvrir tous les types de tests
 autorisés avec une instruction.
 
 
->>>>>>>>>> W3-S7-AV-slide1.pptx <<<<<<<<<< (6m00s)
+>>>>>>>>>> W4-S2-AV-slide1.pptx <<<<<<<<<< (6m00s)
 
 [s1]
 

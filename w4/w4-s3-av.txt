@@ -23,7 +23,7 @@ possibilités.
 Ouvrons un éditeur IDLE pour jouer avec l'instruction while...
 
 
->>>>>>>>>> W4-S2-AV-exo1.py <<<<<<<<<< (6m00s)
+>>>>>>>>>> W4-S3-AV-exo1.py <<<<<<<<<< (6m00s)
 
 ## Résumé de la vidéo (20s)
 

@@ -48,6 +48,9 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
+   * parler de l'extended sequence unpacking et du   lors de
+     l'unpacking. 
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
    * Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]

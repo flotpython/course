@@ -106,6 +106,8 @@ NIVEAU: BASIC
 ## Vidéo 5 (Portée des variables dans les fonctions et références partagées)
 NIVEAU: BASIC
 
+	PARLER DE NONLOCAL
+
 ## Compléments Vidéo 5
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
