@@ -2,7 +2,7 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
-## Vidéo 1 (Organisation du MOOC)
+# Vidéo 1 (Organisation du MOOC)
 
 TODO: TP
 
@@ -17,7 +17,7 @@ TODO: TP
 
 ###################################################################
 
-## Vidéo 2 (Pourquoi Python 3)
+# Vidéo 2 (Pourquoi Python 3)
 
 TODO: TP
 
@@ -31,7 +31,7 @@ TODO TP
 
 ###################################################################
 
-## Vidéo 3 (iPython)
+# Vidéo 3 (iPython)
 
 TODO: TP
 
@@ -46,7 +46,7 @@ TODO: TP
 
 ###################################################################
 
-## Vidéo 4 (Les notebooks)
+# Vidéo 4 (Les notebooks)
 
 TODO: TP
 
@@ -61,7 +61,7 @@ TODO: TP
 
 ###################################################################
 
-## Vidéo 5 (IDLE)
+# Vidéo 5 (IDLE)
 
 TODO: TP
 
@@ -76,7 +76,7 @@ TODO: TP
 
 ###################################################################
 
-## Vidéo 6 (Introduction aux notions de variables, objets et typage dynamique)
+# Vidéo 6 (Introduction aux notions de variables, objets et typage dynamique)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 6
@@ -90,43 +90,47 @@ NIVEAU: BASIC
    de caractères.
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
-  * Complement-noms-de-variables.ipynb : noms de variables
-  * Complement-mots-cles.ipynb: liste des mots clés
-  * Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
+  * `w2-s1-c1-noms-de-variables.ipynb` : noms de variables
+  * `w2-s1-c2-mots-cles.ipynb`: liste des mots clés
+  * `w2-s1-c3-introduction-types.ipynb`: type() et premier contact avec isinstance ()
 
 ## Quizz Vidéo 6
 
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * W2-S1-E1-identifiants.quiz
+  Pour mémoire, quizz du précédent MOOC sur Python 2
+
+   * `w2-s1-e1-identifiants.quiz`
 
 ## Exercices Vidéo 6
+
    Pour mémoire, quizz du précédent MOOC sur Python 2
+
    * pas d'exo
 
 
 ###################################################################
 
-## Vidéo 7 (Les types numériques)
+# Vidéo 7 (Les types numériques)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 7
 
- * parler de la notation 110_220_434 (comme séparateur sur les int et
-   float literals)
+ * parler de la notation `110_220_434` (comme séparateur sur les `int` et
+   `float` literals)
    
- * compléments sur les module decimal, fractions et math. Parler de
-   sys.float_info
+ * compléments sur les module `decimal`, `fractions` et `math`. Parler de
+   `sys.float_info`
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
-  * Complement-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
-  * Complement-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
-  * Complement-precision-flottants.ipynb : limitation de la précision des floats  
-  * Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
+  * `w2-s2-c1-calculette.ipynb` : utiliser python comme une calculette - introduit aussi les conversions
+  * `w2-s2-c2-affectation-operateurs.ipynb` : illustrer += et les autres variantes, mentionner les autres types  
+  * `w2-s2-c3-precision-flottants.ipynb` : limitation de la précision des floats  
+  * `w2-s2-c4-entiers-bit-a-bit.ipynb` : opérations bitwise : et/ou/ou exclusifs décalages 
 
 ## Quizz Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * W2-S2-E1-type-numeriques.quiz
+   
+   * `w2-s2-e1-type-numeriques.quiz`
 
 
 ## Exercices Vidéo 7

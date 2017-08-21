@@ -2,12 +2,12 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
-## Vidéo 0 (Présentation de la quatrième semaine)
+# Vidéo 0 (Présentation de la quatrième semaine)
 
 
 ###################################################################
 
-## Vidéo 1 (Fonctions)
+# Vidéo 1 (Fonctions)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 1
@@ -37,7 +37,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 2 (Les tests if/elif/else et les opérateurs booléens)
+# Vidéo 2 (Les tests if/elif/else et les opérateurs booléens)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
@@ -60,7 +60,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 3 (Boucle while)
+# Vidéo 3 (Boucle while)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
@@ -81,7 +81,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 4 (Portée des variables dans les fonctions: règle LEGB)
+# Vidéo 4 (Portée des variables dans les fonctions: règle LEGB)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
@@ -103,7 +103,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 5 (Modification de la portée avec global et nonlocal)
+# Vidéo 5 (Modification de la portée avec global et nonlocal)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5
@@ -149,7 +149,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 6 (Passage d'arguments et appel de fonctions)
+# Vidéo 6 (Passage d'arguments et appel de fonctions)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 6

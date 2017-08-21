@@ -2,12 +2,12 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
-## Vidéo 0 (Présentation de la deuxième semaine)
+# Vidéo 0 (Présentation de la deuxième semaine)
 
 
 ###################################################################
 
-## Vidéo 1 (Codage, jeux de caractères et unicode)
+# Vidéo 1 (Codage, jeux de caractères et unicode)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 1
@@ -24,7 +24,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 2 (Les chaînes de caractères)
+# Vidéo 2 (Les chaînes de caractères)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
@@ -70,7 +70,7 @@ NIVEAU: BASIC
 ###################################################################
 
 
-## Vidéo 3 (Les séquences)
+# Vidéo 3 (Les séquences)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
@@ -94,7 +94,7 @@ NIVEAU: BASIC
 ###################################################################
 
 
-## Vidéo 4 (Les listes)
+# Vidéo 4 (Les listes)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
@@ -119,7 +119,7 @@ NIVEAU: BASIC
 ###################################################################
 
 
-## Vidéo 5 (Introduction aux tests if/else et aux conventions de codage)
+# Vidéo 5 (Introduction aux tests if/else et aux conventions de codage)
 NIVEAU: BASIC
 
 
@@ -157,7 +157,7 @@ NIVEAU: BASIC
 ###################################################################
 
 
-## Vidéo 6 (Introduction aux boucles for et aux fonctions)
+# Vidéo 6 (Introduction aux boucles for et aux fonctions)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 6
@@ -195,7 +195,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 7 (Introduction aux compréhensions de listes)
+# Vidéo 7 (Introduction aux compréhensions de listes)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 7
@@ -215,7 +215,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 8 (Introduction aux modules)
+# Vidéo 8 (Introduction aux modules)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 8

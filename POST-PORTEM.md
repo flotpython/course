@@ -4,6 +4,7 @@ Plateforme
 =======
 
 * Prévoir des mécanismes plus conviviaux pour échanger le code (miniprojets) - étudier un mini-github
+  * MOF, pas 'evident à mettre en place
 
 * montrer dans une vidéo comment publier du code
   * l'icone '010010' dans la barre de menu
@@ -12,9 +13,6 @@ Plateforme
   * 4 espaces
   * parler aussi de la possibilité de publier les notebooks (liens statiques)
   * et donc du point précédent (un site pour exposer le code ?)
-
-* utiliser un *submodule* git pour isoler `modules/nbautoeval` et le rendre réutilisable pat ***flotbioinfo***
-
 
 Général
 =======
@@ -53,10 +51,6 @@ Pour Python3
   * mentionner le debugger
   * on ne parle pas du tout de la pile par exemple
 
-* classes new-style
-  * trop de décalage dans le temps entre le cours semaine 5
-     et celui de la semaine 7
-
 * Le libellé de 'fonction lambda' est à revoir car dans cette section
   on parle des fonctions comme objets, les lambda c'est juste un cas
   particulier. Pourquoi pas un titre comme "Les fonctions sont des
@@ -68,7 +62,7 @@ W1
  * installation sur windows
    * donner un peu plus d'indications a propos du PATH
    * idem peut-être pour le shebang sur windows
- * le notebook sur le shebang ne doit psa être tout à fait clair par rapport au PATH, pas mal de monde en effet n'a pas '.' dans son PATH
+ * le notebook sur le shebang ne doit pas être tout à fait clair par rapport au PATH, pas mal de monde en effet n'a pas '.' dans son PATH
 
 W2
 ===
@@ -98,8 +92,8 @@ W5
   la formule 'toutes les variables du module'; j'avoue que je suis
   d'accord que la formulation est ambigüe.
 
-* exercice bateau : voir s'il ne serait pas mieux d'utiliser le module
-  LatLon ? 
+* exercice bateau : voir s'il ne serait pas mieux d'utiliser une librairie ?
+  * le module LatLon est pour 2.7 seulement
  
 W7
 ===
@@ -169,3 +163,37 @@ Notes on python3
 
 
 * idée d'exo : calculer la suite dérivée d'une suite; la série de la suite
+
+Librairies
+====================
+
+Une liste des librairies dont il va falloir parler; je ne sais pas si/ou Arnaud a commencé quelque chose dans ce genre...
+
+## transverse
+
+* PyPI : pas vraiment une librairie, un repository de modules
+-> pip install ...
+
+* mentionner aussi les autres systemes de packaging
+rpm / apt-get / macports
+
+## petits modules pratiques
+
+* argparse
+* json
+* csv
+* pprint
+
+## grosses libraries et autres frameworks
+
+### PyQt5
+
+* pour faire des UIs cross-platform: http://www.riverbankcomputing.co.uk/software/pyqt/download5
+* le site original Qt http://qt-project.org
+
+## math
+NumPy http://www.numpy.org
+SciPy http://scipy.org
+pandas
+sklearn
+...

@@ -2,13 +2,13 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
-## Vidéo 0 (Présentation de la troisième semaine)
+# Vidéo 0 (Présentation de la troisième semaine)
 
 
 ###################################################################
 
 
-## Vidéo 1 (Les fichiers)
+# Vidéo 1 (Les fichiers)
 NIVEAU: BASIC
 
 introduction aux contexts managers
@@ -43,7 +43,7 @@ introduction aux contexts managers
    
 ###################################################################
 
-## Vidéo 2 (Les tuples)
+# Vidéo 2 (Les tuples)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2
@@ -68,7 +68,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 3 (Tables de hash)
+# Vidéo 3 (Tables de hash)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 3
@@ -93,7 +93,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 4 (Les dictionnaires)
+# Vidéo 4 (Les dictionnaires)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
@@ -122,7 +122,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 5 (Les ensembles)
+# Vidéo 5 (Les ensembles)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5
@@ -152,7 +152,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 6 (Les exceptions)
+# Vidéo 6 (Les exceptions)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 6
@@ -188,7 +188,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-## Vidéo 7 (Les références partagées)
+# Vidéo 7 (Les références partagées)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 7
@@ -226,7 +226,7 @@ NIVEAU: BASIC
 		 
 ###################################################################
 
-## Vidéo 8 (Introduction aux classes)
+# Vidéo 8 (Introduction aux classes)
 NIVEAU: INTERMÉDIAIRE
 
 ## Compléments Vidéo 8
