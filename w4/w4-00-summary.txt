@@ -155,17 +155,22 @@ NIVEAU: BASIC
 ## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-passage-arguments.ipynb
+   * OK Complement-pas-de-valeur-par-defaut-mutable.ipynb
+   * TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...
+     * introduire sys.argv en remarquant que c'est une forme *Targs
+       et introduire le module argparse. 
+
 
 ## Quizz Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W4-S8-E1.quiz
 
 ## Exercices Vidéo 6
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   * OK Exercice-passage-arguments.ipynb
 
 
 ###################################################################

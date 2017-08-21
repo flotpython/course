@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
-#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
 ## TITRE : Modification de la portée avec global et nonlocal
+## Temp total: 9m00s
 
 ## Résumé de la vidéo (40s)
 
