@@ -1,68 +1,80 @@
 # -*- coding: utf-8 -*-
 
-## Il existe deux manières de créer un dictionnaire, la
-## plus simple lorsque l'on crée un dictionnaire à la main
-## est d'utiliser les accolades
+## Pour définir un tuple on utilise des paranthèses
 
-d = {}
+t = () #tuple vide
 
-d = {'marc':35, 'alice':30, 'eric':38}
+t = (4,) # tuple avec un seul élément. Attention à la virgule à la fin,
+         # Python pense que les parenthèse sont juste pour regrouper des
+         # opérations
+print(t)
+## les parenthèses sont facultatives. !! attention ça n'est pas le cas
+## avec les listes
 
-## la deuxième manière est très utile lorsque les couples
-## clefs-valeurs sont obtenues par une opération, dans
-## ce cas on peut automatiquement créer un dictionnaire
-## à partir d'une liste de tuples clef,valeur
+t = 5,
 
-a = [('marc', 35), ('alice', 30), ('eric', 38)]
-d = dict(a)
+## lorsque j'ai plusieurs éléments, je les sépare par des virgules
 
-# xxx je ferais remarquer qu'il s'agit d'un cas particulier de conversion
-# comme on en a déjà vu pour les types numériques e.g. float(12)
+t = (3, 4.1, 'spam')
 
-## je rappelle qu'il n'y a pas d'ordre dans un dictionnaire
-## donc le dictionnaire n'affiche pas nécéssairement
-## les valeurs dans l'ordre dans lequel on les a entrées
+t = 3, 4.1, 'spam'
 
-print d
+## on a sur les tuples, toutes les opérations des séquences
 
-## il existe de très nombreuse opérations et fonctions
-## sur les dictionnaires, nous allons voir les principales
-## commençons par les deux suivantes
+print(3 in t)
+print(len(t))
 
-print len(d)
-print 'marc' in d
-print 'marc' not in d
+## par contre on ne peut pas modifier un tuple et on a donc aucune
+## fonction pour modifier en place un tuple
 
-## même si les dictionnaires ne sont pas des séquences,
-## dans un soucis d'uniformité et de simplification,
-## la fonction len et l'opérateur in ont été implémentés
-## sur les dictionnaires.
+#t[1] = 8
 
-## on peut accéder et modifier la valeur d'une clef de la
-## manière suivante
+## on peut facilement convertir un tuple en list et une liste en tuple
+## en utilisant les fonction built-in list() et tuple()
 
-print d['marc']
-d['marc'] = 40
+a = list(t)
 
-## on peut effacer la clef et sa valeur dans le dictionnaire
-## avec l'instruction del
+print(a)
 
-del d['marc']
+a.append(11)
+print(a)
 
-d.copy() # shallow copie du dictionnaire
-print 
+t = tuple(a)
 
-## et on a des méthodes pour récupérer sous forme de liste:
-## les clefs, les valeurs, et les tuples (clefs, valeur)
+print(t)
 
-print d.keys()
-print d.values()
-print d.items()
+## Pour finir avec le tuple, je vais parler d'une opération très
+## fréquente en Python, le tuple unpacking. Cette opération est
+## utilisée pour faire plusieurs affectations de variables à la
+## fois. Regardons un exemple
 
+(a, b) = (1, 2)
 
-# xxx on a a ce stade tout le bagage pour montrer ceci
-#for k,v in d.items():
-#    print "cle={} -> valeur={}".format(k,v)
+## a va référencer 1 et b va référencer 2. Une des raisons de pouvoir
+## écrire un tuple sans paranthèse est d'alléger cette notation
+## en écrivant
 
-# qui est tout de meme un truc majeur a montrer
-# pour les dicts je pense
+a, b = 1, 2
+
+## Cette opération de tuple unpacking fonctionne pour toutes les
+## séquence (on l'appelle également sequence unpacking), du moment que
+## l'on a le même nombre d'éléments à gauche et à droite
+
+a, b, c = 'xyz'
+
+a, b = 'xyz'
+
+## python supporte également un opération appelée extended unpacking
+## qui est très pratique lorsque l'on veut séparer le premier ou
+## dernier élément du reste, regardons un exemple
+
+a, *b = range(10)
+print(a)
+print(b)
+
+## avec l'extended unpacking, la variable b référencera tous les
+## éléments restant dans un tuple.
+*b, c = range(10)
+print(b)
+print(c)
+

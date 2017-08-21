@@ -3,10 +3,13 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
 ## TITRE : Les listes
+## Temp total: 9m00
 
 ## Résumé de la vidéo (1 minute)
 
@@ -19,16 +22,21 @@ sont stockées. Donc la taille d'une liste n'augmente pas avec la taille
 des objets qu'elle référence, mais seulement avec le nombre d'objet
 quelle référence. 
 
-Les listes sont mutables, c'est-à-dire que l'on peut les modifier en 
-place. On dit qu'une modification est en place lorsque l'on modifie directement
-l'objet en mémoire sans en faire une copie temporaire. L'intérêt d'une 
-modification en place est qu'elle est économe en mémoire puisqu'elle ne
-demande pas de copie temporaire.
+Les listes sont mutables, c'est-à-dire que l'on peut les modifier en
+place. On dit qu'une modification est en place lorsque l'on modifie
+directement l'objet en mémoire sans en faire une copie temporaire, ce
+qui est très efficace. Les listes sont souples et flexible et très
+facile à utiliser. On peut ajouter des objets au début, à la fin, au
+milieu, une liste peux s'étendre, se contracter, tout cela se fait par
+l'intermédiaires de méthodes simples et intuitives. 
 
 Ouvrons un terminal interactif et commençons a jouer avec les listes. 
 
->>>>>>>>>> INCLUDE W2-S4-AV-exo1.py (8 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S4-AV-exo1.py (8m35s) <<<<<<<<<<
 
+## Résumé de la vidéo
 Nous venons de voir le type list qui est central en Python. Vous 
 utiliserez, quelque soit votre programme, sans aucun doute de nombreuses
 listes. Alors jouez avec les listes pour les maitriser rapidement. 
+
+À bientôt

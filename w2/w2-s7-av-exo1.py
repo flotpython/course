@@ -1,106 +1,55 @@
 # -*- coding: utf-8 -*-
 
-## prenons un problème simple, je veux afficher la liste des entiers
-## de 1 à 10 et de leur carré.
-print 1, 1**2
-print 2, 2**2
-print 3, 3**2
+## Imaginons que vous souhaitiez prendre le logarithme de chaque
+## élément d'une liste. Avec une boucle for on utiliserait la méthode
+## suivante
 
-## on se rend vite compte que l'on fait 10 fois la même tache avec
-## une petite variation, la valeur de x. Les boucles for existe justement
-## pour factoriser ce type de taches. Regardons comme on écrit une boucle for
+import math
+my_list = [1, 3, 6, 9, 13, 5, 2]
 
-for x in range(1,11):
-    print x, x**2
-print "on est sorti de la boucle"
-## La boucle for utilise (comment souvent en Python), une notation
-## simple et intuitive. On commence une boucle for par l'instruction
-## for puis, on spécifie une variable (x dans notre cas), l'instruction
-## in, et une séquence. On fini la ligne avec un : ce qui veut
-## dire que l'on va avoir un nouveau bloc d'instruction décalé
-## de 4 caractères vers la droite par rapport au for.
-## La boucle for va répéter le bloc d'instruction autant fois qu'il
-## y a d'éléments dans la séquence. À la premiere exécution du bloc
-## d'instruction, la variable x référence le premier élément de la séquence
-## et à chaque nouvelle répétition du bloc d'instruction x référencera
-## l'élément suivant dans la séquence jusq'au dernier élément de la séquence. 
-## Lorsqu'il n'y a plus d'élément dans la séquence on sort de la boucle
-## for, c'est-à dire que l'on continu avec le bloc de code aligné avec
-## la boucle for.
+log_list = []
+for i in my_list:
+    log_list.append(math.log(i))
 
-## comme un boucle for fonctionne sur toutes les séquences, on peut
-## faire une boucle for sur un chaîne de caractères par exemple
-for i in 'spam':
-    print i + ' ',
-    
-print
-## ou sur une liste d'éléments quelconques.
-L = [1, 'spam', 3.2, True]
-for i in L:
-    print i
+## Il est très courant d'appliquer une opération ou une fonction à
+## chaque élément d'une liste et de retourner une nouvelle liste qui
+## contient le résultat. Pour cette raison, Python propose un
+## mécanisme spécifique, plus rapide à écrire et plus efficace qu'une
+## boucle for, la compréhension de liste  
 
-#2 minutes 50 secondes
+## La syntaxe de la compréhension de listes est simple et intuitive
+## puisqu'elle est proche du langage naturel.  Mais elle est également
+## incroyablement puissante.  Reprenons l'exemple précédent.  La
+## compréhension de liste commence toujours par un crochet ouvrant et
+## termine par un crochet fermant, indiquant que le résultat est une
+## liste. On a ensuite une expression sur chaque élément de la liste
+## suivi de for, du nom de variable utilisé dans l'expression
+## suivi de in et de l'objet itérable que va parcourir la variable.
 
-## regardons maintenant un autre problème. Je veux a différents moments
-## de mon programme faire une opération, par exemple, afficher
-## sur la sortie standard tous les éléments d'une liste et leur carré.
+log_list = [math.log(x) for x in my_list]
 
-L1 = [1, 4, 6, 7, 10, 11, 30, 50]
-for x in L1:
-    print x, x**2
+## notez que cette compréhension est quasiment du langage
+## naturel. Elle se lit prenons le log de chaque x pour x qui parcours
+## les éléments de my_list
 
-L2 = [3.4, 11, 22, 150.435, 18]
-for x in L2:
-    print x, x**2
 
-## on voit que grace à la boucle for, je peux factoriser mon code, mais
-## que malgré tout je répète deux fois exactement la même boucle for.
-## Un moyen de factoriser encore plus ce code est d'utiliser ce que l'on
-## appelle une fonction. Regardons comment on écrit une fonction
+## On peut en plus ajouter une condition dans la compréhension de
+## liste. Par exemple si l'on veut le logarithme de tous les éléments
+## de ma liste qui sont strictement plus grand que 1, je peux écrire
 
-def f(L):
-    for x in L:
-        print x, x**2
+log_list = [math.log(x) for x in my_list if x > 1]
 
-## une fonction commence avec l'instruction def, on donne ensuite un nom
-## à la fonction (f ici). puis en met entre paranthèses l'argument de la
-## fonction (L dans notre cas) et on finit une fois encore par un :
-## qui signal un nouveau bloc d'instruction qui doit être indenté de 4
-## caractère vers la droite par rapport au premier caractere du la
-## permière ligne de la fonction, donc le d du def. On appelle de bloc
-## d'instructions le corps de la fonction. 
-## Le principe d'une fonction est que le bloc d'instruction dans la fonction
-## (c'est-à-dire indenté de 4 caractères vers la droite) est exécuté
-## à chaque appel de la fonction avec l'argument passé au moment de la
-## fonction. C'est très facile d'appeler une fonction et de lui passer un
-## argument, il suffit de taper le nom de la fonction suivi de l'argument
-## entre parenthèses.
+## notons de nouveaux que lorsque l'on lit cette expression on est
+## proche du langage naturel et que l'on peut en une seule expression
+## appliquer une fonction à chaque élément d'une liste si une
+## condition est vraie
 
-f(L1)
-f(L2)
+## Regardons un autre exemple de compréhension de liste. J'ai une
+## liste de prénoms et je ne nombre de caractères pour tous les
+## prénoms commençant par a.
 
-# 6 minutes ##
 
-## Une caractéristique importante des fonctions est sa valeur de retour.
-## En effet, une fonction retourne toujours un objet. Par défaut
-## elle retourne l'objet None qui est un objet vide, sans valeur,
-## mais on peut définir un autre objet retourné avec l'instruction
-## return.
+nom = ['alice', 'bob', 'ana', 'bill']
+a_nom = [len(n) for n in nom if n.startswith('a')]
 
-## la valeur de retour d'une fonction peut-être affecté à une variable
-## de la manière suivante
 
-r = f(L1) ## c'est None qui est retourné.
-print r
-
-def f(L):
-    for x in L:
-        print x, x**2
-    return 'fin du calcul'
-
-##
-
-r = f(L1)
-print s
-
-# 7 mintes 10 secondes

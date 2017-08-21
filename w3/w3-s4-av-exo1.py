@@ -1,43 +1,86 @@
 # -*- coding: utf-8 -*-
 
-## Nous avons vu la notion de shallow copie pour les séquences
+## Il existe deux manières de créer un dictionnaire, la
+## plus simple lorsque l'on crée un dictionnaire à la main
+## est d'utiliser les accolades
 
-a = range(10)
-a2 = a[:]
+age = {}
 
-## mais on peut également faire une shallow copy pour un dictionnaire
-## ou un set
+age = {'ana':35, 'eve':30, 'bob':38}
 
-d = {'marc' : 30, 'alice' : 35}
-d2 = d.copy()
+## la deuxième manière est très utile lorsque les couples
+## clefs-valeurs sont obtenues par une opération dans notre programme,
+## dans ce cas on peut automatiquement créer un dictionnaire à partir
+## d'une liste de tuples clef,valeur
 
-print d, d2
+a = [('ana', 35), ('eve', 30), ('bob', 38)]
+age = dict(a)
 
-s = {1,2,7,89,0}
-s2 = s.copy()
+## je rappelle qu'il n'y a pas d'ordre dans un dictionnaire
+## donc le dictionnaire n'affiche pas nécéssairement
+## les valeurs dans l'ordre dans lequel on les a entrées
 
-print s, s2
+print(age)
 
-# xxx il y a un complement deja ecrit sur ce sujet, si tu veux gagner 
-# un peu de temps tu peux zapper ca
+## il existe de très nombreuse opérations et fonctions
+## sur les dictionnaires, nous allons voir les principales
 
-## pour finir, j'aimerais aborder un problème d'optimisation de CPython
-a = [1, 2]
-b = a
-print a == b
-print a is b
+## on peut accéder et modifier la valeur d'une clef de la
+## manière suivante
 
-b = [1, 2]
-print a == b
-print a is b
+print age['ana']
+age['ana'] = 40
 
-a = 18
-b = 18
-print a == b
-print a is b
+## je peux ajouter une nouvelle clef ainsi
+age['bill'] = 12
 
-## Python réutilise certains objets immuables (petits entiers, petites
-## chaînes de caractères) pour minimiser la consommation mémoire. Il n'y
-## a jamais de problèmes avec les références partagées dans ce cas
-## parce que ces objets réutilisés sont immuables et ne sont pas
-## composites (c'est-à-dire qu'ils ne peuvent pas contenir d'autres objets). 
+## on peut effacer la clef et sa valeur dans le dictionnaire
+## avec l'instruction del
+
+del age['ana']
+
+## même si les dictionnaires ne sont pas des séquences,
+## dans un soucis d'uniformité et de simplification,
+## la fonction len et l'opérateur in ont été implémentés
+## sur les dictionnaires.
+print(len(age))
+print('eve' in age)
+print('eve' not in age)
+
+
+## et on a des méthodes pour récupérer sous forme de vues:
+## les clefs, les valeurs, et les tuples (clefs, valeur)
+
+print age.keys()
+print age.values()
+print age.items()
+
+## mais qu'est-ce qu'une vue et comment l'utilise-t on ?  une vue est
+## un objet compact (dont la taille est indépendante de nombre
+## d'éléments dans le dictionnaire) que l'on peut parcourir comme une
+## liste (il dit qu'une vue est itérable) et autorise le test
+## d'appartenance.
+
+k = age.keys()
+
+'eve' in k
+
+
+## Une caractéristique majeur de la vue est que comme son nom
+## l'indique, elle est une vue sur l'objet dictionnaire, donc si le
+## dictionnaire change, la vue change avec.
+
+age['meg'] = 20
+
+list(k)
+
+## une précaution sur les vue est de ne jamais changer le dictionnaire
+## pendant que l'on parcours la vue. Le résultat pourrait être
+## inconsistant.
+
+## pour finir, je vais vous montrer un schema classique en Python
+## lorsque l'on veut parcourir les clefs et les valeurs en même temps
+
+for k, v in age.items():
+    print(f"{k}: {v}")
+

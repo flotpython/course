@@ -8,28 +8,35 @@
 ## est à afficher en surimpression pendant que je parle et à 
 ## synchroniser avec le texte entre crochet 
 
-## TITRE : Les fonctions
+## TITRE : Modification de la portée avec global et nonlocal
 
-## Résumé de la vidéo ()
+## Résumé de la vidéo (40s)
 
-Nous avons succinctement introduit les fonctions la semaine dernière.
-Nous allons dans cette vidéo et les vidéos suivantes approfondir cette
-notion importante. Commençons par revenir sur la déclaration d'une
-fonction.
+Nous avons vu dans une précédente vidéo la notion de portée de
+variables et la règle LEGB qui est appliqée lorsque je référence une
+variable. On a vu également que lorsque l'on affectait une variable
+dans une fonction, cette variable devenait locale à la fonction. Mais
+alors comment peut-on modifier une variable globale depuis une
+fonction. 
 
-ouvrons un terminal pour jouer avec les fonctions...
+La solution est de changer la porté de la variable avec les
+instructions global et nonlocal. global permet de rendre une variable
+locale de portée globale. nonlocal permet de rendre une variable
+locale de portée locale dans une fonction englobante.
 
->>>>>>>>>> W4-S5-AV-exo1.py <<<<<<<<<< ()
+Ouvrons maintenant un éditeur IDLE pour jouer avec la portée des
+variables.
 
 
-## conclusion ()
+>>>>>>>>>> W4-S5-AV-exo1.py <<<<<<<<<< (8m00)
 
-Nous avons, dans cette vidéo, présenté les caractéristiques générales
-des fonctions. Les fonctions en Python sont des objets référencés par
-une variable qui est le nom de la fonction. Tous les arguments sont
-passés par référence, il faut donc faire attention aux effets de bord
-sur les types mutables. Une fonction retourne toujours une valeur,
-soit None, soit la valeur spécifiée par l'instruction return. Et, pour
-finir, les fonctions en python sont polymorphes, ce qui veut
-simplement dire que les fonctions acceptent en argument des objets de
-n'importe quel type.
+## Résumé de la vidéo (20s)
+
+Nous avons vu dans cette vidéo qu'il était possible de modifier la
+portée d'une variable local en utilisant les instruction nonlocal et
+global. Cependant, ces instructions favorisent la modification
+implicite des variables, ce qui est souvent une mauvaise idée. On vous
+encourage à préférer les passages d'arguments et les retours de
+fonction pour accéder à des variables globale et les modifier.
+
+À bientôt. 

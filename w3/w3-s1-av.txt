@@ -5,39 +5,102 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Tables de hash
+## TITRE : Les fichiers
+## Temp total: Part1 (6m30), Part2 (7m55)
 
-## Résumé de la semaine
+## Résumé de la vidéo (30 secondes)
 
-Nous avons vu la semaine dernière certains types de base.
-Cette semaine nous allons couvrir les derniers types de base
-qu'il nous reste à voir, notamment les dictionnaires et les ensembles, 
-puis nous reviendrons sur le typage dynamique et nous discuterons
-des références partagées. Pour finir, nous approfondirons le 
-fontionnement des test if/else et des boucles for avec en particulier
-une présentation des itérateurs.
+Les fichiers représentent le moyen le plus simple de stocker et de
+lire des informations sur un ordinateur. Et comme on est en Python,
+les fichiers sont des objets puissants et simple à utiliser. Il y a
+cependant trois notions qu'il faut maitriser pour travailler
+efficacement avec les fichiers en Python: l'encodage, l'itération sur
+les fichiers et la notion de contextes managers.
 
-## Sujet de la semaine ()
+Ouvrons un terminal pour commencer à jouer avec les fichiers et
+maitriser ces trois notions. 
 
-Nous avons vu jusqu'à maintenant les types séquences qui sont
-des types très puissants combinant souplesse et facilité d'utilisation. 
-Mais est-ce qu'il y a des limitations à l'utilisation des types 
-séquences. 
-Ouvrons un terminal interactif pour répondre à cette question...
+>>>>>>>>>> W3-S1-AV-exo1.py <<<<<<<<<< (6m00s)
 
->>>>>>>>>> W3-S1-AV-exo1.py <<<<<<<<<<
+## Fin PART 1 (on coupe cette vidéo en 2 parties)
 
->>>>>>>>>> W3-S1-AV-slide1.pptx (5 minutes) <<<<<<<<<<
+## Début PART 2
+## close(), flush() et écriture asynchrone (3m10)
 
-Comme la fonction de hash fait un calcul sur la valeur de la clef
-et que pour une même clef, elle doit toujours donner
-la même case dans le tableau, une clef doit toujours être immuable. 
-Donc une clef en Python peut-être, par exemple, un type numérique, 
-une chaîne de caractères, ou un tuple d'immuable. 
+Nous venons de voir comment ouvrir un fichier en lecture ou écriture
+et nous avons expliqué qu'il fallait toujours fermer le fichier après
+utilisation, mais nous n'avons par expliqué pourquoi. 
 
-Il existe en Python deux implémentations de tables de hash, ce sont
-les dictionnaires et les ensembles. Nous verrons comment utiliser ces
-deux nouveaux types dans la prochaine vidéo
+Un des premiers rôles du système d'exploitation est de permettre la
+lecture et l'écriture des fichiers sur les périphériques de
+stockage. Le sytème d'exploitation vous cache la compléxité de ces
+périphériques et vous donne une interface simple et unique à vos
+fichiers. Cependant, le système d'exploitation fait de nombreuses
+taches et optimisations pour offrir une bonne vitesse de transfert et
+prolonger la durée de vie des périphériques.
+
+Parmi ces tâches, il y en a deux qui, si elles sont mal comprises,
+peuvent conduire à des bugs.  La première est de gérer l'accès aux
+fichiers. Pour éviter que les programmes puissent modifier les mêmes
+fichiers en même temps, ce qui pourrait conduire à une inconsistance
+des fichiers, le système d'exploitation maintient la liste de tous les
+programmes (on appelle cela des processus) qui accèdent aux
+fichiers. Lorsqu'on veut accéder à un fichier, on demande une
+autorisation au sytème d'exploitation avec open() et lorsqu'on a finit
+notre tache, on dit au sytème d'exploitation qu'on libère le fichier
+avec close(). Mais que se passerait il si on ne libérait pas le
+fichier avec un close(). Un fichier qui n'est pas libéré par un
+programme, c'est-à-dire un fichier sur lequel on ne fait pas de close,
+consomme des ressources pour rien dans le système d'exploitation. Dans
+des cas extrêmes, ça peut conduire à l'impossibilité des programmes à
+accéder à de nouveaux fichiers parce que ne nombre de fichiers ouverts
+simultanément est limité. 
+
+La deuxième tâche est d'optimiser les écritures sur le disque dur. En
+effet, lorsque l'on fait un write sur un fichier, on dit simplement au
+système d'exploitation, écrit sur le disque dur cette chaîne de
+caractères.  L'écriture effective sur le disque dur sera décidé par le
+système d'exploitation de manière asynchrone. Il est cependant
+possible de forcer l'écriture sur le disque dur en ajoutant un retour
+chariot (le \n) à la fin de la chaîne de caractère que l'on passe à
+write, en utilisant la fonction flush() sur le fichier, ou en fermant
+le fichier avec close().  Il faut faire attention cependant de ne pas
+abuser de flush qui ne doit être utilisé que si l'écriture synchrone
+est nécessaire au fonctionnement correct du programme.  En effet, en
+utilisant flush, on contourne les optimisations du système
+d'exploitation.
+
+Lorsqu'un programme se termine correctement c'est-à-dire sans planter,
+tous les fichiers non encore fermés sont automatiquement fermés. Par
+contre, si le programme plante, les fichiers peuvent ne pas se fermer
+correctement avec les problèmes que l'on vient de décrire.
+
+En résumé, on voit qu'il est très important de fermer les fichiers
+avec close(). Cependant, il est toujours possible d'oublier un close()
+et si le programme plante, les close() peuvent ne pas avoir eu le
+temps d'être appelés.
+
+Heureusement, Python fournit un mécanisme qu'il faut utiliser dans du
+code moderne pour automatiquement fermer les fichiers, même lorsque le
+programme plante. C'est ce qu'on appelle un context manager.
+
+Ouvrons de nouveau un terminal pour commencer à jouer avec les
+contexts managers. 
+
+>>>>>>>>>> W3-S1-AV-exo2.py <<<<<<<<<< (4m15)
+
+
+## Résumé de la vidéo (30 secondes)
+
+Les fichiers en python sont des objets puissants qui permettent de
+facilement lire et écrire des fichiers en quelques lignes de
+code. Lorsque l'on combine la puissance des boucles for, des fichiers
+et des chaînes de caractères en Python avec la robustesse des contexts
+manager, on peut écrire du code simple, robuste et expressif.
+
+À bientôt.

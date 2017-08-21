@@ -1,54 +1,100 @@
 # -*- coding: utf-8 -*-
 
-## Pour charger un module il faut utiliser l'instruction
-## import
+## un set vide se crée toujours à partir de la fonction set
 
-import math
+s = set()
 
-## ensuite, pour utiliser le module, on utilise le même nom
-## que celui que l'on a utilisé pour l'import. On peut
-## voir tous les attributs d'un module avec l'instruction
-## dir
+## Pour initialiser un set avec des élements, on peut utiliser la
+## notation accolade 
 
-print dir(math)
+s = {1, 2, 3, 4, 4, 4, 5} # noter que ça ne garde que les éléments
+                          # uniques
 
-## un attribut est une variable reférençant un objet.
-## Comme en Python tout est un objet, un attribut peut
-## référencer n'importe quel type d'objet : un type de base,
-## une fonction, un module, ou d'autres objets que l'on
-## verra dans les semaines qui viennent comme les classes.
+## on peut également passer une liste comme argument de la fonction
+## set
 
-## Pour accéder à l'attribut d'un objet, on utilise
-## le nom de l'objet - point - le nom de l'attribut. 
+a = [3, 4, 8]
+s = set(a)
 
-print math.log(10)
+print(s1, s2)
 
-## et on peut bien sûr combiner des attributs de modules
-## puisque ce sont de simples variables.
-print math.tan(math.pi/4)
+## notons que utiliser un set pour ne garder que les éléments unique
+## d'une liste est courant en Python
+
+nom = ['eve', 'eve', 'bob', 'alice', 'bob']
+s = set(nom)
+len(s)
+
+## on peut ajouter ou enlever des éléments d'un set
+s.add('spam')
+s.update([38, 9, 'egg']) # applique add à chaque élément de la sequence
+s.remove(38) # enlève un élément
 
 
-## Pour savoir à quoi correspond un attribut on peut
-## utiliser la fonction built-in help()
+## je peux calculer la différence, l'union et l'intersection
+## de deux sets
 
-help(math.log)
+s1 = {1, 2, 3}
+s2 = {3, 4, 5}
 
-## on peut aussi appeler help() directement sur un module
-## mais il a y en général trop de texte et il est plus
-## pratique de regarder directement l'aide fournie avec
-## Python ou sur le Web.
+print s1 - s2 # enlève les élément des s2 dans s1
+print s1 | s2
+print s1 & s2
 
-help(math)
+## Un des usages le plus important des set est le test d'appartenance.
+## Le test d'appartenance est sans surprise fait avec l'instruction in
+## et not in
 
-## Les fontions built-in dir() et help() ne sont pas limitées
-## aux modules et fonctionnent sur n'importe quel objet.
+print('eve' in s)
+print(8 not in s)
 
-print dir(str)
-help(str.title)
+########################## 3m50s ######################
 
-# xxx peut-etre l'occasion de rappeler comment donner la doc d'une fonction
-# def foo ():
-#     "un fonction qui fait le café"
-#     pass
-# 
-# help(foo)
+## regardons maintenant l'efficacité du test d'appartenance sur les
+## set.
+
+## Nous savons que le temps du test d'appartenance est constant sur un
+## set mais qu'il est lineaire avec le nombre d'éléments sur une
+## liste. Toute la question est de savoir quel est l'ordre de grandeur
+## de ce temps constant pour le test d'appartenance sur les set. Plus
+## il sera grand, et moins il sera interessant d'utiliser un set pour
+## faire un test d'appartenance sur un petit nombre
+## d'éléments. Imaginons qu'il faille 1 seconde pour faire un test
+## d'appartenance sur un set et 1 ms pour accéder à un élément d'une
+## liste. Il faudra au maximum 3 ms pour tester l'apparteance d'un
+## élément dans une liste.
+##
+## Essayons d'estimer ce temps et de le comparer avec le temps d'accès
+## à l'élément d'une liste
+
+a = [0]
+s = set(a)
+
+%timeit 0 in s
+%timeit a[0]
+
+## le temps pour faire un test d'appartenance sur un set est de
+## l'ordre de grandeur de l'accès à un élément d'une liste. C'est
+## extrêment rapide. 
+
+## En résumé quelque soit le nombre d'élément dans votre set il faudra
+## de l'ordre de 40 ns (sur ma machine) pour faire un test
+## d'appartenance, il faudra de l'ordre de 40ns fois le nombre
+## d'élément pour faire le même test sur une liste.
+
+a = list(range(100))
+s = set(a)
+%timeit 'c' in a # environ 50 fois plus lent
+%timeit 'c' in s # toujours 40ns
+
+## Pour finir, convertir une liste en set prend du temps, mais c'est
+## en général négligeable. En effet, convertir une liste en set prend
+## à peu prêt le même temps que pour parcourir tous les éléments de la
+## liste. Donc couvertir tous les éléments d'une liste en set prend
+## environ le même temps que de faire un seul test d'appartenance sur
+## cette liste qui retourne False.
+
+## En conclusion, il faut toujours convertir vos liste en set pour
+## faire vos tests d'appartenance.
+
+############################### 7m00s ###########################

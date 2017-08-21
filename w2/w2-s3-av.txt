@@ -3,29 +3,33 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
 ## TITRE : Les séquences
+## Temp total: 9m40
 
 ## Résumé de la vidéo (20s)
 
+>>>>>>>>>> INCLUDE W2-S3-AV-slide1.pptx <<<<<<<<<<
+
 Nous allons aborber un ensemble de types de base en Python
 qui sont au coeur du langage, ce sont les types séquence. Les principaux 
-types séquence sont les [listes], les [tuples] et les [string]. 
+types séquence sont les [list], les [tuples], les [str], [bytes]. 
 Tous les types séquence ont de charactéristiques
 commune que nous allons présenter dans cette vidéo.
 
-[[
-list
-tuple
-str
-]]
 
->>>>>>>>>> INCLUDE W2-S3-AV-exo1.py (5m) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S3-AV-exo1.py (4m) <<<<<<<<<<
 
->>>>>>>>>> INCLUDE W2-S3-AV-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S3-AV-slide2.pptx (5m) <<<<<<<<<<
+
+## Résumé de la vidéo (20s)
 
 On a vu dans cette vidéo les caractéristiques des types séquences.
 Ce sont des types puissants qui permettent de faire simplement
 des opérations sophistiquées comme le slicing. 
+
+À bientôt

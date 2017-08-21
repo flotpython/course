@@ -1,29 +1,96 @@
 # -*- coding: utf-8 -*-
-# -*- fill-column: 54 -*-
-#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les tests if/elif/else et les opérateurs booléens
+## Temp total: 6m30
+
+## Résumé de la vidéo (15s)
+
+On a vu dans une précédente vidéo une rapide introduction à
+l'instruction if/else. Dans cette vidéo nous allons revenir sur la
+syntaxe de if/else et nous allons couvrir tous les types de tests
+autorisés avec une instruction.
 
 
-## TITRE : Boucle while
+>>>>>>>>>> W4-S2-AV-slide1.pptx <<<<<<<<<< (6m00s)
 
-## Résumé de la vidéo ()
+[s1]
 
-Nous avons vu l'instruction if qui permet d'exécuter des blocs 
-d'instructions en fonction de tests et l'instruction for qui permet,
-entres autres, de répéter des blocs d'instructions.
-Il existe une autre instruction, while qui combine ces deux 
-possibilités.
+La syntaxe de if else est la suivante. Nous commençons par une
+instruction [if] suivi d'un test. Nous reviendrons dans quelques
+instances sur le type de tests autorisés. Vous avez ensuite un bloc
+d'instructions qui évalué si le test est vrai.
+Vous pouvez ensuite avoir un [elif]. Le elif qui veut dire else if, est
+évalué uniquement si le ou les tests au dessus sont faux. Le elif est
+suivi d'une test. Si ce test est vrai, le bloc d'instruction dans le
+elif sera évalué. On peut avoir autant de test [elif], le premier elif
+qui aura son test vrai exécutera son bloc d'instruction. Les elif
+suivant ne seront pas évalué. Pour finir on peut avoir un [else] qui
+sera exécuté si aucun test if et elif n'est vrai.
 
-Ouvrons un terminal pour jouer avec l'instruction while...
+Pour résumer, dans un if, elif, else, un seul bloc d'instructions au
+maximum sera exécuté, ça sera le bloc du premier test vrai ou sinon du
+else si tous les tests sont faux.
+
+[s2]
+
+Regardons maintenant ce que l'on peut avoir comme test. Dans un test
+on peut avoir [une comparaison]: > >= < <= == et !=
+(différent). Regardons un exemple...
+
+[s3]
+
+Dans un test on peut avoir [un test d'appartenance] avec l'instruction in
+que l'on connait. Regardons un exemple...
+
+[s4]
+
+Dans un test on peut avoir un [type built-in comme] une liste, un tuple,
+une chaîne de caractères, un dictionnaire ou un set. Ça peut vous
+parraître étrange puisque un type built-in n'est pas un test. En fait,
+il y a en Python une convention implicite qui évalue un type built-in
+à faut s'il est vide et à vrai sinon. C'est extrêmement utile en
+pratique. Plus précisément, Python considère comme faux 0, None et
+tous les autres types built-in vide comme [], {}, () ou ''
+Regardons un exemple...
+
+[s5]
+
+Dans un test, je peux avoir [un retour de fonction]. La fonction peut
+soit retourner un [booléen] ou un [type built-in]. Regardons un exemple...
+isdecimal() retourne vrai que si la chaîne de caractère contient un
+nombre décimal.
+
+[s6]
+
+Dans un test, je peux avoir un opérateur de test booléen qui sont and,
+or, not.
+[A and B]
+[A or B]
+[not A]
+Regardons un exemple...
+Vous pouvez remarquer ici que Python est très proche du langage
+naturel ce qui rend l'interprétation du code simple et intuitive.
+
+Regardons maintenant un dernier exemple ou l'on va implémenter une
+intelligence artificielle.
+
+## Résumé de la vidéo (15s)
+
+Nous venons de voir l'instruction if elif else qui permet d'exécuter
+un bloc de code en fonction d'un test et nous avons vu que Python
+autorise un grande variété de tests dans une instruction if elif
+else. L'intérêt de cette variété est de permettre comme toujours en
+Python d'écrire du code simple et expressif. 
+
+À bientôt.
 
 
->>>>>>>>>> W4-S2-AV-exo1.py <<<<<<<<<< ()
 
-L'instruction while ne présente pas de difficultés particulières
-et son utilisation est limitée à la répétition d'un bloc d'instruction 
-tant qu'un test n'est pas évalué à True. 

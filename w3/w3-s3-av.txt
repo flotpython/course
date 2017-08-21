@@ -5,35 +5,36 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Les ensembles
+## TITRE : Tables de hash
+## Temp total: 8m00s
 
-## ensembles
+## Résumé de la vidéo (20s)
 
-Un ensemble, en anglais 'set', est comme dans sa version mathématique
-un paquet non ordonné d'objets uniques. Il est implémenté avec une
-table de hash, donc il est optimisé pour l'accés, l'insertion,
-l'effacement et le test d'appartenance.  Il faut donc toujours les
-préférer à des listes lorsque l'on fait un test d'appartenance (le
-coût de convertion est souvent négligeable lorsque l'on fait beaucoup
-de tests d'appartenance).
+Nous avons vu jusqu'à maintenant les types séquences qui sont des
+types très puissants combinant souplesse et facilité d'utilisation.
+Dans cette vidéo nous allons parler des tables de hash, une structure
+de données qui permet de répondre aux limitations des types séquences.
+Ouvrons un terminal interactif pour comprendre ces limitations.
 
-Comme le dictionnaire, un set ne peut accepter que des clefs
-immuables (nombre, chaîne de caractères, tuple d'immuable).
-Par contre, contrairement au dictionnaire, on ne peut pas stocker
-de valeur associée à une clef. 
+>>>>>>>>>> W3-S3-AV-exo1.py (3m40) <<<<<<<<<<
 
-Les sets sont des objets mutables et il existe un type frozenset
-qui a les mêmes caractéristiques qu'un set, mais qui est immuable. 
+>>>>>>>>>> W3-S3-AV-slide1.pptx (3m30) <<<<<<<<<<
 
-Ouvrons un terminal interactif pour jouer avec les set. 
+## Résumé de la vidéo (30s)
 
->>>>>>>>>> W3-S3-AV-exo1.py <<<<<<<<<<
+Les tables de hash permettent un temps d'insertion, d'accès mais aussi
+de test d'appartenance indépendant du nombre d'éléments. Les tables de
+hash permettent également d'indéxer les éléments non pas uniquement
+avec des entiers, mais égalememt avec des objets plus complexe comme
+des chaînes de caractères. 
 
-Nous avons fini la présentation des principaux type de base en Python.
-On a vu que ces types étaient riches et très puissants. Ils constituent
-un socle solide à l'écriture rapide de programmes. Je vous encourage
-à jouer avec pour bien les maitriser et ainsi aborder dans les meilleures
-conditions les prochaines vidéos. 
+Il existe en Python deux implémentations de tables de hash, ce sont
+les dictionnaires et les ensembles. Nous verrons comment utiliser ces
+deux nouveaux types dans de prochaines vidéos.
+
+À bientôt.

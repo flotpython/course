@@ -3,140 +3,138 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Introduction au typage dynamique
-
-## Sujet de la semaine (18s)
-
-Cette semaine nous allons aborder deux sujets importants. Le premier
-sujet concerne les notions d'objets, de variables et de typage
-dynamique, qui représentent une des clefs de la compréhension de
-Python. C'est l'objet de cette vidéo.
-
-Le deuxième sujet est sur la présentation des types de base, 
-que nous appelons également types built-in, en
-Python qui sont des objets puissants, polyvalents, mais très souples et
-faciles à utiliser. Les types built-in viennent avec toutes les installations
-de Python. Nous les verrons les uns après les autres jusqu'au
-début de la semaine prochaine.
-
-## Résumé de la vidéo (20s)
-
-Dans cette vidéo, je vais introduire les notions d'objet, de
-variable et de typage dynamique. À la fin de cette vidéo, vous saurez
-assigner un objet à une variable et vous aurez compris les bases du
-typage dynamique en Python.
-
-## Définition d'un objet (27s)
-
-Commençons par la notion d'objet. En informatique, un [objet] est un
-morceau de programme qui peut [stocker de l'information] et qui a un
-ensemble de mécanismes, que l'on appelle [méthodes], qui permettent
-d'effectuer des tâches. Le [type] de l'objet va définir les [informations
-et les méthodes qui existent par défaut] à la création de
-l'objet. Regardons maintenant un exemple de création d'objet...
-
-[[
-Objet
-	stockage d'information
-	méthodes
-
-Type
-	information et méthodes par défaut
-]]
-
->>>>>>>>>> INCLUDE W2-S1-AV-slide1.pptx <<<<<<<<<<
-
-## En Python, tout est un objet (30s)
-
-En python tout est un objet, ce qui simplifie et réduit
-considérablement le temps de développement de programmes.  On accède à
-tous les objets par leur référence en mémoire, mais on ne manipule
-jamais directement ces références. On utilise à la place l'affectation
-à une variable, c'est-à-dire que l'on utilise le signe égal pour
-affecter un objet à une variable, par exemple [a=1] signifie que l'on
-affecte l'objet entier 1 à la variable a. Regardons maintenant plus en
-détail cette notion de variable...
-
-[[
-a = 1
-]]
-
-## Notion de variable (50s)
-
-Une variable est un nom que l'on donne à un objet pour le retrouver en
-mémoire.
-
-Il y a trois règles importantes pour le nom d'une variable en Python.
-Une variable peut être composée d'une suite quelconque de caractères
-alphanumériques, c'est-à-dire les [lettres de l'alphabet en
-minuscule], [en majuscule] et les [chiffres de 0 à 9].  
-Le [tiret bas] est également autorisé. 
-
-Une variable commence soit par une [lettre soit par un tiret bas],
-mais [jamais par un chiffre].
-
-Les majuscules et minuscules sont prises en compte, donc [Ma_variable]
-est différent de [ma_variable].
-
-Il est recommandé d'utiliser des noms explicites de variable, de tout
-écrire en minuscule, et de séparer les mots par des tirets bas. Par
-exemple, [moyenne_age_francais] est un bon nom de variable, meilleur que
-[moy_age_f] et bien meilleur que simplement [x]
-
-[[
-abcdefghijklmnopqrstuvwxyz
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-0123456789
-_
-
-ma_variable (vert)
-_ma_variable (vert)
-1variable (barrer en rouge)
-
-Ma_variable est différent de ma_variable
-
-Utiliser 
-moyenne_age_francais 
-plutôt que 
-moy_age_f 
-ou pire 
-x
-]]
-
-
-## Typage dynamique (20s)
-
-Maintenant que nous avons vu les notions d'objets et de variables,
-parlons du typage dynamique.  Python utilise le typage dynamique
-c'est-à-dire que le type des variables n'est pas spécifié lors de
-l'écriture du programme, mais automatiquement à l'exécution. En fait,
-les variables n'ont pas de type, ce sont les objets qu'elles
-référencent qui ont un type. Prenons un exemple.
-
->>>>>>>>>> INCLUDE W2-S1-AV-slide2.pptx <<<<<<<<<<
-
-## Résumé typage dynamique (15s)
-
-Nous verrons dans la suite que le typage dynamique est une notion
-essentielle de Python qui offre beaucoup de flexibilité et facilite
-grandement l'écriture des programmes.
-
-## Instruction print
-
-Pour finir, maintenant que l'on sait utiliser les variables et
-affecter une référence d'objet à une variable, je vais vous présenter
-l'instruction print. Cette instruction sert à afficher sur le terminal
-la valeur d'un objet. Passons sur un terminal interactif pour voir
-comment utiliser cette instruction...
-
->>>>>>>>>> INCLUDE W2-S1-AV-exo1.py <<<<<<<<<<
+## TITRE : Les chaînes de caractères 
+## Temp total: 5m25s
 
 ## Résumé de la vidéo (15s)
 
-Dans cette vidéo, nous avons introduit la notion d'objet avec les
-variables et le typage dynamique, et nous avons présenté l'instruction
-print qui permet d'afficher la valeur d'un objet sur le terminal. Dans
-la prochaine vidéo, nous introduirons les types numériques en Python.
+Dans cette vidéo nous allons voir des notions clefs pour comprendre le
+fonctionnement des chaînes de caractères en informatique. Nous allons
+notamment parler de codage, décodage, jeux de caractères et Unicode. 
+
+
+## Codage (2m30s)
+
+>>>>>>>>>> INCLUDE W2-S1-AV-slide1.pptx <<<<<<<<<<
+
+Commençons par parler du codage.
+
+[S1]
+
+Regardons cette suite de lettre, il vous faut sans doute quelques
+secondes pour identifier que ces lettres formes des mots et que les
+mots formes la phrase ["je fais un MOOC sur Python"]. Votre cerveau a
+fait une opération complexe que l'on appelle [décodage]. Le décodage
+consiste à prendre une suite de symbole et à trouver une manière de
+mettre ces symboles sous forme de mots qui ont un sens. 
+
+[S2]
+
+Les ordinateurs eux travaillent tous sur des bits qui ne
+peuvent prendre que deux valeurs 0 ou 1. Dans un ordinateur, dans un
+smartphone, tout est stocké sous forme de bit et toutes les
+communications sur internet sont faites bit par bit. La question que
+l'on doit se poser est comment on passe d'un flux de bit à une phrase
+dans un ordinateur.
+
+[S3]
+
+On utilise pour cela une convention de décodage, par exemple, je
+découpe mon flux de bits en blocs de 7 bits. Comme 7 bits peuvent 
+prendre 128 valeurs différentes, chaque bloc représente un code en 0
+et 127.
+
+On voit que le premier bloc correspond au code 97, le second à 108,
+etc.  Notons que j'utilise une conversion décimale uniquement pour faciliter
+l'explication, un ordinateur va continuer de travailler en binaire.
+
+[S4]
+
+Maintenant, il faut donner un sens à ces codes, pour cela on utilise
+un jeux de caractères. C'est une table qui donne pour chaque code
+allant le caractère qui lui correspond. On utilise ici le jeux de
+caractères ASCII
+
+[S5]
+
+Et pour finir, pour afficher le caractère à l'écran, il faut utiliser
+une police de caratères qui définit un glyphe, c'est-à-dire un
+dessin, qui représente chaque caractère dans le jeux de caractères.
+
+[SB]
+
+En résumé, lorsqu'on lit un fichier, par exemple, sur un disque dur,
+on lit un flux de bit qu'on décode pour obtenir des codes correspondant
+à des caractères dans un jeux de caractères. Lorsqu'on écrit un
+fichier on fait l'opération inverse, on prend le code correspondant au
+caractère dans le jeux de caractère et on écrit ce code sous format
+binaire.
+
+## Unicode (1m50s)
+
+Vous avez peut-être remarqué qu'il y a un problème avec le codage sur
+7 bits que je viens d'utiliser qui est le codage ASCII, un codage qui
+permet de représenter tous les caractères utilisés en anglais. Que se
+passe-t-il si je veux coder des caractères français comme, par
+exemple, un c cédille ? La solution trouvée fut de coder les
+caractères sur 8 bits, ce qui donne 256 valeurs possibles. Les 128
+premières valeurs représentent les caractères ASCII standard, et les
+128 suivantes des caractères spécifiques au français comme les
+caractères accentués. Mais maintenant, comment je fais pour coder les
+milliers de caractères chinois ? Je dois créer un autre codage sur,
+par exemple, 16 bits qui permet de coder plus de 65 000 caractères.
+
+Pendant des dizaines d'années, à chaque fois qu'on avait besoin de
+coder des nouveaux caractères, on créait un nouveau codage et un
+nouveau jeux de caractères. Mais avec internet et l'échange des
+données cette solution est vide devenu ingérable. En effet, en
+l'absence d'un standard international, il était fréquent de recevoir
+des documents utilisant un jeux de caratère qui n'était pas présent
+sur notre ordinateur. Il était donc impossible de les afficher
+correctement.
+
+[S6]
+
+C'est là que le projet Unicode a commencé. L'idée d'unicode est de
+fournir un codage et un jeux de caractères qui couvre tous les
+caractères du monde. Unicode regroupe actuellement plus de 120 000
+caractères. Il existe essentiellement trois codages qui supporte le
+jeux de caractère unicode [UTF-8], [UTF-16], [UTF-32] qui optimise
+soit la vitesse de codage, soit la taille du texte codé. En pratique,
+UTF-8 est le codage le plus utilisé puisqu'il représente un très bon
+compromis entre vitesse de codage et taille du code.
+
+Notons qu'UTF-8 est un codage inventé pour le jeux de caractères
+unicode. Dans la suite, lorsque nous parlerons d'UTF-8 cela signifiera
+implicitement que l'on utilise le jeux de caractère unicode. 
+
+[SB]
+
+## Unicode en pratique (50s)
+
+La bonne nouvelle est que Python supporte nativement l'UTF-8. Est-ce
+que ça veut dire que tous les problèmes de codage sont résolus ?
+Malheureusement non !  En effet, même si unicode est devenu un
+standard incontournable, il existe encore beaucoup de documents
+utilisant des anciens codages et jeux de caractères et il n'exite
+aucune technique fiable à 100% pour identifier le codage et le jeux de
+caractère utilisé par un document. Si la personne qui vous fourni le
+document nous vous donne pas le codage et le jeux de caractères, vous
+devrez les deviner et vous aurez un risque de vous tromper, donc de
+mal afficher le document.
+
+En pratique, il y a encore beaucoup de développeurs qui gèrent mal le
+codage, il est donc encore fréquent de rencontrer des problèmes
+lorsque l'on travaille dans un environnement polyglotte.
+
+La règle d'or d'un bon développeur est de toujours contrôler le
+codage. Nous verrons dans une prochaine vidéo que c'est facile à faire
+en Python. 
+
+À bientôt. 
+

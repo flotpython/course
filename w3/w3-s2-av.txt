@@ -1,33 +1,40 @@
 # -*- coding: utf-8 -*-
-# -*- fill-column: 54 -*-
-#
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Les dictionnaires 
-
-## dictionaires 
-
-Dans cette vidéo nous allons voir comment utiliser les dictionnaires
-en Python. Un dictionnaire en Python est une table de hash qui prend
-comme clef n'importe immuable et comme valeur n'importe quel objet. Il
-n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le voir
-comme une collection non ordonnée de couples (clef, valeur). Le
-dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
-le modifier en place.
-
-Les dictionnaires sont des objets très puissants qui permettent 
-de faire facilement certaines taches qui avec d'autres langages 
-longue et fastidieuse à écrire. Ouvrons un terminal interactif 
-pour commencer à jouer avec les dictionnaires. 
+## TITRE : Les tuples
+## Temp total: 
 
 
->>>>>>>>>> W3-S2-AV-exo1.py <<<<<<<<<<
+## Résumé de la vidéo (1 minute)
 
-Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, 
-et on imagine facilement la puissance de ce type. Créer un agenda
-ou un annuaire peut se faire en seulement quelques lignes de code.
+Dans cette vidéo nous allons presenter un type séquence très proche
+des listes, c'est le tuple.  Comme une liste, un tuple regroupe sous
+forme d'une séquence des objets de type quelconque.
+
+Mais, il existe une différence fondamentale entre les listes et les
+tuples.  Contrairement aux liste qui sont mutables, les tuples sont
+immuables, c'est à dire que les modification en place sont interdites,
+on ne peut donc pas modifier un tuple déjà créé.
+
+Nous discuterons l'intérêt des objets immuables lorsque nous parlerons
+des dictionnaires et des références partagées dans de prochaines
+vidéos. 
+
+Ouvrons un terminal interactif pour jouer avec les tuples.
+
+>>>>>>>>>> INCLUDE W3-S2-AV-exo1.py  <<<<<<<<<<
+
+## Résumé de la vidéo (1 minute)
+
+Le tuple est un objet proche de la liste, mais immuable. C'est cette
+immuablité qui est recherchée dans certain usage comme les clefs de
+dictionnaires. Nous en reparlerons dans une prochaine vidéo.
+
+À bientôt.

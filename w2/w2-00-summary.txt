@@ -1,160 +1,245 @@
 # -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
-# XXX TODO : numéroter tous les exos
+###################################################################
 
-# TITRE SEMAINE 2 : Types de bases 
+## Vidéo 0 (Présentation de la deuxième semaine)
+
 
 ###################################################################
 
-## Vidéo 1 (Introduction au typage dynamique) 
+## Vidéo 1 (Codage, jeux de caractères et unicode)
 NIVEAU: BASIC
-
-W2-S1-AV.txt
 
 ## Compléments Vidéo 1
 
-OK Complement-noms-de-variables.ipynb : noms de variables
-OK Complement-mots-cles.ipynb: liste des mots clés
-OK Complement-introduction-types.ipynb: type() et premier contact avec isinstance ()
+   * parler d'UTF-8, UTF-16, UTF-32
+   * faire un peu d'historique avec ASCII et les pages de code
+   * donner des exemples de problème d'encodage aujoud'hui
 
-## Quizz Vidéo 1 
-OK W2-S1-E1-identifiants.quiz
+## Quizz Vidéo 1
+
 
 ## Exercices Vidéo 1
 
+
 ###################################################################
 
-## Vidéo 2 (Les types numériques)
+## Vidéo 2 (Les chaînes de caractères)
 NIVEAU: BASIC
-
-W2-S2-AV.txt
 
 ## Compléments Vidéo 2
 
-OK Complement-calculette.ipynb : utiliser python comme une calculette - introduit aussi les conversions
-OK Complement-affectation-operateurs.ipynb : illustrer += et les autres variantes, mentionner les autres types  
-OK Complement-precision-flottants.ipynb : limitation de la précision des floats  
-OK Complement-entiers-bit-a-bit.ipynb : opérations bitwise : et/ou/ou exclusifs décalages 
+   * parler des doctring (triple guillemet ou apostrophe)
+   * parler des différences entre isdigit, isnumeric, isdecimal
+   * parler de bytearray
+   * citer https://docs.python.org/3.5/howto/unicode.html
+   * citer http://nedbatchelder.com/text/unipain.html (PyCon 2012)
+   * parler dans format du nouveau séparateur , pour les nombre qui
+     permet de formatter automatiquement comme ça : 100,133,589
+   * faire un complément sur print et montrer la différence en print
+     et la représentation interne
+   * complément unicode en Python (str, bytes, \u, chr, ord, hex,
+   * etc.) et parler de librairie chardet et unidecode
 
-## Quizz Vidéo 2 
-OK W2-S2-E1-type-numeriques.quiz
 
-## Exercices Vidéo 2 
-OK Exercice-flottants.ipynb : exercice pour trouver la valeur approximative du + petit flottant 
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * raw-strings.ipynb - backslashes - \n \t
+  * Complement-formatage-de-chaines.ipynb : format et % - je laisse
+    tomber rjust/ljust/center pour le moment
+  * Complement-outils-sur-chaines.ipynb : # help(str)  #split join
+    #replace strip #index find rfind count startswith endswith upper
+    lower swapcase capitalize title  renvoi sur la doc
+    	  * AL: déplacer la discution sur join et split en vidéo 4
+  	    	lorsque je parle des listes
+  * Complement-la-fonction-raw_input.ipynb
+
+
+## Quizz Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
+
+
+## Exercices Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-chaines.ipynb - split, replace, format...
+
+
 
 ###################################################################
+
 
 ## Vidéo 3 (Les séquences)
 NIVEAU: BASIC
 
-W2-S3-AV.txt
+## Compléments Vidéo 3
 
-## Compléments Vidéo 3 
 
-OK Complement-slices.ipynb : reprend le slicing 
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-slices.ipynb : reprend le slicing 
 
-## Quizz Vidéo 3 
+## Quizz Vidéo 3
 
-OK W2-S3-E1-generic-slicing.quiz : opérations génériques sur les séquences en prenant une str comme exemple 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S3-E1-generic-slicing.quiz : opérations génériques sur les
+     séquences en prenant une str comme exemple 
 
-## Exercices Vidéo 3 
-OK Exercice-slicing.ipynb: un peu de slicing, et des indices négatifs, le slicing avec pas, utilisation de la longueur
+## Exercices Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-slicing.ipynb: un peu de slicing, et des indices
+     négatifs, le slicing avec pas, utilisation de la longueur 
 
 ###################################################################
+
 
 ## Vidéo 4 (Les listes)
 NIVEAU: BASIC
 
-W2-S4-AV.txt (9 minutes)
+## Compléments Vidéo 4
 
-## Compléments Vidéo 4 
-OK: Complement-listes.ipynb: un complément sur les méthodes des listes
-OK Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
+   * faire un complément sur range()
 
-## Quizz Vidéo 4 
-OK W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
-xxx -- ?? comparer l.insert (i,shmol) avec l[i:i] = [ shmol ]
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-listes.ipynb: un complément sur les méthodes des listes
+  * Complement-tris-de-listes-1.ipynb : sort avec les paramètres reverse, et sur des strings 
 
-## Exercices Vidéo 4 
 
-###################################################################
+## Quizz Vidéo 4
 
-## Vidéo 5 (Les tuples)
-NIVEAU: BASIC
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * W2-S4-E1-listes.quiz : pop append extend del sort sorted (j'utilise aussi += a un moment)
 
-CO12AL-W2-VIDEO05 ()
 
-## Compléments Vidéo 5  
+## Exercices Vidéo 4
 
-OK Complement-tuple-et-virgule.ipynb : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
-OK Complement-sequence-unpacking.ipynb : a,b = tuple - je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
-
-## Quizz Vidéo 5 
-OK W2-S5-E1-tuples.quiz
-
-## Exercices Vidéo 5 
+   Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ###################################################################
 
-## Vidéo 6 (Introduction aux tests if/else et aux expressions conditionnelles)
+
+## Vidéo 5 (Introduction aux tests if/else et aux conventions de codage)
 NIVEAU: BASIC
 
-W2-S6-AV.txt (5 minutes 40 secondes)
+
+## Compléments Vidéo 5
+
+   * faire un complément sur des list, tuple, dict, fonction sur
+     plusieurs lignes. Dire que c'est pas une bonne idée de coupée une
+     chaine de caractère avec \ en fin de ligne, il vaut mieux faire
+     une concaténation.
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-conditions-1.ipynb : introduire les opérateurs logiques
+    - expliquer <> pour !=, obsolète mais dans du code ancien
+  * Complement-indentations.ipynb : imbrications, espaces vs
+    tabulations, utilisez des indentations de 4 espaces
+  * Complement-if-comme-expression.ipynb: return 0 if n<=1 else
+    n*factoriel (n-1) 
+  *  Complement-presentation.ipynb
+  *  Complement-instruction-pass.ipynb
+  * présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
+    de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
+
+
+## Quizz Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de
+     this (de import this)  
+
+###################################################################
+
+
+## Vidéo 6 (Introduction aux boucles for et aux fonctions)
+NIVEAU: BASIC
 
 ## Compléments Vidéo 6
-OK Complement-conditions-1.ipynb : introduire les opérateurs logiques - expliquer <> pour !=, obsolète mais dans du code ancien 
-OK Complement-indentations.ipynb : imbrications, espaces vs tabulations, utilisez des indentations de 4 espaces
-OK Complement-if-comme-expression.ipynb: return 0 if n<=1 else n*factoriel (n-1)
+
+
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans
+    un for, la fonction zip
+  * Complement-comprehension-de-liste.ipynb: [ exp(x) for x in .... if
+    ] - XXX reduce ?
+  * Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort
+    avec le paramètre key (une fonction), et sorted
+  * Complement-valeur-de-retour.ipynb : il nous faut 'return' pour les
+    exe rcices please
+  * Arnaud : ajouter sur les conventions de style: un espace après les
+    virgules, en espace avant et après les opérateurs
+    (a = f(1, 2) + g(3, 4)), un saut
+    de ligne pour séparer les bloc d'instructions et les fonctions. 
+
 
 ## Quizz Vidéo 6
-# J'arrive un peu à la limite du quiz car je ne sais pas si je peux mettre des réponses
-# sur plusieurs lignes dans les questions a choix multiples
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 6
-# je postpone à après la vidéo 7 car on aura les fonctions; bref pas d'exo après cette vidéo-là
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-if-et-def.ipynb : une petite fonction qui calcule si
+     deux entiers sont divisibles ou pas
+   * Exercice-boucle-for.ipynb : trier toutes les listes dans une
+     liste; idem avec une direction
+   * Arnaud: montrer une boucle for sur une chaine de caractères.
+
 
 ###################################################################
 
-## Vidéo 7 (Introduction aux boucles for et aux fonctions)
+## Vidéo 7 (Introduction aux compréhensions de listes)
 NIVEAU: BASIC
 
-W2-S7-AV.txt 
+## Compléments Vidéo 7
 
-## Compléments Vidéo 7 
-OK Complement-for-sur-plusieurs-variables.ipynb: affectation a,b dans un for, la fonction zip
-OK Complement-comprehension-de-liste.ipynb: [ exp(x) for x in .... if ] - XXX reduce ?
-OK Complement-tris-de-listes-2.ipynb : suite de listes-sort: sort avec le paramètre key (une fonction), et sorted 
-OK Complement-valeur-de-retour.ipynb : il nous faut 'return' pour les exe rcices please 
-XXX Arnaud : ajouter sur les conventions de style: un espace après les
-virgules, en espace avant et après les opérateurs
-(a = f(1, 2) + g(3, 4)), un saut
-de ligne pour séparer les bloc d'instructions et les fonctions. 
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+
 
 ## Quizz Vidéo 7
 
-## Exercices Vidéo 7 
-OK Exercice-if-et-def.ipynb : une petite fonction qui calcule si deux entiers sont divisibles ou pas
-OK Exercice-boucle-for.ipynb : trier toutes les listes dans une liste; idem avec une direction
-XXX Arnaud: montrer une boucle for sur une chaine de caractères.
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
+
+## Exercices Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ###################################################################
 
-## Vidéo 8 (Les chaînes de caractères)
+## Vidéo 8 (Introduction aux modules)
 NIVEAU: BASIC
 
-W2-S8-AV.txt 
+## Compléments Vidéo 8
 
-## Compléments Vidéo 8 
-BOF raw-strings.ipynb - backslashes - \n \t 
-OK Complement-formatage-de-chaines.ipynb : format et % - je laisse tomber rjust/ljust/center pour le moment
-OK Complement-outils-sur-chaines.ipynb : # help(str)  #split join  #replace strip #index find rfind count startswith endswith upper lower swapcase capitalize title  renvoi sur la doc
-OK Complement-la-fonction-raw_input.ipynb
 
-# XXX bytearray : je connaissais pas du tout ce truc non plus, après une lecture rapide j'ai le sentiment que ça a / peut avoir un lien avec buffer; je propose de bouger ces deux trucs en semaine 7 - ou de virer complètement, ou d'en parler très très vite. 
+  Pour mémoire, notebook du précédent MOOC sur Python 2
+  * Complement-packages.ipynb
+  * Complement-modules-et-chemins.ipynb
+  * Complement-recapitulatif-import.ipynb : pourquoi il ne faut pas
+    utiliser import *
+  * Complement-module-collections.ipynb: des variantes utiles aux
+    types de base 
 
 
 ## Quizz Vidéo 8
-OK W2-S8-E1-strings.quiz - le quiz se prete bien surement aux basiques des strings
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+
 
 ## Exercices Vidéo 8
-OK Exercice-chaines.ipynb - split, replace, format...
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
+
+
+
+###################################################################

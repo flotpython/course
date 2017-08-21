@@ -1,99 +1,177 @@
 # -*- coding: utf-8 -*-
 
-## Je vous rappelle que Python utilise le typage dynamique, c'est-à-dire
-## que l'on ne donne pas le type d'un objet à l'écriture du programme,
-## ce type est déterminé à l'exécution. Ça simplifie beaucoup l'écriture
-## des programmes.
+############################### str intro ####################### 2m30
+## On peut définir une chaîne de caractères en Python en entourant
+## notre chaine soit par des apostrophes soit par des guillemets
 
-## le type entier
-## pour entrer un entier, on n'a rien d'autre à faire que d'écrire
-## cet entier
-1
+s1 = 'spam'
+s2 = "spam"
 
-## comme on l'a vu dans la vidéo 1, on peut également l'affecter à une variable
-i = 1
+## ces deux notations vont créer le même objet chaîne de caractère
 
-## Comment on connait le type d'un objet en Python ?
-## On utilise la fonction built-in type() qui accepte comme
-## argument une variable ou un objet. 
+print(s1, s2)
+type(s1)
+type(s2)
 
-type(i)
+## Il exite un grand nombre de méthodes puissantes sur les chaînes de
+## caractères. Python a une aide intégrée directement disponible
+## depuis l'interpréteur, c'est extrêment pratique.  Pour avoir l'aide
+## sur un type d'objet, par exemple, les chaines de caractères, il
+## suffit de taper
+help(str)
 
-## en python on a deux type entiers, les int et les long
-i = 10 ## codé sur 32 bits sur une machine 32 bits
-l = 23480284028402840289482184018 # précision illimitée
-print l * l     # précision illimitée sur les long
+## Comme vous le notez, cette aide est complète et donne toutes les
+## méthodes disponibles sur le type str. Je vous rappelle que le type
+## str est l'objet qui fabrique les chaînes de caractères et que chaque
+## chaîne hérite de toutes les méthodes de son type.
 
-## Pourquoi avons nous deux types 'entier' en Python ?
-## le type int est plus compact que le type long, par conséquent
-## pour les petits entiers, Python va utiliser le type int pour réduire
-## la consommation mémoire, et le type long s'il y a vraiment besoin de
-## grands entiers.
+## En général, on n'a plus besoin de regarder toute l'aide lorsqu'on
+## connaît un type, on a juste besoin de regarder les méthodes
+## disponibles puisque leur nom est souvent explicite. Pour cela, on
+## utilise la méthode dir
+dir(str)
 
-## Heureusement, Python fait automatiquement la conversion
-## de int vers long s'il y a besoin. Donc en pratique vous n'avez
-## pas à vous préocupper du type d'entier que vous utilisez
+## Et ne se souvient plus du fonctionnement exacte d'une méthode,
+## on peut demander l'aide directement dessus
+help(str.replace) # attention pas de parenthèse, sinon on exécute la fonction
+str.replace?      # uniquement sur iPython
 
-type(i + l)     
+################################################################## 2m00
 
-## Les décimaux, qu'on appelle aussi 'flottants' on une
-## précision limité à environ 15 chiffres significatifs
-# On sépare la partie entière et décimale par un .
-f = 4.3
 
-## Pour finir on a les nombres complexes qui sont
-## construit comme deux nombre décimaux. Ils ont donc
-## les mêmes limitations de précision. 
+## Les chaines de caractères sont des objets immuable en Python, cela
+## veut dire qu'une fois l'objet créé, il ne peut plus être modifié.
+## Par conséquent, toutes les méthodes sur les chaînes de caractères
+## retourne un nouvel objet, elle ne modifie jamais l'objet initial,
+## on dit qu'elle ne font pas de modifications en place.
+## si l'on veut que notre variable référence le nouvel objet, il faut
+## simplement faire une affectation. Regardons quelques exemples.
 
-c = 1 + 3j
+s = 'spam egg beans'
 
-print c.real, c.imag
+s.replace('spam', 'meat') # on n'a pas modifié s
 
-## On peut 'mélanger' les types numériques dans une expression, 
-## par exemple en ajoutant un entier et un flottant
-## Par contre on peut perdre en précision.
-## Un int et un long donne toujours un long
-## Un type entier (int, long) et un float donne toujours un float
-## Un type entier (int, long) ou un float et un complex
-## donne toujours un complex
+print(s)
 
-print i + l
+s = s.replace('spam', 'meat') # s est modifié
 
-print i + l + f
+print(s)
 
-print i + l + f + c
+s.upper()
 
-## On peut convertir des types de bases entre eux (avec risque là aussi
-## de perte de précision ou d'information, troncation).
+# on peut également faire des tests sur les chaînes de caractères
+s.endswith('ans')
+'123'.isdecimal()
 
-print int(4.32)
-print long(5.3)
-print float(9879729572895792375948)
-print complex(10)
+############################################################# 1m45
 
-## opérations de base
+## Regardons maintenant comment formater 
+## caractères
 
-print 5 + 3
-print 5 - 3
-print -3
-print 5/3       # division entière
-print 5%3       # reste de la division entière
-print 5/3.0     # division sur des floats
-print 5/float(3)
-print 5.2//3.1  # force la division sur des entiers (5.0/3.0)
-print 2 ** 32   # puissances
-print abs(-5.3) # valeur absolue
+nom = 'sonia'
+age = 30
 
-## pour finir, j'aimerais introduire un dernier type qui n'est pas
-## à proprement parler un type numérique, mais qui est implémenté comme
-## tel, c'est le type booléen. Ce type est utilisé pour le résultat
-## de tous les tests en Python et ne contient que deux valeurs True et False
-## On verra bientôt cette notion de test en Python, mais regardons un exemple
-## simple pour illustrer les booléens
+s = "{} a {}".format(nom, age) # format classique
 
-1 < 2
-1 > 2
+s = f"{nom} a {age}" # f-string
 
-## noter la premiere lettre qui est une majuscule
+## Nous reviendrons dans les compléments sur les méthodes des chaînes
+## de caractères et nous verrons les nombreuses possibilités de format
+## pour gérer l'alignement d'un affichage en colonne ou l'affichage de
+## nombre décimaux en contrôlant, par exemple, le nombre de chiffres
+## après la virgule
 
-## nous reviendrons très bientôt sur l'utilisation des Booléens
+###################### UNICODE ############################### 2m41
+
+## NOTE AL: mettre le terminal avec la font par défault Lucida Console
+
+## Parlons maintenant du support d'unicode en Python. Les chaînes de
+## caractères supportent nativement unicode. Ça veut dire qu'une
+## chaîne de caractère en Python peut supporter tous les caractères
+## disponible en unicode.  Pour entrer un caractère unicode, soit vous
+## le tapez directement sur votre clavier, si ce caractère est
+## supporté par votre clavier, soit vous utilisez sont code
+## unicode. Regardons cela,
+
+"noël, été"
+"\u03a6"    # Phi majuscule
+"\u0556"    # lettre arménienne Fé
+
+## vous remarqué que vous voyez un carré à la place de la lettre. Que
+## ce passe-t-il ? Les chaînes de caractères Python supporte tous les
+## caractères Unicode, le problème ne vient donc pas de là. De toutes
+## façons en cas de non support on aurait eu une erreur
+
+"\u556"
+
+## Le problème vient du non support de ce caractère par la police de
+## caractères que l'on utilise. Quand il n'y a pas un glyphe
+## correspondant au caractère, un caractère par défaut est affiché,
+## ici un rectangle. La solution est de trouver une autre police qui
+## définie ce caractère. [Aller dans propriété, Police, choisir "deja
+## vu sans mono"]
+
+"\u556"
+
+## Il n'y a malheureusement pas de police qui supporte tous les
+## caractères unicode, donc si vous voulez afficher des caractères qui
+## ne sont pas disponible dans votre langue, vous devrez vous assurer
+## que vous avez une police qui supporte ces caractères. 
+
+########################################################## 3m15
+
+
+## Revenons maintenant à la notion de codage et décodage. Jusqu'à
+## maintenant, on n'a travaillé que sur du texte que l'on entrait nous
+## même sur la ligne de commande. Par défaut, Python s'attend à
+## recevoir du texte en UTF-8, on n'a donc pas à gérer le
+## codage. Mais, en pratique, dès que l'on lit ou écrit du texte il
+## faut gérer ce codage. Par exemple, lorsque l'on écrit dans une base
+## de donnée, il faut écrire avec l'encodage supporté par cette base
+## (qui ne sera peut-être pas UTF-8), ou lorsque l'on reçoit des
+## données par internet, il faudra les décoder en utilisant le même
+## encodage que celui utilisé par l'expéditeur.
+
+## Python permet de facilement gérer ces étapes de codage (qui est le
+## passage de texte à binaire) et décodage (qui est l'opération
+## inverse).  Le texte est géré en Python par le type str qui supporte
+## nativement unicode. Le binaire est géré par le type bytes qui
+## stocke les données sans aucun décodage. Évidement, Python founit
+## toutes les méthodes pour passer de l'un à l'autre, c'est-à-dire
+## pour coder des str et décoder des bytes. Regardons cela.
+
+
+
+## créons une chaine de caractères
+
+s = "un noël en été"
+
+## codons cette chaine de caractère en UTF-8 pour obtenir des bytes
+
+en = s.encode('utf8')
+
+## cette nouvelle chaine de caractère est de type bytes, on remarque
+## le petit b devant qui permet de faire la différence avec un chaine
+## de type str
+
+## cette chaine étant encodée elle est prête à être écrite ou envoyée.
+## Lorsqu'on lira de nouveau cette chaine, il faudra la décoder
+
+en.decode('utf8')
+
+## peut bien évidement encoder s dans un autre encodage, il faudra
+## alors la décoder avec le même encodage
+
+en = s.encode('latin1')
+en.decode('latin1')
+
+## Une difficulté avec l'encodage est que si on ne le gère pas, Python
+## va utiliser un encodage par défaut. Ça ne posera aucun problème
+## tant que vous gardez toutes vos données sur votre ordinateur parce
+## que vous écrirez et vous lirez avec le même encodage par défaut. Ça
+## fonctionnera même probablement si vous échangez des données avec des
+## personnes utilisant le même sytème dans la même langue (par
+## exemple, Windows 10 en français). Mais dès que vous commencerez à
+## échanger des données avec des système utilisant d'autres encodages
+## par défaut vous allez rencontrer des problèmes.
+

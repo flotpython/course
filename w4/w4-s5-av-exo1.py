@@ -1,120 +1,150 @@
 # -*- coding: utf-8 -*-
 
-## Je rappelle que l'on définit une fonction avec le mot clef
-## def suivi du nom de la fonction, d'une liste quelconque
-## d'arguments entre parenthèses, séparés par des virgules
-## suivi de : et d'un bloc d'instruction indenté de 4 caractères
-## vers la droite.
+## Commençons par créer une variable globale et une fonction
+a = 'a globale'
 
-def f(a, b, c):
-    print a, b, c
+def f():
+    a = 'a dans f'
+    print(a)
 
-f(1,2,3)
+print(a)
+f()
+print(a)
 
-## En Python tout est un objet. Une fonction est donc un objet
-## et le nom de la fonction n'est qu'une variable référençant
-## l'objet fonction. On peut donc renomer une fonction simplement
-## en affectant l'objet à une nouvelle variable
+## La variable a est définie locale et globalement, ce sont donc deux
+## variable différentes. Lorsque je fais a = 'locale' dans le
+## fonction, je crée une nouvelle variable locale a qui n'a pas de
+## rapport avec la variable globale a.
 
-g = f
-g(1,2,3)
+## Pour modifier la variable globale il faut déclarer a comme variable
+## globale dans le fonction. On fait cela avec l'instruction global
 
-## Comme en Python tout est un objet, on a un surcoût mémoire
-## pour tout en Python. Il faut donc minimiser les créations
-## d'objets et Python est très efficace pour cela. En particulier,
-## en Python, on ne duplique jamais les objets (sauf à
-## faire explicitement une copie). Les arguments que l'on
-## passe à une fonction sont donc toujours des références
-## vers les objets (et jamais une copie d'objet). Les passages
-## d'arguments aux fonctions créent donc des références
-## partagées vers les objets. On a vu que lorsque l'objet est
-## immuable, les références partagées ne pose aucun problème,
-## mais lorsque l'objet est mutable, il faut faire attention
-## aux effets de bord.
+a = 'a global'
 
-L = []
+def f():
+    global a              # nouvelle ligne
+    a = 'a dans f'
+    print(a)
 
-def h(a):
-    a.append(1)
+print(a)
+## je référence a que je trouve globalement
+f()
+## j'exécute la fonction f qui déclare la variable a comme globale. La
+## variable locale a n'est pas créée dans la fonction et toute
+## affectation de a sera maintenant considérée comme si elle était
+## faite en dehors de toute fonction directement sur la variable
+## globale a.
 
-print L
-h(L)
-print L
+## print(a) cherche a suivant la règle LEGB. a n'est pas défini
+## localement (parce que déclarée comme global), il n'y a pas de
+## fonctions englobantes, elle est déclarée globalement et au moment
+## de l'appel de print(a), la variable globale référence la chaîne 'locale'
 
-## On peut donner une valeur de retour à notre fonction
-## avec l'instruction return. Cette valeur de retour
-## peut être assignée à une variable lors de l'appel
-## de la fonction. S'il n'y a pas de return, la fonction
-## retourne None.
+print(a)
 
-print h(L)
+## comme la variable globale a été modifiée dans la fonction, cela
+## afficher 'locale'
 
-def h(a):
-    a.append(1)
-    return a
+## Vous remarquez que global peut sembler très pratique pour modifier
+## les variables globales depuis une fonction. Cependant, c'est en
+## général une très mauvaise idée parce que cela nuit à la clareté du
+## code et donc à sa qualité et facilité de maintenance. Regardons
+## l'exemple suivant.
 
-x = h(L)
-print x
+a = 10
+def f():
+    global a
+    a = a + 10
 
-## Return peut appaître n'importe ou dans une fonction et
-## il peut même y avoir plusieurs return. Cependant, le
-## premier return rencontré lors de l'exécution du code de
-## la fonction sortira immédiatement de la fonction.
+f()
 
-def f(a, b, c):
-    if b < 10:
-        return a
-    else:
-        return c
+## que fait l'appel à f(), f déclare une variable a globale et lui
+## ajoute 10. Ce code qui ne fait que 5 lignes peut vous sembler à peu
+## prêt acceptable. Il est cependant mauvais. En effet, on référence
+## la variable globale 10 de manière implicite (avec la règle LEGB) et
+## on modifie la variable globale avec l'instruction global.
 
-print f(1, 11, 2)
+## Dans du bon code, on doit rendre toutes les opérations explicites,
+## ça réduit la documentation nécessaire et surtout ça enlève tout
+## doute sur l'intention du développeur et donc ça facilite la
+## recherche de bug. Dans l'exemple précédent, est-ce que le
+## développeur avait rééllement l'intention de modifier la variable
+## global.
 
-# 4 minutes 20
+## Comment bien écrire le code ci-dessus, de la manière suivante en
+## rendant tout explicite.
 
-## il y a un autre point important que je voudrais aborder
-## dans cette introduction générale des fonctions. Lorsque
-## le code d'une fonction est évalué, c'est-à-dire lorsque
-## l'on tape un retour chariot au prompt interactif après la
-## définition d'une fonction, ou
-## lorsque l'on exécute un fichier .py contenant une fonction
-## l'objet fonction est créé, mais le code dans le corps de
-## la fonction n'est pas evalué. Ce code ne sera évalué qu'à
-## l'appel de la fonction. Cela permet à une fonction
-## d'utiliser du code non encore implémenté au moment de
-## la définition de la fonction, mais implémenté plus tard.
-## regardons un exemple.
+note = 10           # je donne un bon nom de variable
+def add_10(n):      # ma fonction a un nom explicite et prend un argument
+    return n + 10   # je retourne le résultat du calcul
 
-def f(a):
-    func(a)
+note = add_10(note) # j'affecte le résultat à la variable
+                    # explicitement.
 
-print f # on a bien un objet fonction
-#f(1)   # mais on a une exception lors de l'appel puisque func
-        # n'existe pas encore. 
+## Croyez moi, il n'y a rien de pire a maintenir et débuguer qu'un
+## code qui utilise un grand nombre de variable globale.  En résumé,
+## on ne peut que vous décourager d'utiliser global, sauf si vous avez
+## une très bonne raison qui est très bien documentée de le faire.
 
-def func(a):
-    print a
+################################## 5m00s ######################
 
-f(1)
+## Regardons maintenant nonlocal. Commençons par un exemple
 
-# 5 minutes 30
+a = 'a global'
+def f():
+    a = 'a de f'
+    def g():
+        a = 'a de g'
+        print(a)
+    g()
+    print(a)
+f()
+print(a)
 
-## Pour finir, je vais vous parler de polymorphisme. J'ai
-## horreur de ce mot pédant qui m'a effrayé lorsque j'ai
-## découvert la programmation objet, alors qu'il
-## représente un concept tout simple.
+>>>
+a de g
+a de f
+a global
 
-## Une fonction est polymorphe lorsqu'elle accepte en argument
-## des objets de n'importe quel type. En Python, le typage est
-## dynamique, donc toutes les fonctions sont naturellement
-## polymorphes. Regardons un exemple
+## j'ai une variable a globale, une variable a locale à f et une
+## variable a locale à g. Le print dans le bloc de code de g va
+## afficher 'a de g', le print dans le bloc de code de f va afficher
+## 'a de f' et le print en dehors de fonction va afficher 'a global'.
+## Si je veux modifier la variable global dans f, je peux ajouter un
+## 'global a' dans f et si je veux modifier la variable globale a dans
+## g, je peux ajouter un 'global a' dans g.
 
-def my_add(a, b):
-    print "j'ajoute", a, "et", b
-    return a + b
+## Mais comment modifier la variable locale de f depuis la fonction g,
+## en utilisant nonlocal.  Regardons cela
 
-my_add(1,2)
-my_add(1.5,2.3)
-my_add('spam', 'good')
-my_add([1], [2])
+a = 'a global'
+def f():
+    a = 'a de f'
+    def g():
+        nonlocal a               # nouvelle ligne
+        a = 'a de g'
+        print(a)
+    g()
+    print(a)
+f()
+print(a)
+
+>>>
+a de g
+a de g
+a global
 
 
+## nonlocal a quelques restrictions que nous verrons dans les
+## compléments, notamment nonlocal ne peut pas être utilisé pour
+## modifier une variable global, donc une variable nonlocal doit
+## obligatoirement être définie dans une fonction englobante. Une
+## variable ne peut pas être à la fois dans l'entête d'une fonction et
+## définie nonlocal dans cette fonction. 
+
+## nonlocal favorise comme global les modifications implicite, mais
+## elle trouve quelques usages importants dans des concepts avancés
+## comme les décorateurs que nous aborderons dans une prochaine vidéo. 
+
+
+################################### 8m00 #######################

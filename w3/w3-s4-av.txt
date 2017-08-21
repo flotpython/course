@@ -5,37 +5,52 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Les références partagées
-
-## résumé de la vidéo
-
-Nous allons voir dans cette vidéo une des notions les plus importantes et
-les plus subtiles en Python : les références partagées.  
-Alors que les références partagées ne pose aucune
-difficulté lorsqu'elles sont sur un objet immuable, elles peuvent être source 
-de difficultés chez les débutants en Python lorsque'elles sont sur un objet
-mutable. 
-
-Regardons le fonctionnement des références partagées sur 
-les mutables et les immuables. 
+## TITRE : Les dictionnaires 
+## Temp total: 7m40s
 
 
->>>>>>>>>> W3-S4-AV-slide1.pptx <<<<<<<<<<
+## Résumé de la vidéo (1m00s)
 
-Pour finir, nous allons aborder quelques derniers point à connaître sur les références 
-partagées. Pour cela, ouvrons un terminal interactif...
+Dans cette vidéo nous allons voir comment utiliser les dictionnaires
+en Python. Un dictionnaire est une table de hash qui prend comme clef
+n'importe quel objet hashable et comme valeur n'importe quel
+objet. 
 
->>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<<
+Qu'est-ce qu'un objet hashable, c'est un objet qui peut être passé à
+une fonction de hash. Chez les types built-in tous les immuables sont
+hashables et tous les mutables ne sont pas hashable. L'intuition
+derrière est que comme la fonction de hash fait un calcul sur la clef
+et que pour une même clef, elle doit toujours donner la même case dans
+le tableau, une clef ne peut pas changer en cours d'exécution, ce qui
+est le cas des immuables.  Donc une clef en Python peut-être, par
+exemple, un type numérique, une chaîne de caractères, ou un tuple
+d'immuable.
+
+Il n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le
+voir comme une collection non ordonnée de couples (clef, valeur). Le
+dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
+le modifier en place.
+
+Les dictionnaires sont des objets très puissants qui permettent de
+faire facilement certaines taches qui sont avec d'autres langages
+longue et fastidieuse à écrire. Ouvrons un terminal interactif pour
+commencer à jouer avec les dictionnaires.
 
 
-En résumé, il vaut se rappeler que les références partagées sur un immutable
-ne pose aucun problème, par contre les références partagées sur un mutable
-peuvent conduire à des effets de bords, c'est-à-dire à une modification de
-l'objet par une variable sans que cela soit voulu pour les autres variables
-référençant cet objet. 
+>>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (6m10s)
 
-L'intérêt des références partagées est de minimiser l'occupation mémoire, 
-mais il faut être prudent lorsque l'on modifie l'objet mutable référencé. 
+## Résumé de la vidéo (30s)
+
+Nous avons vu dans cette vidéo le fonctionnement des dictionnaires, un
+nouveau type puissant qui permet de créer un agenda ou un annuaire en
+seulement quelques lignes de code et nous avons vu le concept de vue.
+Les dictionnaires sont également optimisés pour la recherche de clef,
+c'est donc le type à utiliser lorsque vous avez besoin de performance
+pour la recherche d'éléments.
+
+À bientôt

@@ -3,27 +3,150 @@
 ## Tout ce qui commence avec un ## est un commentaire
 ##
 ## le texte entre double crochets ouvrants et fermants
-## est à afficher en surimpression pendant que je parle et à 
-## synchroniser avec le texte entre crochet 
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
 
-## TITRE : Les tuples
+## TITRE : Introduction aux tests if/else et aux conventions de codage
+## Temp total: 6m25
 
-## Résumé de la vidéo (1 minute)
+## Résumé de la vidéo (40s)
 
-Dans cette vidéo nous allons presenter un autre type
-séquence très proche des listes, c'est le tuple.
-Comme une liste, un tuple regroupe sous forme d'une séquence
-des objets de type quelconque. 
+Nous avons déjà vu des notions très importante en Python : les notions
+d'objet, de variable et de typage dynamique, les types numériques, les
+types séquences avec les chaines de caractères et les
+listes. Cependant, vous devez vous demander comment faire de vrais
+programmes avec ces notions ? Pour faire de vrais programmes vous
+aurez besoin de connaitre des notions que nous verrons en détail dans
+les prochaines semaines comme les expression conditionnelles, les
+boucles for, les fonctions ou les modules. Comme notre but et de vous
+amener a jouer avec Python le plus tôt possible, je vais rapidement
+introduire dans les prochaines vidéos ces quelques notions clefs à
+l'écriture de vrais programmes avant de les voirs en détails dans les
+semaines qui viennent.
 
-Mais, il existe une différence fondamentale entre les listes et les tuples.
-Contrairement aux liste qui sont mutables, les tuples sont immuables, 
-c'est à dire que les modification en place sont interdites, 
-on ne peut donc pas modifier un tuple déjà créé. 
+## expressions conditionelles et instruction if else (1m00s)
 
-Nous discuterons l'intérêt des objets immutables lorsque nous parlerons des
-dictionnaires et des références partagées dans les vidéos qui suivent 
-cette semaine. 
+>>>>>>>>>> INCLUDE W2-S6-AV-slide1.pptx <<<<<<<<<<
 
-Ouvrons un terminal interactif pour jouer avec les tuples.
+[s1]
 
->>>>>>>>>> INCLUDE W2-S5-AV-exo1.py  <<<<<<<<<<
+Dans cette vidéo, nous allons parler de l'instruction if else qui
+permet d'executer une portion de votre code en fonction d'un
+test. C'est ce que l'on appelle controler le flux d'exécution de votre
+programme. Ces tests sont souvent le résultats d'expressions
+conditionnelles. Une expression conditionnelle est une expression qui
+a pour résultat un booléen c'est-à-dire True ou False. C'est toujours
+le résultat d'un test. Les expressions conditionnelles les plus
+courantes sont les comparaisons [a > b], [a >= b], [a < b], [a <= b],
+et les tests d'égalité [a == b], et [a != b].  Et on peut également
+ajouter le test d'appartenance des séquences [a in s] et [a not in s].
+
+Regardons un cas pratique : supposons que l'on veuille écrire un
+programme qui affiche reçu si la note d'un examen est supérieure à 10,
+et recalé sinon.
+
+## présentation de if/else (1m30)
+
+[s2] 
+
+Je commence par définir une variable ["note"] qui référence un entier
+8. puis je définie une instruction [if] sur l'expresssion
+confiditionnelle "note > 10". Si cette expression est vrai j'exécute
+les [print] reçu et print bravo, [sinon], j'exécute le [print] qui est
+après le else. On voit donc que cette instruction if else permet
+d'exécuter différente instruction en fonction d'un test. On remarque
+également que ce code est facile est intuitif à lire.
+
+Revenons sur la syntaxe de cette instruction. Nous remarquons que le
+if est suivi d'un [":"]. J'ai ensuite un [bloc d'instruction]. C'est
+un ensemble d'instruction décalé de [4 caractères vers la droite]. Si
+le test "note > 10" est vrai, tout le bloc d'instruction sera exécuté
+de manière séquentielle. Ensuite, j'ai la même syntaxe pour le
+else. J'ai un [":"] en fin de ligne suivi d'un [bloc d'instruction]
+décalé de [4 caractères vers la droite] qui sera exécuté
+sequentiellement si le test du if est faux.
+
+Vous remarquez donc qu'un bloc d'instruction est en ensemble
+d'instructions contigues décalées du même nombre de caractère vers la
+droite. J'aimerais passer quelques minutes à vous expliquer les
+avantages de cette syntaxe basée sur des blocs d'instruction identifié
+par une même indentation.
+
+## convention de codage (3m00)
+
+[SB]
+
+Un problème classique dans des langages comme le C++ ou le java est de
+suivre des conventions de codage, c'est-à-dire de suivre des règles de
+présentation du code que l'on écrit.  Les conventions de codage ne
+concernent que la présentation du code, elles n'ont jamais d'impact
+sur l'exécution du code.  Par conséquent, ces règles peuvent paraître
+facultatives, voire futiles pour le programmeur débutant. Cependant,
+la clarté du code et la facilité de le lire font partie intégrante de
+la qualité du code. Plus un code est facile à lire, plus il sera
+facile à maintenir et à améliorer. Même votre propre code sera plus
+facile a reprendre des semaines ou des mois plus tard s'il est bien
+présenté et documenté.
+
+[S4]
+
+Voici un exemple de code qui utiliserait les accolade pour délimiter
+les blocs d'instruction et le point virgule pour les fins de lignes.
+Vous remarquez que ce code est lourd à lire et qu'il donne la
+possibilité d'avoir plusieurs manière de présenter le code, notez la
+différence de présentation entre le if et le else.
+
+En Python, comme l'indentation des blocs d'instructions est dans la
+syntaxe, les règles de présentation deviennent obligatoires et les
+mêmes pour tout le monde. Cela enlève les ambiguïtés liées aux
+convention de codage en les réduisant au strict minimum. De plus,
+Python a supprimé de la syntaxe tout ce qui n'est pas nécessaire comme
+le point virgule qui est source d'erreurs fréquentes en C++ ou en
+Java.
+
+
+[s5]
+
+Vous remarquerez cependant qui Python a conservé le ":" pour
+identifier le début des blocs d'instruction. La raison est que lors de
+la conception de cette syntaxe des tests utilisateurs ont été fait et
+ils ont montré que l'on identifiait plus facilement les blocs
+d'instructions lorsqu'ils étaient précédés d'un ":".
+
+[SB]
+
+L'indentation comme règle de syntaxe est une des raisons du succès de
+Python. Cette règle n'a presque que des avantages, elle a cependant un
+inconvénient dont il faut se méfier. Lorsque l'on copie colle du code,
+l'identation du code copié peut ne pas être correcte, comme
+l'identation fait partie de la syntaxe, le code alors devenir
+incorrecte.  Il est par conséquent plus prudent de toujours verifier
+soit même l'indentation dans l'éditeur que l'on a l'habitude
+d'utiliser.
+
+Pour finir, en Python, il est recommandé de faire des lignes ne
+dépassant pas 79 caractères. Cette recommandation peut paraître
+étrange étant donné la taille de nos écrans aujourd'hui. Cependant, il
+y a plusieurs raisons à cette pratique: l'expérience montre qu'il est
+plus facile de lire du code avec des lignes de dépassant pas 79
+caractères, lorsque l'on a de grands écrans cela permet d'avoir
+plusieurs éditeurs de texte côte à côte, cela permet de lire et
+d'écrire du code sur n'importe quel terminal comme par exemple une
+tablette.
+
+Python permet très facilement de limiter la taille des lignes à 79
+caractères.  En effet, tout ce qui est entre (), {}, ou [] peut
+contenir des espaces ou retours chariots sans que cela n'affecte le
+code exécuté. Vous verrez cela dans les compléments. 
+
+## Résumé de la vidéo (15 s)
+
+Dans cette vidéo nous avons introduit l'instruction if/else qui permet
+d'exécuter du code en fonction d'un test et nous avons parlé des
+conventions de codage en python et notamment de l'intérêt de
+l'identation des blocs d'instruction comme base de la syntaxe.
+
+
+À bientôt

@@ -1,41 +1,51 @@
 # -*- coding: utf-8 -*-
 
-## On peut créer un set de deux manières, soit avec un littéral
-## soit en passant une une liste comme argument de la
-## fonction set
+## les séquences sont des structures de données qui
+## ont été optimisées pour l'accès, la modification,
+## et l'effacement d'éléments par numéro de séquence.
+## Donc lorsque je connais le numéro de séquence
+## d'un élément, la vitesse d'accès, de modification,
+## et d'effacement est indépendante de la position
+## de l'élément dans la séquence. 
+##
+## Mais comment se comporte une séquence avec
+## le test d'appartenance...
 
-s1 = {1, 2, 3, 4, 4, 4, 5}
+%timeit 'x' in range(100)
 
-a = [3, 4, 8]
-s2 = set(a)
+## prenons quelques secondes pour comprende le résultat du %timeit.
+## on a le temps moyen d'exécution et son équart type. Cette
+## statistique a été éxécutée sur 7 exécution de 1 000 000 de boucles.
 
-print s1, s2
+%timeit 'x' in range(10_000) #100x plus lent
+%timeit 'x' in range(1_000_000) #100x plus lent
 
-## on peut ajouter ou enlever des éléments d'un set
-s1.add('spam')
-s2.update([38, 9, 'egg'])
-s2.remove(38)
+## on voit que le temp d'exécution du test d'appartenance est une
+## fonction linéaire du nombre d'éléments dans la séquence. C'est
+## normal puisque le seul moyen de trouver un élément dans une
+## séquence est de la parcourir séquentiellement. Donc si on teste un
+## élément qui n'est pas dans la séquence on doit comparer cet élément
+## avec tous ceux de la séquence, plus il y a d'éléments plus c'est
+## long.
 
-## le test d'appartenance est sans surprise fait avec
-## l'instruction in et not in
+## Cependant, le test d'appartenance est une opération très
+## courante, par conséquent, il serait très utile d'avoir
+## une structure de données optimisée non seulement pour
+## l'accès, la modification et l'effacement, mais aussi pour
+## le test d'appartenance.
 
-print 'spam' in s1
-print 8 not in s1
+## Mais, il y a une autre limitation des séquences. Supposons
+## que je veuille utiliser autre chose que des entiers comme
+## indice, par exemple des chaînes des caractères pour faire
+## un annuaire, ça n'est pas possible avec les séquences.
 
-print len(s1)
+a = []
+#a['sonia'] = '0118252627'
 
-## je peux calculer la différence, l'union et l'intersection
-## de deux sets
+## il existe une structure de données qui permet un accès
+## une modification, un effacement et un test d'appartenance
+## avec une performance indépendante de la taille de la
+## structure, et qui, de plus, permet d'avoir des indices
+## d'un type immuable quelconque, c'est la table de hash.
+## regardons comment fonctionne une table de hash
 
-print s1 - s2
-print s1 | s2
-print s1 & s2
-
-## il y a d'autres opérations possibles sur les sets que je
-## vous encourage à découvrir dans la documentation Python.
-
-## pour finir vous pouvez créer un frozen set à partir
-## d'une séquence ou d'un set ainsi
-
-fs = frozenset(s1)
-print fs
