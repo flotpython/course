@@ -24,12 +24,11 @@ objet.
 Qu'est-ce qu'un objet hashable, c'est un objet qui peut être passé à
 une fonction de hash. Chez les types built-in tous les immuables sont
 hashables et tous les mutables ne sont pas hashable. L'intuition
-derrière est que comme la fonction de hash fait un calcul sur la clef
-et que pour une même clef, elle doit toujours donner la même case dans
-le tableau, une clef ne peut pas changer en cours d'exécution, ce qui
-est le cas des immuables.  Donc une clef en Python peut-être, par
-exemple, un type numérique, une chaîne de caractères, ou un tuple
-d'immuable.
+derrière est que comme la fonction de hash fait un calcul sur l'objet
+et que pour un même objet, elle doit toujours donner la même case dans
+le tableau, cet objet ne peut pas changer de valeur en cours
+d'exécution.  Donc une clef en Python peut-être, par exemple, un type
+numérique, une chaîne de caractères, ou un tuple d'immuable.
 
 Il n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le
 voir comme une collection non ordonnée de couples (clef, valeur). Le
