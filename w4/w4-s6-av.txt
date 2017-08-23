@@ -42,9 +42,7 @@ arguments d'une fonction...
 
 >>>>>>>>>> W4-S6-AV-exo2.py <<<<<<<<<< (10m40)
 
-
 ## conclusion (30s)
-
    
 Nous avons vu 4 manières de déclarer les arguments d'une fonction et 4
 manière d'appeler une fonction. Toutes ces formes peuvent se combiner,
