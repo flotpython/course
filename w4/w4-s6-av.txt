@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Passage d'arguments et appel de fonctions
+## Temp total: 16m40 (en 2 parties)
+
+
+
+## Résumé de la vidéo (50 secondes)
+
+Nous avons couvert les caractéristiques les plus importantes
+des fonctions. Vous savez maintenant déclarer une fonction et
+retourner un résultat, vous avez compris les notions de portée de
+variable, vous connaissez la règle LEGB, et vous savez modifier la
+portée d'une variable avec global et nonlocal.
+
+Vous savez également passer des arguments à une fonction, mais il y a
+4 manières différentes de déclarer des arguments dans une fonction et
+4 manières différentes de passer des arguments à une fonction. Ces
+différentes manières ne sont pas là pour ajouter de la complexité,
+mais pour vous simplifier la vie dans certains cas concrets et
+fréquents d'utilisation des fonctions.
+
+Nous allons voir dans cette vidéo ces différentes manières de déclarer
+des arguments et de passer des arguments à une fonction ainsi que
+quelques applications pratiques.  Ouvrons IDLE pour jouer avec les
+arguments d'une fonction...
+
+>>>>>>>>>> W4-S6-AV-exo1.py <<<<<<<<<< (4m40s)
+
+############################ FIN PART 1 #############################
+
+###########################  DÉBUT PART 2 ###########################
+
+>>>>>>>>>> W4-S6-AV-exo2.py <<<<<<<<<< (10m40)
+
+
+## conclusion (30s)
+
+   
+Nous avons vu 4 manières de déclarer les arguments d'une fonction et 4
+manière d'appeler une fonction. Toutes ces formes peuvent se combiner,
+mais cela va nuire à la clareté de votre code et peut conduire à des
+bugs subtiles que vous verrez dans les compléments. Il est donc
+recommandé de ne pas utiliser plus de deux formes à la fois.
+
+Certaines déclarations et appels de fonctions peuvent vous paraitre
+compliquées, mais il faut comprendre que ces différentes manières
+de sont pas une contraintes, mais une liberté. Si vous n'en n'avez
+pas besoin, ne les utilisez pas, mais vous tomberez sans doute un 
+jour sur un cas d'utilisation et vous serez alors content des les
+avoir sous la main. 
+
+À bientôt
