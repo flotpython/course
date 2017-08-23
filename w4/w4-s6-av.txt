@@ -23,11 +23,11 @@ variable, vous connaissez la règle LEGB, et vous savez modifier la
 portée d'une variable avec global et nonlocal.
 
 Vous savez également passer des arguments à une fonction, mais il y a
-4 manières différentes de déclarer des arguments dans une fonction et
-4 manières différentes de passer des arguments à une fonction. Ces
-différentes manières ne sont pas là pour ajouter de la complexité,
-mais pour vous simplifier la vie dans certains cas concrets et
-fréquents d'utilisation des fonctions.
+4 manières différentes de déclarer des arguments dans une fonction,
+c'est-à-dire sa signature, et 4 manières différentes de
+passer des arguments à une fonction. Ces différentes manières ne sont
+pas là pour ajouter de la complexité, mais pour vous simplifier la vie
+dans certains cas concrets et fréquents d'utilisation des fonctions.
 
 Nous allons voir dans cette vidéo ces différentes manières de déclarer
 des arguments et de passer des arguments à une fonction ainsi que

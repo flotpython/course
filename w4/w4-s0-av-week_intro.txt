@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la quatrième semaine
+## Temp total: 30s
+
+Cette semaine nous parlerons de l'instruction while, nous reviendrons
+sur l'instruction if/else, mais surtout nous approfondirons la notions
+de fonctions. Nous parlerons en particulier de portée des variables,
+de modification de la portée. Nous finirons avec les différents
+manières de déclarer les arguments d'une fonction et d'appler une
+fonction. 
