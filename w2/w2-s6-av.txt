@@ -20,7 +20,7 @@ factorisation de code, les boucles for et les fonctions.
 
 ouvrons un terminal et commençons à jouer avec les boucles for...
 
->>>>>>>>>>  W2-S7-AV-exo1.py  (7 minutes 10) <<<<<<<<<<
+>>>>>>>>>>  W2-S6-AV-exo1.py  (7 minutes 10) <<<<<<<<<<
 
 ## résumé (15 secondes)
 

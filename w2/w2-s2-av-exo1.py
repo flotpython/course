@@ -71,15 +71,18 @@ s.endswith('ans')
 nom = 'sonia'
 age = 30
 
-s = "{} a {}".format(nom, age) # format classique
+s = "{} a {} ans".format(nom, age) # format classique
 
-s = f"{nom} a {age}" # f-string
+s = f"{nom} a {age} ans" # f-string
 
 ## Nous reviendrons dans les compléments sur les méthodes des chaînes
 ## de caractères et nous verrons les nombreuses possibilités de format
 ## pour gérer l'alignement d'un affichage en colonne ou l'affichage de
 ## nombre décimaux en contrôlant, par exemple, le nombre de chiffres
 ## après la virgule
+
+[[TP: il faudrait si possible mentionner rapidement que les f-strings sont
+   dispos seulement à partir de 3.6 ]]
 
 ###################### UNICODE ############################### 2m41
 
@@ -100,7 +103,7 @@ s = f"{nom} a {age}" # f-string
 ## vous remarqué que vous voyez un carré à la place de la lettre. Que
 ## ce passe-t-il ? Les chaînes de caractères Python supporte tous les
 ## caractères Unicode, le problème ne vient donc pas de là. De toutes
-## façons en cas de non support on aurait eu une erreur
+## façons en cas de non support [[TP: tu veux dire quoi exactement par non support ?]] on aurait eu une erreur
 
 "\u556"
 
@@ -149,6 +152,9 @@ s = "un noël en été"
 ## codons cette chaine de caractère en UTF-8 pour obtenir des bytes
 
 en = s.encode('utf8')
+[[TP: pourquoi pas l'appeler b pour bytes comme s pour str, tant qu'à faire court
+      ou alors appeler les deux variables text et bin respectivement]]
+  
 
 ## cette nouvelle chaine de caractère est de type bytes, on remarque
 ## le petit b devant qui permet de faire la différence avec un chaine

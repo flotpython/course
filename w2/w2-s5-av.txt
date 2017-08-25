@@ -28,18 +28,22 @@ semaines qui viennent.
 
 ## expressions conditionelles et instruction if else (1m00s)
 
->>>>>>>>>> INCLUDE W2-S6-AV-slide1.pptx <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S5-AV-slide1.pptx <<<<<<<<<<
 
 [s1]
 
 Dans cette vidéo, nous allons parler de l'instruction if else qui
 permet d'executer une portion de votre code en fonction d'un
 test. C'est ce que l'on appelle controler le flux d'exécution de votre
-programme. Ces tests sont souvent le résultats d'expressions
+programme. [[Ces tests sont souvent le résultats d'expressions
 conditionnelles. Une expression conditionnelle est une expression qui
 a pour résultat un booléen c'est-à-dire True ou False. C'est toujours
 le résultat d'un test. Les expressions conditionnelles les plus
-courantes sont les comparaisons [a > b], [a >= b], [a < b], [a <= b],
+courantes sont]] [[TP: je propose de simplifer la section
+entre [[]] par juste: Pour écrire la condition attachée à un test, le
+langage propose des opérateurs logiques, dont les plus courants
+sont:]]
+les comparaisons [a > b], [a >= b], [a < b], [a <= b],
 et les tests d'égalité [a == b], et [a != b].  Et on peut également
 ajouter le test d'appartenance des séquences [a in s] et [a not in s].
 
@@ -80,7 +84,7 @@ par une même indentation.
 
 Un problème classique dans des langages comme le C++ ou le java est de
 suivre des conventions de codage, c'est-à-dire de suivre des règles de
-présentation du code que l'on écrit.  Les conventions de codage ne
+présentation du code que l'on écrit. Les conventions de codage ne
 concernent que la présentation du code, elles n'ont jamais d'impact
 sur l'exécution du code.  Par conséquent, ces règles peuvent paraître
 facultatives, voire futiles pour le programmeur débutant. Cependant,
@@ -121,7 +125,7 @@ L'indentation comme règle de syntaxe est une des raisons du succès de
 Python. Cette règle n'a presque que des avantages, elle a cependant un
 inconvénient dont il faut se méfier. Lorsque l'on copie colle du code,
 l'identation du code copié peut ne pas être correcte, comme
-l'identation fait partie de la syntaxe, le code alors devenir
+l'identation fait partie de la syntaxe, le code peut alors devenir
 incorrecte.  Il est par conséquent plus prudent de toujours verifier
 soit même l'indentation dans l'éditeur que l'on a l'habitude
 d'utiliser.
@@ -139,7 +143,10 @@ tablette.
 Python permet très facilement de limiter la taille des lignes à 79
 caractères.  En effet, tout ce qui est entre (), {}, ou [] peut
 contenir des espaces ou retours chariots sans que cela n'affecte le
-code exécuté. Vous verrez cela dans les compléments. 
+code exécuté. Vous verrez cela dans les compléments [[TP: juste un mot
+pour dire que je compte parler déjà de cette histoire de syntaxe dans
+les vidéos de la semaine 1, sans entrer dans les détails mais en
+décrivant l'indentation comme ossature de la syntaxe]]
 
 ## Résumé de la vidéo (15 s)
 

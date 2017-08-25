@@ -39,17 +39,17 @@ log_list = [math.log(x) for x in my_list]
 
 log_list = [math.log(x) for x in my_list if x > 1]
 
-## notons de nouveaux que lorsque l'on lit cette expression on est
+## notons de nouveau que lorsque l'on lit cette expression on est
 ## proche du langage naturel et que l'on peut en une seule expression
 ## appliquer une fonction à chaque élément d'une liste si une
 ## condition est vraie
 
 ## Regardons un autre exemple de compréhension de liste. J'ai une
-## liste de prénoms et je ne nombre de caractères pour tous les
+## liste de prénoms et je veux le nombre de caractères pour tous les
 ## prénoms commençant par a.
 
 
 nom = ['alice', 'bob', 'ana', 'bill']
 a_nom = [len(n) for n in nom if n.startswith('a')]
 
-
+[[TP: je vois pas trop l'intérêt de ce dernier exemple, ça n'apporte rien de nouveau..]]

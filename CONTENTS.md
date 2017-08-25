@@ -7,10 +7,10 @@ Plan général du MOOC sur Python 3
 * W1-S0: Présentation de la première semaine
 * W1-S1: Organisation du MOOC
 * W1-S2: Pourquoi Python 3
-* W1-S3: iPython
-* W1-S4: Les notebooks
+* W1-S3: Les notebooks
+* W1-S4: iPython
 * W1-S5: IDLE
-	* dire un mot sur pycharm pour expliquer que IDLE c'est super pour taper des petits exemples dans un environement de dev, les notebooks, c'est super pour faire pleins de petits exemples avec du texte formaté, des figures et voir immédiatement le résultat. Mais pour faire un gros programme (disons à partir d'une centaine de ligne), seul un vrai éditeur avec du refactoring intégré, des suggestions avancés, lint, etc. comme pycharm est utilisable. 
+  * dire un mot sur pycharm pour expliquer que IDLE c'est super pour taper des petits exemples dans un environement de dev, les notebooks, c'est super pour faire pleins de petits exemples avec du texte formaté, des figures et voir immédiatement le résultat. Mais pour faire un gros programme (disons à partir d'une centaine de lignes), seul un vrai éditeur avec du refactoring intégré, des suggestions avancées, lint, etc. comme pycharm est utilisable. 
 * W1-S6: Introduction aux notions de variables, objets et typage dynamique
 * W1-S7: Les types numériques 
 
@@ -117,17 +117,21 @@ Plan général du MOOC sur Python 3
 
 **Du temps pour les mini-projets ?**
 
-Compléments
-===========
+****
+****
+****
 
-* librairies utiles 
+# Compléments
+
 * type hints
-	  * il faut à mon avis qu'on mentionne ça dans au moins une vidéo - même si c'est pour dire que ce sera traité comme un complément; par exemple W1-S5, quoique c'est sans doute trop tôt..
+  * il faut à mon avis qu'on mentionne ça dans au moins une vidéo - même si c'est pour dire que ce sera traité comme un complément; par exemple W1-S5, quoique c'est sans doute trop tôt..
+
+## librairies utiles 
 * pytest
 * Date DateTime
 * docstrings + tools
 * regexp
-	* en semaine 2 lorsqu'on parle des string, ça me semble bien dans un complément avancé. 
+  * en semaine 2 lorsqu'on parle des string, ça me semble bien dans un complément avancé. 
 
 * un truc qui serait à mon avis pas mal; en semaine 8, ajouter une séquence 'projet type sous github'; sans nécessairement entrer trop dans les détails, on pourrait partir d'un projet déjà existant dans github et montrer:
   * la structure habituelle (setup.py, lalib/, )

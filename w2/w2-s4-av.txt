@@ -22,6 +22,10 @@ sont stockées. Donc la taille d'une liste n'augmente pas avec la taille
 des objets qu'elle référence, mais seulement avec le nombre d'objet
 quelle référence. 
 
+[[TP: je note que c'est la toute première fois qu'on parle d'objets
+mutables, en tous cas dans les vidéos; je trouve du coup qu'on
+pourrait peut-être s'appesantir un peu plus, non ?]]
+
 Les listes sont mutables, c'est-à-dire que l'on peut les modifier en
 place. On dit qu'une modification est en place lorsque l'on modifie
 directement l'objet en mémoire sans en faire une copie temporaire, ce
@@ -38,5 +42,10 @@ Ouvrons un terminal interactif et commençons a jouer avec les listes.
 Nous venons de voir le type list qui est central en Python. Vous 
 utiliserez, quelque soit votre programme, sans aucun doute de nombreuses
 listes. Alors jouez avec les listes pour les maitriser rapidement. 
+
+[[TP: et si tu faisais tes .py sous forme de notebook de temps en
+  temps ? dans ce cas précis ça te permettrait de montrer des
+  listes dans pythontutor, où on voit tout de suite ce qu'on veut dire
+  avec ces histoires de références, et de modifications en place]]
 
 À bientôt

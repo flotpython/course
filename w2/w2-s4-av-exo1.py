@@ -36,7 +36,7 @@ print(a)
 ## on peut utiliser le slicing dans une liste parce que c'est
 ## une séquence
 
-print a[1:3]
+print(a[1:3])
 
 ## mais comme une liste est mutable on peut affecter sur un slice
 
@@ -57,6 +57,13 @@ a[1:2] = []
 
 print(a)
 
+[[TP: à nouveau je crois bien que c'est la première fois qu'on rencontre del
+  je propose
+  option 1: montrer d'abord l'utilisation de del sur une variable simple
+  dans un scenario du genre a=1; print(a); del a; print(a) -> OOPS
+  option 2: ne pas en parler du tout dans cette vidéo, laisser ça pour un complément
+]]
+  
 ## je peux également utiliser l'instruction del pour effacer tous les
 ## éléments spécifiés dans un slice
 
@@ -91,6 +98,7 @@ print(a)
 
 a.sort() # attention sort ne retourne pas la liste, mais la modifie en
          # place
+[[TP: il faut aussi montrer print(a) a ce stade je pense]]
 
 a.reverse() # renverse la liste en place
 print(a)
@@ -98,7 +106,7 @@ print(a)
 print a.pop()
 
 a.remove('30') # efface la premiere occurence de l'élément passé en
-                # parametre
+               # parametre
 
 
 ############################################################# 2m15

@@ -11,6 +11,18 @@
 ## TITRE : Les chaînes de caractères 
 ## Temp total: 12m45
 
+[[TP: presque 13' c'est à mon avis beaucoup trop long
+
+1. pourquoi ne pas pas faire
+* d'abord une vidéo sur les usages 'normaux' des str, comme join() et
+autres replace()
+* et ensuite seulement un truc qui focalise sur les encodages et
+unicode
+
+2. autre idée, il y a déjà plein de trucs dans les compléments en
+notebooks, tu dois pouvoir enlever du matériau de ce premier jet
+]]
+
 ## Résumé de la vidéo (15 s)
 
 Dans cette vidéo nous allons voir le fonctionnement des chaînes de

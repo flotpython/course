@@ -22,7 +22,7 @@ for i in range(11):
 ## for puis, on spécifie une variable (x dans notre cas),
 ## l'instruction in, et un itérable. Un itérable est un objet que l'on
 ## peut parcourir avec un boucle for. En particulier les séquence et
-## la fonction range() sont itérable. On fini la ligne avec un : ce
+## [[TP: le résultat de ?]] la fonction range() sont itérable. On fini la ligne avec un : ce
 ## qui veut dire que l'on va avoir un nouveau bloc d'instruction
 ## décalé de 4 caractères vers la droite par rapport au for.  La
 ## boucle for va répéter le bloc d'instruction autant fois qu'il y a
@@ -36,6 +36,7 @@ for i in range(11):
 
 ## comme une boucle for fonctionne sur toutes les séquences, on peut
 ## faire une boucle for sur un chaîne de caractères par exemple
+[[TP: ça sert à quoi l'espace ici, ça se voit pas à l'écran, si ?]]
 for i in 'spam':
     print(i + ' ')
     
@@ -70,11 +71,10 @@ def carre(data):
         print(i**2)
 
 ## une fonction commence avec l'instruction def, on donne ensuite un
-## nom à la fonction (f ici). puis en met entre paranthèses l'argument
-## de la fonction (L dans notre cas) et on finit une fois encore par
+## nom à la fonction (ici carre). puis en met entre paranthèses le ou les arguments
+## de la fonction (ici un seul argument data) et on finit une fois encore par
 ## un : qui signal un nouveau bloc d'instruction qui doit être indenté
-## de 4 caractère vers la droite par rapport au premier caractere du
-## la permière ligne de la fonction, donc le d du def. On appelle de
+## de 4 caractère vers la droite par rapport au mot-clé def. On appelle le
 ## bloc d'instructions le corps de la fonction.  Le principe d'une
 ## fonction est que le bloc d'instruction dans la fonction
 ## (c'est-à-dire indenté de 4 caractères vers la droite) est exécuté à
@@ -97,13 +97,21 @@ carre(data_2)
 ## la valeur de retour d'une fonction peut-être affecté à une variable
 ## de la manière suivante
 
-result = carre(data_1) ## c'est None qui est retourné.
+result = carre(data_1) ## comme carre ne contient pas de return, c'est None qui est retourné.
 print(result)
 
+[[TP: je propose de faire un peu moins neuneu, car on a déjà tout le bagage pour faire ça comme il faut
+  ce qui permettrait de placer une tirade sur le fait que print ne nous sert que
+  a des fins pedagogiques mais que le vrai code n'utilise pratiquement jamais print,
+  et qu'il vaut bcp mieux pour une fonction retourner une valeur que d'imprimer des trucs 
+  et en plus ça fera une transition pour la vidéo qui vient juste après
+]]
+
 def carre(data):
+    resultat = []
     for i in data:
-        print(i**2)
-    return 'fin du calcul'
+        resultat.append(i**2)
+    return resultat
 
 ##
 

@@ -20,7 +20,7 @@ Dans cette vidéo, nous allons introduire la notion de modules et
 en particulier comment utiliser des modules.
 
 Un module est un fichier python standard finissant par .py et tous les
-fichiers python sont des modules. Donc les notions de fichier python
+fichiers python sont des modules. Donc [[TP: en première approximation]] les notions de fichier python
 et de module sont équivalentes. Alors pourquoi introduire cette notion
 de module ? En Python tout est un objet et lorsque l'on importe un
 fichier python dans un programme, cela crée un objet que l'on appelle
@@ -40,7 +40,7 @@ Ouvrons un terminal pour commencer à jouer avec les modules...
 
 ## Librairie standard (1m10)
 
->>>>>>>>>> INCLUDE W2-S8-AV-slide1.py <<<<<<<<<<
+>>>>>>>>>> INCLUDE W2-S8-AV-slide1.pptx <<<<<<<<<<
 
 On a vu une introduction rapide à l'utilisation des modules, mais il y
 a en Python des dizaines de modules dans ce que l'on appelle la

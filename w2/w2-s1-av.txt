@@ -31,7 +31,13 @@ secondes pour identifier que ces lettres formes des mots et que les
 mots formes la phrase ["je fais un MOOC sur Python"]. Votre cerveau a
 fait une opération complexe que l'on appelle [décodage]. Le décodage
 consiste à prendre une suite de symbole et à trouver une manière de
-mettre ces symboles sous forme de mots qui ont un sens. 
+mettre ces symboles sous forme de mots qui ont un sens.
+
+[[TP: je trouve cet exemple confusant; ça suggère que le décodage va
+ajouter des espaces !?!
+
+Je serais toi je prendrais plutôt l'exemple d'un .png qui se décode en
+une image, c'est visuel et c'est moins confusant]]
 
 [S2]
 
@@ -39,14 +45,14 @@ Les ordinateurs eux travaillent tous sur des bits qui ne
 peuvent prendre que deux valeurs 0 ou 1. Dans un ordinateur, dans un
 smartphone, tout est stocké sous forme de bit et toutes les
 communications sur internet sont faites bit par bit. La question que
-l'on doit se poser est comment on passe d'un flux de bit à une phrase
+l'on peut se poser est: comment on passe d'un flux de bit à une phrase
 dans un ordinateur.
 
 [S3]
 
 On utilise pour cela une convention de décodage, par exemple, je
 découpe mon flux de bits en blocs de 7 bits. Comme 7 bits peuvent 
-prendre 128 valeurs différentes, chaque bloc représente un code en 0
+prendre 128 valeurs différentes, chaque bloc représente un code entre 0
 et 127.
 
 On voit que le premier bloc correspond au code 97, le second à 108,
@@ -56,8 +62,8 @@ l'explication, un ordinateur va continuer de travailler en binaire.
 [S4]
 
 Maintenant, il faut donner un sens à ces codes, pour cela on utilise
-un jeux de caractères. C'est une table qui donne pour chaque code
-allant le caractère qui lui correspond. On utilise ici le jeux de
+un jeu de caractères. C'est une table qui donne pour chaque code
+le caractère qui lui correspond. On utilise ici le jeux de
 caractères ASCII
 
 [S5]
@@ -66,12 +72,15 @@ Et pour finir, pour afficher le caractère à l'écran, il faut utiliser
 une police de caratères qui définit un glyphe, c'est-à-dire un
 dessin, qui représente chaque caractère dans le jeux de caractères.
 
+[[TP: je propose de zapper totalement les glyphes; ou alors bien dire
+ici que c'est la première et dernière fois qu'on verra ce mot]]
+
 [SB]
 
-En résumé, lorsqu'on lit un fichier, par exemple, sur un disque dur,
+En résumé, lorsqu'on lit un fichier texte, par exemple sur un disque dur,
 on lit un flux de bit qu'on décode pour obtenir des codes correspondant
 à des caractères dans un jeux de caractères. Lorsqu'on écrit un
-fichier on fait l'opération inverse, on prend le code correspondant au
+fichier texte, on fait l'opération inverse, on prend le code correspondant au
 caractère dans le jeux de caractère et on écrit ce code sous format
 binaire.
 
@@ -101,10 +110,10 @@ correctement.
 [S6]
 
 C'est là que le projet Unicode a commencé. L'idée d'unicode est de
-fournir un codage et un jeux de caractères qui couvre tous les
-caractères du monde. Unicode regroupe actuellement plus de 120 000
-caractères. Il existe essentiellement trois codages qui supporte le
-jeux de caractère unicode [UTF-8], [UTF-16], [UTF-32] qui optimise
+fournir un jeux de caractères qui couvre tous les caractères du monde.
+Unicode regroupe actuellement plus de 120 000 caractères.
+Unicode définit également trois encodages de ce jeux de caractère
+unicode: [UTF-8], [UTF-16], [UTF-32] qui optimisent
 soit la vitesse de codage, soit la taille du texte codé. En pratique,
 UTF-8 est le codage le plus utilisé puisqu'il représente un très bon
 compromis entre vitesse de codage et taille du code.

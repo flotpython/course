@@ -50,10 +50,11 @@ c.real, c.imag
 ## par exemple en ajoutant un entier et un flottant
 ## Par contre on peut perdre en précision.
 ## Un int et un float donne toujours un float
-## Un int ou un float et un complex
-## donne toujours un complex
 
 i + f
+
+## Un int ou un float et un complex
+## donne toujours un complex
 
 i + c
 
@@ -70,15 +71,16 @@ complex(10)
 5 + 3
 5 - 3
 -3
-5 / 3     # division naturelle
-5 // 3    # division entière
+5 / 3     # division usuelle [[TP: naturelle ça fait penser à entier naturel je trouve]]
+5 // 3    # quotient de la division entière
 5 % 3     # reste de la division entière
 2 ** 32   # puissances
 abs(-5.3) # valeur absolue
 
 ## pour finir, j'aimerais introduire un dernier type qui n'est pas
 ## à proprement parler un type numérique, mais qui est implémenté comme
-## tel, c'est le type booléen. Ce type est utilisé pour le résultat
+## tel, c'est le type booléen qui s'appelle bool en python.
+# Ce type est utilisé pour le résultat
 ## de tous les tests en Python et ne contient que deux valeurs True et False
 ## On verra bientôt cette notion de test en Python, mais regardons un exemple
 ## simple pour illustrer les booléens
