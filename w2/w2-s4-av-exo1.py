@@ -57,13 +57,6 @@ a[1:2] = []
 
 print(a)
 
-[[TP: à nouveau je crois bien que c'est la première fois qu'on rencontre del
-  je propose
-  option 1: montrer d'abord l'utilisation de del sur une variable simple
-  dans un scenario du genre a=1; print(a); del a; print(a) -> OOPS
-  option 2: ne pas en parler du tout dans cette vidéo, laisser ça pour un complément
-]]
-  
 ## je peux également utiliser l'instruction del pour effacer tous les
 ## éléments spécifiés dans un slice
 
@@ -98,7 +91,8 @@ print(a)
 
 a.sort() # attention sort ne retourne pas la liste, mais la modifie en
          # place
-[[TP: il faut aussi montrer print(a) a ce stade je pense]]
+
+print(a)
 
 a.reverse() # renverse la liste en place
 print(a)

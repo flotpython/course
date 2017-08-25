@@ -22,17 +22,16 @@ sont stockées. Donc la taille d'une liste n'augmente pas avec la taille
 des objets qu'elle référence, mais seulement avec le nombre d'objet
 quelle référence. 
 
-[[TP: je note que c'est la toute première fois qu'on parle d'objets
-mutables, en tous cas dans les vidéos; je trouve du coup qu'on
-pourrait peut-être s'appesantir un peu plus, non ?]]
-
 Les listes sont mutables, c'est-à-dire que l'on peut les modifier en
 place. On dit qu'une modification est en place lorsque l'on modifie
 directement l'objet en mémoire sans en faire une copie temporaire, ce
-qui est très efficace. Les listes sont souples et flexible et très
-facile à utiliser. On peut ajouter des objets au début, à la fin, au
-milieu, une liste peux s'étendre, se contracter, tout cela se fait par
-l'intermédiaires de méthodes simples et intuitives. 
+qui est très efficace. Nous reviendrons largement sur cette notion
+clef de mutabilité dans de prochaines vidéos
+
+En résumé, les listes sont souples et flexible et très facile à
+utiliser. On peut ajouter des objets au début, à la fin, au milieu,
+une liste peux s'étendre, se contracter, tout cela se fait par
+l'intermédiaires de méthodes simples et intuitives.
 
 Ouvrons un terminal interactif et commençons a jouer avec les listes. 
 
@@ -47,5 +46,6 @@ listes. Alors jouez avec les listes pour les maitriser rapidement.
   temps ? dans ce cas précis ça te permettrait de montrer des
   listes dans pythontutor, où on voit tout de suite ce qu'on veut dire
   avec ces histoires de références, et de modifications en place]]
-
+[[AL: je ne suis pas sûr que j'aurai le temps pour les vidéos]]
+  
 À bientôt

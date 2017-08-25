@@ -35,17 +35,11 @@ semaines qui viennent.
 Dans cette vidéo, nous allons parler de l'instruction if else qui
 permet d'executer une portion de votre code en fonction d'un
 test. C'est ce que l'on appelle controler le flux d'exécution de votre
-programme. [[Ces tests sont souvent le résultats d'expressions
-conditionnelles. Une expression conditionnelle est une expression qui
-a pour résultat un booléen c'est-à-dire True ou False. C'est toujours
-le résultat d'un test. Les expressions conditionnelles les plus
-courantes sont]] [[TP: je propose de simplifer la section
-entre [[]] par juste: Pour écrire la condition attachée à un test, le
-langage propose des opérateurs logiques, dont les plus courants
-sont:]]
-les comparaisons [a > b], [a >= b], [a < b], [a <= b],
-et les tests d'égalité [a == b], et [a != b].  Et on peut également
-ajouter le test d'appartenance des séquences [a in s] et [a not in s].
+programme. Pour écrire la condition attachée à un test, le langage
+propose des opérateurs logiques, dont les plus courants sont : les
+comparaisons [a > b], [a >= b], [a < b], [a <= b], et les tests
+d'égalité [a == b], et [a != b].  Et on peut également ajouter le test
+d'appartenance des séquences [a in s] et [a not in s].
 
 Regardons un cas pratique : supposons que l'on veuille écrire un
 programme qui affiche reçu si la note d'un examen est supérieure à 10,
@@ -147,6 +141,7 @@ code exécuté. Vous verrez cela dans les compléments [[TP: juste un mot
 pour dire que je compte parler déjà de cette histoire de syntaxe dans
 les vidéos de la semaine 1, sans entrer dans les détails mais en
 décrivant l'indentation comme ossature de la syntaxe]]
+[[AL: je doit citer un complément précédent ici ?]]
 
 ## Résumé de la vidéo (15 s)
 

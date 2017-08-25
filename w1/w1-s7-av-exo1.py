@@ -71,7 +71,7 @@ complex(10)
 5 + 3
 5 - 3
 -3
-5 / 3     # division usuelle [[TP: naturelle ça fait penser à entier naturel je trouve]]
+5 / 3     # division usuelle 
 5 // 3    # quotient de la division entière
 5 % 3     # reste de la division entière
 2 ** 32   # puissances

@@ -9,19 +9,8 @@
 ## le slide i
 
 ## TITRE : Les chaînes de caractères 
-## Temp total: 12m45
+## Temp total: 12m40 (6m30 part 1 et 6m10 part 2)
 
-[[TP: presque 13' c'est à mon avis beaucoup trop long
-
-1. pourquoi ne pas pas faire
-* d'abord une vidéo sur les usages 'normaux' des str, comme join() et
-autres replace()
-* et ensuite seulement un truc qui focalise sur les encodages et
-unicode
-
-2. autre idée, il y a déjà plein de trucs dans les compléments en
-notebooks, tu dois pouvoir enlever du matériau de ce premier jet
-]]
 
 ## Résumé de la vidéo (15 s)
 
@@ -36,7 +25,13 @@ caractères et comment gérer l'encodage en Python .
 passons dans un terminal pour commencer à jouer avec les chaînes
 de caractères...
 
->>>>>>>>>>  W2-S2-AV-exo1.py  <<<<<<<<<< (12m10s)
+>>>>>>>>>>  W2-S2-AV-exo1.py  <<<<<<<<<< (6m15s)
+
+#################### FIN PART 1 #######################
+
+#################### DÉBUT PART 2 #####################
+
+>>>>>>>>>>  W2-S2-AV-exo2.py  <<<<<<<<<< (5m50s)
 
 
 ## Résumé de la vidéo (20s)

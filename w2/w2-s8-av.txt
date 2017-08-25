@@ -19,13 +19,13 @@
 Dans cette vidéo, nous allons introduire la notion de modules et 
 en particulier comment utiliser des modules.
 
-Un module est un fichier python standard finissant par .py et tous les
-fichiers python sont des modules. Donc [[TP: en première approximation]] les notions de fichier python
-et de module sont équivalentes. Alors pourquoi introduire cette notion
-de module ? En Python tout est un objet et lorsque l'on importe un
-fichier python dans un programme, cela crée un objet que l'on appelle
-un module. On peut accéder a tout ce qui a été défini dans le fichier
-importé, en particulier les fonctions, par l'objet module.
+Un module est contruit à partir d'un fichier python standard finissant
+par .py et tous les fichiers python peuvent être importés comme des
+modules. Quelle est donc la différence entre fichier et module ? En
+Python tout est un objet et lorsque l'on importe un fichier python
+dans un programme, cela crée un objet que l'on appelle un module. On
+peut accéder a tout ce qui a été défini dans le fichier importé, en
+particulier les fonctions, par l'objet module.
 
 Par conséquent, on peut voir un module comme une boite à outils,
 c'est-à-dire un fichier définissant des fonctions pour une tâche

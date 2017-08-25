@@ -82,19 +82,16 @@ notation 'point'.
 
 Maintenant que nous avons vu ce qu'est un objet, regardons comment le
 référencer, c'est-à-dire accéder à cet objet dans la mémoire de
-l'ordinateur. En Python, on ne manipule jamais les références
-mémoires, on utilise à la place le mécanisme d'affectation.
-[[TP: ça me choque cette façon de dire; je dirais plutôt qu'on utilise
-*que* des références mémoire; notamment les variables en python sont
-équivalentes aux références en C++; tu voulais pas dire plutôt "on ne
-manipule jamais de pointeur ?!?"]]
-Une affectation permet de donner un nom à un objet, plus précisement, c'est
-associer une variable à la référence de l'objet. Affecter l'entier 1 à
-la variable a s'écrit simplement
+l'ordinateur. En Python, on ne manipule jamais directement les
+adresses en mémoire, c'est-à-dire les pointeurs, on utilise à la place
+le mécanisme d'affectation qui permet de référencer les objets.  Une
+affectation permet de donner un nom à un objet, plus précisement,
+d'associer une variable à la référence de l'objet. Affecter
+l'entier 1 à la variable note s'écrit simplement
 
 [S4]
 
-a = 1
+note = 1
 
 
 ## Notion de variable (1m10s)
@@ -135,10 +132,6 @@ les vidéos. L'unique raison de faire cela est de pouvoir taper
 rapidement à l'écran les variables, mais dans un vrai programme on
 doit donner un nom explicite aux variables, ce qui contribue à la
 documentation de notre code.
-
-[[TP: lorsque les variables sont montrées dans des slides powerpoint
-préparées à l'avance, tu devrais utiliser de vrais noms toi-même, et
-ne pas nous donner du a ou du x...]]
 
 ## Typage dynamique (1m00s)
 

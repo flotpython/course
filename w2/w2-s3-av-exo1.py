@@ -6,9 +6,6 @@
 ## Pour illustrer le fonctionnement des séquences commençons par
 ## regarder les chaînes de caractères
 
-## [[TP: tous les print sont en python2: 2to3 -w w2-s3-av-exo1.py]]
-
-
 s = 'egg, bacon' # dix lettres
 
 print(s[0])
@@ -76,7 +73,7 @@ print('-'*30)
   les animations dans ce sens, même si je comprends que c'est peut-être
   bcp de travail, je me rends pas compte avec ppt, en keynote ça a été simple à faire..
 ]]
-
+[[AL: je verrai si j'ai le temps quand j'aurai tout fini]]
 
 
 

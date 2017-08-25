@@ -22,13 +22,13 @@ for i in range(11):
 ## for puis, on spécifie une variable (x dans notre cas),
 ## l'instruction in, et un itérable. Un itérable est un objet que l'on
 ## peut parcourir avec un boucle for. En particulier les séquence et
-## [[TP: le résultat de ?]] la fonction range() sont itérable. On fini la ligne avec un : ce
-## qui veut dire que l'on va avoir un nouveau bloc d'instruction
-## décalé de 4 caractères vers la droite par rapport au for.  La
-## boucle for va répéter le bloc d'instruction autant fois qu'il y a
-## d'éléments dans la séquence. À la premiere exécution du bloc
-## d'instruction, la variable x référence le premier élément de la
-## séquence et à chaque nouvelle répétition du bloc d'instruction x
+## l'objet retourné par la fonction range() sont itérable. On fini la
+## ligne avec un : ce qui veut dire que l'on va avoir un nouveau bloc
+## d'instruction décalé de 4 caractères vers la droite par rapport au
+## for.  La boucle for va répéter le bloc d'instruction autant fois
+## qu'il y a d'éléments dans la séquence. À la premiere exécution du
+## bloc d'instruction, la variable x référence le premier élément de
+## la séquence et à chaque nouvelle répétition du bloc d'instruction x
 ## référencera l'élément suivant dans la séquence jusqu'au dernier
 ## élément de la séquence.  Lorsqu'il n'y a plus d'élément dans la
 ## séquence on sort de la boucle for, c'est-à dire que l'on continu
@@ -36,7 +36,6 @@ for i in range(11):
 
 ## comme une boucle for fonctionne sur toutes les séquences, on peut
 ## faire une boucle for sur un chaîne de caractères par exemple
-[[TP: ça sert à quoi l'espace ici, ça se voit pas à l'écran, si ?]]
 for i in 'spam':
     print(i + ' ')
     
@@ -97,15 +96,13 @@ carre(data_2)
 ## la valeur de retour d'une fonction peut-être affecté à une variable
 ## de la manière suivante
 
-result = carre(data_1) ## comme carre ne contient pas de return, c'est None qui est retourné.
+result = carre(data_1) ## comme carre ne contient pas de return, c'est
+                       ## None qui est retourné.
 print(result)
 
-[[TP: je propose de faire un peu moins neuneu, car on a déjà tout le bagage pour faire ça comme il faut
-  ce qui permettrait de placer une tirade sur le fait que print ne nous sert que
-  a des fins pedagogiques mais que le vrai code n'utilise pratiquement jamais print,
-  et qu'il vaut bcp mieux pour une fonction retourner une valeur que d'imprimer des trucs 
-  et en plus ça fera une transition pour la vidéo qui vient juste après
-]]
+## en pratique, on fait rarement un print dans une fonction, on va
+## plutôt retourner un objet et affecter le retour de la fonction à
+## une variable.
 
 def carre(data):
     resultat = []

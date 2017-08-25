@@ -35,9 +35,10 @@ mettre ces symboles sous forme de mots qui ont un sens.
 
 [[TP: je trouve cet exemple confusant; ça suggère que le décodage va
 ajouter des espaces !?!
-
 Je serais toi je prendrais plutôt l'exemple d'un .png qui se décode en
 une image, c'est visuel et c'est moins confusant]]
+[[AL: l'exemple d'un PNG ne convient pas dans ce contexte, je veux
+rester avec des exemples liés au texte.]]
 
 [S2]
 
@@ -69,11 +70,11 @@ caractères ASCII
 [S5]
 
 Et pour finir, pour afficher le caractère à l'écran, il faut utiliser
-une police de caratères qui définit un glyphe, c'est-à-dire un
-dessin, qui représente chaque caractère dans le jeux de caractères.
-
-[[TP: je propose de zapper totalement les glyphes; ou alors bien dire
-ici que c'est la première et dernière fois qu'on verra ce mot]]
+une police de caratères qui définit un glyphe, c'est-à-dire un dessin,
+qui représente chaque caractère dans le jeux de caractères. Le choix
+de ce glyphe est fait par un moteur de rendu en fonction de règles
+complexes qui sont orthogonale à notre discussion. Nous n'en parlerons
+plus dans la suite. 
 
 [SB]
 
