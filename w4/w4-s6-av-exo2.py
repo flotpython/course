@@ -4,8 +4,8 @@
 ## de passer des arguments à une fonction.
 
 
-## regardons maintenant la forme *. C'est un nom étrange pour quelque
-## chose de très simple. Regardons un exemple
+## regardons maintenant la forme * qui est liée à la notion de tuple
+## unpacking que nous avons déjà vu. Regardons un exemple
 
 def f(*t):
     print t
@@ -18,8 +18,8 @@ def f(*t):
 f(1, 2, 3, 'a')
 
 ## il nous reste une dernière forme à voir, la forme **.  Ici encore
-## c'est un nom étrange pour quelque chose de simple, regardons alors
-## un exemple...
+## c'est une forme d'unpacking, mais appliquée aux dictionnaires,
+## regardons alors un exemple...
 
 def f(**d):
     print d
@@ -64,7 +64,8 @@ x = [1, 2]
 f(x[0], x[1])
 
 ## mais je peux aussi utiliser une forme * qui permet de passer les
-## éléments d'une séquence comme arguments d'une fonction
+## éléments d'une séquence comme arguments d'une fonction, c'est une
+## forme de sequence unpacking
 
 f(*x)
 
