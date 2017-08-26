@@ -10,6 +10,14 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
+[[TP: j'ai déjà eu l'occasion de le dire, mais je trouve toujours qu'on
+  devrait donner les tous premiers exemples avec des context managers
+  et ensuite décortiquer ce qu'il a derrière
+  j'aurais pour ma part fait une vidéo basique avec juste
+  une écriture et une lecture utilisant un with et un itérateur
+  et ensuite une vidéo plus avancée qui décortique tous ces détails
+  scabreux qui n'intéressent pas trop les débutants ou autres data scientists]]
+
 ## TITRE : Les fichiers
 ## Temp total: Part1 (6m30), Part2 (7m55)
 
@@ -79,6 +87,14 @@ Lorsqu'un programme se termine correctement c'est-à-dire sans planter,
 tous les fichiers non encore fermés sont automatiquement fermés. Par
 contre, si le programme plante, les fichiers peuvent ne pas se fermer
 correctement avec les problèmes que l'on vient de décrire.
+[[TP: ce n'est pas vrai en Unix, et je serais surpris que ce soit vrai
+même en Windows: si un process crashe, on risque certes de perdre du
+contenu mais les fichiers sont fermés, au sens où ils sont libérés et
+ne prennent plus de ressources; Dieu merci parce que sinon on ne
+pourrait plus jamais libérer ces ressources..
+Je te propose de juste supprimer ce paragraphe; ou alors de rephraser
+pour mettre en avant la perte de contenu.
+]]
 
 En résumé, on voit qu'il est très important de fermer les fichiers
 avec close(). Cependant, il est toujours possible d'oublier un close()

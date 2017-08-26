@@ -6,6 +6,8 @@
 
 age = {}
 
+## avec le caractère ':' pour séparer clé et valeur:
+
 age = {'ana':35, 'eve':30, 'bob':38}
 
 ## la deuxième manière est très utile lorsque les couples
@@ -29,6 +31,8 @@ print(age)
 ## manière suivante
 
 print age['ana']
+
+## le dictionnaire est donc un objet mutable:
 age['ana'] = 40
 
 ## je peux ajouter une nouvelle clef ainsi
@@ -76,10 +80,12 @@ list(k)
 
 ## une précaution sur les vue est de ne jamais changer le dictionnaire
 ## pendant que l'on parcours la vue. Le résultat pourrait être
-## inconsistant.
+## inconsistant. [[TP: on en reparlera lorsqu'on étudiera plus en détails la boucle for ?]]
 
 ## pour finir, je vais vous montrer un schema classique en Python
 ## lorsque l'on veut parcourir les clefs et les valeurs en même temps
+
+[[TP: on tire profit ici du 'tuple unpacking' dont on a déjà parlé]]
 
 for k, v in age.items():
     print(f"{k}: {v}")

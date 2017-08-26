@@ -8,6 +8,9 @@
 ## s'imposent. Par exemple, si vous avez besoin d'objets multiples qui
 ## ont tous les mêmes caractéristiques.
 
+[[TP: la classe vide ça n'a pas franchement d'intérêt pratique,
+  je serais toi j'enlèverais carrément, on verra tout ça en semaine 5 ou je sais pas combien ]]
+
 ## créeons un classe C
 
 class C:
@@ -26,6 +29,7 @@ print(C, c1, c2)
 ## Évidement, comme la classe C ne définie aucune méthode, mes
 ## instances c1 et c2, ne font pas grand chose.
 
+[[TP: à partir de ici donc:]]
 ## prenons un exemple un peu plus réaliste. Créons un objet phrase qui
 ## me permet de simplement analyser les mots d'une phrase.
 
@@ -77,10 +81,11 @@ class Phrase:
 
     def __contains__(self, mot):  # mot est une référence vers le mot
                                   # avant in
-        a = []
+        # [[TP: utiliser un ensemble serait plus conforme à tes propres recommandations, non ?]]
+        lowers = set()
         for m in self.mots:
-            a.append(m.lower())
-        return mot.lower() in a
+            lowers.add(m.lower())
+        return mot.lower() in lowers
 
 p = Phrase("je fais un mooc sur Python")
 

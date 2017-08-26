@@ -8,6 +8,7 @@ t = (4,) # tuple avec un seul élément. Attention à la virgule à la fin,
          # Python pense que les parenthèse sont juste pour regrouper des
          # opérations
 print(t)
+
 ## les parenthèses sont facultatives. !! attention ça n'est pas le cas
 ## avec les listes
 

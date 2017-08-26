@@ -37,4 +37,6 @@ Le tuple est un objet proche de la liste, mais immuable. C'est cette
 immuablité qui est recherchée dans certain usage comme les clefs de
 dictionnaires. Nous en reparlerons dans une prochaine vidéo.
 
+[[TP: le résumé doit parler de tuple unpacking]]
+
 À bientôt.

@@ -13,8 +13,10 @@ with open(r"c:\tmp\spam.txt", "r", encoding="utf8") as f: # expliquer
 
 
 ## Dès que l'on sort du bloc de code sous le contexte manager, le
-## fichier est automatiquement fermé même si le programme plante en
-## cours d'exécution dans le bloc de code du context manager. C'est le
+## fichier est automatiquement fermé même si le programme plante
+[[TP: je sais qu'on n'a encore rien dit des exceptions mais il me semble
+  qu'on pourrait mentionner rapidement ici 'ou si une exception se produit' ... ]]
+## en cours d'exécution dans le bloc de code du context manager. C'est le
 ## mécanisme de fermeture des fichiers le plus robuste et c'est celui
 ## qu'il faut utiliser dans votre code.
 
@@ -35,11 +37,17 @@ with open(r"c:\tmp\spam.txt", "r", encoding="utf8") as f: # expliquer
 ## écrire que des chaîne de type bytes. Regardons un exemple.
 
 
-with open(r'C:\tmp\spam.bin', 'bw') as f:# pas d'encodage
+with open(r'C:\tmp\spam.bin', 'bw') as f: # pas d'encodage
     for i in range(100):
         f.write(b"\x3d")  # \x3d est le signe =. attention au b devant la
                           # chaine pour forcer le type bytes
                           # écrit la chaine line dans le fichier 
+
+[[TP: peut-être signaler rapidement ce que ça veut
+  dire d'itérer sur un fichier binaire ouvert en lecture
+  puisque la notion de ligne n'est plus pertinente
+  il semble d'après mes essais que ça coupe toujours l'input
+  en lignes séparées par un \n=10, mouaif..]]
 
 ## Pour résumer, lorsqu'un fichier est ouvert en mode texte, on doit
 ## controller l'encodage et on peut lire ou écrire directement des
