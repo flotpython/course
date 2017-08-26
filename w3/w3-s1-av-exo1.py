@@ -20,7 +20,7 @@
 ## mode r pour lire le fichier et le mode w pour écrire dans le
 ## fichier.
 
-## Regardons, maintenant comment ouvrire un fichier
+## Regardons, maintenant comment justement créer un fichier
 
 f = open(r'C:\tmp\spam.txt', 'w', encoding='utf8') # expliquer chaque
                                                    # argument
@@ -48,10 +48,10 @@ f.close()
                       # less ou cat
 
 
-## Vous remarquez que en dehors de l'ouverture du fichier, à aucun
-## moment on s'est préoccupé de l'encodage. Python a automatiquement
-## encodé nos chaînes de caractères en utf8 au moment de l'écriture,
-## et l'opération inverse sera appliqué lors de la lecture.
+## Vous remarquez qu'une fois le fichier ouvert, on ne s'est plus
+## préoccupé de l'encodage. Python a automatiquement
+## encodé nos chaînes de caractères en utf8 avant de les écrire,
+## et l'opération inverse sera faite lors de la lecture.
 
 ## Regardons maintenant, comment lire le fichier, le modifier et
 ## réécrire dans un autre fichier

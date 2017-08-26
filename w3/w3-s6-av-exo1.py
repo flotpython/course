@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
 
+[[TP: je suis mal à l'aise; 
+je pense qu'il faut parler du fait que les exceptions
+remontent (bubble up) dans la pile jusqu'à être capturées par un except
+et j'aurais plutôt mis ça dans une vidéo que dans les compléments
+à l'inverse les détails sur comment utiliser else: et finally: 
+ça va très bien dans les compléments
+tu en penses quoi ?
+je te fais passer un notebook qui pourrait servir de support
+]]
+
 def div(a, b):
     x = a / b
 
@@ -12,7 +22,7 @@ def div(a, b):
 
 ## prenons quelques instants pour regarder cette exception.
 ## Le message d'erreur indique la ligne qui a produit l'exception,
-## le nom de l'exception ZeroDivisionError et un message d'erreur
+## le nom (en fait le type) de l'exception est ZeroDivisionError et un message d'erreur
 
 ## Heureusement, il est possible de capturer une exception
 ## pour continuer le programme. 
@@ -20,13 +30,13 @@ def div(a, b):
 
 def div(a, b):
     try:
-        x = a/b
+        x = a / b
     except ZeroDivisionError:
         print("Division par 0")
     print('continuons...')
 
 print(div(10, 2))
-print(div(1,0))
+print(div(1, 0))
 
 ## mais maintenant, comment afficher le résultat que s'il
 ## n'y a pas d'exception. On pourrait mettre un print juste
@@ -37,8 +47,8 @@ print(div(1,0))
 
 def div(a, b):
     try:
-        x = a/b
-        print(b/a) #au lieu de faire str(x)
+        x = a / b
+        print(b / a) #au lieu de faire str(x) [[TP: (1) c'est pas plutôt a / b; (2) pourquoi pas print(x) ??]]
     except ZeroDivisionError:
         print("Division par 0")        
     print('continuons...')
@@ -61,7 +71,7 @@ def div(a, b):
     print('continuons...')
     
 div(2, 0)
-div(10,2)
+div(10, 2)
 
 ## Lorsqu'il y a une exception non capturée le programme
 ## s'arrête à la ligne de l'exception. Cependant, il y a des
@@ -107,13 +117,14 @@ div(1, 'b')
 ## générée pour en afficher son contenu.  les informations de
 ## l'exceptions sont toujours stockée dans le tuple args
 
+[[TP: on utilise presque toujours e et pas i..]]
 def div(a, b):
     try:
-        x = a/b
-    except ZeroDivisionError as i:
-        print("Division par 0", i.args)
-    except TypeError as i:
-        print("Il faut des int !", i.args)
+        x = a / b
+    except ZeroDivisionError as e:
+        print("Division par 0", e.args)
+    except TypeError as e:
+        print("Il faut des int !", e.args)
     else:
         print(x)
     finally:
@@ -121,6 +132,7 @@ def div(a, b):
     print('continuons...')
 
 div(1, 'b')
-div(1,0)
+div(1, 0)
 
 ######################## 8 minutes #####################
+
