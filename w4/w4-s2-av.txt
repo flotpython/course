@@ -9,7 +9,7 @@
 ## le slide i
 
 ## TITRE : Les tests if/elif/else et les opérateurs booléens
-## Temp total: 6m30
+## Temp total: 7m00
 
 ## Résumé de la vidéo (15s)
 
@@ -19,7 +19,7 @@ syntaxe de if/else et nous allons couvrir tous les types de tests
 autorisés avec une instruction.
 
 
->>>>>>>>>> W4-S2-AV-slide1.pptx <<<<<<<<<< (6m00s)
+>>>>>>>>>> W4-S2-AV-slide1.pptx <<<<<<<<<< (6m30s)
 
 [s1]
 
@@ -41,59 +41,65 @@ else si tous les tests sont faux.
 
 [s2]
 
-Regardons maintenant ce que l'on peut avoir comme test. Dans un test
-on peut avoir [une comparaison]: > >= < <= == et !=
-(différent). Regardons un exemple...
+Revenons maintenant sur ce qui est autorisé dans un test. On peut
+avoir n'importe quel objet ou expression dans un test. L'interpréteur
+va appeler la fonction built-in bool() sur l'objet ou le résultat de
+l'expression. Si bool() retourne True, le test est validé, sinon, le
+test est faux.
+
+La fonction built-in bool() va en fait demander à l'objet de retourner
+True ou False, en appelant la méthode spéciale __bool__() sur
+l'objet. Si cette méthode n'existe pas sur l'objet, alors la méthode
+__len__() qui retourne le nombre d'éléments dans l'objet est
+appelée. Lorsque __len__() retourne 0 le test est faux, il est vrai
+dans tous les autres cas. La logique derrière l'appel de __len__() est
+qu'un objet vide (de longueur 0) est faux. 
+
+Regardons maintentant quelques exemples non-exhaustifs d'objets et
+d'expression que l'on trouve fréquement dans un if.
+
 
 [s3]
+
+Dans un test on peut avoir un [type built-in] comme une liste, un
+tuple, une chaîne de caractères, un dictionnaire ou un set. Un type
+built-in est faux s'il est vide et vrai sinon. C'est extrêmement utile
+en pratique pour exécuter du code que sur des objets qui ne sont pas
+vides. Plus précisément, Python considère comme faux 0, None et tous
+les autres types built-in vide comme [], {}, () ou '' Regardons un
+exemple...
+
+
+[s4]
+
+Dans un test on peut avoir [une comparaison]: > >= < <= == et !=
+(différent). Regardons un exemple...
+
+
+[s5]
 
 Dans un test on peut avoir [un test d'appartenance] avec l'instruction in
 que l'on connait. Regardons un exemple...
 
-[s4]
-
-Dans un test on peut avoir un [type built-in comme] une liste, un tuple,
-une chaîne de caractères, un dictionnaire ou un set. Ça peut vous
-parraître étrange puisque un type built-in n'est pas un test. En fait,
-il y a en Python une convention implicite qui évalue un type built-in
-à faut s'il est vide et à vrai sinon. C'est extrêmement utile en
-pratique. Plus précisément, Python considère comme faux 0, None et
-tous les autres types built-in vide comme [], {}, () ou ''
-Regardons un exemple...
-
-[s5]
-
-Dans un test, je peux avoir [un retour de fonction]. La fonction peut
-soit retourner un [booléen] ou un [type built-in]. Regardons un exemple...
-isdecimal() retourne vrai que si la chaîne de caractère contient un
-nombre décimal.
 
 [s6]
 
-Dans un test, je peux avoir un opérateur de test booléen qui sont and,
-or, not.
+Dans un test, je peux avoir [un retour de fonction]. On évalue l'objet
+retourné par la fonction qui peut-être un booléen ou un type built-in
+ou n'importe quel autre objet. Regardons un exemple...  isdecimal()
+retourne vrai que si la chaîne de caractère contient un nombre
+décimal.
+
+
+[s7]
+
+Je peux combiner plusieurs tests avec un opérateur de test booléen qui
+est and, or, not. Dans la suite A et B sont des tests, donc un objet
+ou une expression
+
 [A and B]
 [A or B]
 [not A]
-
-[[TP: je suis pas très à l'aise avec cette liste, pour deux raisons
-
-(1) on insiste lourdement sur la différence entre booléens et types
-    built-in; on parle pas du tout des instances, ni de tous les
-    objets modules/packages/exceptions etc, qui semblent du coup être
-    exclus du scope, alors que bien sûr
-(2) il y a pareil toute une famille d'opérateurs et de constructions
-    dont tu ne parles pas et qui du coup semblent exclues:
-    l'opérateur 'is',
-    tous les opérateurs arithmétiques par exemple
-    la référence à un attribut;
-
-j'aurais proposé qu'on profite de la vidéo plutôt pour introduire la
-  notion d'expression, la ménanique générale qui consiste à évaluer
-  l'expression et à traduire le résultat en booléen, et à donner
-  ensuite seulement quelques exemples d'expressions (ta liste) en
-  disant bien que ce n'est pas exhaustif.
-]]
 
 Regardons un exemple...
 Vous pouvez remarquer ici que Python est très proche du langage

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-## Regardons les deux dernières manières de déclarer des arguments et
+## Regardons les deux dernières manières de déclarer des paramètres et
 ## de passer des arguments à une fonction.
 
 
@@ -12,8 +12,9 @@ def f(*t):
 
 ## le nom "t" est juste un nom de variable, on peut prendre n'importe
 ## quel nom seul l'étoile est importante. Avec cette maniere de
-## déclarer les arguments, on peut passer un nombre quelconque d'arguments,
-## qui seront mis dans un tuple référencé par la variable "t".
+## déclarer un paramètre, on peut passer un nombre quelconque
+## d'arguments, qui seront mis dans un tuple référencé par la variable
+## "t".
 
 f(1, 2, 3, 'a')
 
@@ -25,22 +26,17 @@ def f(**d):
     print d
 
 ## Ici aussi, "d" est juste un nom de variable, seule la double * est
-## importante. Avec cette déclaration d'arguments, on pourra appeler
-## notre fonction avec n'importe quel nomnbre d'arguments nommés
-## et ces arguments seront mis dans un dictionnaire avec pour clef le nom de l'argument et
-## pour valeur l'argument passé.
+## importante. Avec cette déclaration de paramètres, on pourra appeler
+## notre fonction avec n'importe quel nombre d'arguments nommés et ces
+## arguments seront mis dans un dictionnaire avec pour clef le nom de
+## l'argument et pour valeur l'argument passé.
 
 f(nom='idle', prenom='eric', tel='0720202020')
 
-## On peut combiner les 4 déclarations d'arguments, mais toujours dans
-## l'ordre suivant arguments ordonnés, arguments par défaut, forme *,
-## forme **. Cependant, il ne faut pas que ça nuise à la clareté,
-## c'est pourquoi on recommande d'éviter de mélanger plus de deux
-## manières.
-## [[TP: attention, ce n'est plus vrai:
-## https://www.python.org/dev/peps/pep-3102/
-## on peut mettre des arguments nommés après le *varargs
-## ils deviennent alors des arguments qu'on *doit* nommer lors de l'appel]]
+## On peut combiner les 4 déclarations d'arguments, cependant, il ne
+## faut pas que ça nuise à la clareté, c'est pourquoi on recommande
+## d'éviter de mélanger plus de deux manières. Vous verrez dans les
+## compléments les règles à suivre pour mélanger ces arguments. 
 
 ## Vous pouvez vous demander dans quel cas on souhaite avoir une
 ## fonction qui accepte un nombre quelconque d'arguments. Un exemple
@@ -53,8 +49,8 @@ print?
 ## flush
 
 
-## Pour finir, il nous reste encore à voir deux manière
-## d'appeler une fonction. Regardons un exemple
+## Pour finir, il nous reste encore à voir deux manière de passer des
+## arguments lors de l'appel d'une fonction. Regardons un exemple
 
 def f(a, b):
     print(a, b)
@@ -73,11 +69,6 @@ f(x[0], x[1])
 
 f(*x)
 
-## TP:
-## tu pourrais montrer que dans ce sens-là on peut mettre plusieurs
-## varargs
-f(*x, *x)
-
 ## Supposons, maintenant que j'ai mes arguments dans un
 ## dictionnaire
 d = {'a' : 1, 'b' : 2}
@@ -85,7 +76,7 @@ d = {'a' : 1, 'b' : 2}
 ## je peux utiliser ce dictionnaire pour passer des arguments
 ## nommés à ma fonction avec une forme **, il faut évidement
 ## que chaque clef du dictionnaire corresponde au nom d'un
-## argument de la fonction
+## paramètre de la fonction
 
 f(**d)
 
@@ -106,13 +97,13 @@ print(*phrase, **pp)
 ## donner une idée de cela. Imaginez que je veuille créer une fonction
 ## qui s'appelle comme la fonction print, mais qui affiche une ligne
 ## de dièse, puis appelle print, puis affiche une ligne de dièse. La
-## difficulté ici est d'écrire une fonction qui a la même signature
+## difficulté ici est d'écrire une fonction qui a les mêmes paramètres 
 ## que print. La bonne solution est d'écrire un wrapper qui prend
 ## comme argument une forme * et **. Comme la forme * accepte
 ## n'importe quel argument ordonnés et que la forme ** accepte
 ## n'importes quels arguments nommés, notre wrapper va accepter
 ## n'importe quelle liste d'argument ordonnés et nommés, donc
-## n'importe quelle signature.
+## n'importe quelle définition de paramètres.
 
 
 def my_print(*t, **d):

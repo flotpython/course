@@ -10,18 +10,19 @@
 ## le slide i
 
 ## TITRE : Passage d'arguments et appel de fonctions
-## Temp total: 16m40 (en 2 parties)
+## Temp total: 16m50 (en 2 parties)
 
 [[TP: pour cette discussion, il serait bien d'adopter la terminologie
 qui semble standard - pour bien sous-titrer selon qu'on s'intéresse à
 une déclaration ou à un appel de fonction:
 paramètres: les noms de variables qui apparaissent dans la signature
 arguments: les objets effectivement évalués avant l'appel effectif
-liaison: le processus qui fait que les paramètres référencent les arguments dans le bon ordre
+liaison: le processus qui fait que les paramètres référencent les
+arguments dans le bon ordre 
 ]]
 
 
-## Résumé de la vidéo (50 secondes)
+## Résumé de la vidéo (1m10 secondes)
 
 Nous avons couvert les caractéristiques les plus importantes
 des fonctions. Vous savez maintenant déclarer une fonction et
@@ -29,15 +30,26 @@ retourner un résultat, vous avez compris les notions de portée de
 variable, vous connaissez la règle LEGB, et vous savez modifier la
 portée d'une variable avec global et nonlocal.
 
-Vous savez également passer des arguments à une fonction, mais il y a
-4 manières différentes de déclarer des arguments dans une fonction,
-c'est-à-dire sa signature, et 4 manières différentes de
-passer des arguments à une fonction. Ces différentes manières ne sont
-pas là pour ajouter de la complexité, mais pour vous simplifier la vie
-dans certains cas concrets et fréquents d'utilisation des fonctions.
+Avant d'aller plus loin, faisons un point sur la terminologie que
+j'utiliserai dans la suite.
+
+>>>>>>>>>> W4-S6-AV-slide1.pptx <<<<<<<<<<
+
+Lorsque l'on définit [une fonction], les variables définies dans
+l'entête de la fonction (ici a et b) s'appellent les paramètres de la
+fonction. Lorsque [j'appelle une fonction], les variables que je passe
+lors de l'appelle (ici x et y) sont les arguments de la fonction. 
+
+Nous avons déjà vu comment définir les paramètres d'une fonction et
+comment passer des arguments à une fonction. Mais il y a en fait 4
+manières différentes de déclarer les paramètres d'une fonction, et 4
+manières différentes de passer des arguments à une fonction. Ces
+différentes manières ne sont pas là pour ajouter de la complexité,
+mais pour vous simplifier la vie dans certains cas concrets et
+fréquents d'utilisation des fonctions.
 
 Nous allons voir dans cette vidéo ces différentes manières de déclarer
-des arguments et de passer des arguments à une fonction ainsi que
+les paramètres de passer des arguments à une fonction ainsi que
 quelques applications pratiques.  Ouvrons IDLE pour jouer avec les
 arguments d'une fonction...
 

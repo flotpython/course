@@ -109,9 +109,14 @@ Plan général du MOOC sur Python 3
 
 **Thème de la semaine**: asyncio
 
+(AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads,
+le GIL et le multiprocess)
+
 * W9-S0: Présentation de la neuvième semaine
-* W9-S1: co-routines
-* W9-S2: asyncio
+* W9-S1: Threads 
+* W9-S2: multiprocess
+* W9-S3: co-routines
+* W9-S4: asyncio
 
 ## Week 10
 

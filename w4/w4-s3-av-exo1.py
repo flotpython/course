@@ -12,9 +12,11 @@
 ## bloc d'instruction sous le while, lorsque le
 ## test est faux, on sort du while. 
 
+## commençons par créer une liste de 9 entiers allant de 1 à 9. On
+## utilise pour cela range(1, 10) qui retourne un objet de type range,
+## puis pour obtenir une liste on caste cet objet dans list()
+
 a = list(range(1, 10))
-[[TP: cette construction mérite quelques mots d'explication 
-  bien entendu car on n'a pas encore vu les itérateurs et ces choses-là]]
 
 while a:
     a.pop()

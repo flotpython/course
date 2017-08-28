@@ -135,15 +135,11 @@ a de g
 a global
 
 
-## nonlocal a quelques restrictions que nous verrons dans les
-## compléments, notamment nonlocal ne peut pas être utilisé pour
-## modifier une variable global, donc une variable nonlocal doit
-## obligatoirement être définie dans une fonction englobante. Une
-## variable ne peut pas être à la fois dans l'entête d'une fonction et
-## définie nonlocal dans cette fonction.
-[[TP: je suis pas du tout sûr de faire un complément là dessus,
-  à mon avis c'est largement suffisant de dire que ça existe 
-  et qu'il faut pas s'en servir]]
+## nonlocal a quelques restrictions, notamment nonlocal ne peut pas
+## être utilisé pour modifier une variable global, donc une variable
+## nonlocal doit obligatoirement être définie dans une fonction
+## englobante. Une variable ne peut pas être à la fois dans l'entête
+## d'une fonction et définie nonlocal dans cette fonction.
 
 ## nonlocal favorise comme global les modifications implicite, mais
 ## elle trouve quelques usages importants dans des concepts avancés
