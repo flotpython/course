@@ -156,6 +156,7 @@ NIVEAU: BASIC
    * Parler de https://www.python.org/dev/peps/pep-3102/ pour mettre
    des arguments nommés après le *varargs et qu'ils deviennent alors
    des arguments qu'on *doit* nommer lors de l'appel
+   * parler des ordres des arguments et des ordres des paramètres
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-passage-arguments.ipynb
