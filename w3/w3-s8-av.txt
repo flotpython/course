@@ -43,14 +43,7 @@ Dans cette vidéo nous allons rapidement présenter comment créer vos
 classes et vos instances. Il ne s'agit que d'une rapide introduction
 pous vous faire toucher du doigt ces notions. Si vous trouvez ce sujet
 difficile ou que vous souhaitez plus de détails, n'ayez pas
-d'inquiétude, il s'agit effectivement d'un sujet difficile sur lequel
-nous reviendrons largement dans de prochaines vidéos.
-[[TP: je suis pas trop d'accord pour dire que c'est difficile;
-je propose:
-Si vous trouvez ce sujet
-difficile ou que vous souhaitez plus de détails, n'ayez pas
-d'inquiétude, nous y reviendrons largement dans les semaines à venir
-]]
+d'inquiétude, nous y reviendrons largement dans de prochaines vidéos.
 
 Ouvrons un éditeur IDLE pour commencer à jouer avec les classes et les
 instances.

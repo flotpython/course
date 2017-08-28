@@ -10,7 +10,8 @@ s = set()
 s = {1, 2, 3, 4, 4, 4, 5} # noter que ça ne garde que les éléments
                           # uniques
 
-## [[TP: attention, une erreur fréquente: souvenez vous que {} retourne un dictionnaire]]
+## Attention cependant que les accolades vides crées un dictionnaire
+## vide et non un set vide. 
 
 ## on peut également passer une liste ou un tuple comme argument de la fonction
 ## set
@@ -81,11 +82,9 @@ s = set(a)
 
 ## En résumé quelque soit le nombre d'élément dans votre set il faudra
 ## de l'ordre de 40 ns (sur ma machine) pour faire un test
-## d'appartenance, il faudra de l'ordre de 40ns fois le nombre
-## d'élément pour faire le même test sur une liste.
-## [[TP: je te conseille de rephraser un peu;
-     il n'y a a priori pas de rapport entre le coût de la fonction de hash (les 40ns pour le set)
-     et le coût de comparaison entre deux objets (les 40ns pour la liste) ]]     
+## d'appartenance. Le même test d'appartenance sur une liste sera
+## égale au temps d'accès d'un élément dans la liste, soit de l'ordre
+## de 40 ns également, fois le nombre d'élément dans la liste. 
 
 a = list(range(100))
 s = set(a)

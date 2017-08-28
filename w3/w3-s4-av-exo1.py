@@ -6,7 +6,7 @@
 
 age = {}
 
-## avec le caractère ':' pour séparer clé et valeur:
+## et avec le caractère ':' pour séparer clé et valeur:
 
 age = {'ana':35, 'eve':30, 'bob':38}
 
@@ -32,7 +32,8 @@ print(age)
 
 print age['ana']
 
-## le dictionnaire est donc un objet mutable:
+## le dictionnaire est un objet mutable que l'on peut modifier en
+## place
 age['ana'] = 40
 
 ## je peux ajouter une nouvelle clef ainsi
@@ -80,12 +81,12 @@ list(k)
 
 ## une précaution sur les vue est de ne jamais changer le dictionnaire
 ## pendant que l'on parcours la vue. Le résultat pourrait être
-## inconsistant. [[TP: on en reparlera lorsqu'on étudiera plus en détails la boucle for ?]]
+## inconsistant. On en reparlera lorsqu'on étudiera plus en détails
+## les notions d'itérables et d'itérateurs.
 
 ## pour finir, je vais vous montrer un schema classique en Python
 ## lorsque l'on veut parcourir les clefs et les valeurs en même temps
-
-[[TP: on tire profit ici du 'tuple unpacking' dont on a déjà parlé]]
+## en exploitant la notion de tuple unpacking
 
 for k, v in age.items():
     print(f"{k}: {v}")

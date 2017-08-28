@@ -31,12 +31,14 @@ Ouvrons un terminal interactif pour jouer avec les tuples.
 
 >>>>>>>>>> INCLUDE W3-S2-AV-exo1.py  <<<<<<<<<<
 
-## Résumé de la vidéo (1 minute)
+## Résumé de la vidéo (30 minute)
+
 
 Le tuple est un objet proche de la liste, mais immuable. C'est cette
 immuablité qui est recherchée dans certain usage comme les clefs de
-dictionnaires. Nous en reparlerons dans une prochaine vidéo.
-
-[[TP: le résumé doit parler de tuple unpacking]]
+dictionnaires dont nous reparlerons bientôt. Nous avons également vu
+la notion de tuple unpacking qui permet, sans manipuler d'indices, de
+faire des affectations mutliples à partir d'une séquence. C'est une
+syntaxe puissante dont nous reparlerons dans la suite. 
 
 À bientôt.

@@ -101,6 +101,9 @@ NIVEAU: BASIC
    * faire un complément sur les objets hashable.  Partir de
      https://docs.python.org/3.6/glossary.html#term-hashable est de la
      fonction built-in hash
+   * parler des ordereddict
+   * est-ce que ça vaut le coup de parler de ça :
+     https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation 
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * Complement-dictionnaires.ipynb - recapitulatif sur comment

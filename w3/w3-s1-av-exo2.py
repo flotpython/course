@@ -13,12 +13,11 @@ with open(r"c:\tmp\spam.txt", "r", encoding="utf8") as f: # expliquer
 
 
 ## Dès que l'on sort du bloc de code sous le contexte manager, le
-## fichier est automatiquement fermé même si le programme plante
-[[TP: je sais qu'on n'a encore rien dit des exceptions mais il me semble
-  qu'on pourrait mentionner rapidement ici 'ou si une exception se produit' ... ]]
-## en cours d'exécution dans le bloc de code du context manager. C'est le
-## mécanisme de fermeture des fichiers le plus robuste et c'est celui
-## qu'il faut utiliser dans votre code.
+## fichier est automatiquement fermé même si on sort à cause d'une
+## exception, c'est-à-dire, d'une erreur d'exécution qui produit
+## l'arrêt du programme dans le bloc de code du context manager. C'est
+## le mécanisme de fermeture des fichiers le plus robuste et c'est
+## celui qu'il faut utiliser dans votre code.
 
 
 
@@ -48,10 +47,15 @@ with open(r'C:\tmp\spam.bin', 'bw') as f: # pas d'encodage
   puisque la notion de ligne n'est plus pertinente
   il semble d'après mes essais que ça coupe toujours l'input
   en lignes séparées par un \n=10, mouaif..]]
-
-## Pour résumer, lorsqu'un fichier est ouvert en mode texte, on doit
-## controller l'encodage et on peut lire ou écrire directement des
-## chaines de type str. Quand le fichier est ouvert en mode binaire,
-## il n'y a pas d'encodage et on lit ou écrit directement des chaines
-## de type bytes.
-
+[[AL: je n'ai pas vérifié, mais effectivement si on itère comme tu le
+dis, c'est un peu merdique et pour moi plus un effet de bord d'un
+choix d'implémentation que un comportement souhaité. Je propose de
+  discuter plutôt de ça dans un complément]]
+  
+  ## Pour résumer, lorsqu'un fichier est ouvert en mode texte, on doit
+  ## controller l'encodage et on peut lire ou écrire directement des
+  ## chaines de type str. Quand le fichier est ouvert en mode binaire,
+  ## il n'y a pas d'encodage et on lit ou écrit directement des chaines
+  ## de type bytes.
+  
+  

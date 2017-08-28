@@ -16,7 +16,15 @@
   j'aurais pour ma part fait une vidéo basique avec juste
   une écriture et une lecture utilisant un with et un itérateur
   et ensuite une vidéo plus avancée qui décortique tous ces détails
-  scabreux qui n'intéressent pas trop les débutants ou autres data scientists]]
+  scabreux qui n'intéressent pas trop les débutants ou autres data
+  scientists]]
+[[AL: je comprends ton angle, mais je pense aussi que pour un
+  débutant, un context manager c'est une syntaxe à apprendre et encore
+  un bloc de code, ce qui avec un if et un for peu commencer à faire
+  beaucoup d'indentation. Comme le débutant se rendra bien compte que
+  sans context manager ça fonctionne il risque de se dire que le close
+  ne sert finalement à rien. En expliquant d'abord la motivation, ça
+  me permet de dire à la fin, utilisez le context manager]]
 
 ## TITRE : Les fichiers
 ## Temp total: Part1 (6m30), Part2 (7m55)
@@ -82,19 +90,6 @@ abuser de flush qui ne doit être utilisé que si l'écriture synchrone
 est nécessaire au fonctionnement correct du programme.  En effet, en
 utilisant flush, on contourne les optimisations du système
 d'exploitation.
-
-Lorsqu'un programme se termine correctement c'est-à-dire sans planter,
-tous les fichiers non encore fermés sont automatiquement fermés. Par
-contre, si le programme plante, les fichiers peuvent ne pas se fermer
-correctement avec les problèmes que l'on vient de décrire.
-[[TP: ce n'est pas vrai en Unix, et je serais surpris que ce soit vrai
-même en Windows: si un process crashe, on risque certes de perdre du
-contenu mais les fichiers sont fermés, au sens où ils sont libérés et
-ne prennent plus de ressources; Dieu merci parce que sinon on ne
-pourrait plus jamais libérer ces ressources..
-Je te propose de juste supprimer ce paragraphe; ou alors de rephraser
-pour mettre en avant la perte de contenu.
-]]
 
 En résumé, on voit qu'il est très important de fermer les fichiers
 avec close(). Cependant, il est toujours possible d'oublier un close()

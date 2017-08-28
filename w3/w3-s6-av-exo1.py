@@ -10,6 +10,10 @@ tu en penses quoi ?
 je te fais passer un notebook qui pourrait servir de support
 ]]
 
+[[AL: je laisse ça en attente pour le moment, je suis d'accord sur le
+  principe, mais je vais vois si j'ai le temp parce que ça me fait 
+refaire entierement cette vidéo]]
+
 def div(a, b):
     x = a / b
 
@@ -45,10 +49,14 @@ print(div(1, 0))
 ## Cependant, l'instruction print pourrait elle même générer
 ## une exception qui serait capturée par erreur.
 
+[[TP: (1) c'est pas plutôt a / b; (2) pourquoi pas print(x) ??]
+[[AL: non, c'est pour montrer une erreur d'implémentation print(b/a) 
+qui conduit a une exception mal capturée]]
+
 def div(a, b):
     try:
         x = a / b
-        print(b / a) #au lieu de faire str(x) [[TP: (1) c'est pas plutôt a / b; (2) pourquoi pas print(x) ??]]
+        print(b / a) #au lieu de faire str(x) 
     except ZeroDivisionError:
         print("Division par 0")        
     print('continuons...')
@@ -117,7 +125,6 @@ div(1, 'b')
 ## générée pour en afficher son contenu.  les informations de
 ## l'exceptions sont toujours stockée dans le tuple args
 
-[[TP: on utilise presque toujours e et pas i..]]
 def div(a, b):
     try:
         x = a / b

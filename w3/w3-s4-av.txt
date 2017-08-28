@@ -17,37 +17,25 @@
 ## Résumé de la vidéo (1m00s)
 
 Dans cette vidéo nous allons voir comment utiliser les dictionnaires
-en Python. Un dictionnaire est une table de hash qui prend comme clef
-n'importe quel objet hashable et comme valeur n'importe quel
-objet. 
+en Python. Un dictionnaire est une table de hash qui peut être vu
+comme un ensemble non ordonné de couples (clef, valeur) où toutes les
+clefs sont uniques. Le dictionnaire est optimisé pour l'accès aux
+clefs dont la performance est idépendante du nombre de clefs. De plus,
+le dictionnaire est un type mutable, c'est-à-dire qu'on peut le
+modifier en place, c'est donc une structure de données souple et
+puissante.
 
-[[TP: ouh là !!!
- il faudrait quand même commencer par dire à quoi ça sert ce truc, non
- ?
- je propose de dire dans l'ordre
- * que c'est une association clé - valeur
- * à accès rapide (parce que c'est une table de hash)
- * que c'est mutable
- * qu'on perd l'ordre des clés
- * les circonlocutions sur les objets hashables sont d'ordre 2 ou 3 par
- rapport à tout ça; j'en parlerais même pas dans l'intro, et en tous
- cas pas en premier comme ça...]]
-
-Qu'est-ce qu'un objet hashable, c'est un objet qui peut être passé à
-une fonction de hash. Chez les types built-in tous les immuables sont
-hashables et tous les mutables ne sont pas hashable. L'intuition
-derrière est que comme la fonction de hash fait un calcul sur l'objet
-et que pour un même objet, elle doit toujours donner la même case dans
-le tableau, cet objet ne peut pas changer de valeur en cours
-d'exécution.  Donc une clef en Python peut-être, par exemple, un type
-numérique, une chaîne de caractères, ou un tuple d'immuable.
-
-Il n'y a pas de notion d'ordre dans un dictionnaire, on peut donc le
-voir comme une collection non ordonnée de couples (clef, valeur).
-[[TP: dire que c'est une conséquence de l'implémentation comme table
-de hash qu'on a vue dans la vidéo précédente ?]] Le
-dictionnaire est par contre un type mutable, c'est-à-dire qu'on peut
-le modifier en place.
+Comme un dictionnaire est implémenté comme une table de hash, seul
+les objets hashables peuvent être utilisés comme clef d'un
+dictionnaire.  Qu'est-ce qu'un objet hashable, c'est un objet
+qui peut être passé à une fonction de hash. Chez les types built-in
+tous les immuables sont hashables et tous les mutables ne sont pas
+hashable. L'intuition derrière est que comme la fonction de hash fait
+un calcul sur l'objet et que pour un même objet, elle doit toujours
+donner la même case dans le tableau, cet objet ne peut pas changer de
+valeur en cours d'exécution.  Donc une clef en Python peut-être, par
+exemple, un type numérique, une chaîne de caractères, ou un tuple
+d'immuable.
 
 Les dictionnaires sont des objets très puissants qui permettent de
 faire facilement certaines taches qui sont avec d'autres langages
@@ -64,10 +52,7 @@ nouveau type puissant qui permet de créer un agenda ou un annuaire en
 seulement quelques lignes de code et nous avons vu le concept de vue.
 Les dictionnaires sont également optimisés pour la recherche de clef,
 c'est donc le type à utiliser lorsque vous avez besoin de performance
-pour la recherche d'éléments.
-
-[[TP: ici peut-être on peut alors glisser une phrase très vite
-  sur le fait que c'est au prix d'une petite restriction, i.e.
-  qu'on ne peut pas utiliser n'importe quel objet comme clé]]
+pour la recherche d'éléments, avec la resctriction que vos clefs
+doivent nécessairement être des objets hashables.
 
 À bientôt

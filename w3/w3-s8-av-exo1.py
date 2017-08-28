@@ -9,7 +9,13 @@
 ## ont tous les mêmes caractéristiques.
 
 [[TP: la classe vide ça n'a pas franchement d'intérêt pratique,
-  je serais toi j'enlèverais carrément, on verra tout ça en semaine 5 ou je sais pas combien ]]
+  je serais toi j'enlèverais carrément, on verra tout ça en semaine 5 ou je sais pas
+combien ]]
+
+ [[AL: ça n'a effectivement aucun intérêt
+  pratique, mais ça me permet de commencer doucement sur la notion
+  d'instance sans perturber l'auditeur avec les méthodes spéciales et
+  la notion de self]]
 
 ## créeons un classe C
 
@@ -29,7 +35,6 @@ print(C, c1, c2)
 ## Évidement, comme la classe C ne définie aucune méthode, mes
 ## instances c1 et c2, ne font pas grand chose.
 
-[[TP: à partir de ici donc:]]
 ## prenons un exemple un peu plus réaliste. Créons un objet phrase qui
 ## me permet de simplement analyser les mots d'une phrase.
 
@@ -71,21 +76,17 @@ len(p)
 ## Pour finir implémentons le test d'appartenance qui ne prend pas en
 ## compte la casse des mots
 
-
 class Phrase:
     def __init__(self, phrase):
         self.mots = phrase.split()
+        self.mots_lowers = set([m.lower() for m in self.mots])
 
     def __len__(self):
         return len(self.mots)
 
     def __contains__(self, mot):  # mot est une référence vers le mot
                                   # avant in
-        # [[TP: utiliser un ensemble serait plus conforme à tes propres recommandations, non ?]]
-        lowers = set()
-        for m in self.mots:
-            lowers.add(m.lower())
-        return mot.lower() in lowers
+        return mot.lower() in self.mots_lowers
 
 p = Phrase("je fais un mooc sur Python")
 
