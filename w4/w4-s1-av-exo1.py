@@ -9,7 +9,7 @@
 def f(a, b, c):
     print(a, b, c)
 
-f(1,2,3)
+f(1, 2, 3)
 
 ## En Python tout est un objet. Une fonction est donc un objet
 ## et le nom de la fonction n'est qu'une variable référençant
@@ -17,7 +17,7 @@ f(1,2,3)
 ## en affectant l'objet à une nouvelle variable
 
 g = f
-g(1,2,3)
+g(1, 2, 3)
 
 ############################# 1m00s ##########################
 
@@ -118,8 +118,8 @@ def my_add(a, b):
     print "j'ajoute", a, "et", b
     return a + b
 
-my_add(1,2)
-my_add(1.5,2.3)
+my_add(1, 2)
+my_add(1.5, 2.3)
 my_add('spam', 'good')
 my_add([1], [2])
 

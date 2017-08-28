@@ -20,7 +20,9 @@
 
 Nous avons déjà parlé de la notion de blocs de code. Un [bloc de code]
 est un ensemble de lignes de code contigues qui ont la même
-indendation et qui sont précédée par un ":". Après chaque if, chaque
+indendation et qui sont précédée par un ":". [[TP: attention ce n'est
+pas cas pour le bloc de code 'global', pas de ':' ici]]
+Après chaque if, chaque
 for ou chaque fonction j'ai un bloc de code.
 
 [s2]
@@ -51,11 +53,15 @@ porté locale ou globale.
 Une variable définie dans le bloc de code d'une fonction sera une
 variable locale au bloc de code de cette fonction. Elle ne pourra pas
 être accédée en dehors de ce bloc de code. Elle sera créée à l'appel
-de la fonction et détruire lorsque la fonction retourne. Notons qu'une
+de la fonction et détruite lorsque la fonction retourne. Notons qu'une
 variable définie dans l'entête de la fonction est également une
 variable locale à cette fonction. 
 
 Une variable qui n'est définie dans aucun bloc de code de fonctions
+[[TP: cette façon de dire sous-entend
+qu'une variable non déclarée devient automatiquement globale;
+je te propose plutôt 'une variable définie en dehors de toute
+fonction']]
 sera une variable globale, elle sera accessible n'importe où dans le
 module où est définie cette variable.
 
@@ -64,16 +70,16 @@ fonction, sinon elle est globale.
 
 Il y a ici une subtilité importante. Une variable globale est visible
 dans tout le module dans lequel elle est défini. Il n'y a rien de plus
-visible ou accessible qu'une variable globale. Cela veut donc dire
+visible ou accessible qu'une variable globale. Mais notez bien 
 qu'une variable définie dans un module ne peut pas être directement
-vue dans un autre module. Par conséquent, deux variables de même nom
-dans deux modules différents seront totalement indépendantes. Ce
+vue dans un autre module. De cette façon, deux variables de même nom
+dans deux modules différents peuvent coexiter tout en étant totalement indépendantes. Ce
 mécanisme d'isolation que l'on appelle espace de nommage est une des
-grandes forces de Python et nous reviendrons largement dessus de de
+grandes forces de Python et nous reviendrons largement dessus dans de
 prochaines vidéo en expliquant notamment comment accéder aux variables
 définies dans un autre espace de nommage.
 
-En résumé, il y a donc deux mécanismes très différents qui entre jeux
+En résumé, il y a donc deux mécanismes très différents qui entre en jeux
 lorsqu'on veut accéder à une variable. Si on veut accéder à une
 variable qui est définie dans le même module (qu'elle soit locale ou
 globale), c'est le mécanisme de portée des variables qui entre en

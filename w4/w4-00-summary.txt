@@ -16,7 +16,6 @@ NIVEAU: BASIC
    * Complement-docstring.ipynb
    * Complement-fonction-isinstance.ipynb
    * W4-S5-C1-arg-reference.ipynb
-   * DROPPED cas pratique de plusieurs return - TP: on en fait à longueur d'exemples ça non ?
 
 
 ## Quizz Vidéo 1

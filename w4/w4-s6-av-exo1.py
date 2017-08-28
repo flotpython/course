@@ -16,7 +16,7 @@ print(d)
 ## l'ordre des arguments. Lorsqu'il y a beaucoup d'arguments et que le
 ## nom des arguments est bien choisi il est plus facile de se souvenir
 ## du nom des arguments que de leur ordre. C'est pourquoi, il est
-## possible d'appeler une fonction en plaçant les arguemnts dans un
+## possible d'appeler une fonction en plaçant les arguments dans un
 ## ordre quelconque du moments qu'on les nomme
 
 d = agenda(tel='0720202020', nom='idle', prenom='eric')

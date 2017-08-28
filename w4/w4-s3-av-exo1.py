@@ -13,6 +13,9 @@
 ## test est faux, on sort du while. 
 
 a = list(range(1, 10))
+[[TP: cette construction mérite quelques mots d'explication 
+  bien entendu car on n'a pas encore vu les itérateurs et ces choses-là]]
+
 while a:
     a.pop()
     print(a)

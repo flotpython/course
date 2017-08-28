@@ -15,7 +15,7 @@
 ## Résumé de la vidéo (40s)
 
 Nous avons vu dans une précédente vidéo la notion de portée de
-variables et la règle LEGB qui est appliqée lorsque je référence une
+variables et la règle LEGB qui est appliquée lorsque je référence une
 variable. On a vu également que lorsque l'on affectait une variable
 dans une fonction, cette variable devenait locale à la fonction. Mais
 alors comment peut-on modifier une variable globale depuis une

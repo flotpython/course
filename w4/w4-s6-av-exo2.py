@@ -12,8 +12,8 @@ def f(*t):
 
 ## le nom "t" est juste un nom de variable, on peut prendre n'importe
 ## quel nom seul l'étoile est importante. Avec cette maniere de
-## déclarer les arguments, on peut passer une liste quelconque qui
-## sera mise dans un tuple référencé par la variable "t".
+## déclarer les arguments, on peut passer un nombre quelconque d'arguments,
+## qui seront mis dans un tuple référencé par la variable "t".
 
 f(1, 2, 3, 'a')
 
@@ -26,8 +26,8 @@ def f(**d):
 
 ## Ici aussi, "d" est juste un nom de variable, seule la double * est
 ## importante. Avec cette déclaration d'arguments, on pourra appeler
-## notre fonction avec des arguments nommés et ces arguments seront
-## mis dans un dictionnaire avec pour clef le nom de l'argument et
+## notre fonction avec n'importe quel nomnbre d'arguments nommés
+## et ces arguments seront mis dans un dictionnaire avec pour clef le nom de l'argument et
 ## pour valeur l'argument passé.
 
 f(nom='idle', prenom='eric', tel='0720202020')
@@ -37,6 +37,10 @@ f(nom='idle', prenom='eric', tel='0720202020')
 ## forme **. Cependant, il ne faut pas que ça nuise à la clareté,
 ## c'est pourquoi on recommande d'éviter de mélanger plus de deux
 ## manières.
+## [[TP: attention, ce n'est plus vrai:
+## https://www.python.org/dev/peps/pep-3102/
+## on peut mettre des arguments nommés après le *varargs
+## ils deviennent alors des arguments qu'on *doit* nommer lors de l'appel]]
 
 ## Vous pouvez vous demander dans quel cas on souhaite avoir une
 ## fonction qui accepte un nombre quelconque d'arguments. Un exemple
@@ -45,7 +49,7 @@ f(nom='idle', prenom='eric', tel='0720202020')
 print?
 
 ## print accepte un nombre quelconque d'argument à afficher, on a donc
-## une forme *t, et quelques arguments par défauts : sep, end, file et
+## une forme *t, et quelques paramètres nommés : sep, end, file et
 ## flush
 
 
@@ -68,6 +72,11 @@ f(x[0], x[1])
 ## forme de sequence unpacking
 
 f(*x)
+
+## TP:
+## tu pourrais montrer que dans ce sens-là on peut mettre plusieurs
+## varargs
+f(*x, *x)
 
 ## Supposons, maintenant que j'ai mes arguments dans un
 ## dictionnaire

@@ -12,6 +12,13 @@
 ## TITRE : Passage d'arguments et appel de fonctions
 ## Temp total: 16m40 (en 2 parties)
 
+[[TP: pour cette discussion, il serait bien d'adopter la terminologie
+qui semble standard - pour bien sous-titrer selon qu'on s'intéresse à
+une déclaration ou à un appel de fonction:
+paramètres: les noms de variables qui apparaissent dans la signature
+arguments: les objets effectivement évalués avant l'appel effectif
+liaison: le processus qui fait que les paramètres référencent les arguments dans le bon ordre
+]]
 
 
 ## Résumé de la vidéo (50 secondes)
