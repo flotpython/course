@@ -42,16 +42,10 @@ else si tous les tests sont faux.
 [s2]
 
 Revenons maintenant sur ce qui est autorisé dans un test. On peut
-avoir n'importe quel objet ou expression dans un test.
-[[TP tu veux dire une variable ou une expression; et techniquement, une
-variable, c'est aussi une expression..; et dans tous les cas, le
-résultat de cette évaluation c'est un objet]]
-Si cet objet n'est pas un booléen, l'interpréteur
-va appeler la fonction built-in bool() sur l'objet.
-Si bool() retourne True, le test est validé, sinon, le
-test est faux.
-
-[[TP c'est pas un peu tôt pour décrire ces détails là ?]]
+avoir n'importe quelle expression dans un test. Lorsque le test est
+évalué, l'interpréteur va appeler la fonction built-in bool() sur
+l'objet qui est le résultat de l'évaluation de l'expression du test.
+Si bool() retourne True, le test est validé, sinon, le test est faux.
 
 La fonction built-in bool() va en fait demander à l'objet de retourner
 True ou False, en appelant la méthode spéciale __bool__() sur
