@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+Toute la semaine est de NIVEAU: AVANCË
+
+Pas de quiz pour cette semaine du coup
+
+
+# Vidéo 0 (Présentation de la neuvième semaine)
+
+###################################################################
+
+# Vidéo 1 Introduction à la programmation asynchrone
+
+ . distinction CPU-intensif / IO-intensif;
+ . exhiber un exemple simple (aller chercher plusieurs pages web) et montrer comment est utilisé le CPU
+ . écarter rapidement le mode multi-CPUs (qui s'adresse aux applis CPU-intensifs)
+ . mono CPU / multi-threads: pas de contrôle sur le context switching; sections critiques, dur à débugger...
+ . callbacks: exhiber saucissonnage délirant https://cdn-images-1.medium.com/max/1600/1*cS467MRjN5awIWqFeD27XQ.jpeg
+ . utilité de définir un modèle qui permette
+  . la concurrence
+  . single-thread
+  . avec contrôle sur les changements de contexte
+
+
+## Compléments Vidéo 1 
+## Exercices Vidéo 1 
+
+
+###################################################################
+
+# Vidéo 2 Un exemple simpliste
+
+ . mentionner twisted et gevent 
+ . plus petit exemple complet (une boucle, deux tâches qui font sleep())
+ . conclure
+    * (async def / await) pour définir les coroutines,
+    * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
+
+## Compléments Vidéo 2
+## Exercices Vidéo 2
+
+###################################################################
+
+# Vidéo 3 
+
+## Compléments Vidéo 3
+## Exercices Vidéo 3
+
+###################################################################
+
+# Vidéo 4 
+
+## Compléments Vidéo 4
+## Exercices Vidéo 4
+
+###################################################################
+
+# Vidéo 5 
+
+## Compléments Vidéo 5
+## Exercices Vidéo 5
+

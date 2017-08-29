@@ -119,24 +119,8 @@ a) utilisateur : pourquoi faire, comment s'en servir, ce qui est dispo
 b) approfondissement: les exceptions, comment ça marche,
 
 * w9-s1: Programmation asynchrone
- . distinction CPU-intensif / IO-intensif;
- . exhiber un exemple simple (aller chercher plusieurs pages web) et montrer comment est utilisé le CPU
- . écarter rapidement le mode multi-CPUs (qui s'adresse aux applis CPU-intensifs)
- . mono CPU / multi-threads: pas de contrôle sur le context switching; sections critiques, dur à débugger...
- . callbacks: exhiber saucissonnage délirant https://cdn-images-1.medium.com/max/1600/1*cS467MRjN5awIWqFeD27XQ.jpeg
- . utilité de définir un modèle qui permette
-  . la concurrence
-  . single-thread
-  . avec contrôle sur les changements de contexte
-
-* w9-s2: asyncio primer
- . mentionner twisted et gevent 
- . plus petit exemple complet (une boucle, deux tâches qui font sleep())
- . conclure
-    * (async def / await) pour définir les coroutines,
-    * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
-
-* w9-sx: écosystème
+* w9-s2: Un exemple simple
+* w9-sx: L'écosystème asyncio
  . contagieux
  . fonctionnalités disponibles
    . subprocesses
