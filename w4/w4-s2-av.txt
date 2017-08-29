@@ -26,7 +26,7 @@ autorisés avec une instruction.
 La syntaxe de if else est la suivante. Nous commençons par une
 instruction [if] suivi d'un test. Nous reviendrons dans quelques
 instants sur le type de tests autorisés. Vous avez ensuite un bloc
-d'instructions qui évalué si le test est vrai.
+d'instructions qui est exécuté si le test est vrai.
 Vous pouvez ensuite avoir un [elif]. Le elif qui veut dire else if, est
 évalué uniquement si le ou les tests au dessus sont faux. Le elif est
 suivi d'une test. Si ce test est vrai, le bloc d'instruction dans le
@@ -42,10 +42,16 @@ else si tous les tests sont faux.
 [s2]
 
 Revenons maintenant sur ce qui est autorisé dans un test. On peut
-avoir n'importe quel objet ou expression dans un test. L'interpréteur
-va appeler la fonction built-in bool() sur l'objet ou le résultat de
-l'expression. Si bool() retourne True, le test est validé, sinon, le
+avoir n'importe quel objet ou expression dans un test.
+[[TP tu veux dire une variable ou une expression; et techniquement, une
+variable, c'est aussi une expression..; et dans tous les cas, le
+résultat de cette évaluation c'est un objet]]
+Si cet objet n'est pas un booléen, l'interpréteur
+va appeler la fonction built-in bool() sur l'objet.
+Si bool() retourne True, le test est validé, sinon, le
 test est faux.
+
+[[TP c'est pas un peu tôt pour décrire ces détails là ?]]
 
 La fonction built-in bool() va en fait demander à l'objet de retourner
 True ou False, en appelant la méthode spéciale __bool__() sur
@@ -84,9 +90,9 @@ que l'on connait. Regardons un exemple...
 
 [s6]
 
-Dans un test, je peux avoir [un retour de fonction]. On évalue l'objet
-retourné par la fonction qui peut-être un booléen ou un type built-in
-ou n'importe quel autre objet. Regardons un exemple...  isdecimal()
+Dans un test, je peux avoir [un appel de fonction ou de méthode]. On évalue l'objet
+retourné par la fonction, et on le transforme en booléen comme on l'a
+vu tout à l'heure. Regardons un exemple...  isdecimal()
 retourne vrai que si la chaîne de caractère contient un nombre
 décimal.
 
