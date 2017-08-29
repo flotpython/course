@@ -33,7 +33,7 @@ d = agenda(tel='0720202020', nom='idle', prenom='eric')
 ## Si l'on revient à notre déclaration de fonction, on pourrait
 ## vouloir créer une entrée dans l'agenda sans donner un
 ## téléphone. C'est ce que l'on appelle un argument optionnel. Le
-## moyen le plus simple est d'utiliser les paramètres par
+## moyen le plus simple est de définir un paramètre par
 ## défaut. Regardons un exemple
 
 def agenda(nom, prenom, tel='na'):

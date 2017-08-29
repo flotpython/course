@@ -4,7 +4,7 @@
 ## de passer des arguments à une fonction.
 
 
-## regardons maintenant la forme * qui est liée à la notion de tuple
+## commençons par la forme * qui est liée à la notion de tuple
 ## unpacking que nous avons déjà vu. Regardons un exemple
 
 def f(*t):

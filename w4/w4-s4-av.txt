@@ -59,6 +59,8 @@ variable locale à cette fonction.
 Une variable définie en dehors de toute fonction sera une variable
 globale, elle sera accessible n'importe où dans le module où est
 définie cette variable.
+[[TP en me relisant je me rends compte qu'une précaution oratoire
+vis-à-vis des classes pourrait être nécessaire]]
 
 En résumé, une variable est locale lorsqu'elle est définie dans une
 fonction, sinon elle est globale.
