@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Fonction lambda, programmation fonctionnelle
+## Temp total: 09m30
+
+## Résumé de la vidéo (1m20)
+
+Python est un langage multi paradigme qui supporte évidemment la
+programmation orienté objet, mais qui supporte également un certain
+nombre de concepts de programmation fonctionnelle. La principale
+raison de combiner différents paradigmes est d'avoir un langage souple,
+puissant et facile à utiliser.
+
+Commençons par introduire les fonctions lambda. Il s'agit d'un mot
+étrange pour quelque chose de simple. Une fonction lambda est une
+forme simplifiée de fonction que l'on appelle fonction anonyme. Tout
+ce que l'on peut faire avec une fonction lambda, on peut également le
+faire avec une fonction classique. Par contre, on ne peut pas tout
+faire dans une fonction lambda. Alors quel est l'intérêt des fonctions
+lambda si elles représentent juste un sous ensemble des fonction
+classiques ? Leur unique intérêt est que les fonctions lambda peuvent
+être déclarées comme des expressions, alors que les fonctions
+classiques doivent être déclarées avec l'instruction def.
+
+Cela veut dire que l'on peut définir une fonction lambda partout ou
+l'on peut mettre une expression : par exemple, dans une liste, dans un
+dictionnaire, ou en argument d'une fonction. Cela permet dans certains
+cas d'écrire du code plus compact et plus expressif. 
+
+Ouvrons un interpréteur Python pour jouer avec les fonction lambda...
+
+
+>>>>>>>>>> W5-S2-AV-exo1.py <<<<<<<<<< (7m30s)
+
+## Résumé de la vidéo (40s)
+
+Nous avons vu les fonctions lambda qui peuvent dans certains cas
+permettre d'écrire du code plus compact et expressif qu'avec une
+fonction classique. Cependant, l'usage des fonctions lambda est
+largement une affaire de goût, puisqu'on peut totalement s'en passer.
+
+De même les fonctions built-in map et filter permettent d'appliquer
+une fonction à tous les éléments d'un itérable ou de filtrer les
+éléments d'un itérable. Notons que ces deux opérations sont possibles
+avec un compréhension de liste et que la compréhension est la méthode
+à privilégier aujourd'hui.
+
+À bientôt
+

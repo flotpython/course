@@ -55,7 +55,7 @@ Plan général du MOOC sur Python 3
 **Thème de la semaine**: Itération et importation
 
 * W5-S0: Présentation de la cinquième semaine
-* W5-S1: Itérable, itérateur, itération et boucle for
+* W5-S1: Itérable, itérateur, itération
 * W5-S2: Fonction lambda, programmation fonctionnelle
 * W5-S3: Compréhension de listes, sets et dictionnaires
 	* expressions génératrices
