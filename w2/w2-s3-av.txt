@@ -15,7 +15,7 @@
 
 >>>>>>>>>> INCLUDE W2-S3-AV-slide1.pptx <<<<<<<<<<
 
-Nous allons aborber un ensemble de types de base en Python
+Nous allons aborder un ensemble de types de base en Python
 qui sont au coeur du langage, ce sont les types séquence. Les principaux 
 types séquence sont les [list], les [tuples], les [str], [bytes]. 
 Tous les types séquence ont des charactéristiques

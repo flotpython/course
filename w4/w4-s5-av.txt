@@ -21,10 +21,11 @@ dans une fonction, cette variable devenait locale à la fonction. Mais
 alors comment peut-on modifier une variable globale depuis une
 fonction. 
 
-La solution est de changer la porté de la variable avec les
-instructions global et nonlocal. global permet de rendre une variable
-locale de portée globale. nonlocal permet de rendre une variable
-locale de portée locale dans une fonction englobante.
+Dans cette vidéo nous allons voir comment changer la porté d'une
+variable avec les instructions global et nonlocal. global permet de
+rendre une variable locale de portée globale. nonlocal permet de
+rendre une variable locale de portée locale dans une fonction
+englobante.
 
 Ouvrons maintenant un éditeur IDLE pour jouer avec la portée des
 variables.

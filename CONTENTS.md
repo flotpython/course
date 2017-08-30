@@ -58,8 +58,8 @@ Plan général du MOOC sur Python 3
 * W5-S1: Itérable, itérateur, itération
 * W5-S2: Fonction lambda, programmation fonctionnelle
 * W5-S3: Compréhension de listes, sets et dictionnaires
-	* expressions génératrices
 * W5-S4: Fonctions génératrices
+	* expressions génératrices
 * W5-S5: L'itération en Python
 	* expliquer que Python est construit autour de cette notion d'itération, qu'il faut toujours utiliser l'itération, qu'il faut éviter de créer des structures de données si on n'en n'a pas besoin tout de suite (expression génératrice plutôt que compréhension)
 	* illustrer le gain de performance entre une boucle for sur des indices (à la Java) et une comrpréhension

@@ -15,7 +15,7 @@
 
 >>>>>>>>>> INCLUDE w1-s7-av-slide1.pptx <<<<<<<<<<
 
-Bonjour, nous allons voir dans cette vidéo les 4 types numériques qui
+Nous allons voir dans cette vidéo les 4 types numériques qui
 existent en Python : les [int] qui représentent des entiers de taille
 illimitée, les [float] qui représentent des nombre décimaux, les
 [complex] qui représentent des nombres complexes et les [booléens].

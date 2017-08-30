@@ -20,6 +20,9 @@ nombre de concepts de programmation fonctionnelle. La principale
 raison de combiner différents paradigmes est d'avoir un langage souple,
 puissant et facile à utiliser.
 
+Dans cette vidéo nous allons discuter des fonctions lambda et des
+fonctions built-in map et filter.
+
 Commençons par introduire les fonctions lambda. Il s'agit d'un mot
 étrange pour quelque chose de simple. Une fonction lambda est une
 forme simplifiée de fonction que l'on appelle fonction anonyme. Tout

@@ -14,10 +14,10 @@
 
 ## Résumé de la vidéo (20s)
 
-Nous avons vu l'instruction if qui permet d'exécuter des blocs 
+Nous avons vu l'instruction if qui permet d'exécuter des blocs
 d'instructions en fonction de tests et l'instruction for qui permet,
-entres autres, de répéter des blocs d'instructions.
-Il existe une autre instruction, while qui combine ces deux 
+entres autres, de répéter des blocs d'instructions.  Dans cette vidéo,
+nous allons voir une autre instruction, while qui combine ces deux
 possibilités.
 
 Ouvrons un éditeur IDLE pour jouer avec l'instruction while...
