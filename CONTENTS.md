@@ -104,19 +104,11 @@ Plan général du MOOC sur Python 3
 
 ## Week 9
 
-(asyncio est suffisament difficile pour avoir une semaine pour lui, si on est malin dans la présentation, on pourra faire de nouvelles vidéos rien que sur ça ou améliorer modulairement sans toucher aux autres semaines)
+**Thème de la semaine**: Programmation asynchrone / asyncio
 
-**Thème de la semaine**: asyncio
 **Niveau**: AVANCÉ
 
-(AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads,
-le GIL et le multiprocess)
-
-* W9-S0: Présentation de la neuvième semaine
-
-en deux parties:
-a) utilisateur : pourquoi faire, comment s'en servir, ce qui est dispo
-b) approfondissement: les exceptions, comment ça marche,
+* w9-s0: Présentation de la neuvième semaine
 
 * w9-s1: Programmation asynchrone
 * w9-s2: Un exemple simple
@@ -126,15 +118,23 @@ b) approfondissement: les exceptions, comment ça marche,
    . subprocesses
    . réseaux: http - ssh - telnet, ...
    . en constante évolution
- 
+
+* w9-sx: exceptions
+ . expliquer pourquoi la gestion des exceptions est intrinsèquement compliquée dans ce modèle
+ . comment débugger
+
+* w9-sx: taches / futures
+
 * w9-sx: générateurs revisités
  . pile, variables
  . générateur : pile mise au freezer
  . API .send() - repasser un paramètre à un générateur suspendu -> await
 
-* w9-sx: exceptions
- . expliquer pourquoi la gestion des exceptions est intrinsèquement compliquée dans ce modèle
- . comment débugger
+### Notes
+* liste des séquences encore sujette à modifications
+* asyncio est suffisament difficile pour avoir une semaine pour lui, si on est malin dans la présentation, on pourra faire de nouvelles vidéos rien que sur ça ou améliorer modulairement sans toucher aux autres semaines
+* (AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads, le GIL et le multiprocess)
+
 
 ## Week 10
 
