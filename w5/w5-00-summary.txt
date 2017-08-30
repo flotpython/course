@@ -40,18 +40,25 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 2
 
+   * parler de la librairie functools 
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-fonctions.ipynb
+   * DROPPED *voir exec et eval. Ça n'est pas en lien direct, mais il faut
+     le voir et il y a peu de compléments pour cette vidéo alors
+     autant le placer ici. 
 
 ## Quizz Vidéo 2
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * NICETOHAVE W4-S3-E1-functions.quiz
+   * comparer def et lambda 
+   * comparer map/filter 
 
 ## Exercices Vidéo 2
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   * OK Exercice-fonctions.ipynb
 
 
 ###################################################################
@@ -62,7 +69,12 @@ NIVEAU: BASIC
 ## Compléments Vidéo 3
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-comprehensions-imbriquees.ipynb compréhensions
+     multiples
+   
+   * DROPPED Comparer la performance des boucles for, de map, de la
+     compréhension. - pas le temps S'inspirer de :
+     http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
 
 ## Quizz Vidéo 3
 
@@ -72,7 +84,7 @@ NIVEAU: BASIC
 ## Exercices Vidéo 3
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   * ONGOING Exercice-comprehensions.ipynb
 
 
 ###################################################################
