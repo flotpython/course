@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- fill-column: 54 -*-
+# -*- autofill-mode; fill-column: 54 -*-
 
 # TITRE : Introduction à la Programmation Asynchrone
 # temps estimé 7-8'

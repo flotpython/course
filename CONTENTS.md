@@ -110,10 +110,10 @@ Plan général du MOOC sur Python 3
 
 * w9-s0: Présentation de la neuvième semaine
 * w9-s1: Programmation asynchrone
-* w9-s2: Un exemple simple
+* w9-s2: Quelques exemples simples
 * w9-s3: L'écosystème asyncio
-* w9-s4: Coroutines et exceptions
-* w9-s5: Taches / Futures
+* w9-s4: Coroutines et exceptions, bonnes pratiques
+* w9-s5: Boucles / Taches / Futures / Coroutines
 * w9-s6: Générateurs revisités
 
 ### Notes
