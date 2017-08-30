@@ -89,13 +89,25 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 4 (Fonctions génératrices)
+# Vidéo 4 (Fonctions et expressions génératrices)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK (S1-C1-)Complement-expressions-generatrices.ipynb 
+
+   * parler des expressions génératrice et de leur intérêt (faible occupation
+     mémoire) (x**6 + 3*x for x in xrange(100000000))
+
+   * Donner le lien vers
+     http://python-history.blogspot.fr/2010/06/from-list-comprehensions-to-generator.html
+     pour une discussion intéressante sur la compréhension, les expression
+     génératrice et Python 2 et 3.
+   * faire un test de performance avec
+     timeit pour montrer que les expressions génératrices sont un peu plus
+     lente que les compréhensions
+
 
 ## Quizz Vidéo 4
 
