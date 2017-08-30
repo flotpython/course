@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Compréhension de listes, sets et dictionnaires
+## Temp total: 7m30s
+
+
+## Résumé de la vidéo (30s)
+
+Nous avons vu précédement une introduction aux compréhensions de
+listes. Ce mécanisme d'itération a très vite rencontré un énorme
+succès puis qu'il permet d'écrire du code compact et expressif avec
+une syntaxe proche du langage naturel. Ce mécanisme a été un tel
+succès qu'il a été étendu aux set et aux dictionnaires. 
+
+Dans cette vidéo nous allons voir les différentes formes de
+compréhensions. Ouvrons un interpréteur Python pour vous commencer à
+jouer avec les compréhensions...
+
+>>>>>>>>>> W5-S3-AV-exo1.py <<<<<<<<<< (6m30)
+
+
+## conclusion (30 secondes)
+
+La compréhension de list, set et dictionnaire représente un des outils
+les plus puissant en Python, qui, en exploitant la puissance des
+itérateurs, peut-être appliquée à n'importe quel objet
+itérable. De plus, les compréhensions sont plus performante qu'une
+boucle for. Donc, lorsque l'on écrit une boucle for, il faut toujours se
+demander si l'on pourrait pas la remplacer par une compréhension. 
+
+À bientôt. 
