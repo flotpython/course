@@ -109,26 +109,12 @@ Plan général du MOOC sur Python 3
 **Niveau**: AVANCÉ
 
 * w9-s0: Présentation de la neuvième semaine
-
 * w9-s1: Programmation asynchrone
 * w9-s2: Un exemple simple
-* w9-sx: L'écosystème asyncio
- . contagieux
- . fonctionnalités disponibles
-   . subprocesses
-   . réseaux: http - ssh - telnet, ...
-   . en constante évolution
-
-* w9-sx: exceptions
- . expliquer pourquoi la gestion des exceptions est intrinsèquement compliquée dans ce modèle
- . comment débugger
-
-* w9-sx: taches / futures
-
-* w9-sx: générateurs revisités
- . pile, variables
- . générateur : pile mise au freezer
- . API .send() - repasser un paramètre à un générateur suspendu -> await
+* w9-s3: L'écosystème asyncio
+* w9-s4: Coroutines et exceptions
+* w9-s5: Taches / Futures
+* w9-s6: Générateurs revisités
 
 ### Notes
 * liste des séquences encore sujette à modifications
