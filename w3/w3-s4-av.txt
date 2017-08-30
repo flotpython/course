@@ -39,8 +39,10 @@ d'immuable.
 
 Les dictionnaires sont des objets très puissants qui permettent de
 faire facilement certaines taches qui sont avec d'autres langages
-longue et fastidieuse à écrire. Ouvrons un terminal interactif pour
-commencer à jouer avec les dictionnaires.
+longue et fastidieuse à écrire.
+
+Ouvrons un interpréteur Python pour commencer à jouer avec les
+dictionnaires.
 
 
 >>>>>>>>>> W3-S4-AV-exo1.py <<<<<<<<<< (6m10s)

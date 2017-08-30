@@ -19,7 +19,8 @@ Nous avons vu jusqu'à maintenant les types séquences qui sont des
 types très puissants combinant souplesse et facilité d'utilisation.
 Dans cette vidéo nous allons parler des tables de hash, une structure
 de données qui permet de répondre aux limitations des types séquences.
-Ouvrons un terminal interactif pour comprendre ces limitations.
+
+Ouvrons un interpréteur Python pour comprendre ces limitations.
 
 >>>>>>>>>> W3-S3-AV-exo1.py (3m40) <<<<<<<<<<
 

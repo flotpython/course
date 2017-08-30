@@ -50,8 +50,8 @@ fréquents d'utilisation des fonctions.
 
 Nous allons voir dans cette vidéo ces différentes manières de déclarer
 les paramètres de passer des arguments à une fonction ainsi que
-quelques applications pratiques.  Ouvrons IDLE pour jouer avec les
-arguments d'une fonction...
+quelques applications pratiques.  Ouvrons un éditeur IDLE pour jouer
+avec les arguments d'une fonction...
 
 >>>>>>>>>> W4-S6-AV-exo1.py <<<<<<<<<< (4m40s)
 

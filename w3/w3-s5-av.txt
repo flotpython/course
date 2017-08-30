@@ -31,7 +31,7 @@ dictionnaires, on ne peut pas stocker de valeur associée à une clef.
 Les sets sont des objets mutables ça veut dire qu'on peut le modifier
 en place. 
 
-Ouvrons un terminal interactif pour jouer avec les set. 
+Ouvrons un interpréteur Python pour jouer avec les set. 
 
 >>>>>>>>>> W3-S5-AV-exo1.py <<<<<<<<<< (7m00s)
 

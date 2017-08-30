@@ -22,7 +22,7 @@ caractères et comment gérer l'encodage en Python .
 
 
 
-passons dans un terminal pour commencer à jouer avec les chaînes
+passons dans un interpréteur Python pour commencer à jouer avec les chaînes
 de caractères...
 
 >>>>>>>>>>  W2-S2-AV-exo1.py  <<<<<<<<<< (6m15s)

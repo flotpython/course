@@ -33,7 +33,7 @@ utiliser. On peut ajouter des objets au début, à la fin, au milieu,
 une liste peux s'étendre, se contracter, tout cela se fait par
 l'intermédiaires de méthodes simples et intuitives.
 
-Ouvrons un terminal interactif et commençons a jouer avec les listes. 
+Ouvrons un interpréteur Python et commençons a jouer avec les listes. 
 
 >>>>>>>>>> INCLUDE W2-S4-AV-exo1.py (8m35s) <<<<<<<<<<
 
