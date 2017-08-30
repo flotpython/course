@@ -1,0 +1,180 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+# Vidéo 1 (Itérable, itérateur, itération)
+NIVEAU: BASIC
+
+## Compléments Vidéo 1
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * OK Complement-instructions-break-et-continue.ipynb
+   * OK Complement-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
+   * ONGOING Complement-variables-de-boucle.ipynb  
+   * OK Complement-iterateurs-et-performances.ipynb: 
+   * OK Complement-iterable-vs-iterateur.ipynb: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
+
+   * BOF : je laisse tomber tout ca pour l'instant
+     -voir le else du for 
+     -présenter la méthode built-in iter() en expliquant que comme
+     __iter__() est une méthode Python privée, on ne doit pas l'appeler
+     		directement dans un programme, on doit utiliser la built-in iter()
+		à la place.
+
+## Quizz Vidéo 1
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 1
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   * OK W3-S8-E1-iterables.quiz
+   * NICETOHAVE: W3-S8-E2-for.ipynb: des exercices sur des fors un peu torturés  
+
+
+###################################################################
+
+# Vidéo 2 (Fonction lambda, programmation fonctionnelle)
+NIVEAU: BASIC
+
+## Compléments Vidéo 2
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 2
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 3 (Compréhension de listes, sets et dictionnaires)
+NIVEAU: BASIC
+
+## Compléments Vidéo 3
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 3
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 4 (Fonctions génératrices)
+NIVEAU: BASIC
+
+## Compléments Vidéo 4
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 4
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 5 (L'itération en Python)
+NIVEAU: BASIC
+
+## Compléments Vidéo 5
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 5
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 6 (Modules et espaces de nommage)
+NIVEAU: BASIC
+
+## Compléments Vidéo 6
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 6
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 7 (Processus d'importation des modules)
+NIVEAU: BASIC
+
+## Compléments Vidéo 7
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 7
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 8 (Importation de modules et espace de nommage)
+NIVEAU: BASIC
+
+## Compléments Vidéo 8
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 8
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 8
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *

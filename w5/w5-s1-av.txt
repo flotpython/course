@@ -1,0 +1,132 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Itérable, itérateur, itération 
+## Temp total: 10m00
+
+
+## Résumé de la vidéo (1m20)
+
+On a vu dans une précédente vidéo une introduction aux boucles for. On
+a principalement vu que l'on pouvait faire directement une boucle for
+sur une séquence et que la boucle allait parcourir chaque élément de
+la séquence. C'est un mécanisme simple, intuitif et efficace qui
+repose sur un des concepts les plus puissants de Python : les
+itérateurs.
+
+Un itérateur est un objet qui défini une interface unique, que l'on
+appelle le protocole d'itération. Tous les mécanismes d'itération
+en Python, comme la boucle for ou les compréhensions de listes,
+utilise ce protocole d'itération. 
+
+En plus de la simplicité et de l'efficacité de ce mécanisme, la notion
+d'itérateur permet de découpler l'objet qui itére de l'objet qui
+contient les données. Ainsi, un itérateur est un objet simple et
+compact dont la taille est indépendante du nombre d'éléments à
+parcourir. C'est cette simplicité qui permet d'optimiser sont
+fonctionnement.
+
+On appelle un objet que l'on peut parcourir grace à un itérateur un
+objet itérable. La bonne nouvelle est que tous les types built-in en
+Python sont itérables (sauf les types numériques par ce qu'ils ne
+représentent qu'une seule valeur).
+
+Dans cette vidéo, nous allons expliquer ces notions d'itérable et
+d'itérateur. Ouvrons un interpréteur Python pour commencer à jouer
+avec le protocole d'itération.
+
+>>>>>>>>>> W5-S1-AV-exo1.py <<<<<<<<<< (2m30s)
+
+
+>>>>>>>>>> W5-S1-AV-slide1.pptx <<<<<<<<<< (3m00s)
+
+[s1]
+
+Nous avons vu sur un exemple le fonctionnement du protocole
+d'itération. Revenons maintenant dessus pour définir précisement les
+notions [d'itérable] et [d'itérateur]. 
+
+Un itérable est un objet qui a une méthode spéciale [__iter__()] qui
+retourne un itérateur. On peut appeler [cette méthode directement sur
+l'objet], mais il existe une fonction built-in [iter()] qu'il est
+recommandé d'utiliser.
+
+Regardons maintenant ce qu'est un itérateur.  Un itérateur est un
+objet (en Python tout est un objet donc ça ne devrait plus vous
+surprendre qu'un itérateur soit également un objet) qui a deux
+méthodes. Une méthode [__iter__()] qui retourne l'itérateur lui même
+et une méthode [__next__()] qui retourne un [nouvel élément] à chaque
+appel et [StopIteration] lorsqu'il n'y a plus d'éléments. Nous pouvons
+directement appeler la méthodes [obj.__next__()] sur l'objet, mais il
+est préférable d'utiliser la fonction built-in [next(obj)]. Notons
+qu'il n'est pas possible de repartir en arrière ou de réinitialiser un
+itérateur pour repartir du premier élément. Si l'on veut recommencer
+l'itération, il faut générer un nouvel itérateur.
+
+Vous avez peut-être remarqué quelque chose de suprenant. Un itérable à
+une méthode __iter__() qui retourne un nouvel objet itérateur, et un
+itérateur a une méthode __iter__() qui retourne lui même. Pourquoi
+est-ce que cette méthode sur l'itérateur existe ? Elle existe pour
+simplifier le fonctionnement et améliorer l'efficacité du protocol
+d'itération. En effet, le protocole d'itération fait toujours la même
+chose, il appelle la méthode __iter__() sur l'objet, puis il appelle
+la méthode __next__() sur l'objet retourné. Si vous faîtes une boucle
+for sur un objet qui a un itérateur, la méthode __iter__() va
+retourner l'itérateur et la boucle for pourra appeler __next__() sur
+l'objet retourné. Si vous faites une boucle for sur un itérateur, la
+méthode __iter__() va retourner l'itérateur lui même et la boucle for
+pourra toujours appeler la méthode __next__ sur l'objet retourné.
+
+Donc que votre objet soit un itérable ou un itérateur, vous pourrez
+itérer dessus avec un mécanisme d'itération comme une boucle for ou
+une compréhension de liste. Cependant, vous pouvez vous demander
+pourquoi il existe à la fois des itérables et des itérateurs alors que
+ces deux objets ont l'air de faire à peu près la même chose. Ces objets
+sont en fait conceptuellement très différents. Un itérable est un
+objet, potentiellement complexe, qui contient des données, par exemple
+une liste. Un itérateur est un objet simple et compact dont le seul
+but est de parcourir une seule fois des données.
+
+Très souvent vous manipulez des objets itérables comme des
+listes. Dans ce cas, c'est le mécanisme d'itération qui s'occupera de
+générer des itérateurs comme on vient de le voir.
+
+Mais dans d'autres cas vous n'aurez pas d'itérable, mais vous devrez
+directement manipuler des itérateurs et donc gérer vous même la
+création de nouveaux itérateur à chaque fois que vous voulez parcourir
+de nouveau les données. Le choix d'avoir uniquement un itérateur est
+toujours un choix de conception qui est le résultat d'un compromis. 
+
+Ouvrons de nouveau un terminal pour regarder cela. 
+
+
+>>>>>>>>>> W5-S1-AV-exo2.py <<<<<<<<<< (2m30)
+
+
+
+
+## Résumé de la vidéo (40)
+
+Nous venons de voir que le concept d'itérable, d'itérateur et nous
+avons exploré le fonctionnement du protocole d'itération. C'est ce
+protocole qui permet d'itérer directement et intuitivement sur les
+objets sans avoir à manipuler des indices. C'est donc un protocol
+extrêmement souple et puissant. Nous avons également vu que les
+itérables et les itérateurs sont des objets différents puisqu'un
+itérable peut-être parcouru autant qu'on le souhaite alors qu'un
+itérateur ne peut-être parcouru qu'une seule fois.
+
+Nous verrons dans une prochaine vidéo comment vous pouvez facilement
+rendre vos propres objets itérables et ainsi tirer pleinement parti de
+tous les mécanismes d'itération en Python.
+
+À bientôt. 
+
