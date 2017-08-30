@@ -33,7 +33,8 @@ particulière. Si l'on veut utiliser un module il suffit de
 l'importer avec l'instruction import et ensuite appeler des méthodes
 dessus. 
 
-Ouvrons un terminal pour commencer à jouer avec les modules...
+Ouvrons un interpréteur Python pour commencer à jouer avec les
+modules...
 
 >>>>>>>>>> INCLUDE W2-S8-AV-exo1.py <<<<<<<<<< (1m50s)
 

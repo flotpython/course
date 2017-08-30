@@ -38,8 +38,8 @@ cependant trois notions qu'il faut maitriser pour travailler
 efficacement avec les fichiers en Python: l'encodage, l'itération sur
 les fichiers et la notion de contextes managers.
 
-Ouvrons un terminal pour commencer à jouer avec les fichiers et
-maitriser ces trois notions. 
+Ouvrons un interpréteur Python pour commencer à jouer avec les
+fichiers et maitriser ces trois notions.
 
 >>>>>>>>>> W3-S1-AV-exo1.py <<<<<<<<<< (6m00s)
 

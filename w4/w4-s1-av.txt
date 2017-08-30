@@ -21,7 +21,7 @@ allons dans cette vidéo et de prochaines vidéos approfondir cette
 notion importante. Commençons par revenir sur la déclaration d'une
 fonction.
 
-ouvrons un terminal pour jouer avec les fonctions...
+ouvrons un interpréteur Python pour jouer avec les fonctions...
 
 >>>>>>>>>> W4-S1-AV-exo1.py <<<<<<<<<< (8m00s)
 

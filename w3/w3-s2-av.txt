@@ -27,7 +27,7 @@ Nous discuterons l'intérêt des objets immuables lorsque nous parlerons
 des dictionnaires et des références partagées dans de prochaines
 vidéos. 
 
-Ouvrons un terminal interactif pour jouer avec les tuples.
+Ouvrons un interpréteur Python pour jouer avec les tuples.
 
 >>>>>>>>>> INCLUDE W3-S2-AV-exo1.py  <<<<<<<<<<
 
