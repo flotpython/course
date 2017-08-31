@@ -7,6 +7,7 @@
 
 prenoms = ['ana', 'eve', 'ALICE', 'Anne', 'bob']
 prenoms.extend(prenoms)
+[[TP je comprends pas pourquoi on fait cet extend ?]]
 
 a_prenoms = [p.lower() for p in prenoms if p.lower().startswith('a')]
 

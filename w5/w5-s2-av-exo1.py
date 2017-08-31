@@ -4,7 +4,7 @@
 ## mot clef lambda, suivi d'une liste d'arguments séparés par des
 ## virgules et d'une expression pouvant utiliser ces arguments.
 
-lambda x: x**2 -1
+lambda x: x**2 - 1
 
 ## Cependant les fonctions lambda n'ont pas de nom alors comment les
 ## utiliser ? Le résultat de l'évaluation du code de la fonction
@@ -19,12 +19,19 @@ carre = lambda x: x**2 - 1
 
 print(carre(1))
 
-d = {'carre': lambda x: x**2 - 1, 'cubique': lambda x: x**3 -2}
+[[TP l'exemple suivant n'apporte peut-etre pas grand-chose de plus..]]
+d = {'carre': lambda x: x**2 - 1, 'cubique': lambda x: x**3 - 2}
 
 print(d['carre'](10), d['cubique'](10))
 
+[[TP proposition au lieu de
 ## on peut également directement passer une fonction
 ## lambda à une fonction
+---  
+  comme les fonctions en python sont des objets, on peut les passer en paramètres à d'autres fonctions; c'est la base de ce qu'on appelle la programmation fonctionnelle
+
+par exemple je peux écrire
+]]
 
 def image(f):
     for x in range(10):
@@ -33,6 +40,8 @@ def image(f):
 ## Je suppose lors de l'écriture de ma fonction image que l'argument f
 ## sera une fonction. Si f n'est pas une fonction j'aurai une
 ## exception
+
+maintenant je peux appeler image avec comme argument .. une fonction lambda
 
 image(lambda x: x**2 -3)
 
@@ -43,7 +52,7 @@ image(lambda x: x**2 -3)
 ## fonction défini par le def.
 
 def carre(x):
-    return x**2 -1
+    return x**2 - 1
 
 image(carre)
 
@@ -61,6 +70,7 @@ image(carre)
 ## builtin map et filter qui sont des primitives de programmation
 ## fonctionnelle qui permettent d'appliquer une fonction à chaque
 ## élément d'une séquence ou de filtrer les éléments d'une séquence.
+[[TP à tout hasard j'ai ajouté dans le repo une figure filter-map-reduce.png qui pourrait te servir à un moment ou un autre ?]]
 ## Ça ne vous rappelle rien ? Les compréhensions de liste !  En effet,
 ## tout ce que l'on peut faire avec map et filter peut être fait avec
 ## une compréhension de liste. Par conséquent, même s'il faut

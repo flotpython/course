@@ -35,6 +35,6 @@ les plus puissant en Python, qui, en exploitant la puissance des
 itérateurs, peut-être appliquée à n'importe quel objet
 itérable. De plus, les compréhensions sont plus performante qu'une
 boucle for. Donc, lorsque l'on écrit une boucle for, il faut toujours se
-demander si l'on pourrait pas la remplacer par une compréhension. 
+demander si l'on ne pourrait pas la remplacer par une compréhension. 
 
 À bientôt. 

@@ -34,7 +34,8 @@ print(next(it))
 print(next(it))
 
 
-## Évidement, vous n'avez pas à appeler vous-même les méthodes iter()
+## Évidement, vous n'avez pas à appeler vous-même iter()
+[[TP: iter n'est pas une méthode]]
 ## et next(), ni a capturer l'exception StopIteration, tous les
 ## mécanismes d'itération en Python, boucle for, compréhension de
 ## listes, le font pour vous. Le but de cet exemple est de vous

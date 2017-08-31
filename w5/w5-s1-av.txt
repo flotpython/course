@@ -25,7 +25,7 @@ itérateurs.
 Un itérateur est un objet qui défini une interface unique, que l'on
 appelle le protocole d'itération. Tous les mécanismes d'itération
 en Python, comme la boucle for ou les compréhensions de listes,
-utilise ce protocole d'itération. 
+utilise ce protocole d'itération.
 
 En plus de la simplicité et de l'efficacité de ce mécanisme, la notion
 d'itérateur permet de découpler l'objet qui itére de l'objet qui
@@ -48,6 +48,15 @@ avec le protocole d'itération.
 
 >>>>>>>>>> W5-S1-AV-slide1.pptx <<<<<<<<<< (3m00s)
 
+[[TP
+dans ces slides, pour mieux sous-titrer encore, je mettrais plutot
+it.__next__()
+next(it)
+  plutot que
+obj.__next__()
+next(obj)
+]]
+
 [s1]
 
 Nous avons vu sur un exemple le fonctionnement du protocole
@@ -59,7 +68,9 @@ retourne un itérateur. On peut appeler [cette méthode directement sur
 l'objet], mais il existe une fonction built-in [iter()] qu'il est
 recommandé d'utiliser.
 
-Regardons maintenant ce qu'est un itérateur.  Un itérateur est un
+[[TP je me demande si/quand on peut glisser un mot sur __getitem__]]
+
+Regardons maintenant ce qu'est un itérateur. Un itérateur est un
 objet (en Python tout est un objet donc ça ne devrait plus vous
 surprendre qu'un itérateur soit également un objet) qui a deux
 méthodes. Une méthode [__iter__()] qui retourne l'itérateur lui même
@@ -74,7 +85,11 @@ l'itération, il faut générer un nouvel itérateur.
 Vous avez peut-être remarqué quelque chose de suprenant. Un itérable à
 une méthode __iter__() qui retourne un nouvel objet itérateur, et un
 itérateur a une méthode __iter__() qui retourne lui même. Pourquoi
-est-ce que cette méthode sur l'itérateur existe ? Elle existe pour
+est-ce que cette méthode sur l'itérateur existe ? [[TP: cette section
+a partir d'ici et jusqu'en bas de ce paragraphe, me parait un peu
+fastidieuse; pourquoi tu ne dis pas simplement que comme ça on
+garantit qu'un iterateur est lui-meme toujours iterable, et c'est tout..]]
+Elle existe pour
 simplifier le fonctionnement et améliorer l'efficacité du protocol
 d'itération. En effet, le protocole d'itération fait toujours la même
 chose, il appelle la méthode __iter__() sur l'objet, puis il appelle
@@ -93,10 +108,14 @@ ces deux objets ont l'air de faire à peu près la même chose. Ces objets
 sont en fait conceptuellement très différents. Un itérable est un
 objet, potentiellement complexe, qui contient des données, par exemple
 une liste. Un itérateur est un objet simple et compact dont le seul
-but est de parcourir une seule fois des données.
+but est de parcourir une seule fois des données. [[TP: suggestion: est-ce qu'on
+pourrait phraser pour dire que l'itérateur ne contient pas les données
+elles-mêmes, mais seulement l'état d'avancement du parcours]]
 
 Très souvent vous manipulez des objets itérables comme des
-listes. Dans ce cas, c'est le mécanisme d'itération qui s'occupera de
+listes. [[OH!! - lists are overrated - le but de toute cette semaine c'est de leur montrer
+justement qu'il ne faut pas penser comme ça !!]]
+Dans ce cas, c'est le mécanisme d'itération qui s'occupera de
 générer des itérateurs comme on vient de le voir.
 
 Mais dans d'autres cas vous n'aurez pas d'itérable, mais vous devrez

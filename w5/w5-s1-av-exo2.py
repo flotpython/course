@@ -44,7 +44,7 @@ z is iter(z)
 
 [i for i in z]
 
-## on n'obient rien parce que zip() retourne un itérateur et que
+## on n'obtient rien parce que zip() retourne un itérateur et que
 ## l'itérateur z a été consommé
 
     
