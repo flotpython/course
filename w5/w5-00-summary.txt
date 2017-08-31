@@ -89,7 +89,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 4 (Fonctions et expressions génératrices)
+# Vidéo 4 (Expressions et fonctions génératrices)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
