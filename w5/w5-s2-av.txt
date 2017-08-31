@@ -10,6 +10,7 @@
 ## le slide i
 
 ## TITRE : Fonction lambda, programmation fonctionnelle
+[[TP je propose de renommer ça 'Objets de type fonction, lambdas']]
 ## Temp total: 09m30
 
 ## Résumé de la vidéo (1m20)
