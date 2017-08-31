@@ -48,15 +48,6 @@ avec le protocole d'itération.
 
 >>>>>>>>>> W5-S1-AV-slide1.pptx <<<<<<<<<< (3m00s)
 
-[[TP
-dans ces slides, pour mieux sous-titrer encore, je mettrais plutot
-it.__next__()
-next(it)
-  plutot que
-obj.__next__()
-next(obj)
-]]
-
 [s1]
 
 Nous avons vu sur un exemple le fonctionnement du protocole
@@ -69,6 +60,8 @@ l'objet], mais il existe une fonction built-in [iter()] qu'il est
 recommandé d'utiliser.
 
 [[TP je me demande si/quand on peut glisser un mot sur __getitem__]]
+[[AL: c'est déjà bien compliqué comme cela je propose de mettre ça
+plutôt dans un complément]]
 
 Regardons maintenant ce qu'est un itérateur. Un itérateur est un
 objet (en Python tout est un objet donc ça ne devrait plus vous
@@ -85,52 +78,43 @@ l'itération, il faut générer un nouvel itérateur.
 Vous avez peut-être remarqué quelque chose de suprenant. Un itérable à
 une méthode __iter__() qui retourne un nouvel objet itérateur, et un
 itérateur a une méthode __iter__() qui retourne lui même. Pourquoi
-est-ce que cette méthode sur l'itérateur existe ? [[TP: cette section
-a partir d'ici et jusqu'en bas de ce paragraphe, me parait un peu
-fastidieuse; pourquoi tu ne dis pas simplement que comme ça on
-garantit qu'un iterateur est lui-meme toujours iterable, et c'est tout..]]
-Elle existe pour
-simplifier le fonctionnement et améliorer l'efficacité du protocol
-d'itération. En effet, le protocole d'itération fait toujours la même
-chose, il appelle la méthode __iter__() sur l'objet, puis il appelle
-la méthode __next__() sur l'objet retourné. Si vous faîtes une boucle
-for sur un objet qui a un itérateur, la méthode __iter__() va
-retourner l'itérateur et la boucle for pourra appeler __next__() sur
-l'objet retourné. Si vous faites une boucle for sur un itérateur, la
-méthode __iter__() va retourner l'itérateur lui même et la boucle for
-pourra toujours appeler la méthode __next__ sur l'objet retourné.
+est-ce que cette méthode sur l'itérateur existe ? C'est pour garantir
+qu'un itérateur soit lui même toujours itérable. 
 
-Donc que votre objet soit un itérable ou un itérateur, vous pourrez
+Ainsi que votre objet soit un itérable ou un itérateur, vous pourrez
 itérer dessus avec un mécanisme d'itération comme une boucle for ou
 une compréhension de liste. Cependant, vous pouvez vous demander
 pourquoi il existe à la fois des itérables et des itérateurs alors que
-ces deux objets ont l'air de faire à peu près la même chose. Ces objets
-sont en fait conceptuellement très différents. Un itérable est un
-objet, potentiellement complexe, qui contient des données, par exemple
-une liste. Un itérateur est un objet simple et compact dont le seul
-but est de parcourir une seule fois des données. [[TP: suggestion: est-ce qu'on
-pourrait phraser pour dire que l'itérateur ne contient pas les données
-elles-mêmes, mais seulement l'état d'avancement du parcours]]
+ces deux objets ont l'air de faire à peu près la même chose. Ces
+objets sont en fait conceptuellement très différents. Un itérable est
+un objet, potentiellement complexe, qui contient des données, par
+exemple une liste. Un itérateur est un objet simple et compact dont le
+seul but est de parcourir une seule fois des données. En particulier,
+l'itérateur ne contient pas les données à parcourir, soit il utilise
+les données contenues dans un objet itérable, soit il calcule les
+données à la volée. 
 
-Très souvent vous manipulez des objets itérables comme des
-listes. [[OH!! - lists are overrated - le but de toute cette semaine c'est de leur montrer
-justement qu'il ne faut pas penser comme ça !!]]
-Dans ce cas, c'est le mécanisme d'itération qui s'occupera de
-générer des itérateurs comme on vient de le voir.
+Lorsque vous manipulez des objets itérables comme des listes, c'est le
+mécanisme d'itération qui s'occupera de générer des itérateurs comme
+on vient de le voir.
 
-Mais dans d'autres cas vous n'aurez pas d'itérable, mais vous devrez
-directement manipuler des itérateurs et donc gérer vous même la
-création de nouveaux itérateur à chaque fois que vous voulez parcourir
-de nouveau les données. Le choix d'avoir uniquement un itérateur est
-toujours un choix de conception qui est le résultat d'un compromis. 
+Dans d'autres cas vous n'aurez pas d'itérable, mais uniquement un
+itérateur, c'est pas exemple le cas de l'objet fichier. Vous devrez
+alors vous souvenir qu'un itérateur ne peut être parcouru qu'une fois
+et pensez à créer un nouvel itérateur si vous devez parcourir de
+nouveau les données. Le choix d'avoir uniquement un itérateur a pour
+objectif de ne pas créer une structure de données itérable temporaire
+qui prendrait de l'espace mémoire alors que ça n'est pas
+nécessaire. On voit bien dans le cas d'un fichier texte qu'il serait
+inutile de charger entièrement le fichier en mémoire (par exemple dans
+une liste de ligne) si on a uniquement besoin de faire un traitement
+par ligne.
 
-Ouvrons de nouveau un terminal pour regarder cela. 
+Ouvrons de nouveau un interpréteur Python pour pour jouer avec les
+itérables et les itérateurs. 
 
 
 >>>>>>>>>> W5-S1-AV-exo2.py <<<<<<<<<< (2m30)
-
-
-
 
 ## Résumé de la vidéo (40)
 

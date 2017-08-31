@@ -56,7 +56,7 @@ Plan général du MOOC sur Python 3
 
 * W5-S0: Présentation de la cinquième semaine
 * W5-S1: Itérable, itérateur, itération
-* W5-S2: Fonction lambda, programmation fonctionnelle
+* W5-S2: Objet fonction, fonction lambda, map et filter
 * W5-S3: Compréhension de listes, sets et dictionnaires
 * W5-S4: Expressions et fonctions génératrices
 * W5-S5: L'itération en Python

@@ -34,13 +34,12 @@ print(next(it))
 print(next(it))
 
 
-## Évidement, vous n'avez pas à appeler vous-même iter()
-[[TP: iter n'est pas une méthode]]
-## et next(), ni a capturer l'exception StopIteration, tous les
-## mécanismes d'itération en Python, boucle for, compréhension de
-## listes, le font pour vous. Le but de cet exemple est de vous
-## montrer le protocole d'itération dont la compréhension sera utile
-## lorsque vous créerez vos propres objets itérables.
+## Évidement, vous n'avez pas à appeler vous-même les fonctions
+## built-in iter() et next(), ni a capturer l'exception StopIteration,
+## tous les mécanismes d'itération en Python, boucle for,
+## compréhension de listes, le font pour vous. Le but de cet exemple
+## est de vous montrer le protocole d'itération dont la compréhension
+## sera utile lorsque vous créerez vos propres objets itérables.
 
 ## Vous pouvez aussi avoir le sentiment que ce fonctionnement est
 ## lent. Ça n'est pas le cas, L'interface commune de tous les

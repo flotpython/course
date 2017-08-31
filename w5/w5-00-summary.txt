@@ -35,7 +35,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 2 (Fonction lambda, programmation fonctionnelle)
+# Vidéo 2 (Objet fonction, fonction lambda, map et filter)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 2

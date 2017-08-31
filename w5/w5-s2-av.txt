@@ -9,8 +9,8 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Fonction lambda, programmation fonctionnelle
-[[TP je propose de renommer ça 'Objets de type fonction, lambdas']]
+## TITRE : Objet fonction, fonction lambda, map et filter
+
 ## Temp total: 09m30
 
 ## Résumé de la vidéo (1m20)
@@ -21,8 +21,10 @@ nombre de concepts de programmation fonctionnelle. La principale
 raison de combiner différents paradigmes est d'avoir un langage souple,
 puissant et facile à utiliser.
 
-Dans cette vidéo nous allons discuter des fonctions lambda et des
-fonctions built-in map et filter.
+Dans cette vidéo nous allons discuter des fonctions lambda, montrer
+que comme les fonctions sont des objets, elles peuvent être passées en
+argument d'une autre fonction, et nous allons présenter les fonctions
+built-in map et filter.
 
 Commençons par introduire les fonctions lambda. Il s'agit d'un mot
 étrange pour quelque chose de simple. Une fonction lambda est une

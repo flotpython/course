@@ -20,18 +20,18 @@ carre = lambda x: x**2 - 1
 print(carre(1))
 
 [[TP l'exemple suivant n'apporte peut-etre pas grand-chose de plus..]]
-d = {'carre': lambda x: x**2 - 1, 'cubique': lambda x: x**3 - 2}
+[[AL: c'est pour montrer, que l'usage réel des lambda n'est pas de
+leur donner un nom, mais de les utiliser directement]]
 
-print(d['carre'](10), d['cubique'](10))
+d = {'carre': lambda x: x**2 - 1, 'cube': lambda x: x**3 - 2}
 
-[[TP proposition au lieu de
-## on peut également directement passer une fonction
-## lambda à une fonction
----  
-  comme les fonctions en python sont des objets, on peut les passer en paramètres à d'autres fonctions; c'est la base de ce qu'on appelle la programmation fonctionnelle
+print(d['carre'](10), d['cube'](10))
 
-par exemple je peux écrire
-]]
+## comme les fonctions en python sont des objets, on peut les passer
+## en paramètres à d'autres fonctions; c'est la base de ce qu'on
+## appelle la programmation fonctionnelle 
+
+## par exemple je peux écrire
 
 def image(f):
     for x in range(10):
@@ -41,7 +41,8 @@ def image(f):
 ## sera une fonction. Si f n'est pas une fonction j'aurai une
 ## exception
 
-maintenant je peux appeler image avec comme argument .. une fonction lambda
+## maintenant je peux appeler image avec comme argument une fonction
+## lambda
 
 image(lambda x: x**2 -3)
 
@@ -70,7 +71,6 @@ image(carre)
 ## builtin map et filter qui sont des primitives de programmation
 ## fonctionnelle qui permettent d'appliquer une fonction à chaque
 ## élément d'une séquence ou de filtrer les éléments d'une séquence.
-[[TP à tout hasard j'ai ajouté dans le repo une figure filter-map-reduce.png qui pourrait te servir à un moment ou un autre ?]]
 ## Ça ne vous rappelle rien ? Les compréhensions de liste !  En effet,
 ## tout ce que l'on peut faire avec map et filter peut être fait avec
 ## une compréhension de liste. Par conséquent, même s'il faut

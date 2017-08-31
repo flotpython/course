@@ -6,8 +6,11 @@
 ## qui commencent par la lettre a et mettre ces prénoms en minuscule.
 
 prenoms = ['ana', 'eve', 'ALICE', 'Anne', 'bob']
-prenoms.extend(prenoms)
+prenoms.extend(prenoms) ## et créons des doublons
+
 [[TP je comprends pas pourquoi on fait cet extend ?]]
+[[AL: ça me permet après de montrer la compréhension de set sur cette
+  liste]]
 
 a_prenoms = [p.lower() for p in prenoms if p.lower().startswith('a')]
 
