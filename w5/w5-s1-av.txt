@@ -90,16 +90,16 @@ objets sont en fait conceptuellement très différents. Un itérable est
 un objet, potentiellement complexe, qui contient des données, par
 exemple une liste. Un itérateur est un objet simple et compact dont le
 seul but est de parcourir une seule fois des données. En particulier,
-l'itérateur ne contient pas les données à parcourir, soit il utilise
-les données contenues dans un objet itérable, soit il calcule les
-données à la volée. 
+l'itérateur ne contient pas les données à parcourir, il peut utiliser
+les données contenues dans un objet itérable ou calculer les données à
+la volée.
 
 Lorsque vous manipulez des objets itérables comme des listes, c'est le
 mécanisme d'itération qui s'occupera de générer des itérateurs comme
 on vient de le voir.
 
 Dans d'autres cas vous n'aurez pas d'itérable, mais uniquement un
-itérateur, c'est pas exemple le cas de l'objet fichier. Vous devrez
+itérateur, c'est par exemple le cas de l'objet fichier. Vous devrez
 alors vous souvenir qu'un itérateur ne peut être parcouru qu'une fois
 et pensez à créer un nouvel itérateur si vous devez parcourir de
 nouveau les données. Le choix d'avoir uniquement un itérateur a pour
