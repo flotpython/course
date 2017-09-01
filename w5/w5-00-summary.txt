@@ -94,6 +94,9 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 4
 
+   Ça serait sympa de concevoir des générateurs utiles que l'on chaine
+   en fonction de traitements à faire. 
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK (S1-C1-)Complement-expressions-generatrices.ipynb 
 
@@ -106,7 +109,9 @@ NIVEAU: BASIC
      génératrice et Python 2 et 3.
    * faire un test de performance avec
      timeit pour montrer que les expressions génératrices sont un peu plus
-     lente que les compréhensions
+     lente que les compréhensions, mais que lorsqu'on arrive à des
+     très grosses listes, l'allocation mémoire et le swap disque font
+     que les générateurs sont beaucoup plus rapides. 
 
 
 ## Quizz Vidéo 4
@@ -122,10 +127,14 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 5 (L'itération en Python)
+# Vidéo 5 (Diagnostiquer son code d'itération)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5
+
+   * illustrer le gain de performance entre une boucle for sur des
+     indices (à la Java), une comprréhension, une expression
+     génératrice
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * 
@@ -149,12 +158,27 @@ NIVEAU: BASIC
 ## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-attributs.ipynb
+   * OK Complement-fonctions-globals-et-locals.ipynb
+   
+   * DROPPED parler de l'impossibilité de faire __dict__ du module
+     courant (en particulier du prompt interactif) et expliquer que
+     l'on ne peut y accéder que depuis sys.modules[__name__].__dict__
+     Citer http://docs.python.org/2.6/tutorial/classes.html#id2
+     http://stackoverflow.com/questions/4877290/what-is-the-dict-dict-attribute-of-a-python-class
+     pareil je vais laisser tomber tout ça c'est beaucoup trop bas
+     niveau
 
 ## Quizz Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W5-S1-E1.quiz
+
+   en relisant les exos des semaines passées je tombe sur ceci
+   import string
+   chaine = string.lowercase
+   print chaine
+   on pourrait sûrement contruire un quiz en élaborant là-dessus, non ?
 
 ## Exercices Vidéo 6
 
@@ -170,12 +194,31 @@ NIVEAU: BASIC
 ## Compléments Vidéo 7
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-import .ipynb
+   avancé
+   . en profiter pour mentionner sys.modules
+   . parler de sys.builtin_module_names et de, par exemple, math 
+   et sys, qui sont des modules built-in implémentés en C pour
+   des questions de vitesse. 
+
+   NICETOHAVE
+   montrer que si bar importe foo et que foo importe sys, alors bar peut accéder à foo.sys
+
+   NICETOHAVE W5-S2-C2-pyc.ipynb
+   intermédiaire
+   *compléter la
+   discussion de la video sur les .pyc. Par exemple, on peut directement
+   distribuer les .pyc sans les .py je suis pas très clair là-dessus, le
+   pyc ne dépend pas du hardware, d'accord, mais dépend-il de la version
+   de python (je présume que oui)
+
+   DROPPED *exécuter un module comme un script avec  if __name__ == '__main__':
+   déjà vu en Complement-packages.ipynb
 
 ## Quizz Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W5-S2-E1.quiz
 
 ## Exercices Vidéo 7
 
@@ -191,12 +234,17 @@ NIVEAU: BASIC
 ## Compléments Vidéo 8
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
+   * OK Complement-import-as.ipynb
+
+   * DROPPED - Introduire aussi les variables commençant par _ en
+     expliquant que l'on ne doit pas les modifier et qu'elles ne sont
+     pas importée par un import * - je laisse tomber puisqu'il ne faut
+     pas le faire de toutes façons
 
 ## Quizz Vidéo 8
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
+   * OK W5-S3-E1.quiz
 
 ## Exercices Vidéo 8
 

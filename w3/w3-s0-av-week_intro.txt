@@ -17,8 +17,8 @@
 Cette semaine vous apprendrez à utiliser les fichiers, et vous
 découvrirez de nouveaux types built-in : les tuples, les dictionnaires
 et les set. Nous verrons ensuite comment gérer les erreurs d'exécution
-avec les exceptions. Puis nous expliquerons la notion de références
-partagées qui est centrale en Python puisque c'est le mécanisme qui
+avec les exceptions. Puis nous aborderons un des concepts majeurs en
+Python la notion de références partagées. C'est le mécanisme qui
 permet de comprendre comment une variable référence un objet.
 
 Nous finirons cette semaine avec une introduction à la notion de

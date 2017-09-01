@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la cinquième semaine
+## Temp total: ??
+
+Nous avons précédemment la notion de références partagés et je vous
+avez expliqué que c'était une des notions clefs en Python. Nous allons
+cette semaine aborder deux autres notions clefs: la notion d'itération
+et d'espace de nommage. Sans maitriser ces notions, vous saurez pas
+écrire de programmes Python efficaces et vous risquerez d'introduire
+de nombreux bugs dans votre code.
+
+L'itération est le mécanisme qui vous permez de parcourir n'importe
+quel objet de manière simple, intuitive et expressive. Les espaces de
+nommage représentent un autre concept clef qui explique comment sont
+isolés les variables dans les objets et comment accéder à des
+variables définies dans d'autres objets. 

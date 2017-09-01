@@ -14,8 +14,8 @@
 ## Temp total: 30s
 
 Cette semaine nous parlerons de l'instruction while, nous reviendrons
-sur l'instruction if/else, mais surtout nous approfondirons la notions
-de fonctions. Nous parlerons en particulier de portée des variables,
+sur l'instruction if/else, mais surtout nous approfondirons la notion
+de fonctions. Nous parlerons en particulier de portée des variables et
 de modification de la portée. Nous finirons avec les différents
 manières de déclarer les arguments d'une fonction et d'appler une
-fonction. 
+fonction.
