@@ -59,10 +59,9 @@ Plan général du MOOC sur Python 3
 * W5-S2: Objet fonction, fonction lambda, map et filter
 * W5-S3: Compréhension de listes, sets et dictionnaires
 * W5-S4: Expressions et fonctions génératrices
-* W5-S5: Diagnostiquer son code d'itération
-* W5-S6: Modules et espaces de nommage
-* W5-S7: Processus d'importation des modules
-* W5-S8: Importation de modules et espace de nommage
+* W5-S5: Modules et espaces de nommage
+* W5-S6: Processus d'importation des modules
+* W5-S7: Importation de modules et espace de nommage
 
 
 ## Week 6

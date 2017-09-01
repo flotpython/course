@@ -95,8 +95,38 @@ NIVEAU: BASIC
 ## Compléments Vidéo 4
 
    Ça serait sympa de concevoir des générateurs utiles que l'on chaine
-   en fonction de traitements à faire. 
+   en fonction de traitements à faire.
 
+   J'ai droppé ma séquence vidéo sur "Diagnostiquer son code
+   d'itération". L'idée est de montrer du code écrit à la C ou Java et
+   de le diagnostiquer jusqu'à obtenir un code pythonique. Un exemple
+
+   ages = dict(eve=10, ana=30, bill=40, bob=12, jim=35)
+
+   noms = list(ages.keys())
+   nb_noms = len(noms)
+
+   for i in range(nb_noms):
+       print(noms[i], ages[noms[i]])
+
+
+   On pourrait faire un complément très simple avec des règles de
+   dianostique
+	* vous manipulez des indices dans un itération, c'est mauvais
+   signe, pensez à itérer sur votre objet directement et pensez au
+   unpacking
+	* vous caster des objets en listes, c'est mauvais signe, avez
+   vous vraiement besoin d'une liste, travaillez de préférence avec
+   des itérateurs.
+       * on pourrait également présenter des cas d'implémentations qui
+   peuvent être grandement simplifié par la librairie Collections
+
+
+   
+   * illustrer le gain de performance entre une boucle for sur des
+     indices (à la Java), une comprréhension, une expression
+     génératrice
+     
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK (S1-C1-)Complement-expressions-generatrices.ipynb 
 
@@ -127,35 +157,10 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 5 (Diagnostiquer son code d'itération)
+# Vidéo 5 (Modules et espaces de nommage)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5
-
-   * illustrer le gain de performance entre une boucle for sur des
-     indices (à la Java), une comprréhension, une expression
-     génératrice
-
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
-
-## Quizz Vidéo 5
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
-
-## Exercices Vidéo 5
-
-   Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
-
-
-###################################################################
-
-# Vidéo 6 (Modules et espaces de nommage)
-NIVEAU: BASIC
-
-## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-attributs.ipynb
@@ -169,7 +174,7 @@ NIVEAU: BASIC
      pareil je vais laisser tomber tout ça c'est beaucoup trop bas
      niveau
 
-## Quizz Vidéo 6
+## Quizz Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * OK W5-S1-E1.quiz
@@ -180,7 +185,7 @@ NIVEAU: BASIC
    print chaine
    on pourrait sûrement contruire un quiz en élaborant là-dessus, non ?
 
-## Exercices Vidéo 6
+## Exercices Vidéo 5
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
    *
@@ -188,10 +193,10 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 7 (Processus d'importation des modules)
+# Vidéo 6 (Processus d'importation des modules)
 NIVEAU: BASIC
 
-## Compléments Vidéo 7
+## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-import .ipynb
@@ -215,12 +220,12 @@ NIVEAU: BASIC
    DROPPED *exécuter un module comme un script avec  if __name__ == '__main__':
    déjà vu en Complement-packages.ipynb
 
-## Quizz Vidéo 7
+## Quizz Vidéo 6
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * OK W5-S2-E1.quiz
 
-## Exercices Vidéo 7
+## Exercices Vidéo 6
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
    *
@@ -228,10 +233,10 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 8 (Importation de modules et espace de nommage)
+# Vidéo 7 (Importation de modules et espace de nommage)
 NIVEAU: BASIC
 
-## Compléments Vidéo 8
+## Compléments Vidéo 7
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-import-as.ipynb
@@ -241,12 +246,12 @@ NIVEAU: BASIC
      pas importée par un import * - je laisse tomber puisqu'il ne faut
      pas le faire de toutes façons
 
-## Quizz Vidéo 8
+## Quizz Vidéo 7
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
    * OK W5-S3-E1.quiz
 
-## Exercices Vidéo 8
+## Exercices Vidéo 7
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
    *
