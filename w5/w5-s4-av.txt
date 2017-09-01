@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Expressions et fonctions génératrices
+## Temp total: 15m10 en 2 parties
+
+
+## Résumé de la vidéo (1m00s)
+
+Nous avons vu dans une précédente vidéo les compréhensions de
+listes. Le but d'une compréhension est d'appliquer un traitement à
+chaque élément d'un itérable. Il s'agit d'un mécanisme extrêmement
+puissant et expressif. Il a cependant un inconvénient majeur, une
+compréhension de liste va créer une liste contenant le résultat de la
+compréhension sur chaque élément de l'itérable. Or si au final vous ne
+voulez, par exemple, que calculer la somme des éléments de la
+compréhension, la liste intermédiaire n'a aucune utilité et prend des
+ressources mémoire.
+
+La philosophie en Python est de toujours utiliser des itérateurs sauf
+si vous avez absolument besoin d'une liste. Alors comment ne pas créer
+de liste lorsque l'on veut faire une compréhension en Python ? Il
+suffit d'écrire une expression génératrice et nous allons voir que ça
+s'écrit exactement comme une compréhension de listes. 
+
+Dans cette vidéo, nous allons voir les expressions génératrices et
+leur généralisation, les fonctions génératrices. 
+
+Ouvrons un interpréteur Python pour jouer avec les expressions
+génératrices...
+
+>>>>>>>>>> INCLUDE W5-S4-AV-exo1.py <<<<<<<<<< (4m30)
+
+###################### FIN PART 1 (durée Part 1 5m30) ################
+
+
+##################### DÉBUT PART 2 (durée Part 2 8m40)   #############
+
+## Transition (50s)
+
+Les expressions génératrices représentent un mécanisme d'itération
+extrêmement puissant, mais qui a une limitation : une expression
+génératrice à la même syntaxe qu'une compréhension de liste. On peut
+essentiellement avoir une expression calculée sur les éléments d'un
+itérable avec éventuellement un filtre sur ces éléments. On aimerait
+pouvoir généraliser le concept d'expressions génératrices à des
+traitements plus sophistiqués.
+
+Les expressions génératrices sont un cas particulier d'un concept plus
+général que l'on appelle fonctions génératrices ou générateur. Ce sont
+des fonctions qui produisent automatiquement des itérateurs lorsqu'on
+les appelle. On n'a donc plus de limitation dans le traitement que
+l'on peut faire dans une fonction génératrice.
+
+Ouvrons un interpréteur Python pour commencer à jouer avec les
+fonctions génératrices...
+
+
+>>>>>>>>>> INCLUDE W5-S4-AV-exo2.py <<<<<<<<<< (7m30)
+
+
+## Conclusion (20s)
+
+En Python, vous êtes encouragés à travailler sur vos données à la volée
+sans créer de structures de données temporaires. Grâce aux expressions
+et fonctions génératrices, vous pouvez facilement créer vos propres
+itérateurs pour faire les traitements dont vous avez besoin. Et comme
+le protocole d'itération est universel en Python, vous pouvez utiliser
+vos générateurs partout où des objets itérables sont autorisés.
+
+À bientôt
+
+
+
+
+
+
+
