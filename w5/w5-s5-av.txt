@@ -1,0 +1,137 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Modules et espaces de nommage
+## Temp total: (8m30s)
+
+## Sujet de la vidéo (40s)
+
+Nous avons introduit rapidement la notion de modules dans une
+précédente vidéo en présentant le côté utilisateur, c'est-à-dire
+comment utiliser un module comme une boite à outils. Cependant les
+modules sont bien plus que de simples boites à outils, ce sont de
+véritables objets qui permettent l'isolation des variables par ce que
+l'on appelle des espaces de nommages.
+
+Lorsque nous avons parlé de la notion de portée de variable, nous
+avons expliqué qu'il n'y avait rien au dessus que la portée globale et
+que la portée d'une variable globale était limité au module dans
+lequel elle est déclarée. Comment alors accéder à une variable dans un
+autre module ? C'est ce que nous allons voir dans cette vidéo en
+abordant les subtilités des espaces de nommage.
+
+>>>>>>>>>> INCLUDE W5-S5-AV-slide1.pptx (7 minutes) <<<<<<<<<<
+
+[s1]
+
+Commençons par créer un fichier [spam.py] et dans ce fichier nous
+allons créer un variable [x] et une fonction [f()], puis nous allons
+créer un fichier [egg.py] dans le même répertoire que spam.py  qui
+[importe le module spam], crée un variable [x] et une fonction
+[f]. Puis on appelle [f()], [spam.f()] et on affiche [spam.x].
+
+Pour finir, ouvrons un terminal de commande (cmd sous windows, ou bash
+sous Linux) dans le répertoire des deux fichiers. Puis exécutons la
+commande [python egg.py]. N'hésitez pas à mettre la vidéo en pause
+pour avoir le temps de créer ces deux fichiers et nous nous retrouvons
+tout de suite. 
+
+[s2]
+
+Regardons maintenant ce qui ce passe lors de l'interprétation de ce
+code.
+
+Nous découpons l'espace des variables en deux parties, une partie pour
+spam et une partie pour egg. On appelle ces parties des espaces de
+nommages. Ce sont des espaces qui permettent d'isoler les variables
+définies dans les modules. Ainsi on peut définir des variables de même
+nom dans des modules différents sans risque de collision.
+
+La [flèche rouge] représente la ligne exécutée par l'interpréteur
+Python. Commençons donc l'exécution. L'interpréteur exécute toujours
+le code d'un module de manière séquentielle de la première à la
+dernière ligne de code.
+
+La première ligne exécutée est import spam, cette instruction va
+évaluer le code du fichier spam.py pour créer l'objet
+module. L'interpréteur va donc suspendre l'évaluation de egg.py et
+passer à spam.py.
+
+Dans le fichier spam.py, on a [x =1], on va donc créer un objet entier
+[1] puis une variable [x] dans l'espace de nommage de spam qui va
+référencer cet objet. Ensuite on définie une fonction [f]. Lors que
+l'importation, l'interpréteur Python va créer un objet fonction, mais
+le bloc de code de la fonction ne sera évalué qu'à l'appel de cette
+fonction.  On crée donc un [objet fonction], puis une variable [f]
+dans l'espace de nommage de spam qui référence l'objet fonction.
+
+Maintenant que le module spam a été interprété, on crée [l'objet module]
+et la variable [spam] dans l'espace de nommage de egg qui référence
+l'objet module. Puis on crée l'entier [2] et la variable [x] dans
+l'espace de nommage de egg qui référence l'entier 2. Pour finir on
+crée un [objet fonction], puis un variable [f] dans l'espace de
+nommage de egg qui référence l'objet fonction.
+
+Que se passe-t-il maintenant à l'appel de f(). Je suis ici la règle de
+la portée des variable LEGB. f est une variable locale qui définie un
+objet fonction, j'exécute donc la fonction référencée par la variable
+f dans l'espace de nommage de egg.
+
+La fonction fait un print de x, ici encore j'applique la règle LEGB. x
+n'est pas une variable locale, c'est une variable locale qui référence
+l'entier 2.
+
+Ensuite j'exécute [spam.f()]. Cette notation "." veut dire accède à la
+variable f dans l'espace de nommage de spam. Prenons quelque instants
+pour expliquer plus en détail cette notation. Lorsque j'appelle
+spam.f, je dis que f est un attribut de spam, f n'est plus recherché
+alors avec la règle LEGB des variables, mais uniquement parmi les
+variables globales de spam. C'est cette notation qui me permet
+d'accéder aux variables globales --- on dit au attributs --- d'autres
+modules.
+
+J'exécute donc la fonction référencée par la variable f dans l'espace
+de nommage de spam. Cette fonction fait un print de x. Comme x est une
+variable, j'utilise la règle LEGB. x référence donc l'objet entier
+1.
+
+Lorsque je fait [print de spam.x], je cherche donc l'attribut x dans
+l'espace de nommage de spam, x référence là encore l'entier 1. 
+
+[s3]
+
+La notation [objet.attribut] permet d'accèder à l'attribut dans
+l'espace de nommage de l'objet. Cette notation fonctionne pour
+n'importe quel objet Python. Lorsque l'objet est un module, on
+accède uniquement aux variables globales du module. On verra lorsque
+l'on parlera des classes, et des instances que ces objets définissent
+également leur propre espace de nommage auquel on peut accéder par
+cette notation. 
+
+## Conclusion (50s)
+
+C'est important de comprendre que les espaces de nommage isolent
+uniquement les variables, mais pas les objets. Il est possible d'avoir
+des références partagées par des attributs dans différents espaces de
+nommage vers le même objet. Si l'objet est mutable, il peut alors être
+modifié depuis un espace de nommage et sera vu modifié par tous les
+autres.
+
+En résumé, les espaces de nommage permettent une parfaite isolation
+des variables. Mais, on peut accéder à toutes les variables de
+l'espace de nommage d'un autre module en utilisant le nom du module
+point le nom de la variable, du moment que le module a été importé
+avant. Cette isolation des espaces de nommage est une des grandes
+forces de Python puisque l'accès à une variable en dehors de son
+espace de nommage doit toujours être fait explicitement en spécifiant
+le nom de l'espace de nommage auquel on souhaite accéder. 
+
+À bientôt
