@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Processus d'importation des modules
+## Temp total: (8m10)
+
+
+## Sujet de la vidéo (20s)
+
+Dans cette vidéo nous allons discuter du processus d'importation d'un
+module, c'est-à-dire des différentes étapes que l'interpréteur Python
+suit à partir du moment où il évalue une instruction import jusqu'à la
+création de l'objet module.
+
+Ouvrons un interpréteur Python pour jouer avec le processus
+d'importation des modules...
+
+>>>>>>>>>> INCLUDE W5-S6-AV-exo1.py <<<<<<<<<< (7m00)
+
+## Conclusion (50)
+
+
+Le processus d'importation est une opération coûteuse, par conséquent
+un module n'est importé qu'une seule fois dans un programme quelque
+soit le nombre d'instruction import pour ce module. Dans un même
+programme, il n'y a qu'un seul objet module par module importé et les
+imports sur ce module vont créer des références partagées vers l'objet
+module. Un module étant un objet mutable, il faut donc bien comprendre
+les interactions qui existent entre les mécanismes d'importation et
+les espaces de nommage des modules. C'est ce que nous développerons
+dans une prochaine vidéo
+
+À bientôt
+

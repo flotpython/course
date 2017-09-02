@@ -198,6 +198,12 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 6
 
+   parler de importlib.reload(), attention, reload a changée de place en
+   python 3.4, ça peut donc être une source de confusion, il faut en
+   dire un mot. avant on utilisait imp.reload(), mais c'est
+   deprecated.
+   https://docs.python.org/3/library/imp.html?highlight=reload#imp.reload
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-import .ipynb
    avancé
