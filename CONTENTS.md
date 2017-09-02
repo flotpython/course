@@ -2,7 +2,7 @@ Plan général du MOOC sur Python 3
 =================================
 
 ## Week 1
-**Thème de la semaine**: introduction au MOOC et aux outils Python utilisés dans le MOOC
+**Thème de la semaine**: Introduction au MOOC et aux outils Python utilisés dans le MOOC
 
 * W1-S0: Présentation de la première semaine
 * W1-S1: Organisation du MOOC
@@ -15,7 +15,8 @@ Plan général du MOOC sur Python 3
 * W1-S7: Les types numériques 
 
 ## Week 2
-**Thème de la semaine**: découverte des types builtins (entiers, listes, chaines de caractères)
+**Thème de la semaine**: Notions de base pour écrire son premier
+programme en Python
 
 * W2-S0: Présentation de la deuxième semaine
 * W2-S1: Codage, jeux de caractères et unicode
@@ -28,7 +29,7 @@ Plan général du MOOC sur Python 3
 * W2-S8: Introduction aux modules
 
 ## Week 3
-**Thème de la semaine**: Fin des types builtins et introduction aux modules et aux classes
+**Thème de la semaine**: Renforcement des notions de base, références partagées
 
 * W3-S0: Présentation de la troisième semaine
 * W3-S1: Les fichiers
@@ -41,7 +42,7 @@ Plan général du MOOC sur Python 3
 * W3-S8: Introduction aux classes
 
 ## Week 4
-**Thème de la semaine**: Fonctions
+**Thème de la semaine**: Fonctions et portée des variables
 
 * W4-S0: Présentation de la quatrième semaine
 * W4-S1: Fonctions
@@ -52,7 +53,7 @@ Plan général du MOOC sur Python 3
 * W4-S6: Passage d'arguments et appel de fonctions
 
 ## Week 5
-**Thème de la semaine**: Itération et importation
+**Thème de la semaine**: Itération, importation et espace de nommage
 
 * W5-S0: Présentation de la cinquième semaine
 * W5-S1: Itérable, itérateur, itération
@@ -78,7 +79,7 @@ Plan général du MOOC sur Python 3
 * W6-S8: Conception de context manager
 
 ## Week 7
-**Thème de la semaine**: l'ecosystème data science Python
+**Thème de la semaine**: L'ecosystème data science Python
 
 * W7-S0: Présentation de la septième semaine
 * W7-S1: installer son environement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
@@ -88,6 +89,8 @@ Plan général du MOOC sur Python 3
 
 ## Week 8 
 **Thème de la semaine**: Sujets avancés de Python
+
+**Niveau**: AVANCÉ
 
 * W8-S0: Présentation de la huitième semaine
 * W8-S1: Méthodes statiques et de classe
