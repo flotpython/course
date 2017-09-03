@@ -162,6 +162,10 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 5
 
+   Parler de   dict  , globals(), locals(), var(), dir() et en
+   particulier montrer comment on peut explorer les espaces de
+   nommages des fonctions et des objets.
+   
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK Complement-attributs.ipynb
    * OK Complement-fonctions-globals-et-locals.ipynb
@@ -186,6 +190,20 @@ NIVEAU: BASIC
    on pourrait sûrement contruire un quiz en élaborant là-dessus, non ?
 
 ## Exercices Vidéo 5
+
+   Idée: faire un affichage qui dump l'espace de nommage par type
+   d'objet référencé. faire un dict avec comme clef le type de l'objet
+   référencé et comme valeur une liste de tuple (variable, objet)
+
+def dump_naming_space(obj):
+    naming_space = {}
+    for v, o in vars(obj).items():
+        naming_space.setdefault(type(o), []).append((v, o))
+
+    for k, lst in naming_space.items():
+        print(f"\n{k}")
+        for v, o in lst:
+            print(f"   {v}: {o}")
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
    *
@@ -239,7 +257,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 7 (Importation de modules et espace de nommage)
+# Vidéo 7 (Impact de l'importation des modules sur les espaces de nommage)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 7

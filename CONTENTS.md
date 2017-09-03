@@ -62,7 +62,7 @@ programme en Python
 * W5-S4: Expressions et fonctions génératrices
 * W5-S5: Modules et espaces de nommage
 * W5-S6: Processus d'importation des modules
-* W5-S7: Importation de modules et espace de nommage
+* W5-S7: Impact de l'importation des modules sur les espaces de nommage
 
 
 ## Week 6

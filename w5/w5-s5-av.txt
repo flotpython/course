@@ -10,23 +10,41 @@
 ## le slide i
 
 ## TITRE : Modules et espaces de nommage
-## Temp total: (8m30s)
+## Temp total: (10m00)
 
-## Sujet de la vidéo (40s)
+## Sujet de la vidéo (1m30s)
 
-Nous avons introduit rapidement la notion de modules dans une
-précédente vidéo en présentant le côté utilisateur, c'est-à-dire
-comment utiliser un module comme une boite à outils. Cependant les
-modules sont bien plus que de simples boites à outils, ce sont de
-véritables objets qui permettent l'isolation des variables par ce que
-l'on appelle des espaces de nommages.
+Lorsque nous avons parlé de la notion de portée de variables, nous
+avons vu que l'on pouvait avoir une variable locale et une variable
+globale de même nom dans un même module. Nous avons également expliqué
+que chaque module avait ses propres variables globales qui étaient
+totalement isolées les unes des autres. Donc deux modules A et B dans
+un même programme peuvent tous les deux définir une variable globale
+x, et les deux variables globales pourront coexister sans risque.
 
-Lorsque nous avons parlé de la notion de portée de variable, nous
-avons expliqué qu'il n'y avait rien au dessus que la portée globale et
-que la portée d'une variable globale était limité au module dans
-lequel elle est déclarée. Comment alors accéder à une variable dans un
-autre module ? C'est ce que nous allons voir dans cette vidéo en
-abordant les subtilités des espaces de nommage.
+Mais quel est ce mécanismes qui permet l'isolation des variables ?
+C'est ce que l'on appelle les espaces de nommage. Un espace de nommage
+est un espace qui regroupe un ensemble de variables référençant des
+objets. Chaque module, chaque fonction, et nous verrons plus tard,
+chaque classe et instance, a son propre espace de nommage.
+
+Dans les langages qui ne sont pas orientés objets, comme le C, il n'y
+a pas de notion d'espace de nommage. Cela complique le rôle du
+programmeur qui doit s'assurer de ne pas avoir des variables globales
+de même nom dans tout son programme. Dans les langages orienté objets
+comme Java, on doit créer des classes pour avoir des espaces de
+nommage. C'est également une tache supplémentaire pour le développeur
+qui doit créer une classe dès sa première ligne de code.
+
+En Python, comme chaque module définit son espace de nommage, on a une
+isolation automatique et naturelle des variables globales par
+fichier. On voit donc que les modules sont bien plus que de simples
+boites à outils, ce sont de véritables objets qui permettent
+l'isolation des variables globales dans des espaces de nommages.
+
+Nous allons voir maintenant comment les modules isolent les variables
+dans des espaces de nommage et comment on peut accéder aux variables
+d'un autre module. 
 
 >>>>>>>>>> INCLUDE W5-S5-AV-slide1.pptx (7 minutes) <<<<<<<<<<
 
@@ -37,6 +55,11 @@ allons créer un variable [x] et une fonction [f()], puis nous allons
 créer un fichier [egg.py] dans le même répertoire que spam.py  qui
 [importe le module spam], crée un variable [x] et une fonction
 [f]. Puis on appelle [f()], [spam.f()] et on affiche [spam.x].
+
+Un point clef de cet exemple est que les variable f et x sont définies
+à la fois dans spam et dans egg. Vous allez voir que grâce au
+mécanisme des espaces de nommage, il n'y aura jamais aucune ambiguïté
+sur la variable à laquelle on veut accéder. 
 
 Pour finir, ouvrons un terminal de commande (cmd sous windows, ou bash
 sous Linux) dans le répertoire des deux fichiers. Puis exécutons la
@@ -49,11 +72,9 @@ tout de suite.
 Regardons maintenant ce qui ce passe lors de l'interprétation de ce
 code.
 
-Nous découpons l'espace des variables en deux parties, une partie pour
-spam et une partie pour egg. On appelle ces parties des espaces de
-nommages. Ce sont des espaces qui permettent d'isoler les variables
-définies dans les modules. Ainsi on peut définir des variables de même
-nom dans des modules différents sans risque de collision.
+Nous avons deux espaces de nommage, un espace pour spam et un espace
+pour egg. Rappelons que l'on peut définir des variables globales de
+même nom dans des modules différents sans risque de collision.
 
 La [flèche rouge] représente la ligne exécutée par l'interpréteur
 Python. Commençons donc l'exécution. L'interpréteur exécute toujours
@@ -73,11 +94,11 @@ le bloc de code de la fonction ne sera évalué qu'à l'appel de cette
 fonction.  On crée donc un [objet fonction], puis une variable [f]
 dans l'espace de nommage de spam qui référence l'objet fonction.
 
-Maintenant que le module spam a été interprété, on crée [l'objet module]
-et la variable [spam] dans l'espace de nommage de egg qui référence
-l'objet module. Puis on crée l'entier [2] et la variable [x] dans
-l'espace de nommage de egg qui référence l'entier 2. Pour finir on
-crée un [objet fonction], puis un variable [f] dans l'espace de
+Maintenant que le module spam a été interprété, on crée [l'objet
+module] et la variable [spam] dans l'espace de nommage de egg qui
+référence l'objet module. Puis on crée l'entier [2] et la variable [x]
+dans l'espace de nommage de egg qui référence l'entier 2. Pour finir
+on crée un [objet fonction], puis un variable [f] dans l'espace de
 nommage de egg qui référence l'objet fonction.
 
 Que se passe-t-il maintenant à l'appel de f(). Je suis ici la règle de
@@ -106,17 +127,6 @@ variable, j'utilise la règle LEGB. x référence donc l'objet entier
 Lorsque je fait [print de spam.x], je cherche donc l'attribut x dans
 l'espace de nommage de spam, x référence là encore l'entier 1. 
 
-[s3]
-
-La notation [objet.attribut] permet d'accèder à l'attribut dans
-l'espace de nommage de l'objet. Cette notation fonctionne pour
-n'importe quel objet Python. Lorsque l'objet est un module, on
-accède uniquement aux variables globales du module. On verra lorsque
-l'on parlera des classes, et des instances que ces objets définissent
-également leur propre espace de nommage auquel on peut accéder par
-cette notation. 
-
-## Conclusion (50s)
 
 C'est important de comprendre que les espaces de nommage isolent
 uniquement les variables, mais pas les objets. Il est possible d'avoir
@@ -125,6 +135,40 @@ nommage vers le même objet. Si l'objet est mutable, il peut alors être
 modifié depuis un espace de nommage et sera vu modifié par tous les
 autres.
 
+[s3]
+
+La notation [objet.attribut] permet d'accèder à l'attribut dans
+l'espace de nommage de l'objet. Cette notation fonctionne pour
+n'importe quel objet Python. Lorsque l'objet est un module, on accède
+uniquement aux variables globales du module. On verra lorsque l'on
+parlera des classes et des instances que ces objets définissent
+également leur propre espace de nommage auquel on peut accéder par
+cette notation, mais avec une règle de recherche d'attribut
+différente.
+
+## Discussion implémentations des espaces de nommage (1m00)
+
+Comment est-ce que Python implémente les espaces de nommage ? En fait,
+comme tout en Python, un espace de nommage est un objet. Il s'agit en
+fait d'un objet que vous connaissez bien puisque les espaces de
+nommages sont implémenté avec un dictionnaire. Chaque clef est une
+chaîne de caractère qui représente un nom de variable et chaque valeur
+est une référence de l'objet référencé par la variable.
+
+Donc, à chaque fois que vous définissez une variable globale dans un module,
+l'interpréteur va automatiquement créer un entrée de le dictionnaire
+de l'espace de nommage du module. Et lorsque vous définissez une
+variable locale dans une fonction, l'interpréteur va automatiquement
+créer une entrée dans l'espace de nommage de la fonction au moment de
+l'appel de cette fonction. Notons que l'espace de nommage de la
+fonction est automatiquement détruit au retour de la fonction.
+
+Une référence d'une variable consiste à chercher le bon espace de
+nommage avec la règle LEGB puis à chercher l'objet référencé dans le
+dictionnaire en utilisant le nom de variable comme clef. 
+
+## Conclusion (30)
+
 En résumé, les espaces de nommage permettent une parfaite isolation
 des variables. Mais, on peut accéder à toutes les variables de
 l'espace de nommage d'un autre module en utilisant le nom du module
@@ -132,6 +176,6 @@ point le nom de la variable, du moment que le module a été importé
 avant. Cette isolation des espaces de nommage est une des grandes
 forces de Python puisque l'accès à une variable en dehors de son
 espace de nommage doit toujours être fait explicitement en spécifiant
-le nom de l'espace de nommage auquel on souhaite accéder. 
+le nom l'espace de nommage auquel on souhaite accéder. 
 
 À bientôt
