@@ -1,0 +1,146 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Impact de l'importation des modules sur les espaces de
+   	   nommage
+   
+## Temp total: (7m40s)
+
+## Sujet de la vidéo (30s)
+
+Nous avons vu dans une précédente vidéo que si, par exemple, vous
+importiez le module os, l'interpréteur Python allait créer un objet
+module correspondant, mais que si vous faisiez un deuxième import sur
+le même module os, ce deuxième import allait juste créer une référence
+partagée vers l'objet module existant.
+
+Les modules étant des objets mutable, il est important de comprendre
+les interactions entre les différents mécanismes d'importation et les
+espaces de nommage des modules.
+
+Dans cette vidéo, nous allons présenter les différentes manières
+d'importer un module et leur impact sur les espaces de nommage.
+
+
+>>>>>>>>>> INCLUDE W5-S7-AV-slide1.pptx <<<<<<<<<< (6m30s)
+
+[s1]
+
+Commençons par créer un fichier [spam.py] contenant uniquement un
+variable x = 1 et un fichier [egg.py] qui importe spam et définie une
+variable x qui vaut 2.
+
+Pour exécuter vous aller dans une fenêtre de commande (cmd sous
+Windows ou bash sous Linux) et vous tapez [python egg.py]
+
+Si vous voulez voir les espaces de nommages, vous pouvez utiliser
+la fonction built-in vars() qui lorsqu'elle est appelée sans argument
+retour l'espace de nommage correspondant à l'endroit de
+l'appel. Notons que dans ce context, vars() est équivalent à appeler
+globals(). Si vous voulez voir l'espace de nommage d'un module importé
+vous pouvez utiliser vars(spam) et si vous voulez uniquement voir les
+attributs (c'est-à-dire, les clefs du dictionnaire de l'espace de
+nommage), vous pouvez utiliser dir(spam).
+
+[s2]
+
+Regardons maintenant ce qui se passe lors de l'exécution de ce code.
+import spam va déclancher l'évaluation du module spam. Dans spam, on
+crée un objet [1], puis la variable [x] dans l'espace de nommage de
+spam [référence] cet entier. Un fois que le module est évalué, on crée
+[l'objet module], puis une variable [spam] dans l'espace de nommage de
+egg qui [référence] cet objet.
+
+Pour finir on crée un objet [2] et variable [x] dans l'espace de
+nommage de spam qui [référence] 2.
+
+[print(x)] va afficher le x de egg, donc 2 et print(spam.x) affiche le
+x de spam, donc 1.
+
+[s3]
+
+L'objet module étant mutable, on peut tout à fait modifier des
+attributs du module. Par exemple, [spam.x = 3] va modifier l'attribut
+x dans l'espace de nommage de spam.
+
+[s4]
+
+On peut même créer de nouveaux attributs. Par exemple [spam.y = 4] va
+créer l'attribut y dans l'espace de nommage du spam. 
+
+En résumé, on voit que lorsqu'on importe un module avec l'instruction
+import, il n'y a aucun risque de collision de variable puisque toutes
+les variables du module restent dans son espace de nommage, par
+contre, comme on accès à tous les attributs du module, on peut
+directement les modifier dans l'objet module. Comme il n'y a qu'un
+seul objet module par module importé, tous les imports de ce module
+donnerons accès à cet unique objet modifié. Ça n'est cependant jamais
+un problème en pratique. En effet, comme toutes les modifications dans
+le module sont faites de manière explicite, il n'y aucune risque de
+modifier par erreur un module lorsqu'on a compris le mécanisme des
+espaces de nommage.
+
+## 3m40
+
+[s5]
+
+Regardons maintenant une autre manière d'importer un module. Au lieu
+d'utiliser import spam, on va utiliser form spam import x. Regardons
+l'impact de cette instruction sur les espaces de nommage.
+
+Je crée toujours un entier 1 et une variable x dans spam qui référence
+1, puis je crée l'objet module. Mais maintenant, je n'ai pas de
+variable spam créée dans egg. Au lieu de cela, j'ai une variable [x]
+créée dans egg qui référence le même objet que x dans spam.
+[print(x)] affiche donc 1.
+
+On a donc maintenant deux variables x dans deux espaces de nommage
+différent qui référence le même objet. Ces variables peuvent donc
+évoluer indépendamment. Si maintenant j'écris [x = 3], je modifie la
+variable x dans l'espace de nommage de egg uniquement.
+
+[s6]
+
+En résumé, nous avons deux manières d'importer des modules avec des
+propriétés très différentes.  L'instruction import permet d'importer
+un objet module. Avec cette importation, il y a une parfaite
+[isolation] des espaces de nommage puisque l'on ne peut accéder aux
+attributs du module importé avec la notation [module.attribut], par
+exemple spam.x. Par contre, comme on a un accès direct aux attributs
+du module, il faut comprendre qu'on peut modifier l'espace de nommage
+du module.
+
+L'autre manière d'importer un module est d'utiliser l'instruction from
+module import variable. Cette instruction va créer une [nouvelle
+variable] dans l'espace de nommage local qui référence le même objet
+que l'attribut dans l'espace de nommage du module importé.  L'avantage
+de cette importation est que l'on peut accéder directement à l'objet
+défini dans le module sans utiliser le nom du module point le nom de
+l'attribut. Par contre, on a un risque de collision de variables et on
+aura pas accès aux autres attributs du module.
+
+##6m30
+
+## Conclusion (40s)
+
+Nous avons vu que le mécanisme d'importation d'un module avait un
+impact important sur les espaces de nommage et la manière d'accéder
+aux attributs d'un module. D'une manière générale, il faut toujours
+favoriser l'isolation des espaces de nommage. Notez également, que
+l'instruction from module import attribut, ne vous permez pas de
+gagner de l'espace mémoire on ne créant que certains attributs du
+module. Tout import va entièrement créer l'objet module et tout ses
+attributs. La seule différence se fera au niveau des espaces de
+nommage et non au niveau des objets créés. 
+
+À bientôt.
+
+
