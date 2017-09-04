@@ -48,11 +48,13 @@ d'un autre module.
 
 >>>>>>>>>> INCLUDE W5-S5-AV-slide1.pptx (7 minutes) <<<<<<<<<<
 
-[[TP
-petit détail, mais ce serait plus simple pour ton auditoire si
-la variable x dans spam valait par exemple 'x dans spam'
-le fait d'avoir a se souvenir laquelle est le 1 et laquelle
-est le 2 ralentit un peu la lecture]]
+[[TP petit détail, mais ce serait plus simple pour ton auditoire si la
+variable x dans spam valait par exemple 'x dans spam' le fait d'avoir
+a se souvenir laquelle est le 1 et laquelle est le 2 ralentit un peu
+la lecture]]
+
+[[AL: OK, je garde sous le coude, mais j'ai un problème d'espace dans
+les animations]]
 
 [s1]
 

@@ -62,34 +62,3 @@ print(sys.path)
 ## dans le bloc de code de la fonction ne sera exécuté qu'a l'appel de
 ## la fonction.
 
-[[TP: en sequence w2-s6 on a deja introduit les fonctions
-  le fait qu'un def ne fait que de définir la fonction
-  est donc déjà acquis en principe (on est en fin de semaine 5!!)
-
-du coup je pense qu'on peut faire l'économie de ce qui suit; 
-ou raccourcir en une phrase; ça n'a rien à voir avec l'importation en fait...]]
-
-## Ouvrons un éditeur IDLE pour comprendre cette exécution
-## séquentielle
-
-
-#f()
-
-#def f():
-#    print('dans f()')
-#    g()
-
-## si j'appelle un fonction avant que l'objet fonction soit créé j'ai
-## une exception. Supprimons l'appel avant la définition de f. l'objet
-## fonction est bien créé, mais tant que je n'appelle pas f, le bloc
-## de code n'est pas exécuté, donc g() n'est pas appelé. 
-
-## l'objet fonction f() est maintenant créé
-
-#f()
-#def g():
-#    print('dans g()')
-
-## l'objet fonction g() est maintenant créé
-
-#f()

@@ -62,22 +62,12 @@ list(carre(1, 10))
 
 def palindromes(it):
     for i in it:
-        if (type(i) is int) and str(i) == str(i)[::-1]:
-            yield i
-        elif (type(i) is str) and i == i[::-1]:
-            yield i
-        else:
-            continue
-
-[[TP je te propose un peu plus court]]
-def palindromes(it):
-    for i in it:
         if isinstance(i, (str, int)) and str(i) == str(i)[::-1]:
             yield i
         else:
             continue
 
-[[TP cet exemple avec une liste en entrée est un peu contre-productif]]
+
 list(palindromes([121, 10, 12321, 'abc', 'abba']))
 
 ## l'intérêt de notre générateur palidromes est encore plus marquant
@@ -86,7 +76,14 @@ list(palindromes([121, 10, 12321, 'abc', 'abba']))
 ## de retourner tous les palindromes d'un fichier à la volée sans
 ## structure de données temporaire. 
 
-[[TP du coup pour bien illustrer l'usage avec un itérateur
-  on pourrait montrer aussi
-list(palindromes(x**2 for x in range(1000)))
-  ]]
+## voici un dernier exemple pour trouver les palindromes dans les
+## carrés de 0 à 999 sans créer aucune structure intermériaire autre
+## que la liste du résultat
+
+list(palindromes(x**2 for x in range(1000))) ## dans l'appel d'une
+                                             ## fonction des
+                                             ## parenthese de
+                                             ## l'expression
+                                             ## génératrice sont
+                                             ## facultatives
+
