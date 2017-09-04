@@ -37,6 +37,10 @@ Pas de quiz pour cette semaine du coup
     * (async def / await) pour définir les coroutines,
     * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
 
+ . montrer ce qui se passe si on appelle une coroutine sans await
+   coroutine functions vs corotine
+ . XXX un message d'erreur quand on oublie le await 
+
 ## Compléments Vidéo 2
 ## Exercices Vidéo 2
 
@@ -68,3 +72,21 @@ Pas de quiz pour cette semaine du coup
 ## Compléments Vidéo 6
 ## Exercices Vidéo 6
 
+####################
+
+ideas
+
+* pour les complements, ajouter un lien vers
+https://www.youtube.com/watch?v=2ZFFv-wZ8_g
+
+* un dessin de l'exécution d'un code tout petit avec un appel de coroutines
+https://docs.python.org/3/library/asyncio-task.html#asyncio.ensure_future
+
+* mentionner C# et JavaScript
+
+* still missing: async lambdas - probably 3.7
+
+* awaitable protocol
+
+* montrer un serveur TCP encore + basique tel que dans
+https://www.python.org/dev/peps/pep-0492/#types-coroutine

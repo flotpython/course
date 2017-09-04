@@ -69,6 +69,15 @@ def palindromes(it):
         else:
             continue
 
+[[TP je te propose un peu plus court]]
+def palindromes(it):
+    for i in it:
+        if isinstance(i, (str, int)) and str(i) == str(i)[::-1]:
+            yield i
+        else:
+            continue
+
+[[TP cet exemple avec une liste en entrée est un peu contre-productif]]
 list(palindromes([121, 10, 12321, 'abc', 'abba']))
 
 ## l'intérêt de notre générateur palidromes est encore plus marquant
@@ -76,3 +85,8 @@ list(palindromes([121, 10, 12321, 'abc', 'abba']))
 ## comme par exemple, un fichier. Notre générateur sera ainsi capable
 ## de retourner tous les palindromes d'un fichier à la volée sans
 ## structure de données temporaire. 
+
+[[TP du coup pour bien illustrer l'usage avec un itérateur
+  on pourrait montrer aussi
+list(palindromes(x**2 for x in range(1000)))
+  ]]

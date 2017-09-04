@@ -54,13 +54,20 @@ print(sys.path)
 ## depuis la derniere compilation.
 
 ## Pour finir, l'interpréteur Python va exécuter le fichier module (en
-## fait, il va exécuter le byte code) pour créer l'objet module est
+## fait, il va exécuter le byte code) pour créer l'objet module et
 ## tous les objets qu'il contient.  L'interpréteur va exécuter le code
 ## sequentiellement en créant chaque objet au fur et à mesure. Les
 ## fonctions sont un cas un peu particulier. L'objet fonction est bien
 ## créé à l'import séquentiel du module. Par contre, le code contenu
 ## dans le bloc de code de la fonction ne sera exécuté qu'a l'appel de
 ## la fonction.
+
+[[TP: en sequence w2-s6 on a deja introduit les fonctions
+  le fait qu'un def ne fait que de définir la fonction
+  est donc déjà acquis en principe (on est en fin de semaine 5!!)
+
+du coup je pense qu'on peut faire l'économie de ce qui suit; 
+ou raccourcir en une phrase; ça n'a rien à voir avec l'importation en fait...]]
 
 ## Ouvrons un éditeur IDLE pour comprendre cette exécution
 ## séquentielle
