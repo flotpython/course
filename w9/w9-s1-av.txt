@@ -12,7 +12,10 @@ pour traiter ce type de programmation, c'est la librairie asyncio.
 
 Dans cette première séquence nous allons essayer de comprendre ce
 qu'on veut dire par programmation asynchrone, et voir les différentes
-approches qu'on peut utiliser pour traiter ce genre de problèmes
+approches qu'on peut utiliser pour traiter ce genre de problèmes.
+
+Pour illustrer toute cette semaine je vais utiliser des notebooks, avec
+une extension qui permet de les voir comme des slides.
 
 [slide Typologie]
 
@@ -176,7 +179,13 @@ défiguré par un découpage en callbacks, et avec un contrôle fin par le
 programmeur des points du programme où il va être possible de changer de
 contexte.
 
-Nous allons voir ceci sur un tout petit exemple dans la prochaine
+[slide suivant]
+On pourra donc obtenir un comportement comme celui-ci, qui est optimal
+vis-à-vis de l'utilisation du temps, sans avoir à défigurer notre
+code, c'est-à-dire avec du code quasiment identique à ce qu'on aurait
+écrit en mode séquentiel.
+
+Nous allons voir ceci sur des tout petits exemple dans la prochaine
 vidéo.
 
 À bientôt

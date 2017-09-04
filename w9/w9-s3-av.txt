@@ -1,0 +1,102 @@
+# -*- coding: utf-8 -*-
+# -*- autofill-mode; fill-column: 54 -*-
+
+# TITRE : L'écosystème asyncio
+# temps estimé:
+
+## Résumé de la vidéo
+
+Nous avons vu quelques exemples simples de programmation asynchrone
+avec asyncio. Dans cette séquence, après un rapide historique
+nous allons maintenant voir quels sont les librairies disponibles pour
+tirer profit de ce nouveau paradigme
+
+# historique
+
+[fragment 3.5]
+
+Dans sa forme actuelle avec 'async def' et 'await', la syntaxe date de
+python-3.5, en 2015 donc. Je vous signale rapidement que asyncio avait
+en fait été introduite un an plus tôt dans python-3.4,
+
+[fragment 3,4]
+
+mais avec une syntaxe différente, que je vous montre ici rapidement,
+il se peut que vous trouviez du code avec cette ancienne syntaxe.
+
+[slide python-2]
+
+enfin il faut savoir que les mécanismes dont on a besoin pour
+implémenter une boucle d'événements sont présents dans le langage
+depuis déjà python-2.5 c'est à dire 2006.
+
+je vous signale d'ailleurs plusieurs projets qui ont tiré profit de
+cette possibilité, qui sont
+
+[slide 'inspiration' gevent - tornado - twisted]
+
+gevent, tornado et twisted, qui utilisent une technologie similaire
+depuis bien avant asyncio, et qui d'ailleurs l'ont largement inspiré.
+
+[[xxx un slide sur les successeurs qu'il faudra sûrement recaser ailleurs]]
+
+à cet égard, s'il est fréquent de résumer ce style de programmation
+sous le simple nom de 'asyncio', il est sans doute utile aussi de bien
+distinguer entre les traits qui appartiennent au langage - qui sont
+donc par définition peu flexibles - de ceux qui sont implémentées dans
+la librairie.
+
+[slide langage vs librairie]
+
+La distinction est assez nette, le langage contient seulement la
+notion de coroutine, c'est à dire les mots clés `async def` et
+`await`, avec quelques ajouts comme `async for` et `async with` que
+l'on aura l'occasion de voir plus tard
+
+[fragment librairie]
+
+La librairie quant à elle implémente principalement la boucle
+d'événements. C'est important de comprendre la distinction, car cela
+signifie qu'il est tout à fait possible d'envisager d'autres
+librairies asynchrones qui partagent toutes le même modèle de
+coroutines, et qui coexistent. Les trois projets que j'ai cités tout à
+l'heure peuvent par exemple continuer à utiliser leurs propres
+librairies, mais avec une façon plus simple et plus standard d'écrire
+leurs coroutines que ce qu'ils avaient pu écrire en 2010.
+
+Pour rester à un haut niveau, il faut citer parmi les traits présents
+dans asyncio
+
+[fragment ]  la notion de `Queue` qu'on a déjà rencontrée,
+
+
+[fragment ] et la notion de `SubProcess`, qui permet de gérer l'orchestration de
+processus avec les entrées-sorties de type stdin/stdout et pipe qui vont avec.
+
+tache / future
+
+queue
+
+subprocesses
+
+
+
+
+séparation langage - librairie
+
+
+# assez récent tout de même - 3.5 = 2015 il y a deux ans - encore
+  relativement peu de recul
+
+# coté contagieux - tendance à teinter le code 
+
+fonctionnalités disponibles
+. subprocesses
+. réseaux: http - ssh - telnet, ...
+  creuser un peu la notion de protocole ?
+. en constante évolution
+
+# 
+un exemple plus réaliste (requêtes http?)
+
+# évoquer ssh ? 

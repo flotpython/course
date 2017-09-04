@@ -111,8 +111,8 @@ programme en Python
 * w9-s1: Programmation asynchrone
 * w9-s2: Quelques exemples simples
 * w9-s3: L'écosystème asyncio
-* w9-s4: Coroutines et exceptions, bonnes pratiques
-* w9-s5: Boucles / Taches / Futures / Coroutines
+* w9-s4: Boucles / Taches / Futures / Coroutines
+* w9-s5: Coroutines et exceptions, bonnes pratiques
 * w9-s6: Générateurs revisités
 
 ### Notes
