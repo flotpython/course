@@ -1,31 +1,54 @@
 # -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 54 -*-
+# -*- autofill-mode; fill-column: 40
+# -*- -*-
 
-Cette semaine nous allons parler de programmation asynchrone, ce qu'on
-désigne souvent sous le raccourci de 'asyncio' - on sera amené à
-préciser ça.
+Cette semaine nous allons parler de
+programmation asynchrone, ce qu'on
+désigne souvent sous le raccourci de
+'asyncio' - on sera amené à préciser
+ça.
 
-Il s'agit d'une innovation assez importante parce qu'elle repose sur une
-approche de la programmation très différente de ce à quoi on est
-habitué, qui induit des ajouts dans le langage lui-même.
+Il s'agit d'une innovation assez
+importante parce qu'elle repose sur
+une approche de la programmation
+très différente de ce à quoi on est
+habitué, qui induit des ajouts dans
+le langage lui-même.
 
-Nous nous sommes donnés un budget de temps d'une semaine; notre but
-ici ne sera pas de vous donner une description exhaustive, qui serait
-fastidieuse, mais plutôt 1. de bien vous faire comprendre les
-objectifs, et donc vous faire sentir les contextes dans lesquels cela
-pourrait vous être utile, et comment ça pourrait vous servir, et 2. vous
-donner quelques bases pour vous permettre de commencer.
+Nous nous sommes donnés un budget de
+temps d'une semaine; notre but ici
+ne sera pas de vous donner une
+description exhaustive, qui serait
+fastidieuse, mais plutôt 1. de bien
+vous faire comprendre les objectifs,
+et donc vous faire sentir les
+contextes dans lesquels cela
+pourrait vous être utile, et comment
+ça pourrait vous servir, et 2. vous
+donner quelques bases pour vous
+permettre de commencer.
 
-On s'adresse clairement ici à un niveau avancé, voire très avancé.  Ce
-nouveau paradigme demandera un investissement de votre part - mais si
-votre domaine d'application touche de près ou de loin le réseau ou des
-applications similaires, ce sera un investissement très rentable car
-vous pourrez écrire du code asynchrone à la fois efficace et lisible.
+On s'adresse clairement ici à un
+niveau avancé, voire très avancé.
+Ce nouveau paradigme demandera un
+investissement de votre part - mais
+si votre domaine d'application
+touche de près ou de loin le réseau
+ou des applications similaires, ce
+sera un investissement très rentable
+car vous pourrez écrire du code
+asynchrone à la fois efficace et
+lisible.
 
 xxx
-Nous avons fait en gros deux parties:
-. d'abord une partie utilisateur, c'est-à-dire à quoi ça sert, comment
-on s'en sert et ce qui est disponible comme librairies tierces.
-. et une partie approfondissement, qui donne plus de détails sur
-comment ça marche à l'intérieur
+
+Nous avons fait en gros deux
+parties: . d'abord une partie
+utilisateur, c'est-à-dire à quoi ça
+sert, comment on s'en sert et ce qui
+est disponible comme librairies
+tierces.  . et une partie
+approfondissement, qui donne plus de
+détails sur comment ça marche à
+l'intérieur
 
