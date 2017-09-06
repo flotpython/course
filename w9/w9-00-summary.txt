@@ -66,6 +66,8 @@ Pas de quiz pour cette semaine du coup
   expressions generatrices asynchrones ?
   generateurs asynchrones ?
 
+* Le protocole awaitable
+
 ## Exercices Vidéo 4
 
 ###################################################################
@@ -74,29 +76,41 @@ Pas de quiz pour cette semaine du coup
 
 * ensure_future & run_forever() - Queue()
 
-* Lock ??
+* ensure_future au milieu d'un scénario
+
+* parler de get_event_loop()
+
+## Compléments Vidéo 5
+
+## Exercices Vidéo 5
+
+###################################################################
+
+# Vidéo 6 La librairie asyncio
+
+* Lock ?? [mettre dans vidéo 5 si on a de la place]
 
 * un protocole de bas niveau avec connection_made() connection_lost()
 
 * montrer un serveur TCP encore + basique tel que dans
 https://www.python.org/dev/peps/pep-0492/#types-coroutine
 
-## Compléments Vidéo 5
-## Exercices Vidéo 5
-
-###################################################################
-
-# Vidéo 6 bonnes pratiques de développement / exceptions
-
 ## Compléments Vidéo 6
 ## Exercices Vidéo 6
 
 ###################################################################
 
-# Vidéo 7 Générateurs revisités
+# Vidéo 7 bonnes pratiques de développement / exceptions
 
 ## Compléments Vidéo 7
 ## Exercices Vidéo 7
+
+###################################################################
+
+# Vidéo 8 Générateurs revisités
+
+## Compléments Vidéo 8
+## Exercices Vidéo 8
 
 * un dessin de l'exécution d'un code tout petit avec un appel de coroutines
 https://docs.python.org/3/library/asyncio-task.html#asyncio.ensure_future
@@ -107,12 +121,7 @@ ideas
 
 * pour les complements, ajouter un lien vers
 https://www.youtube.com/watch?v=2ZFFv-wZ8_g
-
-* mentionner C# et JavaScript
-
-* still missing: async lambdas - probably 3.7
-
-* awaitable protocol
+le talk de Yuri Selivanov - etat de asyncio pour PyCon'17
 
 * contagion: exemple d'un parser; un parser travaille sur un fichier
   complet et pas à priori de manière incrémentale
