@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 54 -*-
+# -*- autofill-mode; fill-column: 40 -*-
 
 # TITRE : Introduction à la Programmation Asynchrone
 # temps estimé
@@ -7,234 +7,245 @@
 
 ## Résumé de la vidéo
 
-La dernière fois nous avons vu des généralités sur la programmation
-asynchrone, et nous avons dit que la librairie asyncio était un bon
-candidat pour ça. Dans cette vidéo nous allons faire tourner quelques
-exemples pour illustrer les concepts de base.
+La dernière fois nous avons vu des
+généralités sur la programmation
+asynchrone, et nous avons dit que la
+librairie asyncio était un bon candidat
+pour ça. Dans cette vidéo nous allons
+faire tourner quelques exemples pour
+illustrer les concepts de base.
 
-Pour commencer bien entendu j'ai besoin d'importer le module
+Pour commencer bien entendu j'ai besoin
+d'importer le module asyncio
 
-[run cell]
+==========[run cell]
 
-[slide coroutines]
+==========[slide coroutines]
 
-Voyons d'abord la notion de coroutine; c'est quoi une coroutine ? à la
-base cela ressemble beaucoup à une fonction, mais dont on sait qu'elle
-va faire son traitement en plusieurs segments de code séquentiels.
+Voyons d'abord la notion de coroutine;
+c'est quoi une coroutine ? à la base
+cela ressemble beaucoup à une fonction,
+mais dont on sait qu'elle va faire son
+traitement en plusieurs segments de code
+séquentiels.
 
 
-[fragment code de la routine]
+==========[fragment code de la routine]
 
-En voici un exemple; on commence par définir la coroutine presque
-comme une fonction mais avec 'async def' au lieu de simplement 'def'
+En voici un exemple; on commence par
+définir la coroutine presque comme une
+fonction mais avec 'async def' au lieu
+de simplement 'def'
 
-Cette coroutine est aussi simple que possible, elle fait un traitement
-en trois morceaux, qui impriment respectivement 'debut', 'milieu' et
-'fin', et on simule des temps morts entre ces trois morceaux.
+Cette coroutine est aussi simple que
+possible, elle fait un traitement en
+trois morceaux, qui impriment
+respectivement 'debut', 'milieu' et
+'fin', et on simule des temps morts
+entre ces trois morceaux.
 
-Il faut surtout remarquer la nouvelle directive 'await', qui nous
-permet d'indiquer les étapes du traitement où on sait qu'un délai est
-attendu - ici j'utilise la coroutine 'asyncio.sleep' qui nous permet
-d'attendre pendant un temps fixe; dans une application réaliste on va
-plutôt attendre un événement, du genre que des données soient prêtes
-en lecture, on verra d'autres exemples tout à l'heure.
+Il faut surtout remarquer la nouvelle
+directive 'await', qui nous permet
+d'indiquer les étapes du traitement où
+on sait qu'un délai est attendu - ici
+j'utilise la coroutine 'asyncio.sleep'
+qui nous permet d'attendre pendant un
+temps fixe; dans une application
+réaliste on va plutôt attendre un
+événement, du genre que des données
+soient prêtes en lecture, on verra
+d'autres exemples tout à l'heure.
 
 Je vais évaluer ce code
 
-[run cell]
-avant de vous montrer ce qu'on peut en faire.
+==========[run cell]
 
-[slide Objet coroutine]
+avant de vous montrer ce qu'on peut en
+faire.
 
-Tout d'abord regardons l'objet 'morceaux', il s'agit bien d'une
+==========[slide Objet coroutine]
+
+Tout d'abord regardons l'objet
+'morceaux', il s'agit bien d'une
 fonction, jusque là tout va bien.
 
-[fragment morceaux()]
+==========[fragment morceaux()]
 
-Si j'appelle cette fonction, comme on pourrait avoir envie de le
-faire
+Si j'appelle cette fonction, comme on
+pourrait avoir envie de le faire
 
-[run cell morceaux("run")]
+==========[run cell morceaux("run")]
 
-comme vous le voyez, il ne se passe rien de ce qu'on attendait,
-l'appel retourne immédiatement, et rien n'est imprimé.
+comme vous le voyez, il ne se passe rien
+de ce qu'on attendait, l'appel retourne
+immédiatement, et rien n'est imprimé.
 
-Le résultat de cet appel est un objet de type coroutine; une des
-façons d'exploiter un objet de ce type est de l'inclure dans une
-boucle d'événements, comme ceci
+Le résultat de cet appel est un objet de
+type coroutine; une des façons
+d'exploiter un objet de ce type est de
+l'inclure dans une boucle d'événements,
+comme ceci
 
-[slide Boucle d'événements]
+==========[slide Boucle d'événements]
 
-Pour commencer il nous faut créer une boucle d'événements, ça se
-présente comme ceci
+Pour commencer il nous faut créer une
+boucle d'événements, ça se présente
+comme ceci
 
-[fragment get_event_loop]
-[run cell]
+==========[fragment get_event_loop]
+==========[run cell]
 
-Cet objet loop, c'est en fait le scheduler qui va se charger de faire
-avancer en parallèle toutes les coroutines. Pour commencer voyons
-comment lui faire exécuter un seul exemplaire de notre coroutine
+Cet objet loop, c'est en fait le
+scheduler qui va se charger de faire
+avancer en parallèle toutes les
+coroutines. Pour commencer voyons
+comment lui faire exécuter un seul
+exemplaire de notre coroutine
 
-[fragment run_until_complete]
-[run cell]
+==========[fragment run_until_complete]
+==========[run cell]
 
-Cette fois ça marche comme on s'y attend. même si naturellement avec
-une seule coroutine ça n'est pas très impressionnant. Voyons tout de
-suite ce que ça donne avec plusieurs traitements en parallèle.
+Cette fois ça marche comme on s'y
+attend. même si naturellement avec une
+seule coroutine ça n'est pas très
+impressionnant. Voyons tout de suite ce
+que ça donne avec plusieurs traitements
+en parallèle.
 
-[slide 'plusieurs traitements']
+==========[slide 'plusieurs traitements']
 
-Pour cela je vais utiliser une coroutine fournie par la librairie, qui
-s'appelle 'gather'.
+Pour cela je vais utiliser une coroutine
+fournie par la librairie, qui s'appelle
+'gather'.
 
-[fragment gather]
+==========[fragment gather]
 
-Elle est très importante, car elle prend en arguments plusieurs
-coroutines, et renvoie la liste des résultats. C'est donc ce qu'il
-nous faut pour exécuter deux instance de la coroutine 'morceaux' en
-parallèle.
+Elle est très importante, car elle prend
+en arguments plusieurs coroutines, et
+renvoie la liste des résultats. C'est
+donc ce qu'il nous faut pour exécuter
+deux instance de la coroutine 'morceaux'
+en parallèle.
 
-[run cell]
+==========[run cell]
 
-Si j'évalue, les deux segments de 3 morceaux sont bien exécutés en
-parallèle, c'est-à-dire plus ou moins en même temps, les deux début,
-puis les deux milieu, etc..
+Si j'évalue, les deux segments de 3
+morceaux sont bien exécutés en
+parallèle, c'est-à-dire plus ou moins en
+même temps, les deux début, puis les
+deux milieu, etc..
 
-[slide figure scheduling]
+==========[slide figure scheduling]
 
-Pour faire le lien avec ce qu'on avait vu dans la première séquence,
-voici comment ça se passe en termes de chronologie. L'objet loop, qui
-fait donc office de scheduler, va orchestrer tout ceci. Au début
-naturellement, il n'est pas possible de savoir à coup sûr laquelle des
-deux coroutines sera appelée en premier, puisqu'elles sont censées se
-dérouler en même temps, on en choisit donc une au hasard. Ce qui est
-important, c'est qu'une fois qu'on est entré dans disons run1(), cette
-coroutine va garder le processeur jusqu'à ce qu'elle rende la main
-explicitement en appelant 'await'. 
+Pour faire le lien avec ce qu'on avait
+vu dans la première séquence, voici
+comment ça se passe en termes de
+chronologie. L'objet loop, qui fait donc
+office de scheduler, va orchestrer tout
+ceci. Au début naturellement, il n'est
+pas possible de savoir à coup sûr
+laquelle des deux coroutines sera
+appelée en premier, puisqu'elles sont
+censées se dérouler en même temps, on en
+choisit donc une au hasard. Ce qui est
+important, c'est qu'une fois qu'on est
+entré dans disons run1(), cette
+coroutine va garder le processeur
+jusqu'à ce qu'elle rende la main
+explicitement en appelant 'await'.
 
-À ce stade, run1 est mise en standby - avec tout son contexte d'exécution - et le scheduler cherche
-ensuite une autre coroutine à qui donner la main. Dans notre cas il se
-trouve que run2() est prête, on l'exécute donc également, mais à
-nouveau jusqu'à rencontrer un 'await'. À ce stade on a exécuté les
-deux débuts, pas tout à fait en même temps mais coup sur coup, et on a
-mis de coté les deux coroutines, avec leur état, prêtes à être
-réactivées.
+À ce stade, run1 est mise en standby -
+avec tout son contexte d'exécution - et
+le scheduler cherche ensuite une autre
+coroutine à qui donner la main. Dans
+notre cas il se trouve que run2() est
+prête, on l'exécute donc également, mais
+à nouveau jusqu'à rencontrer un
+'await'. À ce stade on a exécuté les
+deux débuts, pas tout à fait en même
+temps mais coup sur coup, et on a mis de
+coté les deux coroutines, avec leur
+état, prêtes à être réactivées.
 
-Après le délai qui est codé en dur dans ce petit exemple, la boucle se
-rend compte que run1 devient prête à reprendre, on
-lui passe la main, puis à run2, etc. jusqu'à rencontrer un
-'return'; une fois que les coroutines sont toutes terminées, la
-méthode 'run_until_complete' nous rend la main.
+Après le délai qui est codé en dur dans
+ce petit exemple, la boucle se rend
+compte que run1 devient prête à
+reprendre, on lui passe la main, puis à
+run2, etc. jusqu'à rencontrer un
+'return'; une fois que les coroutines
+sont toutes terminées, la méthode
+'run_until_complete' nous rend la main.
 
-Une première chose à remarquer, on l'a dit dans la vidéo précédente,
-c'est que tout ceci est executé dans un seul thread, et donc aucun
-des blocs que j'ai dessinés ici ne peut être interrompu
-une fois qu'il a commencé.
+Une première chose à remarquer, on l'a
+dit dans la vidéo précédente, c'est que
+tout ceci est executé dans un seul
+thread, et donc aucun des blocs que j'ai
+dessinés ici ne peut être interrompu une
+fois qu'il a commencé.
 
-[slide 'ce qu'il ne faut pas faire']
+==========[slide 'ce qu'il ne faut pas faire']
 
-Et donc il est important de ne pas garder le processeur trop longtemps
-sans rendre la main avec un await. Voyons ça sur une version
-légèrement différente de notre coroutine morceaux,
+Et donc il est important de ne pas
+garder le processeur trop longtemps sans
+rendre la main avec un await. Voyons ça
+sur une version légèrement différente de
+notre coroutine morceaux,
 
-[fragment famine]
+==========[fragment famine]
 
-que j'appelle
-famine; elle fait presque comme morceaux, mais j'ai remplacé un await
-sleep(1) par un appel a time.sleep(1), qui est un appel synchrone. Du
-coup on n'a plus 3 petits fragments, mais 1 petit et un gros de 1 seconde.
+que j'appelle famine; elle fait presque
+comme morceaux, mais j'ai remplacé un
+await sleep(1) par un appel a
+time.sleep(1), qui est un appel
+synchrone. Du coup on n'a plus 3 petits
+fragments, mais 1 petit et un gros de 1
+seconde.
 
-[eval famine]
+==========[eval famine]
 
-[slide]
+==========[slide]
 
-Si on fait tourner ça, on observe que les impressions ne sont plus,
-naturellement, mélangés entre les deux coroutines; ce qui se passe
-c'est ceci
+Si on fait tourner ça, on observe que
+les impressions ne sont plus,
+naturellement, mélangés entre les deux
+coroutines; ce qui se passe c'est ceci
 
-[slide chronologie]
+==========[slide chronologie]
 
-Dit comme ça c'est évident, mais dans la pratique ce type de
-comportement se produit plus souvent qu'on ne voudrait, et quand ça
-arrive ça a un gros impact sur la réactivité de votre application.
+Dit comme ça c'est évident, mais dans la
+pratique ce type de comportement se
+produit plus souvent qu'on ne voudrait,
+et quand ça arrive ça a un gros impact
+sur la réactivité de votre application.
 
-Donc pour conclure cette partie, retenons qu'il faut vraiment éviter
-de bloquer pendant trop longtemps, et que vous pouvez toujours insérer
-une instruction comme await asyncio.sleep(0) où vous voulez
-pour faire respirer votre code.
+Vous pouvez toujours insérer une
+instruction comme await asyncio.sleep(0)
+où vous voulez pour faire respirer votre
+code.
 
 
-[slide synchronisation avec une queue ]
+==========[slice conclusion]
 
-Voyons maintenant un deuxième exemple un tout petit peu plus
-élaboré. Aussi nous allons en profiter pour voir comment on peut créer
-une boucle d'événements; c'est vrai que c'est pratique d'utiliser la
-boucle globale, c'est à dire get_event_loop(), mais pour bien
-comprendre la mécanique de asyncio nous allons nous créer notre propre
-boucle d'événements.
+Pour récapituler cette séquence, on a vu
+que
 
-[fragment new_event_loop]
-[run cell]
+. on écrit le code asynchrone sous forme
+de coroutines, qui se présentent presque
+comme des fonctions - et donc qui
+peuvent implémenter n'importe quelle
+logique
 
-Nous voulons faire tourner en parallèle deux coroutines, la
-première qui émet périodiquement toutes les secondes un message, et une
-deuxième qui réagit à chaque fois qu'un message est émis par la
-première. Pour cela nous utilisons une queue.
+. on peut exécuter une ou plus
+généralement plusieurs coroutines en
+parallèle par l'intermédiaire d'une
+boucle d'événements
 
-[fragment from asyncio import Queue]
+. on peut appeler une coroutine depuis
+une autre coroutine grâce à await
 
-L'objet Queue fait partie de la librairie asyncio, et nous fournit
-deux coroutines pour lire et écrire des événements dans la queue. On
-peut donc écrire nos coroutines comme ceci
+. une coroutine peut bien entendu
+appeler une fonction traditionnelle, en
+faisant attention à ne pas bloquer trop
+longtemps
 
-[fragment writer-consumer]
-[eval both]
-
-Vous voyez que aussi simple que ça peut l'être, il faut surtout ne pas
-oublier les 3 instructions await; deux du coté du producteur; en effet
-la méthode put sur la Queue est une coroutine; ça n'est pas forcément
-intuitif, on pourrait penser que put soit une fonction synchrone
-normale, mais l'idée c'est que si la queue est pleine on peut être
-amené à attendre. Dans tous les cas il faut toujours bien vérifier
-qu'on appelle un coroutine avec await, sinon comme on l'a vu tout à
-l'heure le code ne fait pas du tout ce qu'on croit.
-
-Bien; voyons à présent une autre façon de faire tourner ces coroutines.
-
-[fragment ensure_future]
-
-Dans le premier exemple nous avions appelé sur la boucle la méthode
-'run_until_complete'; c'est ce qu'il faut utiliser lorsqu'on a du code
-synchrone qui veut faire une parenthèse en mode asynchrone;
-je voudrais vous montrer une autre méthode qui
-s'appelle 'run_forever', qui cible plus un service réseau.
-dans ce mode de fonctionnement, comme run_forever n'accepte pas
-d'arguments, on procède en deux étapes, d'abord on
-ajoute des coroutines dans la boucle, et ensuite on appelle
-run_forever
-
-[run cell ensurefuture]
-
-[fragment run-forever]
-
-Ici du coup je vais devoir interrompre mon kernel, c'est pourquoi j'ai
-protégé mon code avec l'exception KeyboardInterrupt
-
-[run cell]
-
-[interrompre le kernel avec i minuscule - possiblement plusieurs fois]
-
-=====
-Pour récapituler cette séquence, on a vu que
-. on écrit le code asynchrone sous forme de coroutines, qui se
-présentent presque comme des fonctions - et donc qui peuvent implémenter
-n'importe quelle logique
-. on peut exécuter plusieurs coroutines en parallèle par 
-l'intermédiaire d'une boucle d'événements 
-. on peut appeler une coroutine depuis une autre coroutine grâce à
-await
-. une coroutine peut bien entendu appeler une fonction traditionnelle,
-mais dans ce cas bien entendu l'appel est bloquant et on la coroutine
-conserve le processeur jusqu'au prochain await ou return
-
-A bientot
+À bientôt

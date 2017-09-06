@@ -82,7 +82,7 @@ programme en Python
 **Thème de la semaine**: L'ecosystème data science Python
 
 * W7-S0: Présentation de la septième semaine
-* W7-S1: installer son environement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
+* W7-S1: installer son environnement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
 * W7-S2: présentation de numpy
 * W7-S3: présentation de pandas
 * W7-S4: matplotlib
@@ -110,8 +110,8 @@ programme en Python
 * w9-s0: Présentation de la neuvième semaine
 * w9-s1: Programmation asynchrone
 * w9-s2: Quelques exemples simples
-* w9-s3: L'écosystème asyncio
-* w9-s4: Boucles / Taches / Futures / Coroutines
+* w9-s3: asyncio : historique et écosystème
+* w9-s4: Exemples plus réalistes
 * w9-s5: Coroutines et exceptions, bonnes pratiques
 * w9-s6: Générateurs revisités
 
