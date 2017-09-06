@@ -114,8 +114,9 @@ programme en Python
 * w9-s2: Quelques exemples simples
 * w9-s3: asyncio : historique et écosystème
 * w9-s4: Extensions asynchrones du langage
-* w9-s5: Coroutines et exceptions, bonnes pratiques
-* w9-s6: Générateurs revisités
+* w9-s5: La librairie asyncio
+* w9-s6: Coroutines et exceptions, bonnes pratiques
+* w9-s7: Générateurs revisités
 
 ### Notes
 * liste des séquences encore sujette à modifications
