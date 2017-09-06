@@ -99,6 +99,8 @@ programme en Python
 	* property et descripteurs 
 * W8-S4: Les métaclasses
 * W8-S5: La performance en Python
+  * essayer de parler de profilage (%timeit %prun %lineprofiler), ça
+    serait bien de parler du décompilateur, mais je connais très mal.
 
 
 ## Week 9
