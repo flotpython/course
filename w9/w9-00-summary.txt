@@ -66,21 +66,40 @@ Pas de quiz pour cette semaine du coup
   expressions generatrices asynchrones ?
   generateurs asynchrones ?
 
-## Exercices Vidéo 5
+## Exercices Vidéo 4
 
 ###################################################################
 
-# Vidéo 5 bonnes pratiques de développement / exceptions
+# Vidéo 5 La librairie asyncio
+
+* ensure_future & run_forever() - Queue()
+
+* Lock ??
+
+* un protocole de bas niveau avec connection_made() connection_lost()
+
+* montrer un serveur TCP encore + basique tel que dans
+https://www.python.org/dev/peps/pep-0492/#types-coroutine
 
 ## Compléments Vidéo 5
 ## Exercices Vidéo 5
 
 ###################################################################
 
-# Vidéo 6 Générateurs revisités
+# Vidéo 6 bonnes pratiques de développement / exceptions
 
 ## Compléments Vidéo 6
 ## Exercices Vidéo 6
+
+###################################################################
+
+# Vidéo 7 Générateurs revisités
+
+## Compléments Vidéo 7
+## Exercices Vidéo 7
+
+* un dessin de l'exécution d'un code tout petit avec un appel de coroutines
+https://docs.python.org/3/library/asyncio-task.html#asyncio.ensure_future
 
 ####################
 
@@ -89,17 +108,11 @@ ideas
 * pour les complements, ajouter un lien vers
 https://www.youtube.com/watch?v=2ZFFv-wZ8_g
 
-* un dessin de l'exécution d'un code tout petit avec un appel de coroutines
-https://docs.python.org/3/library/asyncio-task.html#asyncio.ensure_future
-
 * mentionner C# et JavaScript
 
 * still missing: async lambdas - probably 3.7
 
 * awaitable protocol
-
-* montrer un serveur TCP encore + basique tel que dans
-https://www.python.org/dev/peps/pep-0492/#types-coroutine
 
 * contagion: exemple d'un parser; un parser travaille sur un fichier
   complet et pas à priori de manière incrémentale
