@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la cinquième semaine
+## Temp total: ??
+
+La programmation objet est un paradigm de programmation souple et
+puissant, mais il est au prix d'un effort de conception
+supplémentaire. Cependant, comme tout est objet en Python, vous pouvez
+très rapidement tirer pleinement partie de la programmation
+objet. Vous devrez cependant maîtriser plusieurs notions centrales en
+programmation objet, les notions de classes, instances et méthodes,
+la notion de méthodes spéciales et la notion d'héritage. Nous
+aborderons cette semaine ces différentes notions et nous appliquerons
+nos nouvelles connaissances à la créations d'objets importants comme
+les itérateurs, les exceptions et les context manager.
+
+

@@ -70,8 +70,8 @@ programme en Python
 
 * W6-S0: Présentation de la sixième semaine
 * W6-S1: Classes, instances et méthodes
-* W6-S2: Héritage
-* W6-S3: Surcharge d'opérateurs
+* W6-S2: Méthodes spéciales
+* W6-S3: Héritage
 * W6-S4: Assignation et référencement des variables et des attributs
 * W6-S5: Quand utiliser fonctions, modules ou classes ?
 * W6-S6: Conception d'itérateurs

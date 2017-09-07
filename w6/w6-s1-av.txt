@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Classes, instances et méthodes
+## Temp total: (11m00s)
+
+## Sujet de la vidéo (2m00s)
+
+Nous avons vu dans une précédente vidéo une rapide introduction aux
+classes. Notre objectif était de vous faire sentir la puissance de ce
+concept.
+
+Vous savez déjà que tout est un objet en Python : les entiers, listes,
+les fonctions, les modules, absolument tout. Et chaque objet vient
+avec un type qui détermine ses caractéristiques. Les types built-in
+sont très complets et puissants, mais ils ne peuvent pas couvrir tous
+les cas imaginables.  Une classe permet de définir de nouveaux types
+d'objets avec leur propre information et leur propres comportements.
+
+Comme tout en Python, une classe est un objet. Il est créé lorsque le
+module contenant le code de la classe est importé. Notons d'ailleurs
+qu'en Python on peut avoir autant de classes que l'on veut dans un
+module, mais que l'on peut aussi avoir un module sans classe.
+
+Une fois que l'objet classe est créé, donc à l'importation du module
+contenant la classe, on peut créer autant d'instances que l'on veut en
+appelant l'objet classe à la manière d'une fonction. Les instances
+sont également des objets et l'on peut voir une classe comme une usine
+à instances. La classe va définir des caractéristiques dont toutes ses
+instances vont hériter. Cette notion d'héritage entre classe et
+instance est centrale et elle est liée à la notion d'espaces de
+nommage.
+
+Chaque classe et chaque instance a son propre espace de
+nommage. Lorsque l'on cherche un attribut dans une instance, si on ne
+le trouve pas dans l'espace de nommage de l'instance, on va le
+chercher automatiquement dans l'espace de nommage de sa classe. C'est
+ce mécanisme de recherche d'attributs que l'on appelle la relation
+d'héritage. 
+
+Dans cette vidéo nous allons expliquer les notions de classes,
+d'instances et de méthode. Ouvrons maintenant un interpréteur Python
+pour commencer à jouer avec les classes et les instances...
+
+2m00s
+
+>>>>>>>>>> INCLUDE W6-S1-AV-exo1.py <<<<<<<<<< (8m30)
+
+
+## Conclusion (20s)
+
+Nous avons vu que les classes sont des usines à instances et que
+les instances ont accès aux variables des classes qui les ont créées. 
+On a vu également que l'on peut définir dans les classes des méthodes 
+qui travaillent sur les instances de la classe.
+
+Nous verrons dans une prochaine vidéo comment faire en sorte que nos
+classes et instances puissent se manipuler comme des objets built-in.
+
+À bientôt
+
