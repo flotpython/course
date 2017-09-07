@@ -255,6 +255,11 @@ contrôle fin par le programmeur des
 points du programme où il va être
 possible de changer de contexte.
 
+Je signale d'ailleurs à votre curiosité
+que des mécanismes similaires existent
+aussi dans des langages comme C# et
+JavaScript.
+
 ---------- [slide suivant]
 
 On pourra donc obtenir un comportement

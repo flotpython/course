@@ -113,14 +113,17 @@ programme en Python
 * w9-s1: Programmation asynchrone
 * w9-s2: Quelques exemples simples
 * w9-s3: asyncio : historique et écosystème
-* w9-s4: Exemples plus réalistes
-* w9-s5: Coroutines et exceptions, bonnes pratiques
-* w9-s6: Générateurs revisités
+* w9-s4: Extensions asynchrones du langage
+* w9-s5: Boucles d'événements
+* w9-s6: La librairie asyncio
+* w9-s7: Coroutines et exceptions, bonnes pratiques
+* w9-s8: Générateurs revisités
 
 ### Notes
 * liste des séquences encore sujette à modifications
 * asyncio est suffisament difficile pour avoir une semaine pour lui, si on est malin dans la présentation, on pourra faire de nouvelles vidéos rien que sur ça ou améliorer modulairement sans toucher aux autres semaines
 * (AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads, le GIL et le multiprocess)
+* (TP: je couvre très rapidement le multiprocess; par contre à ce stade je ne prévois pas de parler du GIL; dans un complément peut-être un jour..)
 
 
 ## Week 10

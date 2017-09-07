@@ -28,7 +28,7 @@ pourrait vous être utile, et comment
 donner quelques bases pour vous
 permettre de commencer.
 
-On s'adresse clairement ici à un
+Je m'adresse clairement ici à un
 niveau avancé, voire très avancé.
 Ce nouveau paradigme demandera un
 investissement de votre part - mais
@@ -40,15 +40,19 @@ car vous pourrez écrire du code
 asynchrone à la fois efficace et
 lisible.
 
-xxx
+==============================
+xxx plus à jour - dans l'esprit d'un
+truc modulaire on devrait sûrement
+s'arrêter là
 
-Nous avons fait en gros deux
-parties: . d'abord une partie
-utilisateur, c'est-à-dire à quoi ça
-sert, comment on s'en sert et ce qui
-est disponible comme librairies
-tierces.  . et une partie
-approfondissement, qui donne plus de
-détails sur comment ça marche à
-l'intérieur
+Nous avons fait en gros deux parties:
+
+(*) d'abord une partie utilisateur,
+c'est-à-dire à quoi ça sert, comment on
+s'en sert et ce qui est disponible comme
+librairies tierces.
+
+(*) et une partie approfondissement, qui
+donne plus de détails sur comment ça
+marche à l'intérieur
 

@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+# -*- autofill-mode; fill-column: 40 -*-
+
+# TITRE : Les boucles d'événements
+# temps estimé:
+
+## Résumé de la vidéo
+
+
+
+
+------------------------------
+------------------------------
+------------------------------
+------------------------------
+
+
+
+[slide synchronisation avec une queue ]
+
+Voyons maintenant un deuxième exemple un
+tout petit peu plus élaboré. Aussi nous
+allons en profiter pour voir comment on
+peut créer une boucle d'événements;
+c'est vrai que c'est pratique d'utiliser
+la boucle globale, c'est à dire
+get_event_loop(), mais pour bien
+comprendre la mécanique de asyncio nous
+allons nous créer notre propre boucle
+d'événements.
+
+[fragment new_event_loop]
+[run cell]
+
+Nous voulons faire tourner en parallèle
+deux coroutines, la première qui émet
+périodiquement toutes les secondes un
+message, et une deuxième qui réagit à
+chaque fois qu'un message est émis par
+la première. Pour cela nous utilisons
+une queue.
+
+[fragment from asyncio import Queue]
+
+L'objet Queue fait partie de la
+librairie asyncio, et nous fournit deux
+coroutines pour lire et écrire des
+événements dans la queue. On peut donc
+écrire nos coroutines comme ceci
+
+[fragment writer-consumer]
+[eval both]
+
+Vous voyez que c'est aussi simple que ça
+peut l'être, la seule chose c'est de
+bien penser à mettre les 3 instructions
+await; deux du coté du producteur; en
+effet la méthode put sur la Queue est
+une coroutine; ça n'est pas forcément
+intuitif, on pourrait penser que put
+soit une fonction synchrone normale,
+mais l'idée c'est que si la queue est
+pleine on peut être amené à
+attendre. Dans tous les cas il faut
+toujours bien vérifier qu'on appelle un
+coroutine avec await, sinon comme on l'a
+vu déjà, le code ne fait pas du tout ce
+qu'on croit.
+
+Bien; voyons à présent une autre façon
+de faire tourner ces coroutines.
+
+[fragment ensure_future]
+
+Dans le premier exemple nous avions
+appelé sur la boucle la méthode
+'run_until_complete'; c'est ce qu'il
+faut utiliser lorsqu'on a du code
+synchrone qui veut faire une parenthèse
+en mode asynchrone; je voudrais vous
+montrer une autre méthode qui s'appelle
+'run_forever', qui cible plus un service
+réseau.  dans ce mode de fonctionnement,
+comme run_forever n'accepte pas
+d'arguments, on procède en deux étapes,
+d'abord on ajoute des coroutines dans la
+boucle, et ensuite on appelle
+run_forever
+
+[run cell ensurefuture]
+
+[fragment run-forever]
+
+Ici du coup je vais devoir interrompre
+mon kernel, c'est pourquoi j'ai protégé
+mon code avec l'exception
+KeyboardInterrupt
+
+[run cell]
+
+[interrompre le kernel avec i minuscule - possiblement plusieurs fois]
+
+========================================
+
+
+
+
+
+==========[slide conclusion]
+
+Ceci conclut notre premier micro exemple
+un peu réaliste. Nous avons surtout vu
+l'utilisation d'un context manager
+
+
