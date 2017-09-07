@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Méthodes spéciales
+## Temp total: (8m50s)
+
+## Sujet de la vidéo
+
+
+>>>>>>>>>> INCLUDE w6-s2-av-slide1.pptx <<<<<<<<<< (1m40s)
+
+[s1]
+
+Nous avons vu dans une précédente vidéo que l'on pouvait définir sur
+une classes des méthodes capable de manipuler les instances, ou plus
+précisement l'espace de nommage des instances.
+
+Cependant, dès notre introduction aux classes nous avons expliqué que
+les classes pouvaient se manipuler comme des objets
+built-in. Qu'est-ce que ça veut dire ? Essentiellement, que l'on peut
+faire avec nos objets tout ce que l'on peut faire avec un objet
+built-in. Si l'on prend notre classe Phrase définit précédemment, on
+pourrait afficher le nombre de mots avec [len], faire un test
+d'appartenance sur la phrase avec [in], accéder à un mot particulier
+avec la [notation d'indice en crochet], afficher une phrase avec
+[print] ou même concaténer deux phrases avec [+]
+
+Dans cette vidéo, nous allons expliquer comment supporter ces
+opérations avec ce que l'on appelle les méthodes spéciales.  Une
+méthode spéciale est une méthode définie par Python et qui est
+automatiquement appelée lorsqu'une fonction correspondante (par
+exemple, len() ou print()) est appelé sur l'instance ou qu'un
+opérateur ou une instruction (par exemple + ou in) est appliqué à
+l'instance. Les méthodes spéciales sont facilement identifiable, elles
+commencent par deux tirets bas et termine par deux tirets bas, par
+exemple la méthode [__contains__()] est la méthode qui est appelée
+automatiquement lorsque l'on fait un test d'appartenance avec
+l'instruction in.
+
+Ouvrons un éditeur IDLE pour commencer à jouer avec les méthodes
+spéciales...
+
+>>>>>>>>>> INCLUDE W6-S2-AV-exo1.py <<<<<<<<<< (6m30)
+
+## Conclusion (40s)
+
+Nous avons vu dans cette vidéo la notion de méthodes spéciales qui
+sont des méthodes que l'on peut implémenter dans notre classe  et qui
+sont automatiquement appelée par l'interpréteur lorsque l'on appelle
+certaines fonction built-in ou que l'on utilise des opérateurs sur
+nos instances.
+
+Ce mécanisme est très puissant puisqu'il permet de manipuler nos
+propres objets comme des objet built-in et donc d'avoir un
+développement simple, intuitif et expressif. Il existe en Python plus
+de 80 méthodes spéciales, il est important de les survoler au moins
+une fois pour connaîtres toutes leurs posibilités.
+
+Vous verrez dans les compléments d'autres exemples et la documentation
+Python décrit en détail toutes ces méthodes.
+
+À bientôt.
