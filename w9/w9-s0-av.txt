@@ -40,19 +40,3 @@ car vous pourrez écrire du code
 asynchrone à la fois efficace et
 lisible.
 
-==============================
-xxx plus à jour - dans l'esprit d'un
-truc modulaire on devrait sûrement
-s'arrêter là
-
-Nous avons fait en gros deux parties:
-
-(*) d'abord une partie utilisateur,
-c'est-à-dire à quoi ça sert, comment on
-s'en sert et ce qui est disponible comme
-librairies tierces.
-
-(*) et une partie approfondissement, qui
-donne plus de détails sur comment ça
-marche à l'intérieur
-

@@ -6,110 +6,290 @@
 
 ## Résumé de la vidéo
 
+Maintenant qu'on a vu les extensions
+asynchrones du langage, nous allons
+pouvoir nous intéresser d'un peu plus
+près aux boucles d'événements.
 
 
+Jusqu'ici nous avons toujours utilisé
+nos boucles avec la méthode
+run_until_complete.
+========== [fragment run_complete]
 
-------------------------------
-------------------------------
-------------------------------
-------------------------------
+Cette méthode attend en argument
+exactement un objet; du coup nous avons
+utilisé gather pour montrer des exemples
+avec des traitements concurrents.
 
-
-
-[slide synchronisation avec une queue ]
-
-Voyons maintenant un deuxième exemple un
-tout petit peu plus élaboré. Aussi nous
-allons en profiter pour voir comment on
-peut créer une boucle d'événements;
-c'est vrai que c'est pratique d'utiliser
-la boucle globale, c'est à dire
-get_event_loop(), mais pour bien
-comprendre la mécanique de asyncio nous
-allons nous créer notre propre boucle
-d'événements.
-
-[fragment new_event_loop]
-[run cell]
-
-Nous voulons faire tourner en parallèle
-deux coroutines, la première qui émet
-périodiquement toutes les secondes un
-message, et une deuxième qui réagit à
-chaque fois qu'un message est émis par
-la première. Pour cela nous utilisons
-une queue.
-
-[fragment from asyncio import Queue]
-
-L'objet Queue fait partie de la
-librairie asyncio, et nous fournit deux
-coroutines pour lire et écrire des
-événements dans la queue. On peut donc
-écrire nos coroutines comme ceci
-
-[fragment writer-consumer]
-[eval both]
-
-Vous voyez que c'est aussi simple que ça
-peut l'être, la seule chose c'est de
-bien penser à mettre les 3 instructions
-await; deux du coté du producteur; en
-effet la méthode put sur la Queue est
-une coroutine; ça n'est pas forcément
-intuitif, on pourrait penser que put
-soit une fonction synchrone normale,
-mais l'idée c'est que si la queue est
-pleine on peut être amené à
-attendre. Dans tous les cas il faut
-toujours bien vérifier qu'on appelle un
-coroutine avec await, sinon comme on l'a
-vu déjà, le code ne fait pas du tout ce
-qu'on croit.
-
-Bien; voyons à présent une autre façon
-de faire tourner ces coroutines.
-
-[fragment ensure_future]
-
-Dans le premier exemple nous avions
-appelé sur la boucle la méthode
-'run_until_complete'; c'est ce qu'il
-faut utiliser lorsqu'on a du code
-synchrone qui veut faire une parenthèse
-en mode asynchrone; je voudrais vous
-montrer une autre méthode qui s'appelle
-'run_forever', qui cible plus un service
-réseau.  dans ce mode de fonctionnement,
-comme run_forever n'accepte pas
-d'arguments, on procède en deux étapes,
-d'abord on ajoute des coroutines dans la
-boucle, et ensuite on appelle
-run_forever
-
-[run cell ensurefuture]
-
-[fragment run-forever]
-
-Ici du coup je vais devoir interrompre
-mon kernel, c'est pourquoi j'ai protégé
-mon code avec l'exception
-KeyboardInterrupt
-
-[run cell]
-
-[interrompre le kernel avec i minuscule - possiblement plusieurs fois]
-
-========================================
+========== [fragment gather]
 
 
+Mais bon, on ne peut pas toujours faire
+ça aussi simplement; il y a des cas bien
+entendu où il faut ajouter des
+traitements à la volée, et voyons
+comment ça se présente alors.
+
+========== [slide ajout de traitements]
+
+La librairie propose deux autres
+mécanismes de base qui sont
+
+* ensure_future, pour ajouter un
+  traitement dans la boucle, avant ou
+  après qu'elle a commencé
+
+==========[fragment run_forever]
+
+* et aussi run_forever, qui fait tourner
+  une boucle d'événements indéfiniment;
+  cette méthode sur les boucles ne prend
+  aucun argument, ce qui suppose qu'on a
+  donc rempli la boucle au préalable
+  avec, justement, ensure_future
+
+On va voir ça sur plusieurs exemples
+
+========== [slide utilitaire #1]
+
+Mais avant, je vais utiliser quelques
+utilitaires annexes pour bien visualiser
+ce qui se passe.
+
+J'ai écrit dans un module annexe deux
+fonctions qui sont start_time et
+show_time; je ne vous montre pas le code
+qui est très simple, mais elles
+s'utilisent comme ceci
+
+========== [fragment start_time]
+
+Avec start_time, on enregistre un
+instant de référence, ce sera pour nous
+le début de l'exécution, puis avec
+show_time on peut voir le temps écoulé
+depuis cette référence
+
+========== [run cell start_time + stop_time]
+
+========== [slide utilitaire #2]
+
+Je me définis encore une coroutine
+utilitaire - je l'ai appelé sequence -
+qui écrit simplement un message avant et
+après un certain délai. C'est donc juste
+pour montrer le début et la fin d'une
+coroutine.
+
+========== [slide boucle sans fin]
+
+Bien. Je peux maintenant vous montrer un  
+exemple de base, qui lance en même temps  
+deux petits traitements.  
+ 
+========== [fragment avec ensure_future]
+
+à ce stade la boucle n'est pas active
+mais les deux coroutines ont été
+ajoutées, elles seront exécutées par la
+boucle dès qu'elle sera démarrée
+
+========== [slide run_forever]
+
+ce que peux faire avec run_forever.
+
+========== [run cell]
+
+sauf que, comme son nom l'indique
+run_forever ne va jamais retourner,
+aussi je vais devoir l'interrompre ici
+avec une interruption de mon kernel.
+
+========== [run_until_complete vs run_forever]
+
+Voici un résumé de ces deux méthodes, en
+gros run_until_complete se prêtera donc
+plutôt si vous avez besoin de glisser un
+traitement asynchrone au milieu d'une
+application par ailleurs essentiellement
+synchrone, alors que run_forever se
+prêtera mieux pour une application
+massivement asynchrone.
+
+========== [slide new_event_loop()]
+
+À ce stade de mon notebook, il est temps
+que je vous parle de `get_event_loop` et
+similaires. Ce n'est pas forcément le
+coté du langage le plus réussi, raison
+de plus donc pour l'expliquer.
+
+Vous avez peut-être remarqué qu'on n'a
+jamais jusqu'ici eu besoin de créer un
+objet loop, on a utilisé
+get_event_loop()
+
+Cette méthode est un peu surchargée;
+l'idée c'est qu'il peut y avoir
+plusieurs boucles dans une application,
+mais on veut éviter de devoir propager
+l'objet boucle de haut en bas, car ça
+alourdit considérablement le code. Aussi
+le modèle c'est que chaque thread a une
+boucle par défaut, à laquelle on peut
+accéder de n'importe où dans le code
+avec get_event_loop.
+
+Par contre ce qui est un peu troublant,
+et assez mal documenté, dans la 3.6 en
+tous cas, c'est que get_event_loop
+ne crée pas de boucle, sauf dans le cas
+particulier du thread principal.
+
+========== [slide {new,set}_event_loop()]
+
+On peut donc avoir à créer une nouvelle
+boucle avec la méthode new_event_loop,
+et je vous conseille d'enregistrer cette
+nouvelle boucle comme étant le défaut,
+ce qui nous donne ceci
+
+========== [fragment set_event_loop]
+
+Notez que dans mon cas j'ai vraiment
+besoin de faire cela, parce que la
+boucle d'événements qu'on a utilisé il y
+a un instant avec run_forever, et que
+j'ai interrompue, est en réalité dans un
+état instable, on verra dans une autre
+séquence qu'il aurait fallu la terminer
+proprement, mais pour l'instant je me
+contente de continuer mon exposé avec
+une boucle toute neuve.
+
+========== [slide Ajout de traitements]
+
+À présent, on va revenir à
+ensure_future, et  je vais vous montrer
+rapidement qu'on peut aussi l'appeler à
+l'intérieur du code asynchrone, pour
+ajouter à la volée des traitements dans
+une boucle. Imaginons que je veuille
+implémenter un scénario comme celui-ci
+
+========== [fragment figure fork]
+
+Ici on veut au milieu de la couroutine 
+c2 démarrer la coroutine c3, sans s'en 
+soucier davantage. 
+
+Pour faire ça, je ne peux pas ajouter
+les 3 coroutines au démarrage de ma
+boucle, car c3 commencerait trop tôt. Il
+faut donc faire quelque chose à
+l'endroit du point rouge. Je vous laisse
+à titre d'exercice vous convaincre que
+ni await ni gather ne font exactement ce
+qu'on veut ici. Je vais plutôt tout
+simplement ajouter c3 à la boucle avec
+ensure_future.
+
+========== slide [async def c1()]
+Pour c1 et c3, il n'y a aucun souci
+
+========== fragment [async def c2()]
+Pour c2, je me contente d'ajouter c3()
+dans la boucle d'événements avec
+ensure_future()
+
+========== slide start_time()
+
+Voici l'exécution, je vous laisse vous
+convaincre que c'est ce qu'on veut.
+
+Je vous laisse aussi à titre d'exercice
+essayer de lancer la boucle avec
+run_until_complete sur un gather de c1
+et c2, et de comparer les deux comportements.
+
+<commentaire sur l'intérêt qu'il y
+aurait à faire un run_until_complete
+pour retourner dans le code synchrone,
+faire un truc, et relancer la boucle ensuite>
+
+========== slide Mélange run_*
+
+Dans un dernier exemple je vous montre
+rapidement comment une boucle se
+comporte quand on mélange
+run_until_complete avec
+run_forever. Pour ça je me donne
+simplement 3 coroutines de longueur 1, 2
+et 3.
+
+========== run 
 
 
+========== slide mélange run*
+
+Alors si j'ajoute la plus courte et la
+plus longue dans la boucle avec
+ensure_future, et qu'ensuite je fais
+run_until_complete sur la moyenne, ce
+qui se passe c'est que les 3 coroutines
+sont dans la boucle, mais
+run_until_complete retourne dès que la
+moyenne a terminé.
+
+========== run run_until_complete
+
+Clairement
+il lui reste des choses à faire dans
+cette boucle, mais elle ne seront
+exécutées, naturellement, que lorsqu'on
+relance la boucle, par exemple avec un
+run_forever.
+
+========== run run_forever
+
+dit autrement, on peut superposer les
+appels à run_until_complete pour faire
+avancer une boucle en quelque sorte pas
+à pas, l'état est naturellement conservé.
+
+========== slide résumé
+Nous allons résumer cette séquence, on a
+vu que
+
+========== [fragment]
+* on peut accéder à la boucle courante -
+en fait celle associée au thread courant
+- avec get_event_loop()
+
+* on peut avoir besoin de créer une
+  boucle, par exemple dans un thread
+  secondaire, au travers de
+  new_event_loop et set_event_loop
+
+========== [fragment]
+
+* on peut ajouter des traitements dans
+  une boucle à tout moment avec ensure_future()
+
+========== [fragment]
+
+* on peut exécuter une boucle pas à pas
+  avec run_until_complete, ou
+  indéfiniment avec run_forever
 
 ==========[slide conclusion]
 
-Ceci conclut notre premier micro exemple
-un peu réaliste. Nous avons surtout vu
-l'utilisation d'un context manager
-
-
+Enfin je voudrais conclure cette
+séquence pour redire que la boucle
+d'événements fait partie de la librairie
+`asyncio`, du coup tout ce qu'on a vu
+dans cette vidéo, et ce sera vrai pour
+les suivantes aussi, risque d'être
+légèrement différent si vous utilisez
+une autre librairie comme curio ou trio.

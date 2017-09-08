@@ -76,11 +76,20 @@ Pas de quiz pour cette semaine du coup
 
 * ensure_future & run_forever() - Queue()
 
-* ensure_future au milieu d'un scénario
+* ensure_future pour ajouter une tâche au milieu d'un scénario
 
 * parler de get_event_loop()
 
 ## Compléments Vidéo 5
+
+* montrer l'importance de get-event_loop pour accéder à la boucle
+  courante depuis le code asynchrone (trouver un exemple ou le code
+  asynchrone a besoin d'accéder à la boucle..)
+
+* un complément sur stop() et close() et ces choses-là ce serait
+  vraiment bien, est-ce facile à faire ? il faudra sans doute que les
+  apprenants interrompent le kernel, ça peut être tricky, mais pas
+  sûr...
 
 ## Exercices Vidéo 5
 
@@ -88,14 +97,19 @@ Pas de quiz pour cette semaine du coup
 
 # Vidéo 6 La librairie asyncio
 
-* Lock ?? [mettre dans vidéo 5 si on a de la place]
+* Queue et Lock ?? [mettre dans vidéo 5 si on a de la place]
 
-* un protocole de bas niveau avec connection_made() connection_lost()
 
-* montrer un serveur TCP encore + basique tel que dans
-https://www.python.org/dev/peps/pep-0492/#types-coroutine
 
 ## Compléments Vidéo 6
+
+* un protocole de bas niveau avec connection_made() connection_lost() 
+* montrer un serveur TCP encore + basique tel que dans 
+  https://www.python.org/dev/peps/pep-0492/#types-coroutine
+  se méfier tout de même, on risque d'être limité par l'infra de
+  notebooks, qui utilise localhost...
+
+
 ## Exercices Vidéo 6
 
 ###################################################################
