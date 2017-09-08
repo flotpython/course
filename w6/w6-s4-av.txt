@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Héritage multiple et ordre de résolution des attributs
+## Temp (5m00s)
+
+## Sujet de la vidéo (40s)
+
+
+Nous avons vu dans une précédente vidéo la notion d'héritage simple
+lorsqu'une classe hérite d'une seule super classe. Dans ce cas, la
+recherche des attributs (que l'on appelle également résolution) est
+très simple, on remonte l'arbre d'héritage de l'instance vers la super
+classe. 
+
+Cependant, Python permet l'héritage multiple, c'est-à-dire qu'une
+classe hérite de plusieurs super-classes. Comme dans ce cas, l'arbre
+d'héritage ne sera plus constitué d'une seule branche, mais de
+plusieurs branches en parallèle, il faut définir un ordre de
+parcours de branche pour résoudre les attributs.
+
+Dans cette vidéo nous allons présenter la méthode définissant l'ordre
+de résolution des attributs ou MRO pour method resolution order en
+anglais.
+
+
+>>>>>>>>>> INCLUDE W6-S4-AV-exo1.py <<<<<<<<<< (3m30s)
+
+
+
+
+>>>>>>>>>> INCLUDE W6-S4-AV-slide1.pptx <<<<<<<<<< (1m30s)
+
+On va maintenant regarder un dernier cas pour expliquer le
+fonctionnement de l'algorithme utilisé pour la MRO. 
+
+[s1]
+
+On commence par créer une classe [A] qui hérite automatiquement de
+object, un classe [B] qui hérite de A, une classe [C] qui hérite
+également de A et un classe [D] qui hérite de B et C. On obtient ce
+que l'on appelle un diagramme en losange. La question maintenant est
+quel est l'ordre de résolution des attributs.
+
+L'algorithme est le suivant. On parcours l'arbre d'héritage de bas en
+haut, puis de gauche à droite. Dans notre cas, ça va donner le
+parcours [D, B, A, object, C, A, object]. Lorsqu'il y a des objets
+parcourus plusieurs fois, on enlève tous les dupliqués sauf le
+dernier. Donc la MRO sera [D, B, C, A, object].
+
+
+## Conclusion (20s)
+
+En cas d'héritage multiple, il est important de connaitre la MRO pour
+savoir dans quel ordre le attributs sont résolus. En particulier, si
+une même méthode est défini dans vos deux super classes, il est
+important de savoir laquelle sera exécutée. Dans ce cas précis, ça
+sera la méthode de la super classe définie le plus à gauche. 
+
+
+À bientôt
