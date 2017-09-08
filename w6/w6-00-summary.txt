@@ -129,8 +129,6 @@ NIVEAU: BASIC
 
    * Parler de la MRO
    * Parler de super()
-   * parler de __bases__ et __class__ et montrer l'arbre d'héritage en
-     suivant ces attributs
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * 
@@ -149,7 +147,7 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 5 (Assignation et référencement des variables et des attributs)
+# Vidéo 5 (Définition et référencement des variables et des attributs)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 5

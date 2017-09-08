@@ -1,0 +1,141 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Définition et référencement des variables et des attributs
+## Temp total (??)
+
+
+## Sujet de la vidéo (40s)
+
+Nous avons vu la notion de portée de variables lorsqu'on a parlé des
+modules et des fonction et la notion d'arbre d'héritage lorsque l'on a
+parlé de classes.
+
+Toutes ces notions servent à définir dans quel espace de nommage on
+doit chercher les variables et attributs. Et il est probable qu'à ce
+stade vous n'ayez pas les idées claires sur comment ces différentes
+notions interagissent et c'est tout à fait normal, parce qu'il s'agit
+d'un problème difficile.
+
+Le but de cette vidéo et de faire toute la lumière sur la définition
+et le référencement des variables et attributs quelque soit le context.
+
+>>>>>>>>>> INCLUDE W5-S8-AV-slide1.pptx (6m30s) <<<<<<<<<<
+
+[s1]
+
+Commençons par distinguer le cas des variables et des attributs. Si ma
+variable x est définie ou référencée en utilisant directement son
+nom, on dit que c'est une [variable]. Par contre, si ma variable est
+définie ou référencée en utilisant la notation objet.x on dira dans
+la suite que cette variable x est un [attribut] de l'objet.
+
+J'utilise cette distinction entre variable et attribut parce que
+la définition et le référencement utilise des mécanismes différents.
+
+[s2]
+
+Commençons par le cas des attributs qui est le cas le plus simple . La
+définition d'un attribut [objet.x = val] change la valeur de x dans
+l'espace de nommage de l'objet. C'est simple, et c'est ce qu'on a déjà
+vu.
+
+[s3]
+
+Pour la référence d'un attribut [objet.x] il y a deux cas.
+
+[s4]
+
+Si l'objet est un [module], je cherche l'attribut x dans l'espace de
+nommage du module. Si objet est une [classe] ou une instance, je cherche
+l'attribut dans les espaces de nommage le long de l'arbre d'héritage.
+
+On voit donc que pour le cas d'un attribut, il n'y a rien de nouveau
+et pas de subtilité particulière. 
+
+
+# 2m00s
+
+Parlons maintenant du cas des variables. 
+
+[s5]
+
+Une variable [définie] dans le bloc de code d'une fonction, d'une classe
+ou d'un module devient locale à ce bloc de code, sauf évidement si
+elle est déclarée comme [global ou nonlocal].
+
+[s6-s7]
+
+Je vous rappelle que définir une variable n'est pas limité à
+l'opération d'affectation avec un signe égal, les [paramètres] d'une
+fonction, le nom d'une [classe], le nom d'une [fonction], la variable
+dans une boucle [for], le nom du module dans un [import] sont des
+définitions de variables.
+
+[s8]
+
+Une variable référencée est cherchée dans les espaces de nommage
+suivant la règle LEGB. Attention, le E est pour les fonctions
+englobantes. S'il y a des classes englobantes (c'est le cas d'une
+méthode dans une classe qui est englobée par le bloc de code de la
+classe), on saute l'espace de nommage de la classe.
+
+Regardons maintenant quelques exemples
+
+[s9]
+
+<décrire le code qui s'affiche>
+
+Que va afficher le print(a)?
+
+Les variables définies dans le bloc de code d'une fonction ou d'une
+classe sont locales. Lorsque je fait print(a) je cherche a localement
+sans le même bloc de code, je le trouve, c'est la variable globale a
+qui vaut 1.
+
+[s10]
+
+<décrire le code qui s'affiche>
+
+Que va ins.f() ?
+
+f est une méthode de la classe C, donc ins.f() va trouver la méthode
+de la classe. Cette méthode fait un print(a). D'après la règle LEGB,
+je cherche a localement mais il n'est pas défini dans ce bloc de code,
+il n'y a pas de fonction englobante et je saute le bloc de code des
+classes englobantes, je cherche a global, il vaut 1.
+
+On voit donc qu'une méthode n'a pas d'accès directe aux variables
+définie dans le bloc de code de sa classe. 
+
+print(C.a) utilise un mécanisme différent, c'est une recherche
+d'attribut. Je cherche a dans l'espace de nommage de C, il vaut 2. 
+
+[s11]
+
+<décrire le code qui s'affiche>
+
+Que va afficher ins.f() ?
+
+Je cherche a localement à la méthode f, je ne le trouve pas. Il n'y a
+pas de fonction englobante et je saute les blocs de code des classes
+englobantes. Je chercher a parmi les variables globales, il vaut 1.
+
+
+## Conclusion (20s)
+
+Il est très important de comprendre les mécanismes de référencement
+des attributs et des variables pour comprendre le fonctionnement de
+programmes complexes.  Vous avez vu dans cette vidéo toutes les bases
+nécessaires à une bonne compréhension de ces mécanismes. Prenez le
+temps d'assimiler ces notions. 
+
+À bientôt

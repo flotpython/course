@@ -73,7 +73,7 @@ programme en Python
 * W6-S2: Méthodes spéciales
 * W6-S3: Héritage
 * W6-S4: Héritage multiple et ordre de résolution des attributs
-* W6-S5: Assignation et référencement des variables et des attributs
+* W6-S5: Définition et référencement des variables et des attributs
 * W6-S6: Conception d'itérateurs
 * W6-S7: Conception d'exceptions personnalisées
 * W6-S8: Conception de context manager
