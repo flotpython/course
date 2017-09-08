@@ -64,17 +64,16 @@ class Phrase:
     def __init__(self, ma_phrase):  
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
-        self.mots_lower = set(m.lower() for m in self.mots)  # new
 
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):              # new (doit retourner un bool)
-        return mot.lower() in self.mots_lower # new
+    def __contains__(self, mot):     # new (doit retourner un bool)
+        return mot in self.mots      # new
     
 p = Phrase("je fais un mooc sur python")
 
-'Python' in p
+'python' in p
 
 ## COUPE 5m20s
 
@@ -91,13 +90,12 @@ class Phrase:
     def __init__(self, ma_phrase):  
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
-        self.mots_lower = set(m.lower() for m in self.mots)  
 
     def __len__(self):
         return len(self.mots)
 
     def __contains__(self, mot):                             
-        return mot.lower() in self.mots_lower
+        return mot in self.mots
 
     def __str__(self):               # new (doit retourner une str)
         return "\n".join(self.mots)  # new
