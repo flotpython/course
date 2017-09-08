@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Héritage
+## Temp (8m55)
+
+## Sujet de la vidéo (15s)
+
+
+Dans une précédente vidéo nous avons vu les notions de classes,
+d'instances, et de méthodes et nous avons expliqué qu'il existait une
+relation d'héritage entre l'instance et sa classe. Dans cette vidéo
+nous allons voir que cette notion d'héritage s'étend également aux
+classes qui peuvent hériter d'autres classes.
+
+
+>>>>>>>>>> INCLUDE W6-S3-AV-slide1.pptx <<<<<<<<<< (1m30s)
+
+[s1]
+
+Imaginez que vous créez deux classes [C1 et C2] puis une classe [C]
+qui hérite de C1 et C2. On écrit toutes les classes dont une classe C
+hérite en parenthèse après le nom de la classe.
+
+Pour la classe C, C1 et C2 sont ses [super-classes], on peut également
+dire que C est une sous classe de C1 et C2.
+
+Il y a une relation d'héritage en C et ses super-classes. Ça veut dire
+que si on cherche un attribut dans l'espace de nommage de C, mais
+qu'il n'est pas présent, l'interpréteur cherchera automatiquement dans
+ses super-classes.
+
+Si maintenant on crée deux [instances] ce C, les instances hérites de
+leur classe.
+
+Les instances, la classe et ses super-classes forment ce qu'on appelle
+un arbre d'héritage. Lorsque l'on cherche un attribut dans une
+instance, si on ne le trouve pas, on remonte l'arbre d'héritage en
+cherchant l'attribut dans la classe, puis dans les super-classes.  Si
+l'attribut n'est présent dans aucun espace de nommage le long de
+l'arbre d'héritage, il y aura une exception.
+
+Comme les super classes sont des classes tout à fait normale, elle
+peuvent elles mêmes hériter d'autres classes. Au final on peut avoir
+un arbre d'héritage très grand. 
+
+Ouvrons un éditeur IDLE pour commencer à jouer avec l'héritage...
+
+>>>>>>>>>> INCLUDE W6-S3-AV-exo1.py <<<<<<<<<< (6m30s)
+
+## Conclusion (40s)
+
+Nous avons vu la notion d'héritage et d'arbre d'héritage. Une instance
+hérite de sa classe et la classe hérite de sa super classe. Lorsque
+l'on resoud un attribut, on va le chercher dans les espaces de
+nommages suivant l'ordre définit par l'arbre d'héritage en partant de
+l'instance et en remotant vers la super classe.
+
+Cependant, Python permet ce que l'on appelle l'héritage multiple,
+c'est-à-dire qu'une classe peut hériter de plusieurs super
+classe. Dans ce cas, l'arbre d'héritage peut avoir plusieur branches
+en parallèle, il faut donc définir un ordre de parcours de ces
+branches. C'est ce qu'on appelle la méthode de résolution des
+attributs que nous aborderons dans une prochaine vidéo. 
+
+
+À bientôt

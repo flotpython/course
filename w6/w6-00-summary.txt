@@ -96,8 +96,6 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 3
 
-   * Parler de la MRO
-   * Parler de super()
    * Parler de l'héritage des built-ins et en particulier les immuables
    (  new  )
 
@@ -124,10 +122,37 @@ NIVEAU: BASIC
 
 ###################################################################
 
-# Vidéo 4 (Assignation et référencement des variables et des attributs)
+# Vidéo 4 (Héritage multiple et ordre de résolution des attributs)
 NIVEAU: BASIC
 
 ## Compléments Vidéo 4
+
+   * Parler de la MRO
+   * Parler de super()
+   * parler de __bases__ et __class__ et montrer l'arbre d'héritage en
+     suivant ces attributs
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 4
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+
+###################################################################
+
+# Vidéo 5 (Assignation et référencement des variables et des attributs)
+NIVEAU: BASIC
+
+## Compléments Vidéo 5
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * NICETOHAVE: un complement qui explique qu'on n'a pas besoin de 'global' si on code proprement
@@ -193,29 +218,6 @@ UnboundLocalError: local variable 'x' referenced before assignment
 3) directive global apres l'utilisation de la variable
 
 
-## Quizz Vidéo 4
-
-   Pour mémoire, quizz du précédent MOOC sur Python 2
-   * 
-
-## Exercices Vidéo 4
-
-   Pour mémoire, exercices du précédent MOOC sur Python 2
-   
-   * proposer quelques exercices un peu vicieux (avec des imports, des
-     classes, des fonctions englobantes, etc.)
-
-
-###################################################################
-
-# Vidéo 5 (Quand utiliser fonctions, modules ou classes ?)
-NIVEAU: BASIC
-
-## Compléments Vidéo 5
-
-   Pour mémoire, notebook du précédent MOOC sur Python 2
-   * 
-
 ## Quizz Vidéo 5
 
    Pour mémoire, quizz du précédent MOOC sur Python 2
@@ -224,7 +226,10 @@ NIVEAU: BASIC
 ## Exercices Vidéo 5
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   *
+   
+   * proposer quelques exercices un peu vicieux (avec des imports, des
+     classes, des fonctions englobantes, etc.)
+
 
 
 ###################################################################
