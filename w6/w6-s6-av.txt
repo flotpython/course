@@ -10,7 +10,7 @@
 ## le slide i
 
 ## TITRE : Conception d'itérateurs
-## Temp total ()
+## Temp total (9m15s)
 
 
 

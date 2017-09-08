@@ -19,7 +19,9 @@ Dans une précédente vidéo nous avons vu les notions de classes,
 d'instances, et de méthodes et nous avons expliqué qu'il existait une
 relation d'héritage entre l'instance et sa classe. Dans cette vidéo
 nous allons voir que cette notion d'héritage s'étend également aux
-classes qui peuvent hériter d'autres classes.
+classes qui peuvent hériter d'autres classes. Ce mécanisme d'héritage
+entre classes permet de définir des comportements communs ou des
+spécialisations.
 
 
 >>>>>>>>>> INCLUDE W6-S3-AV-slide1.pptx <<<<<<<<<< (1m30s)
