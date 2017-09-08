@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Conception d'itérateurs
+## Temp total ()
+
+
+
+## Sujet de la vidéo (20s)
+
+Nous avons vu précédemment les notions d'itérables et d'itérateurs du
+point de vue des utilisateurs. Je vous rappelle que les itérateurs
+permettent de parcourir des objets de manière simple, intuitive et
+expressive avec tous les mécanismes d'itération en Python comme les
+boucle for ou les compréhensions.
+
+>>>>>>>>>> INCLUDE W6-S6-AV-slide1.py <<<<<<<<<< (40s)
+
+Je vous rappelle aussi qu'un itérable est une objet qui a une méthode
+__iter__() qui retourne un nouvel objet itérateur et qu'un itérateur à
+deux méthodes, la méthode [__iter__()] qui retourne l'itérateur lui
+même et la méthode [__next__()] qui retourne un nouvel élément jusqu'à
+[StopIteration]
+
+Nous allons voir dans cette vidéo comment faire pour que vos objets
+deviennent itérable comme les objets built-in, ce qui veut dire que
+vous pourrez exploiter toute la puissance des itérateurs pour vos
+objets.  Ouvrons un éditeur IDLE pour commencer à jouer avec les
+itérateurs...
+
+>>>>>>>>>> INCLUDE W6-S6-AV-exo1.py <<<<<<<<<< (7m45s)
+
+
+## Conclusion (30s)
+
+La notion d'itération est centrale en Python et on vient de voir qu'en
+seulement quelque ligne de code, je pouvais rendre mes objets
+itérables. Tout cela est possible grace à ce que l'on a vu dans les
+semaines précédentes, la notion d'itérateur, de fonction génératrice
+et de classe.
+
+Vous voyez donc qu'en combinant les notions apprises durant ce MOOC on
+peut en seulement quelque lignes de code écrire des objets puissants
+qui se manipule comme les objets built-in. C'est cette puissance et
+cette uniformité qui fait de Python un langage unique.
+
+À bientôt
