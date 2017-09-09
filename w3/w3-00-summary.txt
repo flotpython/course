@@ -158,6 +158,11 @@ NIVEAU: BASIC
 # Vidéo 6 (Les exceptions)
 NIVEAU: BASIC
 
+   * parler de finally et else
+   * parler des arguments des exceptions avec une
+     capture du style "except ZeroDivisionError as e" 
+   * expliquer ce qu'est la pile d'exécution
+
 ## Compléments Vidéo 6
 
    Pour mémoire, notebook du précédent MOOC sur Python 2

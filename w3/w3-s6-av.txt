@@ -9,49 +9,47 @@
 ## le slide i
 
 ## TITRE : Exceptions
-## Temp total: 9m30s
+## Temp total: 9m00s
 
-## Résumé de la vidéo (45s)
+## Résumé de la vidéo (1m00s)
 
 Depuis que nous avons commencé à jouer avec Python, vous les avez sans
 doute rencontré, mais vous ne savez toujours pas quoi en faire, ni
 exactement ce que c'est...  Ce sont les exceptions.
 
 Dans cette vidéo nous allons expliquer le fonctionnement des
-exceptions en python. Les exceptions sont le moyen de gérer toutes les
+exceptions en Python. Les exceptions sont le moyen de gérer toutes les
 erreurs de fonctionnement de votre programme.  Et comme en Python tout
-est un objet, les exceptions aussi sont des objets. Mais il y a deux
+est un objet, les exceptions aussi sont des objets. Mais il y a trois
 choses importantes à savoir sur les exceptions.  Premièrement, une
 exception n'est pas une fatalité qui conduit à l'arrêt du programme,
 on peut capturer les exceptions et prévoir des traitements spécifiques
 pour continuer le programme. C'est ce que nous allons voir dans cette
-vidéo.  Deuxièmement, les exceptions sont très performantes en Python,
-c'est donc fréquent d'utiliser des exceptions dans le cadre du
-fonctionnement normal d'un programme.
+vidéo.  Deuxièmement, les exceptions si elles ne sont pas capturée
+fournissent de l'information sur les raisons de l'erreur, elles sont
+donc trè utiles pour diagnostiquer les problèmes. Troisièmement, les
+exceptions sont très performantes en Python, c'est donc fréquent
+d'utiliser des exceptions dans le cadre du fonctionnement normal d'un
+programme.
 
- 
 Ouvrons maintenant un éditeur IDLE pour commencer à jouer avec les
 exceptions...
 
->>>>>>>>>> INCLUDE W3-S6-AV-exo1.py (8 minutes) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W3-S6-AV-exo1.py (7m30s) <<<<<<<<<<
 
 
-## Résumé de la vidéo (45s)
+## Résumé de la vidéo (30s)
 
-Vous avez remarqué que je faisais toujours suivre une clause except
-d'un nom d'exception. Ça n'est pas une obligation, je peux avoir
-une clause except sans nom d'exception, et dans ce cas, ma clause
-va capturer toutes les exceptions. C'est toujours une très mauvaise
-idée de faire ça parce que vous risquez de capturer des exceptions
-que vous n'avez pas prévu ou que vous ne connaissez pas. Votre
-traitement ne sera donc pas approprié et votre programme risque
-de planter sans message d'erreur ou avec un message d'erreur
-ne correspondant pas au problème. 
+Nous venons de voir comment capturer les exceptions. Il faut essayer
+de capturer les exceptions au plus prêt de l'endroit où elles se
+produisent. Nous avons également vu que les exceptions bubble,
+c'est-à-dire qu'elles remontent la pile d'exécution. Ainsi les
+exceptions ne sont jamais perdue. 
 
 Pour finir, vous devez sans doute vous demander comment connaître les
-exceptions à capturer et leur signification. Il n'y a ici
-aucune magie, la seule solution est de lire la documentation
-pour connaître les exceptions built-in et la documentation
-des modules que vous utilisez.  
+exceptions à capturer et leur signification. Il n'y a ici aucune
+magie, la seule solution est de lire la documentation pour connaître
+les exceptions built-in et la documentation des modules que vous
+utilisez.
 
 À bientôt
