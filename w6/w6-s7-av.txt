@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Conception d'exceptions personnalisées
+## Temp total (4m20s)
+
+
+
+## Sujet de la vidéo (40s)
+
+Les exceptions représentent un mécanisme simple et efficace pour gérer
+les erreurs d'exécution.
+
+Dans cette vidéo nous allons voir qu'il est possible de créer vos
+propres exceptions. L'intérêt de créer de nouvelles exceptions est
+d'avoir un nom d'exception qui représent l'erreur d'exécution que l'on
+veut signaler. Comme les exceptions sont des objets, on peut également
+ajouter dans l'exception des attributs qui permettent de diagnostiquer
+l'erreur.
+
+Les exceptions sont des classes qui forment un arbre d'héritage dont
+la racine est la classe Exception. Toutes les exceptions personalisées
+doivent hériter de la classe Exception ou d'une de ses sous classe.
+
+Ouvrons un éditeur IDLE pour jouer avec la conception des
+exceptions...
+
+>>>>>>>>>> INCLUDE W6-S4-AV-exo1.py (3m20s) <<<<<<<<<<
+
+
+## Conclusion (20s)
+
+Il est facile de créer ses propres exceptions et c'est une bonne
+pratique de le faire.  Même si les exceptions sont des vrais classes,
+elles restent en générale très simple et se limite à un nouveau nom de
+classe et à un message décrivant l'erreur.
+
+À bientôt.
