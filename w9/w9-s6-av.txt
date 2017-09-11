@@ -58,7 +58,7 @@ par l'envoi de messages.
 
 Je peux créer un objet Queue
 comme ceci. Je lui donne une taille finie,
-dans mon cas un seul slotsuffira.
+dans mon cas un seul slot suffira.
 
 ========== [run création Queue]
 
@@ -123,6 +123,7 @@ peut l'être, la seule chose c'est de
 bien penser à mettre les 3 instructions
 await; deux du coté du producteur pour
 put et sleep, et un du coté consumer.
+
 ========== [outline ]
 
 Dans tous les cas il faut toujours bien
@@ -174,13 +175,63 @@ départ la queue est vide...
 
 Je fais tourner cette idée; on avait
 créé une fenêtre de 4; je vais créér une
-série de 8 jobs, pour que ce soit je
-leur ai donné des tailles différentes,
-1, 2, 3, 1, 2 et ainsi de suite.
+série de 8 jobs, pour que ce soit
+parlant je leur ai donné des tailles
+différentes, 1, 2, 3, 1, 2 et ainsi de
+suite.
 
 Je vous laisse vous convaincre que ça
 fait bien ce qu'on veut.
 
+Je vais en rester là pour la queue; bien
+sûr on peut aussi s'en servir comme
+d'une queue de messages, mais bon ça
+vous donne une idée de ce qu'on peut
+faire avec un peu d'imagination.
 
+========== [conclusion]
 
+Nous verrons bien sûr d'autres éléments
+de la librarie dans les compléments.
 
+En guise de conclusion, je voudrais tout
+de même ajouter un dernier mot sur la
+boucle d'événements.
+
+========== [fragment]
+
+On l'a vu, son travail consiste à
+choisir en permanence quelle tâche va
+avoir la main; il est bien évident que
+si elle devait à chaque instant
+envisager toutes les tâches, ça lui
+donnerait énormément de travail, et ce
+serait terriblement inefficace.
+
+Au contraire, la boucle utilise toutes
+les ressources que lui offre l'OS, que
+ce soit la signalerie, ou les primitives
+de base comme select(), ce qui lui
+permet d'atteindre des performances très
+raisonnables.
+
+========== [fragment]
+Donc on peut voir en fin de compte la
+librairie asyncio comme un modèle de
+programmation unifié pour tirer profit
+de tous ces mécanismes très puissants,
+qui autrement ne sont accessibles qu'au
+prix d'une programmation de très bas
+niveau qui est complexe et pas à la
+portée de tout le monde. 
+
+========== [fragment]
+
+Enfin, on dira un mot rapidement dans
+les compléments des classes abstraites
+que sont `Protocol`, `Transport` et
+`Stream`, mais on ne donnera pas de
+détails, car tout cela n'est pas
+nécessaire lorsqu'on est utilisateur des
+librairies asyncio de haut niveau qui
+servent dans la vie de tous les jours.

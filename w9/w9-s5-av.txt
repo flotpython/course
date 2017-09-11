@@ -58,20 +58,20 @@ utilitaires annexes pour bien visualiser
 ce qui se passe.
 
 J'ai écrit dans un module annexe deux
-fonctions qui sont start_time et
-show_time; je ne vous montre pas le code
+fonctions qui sont start_timer et
+show_timer; je ne vous montre pas le code
 qui est très simple, mais elles
 s'utilisent comme ceci
 
-========== [fragment start_time]
+========== [fragment start_timer]
 
-Avec start_time, on enregistre un
+Avec start_timer, on enregistre un
 instant de référence, ce sera pour nous
 le début de l'exécution, puis avec
-show_time on peut voir le temps écoulé
+show_timer on peut voir le temps écoulé
 depuis cette référence
 
-========== [run cell start_time + stop_time]
+========== [run cell start_timer + stop_timer]
 
 ========== [slide utilitaire #2]
 
@@ -203,7 +203,7 @@ Pour c2, je me contente d'ajouter c3()
 dans la boucle d'événements avec
 ensure_future()
 
-========== slide start_time()
+========== slide start_timer()
 
 Voici l'exécution, je vous laisse vous
 convaincre que c'est ce qu'on veut.
