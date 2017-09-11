@@ -72,12 +72,10 @@ Pas de quiz pour cette semaine du coup
 
 ###################################################################
 
-# Vidéo 5 La librairie asyncio
+# Vidéo 5 La boucle d'événements
 
 * ensure_future & run_forever() - Queue()
-
 * ensure_future pour ajouter une tâche au milieu d'un scénario
-
 * parler de get_event_loop()
 
 ## Compléments Vidéo 5
@@ -91,18 +89,35 @@ Pas de quiz pour cette semaine du coup
   apprenants interrompent le kernel, ça peut être tricky, mais pas
   sûr...
 
+* un complément sur la notion de Tâche
+  voir dans tutorial.ipynb la section avec monitor_tasks()
+  qu'il faudra sans doute simplifier un peu
+
+* un complément sur wait() - cf. asynciojobs
+  https://docs.python.org/3/library/asyncio-task.html#asyncio.wait
+
 ## Exercices Vidéo 5
 
 ###################################################################
 
 # Vidéo 6 La librairie asyncio
 
-* Queue et Lock ?? [mettre dans vidéo 5 si on a de la place]
+* Queue 
 
+* Subprocess
 
+* transition: insister sur le fait que la boucle d'évenements sait dialoguer avec
+  l'OS pour faire son job de manière efficace
+
+* mentionner Transport/Protocol + Stream
+  -> compléments / utiliser des lib. de haut niveau
+     comme aiohttp asyncssh
 
 ## Compléments Vidéo 6
 
+* a minima un exemple avec Lock
+  parler de connection partagée (e.g. ssh) par plusieurs sessions ->
+  tout de même besoin de gérer les accès parallèles
 * un protocole de bas niveau avec connection_made() connection_lost() 
 * montrer un serveur TCP encore + basique tel que dans 
   https://www.python.org/dev/peps/pep-0492/#types-coroutine
@@ -115,6 +130,9 @@ Pas de quiz pour cette semaine du coup
 ###################################################################
 
 # Vidéo 7 bonnes pratiques de développement / exceptions
+
+
+## montrer la figure qui explique les appels de coroutines
 
 ## Compléments Vidéo 7
 ## Exercices Vidéo 7
