@@ -1,0 +1,88 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Conception de context manager
+## Temp total (8m00s)
+
+
+
+## Sujet de la vidéo (3m00s)
+
+En programmation, il est courant de devoir faire des opérations de
+finalisation lorsqu'on a plus besoin d'un objet et cela même s'il y a
+une exception. C'est par exemple le cas avec un fichier ou une socket
+qui doivent être fermés lorsqu'on en a plus besoin et cela, même s'il
+y a une exception en cours d'utilisation.
+
+>>>>>>>>>> INCLUDE W6-S5-AV-exo1.py () <<<<<<<<<<
+
+[s1]
+
+La construction try finally a été introduite pour cela. Je vous
+rappelle que le bloc de code du finally sera exécuté après le bloc de
+code du try, même si le bloc du code du try produit une exception ou
+même s'il y a une exception capturée par un except. Le finally permet
+donc de faire des opérations de finalisation même en cas d'exception
+capturée ou non.
+
+Il y a cependant un problème avec la clause finally : il faut que le
+programmeur sache exactement quelles opérations mettre dans cette
+clause, par exemple, fermer un fichier. Pourtant personne n'est mieux
+placé que le concepteur de l'objet pour savoir comment le
+finaliser. De plus, si le processus de finalisation change avec une
+évolution de l'objet, tout le code utilisant cet objet devra être mis
+à jour.
+
+L'idéal serait que Python permettent au concepteur d'un objet de
+définir les opérations de finalisation à exécuter automatiquement à la
+fin de l'utilisation de cet objet. Ainsi, l'utilisateur n'aurait pas à
+se préocuper de faire les opérations de finalisation, il aurait
+uniquement à dire qu'il n'a plus besoin de cet objet.
+
+[s2]
+
+C'est exactement ce que permet un context manager. Nous avons
+d'ailleurs déjà montré l'utilisation d'un context manager pour gérer
+l'ouverture et la fermeture des fichiers.  On utiliser un context
+manager avec l'instruction [with expression as x], x étant un nom de
+variable et with et as étant des mots clefs. Cette instruction est
+ensuite suivie d'un bloc de code. Lorsqu'on évalue l'expression, elle
+retourne un objet. L'interpréteur va ensuite automatiquement appelé la
+méthode __enter__() sur cet objet, puis la variable x va référencer le
+retour de cet appel.
+
+Ensuite on exécute le bloc de code. S'il y a une exception ou que l'on
+sort du bloc de code, on appel la méthode __exit__() sur l'objet.
+
+[s3]
+
+En résumé, un objet qui implémente les méthodes __enter__() et
+__exit__() est un context manager que l'on peut utiliser avec
+l'instruction with. On voit qu'un context manager est en fait plus
+général qu'un simple mécanisme de finalisation. Un context manager
+permet de réaliser des opérations avant le bloc de code du with et des
+opérations après le bloc de code.
+
+Ouvrons un éditeur IDLE pour jouer avec les context manager...
+
+>>>>>>>>>> INCLUDE W6-S5-AV-exo1.py (4m30s) <<<<<<<<<<
+
+
+## Conclusion (30s)
+
+Le mécanisme de contexte manager permet d'exécuter des opérations
+avant et après l'exécution d'un bloc de code. On peut donc utiliser ce
+mécanisme comme les fichiers pour faire une opération de finalisation,
+ou dans un contexte plus général comme on vient de le voir. D'ailleurs
+ce mécanisme est proche dans l'esprit des décorateurs que nous verrons
+dans une prochaine vidéo.
+
+À bientôt.

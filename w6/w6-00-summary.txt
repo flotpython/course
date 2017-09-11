@@ -286,6 +286,20 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 8
 
+   * parler de
+     https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager
+     pour faire une contexte manager avec un décorateur et une
+     fonction génératrice
+  
+   * parler de
+     https://docs.python.org/3/library/contextlib.html#contextlib.ContextDecorator
+     peut-être n'en parler que lorsque nous parlerons des décorateurs.
+
+
+   * PEP 343 contains a lot of very nice exemples of context manager,
+     we might build on it for exercices
+     https://www.python.org/dev/peps/pep-0343/
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    
    * en complément introduire le module logging (ça va bien ici, mais
