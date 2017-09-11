@@ -94,7 +94,10 @@ NIVEAU: BASIC
 
 ## Compléments Vidéo 4
 
-   Ça serait sympa de concevoir des générateurs utiles que l'on chaine
+   * Parler de la délégation avec yield from et du refactoring de
+     générateur 
+   
+   * Ça serait sympa de concevoir des générateurs utiles que l'on chaine
    en fonction de traitements à faire.
 
    J'ai droppé ma séquence vidéo sur "Diagnostiquer son code

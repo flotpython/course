@@ -28,11 +28,12 @@ les mutables et les immuables.
 
 
 >>>>>>>>>> W3-S7-AV-slide1.pptx <<<<<<<<<< (9m30)
+[parler de shalow copie et de deepcopy]
 
 ## Résumé de la vidéo (40 s)
 
 En résumé, il vaut se rappeler que les références partagées sur un
-immutable ne pose aucun problème, par contre les références partagées
+immuable ne pose aucun problème, par contre les références partagées
 sur un mutable peuvent conduire à des effets de bords, c'est-à-dire à
 une modification de l'objet par une variable sans que cela soit voulu
 pour les autres variables référençant cet objet.

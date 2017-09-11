@@ -89,6 +89,8 @@ NIVEAU: BASIC
    avancé (f-string, format) en semaine 2 lorsque je parle des chaines
    de caractères.
 
+ * parles des mots cles https://docs.python.org/3/reference/lexical_analysis.html#keywords
+
   Pour mémoire, notebook du précédent MOOC sur Python 2
   * `w2-s1-c1-noms-de-variables.ipynb` : noms de variables
   * `w2-s1-c2-mots-cles.ipynb`: liste des mots clés

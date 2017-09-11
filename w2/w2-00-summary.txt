@@ -40,7 +40,7 @@ NIVEAU: BASIC
      et la représentation interne
    * complément unicode en Python (str, bytes, \u, chr, ord, hex,
    * etc.) et parler de librairie chardet et unidecode
-
+   * parler du module logging
 
   Pour mémoire, notebook du précédent MOOC sur Python 2
   * raw-strings.ipynb - backslashes - \n \t
