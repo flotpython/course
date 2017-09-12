@@ -65,7 +65,7 @@ def div(a, b):
 ## Une caractéristique importante des exceptions est qu'elles
 ## remontent (on dit bubble comme une bulle d'air dans l'eau) la pile
 ## d'exécution des fonctions qui contient toutes les fonctions
-## actives, c'est-à-dire cette qui ont été appelées mais qui n'ont pas
+## actives, c'est-à-dire celles qui ont été appelées mais qui n'ont pas
 ## encore retourné une valeur.
 
 ## Lorsqu'une exception est produite et n'est pas capturée, elle

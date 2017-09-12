@@ -2,7 +2,7 @@
 
 ## reprenons la classe Phrase que vous avions dans une précédente vidéo
 
-
+[[ditto - foo vs init]]
 class Phrase:
     def init(self, ma_phrase):  #self est un nom de variable, ça n'est
                                 #pas un mot clef
@@ -70,6 +70,8 @@ class Phrase:
 
     def __contains__(self, mot):     # new (doit retourner un bool)
         return mot in self.mots      # new
+
+[[TP: ce qui me gêne là dedans c'est que c'est mot pour mot l'exemple de w3-s8...; je trouve rétrospectivement que w3-s8 ça devrait plutôt parler méthode 'normale' plutôt que méthodes spéciales; je l'édite dans ce sens]]
     
 p = Phrase("je fais un mooc sur python")
 

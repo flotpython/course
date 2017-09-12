@@ -21,6 +21,7 @@ class Phrase:
 ## Il est en fait très simple de faire votre propre
 ## exception. Regardons un exemple...
 
+[[TP: PhraseVideErreur ? ]]
 class PhraseVideError(Exception):
     pass
 

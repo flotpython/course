@@ -35,12 +35,12 @@ hérite en parenthèse après le nom de la classe.
 Pour la classe C, C1 et C2 sont ses [super-classes], on peut également
 dire que C est une sous classe de C1 et C2.
 
-Il y a une relation d'héritage en C et ses super-classes. Ça veut dire
+Il y a une relation d'héritage entre C et ses super-classes. Ça veut dire
 que si on cherche un attribut dans l'espace de nommage de C, mais
 qu'il n'est pas présent, l'interpréteur cherchera automatiquement dans
 ses super-classes.
 
-Si maintenant on crée deux [instances] ce C, les instances hérites de
+Si maintenant on crée deux [instances] ce C, les instances héritent de
 leur classe.
 
 Les instances, la classe et ses super-classes forment ce qu'on appelle
@@ -66,7 +66,9 @@ l'on resoud un attribut, on va le chercher dans les espaces de
 nommages suivant l'ordre définit par l'arbre d'héritage en partant de
 l'instance et en remotant vers la super classe.
 
-Cependant, Python permet ce que l'on appelle l'héritage multiple,
+[[TP: Cependant: je propose plutôt "Comme on l'a vu au début de cette
+vidéo" puisque ton power point montre déjà ça]],
+Python permet ce que l'on appelle l'héritage multiple,
 c'est-à-dire qu'une classe peut hériter de plusieurs super
 classe. Dans ce cas, l'arbre d'héritage peut avoir plusieur branches
 en parallèle, il faut donc définir un ordre de parcours de ces

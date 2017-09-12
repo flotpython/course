@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-## Commençons par créer une classe. Une utilise l'instruction
+## Commençons par créer une classe. Une classe est créée avec l'instruction
 ## class suivi du nom de la classe, puis d'un bloc d'instructions.
 ## Comme pour une fonction, le nom de la classe est une variable
-## qui pointe vers l'objet classe qui est créé. 
+## qui pointe vers l'objet classe qui est créé.
+
+[[TP; je sais que je suis casse-couille, mais a ce point je dirais bien une petite phrase qui dit que c'est un exemple qui est conçu pour être simple mais qui n'est pas réaliste]]
 
 class Phrase:
     ma_phrase = "je fais un mooc sur python"
@@ -27,7 +29,7 @@ print(vars(Phrase))
 ## Notons que toutes les variables commençant et finissant par des
 ## double tirets bas sont des variables définies par le langage. On ne
 ## doit donc jamais créer de nouvelles variables utilisant cette
-## notation.
+## notation. [[TP ici c'est un attribut, pas une variable]]
 
 ## Notons également que l'espace de nommage d'une classe est un
 ## dictionnaire un peu particulier, un dictproxy, qui est en lecture
@@ -88,14 +90,14 @@ print(vars(Phrase))
 
 ## On a vu que la classe fournit un espace de nommage accessible à
 ## toutes les instances, mais que les instances sont des objets qui
-## ont le propre espace de nommage et qui peut évoluer indépendamment
+## ont leur propre espace de nommage et qui peut évoluer indépendamment
 ## de celui de la classe.
 
 ## Cependant, il nous manque toujours un notion importante pour
 ## manipuler les instances, c'est la notion de méthode. Une méthode
 ## est une fonction qui est définit dans une classe. Elle a cependant
 ## une particularité, lorsque vous appelez une méthode depuis une
-## instance, un référence de l'instance est automatiquement passée à
+## instance, une référence de l'instance est automatiquement passée à
 ## cette méthode. Ça permet ainsi d'avoir des méthodes définies dans
 ## une classe qui peuvent travailler sur les attributs, c'est-à-dire
 ## l'espace de nommage, de l'instance. 
@@ -104,13 +106,15 @@ print(vars(Phrase))
 ## les instances, je vais créer une méthode dans la classe qui va
 ## initialiser mon instance avec une phrase.
 
+[[TP: j'aime bien l'idée de ce plan, mais je suggère qu'on utilise justement pas init, mais un nom qui n'a rien a voir, pour éviter de créer de la confusion; je sais pas moi, initialisation, creation, n'importe..], ou comme il faut un truc court, foo carrément]]
+
 class Phrase:
     def init(self, ma_phrase):  #self est un nom de variable, ça n'est
                                 #pas un mot clef
         self.ma_phrase = ma_phrase
 
 ## le premier argument de la méthode va recevoir une référence de
-## l'instance qui appelle la méthode. Traditionnelement, on appelle
+## l'instance qui appelle la méthode. Traditionnellement, on appelle
 ## cet argument self.
         
 p = Phrase()

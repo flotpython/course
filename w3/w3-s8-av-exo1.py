@@ -17,6 +17,7 @@ combien ]]
   d'instance sans perturber l'auditeur avec les méthodes spéciales et
   la notion de self]]
 
+
 ## créeons un classe C
 
 class C:
@@ -37,6 +38,27 @@ print(C, c1, c2)
 
 ## prenons un exemple un peu plus réaliste. Créons un objet phrase qui
 ## me permet de simplement analyser les mots d'une phrase.
+
+[[TP: après avoir relu w6-s1 et w6-s2, je remarque que
+  cet exemple est mot pour mot celui de w6-s2 (méthodes spéciales)
+  et qu'il passe à coté de la méthode toute bête
+
+je proposerais quelque chose de plus simple comme
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def norme(self):
+        return (x**2 + y**2) ** 0.5
+
+  v1 = Vector(1, 2)
+  v1.norme()
+
+  et là juste mentionner qu'on voudrait pouvoir faire aussi v1 + v2, et que ce sera expliqué en semaine 6
+  ]]
+
 
 class Phrase:
     def __init__(self, phrase):     # expliquer self et phrase

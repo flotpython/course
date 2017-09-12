@@ -55,7 +55,7 @@ nommage), vous pouvez utiliser dir(spam).
 Regardons maintenant ce qui se passe lors de l'exécution de ce code.
 import spam va déclancher l'évaluation du module spam. Dans spam, on
 crée un objet [1], puis la variable [x] dans l'espace de nommage de
-spam [référence] cet entier. Un fois que le module est évalué, on crée
+spam [référence] cet entier. Un fois que le module est chargé, on crée
 [l'objet module], puis une variable [spam] dans l'espace de nommage de
 egg qui [référence] cet objet.
 
@@ -71,6 +71,20 @@ L'objet module étant mutable, on peut tout à fait modifier des
 attributs du module. Par exemple, [spam.x = 3] va modifier l'attribut
 x dans l'espace de nommage de spam.
 
+[[TP: ce serait bien de rajouter, dans l'illustration, une fleche qui
+matérialise les attributs du module, et qui pointe entre le module
+spam (dans l'espace des objets) avec le tag 'x' vers, d'abord 1, puis
+3 après cette affectation; je sais pas si c'est clair, je rajoute un
+dessin..
+
+avec cette illustration supplémentaire, avant même de faire spam.x=3
+dans egg, on devrait juste faire print(spam.x) et montrer qu'en fait
+on passe par l'objet module (spam), et que dedans on cherche son
+attribut 'x', qui nous donne 1
+
+je trouve que ça ferait une super bonne intro au attributs
+]]
+
 [s4]
 
 On peut même créer de nouveaux attributs. Par exemple [spam.y = 4] va
@@ -79,7 +93,7 @@ créer l'attribut y dans l'espace de nommage du spam.
 En résumé, on voit que lorsqu'on importe un module avec l'instruction
 import, il n'y a aucun risque de collision de variable puisque toutes
 les variables du module restent dans son espace de nommage, par
-contre, comme on accès à tous les attributs du module, on peut
+contre, comme on a accès à tous les attributs du module, on peut
 directement les modifier dans l'objet module. Comme il n'y a qu'un
 seul objet module par module importé, tous les imports de ce module
 donnerons accès à cet unique objet modifié. Ça n'est cependant jamais
@@ -121,7 +135,7 @@ du module.
 L'autre manière d'importer un module est d'utiliser l'instruction from
 module import variable. Cette instruction va créer une [nouvelle
 variable] dans l'espace de nommage local qui référence le même objet
-que l'attribut dans l'espace de nommage du module importé.  L'avantage
+que l'attribut dans l'espace de nommage du module importé. L'avantage
 de cette importation est que l'on peut accéder directement à l'objet
 défini dans le module sans utiliser le nom du module point le nom de
 l'attribut. Par contre, on a un risque de collision de variables et on

@@ -27,7 +27,7 @@ on peut capturer les exceptions et prévoir des traitements spécifiques
 pour continuer le programme. C'est ce que nous allons voir dans cette
 vidéo.  Deuxièmement, les exceptions si elles ne sont pas capturée
 fournissent de l'information sur les raisons de l'erreur, elles sont
-donc trè utiles pour diagnostiquer les problèmes. Troisièmement, les
+donc très utiles pour diagnostiquer les problèmes. Troisièmement, les
 exceptions sont très performantes en Python, c'est donc fréquent
 d'utiliser des exceptions dans le cadre du fonctionnement normal d'un
 programme.
