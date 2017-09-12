@@ -66,10 +66,11 @@ sort du bloc de code, on appelle la méthode __exit__() sur l'objet.
 
 En résumé, un objet qui implémente les méthodes __enter__() et
 __exit__() est un context manager que l'on peut utiliser avec
-l'instruction with. On voit qu'un context manager est en fait plus
-général qu'un simple mécanisme de finalisation. Un context manager
-permet de réaliser des opérations avant le bloc de code du with et des
-opérations après le bloc de code.
+l'instruction with. On dit également ce cet objet implémente le
+protocole du contexte manager. On voit qu'un context manager est en
+fait plus général qu'un simple mécanisme de finalisation. Un context
+manager permet de réaliser des opérations avant le bloc de code du
+with et des opérations après le bloc de code.
 
 Ouvrons un éditeur IDLE pour jouer avec les context manager...
 

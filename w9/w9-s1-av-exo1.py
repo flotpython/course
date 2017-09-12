@@ -79,30 +79,30 @@ p.num      # fonction classique
 ## nouveau déclarée comme statique dans la sous classe.
 
 ## je ne redéfinis pas la méthode statique
-class PhraseNoCasse(Phrase):
+class PhraseSansCasse(Phrase):
     pass
 
-PhraseNoCasse.num()
+PhraseSansCasse.num()
 
 ## je redéfinis la méthode statique
-class PhraseNoCasse(Phrase):
+class PhraseSansCasse(Phrase):
     def num():
-        return f'PhraseNoCasse {Phrase.nb_i}'
+        return f'PhraseSansCasse {Phrase.nb_i}'
     num = staticmethod(num)
 
 # 5m00s
     
 ## Vous remarquez cependant un problème, que j'ai une instance de
-## Phrase ou de PhraseNoCasse, j'ai un unique compteur dans Phrase qui
+## Phrase ou de PhraseSansCasse, j'ai un unique compteur dans Phrase qui
 ## est incrémenté.
 
 ## Comment faire, pour avoir une méthode capable de maintenir un
-## compteur différent pour Phrase et pour PhraseNoCasse ? Il faudrait
+## compteur différent pour Phrase et pour PhraseSansCasse ? Il faudrait
 ## pour cela maintenir un compteur dans Phrase et un dans
-## PhraseNoCasse, mais que surtout la méthode num() sache quand quand
+## PhraseSansCasse, mais que surtout la méthode num() sache quand quand
 ## elle est appelée de Phrase elle accède au compteur de Phrase et que
-## quand elle est accédé de PhraseNoCasse est accède au compteur de
-## PhraseNoCasse. En d'autres termes, il faudrait que la méthode num()
+## quand elle est accédé de PhraseSansCasse est accède au compteur de
+## PhraseSansCasse. En d'autres termes, il faudrait que la méthode num()
 ## reçoivent un référence vers l'objet classe qui l'appelle.
 
 ## C'est exactement ce que permet une méthode de classe. C'est une
@@ -128,20 +128,20 @@ class Phrase:
     num = classmethod(num)         # new
 
     
-class PhraseNoCasse(Phrase):
+class PhraseSansCasse(Phrase):
     nb_i = 0                                          
     def __init__(self):
-        PhraseNoCasse.nb_i  = PhraseNoCasse.nb_i + 1
+        PhraseSansCasse.nb_i  = PhraseSansCasse.nb_i + 1
         
     def num(cls):
-        return f'PhraseNoCasse {cls.nb_i}'
+        return f'PhraseSansCasse {cls.nb_i}'
 
     num = classmethod(num)
 
 p = Phrase()
 Phrase()
 
-p_no = PhraseNoCasse()
+p_no = PhraseSansCasse()
 
 p.num()
 p_no.num()
