@@ -4,7 +4,7 @@
 ## vous rappelle que lorsqu'un objet est un itérateur on ne peut le
 ## parcourir qu'une fois
 
-## Reprenons notre classe Phrase et augmentons la pour quelle
+## Reprenons notre classe Phrase et augmentons la pour qu'elle
 ## deviennent un itérateur. N'hésitez pas à mettre la vidéo en pause
 ## pour avoir le temps de retrouver la class Phrase. 
 

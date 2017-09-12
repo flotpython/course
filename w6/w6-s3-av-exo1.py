@@ -18,17 +18,17 @@ class Phrase:
     def __str__(self):               
         return "\n".join(self.mots)
 
-## et ajoutons une méthode nb_lettre qui compte le nombre de lettre
+## et ajoutons une méthode nb_lettres qui compte le nombre de lettre
 ## dans la phrase. 
 
-    def nb_lettre(self):
+    def nb_lettres(self):
         return len(self.ma_phrase)
     
 
 ## J'aimerais maintenant faire une nouvelle classe qui se comporte
 ## comme une classe Phrase, mais qui ne prend pas en compte la casse
 ## des mots dans le test d'appartenance. Faire une classe qui se
-## comporte comme une autre classe, c'est exactement le but de
+## comporte presque comme une autre classe, c'est exactement le but de
 ## l'héritage. Commençons à créer cette classe.
 
 class PhraseNoCasse(Phrase):
@@ -40,7 +40,7 @@ class PhraseNoCasse(Phrase):
 ## dans l'espace de nommage de la classe, si je ne le trouve pas, je
 ## vais le chercher dans l'espace de nommage de sa super classe.
 
-## Ça veut que si je crée une instance de
+## Ça veut dire que si je crée une instance de
 ## PhraseNoCasse elle va être initialisée avec le __init__ de Phrase,
 ## ou si je fais un print sur cette instance, elle va utiliser la
 ## méthode __str__ de Phrase. 
@@ -72,6 +72,9 @@ print(p_no)
 ## veut tout même l'appeler, il faut le faire explicitement. C'est en
 ## général ce que l'on veut faire avec __init__
 
+[[TP: je remarque souvent des mélanges français anglais dans les noms
+  c'est pas très beau; PhraseSansCasse ?]]
+
 class PhraseNoCasse(Phrase):
     def __init__(self, ma_phrase):
         Phrase.__init__(self, ma_phrase)  # je commence par appeler
@@ -93,7 +96,7 @@ class PhraseNoCasse(Phrase):
 
 s = "je fais un MOOC sur Python"
 p = Phrase(s)
-p_no = PhraseNoCap(s)
+p_no = PhraseNoCasse(s)
     
 'mooc' in p
 'mooc' in p_no

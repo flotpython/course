@@ -22,13 +22,13 @@ parlé de classes.
 Toutes ces notions servent à définir dans quel espace de nommage on
 doit chercher les variables et attributs. Et il est probable qu'à ce
 stade vous n'ayez pas les idées claires sur comment ces différentes
-notions interagissent et c'est tout à fait normal, parce qu'il s'agit
-d'un problème difficile.
+notions interagissent [[ j'enlèverais ça - au moins éviter le mot 'difficile': et c'est tout à fait normal, parce qu'il s'agit
+d'un problème difficile.]]
 
 Le but de cette vidéo et de faire toute la lumière sur la définition
 et le référencement des variables et attributs quelque soit le context.
 
->>>>>>>>>> INCLUDE W5-S8-AV-slide1.pptx (6m30s) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W6-S5-AV-slide1.pptx (6m30s) <<<<<<<<<<
 
 [s1]
 
@@ -37,6 +37,8 @@ variable x est définie ou référencée en utilisant directement son
 nom, on dit que c'est une [variable]. Par contre, si ma variable est
 définie ou référencée en utilisant la notation objet.x on dira dans
 la suite que cette variable x est un [attribut] de l'objet.
+[[gros contresens! un attribut n'est PAS une variable!! tu peux dire symbole, 
+identificateur, identifiant, mais PAS variable stp]]
 
 J'utilise cette distinction entre variable et attribut parce que
 la définition et le référencement utilise des mécanismes différents.
@@ -45,7 +47,8 @@ la définition et le référencement utilise des mécanismes différents.
 
 Commençons par le cas des attributs qui est le cas le plus simple . La
 définition d'un attribut [objet.x = val] change la valeur de x dans
-l'espace de nommage de l'objet. C'est simple, et c'est ce qu'on a déjà
+l'espace de nommage de l'objet [[et ce quel que soit son type, module,
+classe, instance...]]. C'est simple, et c'est ce qu'on a déjà
 vu.
 
 [s3]
@@ -68,7 +71,12 @@ Parlons maintenant du cas des variables.
 
 [s5]
 
-Une variable [définie] dans le bloc de code d'une fonction, d'une classe
+Une variable [définie] dans le bloc de code d'une fonction, d'une
+classe [[TP: pourquoi tu mets 'classe' ici ? ça me semble confusant
+par rapport à
+class Foo:
+   x = 1
+et tu suggères que x est une variable.. ]] 
 ou d'un module devient locale à ce bloc de code, sauf évidement si
 elle est déclarée comme [global ou nonlocal].
 
@@ -84,9 +92,13 @@ définitions de variables.
 
 Une variable référencée est cherchée dans les espaces de nommage
 suivant la règle LEGB. Attention, le E est pour les fonctions
-englobantes. S'il y a des classes englobantes (c'est le cas d'une
+englobantes. S'il y a des classes englobantes [[TP: c'est le cas d'une
 méthode dans une classe qui est englobée par le bloc de code de la
-classe), on saute l'espace de nommage de la classe.
+classe - j'ai relu ça trois fois et j'ai toujours pas compris ce
+que tu voulais dire.., tu devrais supprimer car si je comprends bien
+c'est le propos des 3 exemples justement]]), on saute l'espace de nommage de la classe.
+
+[[TP: attention ton powerpoint a une grosse fôte : bloque de code]]
 
 Regardons maintenant quelques exemples
 
@@ -98,8 +110,10 @@ Que va afficher le print(a)?
 
 Les variables définies dans le bloc de code d'une fonction ou d'une
 classe sont locales. Lorsque je fait print(a) je cherche a localement
-sans le même bloc de code, je le trouve, c'est la variable globale a
+dans le même bloc de code, je le trouve, c'est la variable globale a
 qui vaut 1.
+[[TP: sur cet exemple il me semble que ce qu'on veut surtout dire
+c'est que f() et C() ne modifient pas la globale]]
 
 [s10]
 
@@ -111,7 +125,7 @@ f est une méthode de la classe C, donc ins.f() va trouver la méthode
 de la classe. Cette méthode fait un print(a). D'après la règle LEGB,
 je cherche a localement mais il n'est pas défini dans ce bloc de code,
 il n'y a pas de fonction englobante et je saute le bloc de code des
-classes englobantes, je cherche a global, il vaut 1.
+classes englobantes, je trouve le a global, il vaut 1.
 
 On voit donc qu'une méthode n'a pas d'accès directe aux variables
 définie dans le bloc de code de sa classe. 
@@ -127,7 +141,7 @@ Que va afficher ins.f() ?
 
 Je cherche a localement à la méthode f, je ne le trouve pas. Il n'y a
 pas de fonction englobante et je saute les blocs de code des classes
-englobantes. Je chercher a parmi les variables globales, il vaut 1.
+englobantes. Je trouve a parmi les variables globales, il vaut 1.
 
 
 ## Conclusion (20s)
@@ -139,3 +153,11 @@ nécessaires à une bonne compréhension de ces mécanismes. Prenez le
 temps d'assimiler ces notions. 
 
 À bientôt
+
+[[TP: est-ce que penses pouvoir caser un slide qui dit que
+. la résolution des variables est purement lexicale
+. la résolution des attributs est dynamique c'est à dire faite à
+partir des objets
+et pourquoi pas mentionner que cette recherche d'attributs est en fait
+paramétrable - cf. la séquence sur la recherche d'attributs
+de la dernière semaine]]

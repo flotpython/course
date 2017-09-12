@@ -22,7 +22,7 @@ permettent de parcourir des objets de manière simple, intuitive et
 expressive avec tous les mécanismes d'itération en Python comme les
 boucle for ou les compréhensions.
 
->>>>>>>>>> INCLUDE W6-S6-AV-slide1.py <<<<<<<<<< (40s)
+>>>>>>>>>> INCLUDE W6-S6-AV-slide1.pptx <<<<<<<<<< (40s)
 
 Je vous rappelle aussi qu'un itérable est une objet qui a une méthode
 __iter__() qui retourne un nouvel objet itérateur et qu'un itérateur à

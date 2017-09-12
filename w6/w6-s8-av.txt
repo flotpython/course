@@ -22,7 +22,7 @@ une exception. C'est par exemple le cas avec un fichier ou une socket
 qui doivent être fermés lorsqu'on en a plus besoin et cela, même s'il
 y a une exception en cours d'utilisation.
 
->>>>>>>>>> INCLUDE W6-S5-AV-exo1.py () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W6-S5-AV-slide1.pptx () <<<<<<<<<<
 
 [s1]
 
@@ -41,7 +41,7 @@ finaliser. De plus, si le processus de finalisation change avec une
 évolution de l'objet, tout le code utilisant cet objet devra être mis
 à jour.
 
-L'idéal serait que Python permettent au concepteur d'un objet de
+L'idéal serait que Python permette au concepteur d'un objet de
 définir les opérations de finalisation à exécuter automatiquement à la
 fin de l'utilisation de cet objet. Ainsi, l'utilisateur n'aurait pas à
 se préocuper de faire les opérations de finalisation, il aurait
@@ -51,7 +51,7 @@ uniquement à dire qu'il n'a plus besoin de cet objet.
 
 C'est exactement ce que permet un context manager. Nous avons
 d'ailleurs déjà montré l'utilisation d'un context manager pour gérer
-l'ouverture et la fermeture des fichiers.  On utiliser un context
+l'ouverture et la fermeture des fichiers.  On utilise un context
 manager avec l'instruction [with expression as x], x étant un nom de
 variable et with et as étant des mots clefs. Cette instruction est
 ensuite suivie d'un bloc de code. Lorsqu'on évalue l'expression, elle
@@ -60,7 +60,7 @@ méthode __enter__() sur cet objet, puis la variable x va référencer le
 retour de cet appel.
 
 Ensuite on exécute le bloc de code. S'il y a une exception ou que l'on
-sort du bloc de code, on appel la méthode __exit__() sur l'objet.
+sort du bloc de code, on appelle la méthode __exit__() sur l'objet.
 
 [s3]
 

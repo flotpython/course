@@ -21,11 +21,13 @@ recherche des attributs (que l'on appelle également résolution) est
 très simple, on remonte l'arbre d'héritage de l'instance vers la super
 classe. 
 
-Cependant, Python permet l'héritage multiple, c'est-à-dire qu'une
-classe hérite de plusieurs super-classes. Comme dans ce cas, l'arbre
-d'héritage ne sera plus constitué d'une seule branche, mais de
-plusieurs branches en parallèle, il faut définir un ordre de
-parcours de branche pour résoudre les attributs.
+En fait, Python permet l'héritage multiple, c'est-à-dire qu'une
+classe hérite de plusieurs super-classes. Comme dans ce cas,
+[[TP: la relation d'héritage est un graphe acyclique et non un arbre
+au lieu de
+l'arbre d'héritage ne sera plus constitué d'une seule branche, mais de
+plusieurs branches en parallèle]],
+il faut définir un ordre de parcours de ce graphe pour résoudre les attributs.
 
 Dans cette vidéo nous allons présenter la méthode définissant l'ordre
 de résolution des attributs ou MRO pour method resolution order en

@@ -18,7 +18,7 @@ c.__class__ # référence la classe qui a créé cette instance (donc le
 C.__bases__ # est un tuple qui référence les super classes de C
 
 ## vous remarquez que la classe object est la super classe de C alors
-## qu'on n'a pas défini de super classe pour C. En fait, si vous de
+## qu'on n'a pas défini de super classe pour C. En fait, si vous ne
 ## définissez pas de super classe, object sera automatiquement la
 ## super classe de votre classe. Donc object est toujours tout en haut
 ## de l'arbre d'héritage. Mais à quoi cela sert-il ? object va définir
@@ -30,7 +30,7 @@ print(C)
 
 ## on peut regarder l'ordre de résolution des attributs en appelant la
 ## méthode mro() sur une classe. Cette méthode va nous donner une
-## liste des objets dans l'ordre qu'ils doivent être parcourus
+## liste des objets dans l'ordre où ils doivent être parcourus
 
 C.mro()
 
