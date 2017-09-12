@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : Méthodes statiques et de classe
+## Temp total (9m50s)
+
+
+## Résumé de la vidéo (1m20)
+
+On a vu lorsqu'on a parlé des méthodes sur les classes qu'une méthode
+appelée sur une classe était une function classique, mais que la même
+méthode appelée depuis une instance était une méthode bound pour
+laquelle l'interpréteur passait automatiquement l'instance comme
+premier argument.
+
+Comme en général on appelle toujours les méthodes depuis les instances
+et que les méthodes travaillent sur les attributs des instances c'est
+un comportement souhaité.
+
+Cependant, on pourrait vouloir écrire des méthodes qui ne travaillent
+pas sur les attributs des instances, mais sur les attributs de la
+classe. Par exemple, on pourrait avoir une méthode qui compte le
+nombre d'instances dans ma classe. Le nombre d'instance étant un
+attribut de la classe, et non d'une instance, il est inutile de passer
+l'instance à la méthode.
+
+On a alors un problème, comme une méthode appelée sur une classe est
+une fonction classique, on peut tout à fait écrire une méthode qui ne
+prend pas d'instance comme premier argument. Par contre, dès qu'on
+appellera cette méthode depuis une instance, elle deviendra une
+méthode bound qui recevra automatiquement l'instance comme premier
+argument.
+
+On n'a donc pas un moyen d'appeler de la même manière une méthode sur
+une instance ou sur une classe. Dans cette vidéo nous allons voir les
+méthodes statiques et les méthodes de classes qui ont été introduites
+pour résoudre ce problème. 
+
+Ouvrons un éditeur IDLE pour jouer avec les méthodes statiques et de
+classe ...
+
+>>>>>>>>>> INCLUDE W9-S1-AV-exo1.py (8m00s) <<<<<<<<<<
+
+
+## conclusion (30s)
+
+Les méthodes statiques et de classes permettent de définir des
+méthodes dans une classe travaillant sur les attributs de la classe
+qui s'appelle de la même manière depuis une classe et une instance.
+Ces deux types de méthode sont proches, mais s'utilisent dans un but
+différent. On utilise une méthode statiques lorsque l'on a besoin du
+même comportement pour toutes les sous classes. Si par contre, on veut
+un comportement spécifique par sous classe, on doit utiliser les
+méthodes de classe qui sont les seules à être bound à la classe
+d'appel.
+
+À bientôt. 

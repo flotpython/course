@@ -1,0 +1,170 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+# Vidéo 1 (Méthodes statiques et de classe)
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 1
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 1
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 1
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 2 (Les décorateurs)
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 2
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * OK (S2-C1-)Complement-decorateurs.ipynb
+
+   * les exemples pratiques que tu as déjà faits. 
+
+   * (initialement avec les context managers) : montrer cet exemple et
+     le comparer avec les décorateur
+
+import time
+class Timer():    
+    def __enter__(self):
+        self.start = time.clock()
+        return self
+    def __exit__(self, *args):
+        self.end = time.clock()
+        print "duree d'execution : " + \
+              str(self.end - self.start)
+        return False
+
+with Timer() as t:
+    [x ** 3 for x in xrange(1000000)]
+    print 1/0
+
+## Quizz Vidéo 2
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 2
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 3 (La gestion avancée des attributs)
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 3
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 3
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 3
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 4 (Les métaclasses)
+NIVEAU: AVANCÉ
+
+## Compléments Vidéo 4
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * lien vers
+     https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
+
+## Quizz Vidéo 4
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 4
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 5 (La performance en Python)
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 5
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 5
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 5
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 6 ()
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 6
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 6
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 6
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
+###################################################################
+
+# Vidéo 7 ()
+NIVEAU: INTERMEDIAIRE
+
+## Compléments Vidéo 7
+
+   Pour mémoire, notebook du précédent MOOC sur Python 2
+   * 
+
+## Quizz Vidéo 7
+
+   Pour mémoire, quizz du précédent MOOC sur Python 2
+   * 
+
+## Exercices Vidéo 7
+
+   Pour mémoire, exercices du précédent MOOC sur Python 2
+   *
+
+
