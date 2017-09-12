@@ -64,10 +64,9 @@ développement simple, intuitif et expressif. Il existe en Python plus
 de 80 méthodes spéciales, il est important de les survoler au moins
 une fois pour connaîtres toutes leurs possibilités.
 
-[[TP c'est pas critique mais si possible citer le mot de protocole ?;
-un trait du langage - par exemple iterable -> une ou plusieurs méthodes spéciales]]
-
-Vous verrez dans les compléments d'autres exemples et la documentation
-Python décrit en détail toutes ces méthodes.
+Notons pour finir que certaines méthodes spéciales forment ce qu'on
+appelle un protocol, comme le protocole d'itération ou le protocol des
+context manager. Nous reviendrons largement dessus dans de prochaines
+vidéos.
 
 À bientôt.

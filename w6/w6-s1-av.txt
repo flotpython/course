@@ -25,27 +25,17 @@ sont très complets et puissants, mais ils ne peuvent pas couvrir tous
 les cas imaginables.  Une classe permet de définir de nouveaux types
 d'objets avec leur propre information et leur propres comportements.
 
-Comme tout en Python, une classe est un objet. Il est créé lorsque le
-module contenant le code de la classe est importé.
-[[TP il serait plus précis de dire qu'elle est créée quand on évalue
-l'instruction 'class']]
-Notons d'ailleurs
-qu'en Python on peut avoir autant de classes que l'on veut dans un
-module, mais que l'on peut aussi avoir un module sans classe.
-[[TP et reciproquement des classes sans module,
-comme dans l'interpreteur; je ne vois pas l'intérêt à insister tant
-que ça sur les modules, ya pas de rapport dur entre les deux notions,
-si ?]]
+Comme tout en Python, une classe est un objet. Il est créé lors de
+l'évaluation de l'instruction class à l'importation du module
+contenant le code de la classe.  
 
-Une fois que l'objet classe est créé, donc à [[ditto]] l'importation du module
-contenant la classe, on peut créer autant d'instances que l'on veut en
-appelant l'objet classe à la manière d'une fonction. [[TP c'est
-vraiment comme une fonction, on peut l'appeler une fois qu'elle est definie]] Les instances
-sont également des objets et l'on peut voir une classe comme une usine
-à instances. La classe va définir des caractéristiques dont toutes ses
-instances vont hériter. Cette notion d'héritage entre classe et
-instance est centrale et elle est liée à la notion d'espaces de
-nommage.
+Une fois que l'objet classe est créé, on peut créer autant d'instances
+que l'on veut en appelant l'objet classe comme une fonction.  Les
+instances sont également des objets et l'on peut voir une classe comme
+une usine à instances. La classe va définir des caractéristiques dont
+toutes ses instances vont hériter. Cette notion d'héritage entre
+classe et instance est centrale et elle est liée à la notion d'espaces
+de nommage.
 
 Chaque classe et chaque instance a son propre espace de
 nommage. Lorsque l'on cherche un attribut dans une instance, si on ne

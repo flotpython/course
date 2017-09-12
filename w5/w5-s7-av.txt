@@ -59,6 +59,13 @@ spam [référence] cet entier. Un fois que le module est chargé, on crée
 [l'objet module], puis une variable [spam] dans l'espace de nommage de
 egg qui [référence] cet objet.
 
+Avant d'aller plus loin, j'aimerais ajouter une précision sur ces
+notions d'espace de nommage et d'objets. Un espace de nommage est lui
+même un objets qui vit dans le module, en fait l'espace de nommage est
+un attribut du module. Notre représentation des espaces de nommage en
+dehors des objets est une représentation abstraitre dont le but de
+montrer le mécanisme de référencement.
+
 Pour finir on crée un objet [2] et variable [x] dans l'espace de
 nommage de spam qui [référence] 2.
 
@@ -70,20 +77,6 @@ x de spam, donc 1.
 L'objet module étant mutable, on peut tout à fait modifier des
 attributs du module. Par exemple, [spam.x = 3] va modifier l'attribut
 x dans l'espace de nommage de spam.
-
-[[TP: ce serait bien de rajouter, dans l'illustration, une fleche qui
-matérialise les attributs du module, et qui pointe entre le module
-spam (dans l'espace des objets) avec le tag 'x' vers, d'abord 1, puis
-3 après cette affectation; je sais pas si c'est clair, je rajoute un
-dessin..
-
-avec cette illustration supplémentaire, avant même de faire spam.x=3
-dans egg, on devrait juste faire print(spam.x) et montrer qu'en fait
-on passe par l'objet module (spam), et que dedans on cherche son
-attribut 'x', qui nous donne 1
-
-je trouve que ça ferait une super bonne intro au attributs
-]]
 
 [s4]
 

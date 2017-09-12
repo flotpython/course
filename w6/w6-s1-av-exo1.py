@@ -5,7 +5,7 @@
 ## Comme pour une fonction, le nom de la classe est une variable
 ## qui pointe vers l'objet classe qui est créé.
 
-[[TP; je sais que je suis casse-couille, mais a ce point je dirais bien une petite phrase qui dit que c'est un exemple qui est conçu pour être simple mais qui n'est pas réaliste]]
+## commençons par créer une classe simpliste que l'on appelle Phrase. 
 
 class Phrase:
     ma_phrase = "je fais un mooc sur python"
@@ -26,10 +26,10 @@ print(p)
 print(Phrase.__dict__)
 print(vars(Phrase))
 
-## Notons que toutes les variables commençant et finissant par des
-## double tirets bas sont des variables définies par le langage. On ne
-## doit donc jamais créer de nouvelles variables utilisant cette
-## notation. [[TP ici c'est un attribut, pas une variable]]
+## Notons que tous les attributs commençant et finissant par des
+## double tirets bas sont des attributs définies par le langage. On ne
+## doit donc jamais créer de nouveaux attributs utilisant cette
+## notation.
 
 ## Notons également que l'espace de nommage d'une classe est un
 ## dictionnaire un peu particulier, un dictproxy, qui est en lecture
@@ -106,11 +106,10 @@ print(vars(Phrase))
 ## les instances, je vais créer une méthode dans la classe qui va
 ## initialiser mon instance avec une phrase.
 
-[[TP: j'aime bien l'idée de ce plan, mais je suggère qu'on utilise justement pas init, mais un nom qui n'a rien a voir, pour éviter de créer de la confusion; je sais pas moi, initialisation, creation, n'importe..], ou comme il faut un truc court, foo carrément]]
-
 class Phrase:
-    def init(self, ma_phrase):  #self est un nom de variable, ça n'est
-                                #pas un mot clef
+    def initialisation(self, ma_phrase):  #self est un nom de
+                                          #variable, ça n'est pas un
+                                          #mot clef
         self.ma_phrase = ma_phrase
 
 ## le premier argument de la méthode va recevoir une référence de
@@ -118,32 +117,32 @@ class Phrase:
 ## cet argument self.
         
 p = Phrase()
-p.init("je fais un mooc sur python")
+p.initialisation("je fais un mooc sur python")
 
 
 # COUPE 7m10s
 
-## Comment fait Python pour automatiquement passer l'instance à init
-## comme premier argument. Lorsqu'on appelle la méthode directement
-## depuis la classe, c'est une fonction classique à laquelle il faut
-## passer deux arguments
+## Comment fait Python pour automatiquement passer l'instance à
+## initialisation comme premier argument. Lorsqu'on appelle la méthode
+## directement depuis la classe, c'est une fonction classique à
+## laquelle il faut passer deux arguments
 
-Phrase.init
+Phrase.initialisation
 
 ## Mais, lorsqu'on appelle une méthode sur une instance, Python va
 ## transformer cette fonction en une méthode bound. Ça veut dire que
 ## lors de l'appel, l'interpréteur va toujours appeler la même
-## fonction init, mais il va automatiquement passer l'instance comme
-## premier argument.
+## fonction initialisation, mais il va automatiquement passer
+## l'instance comme premier argument.
 
-p.init
+p.initialisation
 
 ## donc
 
-p.init("python")
+p.initialisation("python")
 
 ## va être équivalent à 
 
-Phrase.init(p, "python")
+Phrase.initialisation(p, "python")
 
 # 8m30

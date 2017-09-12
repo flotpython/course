@@ -66,14 +66,11 @@ l'on resoud un attribut, on va le chercher dans les espaces de
 nommages suivant l'ordre définit par l'arbre d'héritage en partant de
 l'instance et en remotant vers la super classe.
 
-[[TP: Cependant: je propose plutôt "Comme on l'a vu au début de cette
-vidéo" puisque ton power point montre déjà ça]],
-Python permet ce que l'on appelle l'héritage multiple,
-c'est-à-dire qu'une classe peut hériter de plusieurs super
-classe. Dans ce cas, l'arbre d'héritage peut avoir plusieur branches
-en parallèle, il faut donc définir un ordre de parcours de ces
-branches. C'est ce qu'on appelle la méthode de résolution des
-attributs que nous aborderons dans une prochaine vidéo. 
-
+Comme on l'a vu au début de cette vidéo, Python permet ce que l'on
+appelle l'héritage multiple, c'est-à-dire qu'une classe peut hériter
+de plusieurs super classe. Dans ce cas, l'arbre d'héritage peut avoir
+plusieur branches en parallèle, il faut donc définir un ordre de
+parcours de ces branches. C'est ce qu'on appelle la méthode de
+résolution des attributs que nous aborderons dans une prochaine vidéo.
 
 À bientôt

@@ -36,29 +36,8 @@ print(C, c1, c2)
 ## Évidement, comme la classe C ne définie aucune méthode, mes
 ## instances c1 et c2, ne font pas grand chose.
 
-## prenons un exemple un peu plus réaliste. Créons un objet phrase qui
+## prenons un exemple un peu plus réaliste. Créons un objet Phrase qui
 ## me permet de simplement analyser les mots d'une phrase.
-
-[[TP: après avoir relu w6-s1 et w6-s2, je remarque que
-  cet exemple est mot pour mot celui de w6-s2 (méthodes spéciales)
-  et qu'il passe à coté de la méthode toute bête
-
-je proposerais quelque chose de plus simple comme
-
-class Vector:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-  
-    def norme(self):
-        return (x**2 + y**2) ** 0.5
-
-  v1 = Vector(1, 2)
-  v1.norme()
-
-  et là juste mentionner qu'on voudrait pouvoir faire aussi v1 + v2, et que ce sera expliqué en semaine 6
-  ]]
-
 
 class Phrase:
     def __init__(self, phrase):     # expliquer self et phrase
@@ -78,40 +57,45 @@ p = Phrase("je fais un mooc sur python")
 ## on peut vérifier que l'on a bien dans p un attribut mots qui
 ## contient la liste des mots
 
-## On aimerait maintenant pouvoir appeler len sur une Phrase pour
-## avoir le nombre de mots. En Python, toutes les opérations sur les
-## types built-in peuvent être implémentées dans nos propres classe
-## avec une méthode spéciale. Regardons cela
+## Si on veut avoir tous les mots en majuscule, on peut implémenter
+## une méthode upper() sur notre classe qui manipule l'attribut mots
+## de l'instance.
+
+class Phrase:
+    def __init__(self, phrase):
+        self.mots = phrase.split()
+
+    def upper(self):
+        self.mots = [m.upper() for m in self.mots]
+
+        
+## On aimerait maintenant pouvoir appeler print sur une Phrase pour
+## voir le contenu des mots. Si vous faites print() sur une instance
+## de Phrase, vous allez voir le nom et l'adresse de l'objet, mais pas
+## son contenu. Pourtant, quand vous faites print() sur une liste,
+## vous voyez bien son contenu.
+
+## En Python, toutes les opérations sur les types built-in peuvent
+## être implémentées dans nos propres classe avec une méthode
+## spéciale. Pour avoir un affichage par print() is faut implémenter
+## la méthode __str__. Regardons cela
 
 
 class Phrase:
     def __init__(self, phrase):
         self.mots = phrase.split()
 
-    def __len__(self):
-        return len(self.mots)
+    def upper(self):
+        self.mots = [m.upper() for m in self.mots]
+
+    def __str__(self):
+        return "\n".join(self.mots)
 
 p = Phrase("je fais un mooc sur python")
 
-len(p)
+print(p)
+p.upper()
+print(p)
 
-## Pour finir implémentons le test d'appartenance qui ne prend pas en
-## compte la casse des mots
-
-class Phrase:
-    def __init__(self, phrase):
-        self.mots = phrase.split()
-        self.mots_lowers = set([m.lower() for m in self.mots])
-
-    def __len__(self):
-        return len(self.mots)
-
-    def __contains__(self, mot):  # mot est une référence vers le mot
-                                  # avant in
-        return mot.lower() in self.mots_lowers
-
-p = Phrase("je fais un mooc sur Python")
-
-print('pythoN' in p)
 
 

@@ -31,21 +31,21 @@ class Phrase:
 ## comporte presque comme une autre classe, c'est exactement le but de
 ## l'héritage. Commençons à créer cette classe.
 
-class PhraseNoCasse(Phrase):
+class PhraseSansCasse(Phrase):
     pass
 
-## j'ai donc une classe PhraseNoCasse qui hérite de tous les attributs
+## j'ai donc une classe PhraseSansCasse qui hérite de tous les attributs
 ## de la classe Phrase. L'héritage entre classes fonctionne comme
 ## l'héritage entre instance et classe. Lorsque je cherche un attribut
 ## dans l'espace de nommage de la classe, si je ne le trouve pas, je
 ## vais le chercher dans l'espace de nommage de sa super classe.
 
 ## Ça veut dire que si je crée une instance de
-## PhraseNoCasse elle va être initialisée avec le __init__ de Phrase,
+## PhraseSansCasse elle va être initialisée avec le __init__ de Phrase,
 ## ou si je fais un print sur cette instance, elle va utiliser la
 ## méthode __str__ de Phrase. 
 
-p_no = PhraseNoCasse("nouvelle phrase")
+p_no = PhraseSansCasse("nouvelle phrase")
 ## je peux vérifier que p_no est bien une instance de Phrase avec
 ## isinstance()
 
@@ -56,7 +56,7 @@ print(p_no)
 # 2m00s
 
 
-## Évidemment cette classe PhraseNoCasse ne définissant aucun argument
+## Évidemment cette classe PhraseSansCasse ne définissant aucun argument
 ## elle a exactement le même comportement que Phrase, elle n'apporte
 ## rien. Il faut donc ajouter ou surcharger des méthodes. La notion de
 ## surcharge est très importante.
@@ -72,10 +72,7 @@ print(p_no)
 ## veut tout même l'appeler, il faut le faire explicitement. C'est en
 ## général ce que l'on veut faire avec __init__
 
-[[TP: je remarque souvent des mélanges français anglais dans les noms
-  c'est pas très beau; PhraseSansCasse ?]]
-
-class PhraseNoCasse(Phrase):
+class PhraseSansCasse(Phrase):
     def __init__(self, ma_phrase):
         Phrase.__init__(self, ma_phrase)  # je commence par appeler
                                           # __init__ de Phrase
@@ -83,6 +80,7 @@ class PhraseNoCasse(Phrase):
                               for m in self.mots)  # je crée un
                                                    # attribut
                                                    # mots_lower
+                                                   
 ## et je surcharge __contains__ pour faire un test d'appartenance sans
 ## prendre en compte la casse
     def __contains__(self, mot):                             
@@ -96,7 +94,7 @@ class PhraseNoCasse(Phrase):
 
 s = "je fais un MOOC sur Python"
 p = Phrase(s)
-p_no = PhraseNoCasse(s)
+p_no = PhraseSansCasse(s)
     
 'mooc' in p
 'mooc' in p_no
