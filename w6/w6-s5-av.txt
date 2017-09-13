@@ -37,8 +37,21 @@ dit que c'est une [variable]. Par contre, si le nom x est définie ou
 référencée en utilisant la notation objet.x on dira dans la suite que
 ce nom x est un [attribut] de l'objet.  
 
-J'utilise cette distinction entre variable et attribut parce que
-la définition et le référencement utilise des mécanismes différents.
+J'utilise cette distinction entre variable et attribut parce que la
+définition et le référencement utilise des mécanismes différents.
+J'insiste encore sur le fait que les espaces de nommage définissent
+des liens entre des noms et des références d'objet et que les espaces
+de nommage isole les noms. On peut donc avoir un même nom dans deux
+espaces de nommage différent. Lorsqu'on utilise un nom, il faut alors
+savoir avoir à quel espace de nommage il appartient.
+
+Lorsque le nom est une variable l'espace de nommage correspondant à ce
+nom est défini statiquement par un mécanisme que l'on appelle liaison
+lexicale. Lorsque le nom est un attribut, l'espace de nommage
+correspondant à ce nom est défini dynamiquement par un mécanisme qui
+s'appelle la résolution d'attributs.
+
+Regardons maintenant plus en détail ces deux mécanismes. 
 
 [s2]
 
@@ -55,11 +68,11 @@ Pour la référence d'un attribut [objet.x] il y a deux cas.
 [s4]
 
 Si l'objet est un [module], je cherche l'attribut x dans l'espace de
-nommage du module. Si objet est une [classe] ou une instance, je cherche
-l'attribut dans les espaces de nommage le long de l'arbre d'héritage.
+nommage du module. Si l'objet est une [classe] ou une instance, je
+cherche l'attribut dans les espaces de nommage le long de l'arbre
+d'héritage.
 
-On voit donc que pour le cas d'un attribut, il n'y a rien de nouveau
-et pas de subtilité particulière. 
+On voit donc que la résolution d'attributs est un mécanisme simple.
 
 
 # 2m00s
@@ -69,8 +82,15 @@ Parlons maintenant du cas des variables.
 [s5]
 
 Une variable [définie] dans le bloc de code d'une fonction, d'une
-classe ou d'un module devient locale à ce bloc de code, sauf évidement si
-elle est déclarée comme [global ou nonlocal].
+classe ou d'un module devient locale à ce bloc de code, sauf évidement
+si elle est déclarée comme [global ou nonlocal]. On voit donc que la
+définition, on dit également liaison, est définit en fonction du bloc
+de code dans lequel la variable est écrite. C'est ce qu'on appelle une
+liaison lexicale. Donc une variable est liée statiquement à un espace
+de nommage, ça ne pourra plus changer en cours d'exécution du
+programme. Par contre, évidement, l'espace de nommage lui même est
+dynamique, donc les objets que la variable référence peuvent changer
+en cours d'exécution. 
 
 [[TP: pourquoi tu mets 'classe' ici ? ça me semble confusant par
 rapport à class Foo: x = 1 et tu suggères que x est une variable.. ]]
@@ -90,11 +110,21 @@ définitions de variables.
 [s8]
 
 Une variable référencée est cherchée dans les espaces de nommage
-suivant la règle LEGB. Attention, le E est pour les fonctions
-englobantes. Si on a une variable définie dans une classe elle n'est
-accessible ni aux méthodes de la classe, ni à l'extérieur de la
-classe. On dit que lors de la résolution d'une variable on saute les
-blocs de code de classes.
+suivant la règle LEGB. Est-ce que la variable cherchée est défini
+localement, dans le même bloc de code. Si oui on utilise l'espace de
+nommage de ce bloc de code. Sinon, on cherche la variable dans
+l'espace de nommage des fonction englobantes, puis dans l'espace de
+nommage des variables globales du modules. Pour finir on cherche dans
+l'espace de nommage du module built-in
+
+Si on a une variable définie dans une classe elle n'est accessible ni
+aux méthodes de la classe, ni à l'extérieur de la classe. On dit que
+lors de la recherche d'une variable on saute les blocs de code de
+classes. Les raisons de ce comportement sont subtiles, mais
+l'intuition est que les instances sont faites pour résoudre des
+attributs le long d'arbre d'héritage, c'est donc ce mécanisme qui est
+favorisé pour les classes au détriment de la recherche de variables
+qui fonctionne uniquement pour les variables locales à la classe.
 
 Regardons maintenant quelques exemples pour illustrer cela
 
@@ -141,14 +171,14 @@ englobantes. Je trouve a parmi les variables globales, il vaut 1.
 
 ## Conclusion (20s)
 
-Pour connclure, les variables et les attributs vivent dans des espaces
+Pour conclure, les variables et les attributs vivent dans des espaces
 nommages. Les règles que l'on vient de voir consiste simplement à
-savoir dans quel espace de nommage chercher une variable ou un
-attribut. Les variables utilisent une liaison lexicale, ça veut dire
-qu'une variable est liée à un espace de nommage lors de l'écriture du
-code. Les attributs sont eux liés dynamiquement aux espaces de
-nommage, c'est-à-dire que l'espace de nommage auquel l'attribut est
-lié peut changer en cours d'exécution du programme.
+savoir dans quel espace de nommage chercher un nom. Les variables
+utilisent une liaison lexicale, ça veut dire qu'une variable est liée
+à un espace de nommage lors de l'écriture du code. Les attributs sont
+eux liés dynamiquement aux espaces de nommage, c'est-à-dire que
+l'espace de nommage auquel l'attribut est lié peut changer en cours
+d'exécution du programme.
 
 À bientôt
 
