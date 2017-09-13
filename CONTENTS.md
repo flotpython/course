@@ -101,7 +101,8 @@ programme en Python
 * w8-s5: Boucles d'événements
 * w8-s6: La librairie asyncio
 * w8-s7: Coroutines et exceptions, bonnes pratiques
-* w8-s8: Générateurs revisités
+# je pense que je vais zapper cette dernière vidéo..
+# * w8-s8: Générateurs revisités
 
 ### Notes
 * liste des séquences encore sujette à modifications

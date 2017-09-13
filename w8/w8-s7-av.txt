@@ -1,0 +1,143 @@
+# -*- coding: utf-8 -*-
+# -*- autofill-mode; fill-column: 40 -*-
+
+# TITRE : Coroutines et exceptions, bonnes pratiques
+# temps estimé:
+
+## Résumé de la vidéo
+
+À ce stade nous avons vu les concepts
+principaux de la programmation
+asynchrone en python, à savoir les
+coroutines, les boucles d'événements, et
+nos avons survolé le contenu de la
+librairie.
+
+Dans cette vidéo, nous allons surtout
+nous intéresser aux principaux écueils
+que l'on rencontre, surtout quand on
+commence à travailler avec ce nouveau
+paradigme qui, c'est vrai, peut paraître
+un peu déroutant au début.
+
+========== [fragment coroutine fonction
+/ coroutine]
+
+Le premier, on l'a déjà signalé mais ça
+ira mieux en le répétant, c'est qu'une
+fonction coroutine, comme ici
+
+========== [run async def foo()]
+
+la fonction foo, renvoie quand elle est
+appelée un *objet* coroutine; et donc ça
+ne fait rien,
+
+========== [run foo()]
+
+exactement d'ailleurs comme une fonction
+génératrice qui lorsqu'on l'appelle
+
+========== [fragment]
+
+retourne un générateur qui est un itérateur.
+Je n'ai pas choisi cet exemple au
+hasard, la ressemblance entre ces deux
+objets est très profonde.
+
+========== [slide tous les scénarios]
+
+Quoi qu'il en soit, il est donc très
+important d'utiliser à bon escient les
+fonctions standard et les fonction coroutines
+dans le bon contexte.
+
+========== [fragment def foo()]
+Voici un résumé du cas où on est dans
+une fonction normale:
+
+* (1) On peut bien sûr appeler une fonction
+  normale
+* (2) En général ce n'est pas une bonne idée
+  d'appeler une fonction asynchrone,
+  c'est ce qu'on vient de voir, ça
+  retourne un objet coroutine mais ça
+  n'en fait rien
+
+* (3) et (4) Pour les deux autres formes, où on
+  essaierait de faire un await, là c'est
+  simple: le langage considère ça comme
+  une erreur de syntaxe, au moins comme
+  ça c'est réglé; ce sont les deux seuls
+  cas qui sont exclus aussi tôt dans le
+  développement
+
+========== [fragment async def afoo()]
+Depuis une fonction asynchone
+maintenant;
+
+* (5) on peut bien sûr toujours appeler une
+  fonction synchrone
+
+* (6) on peut aussi faire un await d'une
+  coroutine, ce sont les usages normaux
+
+* (7) par contre comme tout à l'heure le
+  langage nous laisse appeler sans await
+  une fonction coroutine, mais pareil,
+  ce n'est sans doute pas une bonne idée.
+
+* (8) si on fait await sur une fonction
+  synchrone, ce qui se passe en détail,
+  c'est que la fonction est évaluée et
+  son résultat doit être un awaitable.
+
+
+========== [objets awaitables]
+
+Alors c'est quoi un objet awaitable ?
+
+En fait, pour faire une analogie, on a
+vu la notion d'itérable qui correspond à
+l'instruction for; et les context
+managers qui peuvent faire l'objet d'un
+with;
+
+eh bien c'est pareil ici, un awaitable
+décrit la classe des objets sur lesquels
+on peut faire un await. Les objets
+coroutines sont des awaitables, mais on
+peut en définir d'autres, via 
+le protocole awaitable.
+
+========== [slide cas #7]
+
+
+
+
+
+==================== quand tout va bien !
+
+* comme on peut faire un for sur un itérable on peut faire un await sur
+un awaitable - protocole
+
+* pas forcément une coroutine
+
+* dans tous les cas, un awaitable doit être awaité !
+
+* à l'inverse on ne peut pas faire await a partir d'une fonction
+  synchrone (normale)
+
+==================== quand ça coince !
+
+* une tâche = une pile
+
+* bubbling up -> boucle d'événements
+
+
+expliquer pourquoi la gestion des exceptions est intrinsèquement compliquée dans ce modèle
+
+les recettes pour comment débugger
+https://docs.python.org/3/library/asyncio-dev.html
+
+variables d'environnement, logging, 

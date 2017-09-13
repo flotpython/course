@@ -192,7 +192,7 @@ faire avec un peu d'imagination.
 ========== [conclusion]
 
 Nous verrons bien sûr d'autres éléments
-de la librarie dans les compléments.
+de la librairie dans les compléments.
 
 En guise de conclusion, je voudrais tout
 de même ajouter un dernier mot sur la
@@ -225,7 +225,7 @@ prix d'une programmation de très bas
 niveau qui est complexe et pas à la
 portée de tout le monde. 
 
-========== [fragment]
+========== [slide épilogue]
 
 Enfin, on dira un mot rapidement dans
 les compléments des classes abstraites
@@ -235,3 +235,27 @@ détails, car tout cela n'est pas
 nécessaire lorsqu'on est utilisateur des
 librairies asyncio de haut niveau qui
 servent dans la vie de tous les jours.
+
+========== [fragment]
+
+De la même façon d'ailleurs, si vous
+avez déjà été exposés à asyncio, vous
+serez sans doute surpris que je ne parle
+pas des notions de Task et de
+Future. J'ai fait ce choix car je le
+répète ce cours est une introduction à
+la programmation asynchrone, et il me
+semble que ces notions-là sont plus des
+concepts internes à la boucle asyncio,
+dont on peut très bien se passer pour
+commencer.
+
+Bref à ce stade de ce cours vous devriez
+avoir les bases pour commencer à écrire
+de petits programmes simples.
+
+Je vous conseille néanmoins, avant de
+passer à des choses sérieuses, d'étudier
+la séquence sur les bonnes pratiques, où
+nous allons voir comment éviter les
+écueils les plus fréquents avec asyncio.
