@@ -3,7 +3,7 @@
 ###################################################################
 
 # Vidéo 1 (Méthodes statiques et de classe)
-NIVEAU: INTERMEDIAIRE
+NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 1
 
@@ -24,7 +24,7 @@ NIVEAU: INTERMEDIAIRE
 ###################################################################
 
 # Vidéo 2 (Les décorateurs)
-NIVEAU: INTERMEDIAIRE
+NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 2
 
@@ -79,7 +79,7 @@ with Timer() as t:
 ###################################################################
 
 # Vidéo 3 (La gestion avancée des attributs)
-NIVEAU: INTERMEDIAIRE
+NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 3
 
@@ -121,7 +121,7 @@ NIVEAU: AVANCÉ
 
 ###################################################################
 
-# Vidéo 5 (La performance en Python)
+# Vidéo 5 ()
 NIVEAU: INTERMEDIAIRE
 
 ## Compléments Vidéo 5

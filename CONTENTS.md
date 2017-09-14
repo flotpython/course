@@ -93,7 +93,7 @@ programme en Python
 
 **Niveau**: AVANCÉ
 
-* w8-s0: Présentation de la neuvième semaine
+* w8-s0: Présentation de la huitième semaine
 * w8-s1: Programmation asynchrone
 * w8-s2: Quelques exemples simples
 * w8-s3: asyncio : historique et écosystème
@@ -116,15 +116,12 @@ programme en Python
 
 **Niveau**: AVANCÉ
 
-* W9-S0: Présentation de la huitième semaine
+* W9-S0: Présentation de la neuvième semaine
 * W9-S1: Méthodes statiques et de classe
 * W9-S2: Les décorateurs
 * W9-S3: La gestion avancée des attributs
 	* property et descripteurs 
 * W9-S4: Les métaclasses
-* W9-S5: La performance en Python
-  * essayer de parler de profilage (%timeit %prun %lineprofiler), ça
-    serait bien de parler du décompilateur, mais je connais très mal.
 
 
 ## Week 10
@@ -134,6 +131,13 @@ programme en Python
 ****
 ****
 ****
+
+# DROPPED/TODO LATER
+
+* W9-S5: La performance en Python
+  * essayer de parler de profilage (%timeit %prun %lineprofiler), ça
+    serait bien de parler du décompilateur, mais je connais très mal.
+
 
 # Compléments
 
