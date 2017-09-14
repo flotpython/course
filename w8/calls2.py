@@ -5,8 +5,8 @@ async def coro():
     print("dans coro")
 
 def main():
-    # par contre ici
-    # il manque un await !
+    # par contre ici il
+    # manque un await !
     coro()
 
 main()    
