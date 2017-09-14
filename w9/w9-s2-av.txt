@@ -1,0 +1,183 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : Les décorateurs
+## Temp total (10m40s)
+
+
+## Résumé de la vidéo (1m00)
+
+Lorsque l'on développe des fonctions, il arrive que l'on ait un même
+besoin sur plusieurs fonctions, par exemple, calculer le temps
+d'exécution, compter le nombre d'appel, valider le type des arguments
+passés, etc.
+
+On saurait tout à fait faire dès ça maintenant, mais en ajoutant du
+code pour chaque fonction comme par exemple un timer avant d'appeler
+la fonction et un timer après. On voit cependant que ce type code n'a
+rien de spécifique à la fonction, il devrait donc pouvoir être
+factorisé.
+
+Nous allons voir dans cette vidéo la notion de décorateur qui est une
+des notions avancées les plus utiles en pratique. Un décorateur est
+une technique de programmation qui permet d'ajouter une couche de
+logique avant l'appel d'une fonction, une couche de logique après
+l'appel et de garder de l'état entre deux appels. Le décorateur est
+également associé à une notation qui permet de rendre explicite qu'une
+fonction a été décorée, c'est-à-dire qu'on lui a ajouté une couche de
+logique.
+
+Regardons cela
+
+>>>>>>>>>> INCLUDE W9-S2-AV-slide1.pptx (8m40s) <<<<<<<<<<
+
+[s1]
+
+On écrit un décorateur avec la notation arobase (@) suivie du nom du
+décorateur. Ce décorateur doit être collé à la déclaration de la
+fonction. Le but est de rendre explicite le fait que la fonction f est
+décorée.
+
+Cependant, cette notation ne fait rien de magique. Elle va 
+simplement remplacer la fonction [f par l'objet decorateur(f).]
+
+Cette notation f = decorateur(f) ne vous rappelle-t-elle pas quelque
+chose que nous avons déjà vu ? Les méthodes statique et les méthodes
+de classe.
+
+[s2]
+
+Imaginons que nous ayons une classe C avec deux methodes f() et g() et
+que nous souhaitions que f soit une méthode de class et g une méthode
+statique. On l'écrirait de la manière suivante.  L'inconvénient est
+que déclarer une méthode comme statique ou de classe change
+complètement son comportement. Or, on peut définir ce changement de
+comportement loin de la déclaration de la méthode. Ça peut être un
+problème par la suite lors de la maintenance du code.
+
+[s3]
+
+Avec une décorateur, le changement de comportement est indiqué à la
+déclaration de la méthode. Regardons cela
+
+[s4]
+
+Comme je vous l'ai expliqué en introduction, la notion de décorateur
+regroupe une notation, c'est ce qu'on vient de voir, mais également
+une technique de programmation.
+
+En fait, [f ne référence plus maintenant] l'objet fonction original,
+mais l'objet retourné par l'appel decorateur(f)
+
+Regardons maintenant comment on peut implémenter un décorateur.
+
+[s5]
+
+Commençons par définir la notion de callable. Un callable est un objet
+que l'on peut appeler avec la notation "()". Un callable est donc une
+fonction, mais ça peut également être une instance donc la classe
+implémente la méthode __call__
+
+[s6]
+
+Un décorateur est un callable (une fonction, ou une instance de classe
+qui implémente __call__) qui prend une fonction en argumenent et qui
+retourne un callable (donc une fonction ou une instance d'une classe
+qui implémente __call__).
+
+On voit bien que le décorateur doit pouvoir être appelé et doit
+prendre comme argument f, mais pourquoi doit-il retourner un callable
+?
+
+[s7]
+
+Un callable doit obligatoirement retourner un objet (comme une
+fonction) donc décorateur(f) retourne un objet O. Mais l'utilisateur
+du décorateur va continuer à appeler sa fonction décorée normalement,
+par exemple f(a, b) ce qui va appeler en réalité O(a, b). Le seul
+moyen pour que cela fonctionne est que l'objet O retourné par le
+décorateur soit également un callable.
+
+# 4m00
+
+[s8]
+
+Je vous rappelle [qu'un décorateur sert] à ajouter avec une syntaxe
+explicite et une couche de logique avant et après l'appel d'une
+fonction avec la possibilité de garder de l'état entre deux appels.
+
+Regardons maintenant un exemple d'implémentation d'un décorateur.
+Pour cette exemple, nous allons implémenter le décorateur comme une
+classe qui a une méthode __call__.
+
+[s9]
+
+supposons que je veuille décorer avec [NbAppel] une fonction pour
+compter le nombre de fois qu'elle est appelé. Cette décoration est
+équivalente à écrire [f = NbAppel(f)].
+
+Regardons maintenant comment implémenter ce décorateur. Je défini une
+classe NbAppel qui a une méthode [__init__] qui prend la fonction à
+décorer comme argument. Cette méthode définie deux attributs dans
+l'instance, un compteur d'appel et la fonction f à décorer.
+
+Je définie ensuite une méthode [__call__] qui est la méthode qui sera
+appelée lorsque j'appelle ma fonction f décorée. Cette méthode définie
+deux paramêtres *t et **d. Souvenez vous que lorsque nous avions parlé
+des arguments de fonctions, je vous avez expliqué qu'une fonction qui
+définit deux paramêtres *t et **d peux accepter n'importe quelle
+signature puisque *t accepte une liste quelconque d'argument et **d
+accepter une liste quelconque d'arguments nommés.
+
+Ensuite ma méthode __call__ incrémente mon compteur d'appel, ce qui
+est normal puisque __call__ sera appelé à chaque appel de la fonction
+décorée, puis elle affiche le nombre d'appels de la fonction, et
+finalement elle appelle la fonction originale f avec exactement les
+arguments passés lors de l'appel.
+
+Donc en résumé, lors de la décoration de f, f est devenu une instance
+de NbAppel. Lors de l'appel de f, c'est la méthode __call__ de NbAppel
+qui est appelée et cette méthode après avoir incrémenté un compteur
+d'appel retourne le résultat de l'appel de la fonction originale. 
+
+# 7m30s
+
+[s10]
+
+regardons maintenant l'exécution de ce décorateur.
+
+Comme notre décorateur est générique, il peut décorer une autre
+fonction avec une autre signature. Il est important de comprendre qu'à
+chaque fois que je décore une fonction, je crée une nouvelle instance
+de mon décorateur avec un nouveau compteur d'appel. 
+
+## Conclusion(1m00)
+
+En résumé un décorateur est un moyen d'ajouter une couche de logique
+autour d'une fonction à la demande. En effet, il suffit d'ajouter la
+ligne @decorateur avant la fonction pour ajouter cette couche.
+
+Nous avons vu la notion de décorateur et un exemple implémenté sous
+forme d'une classe. Il y a d'autres manière d'implémenter des
+décorateurs en utilisant notamment des fonctions et la notion de
+cloture. Le décorateur peut faire des opérations et retourner la
+fonction originale, ou retourner un autre objet callable, c'est à dire
+soit une fonction, soit l'instance d'une classe qui implémente la
+méthode __call__. Un décorateur peut prendre des arguments et on peut
+même décorer une fonction avec plusieurs décorateur. Les possibilités
+sont donc énorme.  
+
+Le concept de décorateur a même été étendu aux classes, c'est à dire
+que l'on peut décorer une classe pour modifier ses attributs. Nous
+verrons dans une prochaine vidéo une autre technique plus puissant
+pour modifier une classe, la notion de métaclasse.
+
+À bientôt.

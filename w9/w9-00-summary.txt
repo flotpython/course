@@ -28,6 +28,20 @@ NIVEAU: INTERMEDIAIRE
 
 ## Compléments Vidéo 2
 
+   * **parler de cloture** et de décoration avec une méthode (cloture,
+     nonlocal, attribut de méthode).
+   
+   * parler de functools.wraps pour garder les métadonnées de la
+     fonction décorée
+
+   * comment passer des arguments à un décorateur
+
+   * comment avoir plusieurs décorateurs sur une même fonction
+
+   * décoration de méthodes
+
+   * parler des décorateurs de classe
+
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * OK (S2-C1-)Complement-decorateurs.ipynb
 
