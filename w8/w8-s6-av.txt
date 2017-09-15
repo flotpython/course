@@ -230,7 +230,7 @@ portée de tout le monde.
 Enfin, on dira un mot rapidement dans
 les compléments des classes abstraites
 que sont `Protocol`, `Transport` et
-`Stream`, mais on ne donnera pas de
+`Stream`, mais sans entrer dans les
 détails, car tout cela n'est pas
 nécessaire lorsqu'on est utilisateur des
 librairies asyncio de haut niveau qui
