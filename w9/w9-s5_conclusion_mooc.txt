@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Conclusion du MOOC
+## Temp total: ??
+
+Cette vidéo conclus ce Mooc sur Python. Thierry et moi espérons que vous 
+l'avez apprécié et que nous vous avons convaincu que Python 
+est un excellent langage. Si vous vous êtes accroché (ce que je suppose
+si vous suivez cette dernière vidéo), vous avez maintenant de très
+bonnes connaissances en Python qui vous permettrons d'appréhender 
+les projets les plus complexes. 
+
+Merci de nous avoir suivi durant ce MOOC. Au revoir. 

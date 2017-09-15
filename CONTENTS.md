@@ -18,7 +18,7 @@ Plan général du MOOC sur Python 3
 
 ## Week 2 
 **Thème de la semaine**: Notions de base pour écrire son premier
-programme en Pythony
+programme en Python
 
 **Niveau**: BASIC
 
@@ -104,7 +104,7 @@ partagées
 
 ## Week 8
 
-**Thème de la semaine**: Programmation asynchrone / asyncio
+**Thème de la semaine**: Programmation asynchrone - asyncio
 
 **Niveau**: AVANCÉ
 
@@ -126,7 +126,7 @@ partagées
 * (TP: je couvre très rapidement le multiprocess; par contre à ce stade je ne prévois pas de parler du GIL; dans un complément peut-être un jour..)
 
 ## Week 9
-**Thème de la semaine**: Sujets avancés de Python
+**Thème de la semaine**: Sujets avancés
 
 **Niveau**: AVANCÉ
 

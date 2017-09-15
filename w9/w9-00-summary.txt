@@ -87,6 +87,8 @@ NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 3
 
+   * give a reference to https://docs.python.org/3/howto/descriptor.html
+   
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * 
 
