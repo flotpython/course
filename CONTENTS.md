@@ -1,7 +1,8 @@
 Plan général du MOOC sur Python 3
 =================================
 
-## Week 1 
+## Week 1
+
 **Thème de la semaine**: Introduction au MOOC et aux outils Python utilisés dans le MOOC
 
 **Niveau**: BASIC
@@ -103,7 +104,6 @@ partagées
 * W7-S4: matplotlib
 
 ## Week 8
-
 **Thème de la semaine**: Programmation asynchrone / asyncio
 
 **Niveau**: AVANCÉ
@@ -114,13 +114,13 @@ partagées
 * w8-s3: asyncio : historique et écosystème
 * w8-s4: Extensions asynchrones du langage
 * w8-s5: Boucles d'événements
-* w8-s6: La librairie asyncio
-* w8-s7: Coroutines et exceptions, bonnes pratiques
+* w8-s6: Tâches et exceptions
+* w8-s7: La librairie asyncio
+* w8-s8: Bonnes pratiques (écrite mais peut-être inutile)
 
 ### Notes
 * liste des séquences me semble stable
-  sauf la dernière qui pour l'instant fait deux vidéos
-  et que je vais peut-être couper en deux
+  sauf la dernière que je vais peut-être supprime complètement
   
 * (AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads, le GIL et le multiprocess)
 * (TP: je couvre très rapidement le multiprocess; par contre à ce stade je ne prévois pas de parler du GIL; dans un complément peut-être un jour..)

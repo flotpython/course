@@ -1,464 +1,261 @@
 # -*- coding: utf-8 -*-
 # -*- autofill-mode; fill-column: 40 -*-
 
-# TITRE : Coroutines et exceptions, bonnes pratiques
+# TITRE : La librairie asyncio
 # temps estimé:
 
 ## Résumé de la vidéo
 
-À ce stade nous avons vu les concepts
-principaux de la programmation
-asynchrone en python, à savoir les
-coroutines, les boucles d'événements, et
-nos avons survolé le contenu de la
-librairie.
+Nous avons vu les coroutines et les
+boucles d'événements, il est temps de
+survoler le contenu de la librairie de base
+asyncio. Ce sera un survol, j'aimerais
+vous donner une idée de ce qui est
+disponible, à vous ensuite de creuser en
+fonction de vos besoins.
 
-Dans cette vidéo, nous allons surtout
-nous intéresser aux principaux écueils
-que l'on rencontre, surtout quand on
-commence à travailler avec ce nouveau
-paradigme qui, c'est vrai, peut paraître
-un peu déroutant au début.
+Pour commencer je rappelle son contenu,
+du moins à l'heure actuelle; il y a
 
-========== [fragment coroutine fonction
-/ coroutine]
+==========[fragment]
+* la boucle d'événements, on l'a déjà
+ évoquée
 
-Le premier, on l'a déjà signalé mais ça
-ira mieux en le répétant, c'est qu'une
-fonction coroutine, comme ici
+==========[fragment]
+* des objets de base utiles à la
+synchronisation
 
-========== [run async def foo()]
+==========[fragment]
+* un objet subprocess pour interagir
+avec les processus
 
-la fonction foo, renvoie quand elle est
-appelée un *objet* coroutine; et donc ça
-ne fait rien,
+==========[fragment]
+* et enfin des classes abstraites, pour
+les interactions avec les protocoles
+réseau et/ou les data streams.
 
-========== [run foo()]
 
-exactement d'ailleurs comme une fonction
-génératrice qui lorsqu'on l'appelle
+Je ne vais bien sûr pas pouvoir tout
+vous montrer, mais on va en dire
+quelques mots, et voir quelques exemples
+concrets.
+
+========== [slide utilitaire]
+
+Je me définis un petit utilitaire pour
+pouvoir réexécuter chacun de mes
+exemples avec une boucle vierge.
+
+========== [slide queue]
+
+Nous allons commencer avec l'objet Queue
+Une queue c'est simplement une file de
+messages, qu'on va pouvoir utiliser pour
+synchroniser plusieurs traitements
+par l'envoi de messages.
+
+========== [run reset_loop]
+
+Je peux créer un objet Queue
+comme ceci. Je lui donne une taille finie,
+dans mon cas un seul slot suffira.
+
+========== [run création Queue]
+
+Si vous lisez la documentation
+vous verrez qu'on peut lui passer un
+objet *loop*; de manière générale, on
+l'a déjà signalé rapidement, si vous
+utilisez a bon escient `set_event_loop`,
+il n'est pas utile de le faire, car
+get_event_loop() permet toujours de
+retrouver la bonne instance
+
+Enfin, il semble qu'il reste quelques
+problèmes avec ça dans la 3.6, mais si
+vous commencez maintenant c'est une
+bonne habitude à prendre de ne pas
+s'encombrer à passer des objets boucles
+dans tous les sens.
+
+========== [fragment producer / consumer]
+
+Mon exemple est très simple, il consiste
+à avoir une tâche producer, qui va
+écrire un message dans la queue toutes
+les secondes, et une autre tâche
+consumer, qui va être en attente de ces
+messages et les imprimer au fur et à
+mesure.
+
+Ici j'utilise encore `sleep` dans le
+producteur, pour avoir un code aussi
+petit que possible, mais notre but c'est
+bien sûr que le consumer soit notifié au
+fur et à mesure.
+
+On peut lire et écrire dans la queue, un
+message à la fois, et dans les deux cas
+c'est asynchrone - c'est à dire que get
+et put sont des coroutines, comme vous
+pouvez voir on les appelle avec await.
+
+Alors pour get c'est assez évident, si
+on essaie de lire et qu'il n'y a pas de
+message, il faut attendre; pour put
+c'est pareil si la file est pleine, il
+faut attendre une place. 
+
+========== [run producer]
+========== [run consumer]
+
+Je peux ajouter mes coroutines dans la
+queue, et exécuter la boucle
+indéfiniment
+
+========== [run ensure]
+========== [run loop]
+
+Il faut que j'interrompe.
+
+Vous voyez que c'est aussi simple que ça
+peut l'être, la seule chose c'est de
+bien penser à mettre les 3 instructions
+await; deux du coté du producteur pour
+put et sleep, et un du coté consumer.
+
+========== [outline ]
+
+Dans tous les cas il faut toujours bien
+vérifier qu'on appelle un coroutine avec
+await, sinon comme on l'a vu déjà, le
+code ne fait pas du tout ce qu'on croit.
+
+C'est sans doute la source principale de
+frustration chez les débutants, on en reparlera.
+
+
+========== slide [limiter le
+parallélisme]
+
+Je vais vous montrer une autre
+utilisation de la queue.
+
+========== [run reset_loop]
+
+Si vous avez
+disons 10000 pages web à aller chercher,
+vous voulez bien le faire en parallèle
+mais votre système ne vas pas vouloir
+créer 10000 connections TCP en même
+temps.
+
+Avec une queue, on peut assez facilement
+limiter le nombre de tâches actives,
+voyons ça. C'est très simple, on crée
+une fenêtre - un objet queue dont la
+taille correspond au nombre maximum de
+traitements qu'on veut faire en
+parallèle.
+
+========== [run window = Queue()]
+
+Ensuite chacune des coroutines qu'on
+veut exécuter va simplement commencer
+par faire un put dans la queue, pour
+matérialiser une sorte de réservation;
+puis faire son travail et enfin libérer
+son jeton en faisant un get dans la
+queue. C'est un peu contrintuitif, parce
+qu'on prend un jeton avec un put et on
+le rend avec un get, mais c'est parce qu'au
+départ la queue est vide...
+
+========== [slide suivant]
+
+Je fais tourner cette idée; on avait
+créé une fenêtre de 4; je vais créér une
+série de 8 jobs, pour que ce soit
+parlant je leur ai donné des tailles
+différentes, 1, 2, 3, 1, 2 et ainsi de
+suite.
+
+Je vous laisse vous convaincre que ça
+fait bien ce qu'on veut.
+
+Je vais en rester là pour la queue; bien
+sûr on peut aussi s'en servir comme
+d'une queue de messages, mais bon ça
+vous donne une idée de ce qu'on peut
+faire avec un peu d'imagination.
+
+========== [conclusion]
+
+Nous verrons bien sûr d'autres éléments
+de la librairie dans les compléments.
+
+En guise de conclusion, je voudrais tout
+de même ajouter un dernier mot sur la
+boucle d'événements.
 
 ========== [fragment]
 
-retourne un générateur qui est un itérateur.
-Je n'ai pas choisi cet exemple au
-hasard, la ressemblance entre ces deux
-objets est très profonde.
-
-========== [slide tous les scénarios]
-
-Quoi qu'il en soit, il est donc très
-important d'utiliser à bon escient les
-fonctions standard et les fonction coroutines
-dans le bon contexte.
-
-========== [fragment def foo()]
-Voici un résumé du cas où on est dans
-une fonction normale:
-
-* (1) On peut bien sûr appeler une fonction
-  normale
-* (2) En général ce n'est pas une bonne idée
-  d'appeler une fonction asynchrone,
-  c'est ce qu'on vient de voir, ça
-  retourne un objet coroutine mais ça
-  n'en fait rien
-
-========== [run def foo()]
-
-* (3) et (4) Pour les deux autres formes, où on
-  essaierait de faire un await, là c'est
-  simple: le langage considère ça comme
-  une erreur de syntaxe, au moins comme
-  ça c'est réglé; ce sont les deux seuls
-  cas qui sont exclus aussi tôt dans le
-  développement
-
-========== [fragment async def afoo()]
-Depuis une fonction asynchone
-maintenant;
-
-* (5) on peut bien sûr toujours appeler une
-  fonction synchrone
-
-* (6) on peut aussi faire un await d'une
-  coroutine, ce sont les usages normaux
-
-* (7) par contre comme tout à l'heure le
-  langage nous laisse appeler sans await
-  une fonction coroutine, mais pareil,
-  ce n'est sans doute pas une bonne idée.
-
-* (8) si on fait await sur une fonction
-  synchrone, ce qui se passe en détail,
-  c'est que la fonction est évaluée et
-  son résultat doit être un awaitable.
-
-Je vais revenir sur les 3 cas
-problématiques, donc 2, 7 et 8.
-
-========== [slide cas #2]
-
-Le cas #2, c'est le cas où on appelle
-une coroutine depuis du code synchrone,
-mais sans await.
-
-Ici j'atteins un peu les limites de la
-technologie des notebooks, je vais
-utiliser le ! pour lancer en fait des
-commandes comme si j'étais dans un
-terminal.
-
-Ici par exemple avec cat
-
-========== [run !cat calls2.py]
-
-je vous montre juste le contenu du
-fichier calls2.py
-
-et si je l'exécute
-
-========== [run !python calls2.py]
-
-vous voyez que python est tout de même
-assez malin pour me signaler le souci
-
-========== [slide cas #7]
-
-J'ai reproduit presque exactement le
-même exemple,
-
-========== [run !cat calls7.py]
-
-sauf que cette fois la coroutine est
-appelée - et pas awaitée - depuis du
-code asynchrone
-
-========== [slide python calls7.py]
-
-et en fait comme vous le voyez on obtient
-le même message d'avertissement.
-
-Ce qui, bien entendu, est rassurant
-
-bon cela dit on aimerait sans doute
-pouvoir détecter ça avant de faire
-tourner le code; j'ai fait quelques
-recherches mais actuellement c'est à
-dire en 2017, je n'ai rien trouvé dans
-pylint par exemple qui puisse détecter
-ça par une analyse statique, je ne doute
-pas que la situation va s'améliorer dans
-le futur.
-
-========== [slide cas #8]
-Du coup si je reviens au cas numéro 8,
-c'est à dire un await sur le résultat
-d'une fonction normale.
-
-Pour bien comprendre ça, il faut que je
-vous explique la notion de awaitable.
-
-========== [objets awaitables]
-
-Alors c'est quoi un objet awaitable ?
-
-En fait, pour faire une analogie, on a
-vu la notion d'itérable qui correspond
-aux objets sur lesquels on peut faire un
-for; et les context managers qui peuvent
-faire l'objet d'un with;
-
-eh bien c'est pareil ici, le concept de
-awaitable décrit la classe des objets
-sur lesquels on peut faire un await.
-
-Les awaitables sont donc une abstraction
-des coroutines, ou dit dans l'autre
-sens, les objets coroutines sont donc un
-cas particuler d'objets awaitables, mais
-on peut en définir d'autres, via la
-méthode spéciale await
-
-========== [slide cas #8]
-
-Si bien que si on en revient au cas #8,
-ce code en toute rigueur peut être
-légitime si la fonction synchro retourne
-un awaitable
-
-mais une fois qu'on a dit ça, dans un
-code asynchrone - on va dire normal -
-ce code-là est très très suspect.
-
-
-Le premier écueil donc, c'est de se
-mélanger entre les appels normaux et les
-appels de coroutines avec await. Je vous
-rassure, avec un tout petit peu
-d'habitude, ça passe tout seul. 
-
-En cas de besoin vous pouvez utiliser
-cet utilitaire dans le module inspect,
-mais les documentations sont de plus en
-plus lisibles par rapport à ce point qui
-est en effet très important.
-
-========== [slide écueil #2]
-
-Le second écueil est lorsqu'on appelle
-au milieu d'une coroutine du code
-bloquant qui garde la main trop
-longtemps.
-
-Quand ça se produit, les autres tâches
-dans la boucle ne peuvent plus avoir la
-main, et on perd totalement la
-réactivité de l'ensemble.
-
-Si on parle d'un gros calcul gourmand en
-cycles, il est toujours possible
-d'utiliser un vrai thread. Maintenant si
-ce n'est pas opportun, je vais vous
-montrer comment on peut simplement faire
-respirer le code bloquant, en ajoutant
-simplement des await factices.
-
-Je vous montre une toute petite
-simulation, avec à gauche un code
-bien asynchrone,
-========== [run def countdown]
-et à droite un code qui
-calcule;
-========== [run def compute]
-l'appel à time.sleep est
-bloquant, ça me permet de simuler la
-phase de calcul.
-
-Si je fais tourner ce code, j'observe
-évidemment que dès que la phase de
-calcul prend la main, comme elle ne fait
-aucun await, elle garde la main et
-empêche le code asynchrone de réagir.
-
-========== [slide faites respirer ...]
-
-Dans notre cas, une façon de résoudre le
-problème consiste à faire respirer le
-code synchrone en injectant des await;
-puisque dans notre cas on fait du
-calcul, on n'a rien de pertinent à
-attendre, on peut toujours attendre
-`asyncio.sleep(0)` qui permet simplement
-de faire respirer la coroutine à cet
-endroit-là. Bien sûr il n'est pas non
-plus question de faire ça toutes les
-nano-secondes..
-
-========== [run all 3 cells]
-
-Avec ce code modifié vous pouvez voir
-qu'on a réglé le problème de famine et
-les deux tâches sont plus correctement
-mélangées.
-
-
-Ce genre de situation arrive plus
-souvent qu'on ne voudrait, et pas
-toujours avec du code gourmand en cycle,
-mais simplement du code conçu avant
-asyncio.
-
-C'est pourquoi d'ailleurs on dit que la
-programmation asynchrone est
-contagieuse, dans ce sens que tous les
-traitements qui ont tendance à prendre
-un temps un peu trop long doivent être
-revus, et transformés en coroutine.
-
-==========
-
-Je vous retrouve tout de suite dans une
-deuxième vidéo pour conclure cette
-séquence, où j'aborde le sujet des
-exceptions dans ce contexte de la
-programmation asynchrone.
-
-====================
-= vidéo #2
-====================
-
-Bonjour et bienvenue dans cette seconde
-vidéo sur les bonnes pratiques en
-programmation asynchrone.
-
-Pour finir cette présentation, on va
-voir une animation
-
-* qui va je l'espère bien vous faire
-comprendre comment se passe un programme
-asynchrone,
-
-* et où on va voir comment se passe la
-gestion des exceptions
-
-C'est une vision très simplifiée de la
-réalité mais j'espère que ça 
-
-========== cliquer sur Animation
-[[pour revenir en arrière dans
-l'animation, faire Shift-left]]
-
-Donc on part d'une boucle dans laquelle
-[click]
-on ajoute des coroutines avec
-ensure_future.
-[clik]
-la boucle crée en interne un objet de
-type Task pour wrapper la coroutine
-
-4 x [click]
-
-ici j'ajoute trois coroutines, ça me
-fait 3 tâches.
-
-Une fois que j'ai rempli ma boucle
-d'événements, je lance ma boucle;
-
-[click - run_forever() apparait]
-
-la première chose qu'elle va faire ça va
-être de choisir une de ses tâches et de
-lancer l'évaluation de la coroutine.
-
-[click tâche courante]
-
-Comme les coroutines peuvent s'appeler
-les unes les autres, le lancement de la
-coroutine en question se fait dans une
-pile d'appels dédiée. 
-
-[click]
-
-Si vous vous souvenez ce qu'on a dit en
-introduction, c'est conceptuellement
-exactement comme un thread, on a une
-pile par tâche - sauf qu'ici c'est la
-boucle qui va contrôler la commutation
-de contexte et pas l'OS.
-
-[click]
-
-La boucle laisse la main à cette tâche
-jusqu'à ce qu'on atteigne un await qui
-corresponde à un futur; jusqu'ici on n'a
-vu principalement que asyncio.sleep,
-mais la boucle fournit des mécanismes de
-base sur les connections, les process,
-et ce genre de choses.
-
-Bref au moment où la tâche ne peut plus
-continuer, que je représente par await
-ici
-[click montrer await]
-
-la boucle reprend le contrôle et choisit
-une autre tâche à faire avancer
-
-c'est important de noter que la pile de
-la première tâche est conservée quelque
-part; sinon on ne pourrait pas reprendre
-le traitement plus tard, car la pile
-contient naturellement les variables qui
-sont le contexte de la tache
-
-[click move to 2eme tache]
-
-Donc après avoir sauvegardé la pile on
-passe le contrôle à la coroutine dans la
-deuxieme tache, donc comme tout à
-l'heure
-
-[clics multiples jusque await]
-
-ou on détecte un point d'attente, on
-passe par exemple à la troisième tache
-
-[click]
-
-qui elle aussi travaille
-
-[clicks multiples:
-tache3 ..
-tache1 avance d'un cran
-retour à la tache 3
-]
-
-Bon, maintenant voyons comment ça se
-termine; dans le cas simple ou la
-coroutine ne lève pas d'exception, voici
-ce que fait la boucle
-
-[click enlever await]
-[click depiler]
-[click depiler]
-
-lorsque le dernier frame retourne un
-résultat, la boucle le range dans la 
-tache et marque la tache comme terminée.
-
-[click result() & opacity]
-
-et on repasse la main à une autre tache
-
-[click -> sel. tache 2]
-
-====================
-Voyons maintenant le cas où une
-exception est levée; ici deux cas se
-présentent.
-
-Le plus simple d'abord, c'est le cas où
-l'exception est attrapée dans cette
-pile-là
-
-[click x 2 : raise au lieu de await]
-
-vous vous souvenez ce qu'on a dit sur le
-traitement des exceptions, c'est pareil
-ici, à partir du raise on cherche dans
-la pile un try: qui attrape
-l'exception. Ici je suppose que j'en
-trouve un à l'intérieur de la tache 2.
-
-[click x 2]
-
-dans ce cas là c'est très simple, on
-fait exactement comme dans du code
-synchrone, et on continue comme si de
-rien n'était.
-
-[click ... select. tache 1]
-
-==========
-Maintenant si on *n'a PAS* attrapé
-l'exception dans cette pile.
-
-la tache 1 leve une exception mais on ne
-trouve pas de handler dans cette pile.
-
-[click jusqu'à voir <--- raise]
-
-Alors ce que va faire la boucle
-typiquement c'est d'attraper
-l'exception, de la conserver
-
-[click 2x exception()]
-
-dans l'objet Task comme on avait
-conservé le résultat tout a l'heure,
-et de marquer la tache comme terminée.
-
-===
-xxx reste à conclure
-avec la mise en route des options de debug
+On l'a vu, son travail consiste à
+choisir en permanence quelle tâche va
+avoir la main; il est bien évident que
+si elle devait à chaque instant
+envisager toutes les tâches, ça lui
+donnerait énormément de travail, et ce
+serait terriblement inefficace.
+
+Au contraire, la boucle utilise toutes
+les ressources que lui offre l'OS, que
+ce soit la signalerie, ou les primitives
+de base comme select(), ce qui lui
+permet d'atteindre des performances très
+raisonnables.
+
+========== [fragment]
+Donc on peut voir en fin de compte la
+librairie asyncio comme un modèle de
+programmation unifié pour tirer profit
+de tous ces mécanismes très puissants,
+qui autrement ne sont accessibles qu'au
+prix d'une programmation de très bas
+niveau qui est complexe et pas à la
+portée de tout le monde. 
+
+========== [slide épilogue]
+
+Enfin, on dira un mot rapidement dans
+les compléments des classes abstraites
+que sont `Protocol`, `Transport` et
+`Stream`, mais sans entrer dans les
+détails, car tout cela n'est pas
+nécessaire lorsqu'on est utilisateur des
+librairies asyncio de haut niveau qui
+servent dans la vie de tous les jours.
+
+========== [fragment]
+
+De la même façon d'ailleurs, si vous
+avez déjà été exposés à asyncio, vous
+serez sans doute surpris que je ne parle
+pas des notions de Task et de
+Future. J'ai fait ce choix car je le
+répète ce cours est une introduction à
+la programmation asynchrone, et il me
+semble que ces notions-là sont plus des
+concepts internes à la boucle asyncio,
+dont on peut très bien se passer pour
+commencer.
+
+Bref à ce stade de ce cours vous devriez
+avoir les bases pour commencer à écrire
+de petits programmes simples.
+
+Je vous conseille néanmoins, avant de
+passer à des choses sérieuses, d'étudier
+la séquence sur les bonnes pratiques, où
+nous allons voir comment éviter les
+écueils les plus fréquents avec asyncio.
