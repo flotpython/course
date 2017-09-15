@@ -63,7 +63,7 @@ Je vais évaluer ce code
 avant de vous montrer ce qu'on peut en
 faire.
 
-==========[slide Objet coroutine]
+==========[slide coroutines]
 
 Tout d'abord regardons l'objet
 'morceaux', il s'agit bien d'une
