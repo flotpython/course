@@ -116,15 +116,14 @@ partagées
 * w8-s5: Boucles d'événements
 * w8-s6: La librairie asyncio
 * w8-s7: Coroutines et exceptions, bonnes pratiques
-# je pense que je vais zapper cette dernière vidéo..
-# * w8-s8: Générateurs revisités
 
 ### Notes
-* liste des séquences encore sujette à modifications
-* asyncio est suffisament difficile pour avoir une semaine pour lui, si on est malin dans la présentation, on pourra faire de nouvelles vidéos rien que sur ça ou améliorer modulairement sans toucher aux autres semaines
+* liste des séquences me semble stable
+  sauf la dernière qui pour l'instant fait deux vidéos
+  et que je vais peut-être couper en deux
+  
 * (AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads, le GIL et le multiprocess)
 * (TP: je couvre très rapidement le multiprocess; par contre à ce stade je ne prévois pas de parler du GIL; dans un complément peut-être un jour..)
-
 
 ## Week 9
 **Thème de la semaine**: Sujets avancés de Python

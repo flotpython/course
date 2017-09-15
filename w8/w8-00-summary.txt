@@ -129,33 +129,35 @@ Pas de quiz pour cette semaine du coup
 
 ###################################################################
 
-# Vidéo 7 bonnes pratiques de développement / exceptions
+# Vidéo 7
+## (bonnes pratiques / exceptions)
 
+-- découpée en deux vidéos
 
-## montrer la figure qui explique les appels de coroutines
+* quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
+
+* bien penser à ne pas bloquer pendant trop longtemps
+
+-- vidéo #2
+
+[[TP: il me reste trop pour faire une seule vidéo, mais peut-être je
+ferais mieux de mettre ça dans une autre séquence ?]]
+
+* animation de la boucle, les piles, et comment sont gérées les exceptions
 
 ## Compléments Vidéo 7
 ## Exercices Vidéo 7
 
 ###################################################################
 
-# Vidéo 8 Générateurs revisités
-
-## Compléments Vidéo 8
-## Exercices Vidéo 8
-
-* un dessin de l'exécution d'un code tout petit avec un appel de coroutines
-https://docs.python.org/3/library/asyncio-task.html#asyncio.ensure_future
-
-####################
-
 ideas
 
 * pour les complements, ajouter un lien vers
-https://www.youtube.com/watch?v=2ZFFv-wZ8_g
-le talk de Yuri Selivanov - etat de asyncio pour PyCon'17
+  https://www.youtube.com/watch?v=2ZFFv-wZ8_g
+  le talk de Yuri Selivanov - etat de asyncio pour PyCon'17
 
 * contagion: exemple d'un parser; un parser travaille sur un fichier
   complet et pas à priori de manière incrémentale
-  trade-off entre une approche 'monkey-patch' à la gevent, vs une
+
+* trade-off entre une approche 'monkey-patch' à la gevent, vs une
   approche explicite avec async/await
