@@ -99,12 +99,24 @@ Pas de quiz pour cette semaine du coup
 ## Exercices Vidéo 5
 
 ###################################################################
+# Vidéo 6 Tâches et exceptions
 
-# Vidéo 6 La librairie asyncio
+* animation de la boucle, les piles, et comment sont gérées les exceptions
+
+## Compléments Vidéo 6
+
+* des exemples de tâches qu'on cancelle, de boucle qu'on arrête, ce
+  genre de trucs
+
+* peut-être le bon endroit pour parler de wait() ?
+
+###################################################################
+# Vidéo 7 La librairie asyncio 
 
 * Queue 
 
-* Subprocess
+* ~~Subprocess~~ je crois que finalement subprocess j'ai pas le temps
+  d'en parler
 
 * transition: insister sur le fait que la boucle d'évenements sait dialoguer avec
   l'OS pour faire son job de manière efficace
@@ -113,7 +125,7 @@ Pas de quiz pour cette semaine du coup
   -> compléments / utiliser des lib. de haut niveau
      comme aiohttp asyncssh
 
-## Compléments Vidéo 6
+## Compléments Vidéo 7
 
 * a minima un exemple avec Lock
   parler de connection partagée (e.g. ssh) par plusieurs sessions ->
@@ -125,28 +137,28 @@ Pas de quiz pour cette semaine du coup
   notebooks, qui utilise localhost...
 
 
-## Exercices Vidéo 6
+## Exercices Vidéo 7
 
 ###################################################################
 
-# Vidéo 7
-## (bonnes pratiques / exceptions)
-
--- découpée en deux vidéos
+# Vidéo 8
+## (bonnes pratiques)
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
-
 * bien penser à ne pas bloquer pendant trop longtemps
 
--- vidéo #2
+NOTE
+* le seul truc qui reste nouveau c'est la digression sur les
+awaitables
+* qu'on pourrait bouger dans w8-s4 (extensions asynchrones du langage)
 
-[[TP: il me reste trop pour faire une seule vidéo, mais peut-être je
-ferais mieux de mettre ça dans une autre séquence ?]]
+* sinon à ce stade tout ce qui est là dedans ce sont des redites, je me
+demande si ça vaut le coup de tourner ça ou pas; on pourrait
+transformer le notebook en compléments, car ça vaut qd même le coup de
+bien insister sur ces deux points.
 
-* animation de la boucle, les piles, et comment sont gérées les exceptions
-
-## Compléments Vidéo 7
-## Exercices Vidéo 7
+## Compléments Vidéo 8
+## Exercices Vidéo 8
 
 ###################################################################
 
