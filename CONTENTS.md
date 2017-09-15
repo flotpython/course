@@ -79,7 +79,7 @@ partagées
 ## Week 6 
 **Thème de la semaine**: Conception des classes
 
-**Niveau**: BASIC, sauf w6-s6, s6-s7, s6-s7 INTERMÉDIAIRE
+**Niveau**: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
 
 * W6-S0: Présentation de la sixième semaine
 * W6-S1: Classes, instances et méthodes
