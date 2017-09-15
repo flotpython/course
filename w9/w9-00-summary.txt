@@ -2,6 +2,10 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
+# Vidéo 0 (Présentation de la neuvième semaine)
+
+###################################################################
+
 # Vidéo 1 (Méthodes statiques et de classe)
 NIVEAU: AVANCÉ
 
@@ -117,6 +121,10 @@ NIVEAU: AVANCÉ
 
    Pour mémoire, exercices du précédent MOOC sur Python 2
    *
+
+###################################################################
+
+# Vidéo 5 (Conclusion du MOOC)
 
 
 ###################################################################

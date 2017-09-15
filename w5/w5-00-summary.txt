@@ -2,6 +2,10 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
+# Vidéo 0 (Présentation de la cinquième semaine)
+
+###################################################################
+
 # Vidéo 1 (Itérable, itérateur, itération)
 NIVEAU: BASIC
 

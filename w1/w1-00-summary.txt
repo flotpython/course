@@ -2,6 +2,10 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
+# Vidéo 0 (Présentation de la première semaine)
+
+###################################################################
+
 # Vidéo 1 (Organisation du MOOC)
 
 TODO: TP

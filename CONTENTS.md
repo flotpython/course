@@ -136,6 +136,7 @@ partagées
 * W9-S3: La gestion avancée des attributs
 	* property et descripteurs 
 * W9-S4: Les métaclasses
+* W9-S5: Conclusion du MOOC
 
 
 ## Week 10

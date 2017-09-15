@@ -2,6 +2,10 @@
 # -*- eval: (auto-fill-mode 0) -*-
 ###################################################################
 
+# Vidéo 0 (Présentation de la sixième semaine)
+
+###################################################################
+
 # Vidéo 1 (Classes, instances et méthodes)
 NIVEAU: BASIC
 
