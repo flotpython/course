@@ -1,8 +1,10 @@
 Plan général du MOOC sur Python 3
 =================================
 
-## Week 1
+## Week 1 
 **Thème de la semaine**: Introduction au MOOC et aux outils Python utilisés dans le MOOC
+
+**Niveau**: BASIC
 
 * W1-S0: Présentation de la première semaine
 * W1-S1: Organisation du MOOC
@@ -14,9 +16,11 @@ Plan général du MOOC sur Python 3
 * W1-S6: Introduction aux notions de variables, objets et typage dynamique
 * W1-S7: Les types numériques 
 
-## Week 2
+## Week 2 
 **Thème de la semaine**: Notions de base pour écrire son premier
-programme en Python
+programme en Pythony
+
+**Niveau**: BASIC
 
 * W2-S0: Présentation de la deuxième semaine
 * W2-S1: Codage, jeux de caractères et unicode
@@ -28,8 +32,11 @@ programme en Python
 * W2-S7: Introduction aux compréhensions de listes
 * W2-S8: Introduction aux modules
 
-## Week 3
-**Thème de la semaine**: Renforcement des notions de base, références partagées
+## Week 3 
+**Thème de la semaine**: Renforcement des notions de base, références
+partagées
+
+**Niveau**: BASIC, sauf W3-S8 INTERMÉDIAIRE*
 
 * W3-S0: Présentation de la troisième semaine
 * W3-S1: Les fichiers
@@ -41,8 +48,10 @@ programme en Python
 * W3-S7: Les références partagées
 * W3-S8: Introduction aux classes
 
-## Week 4
+## Week 4 
 **Thème de la semaine**: Fonctions et portée des variables
+
+**Niveau**: BASIC
 
 * W4-S0: Présentation de la quatrième semaine
 * W4-S1: Fonctions
@@ -52,8 +61,10 @@ programme en Python
 * W4-S5: Modification de la portée avec global et nonlocal
 * W4-S6: Passage d'arguments et appel de fonctions
 
-## Week 5
+## Week 5 (NIVEAU BASIC)
 **Thème de la semaine**: Itération, importation et espace de nommage
+
+**Niveau**: BASIC
 
 * W5-S0: Présentation de la cinquième semaine
 * W5-S1: Itérable, itérateur, itération
@@ -65,8 +76,10 @@ programme en Python
 * W5-S7: Impact de l'importation des modules sur les espaces de nommage
 
 
-## Week 6
+## Week 6 
 **Thème de la semaine**: Conception des classes
+
+**Niveau**: BASIC, sauf w6-s6, s6-s7, s6-s7 INTERMÉDIAIRE
 
 * W6-S0: Présentation de la sixième semaine
 * W6-S1: Classes, instances et méthodes
@@ -80,6 +93,8 @@ programme en Python
 
 ## Week 7
 **Thème de la semaine**: L'ecosystème data science Python
+
+**Niveau**: BASIC
 
 * W7-S0: Présentation de la septième semaine
 * W7-S1: installer son environnement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)

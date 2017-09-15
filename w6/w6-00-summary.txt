@@ -240,7 +240,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 ###################################################################
 
 # Vidéo 6 (Conception d'itérateurs)
-NIVEAU: BASIC
+NIVEAU: INTERMEDIAIRE
 
 ## Compléments Vidéo 6
 
@@ -268,7 +268,7 @@ NIVEAU: BASIC
 ###################################################################
 
 # Vidéo 7 (Conception d'exceptions personnalisées)
-NIVEAU: BASIC
+NIVEAU: INTERMEDIAIRE
 
 ## Compléments Vidéo 7
 
@@ -289,7 +289,7 @@ NIVEAU: BASIC
 ###################################################################
 
 # Vidéo 8 (Conception de context manager)
-NIVEAU: BASIC
+NIVEAU: INTERMEDIAIRE
 
 ## Compléments Vidéo 8
 
