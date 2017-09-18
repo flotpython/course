@@ -126,7 +126,7 @@ Plan du MOOC sur Python 3
 	* property et descripteurs 
 * w9-s4: Les métaclasses
 * w9-s5: Type hints (même si pas de vidéos, un placeholder pour les compléments)
-* w9-s5: Conclusion du MOOC
+* w9-s6: Conclusion du MOOC
 
 
 ## Semaine 10
