@@ -8,175 +8,28 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Introduction aux notions de variables, objets et typage dynamique
-## Temp total: 6m15
+## TITRE : Les types numériques
+## Temp total: ??
 
-## Résumé de la vidéo (30s)
+## Résumé de la vidéo (20s)
 
->>>>>>>>>> INCLUDE W1-S6-AV-slide1.pptx <<<<<<<<<<
-[S1]
-Dans cette vidéo, je vais introduire les notions d'[objet], de [variable]
-et de [typage dynamique]. À la fin de cette vidéo, vous saurez
-référencer un objet à l'aide d'une variable et vous aurez compris les
-bases du typage dynamique en Python.
+>>>>>>>>>> INCLUDE w1-s7-av-slide1.pptx <<<<<<<<<<
 
-Pourquoi ces notions sont tellement importantes. En python, tout est un
-objet, vous aurez donc à manipuler de nombreux objets dans vos
-programmes, mais pour pouvoir les manipuler, il faut leur donner un
-nom, et ce nom c'est ce qu'on appelle une variable. Une variable est
-donc un nom qui permet d'accéder (on dit référencer) un objet. 
-
-[SB]
-
-## Définition d'un objet (2m10s)
-
-Rentrons maintenant dans le détail de la notion d'objet.
-
-[S2]
-
-En informatique, un [objet] est un morceau de programme qui peut
-[stocker des données] et qui a un ensemble de mécanismes, que l'on
-appelle [méthodes], qui permettent d'effectuer des tâches. Le [type]
-de l'objet va définir les [données et les méthodes qui existent par
-défaut] à la création de l'objet.
-
-[SB]
-
-Pour mieux comprendre ces notions prenons l'analogie d'une chaine de
-montage qui contruit des voitures. Si on reprend nos termes, l'objet
-est la voiture. Elle a des données (par exemple, la puissance du
-moteur) et des méthodes qui permettent d'effectuer des taches (par
-exemple, l'accélérateur ou le clignotant). Toutes ces caractéristiques
-sont déterminées au moment de la construction de la voiture sur la chaine
-de montage. La chaine de montage définie donc le type de la voiture. 
-
-Revenons maintenant à l'informatique et regardons un exemple de création d'objet.
-
-[S3]
-
-Imaginons à droite que l'on a l'ensemble des objets créés dans le
-mémoire de mon ordinateur. Cet ensemble est actuellement vide. Pour
-créer un objet, je peux par exemple taper dans un interpréteur Python
-une chaîne de caractères 'spam'. Lorsque je fais un retour chariot,
-l'objet est créé. On voit que cet objet contien des données (la chaîne
-de caractère spam) et des méthodes. Mais d'où viennent ces méthodes
-puisqu'on a rien défini nous même. Ces méthodes viennent du type de
-'spam', la chaine de montage qui a créé cette objet. En informatique,
-on dit que l'objet spam hérite des méthodes de son type.
-
-On voit en particulier une méthode upper() qui permet de mettre la
-chaîne de caractères en majuscule. Comment appeler cette méthode sur
-l'objet ? Il existe une manière simple d'appeler une méthode sur un
-objet: c'est la notation 'point'.  'spam' 'point' 'upper()' permet
-d'appeler la méthode upper() sur l'objet 'spam'. Après un retour
-chariot, on voit la chaine de caractères en majuscule. Il faut faire
-attention de ne pas oublier les paranthèses après upper, ce sont ces
-parenthèses qui déclanchent l'exécution de la méthode. 
-
-En Python, toutes les méthodes sur les objets s'appelle avec cette
-notation 'point'.
-
-[SB]
-
-## L'affectation en Python (30s)
-
-Maintenant que nous avons vu ce qu'est un objet, regardons comment le
-référencer, c'est-à-dire accéder à cet objet dans la mémoire de
-l'ordinateur. En Python, on ne manipule jamais directement les
-adresses en mémoire, c'est-à-dire les pointeurs, on utilise à la place
-le mécanisme d'affectation qui permet de référencer les objets.  Une
-affectation permet de donner un nom à un objet, plus précisement,
-d'associer une variable à la référence de l'objet. Affecter
-l'entier 1 à la variable note s'écrit simplement
-
-[S4]
-
-note = 1
+Nous allons voir dans cette vidéo les 4 types numériques qui
+existent en Python : les [int] qui représentent des entiers de taille
+illimitée, les [float] qui représentent des nombre décimaux, les
+[complex] qui représentent des nombres complexes et les [booléens].
+Ouvrons un interpréteur Python pour jouer avec ces types numériques...
+ 
 
 
-## Notion de variable (1m10s)
+>>>>>>>>>> INCLUDE W1-S7-AV-exo1.py <<<<<<<<<< (5m10)
 
-[SB]
+## Résumé de la vidéo (15s)
 
-Regardons plus en détail cette notion de variable. On vient de voir
-qu'une variable est un nom que l'on donne à un objet pour le retrouver
-en mémoire.
+Nous avons vu dans cette vidéo les 4 types numériques qui
+existent en Python : les int, les float, les complex et les booléen. 
+Et on a vu que le type int est un type puissant permettant de travailler
+avec des entiers de taille illimité.
 
-[S5]
-
-Il y a trois règles importantes pour le nom d'une variable en Python.
-Une variable peut être composée d'une suite quelconque de caractères
-alphanumériques, c'est-à-dire les [lettres de l'alphabet en
-minuscule], [en majuscule] et les [chiffres de 0 à 9].  
-Le [tiret bas] est également autorisé. 
-
-[S6]
-
-Une variable commence soit par une [lettre soit par un tiret bas],
-mais [jamais par un chiffre].
-
-[S7]
-
-Les majuscules et minuscules sont prises en compte, donc [Identifiant]
-est différent de [identifiant].
-
-[S8]
-
-Il est recommandé d'utiliser des noms explicites de variable, de tout
-écrire en minuscule, et de séparer les mots par des tirets bas. Par
- exemple, [moyenne_age_francais] est un bon nom de variable, meilleur que
-[moy_age_f] et bien meilleur que simplement [x]
-
-Vous remarquerez que j'utilise souvent des variables très courtes dans
-les vidéos. L'unique raison de faire cela est de pouvoir taper
-rapidement à l'écran les variables, mais dans un vrai programme on
-doit donner un nom explicite aux variables, ce qui contribue à la
-documentation de notre code.
-
-## Typage dynamique (1m00s)
-
-[SB]
-
-Maintenant que nous avons vu les notions d'objets et de variables,
-parlons du typage dynamique.  Python utilise le typage dynamique
-c'est-à-dire que le type des variables n'est pas spécifié lors de
-l'écriture du programme, mais automatiquement à l'exécution. En fait,
-les variables n'ont pas de type, ce sont les objets qu'elles
-référencent qui ont un type. Prenons un exemple.
-
-[S9]
-
-À gauche j'ai l'espace des variables et à droite j'ai l'espace des
-objets. Regardons ce qui ce passe lorsque je fais 'a =
-3'. L'interpréteur Python crée l'objet entier 3 dans l'espace des
-objets, puis la variable a dans l'espace des variable. Pour finir,
-l'interpréteur crée une référence entre la variable a et l'objet
-3. Écrivons maintenant 'a = 'spam''. L'interpréteur va créer l'objet
-'spam' du type chaine de caractères, puis va changer la référence de
-la variable a pour qu'elle référence maintenant l'objet 'spam'
-
-## Résumé typage dynamique (20s)
-
-Pourquoi appelons nous ce mécanisme le typage dynamique ? Parce que,
-comme nous venons de le voir, le type des objets référencés par les
-variables est déterminé dynamiquement à l'exécution du programme.  Nous
-verrons dans la suite que le typage dynamique est une notion
-essentielle de Python qui offre beaucoup de flexibilité et facilite
-grandement l'écriture des programmes.
-
-
-
-## Résumé de la vidéo (30s)
-
-Dans cette vidéo, nous avons introduit la notion d'objet, de variables
-et de typage dynamique. Vous pouvez vous demander pourquoi j'insiste
-autant sur ces notions si tôt dans le MOOC. Elles sont centrales en
-Python, comme en Python tout est un objet, le langage a été dès le
-départ conçu avec un grand soucis d'uniformité. Nous verrons dans des
-prochaines vidéos que tous les objets se manipulent de la même
-manières et qu'il n'y a aucune différence entre les objets que nous
-créons et les objets directement founis par Python. L'avantage c'est
-un langage plus facile et rapide à apprendre, et un code concis, clair
-et efficace.
-
-À bientôt. 
+À bientôt
