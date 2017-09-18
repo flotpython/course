@@ -110,6 +110,11 @@ Pas de quiz pour cette semaine du coup
 
 * peut-être le bon endroit pour parler de wait() ?
 
+## Compléments Vidéo 6
+
+* s'inspirer de raise2.py qui montre comment monitorer les tâches
+  d'une boucle, regarder les résultats et les exceptions..
+
 ###################################################################
 # Vidéo 7 La librairie asyncio 
 
