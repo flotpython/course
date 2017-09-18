@@ -1,111 +1,108 @@
-Plan général du MOOC sur Python 3
+Plan du MOOC sur Python 3
 =================================
 
-## Week 1
+## Semaine 1
+### Thème: Bienvenue, et prise en main des outils utilisés dans le MOOC
+### Niveau: BASIC
 
-**Thème de la semaine**: Introduction au MOOC 
-
-**Niveau**: BASIC
-
-* W1-S0: Présentation de la première semaine
-* W1-S1: Organisation du MOOC
-* W1-S2: Pourquoi Python 3
-* W1-S3: Les notebooks
-* W1-S4: iPython
-* W1-S5: IDLE
+* w1-s0: Présentation de la première semaine
+  TP: je trouve ça un peu redondant pour la 1ère semaine, non ?
+* w1-s1: Organisation du MOOC
+* w1-s2: Pourquoi Python 3
+* w1-s3: Les notebooks
+* w1-s4: iPython
+* w1-s5: IDLE
   * dire un mot sur pycharm pour expliquer que IDLE c'est super pour taper des petits exemples dans un environement de dev, les notebooks, c'est super pour faire pleins de petits exemples avec du texte formaté, des figures et voir immédiatement le résultat. Mais pour faire un gros programme (disons à partir d'une centaine de lignes), seul un vrai éditeur avec du refactoring intégré, des suggestions avancées, lint, etc. comme pycharm est utilisable. 
-* W1-S6: Introduction aux notions de variables, objets et typage dynamique
-* W1-S7: Les types numériques 
-
-## Week 2 
-**Thème de la semaine**: Notions de base 
-
-**Niveau**: BASIC
-
-* W2-S0: Présentation de la deuxième semaine
-* W2-S1: Codage, jeux de caractères et unicode
-* W2-S2: Les chaînes de caractères
-* W2-S3: Les séquences
-* W2-S4: Les listes
-* W2-S5: Introduction aux tests if else, conventions de codage
-* W2-S6: Introduction aux boucles for et aux fonctions
-* W2-S7: Introduction aux compréhensions de listes
-* W2-S8: Introduction aux modules
-
-## Week 3 
-**Thème de la semaine**: Suite des notions de base, références
-partagées
-
-**Niveau**: BASIC, sauf W3-S8 INTERMÉDIAIRE*
-
-* W3-S0: Présentation de la troisième semaine
-* W3-S1: Les fichiers
-* W3-S2: Les tuples
-* W3-S3: Tables de hash
-* W3-S4: Les dictionnaires
-* W3-S5: Les ensembles
-* W3-S6: Les exceptions
-* W3-S7: Les références partagées
-* W3-S8: Introduction aux classes
-
-## Week 4 
-**Thème de la semaine**: Fonctions et portée des variables
-
-**Niveau**: BASIC
-
-* W4-S0: Présentation de la quatrième semaine
-* W4-S1: Fonctions
-* W4-S2: Les tests if/elif/else et les opérateurs booléens
-* W4-S3: Boucle while
-* W4-S4: Portée des variables dans les fonctions: règle LEGB
-* W4-S5: Modification de la portée avec global et nonlocal
-* W4-S6: Passage d'arguments et appel de fonctions
-
-## Week 5 (NIVEAU BASIC)
-**Thème de la semaine**: Itération, importation et espace de nommage
-
-**Niveau**: BASIC
-
-* W5-S0: Présentation de la cinquième semaine
-* W5-S1: Itérable, itérateur, itération
-* W5-S2: Objet fonction, fonction lambda, map et filter
-* W5-S3: Compréhension de listes, sets et dictionnaires
-* W5-S4: Expressions et fonctions génératrices
-* W5-S5: Modules et espaces de nommage
-* W5-S6: Processus d'importation des modules
-* W5-S7: Impact de l'importation des modules sur les espaces de nommage
+* w1-s6: Introduction aux notions de variables, objets et typage dynamique
+* w1-s7: Les types numériques 
 
 
-## Week 6 
-**Thème de la semaine**: Conception des classes
+## Semaine 2 
+### Thème: Notions de base pour écrire son premier programme en Python
+### Niveau: BASIC
 
-**Niveau**: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
+* w2-s0: Présentation de la deuxième semaine
+* w2-s1: Codage, jeux de caractères et unicode
+* w2-s2: Les chaînes de caractères
+* w2-s3: Les séquences
+* w2-s4: Les listes
+* w2-s5: Introduction aux tests if/else et aux conventions de codage
+* w2-s6: Introduction aux boucles for et aux fonctions
+* w2-s7: Introduction aux compréhensions de listes
+* w2-s8: Introduction aux modules
 
-* W6-S0: Présentation de la sixième semaine
-* W6-S1: Classes, instances et méthodes
-* W6-S2: Méthodes spéciales
-* W6-S3: Héritage
-* W6-S4: Héritage multiple et ordre de résolution des attributs
-* W6-S5: Définition et référencement des variables et des attributs
-* W6-S6: Conception d'itérateurs
-* W6-S7: Conception d'exceptions personnalisées
-* W6-S8: Conception de context manager
 
-## Week 7
-**Thème de la semaine**: L'ecosystème data science Python
+## Semaine 3 
+### Thème: Renforcement des notions de base, références partagées
+### Niveau: BASIC, sauf w3-s8 INTERMÉDIAIRE
 
-**Niveau**: BASIC
+* w3-s0: Présentation de la troisième semaine
+* w3-s1: Les fichiers
+* w3-s2: Les tuples
+* w3-s3: Tables de hash
+* w3-s4: Les dictionnaires
+* w3-s5: Les ensembles
+* w3-s6: Les exceptions
+* w3-s7: Les références partagées
+* w3-s8: Introduction aux classes
 
-* W7-S0: Présentation de la septième semaine
-* W7-S1: installer son environnement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
-* W7-S2: présentation de numpy
-* W7-S3: présentation de pandas
-* W7-S4: matplotlib
 
-## Week 8
-**Thème de la semaine**: Programmation asynchrone - asyncio
+## Semaine 4 
+### Thème: Fonctions et portée des variables
+### Niveau: BASIC
 
-**Niveau**: AVANCÉ
+* w4-s0: Présentation de la quatrième semaine
+* w4-s1: Fonctions
+* w4-s2: Les tests if/elif/else et les opérateurs booléens
+* w4-s3: Boucle while
+* w4-s4: Portée des variables dans les fonctions: règle LEGB
+* w4-s5: Modification de la portée avec global et nonlocal
+* w4-s6: Passage d'arguments et appel de fonctions
+
+
+## Semaine 5 
+### Thème: Itération, importation et espace de nommage
+### Niveau: BASIC
+
+* w5-s0: Présentation de la cinquième semaine
+* w5-s1: Itérable, itérateur, itération
+* w5-s2: Objet fonction, fonction lambda, map et filter
+* w5-s3: Compréhension de listes, sets et dictionnaires
+* w5-s4: Expressions et fonctions génératrices
+* w5-s5: Modules et espaces de nommage
+* w5-s6: Processus d'importation des modules
+* w5-s7: Impact de l'importation des modules sur les espaces de nommage
+
+
+## Semaine 6 
+### Thème: Conception des classes
+### Niveau: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
+
+* w6-s0: Présentation de la sixième semaine
+* w6-s1: Classes, instances et méthodes
+* w6-s2: Méthodes spéciales
+* w6-s3: Héritage
+* w6-s4: Héritage multiple et ordre de résolution des attributs
+* w6-s5: Définition et référencement des variables et des attributs
+* w6-s6: Conception d'itérateurs
+* w6-s7: Conception d'exceptions personnalisées
+* w6-s8: Conception de context manager
+
+
+## Semaine 7
+### Thème: L'écosystème data science Python
+### Niveau: BASIC
+
+* w7-s0: Présentation de la septième semaine
+* w7-s1: installer son environnement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
+* w7-s2: présentation de numpy
+* w7-s3: présentation de pandas
+* w7-s4: matplotlib
+
+
+## Semaine 8
+### Thème: Programmation asynchrone - asyncio
+### Niveau: AVANCÉ
 
 * w8-s0: Présentation de la huitième semaine
 * w8-s1: Programmation asynchrone
@@ -117,28 +114,22 @@ partagées
 * w8-s7: La librairie asyncio
 * w8-s8: Bonnes pratiques (écrite mais peut-être inutile)
 
-### Notes
-* liste des séquences me semble stable
-  sauf la dernière que je vais peut-être supprime complètement
-  
-* (AL: on ne peut pas parler d'asyncio dans dire un mot sur les threads, le GIL et le multiprocess)
-* (TP: je couvre très rapidement le multiprocess; par contre à ce stade je ne prévois pas de parler du GIL; dans un complément peut-être un jour..)
 
-## Week 9
-**Thème de la semaine**: Sujets avancés
+## Semaine 9
+### Thème: Sujets avancés
+### Niveau: AVANCÉ
 
-**Niveau**: AVANCÉ
-
-* W9-S0: Présentation de la neuvième semaine
-* W9-S1: Méthodes statiques et de classe
-* W9-S2: Les décorateurs
-* W9-S3: La gestion avancée des attributs
+* w9-s0: Présentation de la neuvième semaine
+* w9-s1: Méthodes statiques et de classe
+* w9-s2: Les décorateurs
+* w9-s3: La gestion avancée des attributs
 	* property et descripteurs 
-* W9-S4: Les métaclasses
-* W9-S5: Conclusion du MOOC
+* w9-s4: Les métaclasses
+* w9-s5: Type hints (même si pas de vidéos, un placeholder pour les compléments)
+* w9-s5: Conclusion du MOOC
 
 
-## Week 10
+## Semaine 10
 
 **Du temps pour les mini-projets ?**
 
@@ -148,7 +139,7 @@ partagées
 
 # DROPPED/TODO LATER
 
-* W9-S5: La performance en Python
+* w9-s5: La performance en Python
   * essayer de parler de profilage (%timeit %prun %lineprofiler), ça
     serait bien de parler du décompilateur, mais je connais très mal.
 
