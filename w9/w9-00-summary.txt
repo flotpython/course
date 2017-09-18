@@ -87,7 +87,11 @@ NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 3
 
-   * give a reference to https://docs.python.org/3/howto/descriptor.html
+   * give a reference to
+     https://docs.python.org/3/howto/descriptor.html
+   * parler de data et non-data descripteur
+   * expliquer comment rendre un descripteur read-only
+     (AttributeError) dans la méthode __set__
    
    Pour mémoire, notebook du précédent MOOC sur Python 2
    * 

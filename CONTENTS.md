@@ -3,7 +3,7 @@ Plan général du MOOC sur Python 3
 
 ## Week 1
 
-**Thème de la semaine**: Introduction au MOOC et aux outils Python utilisés dans le MOOC
+**Thème de la semaine**: Introduction au MOOC 
 
 **Niveau**: BASIC
 
@@ -18,8 +18,7 @@ Plan général du MOOC sur Python 3
 * W1-S7: Les types numériques 
 
 ## Week 2 
-**Thème de la semaine**: Notions de base pour écrire son premier
-programme en Python
+**Thème de la semaine**: Notions de base 
 
 **Niveau**: BASIC
 
@@ -28,13 +27,13 @@ programme en Python
 * W2-S2: Les chaînes de caractères
 * W2-S3: Les séquences
 * W2-S4: Les listes
-* W2-S5: Introduction aux tests if/else et aux conventions de codage
+* W2-S5: Introduction aux tests if else, conventions de codage
 * W2-S6: Introduction aux boucles for et aux fonctions
 * W2-S7: Introduction aux compréhensions de listes
 * W2-S8: Introduction aux modules
 
 ## Week 3 
-**Thème de la semaine**: Renforcement des notions de base, références
+**Thème de la semaine**: Suite des notions de base, références
 partagées
 
 **Niveau**: BASIC, sauf W3-S8 INTERMÉDIAIRE*
