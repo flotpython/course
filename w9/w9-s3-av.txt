@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : La gestion avancée des attributs
+## Temp total () 2 parts
+
+
+## Résumé de la vidéo (1m30s)
+
+Si vous connaissez déjà un autre langage comme Java ou C++ vous êtes
+sans doute familier avec la notion de getter et setter. Ce sont des
+fonctions que l'on implémente à chaque fois que l'on veut accéder ou
+modifier un attribut d'un objet. La raison de passer par des fonctions
+pour interagir avec les attributs est de pouvoir ajouter une couche de
+logique à l'accès ou à la modification, c'est une technique
+d'encapsultion. Typiquement, on peut faire de la validation des
+attributs, ou définir des valeurs par défaut. 
+
+La problème avec les getter et les setter, c'est qu'il faut les
+implémenter pour tous les attributs, même si on n'a aucune couche de
+logique à implémenter. En effet, imaginez que vous n'ayez pas
+implémenté de getter et setter pour l'attribut x et que vous
+souhaitiez maintenant ajouter de la logique pour cet attribut, il
+faudra changer tous les accès à cet attribut en les remplaçants par
+les get_x() et set_x().
+
+Même s'il est vrai que tous les bon environnements de développement
+font ces opérations de refactorisation pour vous, ça alourdi
+considérablement votre code.
+
+Dans cette vidéo, nous allons parler des techniques ce gestion des
+attributs en Python qui permettent de se passer de l'usage
+systématique des getter et setter.
+
+Ouvrons un éditeur IDLE pour commencer à jouer avec la gestion avancée
+des attributs. 
+
+>>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (6m00s) <<<<<<<<<<
+
+############################### FIN PART 1 (7m30s) ###################
+
+
+############################### DÉBUT PART 2 () ################
+
+Les property que l'on vient de voir reposent sur un mécanisme plus
+général que l'on appelle descripteurs. Un descripteur est une classe
+qui permet de contrôler l'accès et la modification d'un attribut.
+
+Ouvrons un éditeur IDLE pour regarder un exemple de descripteur.
+
+#15s
+
+>>>>>>>>>> INCLUDE W9-S3-AV-exo2.py (3m30s) <<<<<<<<<<
+
+
+## Conclusion(20)
+
+En conclusion, il est possible en Python d'ajouter une couche de
+logique à l'affectation et à l'accès d'un attribut, sans changer une
+ligne de code qui utilise cet attribut. On utilise pour cela le
+mécanisme des descripteurs où la couche de logique est implémentée
+dans une classe. Pour les cas pratiques les plus courants, les
+property (qui utilisent les descripteurs, mais en cache la complexité)
+sont en général suffisants. 
+
+
+À bientôt.
