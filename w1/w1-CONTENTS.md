@@ -2,6 +2,11 @@
 
 ### NIVEAU: BASIQUE
 ### Compléments Vidéo 1
+
+* référence = 3.6 ; un complément qui explique l'impact d'utiliser 3.5 ou 3.4 et antérieurs:
+  * 3.5 : pas de f-string
+  * 3.4 : pas de async/await
+
 ### Quizz Vidéo 1
 ### Exercices Vidéo 1
 
@@ -39,16 +44,14 @@
  * montrer l'importance de bien choisir les noms de variables pour
    auto-documenter du code.
  * faire un complément sur print (je n'en parle plus dans la vidéo)
-   On peut faire un complément basique et faire un complément plus
-   avancé (f-string, format) en semaine 2 lorsque je parle des chaines
-   de caractères.
- * parles des mots cles https://docs.python.org/3/reference/lexical_analysis.html#keywords
+   On peut faire un complément basique et faire en semaine 2 un complément plus avancé (f-string, format) lorsque je parle des chaines de caractères.
+ * parler des mots cles https://docs.python.org/3/reference/lexical_analysis.html#keywords
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
   * `w2-s1-c1-noms-de-variables.ipynb` : noms de variables
   * `w2-s1-c2-mots-cles.ipynb`: liste des mots clés
-  * `w2-s1-c3-introduction-types.ipynb`: type() et premier contact avec isinstance ()
+  * `w2-s1-c3-introduction-types.ipynb`: `type()` et premier contact avec `isinstance()`
 
 ### Quizz Vidéo 5
 
@@ -70,7 +73,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Compléments Vidéo 6
 
  * parler de la notation `110_220_434` (comme séparateur sur les `int` et
-   `float` literals)
+   `float` litteraux)
  * compléments sur les module `decimal`, `fractions` et `math`. Parler de
    `sys.float_info`
 
@@ -91,5 +94,6 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 6
 
 Pour mémoire, quizz du précédent MOOC sur Python 2
-* Exercice-flottants.ipynb :
+
+* `Exercice-flottants.ipynb` :
      exercice pour trouver la valeur approximative du + petit flottant 
