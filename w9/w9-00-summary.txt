@@ -87,6 +87,8 @@ NIVEAU: AVANCÉ
 
 ## Compléments Vidéo 3
 
+   * complément property (get, set, del, doc)
+   * notation de décorateur pour les property
    * give a reference to
      https://docs.python.org/3/howto/descriptor.html
    * parler de data et non-data descripteur
