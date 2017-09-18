@@ -240,6 +240,9 @@ NIVEAU: INTERMÉDIAIRE
 ## Compléments Vidéo 8
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
+   * je propose d'ajouter ici un notebook sur pathlib
+     manipuler le filesystem avec des vraies classes par opposition au
+   vieux os.path
 
 ## Quizz Vidéo 8
 
