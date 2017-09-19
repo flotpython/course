@@ -177,7 +177,7 @@ sont donc énorme.
 
 Le concept de décorateur a même été étendu aux classes, c'est à dire
 que l'on peut décorer une classe pour modifier ses attributs. Nous
-verrons dans une prochaine vidéo une autre technique plus puissant
+verrons dans une prochaine vidéo une autre technique plus puissante
 pour modifier une classe, la notion de métaclasse.
 
 À bientôt.
