@@ -80,6 +80,8 @@ maintenant;
 
 * (5) on peut bien sûr toujours appeler une
   fonction synchrone
+  [[AL: mais attention, si la fonction synchrone prend tu temps à
+  s'exécuter, la coroutine afoo() va attendre son retour]]
 
 * (6) on peut aussi faire un await d'une
   coroutine, ce sont les usages normaux
@@ -180,6 +182,11 @@ cas particuler d'objets awaitables, mais
 on peut en définir d'autres, via la
 méthode spéciale await
 
+[[AL: je ne suis pas sûr qu'on considére le fait d'être itérable comme
+un protocole, c'est en général le protocol d'itération que l'on nomme,
+c'est-à-dire un objet avec __iter__ et __next__, je prendrais plutôt
+cet exemple à la place d'un itérable]]
+
 ========== [slide cas #8]
 
 Si bien que si on en revient au cas #8,
@@ -208,6 +215,7 @@ cet utilitaire dans le module inspect,
 mais les documentations sont de plus en
 plus lisibles par rapport à ce point qui
 est en effet très important.
+
 
 ========== [slide écueil #2]
 
@@ -281,6 +289,9 @@ traitements qui ont tendance à prendre
 un temps un peu trop long doivent être
 revus, et transformés en coroutine.
 
+[[AL: est-ce que cette technique n'est pas un emplâtre sur une jambe
+de bois ? est-ce que c'est vraiment utilisé en pratique ?]]
+
 ========== [slide ecueil 3]
 
 Enfin je vous signale le cas des
@@ -290,6 +301,10 @@ vidéo précédente, si dans une de vos
 tâches il y a une exception qui est
 levée, on mémorise ça dans l'objet
 tâche.
+
+[[AL: tu a dit dans la précédente vidéo que tu ne parlais pas de
+tache, mais c'est la deuxième fois que tu y fais référence dans cette
+semaine. Est-ce vraiment long à expliquer ce que c'est ?]]
 
 C'est une source d'erreurs car si
 personne ne va lire cette information
@@ -333,3 +348,7 @@ ajouter des trucs plus tard;
 mais honnêtement ça m'étonnerait que
 j'ai un jour le courage de reprendre ce
 truc ;)
+
+
+[[AL: je ne dis rien de spécial en fin de semaine, parfois, je résume
+rapidement ce qui a été vu]]

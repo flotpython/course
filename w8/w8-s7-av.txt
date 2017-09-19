@@ -73,6 +73,8 @@ retrouver la bonne instance
 
 Enfin, il semble qu'il reste quelques
 problèmes avec ça dans la 3.6, mais si
+[[AL: j'éviterais la référence à 3.6 qui sera vite périmée]]
+
 vous commencez maintenant c'est une
 bonne habitude à prendre de ne pas
 s'encombrer à passer des objets boucles
@@ -131,6 +133,9 @@ vérifier qu'on appelle un coroutine avec
 await, sinon comme on l'a vu déjà, le
 code ne fait pas du tout ce qu'on croit.
 
+[[AL: je n'ai pas souvenir qu'on ait vu un exemple d'await sur autre
+chose qu'une coroutine]]
+
 C'est sans doute la source principale de
 frustration chez les débutants, on en reparlera.
 
@@ -170,6 +175,8 @@ queue. C'est un peu contrintuitif, parce
 qu'on prend un jeton avec un put et on
 le rend avec un get, mais c'est parce qu'au
 départ la queue est vide...
+
+[[AL: typo dans le slide ps -> pas]]
 
 ========== [slide suivant]
 
@@ -215,6 +222,9 @@ de base comme select(), ce qui lui
 permet d'atteindre des performances très
 raisonnables.
 
+[[AL: ça serait bien de dire quelques mots de plus sur ce qu'est
+signal et select et comme ça aide asyncio]]
+
 ========== [fragment]
 Donc on peut voir en fin de compte la
 librairie asyncio comme un modèle de
@@ -223,7 +233,11 @@ de tous ces mécanismes très puissants,
 qui autrement ne sont accessibles qu'au
 prix d'une programmation de très bas
 niveau qui est complexe et pas à la
-portée de tout le monde. 
+portée de tout le monde.
+
+[[AL: je ne suis pas sûr que ça soit le meilleur argument. Au final
+asyncio c'est également complexe, mais c'est moins de risque d'erreur
+que les threads et une implémentation plus naturelle que les callbacks]]
 
 ========== [slide épilogue]
 

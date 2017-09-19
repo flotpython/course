@@ -14,6 +14,15 @@
 = vidéo #2
 ====================
 
+[[AL: commentaire global pour cette vidéo. Ça me semble un gros pas en
+avant et je pense que cette vidéo pourrait venir plus tard. Tu parles
+de Task en introduisant très/trop rapidement cette notion et de yield
+(c'est encore await dans le texte) sans avoir expliqué avant que await
+fait en fait de la délégation, mais ne rend pas la main à la boucle,
+c'est un yield dans une coroutine qui rend la main (même si ce yield
+est caché dans la librairie asynchrone). ]]
+
+
 Maintenant que nous avons vu comment
 créer et utiliser une une boucle
 d'événements, nous allons entrer un peu
