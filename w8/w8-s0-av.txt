@@ -8,6 +8,10 @@ désigne souvent sous le raccourci de
 'asyncio' - on sera amené à préciser
 ça.
 
+[[AL: tu ne parles pas du tout de l'importance croissante de la
+programmation asynchrone dans d'autres langages (javascript,
+nodejs,etc.) ni de la raison de cette popularité (programmation Web)]] 
+
 Il s'agit d'une innovation assez
 importante parce qu'elle repose sur
 une approche de la programmation
@@ -40,3 +44,7 @@ car vous pourrez écrire du code
 asynchrone à la fois efficace et
 lisible.
 
+[[AL: est-ce que tu as d'autres exemple que les application reseau
+comme usage de asyncio, je ne suis pas très sûr de savoir ce que
+applications similaires veut dire. C'est mieux de donner quelques
+exemples.]]

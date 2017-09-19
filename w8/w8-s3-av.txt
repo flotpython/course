@@ -69,7 +69,7 @@ langage contient principalement
 
 la notion de coroutine, qui se
 matérialise avec les mots clés `async
-def` et await,
+def` et `await`,
 
 et quelques produits dérivés comme
 `async for` et `async with` que l'on
@@ -101,7 +101,7 @@ aussi dans asyncio, un peu en vrac:
 ========== [fragment]
 
 Des objets de base pour la
-synchronisation, comme les classez
+synchronisation, comme les classes
 `Queue` `Lock` et `Semaphore`
 
 ========== [fragment]
@@ -212,6 +212,10 @@ qui visent à en tirer un meilleur
 profit, et qui pourraient bien
 influencer une version 2 de asyncio dans
 le futur.
+
+[[AL: mais alors il faudra tout réapprendre ? non, comme tu viens de
+le dire, la syntaxe et les principes de base resterons probablement
+les mêmes] 
 
 Tout ceci étant dit, nous allons en
 rester là pour les généralités, on se

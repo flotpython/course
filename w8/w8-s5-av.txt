@@ -49,6 +49,9 @@ mécanismes de base qui sont
   donc rempli la boucle au préalable
   avec, justement, ensure_future
 
+[[AL: pourquoi au préalable, on peut pas ajouter ensuite de nouvelles
+coroutines avec ensure future]]
+
 On va voir ça sur plusieurs exemples
 
 ========== [slide utilitaire #1]
@@ -62,6 +65,10 @@ fonctions qui sont start_timer et
 show_timer; je ne vous montre pas le code
 qui est très simple, mais elles
 s'utilisent comme ceci
+
+[[AL: je suppose que les élèves auront accès au code, tu devrais le
+dire]]
+[[AL: n'oublie pas de déplacer asynchelpers.py dans ./w8]]
 
 ========== [fragment start_timer]
 
@@ -86,7 +93,10 @@ coroutine.
 
 Bien. Je peux maintenant vous montrer un  
 exemple de base, qui lance en même temps  
-deux petits traitements.  
+deux petits traitements.
+
+[[AL: je n'arrive pas à faire d'interrupt, je n'arrive qu'à faire un
+restart de l'interpréteur]]
  
 ========== [fragment avec ensure_future]
 
@@ -106,6 +116,8 @@ run_forever ne va jamais retourner,
 aussi je vais devoir l'interrompre ici
 avec une interruption de mon kernel.
 
+[[AL: je n'arrive pas à interompre, mais c'est du détail]]
+
 ========== [run_until_complete vs run_forever]
 
 Voici un résumé de ces deux méthodes, en
@@ -116,6 +128,7 @@ application par ailleurs essentiellement
 synchrone, alors que run_forever se
 prêtera mieux pour une application
 massivement asynchrone.
+
 
 ========== [slide new_event_loop()]
 
@@ -135,6 +148,10 @@ l'idée c'est qu'il peut y avoir
 plusieurs boucles dans une application,
 mais on veut éviter de devoir propager
 l'objet boucle de haut en bas, car ça
+
+[[AL: je ne comprends ce que ça veut dire " propager
+l'objet boucle de haut en bas"]]
+
 alourdit considérablement le code. Aussi
 le modèle c'est que chaque thread a une
 boucle par défaut, à laquelle on peut
@@ -146,6 +163,10 @@ et assez mal documenté, dans la 3.6 en
 tous cas, c'est que get_event_loop
 ne crée pas de boucle, sauf dans le cas
 particulier du thread principal.
+
+[[AL: tu viens juste de dire que chaque thread a une boucle par
+défaut et tu dis maintenant que uniquement le thread principal a une
+boucle par défaut. ]]
 
 ========== [slide {new,set}_event_loop()]
 
@@ -271,6 +292,9 @@ en fait celle associée au thread courant
   boucle, par exemple dans un thread
   secondaire, au travers de
   new_event_loop et set_event_loop
+
+[[AL: pour moi c'était un peu pénible, je n'ai par réussi à arrêter
+l'interpréteur. j'ai à chaque fois dû faire un restart]]
 
 ========== [fragment]
 

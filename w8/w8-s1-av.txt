@@ -76,6 +76,12 @@ processeur qui héberge le robot n'est
 pas bien utilisé, il est inerte pendant
 la plus grosse partie du travail.
 
+[[AL: je pense que c'est pas très clair pour une personne lambda que
+le temps va de haut en bas (sur ma version des slides je n'ai pas
+d'animation dans le slide, peut-être que tu en as), ça serait bien
+d'animer de haut en bas ou à défaut de passer quelques secondes à bien
+expliquer comment lire ce dessin]]
+
 ---------- [slide deux serveurs en séquence]
 
 Lorsqu'on a besoin de plusieurs pages,
@@ -131,6 +137,13 @@ qui partagent le même espace mémoire.
 Avec cette notion de threads, on peut
 penser avoir une bonne solution pour
 traiter notre classe de problèmes.
+
+[[AL: je sais que tu l'as dit, mais à mon avis pas assez. Le problème
+d'inefficacité vient du fait que le processus attend la réponse d'un
+serveur distant et attend le temps que la réponse arrive par le
+réseau. En séquentiel, on additionne les temps d'attentes, en
+parallèle, dans l'idéal, le temps d'attente est simplement le max sur
+tous les temps, ce qui est beaucoup plus petit que la somme]]
 
 ---------- [slide 'Multi-thread']
 
@@ -210,7 +223,7 @@ plus petites.
 
 ---------- [fragment code javascript]
 
-Voici par exemple un exemple en
+Voici un exemple en
 Javascript, à titre de curiosité. Je
 vous montre ça très rapidement,
 
@@ -238,6 +251,10 @@ coup presque impossible d'implémenter
 comme ça des logiques un peu complexes,
 c'est réservé là encore à des
 spécialistes.
+
+[[AL: ça fait deux fois que tu dis que c'est réservé aux
+spécialistes. Je ne suis pas sûr de ce que tu veux dire. Il semble que
+tu opposes ce besoin d'être spécialiste à asyncio]]
 
 ---------- [slide 'asyncio']
 

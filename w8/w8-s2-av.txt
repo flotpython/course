@@ -20,6 +20,9 @@ d'importer le module asyncio
 
 ==========[run cell]
 
+[[AL: donne un rappel oralement ici de comment on exécute une cell
+dans un notebook]]
+
 ==========[slide coroutines]
 
 Voyons d'abord la notion de coroutine;
@@ -182,6 +185,10 @@ tout ceci est executé dans un seul
 thread, et donc aucun des blocs que j'ai
 dessinés ici ne peut être interrompu une
 fois qu'il a commencé.
+[[AL: ce qui est super important aussi est qu'on ne peut pas avoir
+d'accès simultanés à la mémoire et donc des inconsistances qui sont
+résolus avec les thread avec des mécanismes complexes de
+synchronisation]] 
 
 ==========[slide 'ce qu'il ne faut pas faire']
 
@@ -217,6 +224,10 @@ pratique ce type de comportement se
 produit plus souvent qu'on ne voudrait,
 et quand ça arrive ça a un gros impact
 sur la réactivité de votre application.
+
+[[AL: ça serait bien de donner oralement un exemple de ce type de
+problème qui est en fait une erreur de programmation où l'on mélange
+traitement asynchrone et CPU intensive]]
 
 Vous pouvez toujours insérer une
 instruction comme await asyncio.sleep(0)

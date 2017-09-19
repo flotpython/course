@@ -56,6 +56,13 @@ ici.
 Alors voyons cela. Je commence par
 importer la librairie aiohttp
 ==========[run import x2]
+
+[[AL: attention, aiohttp n'est pas dans la lib standard, il faut le
+dire et expliquer comment l'installer, chez moi c'est `conda install
+aiohttp`. Je te recommande de conseiller conda qui existe sur toutes
+les plateformes et qui installe tout très facilement (beaucoup mieux
+de pip pour les trucs un peu compliqués) ]]
+
 qui est, vous l'avez compris, une version
 asynchrone pour aller chercher des
 pages web.
@@ -101,6 +108,10 @@ asynchrones que ce qu'on fait avec.
 Bref, la construction 'async with' est
 tres frequente dans du code asynchrone.
 
+[[AL: il semble que tu dis que si on utilise uniquement with, la
+contruction du contexte sera synchrone, mais le reste marchera. Il me
+semble au contraire, et comme tu l'as dit plus tôt, que asyncio est
+contaminant, il faut utiliser async with. Quelle est alors la raison ?]]
 
 Je vous signale à cet égard la PEP-0492,
 ==========[fragment]
@@ -115,6 +126,10 @@ Je peux maintenant utiliser gather pour
 aller chercher mes 4 URLs en même
 temps. Pour cela je crée une coroutine
 fetch_urls, que je peux
+
+[[AL: il ne faut pas d'espace entre l'étoile et l'expression
+génératrice]] 
+
 ==========[run]
 ==========[fragment]
 ensuite invoquer au travers d'une boucle
@@ -123,7 +138,7 @@ cette fois avec ce code
 ==========[run]
 je vais aller chercher mes quatre pages,
 tout est fait en même temps, je n'ai
-aucun perdu à attendre, les 4 requêtes
+pas perdu de temps à attendre, les 4 requêtes
 se déroulent complètement en même temps,
 vous observez que ça ne prend que 2
 secondes environ, soit le délai pour le
@@ -168,6 +183,9 @@ asynchrone et pour le voir, j'imprime en
 vrac l'indice de l'URL, que l'on va bien
 voir arriver dans le désordre.
 
+[[AL: je trouve ça pas beau d'avoir une tuple avec parenthèse (i, url)
+dans la boucle for, ici aussi, pourquoi l'espace après *]]
+
 ==========[slide résumé]
 
 À ce stade, c'est certainement utile que
@@ -193,6 +211,8 @@ Nous avons vu
   immédiatement un objet coroutine qui
   ne provoquera une exécution que si on
   lui applique un await
+
+[[AL: ou si on la passe à une boucle d'évènements]]
 
 ==========[fragment]
 
@@ -226,6 +246,9 @@ Dans la 3.6, il manque encore la notion
 de lambda asynchrone, qui sera peut-être
 dans la 3.7, pour compléter les
 extensions asynchrones.
+
+[[AL: est-ce que tu veux vraiement dire ça dans la vidéo ? je mettrai
+plutôt cette remarque dans un complément]]
 
 À bientôt pour la suite
 
