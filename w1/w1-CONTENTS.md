@@ -1,11 +1,20 @@
 ## Vidéo 1 (Organisation du MOOC)
 
+Indiquer quelque part que
+
+* les attestations de suivi sont délivrées uniquement sur la base des quiz - et pas des exercices auto-évalués
+* que les quiz portent sur les semaines 1 à 6 - les semaines 7 et au delà sont optionnelles
+* que les quiz portent sur les niveaux basique et intermédiaire
+
+
 ### NIVEAU: BASIQUE
 ### Compléments Vidéo 1
 
-* référence = 3.6 ; un complément qui explique l'impact d'utiliser 3.5 ou 3.4 et antérieurs:
+* référence python = 3.6 ; un complément qui explique l'impact d'utiliser 3.5 ou 3.4 et antérieurs:
   * 3.5 : pas de f-string
   * 3.4 : pas de async/await
+
+* modalités d'attestation
 
 ### Quizz Vidéo 1
 ### Exercices Vidéo 1
@@ -23,11 +32,18 @@
 
 ### NIVEAU: BASIQUE
 ### Compléments Vidéo 3
+
+* un notebook sur la librairie standard ?
+  juste pour indiquer le niveau d'engagement que ça représente de la part de PSF
+
 ### Quizz Vidéo 3
 ### Exercices Vidéo 3
 
 
 ## Vidéo 4 (Les notebooks)
+
+Ce serait bien de montrer un exercice auto-évalué
+Le faire dans master puis faire un cherry-pick dans la branche py2s3 comme ça on pourra le montrer en live.
 
 ### NIVEAU: BASIQUE
 ### Compléments Vidéo 4
