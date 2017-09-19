@@ -1,10 +1,5 @@
 ## Vidéo 1 (Organisation du MOOC)
 
-Indiquer quelque part que
-
-* les attestations de suivi sont délivrées uniquement sur la base des quiz - et pas des exercices auto-évalués
-* que les quiz portent sur les semaines 1 à 6 - les semaines 7 et au delà sont optionnelles
-* que les quiz portent sur les niveaux basique et intermédiaire
 
 
 ### NIVEAU: BASIQUE
@@ -14,7 +9,10 @@ Indiquer quelque part que
   * 3.5 : pas de f-string
   * 3.4 : pas de async/await
 
-* modalités d'attestation
+* modalités d'attestation, i.e:
+  * les attestations de suivi sont délivrées uniquement sur la base des quiz - et pas des exercices auto-évalués
+  * que les quiz portent sur les semaines 1 à 6 - les semaines 7 et au delà sont optionnelles
+  * que les quiz portent sur les niveaux basique et intermédiaire
 
 ### Quizz Vidéo 1
 ### Exercices Vidéo 1

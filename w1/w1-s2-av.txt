@@ -1,0 +1,14 @@
+# -*- autofill-mode:true; fill-column: 40 -*-
+
+Bonjour, 
+
+Après la vidéo sur l'organisation du
+cours et avant notre premier contact
+avec la technique, je vais vous
+expliquer pourquoi python est un langage
+très facile et très agréable à utiliser,
+et qui s'applique à à peu près toutes
+les applications.
+
+
+

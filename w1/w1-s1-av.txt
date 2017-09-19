@@ -1,7 +1,6 @@
 # -*- autofill-mode:true; fill-column: 40 -*-
 
-Bonjour, et bienvenue dans le cours
-python 3.
+Bonjour, 
 
 Je suis Thierry Parmentelat, et avec
 Arnaud Legout je vous souhaite la
