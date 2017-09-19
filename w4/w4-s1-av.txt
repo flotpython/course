@@ -37,6 +37,13 @@ soit None, soit la valeur spécifiée par l'instruction return. Et, pour
 finir, les fonctions en python sont polymorphes, ce qui veut
 simplement dire que les fonctions acceptent en argument des objets de
 n'importe quel type. Cela simplifie grandement votre code puisque vous
-n'avez pas besoin de définir une fonction par type d'objet.
+n'avez pas besoin de définir une fonction par type d'objet. Nous
+verrons cependant dans les compléments qu'il est possible d'ajouter
+des indications de type en Python avec un mécanisme qui s'appelle type
+hints. L'objectif des type hints est de permettre une meilleur
+documentation du code, d'offrir la possibilité de faire de la
+validation statique du code et d'optimiser l'exécution. Cependant,
+Python restera toujours un langage à typage dynamique et les type
+hints resterons une indication optionnelle. 
 
 À bientôt.
