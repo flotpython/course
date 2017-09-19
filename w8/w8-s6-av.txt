@@ -10,10 +10,6 @@
 . résultat traitement
 . exceptions
 
-====================
-= vidéo #2
-====================
-
 [[AL: commentaire global pour cette vidéo. Ça me semble un gros pas en
 avant et je pense que cette vidéo pourrait venir plus tard. Tu parles
 de Task en introduisant très/trop rapidement cette notion et de yield
