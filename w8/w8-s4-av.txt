@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : Extensions asynchrones du langage
 # temps estimé:
@@ -55,17 +54,19 @@ ici.
 
 Alors voyons cela. Je commence par
 importer la librairie aiohttp
-==========[run import x2]
 
-[[AL: attention, aiohttp n'est pas dans la lib standard, il faut le
-dire et expliquer comment l'installer, chez moi c'est `conda install
-aiohttp`. Je te recommande de conseiller conda qui existe sur toutes
-les plateformes et qui installe tout très facilement (beaucoup mieux
-de pip pour les trucs un peu compliqués) ]]
+==========[run import x2]
 
 qui est, vous l'avez compris, une version
 asynchrone pour aller chercher des
 pages web.
+
+Je dois vous signaler que cette
+librairie n'est pas dans la librairie
+standard, en tous cas dans python3.6 qui
+je vous le rappelle est notre référence
+pour ce cours. Vous devez l'installer
+comme d'habitude avec pip ou conda.
 
 ========== [fragment]
 
@@ -106,12 +107,7 @@ destruction, sont au moins aussi
 asynchrones que ce qu'on fait avec.
 
 Bref, la construction 'async with' est
-tres frequente dans du code asynchrone.
-
-[[AL: il semble que tu dis que si on utilise uniquement with, la
-contruction du contexte sera synchrone, mais le reste marchera. Il me
-semble au contraire, et comme tu l'as dit plus tôt, que asyncio est
-contaminant, il faut utiliser async with. Quelle est alors la raison ?]]
+tres fréquente dans du code asynchrone.
 
 Je vous signale à cet égard la PEP-0492,
 ==========[fragment]
@@ -121,14 +117,13 @@ asynchrone, et dont je vous recommande
 la lecture si vous décidez de vous
 lancer avec asyncio.
 
-==========[slide]
+
+==========[slide code]
 Je peux maintenant utiliser gather pour
 aller chercher mes 4 URLs en même
 temps. Pour cela je crée une coroutine
 fetch_urls, que je peux
 
-[[AL: il ne faut pas d'espace entre l'étoile et l'expression
-génératrice]] 
 
 ==========[run]
 ==========[fragment]
@@ -183,9 +178,6 @@ asynchrone et pour le voir, j'imprime en
 vrac l'indice de l'URL, que l'on va bien
 voir arriver dans le désordre.
 
-[[AL: je trouve ça pas beau d'avoir une tuple avec parenthèse (i, url)
-dans la boucle for, ici aussi, pourquoi l'espace après *]]
-
 ==========[slide résumé]
 
 À ce stade, c'est certainement utile que
@@ -210,9 +202,8 @@ Nous avons vu
   n'exécute rien, cela renvoie
   immédiatement un objet coroutine qui
   ne provoquera une exécution que si on
-  lui applique un await
-
-[[AL: ou si on la passe à une boucle d'évènements]]
+  lui applique un await, ou si on la
+  passe à une boucle d'évènements
 
 ==========[fragment]
 
@@ -241,14 +232,6 @@ Nous avons vu
   qui indiquent au langage que les
   méthodes spéciales en jeu sont des
   coroutines.
-
-Dans la 3.6, il manque encore la notion
-de lambda asynchrone, qui sera peut-être
-dans la 3.7, pour compléter les
-extensions asynchrones.
-
-[[AL: est-ce que tu veux vraiement dire ça dans la vidéo ? je mettrai
-plutôt cette remarque dans un complément]]
 
 À bientôt pour la suite
 

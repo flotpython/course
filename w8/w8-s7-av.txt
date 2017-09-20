@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : La librairie asyncio
 # temps estimé:
@@ -69,16 +68,11 @@ l'a déjà signalé rapidement, si vous
 utilisez a bon escient `set_event_loop`,
 il n'est pas utile de le faire, car
 get_event_loop() permet toujours de
-retrouver la bonne instance
+retrouver la bonne instance.
 
-Enfin, il semble qu'il reste quelques
-problèmes avec ça dans la 3.6, mais si
-[[AL: j'éviterais la référence à 3.6 qui sera vite périmée]]
-
-vous commencez maintenant c'est une
-bonne habitude à prendre de ne pas
-s'encombrer à passer des objets boucles
-dans tous les sens.
+C'est une bonne habitude à prendre de ne
+pas s'encombrer à passer des objets
+boucles dans tous les sens.
 
 ========== [fragment producer / consumer]
 
@@ -130,11 +124,15 @@ put et sleep, et un du coté consumer.
 
 Dans tous les cas il faut toujours bien
 vérifier qu'on appelle un coroutine avec
-await, sinon comme on l'a vu déjà, le
-code ne fait pas du tout ce qu'on croit.
+await, sinon si on oublie le await,
+comme on l'a vu déjà, le code ne fait
+pas du tout ce qu'on croit.
 
 [[AL: je n'ai pas souvenir qu'on ait vu un exemple d'await sur autre
 chose qu'une coroutine]]
+[[TP: non, mais on a vu qu'appeler une
+coroutine sans await retourne juste
+l'objet coroutine]]
 
 C'est sans doute la source principale de
 frustration chez les débutants, on en reparlera.
@@ -176,8 +174,6 @@ qu'on prend un jeton avec un put et on
 le rend avec un get, mais c'est parce qu'au
 départ la queue est vide...
 
-[[AL: typo dans le slide ps -> pas]]
-
 ========== [slide suivant]
 
 Je fais tourner cette idée; on avait
@@ -217,27 +213,23 @@ serait terriblement inefficace.
 
 Au contraire, la boucle utilise toutes
 les ressources que lui offre l'OS, que
-ce soit la signalerie, ou les primitives
-de base comme select(), ce qui lui
-permet d'atteindre des performances très
-raisonnables.
-
-[[AL: ça serait bien de dire quelques mots de plus sur ce qu'est
-signal et select et comme ça aide asyncio]]
+ce soit la gestion des interruptions
+avec l'appel système signal(), ou
+l'appel système select() qui lui permet
+de réagir lorsqu'un canal d'entrée
+sortie est prêt à être utilisé, ce qui
+lui permet d'atteindre des performances
+très raisonnables.
 
 ========== [fragment]
+
 Donc on peut voir en fin de compte la
 librairie asyncio comme un modèle de
-programmation unifié pour tirer profit
-de tous ces mécanismes très puissants,
-qui autrement ne sont accessibles qu'au
-prix d'une programmation de très bas
-niveau qui est complexe et pas à la
-portée de tout le monde.
-
-[[AL: je ne suis pas sûr que ça soit le meilleur argument. Au final
-asyncio c'est également complexe, mais c'est moins de risque d'erreur
-que les threads et une implémentation plus naturelle que les callbacks]]
+programmation unifié pour gérer de
+manière uniforme les accès réseau, les
+processus externes, et la
+synchronisation entre tâche - liste non
+exclusive.
 
 ========== [slide épilogue]
 
@@ -250,21 +242,7 @@ nécessaire lorsqu'on est utilisateur des
 librairies asyncio de haut niveau qui
 servent dans la vie de tous les jours.
 
-========== [fragment]
-
-De la même façon d'ailleurs, si vous
-avez déjà été exposés à asyncio, vous
-serez sans doute surpris que je ne parle
-pas des notions de Task et de
-Future. J'ai fait ce choix car je le
-répète ce cours est une introduction à
-la programmation asynchrone, et il me
-semble que ces notions-là sont plus des
-concepts internes à la boucle asyncio,
-dont on peut très bien se passer pour
-commencer.
-
-Bref à ce stade de ce cours vous devriez
+À ce stade de ce cours vous devriez
 avoir les bases pour commencer à écrire
 de petits programmes simples.
 

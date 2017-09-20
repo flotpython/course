@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : Introduction à la Programmation Asynchrone
 
@@ -12,7 +11,8 @@ programmation asynchrone. En effet
 depuis la version 3.5 python contient
 une nouveauté assez intéressante pour
 traiter ce type de programmation, c'est
-la librairie asyncio.
+la notion de coroutines, en conjonction
+avec librairie asyncio.
 
 Dans cette première séquence nous allons
 essayer de comprendre ce qu'on veut dire
@@ -69,18 +69,18 @@ on peut schématiser ça comme ceci,
 ---------- [slide 'dialogue avec un serveur']
 
 une suite d'aller-retours entre le robot
-et le serveur web. À cause du délai dans
-les transmissions et du temps de réponse
-du serveur, vous observez que le
-processeur qui héberge le robot n'est
-pas bien utilisé, il est inerte pendant
-la plus grosse partie du travail.
-
-[[AL: je pense que c'est pas très clair pour une personne lambda que
-le temps va de haut en bas (sur ma version des slides je n'ai pas
-d'animation dans le slide, peut-être que tu en as), ça serait bien
-d'animer de haut en bas ou à défaut de passer quelques secondes à bien
-expliquer comment lire ce dessin]]
+et le serveur web. Ici le temps va de
+haut en bas: et chacune des deux
+colonnes représente l'occupation du CPU
+pour les deux machines en question, à
+gauche le robot, le client, et à droite
+le serveur qui lui fournit la page web.
+À cause du délai dans les transmissions
+et du temps de réponse du serveur, vous
+observez que le processeur qui héberge
+le robot n'est pas bien utilisé, il
+attend bêtement pendant la plus grosse
+partie du travail.
 
 ---------- [slide deux serveurs en séquence]
 
@@ -96,7 +96,12 @@ qui reste largement sous-utilisé.
 
 On a envie d'améliorer les performances
 de notre robot, et ceci à ressources
-constantes.
+constantes. On va voir que notre
+problème ici, c'est le modèle dit de
+programmation synchrone, je veux dire,
+le fait que notre client attende en
+bloquant, et c'est tout ce temps perdu à
+attendre qu'on va pouvoir mettre à profit.
 
 ---------- [slide processus, pile et et threads]
 
@@ -125,6 +130,7 @@ La notion de thread a été ajoutée par la
 suite, pour permettre justement d'avoir
 plusieurs traitements en parallèle, mais
 qui partagent un espace mémoire.
+
 ---------- fragment 'Thread'
 
 Ce qui fait qu'on peut voir un processus
@@ -221,40 +227,15 @@ est de n'utiliser qu'un seul thread,
 mais de découper le code en fonctions
 plus petites.
 
----------- [fragment code javascript]
+---------- [fragment]
 
-Voici un exemple en
-Javascript, à titre de curiosité. Je
-vous montre ça très rapidement,
-
----------- [évaluer la cellule]
-
-on définit le comportement d'un clic
-dans la zone de titre, et on veut que ça
-produise d'abord la disparition
-progressive du message, puis à la fin on
-affiche un message.
-
----------- [cliquer dans le titre 'callbacks']
-
-C'est juste une illustration, les
-détails ne sont pas importants, ce qu'il
-faut retenir c'est que
-
----------- [slide inconvénients des callbacks]
-
-avec cette approche on est amené à
+Le gros inconvénient avec cette
+approche, c'est qu'on est amené à
 saucissonner son code en tout petits
 morceaux, ce qui rend les choses
 passablement illisibles, et que c'est du
 coup presque impossible d'implémenter
-comme ça des logiques un peu complexes,
-c'est réservé là encore à des
-spécialistes.
-
-[[AL: ça fait deux fois que tu dis que c'est réservé aux
-spécialistes. Je ne suis pas sûr de ce que tu veux dire. Il semble que
-tu opposes ce besoin d'être spécialiste à asyncio]]
+comme ça des logiques un peu complexes.
 
 ---------- [slide 'asyncio']
 

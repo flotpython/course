@@ -1,4 +1,4 @@
-# -*- coding: utf-8; autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : Tâches et exceptions
 # temps estimé:
@@ -17,6 +17,14 @@ de Task en introduisant très/trop rapidement cette notion et de yield
 fait en fait de la délégation, mais ne rend pas la main à la boucle,
 c'est un yield dans une coroutine qui rend la main (même si ce yield
 est caché dans la librairie asynchrone). ]]
+
+[[TP: tu as raison, je pense ajouter une
+  première animation pour expliquer les
+  appels à partir d'une coroutine, les
+  empilements, et le yield
+  ça va peut-être tout décaler un peu
+  mais bon..
+  ]]
 
 
 Maintenant que nous avons vu comment

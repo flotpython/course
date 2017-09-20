@@ -1,61 +1,50 @@
-# -*- coding: utf-8 -*-
-# -*- eval: (auto-fill-mode 0) -*-
-###################################################################
+Pas de quiz cette semaine
 
-Toute la semaine est de NIVEAU: AVANCÉ
-
-Pas de quiz pour cette semaine du coup
+## Vidéo 0 (Présentation de la neuvième semaine)
 
 
-# Vidéo 0 (Présentation de la neuvième semaine)
+## Vidéo 1 Introduction à la programmation asynchrone
+### NIVEAU: avancé
 
-###################################################################
+* distinction CPU-intensif / IO-intensif;
+* exhiber un exemple simple (aller chercher plusieurs pages web) et montrer comment est utilisé le CPU
+* écarter rapidement le mode multi-CPUs (qui s'adresse aux applis CPU-intensifs)
+* mono CPU / multi-threads: pas de contrôle sur le context switching; sections critiques, dur à débugger...
+* callbacks: exhiber saucissonnage délirant https://cdn-images-1.medium.com/max/1600/1*cS467MRjN5awIWqFeD27XQ.jpeg
+* utilité de définir un modèle qui permette
+ * la concurrence
+ * single-thread
+ * avec contrôle sur les changements de contexte
 
-# Vidéo 1 Introduction à la programmation asynchrone
-
- . distinction CPU-intensif / IO-intensif;
- . exhiber un exemple simple (aller chercher plusieurs pages web) et montrer comment est utilisé le CPU
- . écarter rapidement le mode multi-CPUs (qui s'adresse aux applis CPU-intensifs)
- . mono CPU / multi-threads: pas de contrôle sur le context switching; sections critiques, dur à débugger...
- . callbacks: exhiber saucissonnage délirant https://cdn-images-1.medium.com/max/1600/1*cS467MRjN5awIWqFeD27XQ.jpeg
- . utilité de définir un modèle qui permette
-  . la concurrence
-  . single-thread
-  . avec contrôle sur les changements de contexte
-
-
-## Compléments Vidéo 1 
-## Exercices Vidéo 1 
+### Compléments Vidéo 1 
+### Exercices Vidéo 1 
 
 
-###################################################################
+## Vidéo 2 Quelques exemples simples
+### NIVEAU: avancé
 
-# Vidéo 2 Quelques exemples simples
+* plus petit exemple complet (une boucle, deux tâches qui font sleep())
+* conclure
+  * (async def / await) pour définir les coroutines,
+  * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
 
- . plus petit exemple complet (une boucle, deux tâches qui font sleep())
- . conclure
-    * (async def / await) pour définir les coroutines,
-    * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
+* coroutine functions vs coroutine
+* montrer ce qui se passe si on appelle une coroutine sans await
+* un message d'erreur quand on oublie le await 
 
- . montrer ce qui se passe si on appelle une coroutine sans await
-   coroutine functions vs corotine
- . XXX un message d'erreur quand on oublie le await 
+### Compléments Vidéo 2
+### Exercices Vidéo 2
 
-## Compléments Vidéo 2
-## Exercices Vidéo 2
 
-###################################################################
+## Vidéo 3 écosystème asyncio
 
-# Vidéo 3 écosystème asyncio
+### Compléments Vidéo 3
+### Exercices Vidéo 3
 
-## Compléments Vidéo 3
-## Exercices Vidéo 3
 
-###################################################################
+## Vidéo 4 Extensions asynchrones du langage
 
-# Vidéo 4 Extensions asynchrones du langage
-
-## Compléments Vidéo 4
+### Compléments Vidéo 4
 
 * à faire: itérations asynchrones
   async for; compréhension asynchrone;
@@ -65,20 +54,21 @@ Pas de quiz pour cette semaine du coup
   et a creuser
   expressions generatrices asynchrones ?
   generateurs asynchrones ?
+  montrer qu'un objet *peut* être context manager synchrone et asynchrone
+  dire qu'il manque juste les lambda asynchrones dans 3.6
 
 * Le protocole awaitable
 
-## Exercices Vidéo 4
+### Exercices Vidéo 4
 
-###################################################################
 
-# Vidéo 5 La boucle d'événements
+## Vidéo 5 La boucle d'événements
 
 * ensure_future & run_forever() - Queue()
 * ensure_future pour ajouter une tâche au milieu d'un scénario
 * parler de get_event_loop()
 
-## Compléments Vidéo 5
+### Compléments Vidéo 5
 
 * montrer l'importance de get-event_loop pour accéder à la boucle
   courante depuis le code asynchrone (trouver un exemple ou le code
@@ -96,27 +86,27 @@ Pas de quiz pour cette semaine du coup
 * un complément sur wait() - cf. asynciojobs
   https://docs.python.org/3/library/asyncio-task.html#asyncio.wait
 
-## Exercices Vidéo 5
+### Exercices Vidéo 5
 
-###################################################################
-# Vidéo 6 Tâches et exceptions
+
+## Vidéo 6 Tâches et exceptions
 
 * animation de la boucle, les piles, et comment sont gérées les exceptions
 
-## Compléments Vidéo 6
+### Compléments Vidéo 6
 
 * des exemples de tâches qu'on cancelle, de boucle qu'on arrête, ce
   genre de trucs
 
 * peut-être le bon endroit pour parler de wait() ?
 
-## Compléments Vidéo 6
+### Compléments Vidéo 6
 
 * s'inspirer de raise2.py qui montre comment monitorer les tâches
   d'une boucle, regarder les résultats et les exceptions..
 
-###################################################################
-# Vidéo 7 La librairie asyncio 
+
+## Vidéo 7 La librairie asyncio 
 
 * Queue 
 
@@ -130,7 +120,7 @@ Pas de quiz pour cette semaine du coup
   -> compléments / utiliser des lib. de haut niveau
      comme aiohttp asyncssh
 
-## Compléments Vidéo 7
+### Compléments Vidéo 7
 
 * a minima un exemple avec Lock
   parler de connection partagée (e.g. ssh) par plusieurs sessions ->
@@ -142,17 +132,18 @@ Pas de quiz pour cette semaine du coup
   notebooks, qui utilise localhost...
 
 
-## Exercices Vidéo 7
+### Exercices Vidéo 7
 
-###################################################################
 
-# Vidéo 8
-## (bonnes pratiques)
+## Vidéo 8
+### (bonnes pratiques)
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
 * bien penser à ne pas bloquer pendant trop longtemps
+* lire les exceptions des tâches
 
-NOTE
+NOTES
+
 * le seul truc qui reste nouveau c'est la digression sur les
 awaitables
 * qu'on pourrait bouger dans w8-s4 (extensions asynchrones du langage)
@@ -162,12 +153,12 @@ demande si ça vaut le coup de tourner ça ou pas; on pourrait
 transformer le notebook en compléments, car ça vaut qd même le coup de
 bien insister sur ces deux points.
 
-## Compléments Vidéo 8
-## Exercices Vidéo 8
+### Compléments Vidéo 8
+### Exercices Vidéo 8
 
-###################################################################
+*****
 
-ideas
+# Idées
 
 * pour les complements, ajouter un lien vers
   https://www.youtube.com/watch?v=2ZFFv-wZ8_g

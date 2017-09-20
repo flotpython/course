@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : Introduction à la Programmation Asynchrone
 # temps estimé
@@ -20,8 +19,7 @@ d'importer le module asyncio
 
 ==========[run cell]
 
-[[AL: donne un rappel oralement ici de comment on exécute une cell
-dans un notebook]]
+j'évalue ma cellule avec Shift-Enter
 
 ==========[slide coroutines]
 
@@ -185,24 +183,33 @@ tout ceci est executé dans un seul
 thread, et donc aucun des blocs que j'ai
 dessinés ici ne peut être interrompu une
 fois qu'il a commencé.
-[[AL: ce qui est super important aussi est qu'on ne peut pas avoir
-d'accès simultanés à la mémoire et donc des inconsistances qui sont
-résolus avec les thread avec des mécanismes complexes de
-synchronisation]] 
+
+Et ça c'est très important, parce que ça
+veut dire que je vais pouvoir me
+débarrasser de tout un tas de problèmes
+que j'aurais eus si j'avais utilisé des
+threads; quand on utilise plusieurs
+threads, c'est l'OS qui fait la
+commutation et ça peut arriver n'importe
+quand, et ça ça crée des besoins d'accès
+exclusifs à certains objets; c'est toute
+une famille de problèmes qui sont
+beaucoup moins sévères avec asyncio.
 
 ==========[slide 'ce qu'il ne faut pas faire']
 
-Et donc il est important de ne pas
-garder le processeur trop longtemps sans
-rendre la main avec un await. Voyons ça
-sur une version légèrement différente de
-notre coroutine morceaux,
+Mais ce que ça veut dire aussi, c'est
+qu'il ne faut pas garder le processeur
+trop longtemps sans rendre la main avec
+un await. Voyons ça sur une version
+légèrement différente de notre coroutine
+morceaux,
 
 ==========[fragment famine]
 
 que j'appelle famine; elle fait presque
 comme morceaux, mais j'ai remplacé un
-await sleep(1) par un appel a
+await sleep(1) par un appel bloquant à
 time.sleep(1), qui est un appel
 synchrone. Du coup on n'a plus 3 petits
 fragments, mais 1 petit et un gros de 1

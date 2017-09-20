@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : L'écosystème asyncio
 # temps estimé:
@@ -201,7 +200,7 @@ l'écosystème est très complet.
 L'autre incertitude que je voulais
 signaler pour terminer, c'est que le
 consensus n'est pas total sur les choix
-faits dans la librairie asyncio.  Tout
+faits dans la librairie asyncio. Tout
 le monde est d'accord sur le concept de
 coroutine, mais je signale tout de même
 quelques travaux très intéressants
@@ -213,9 +212,12 @@ profit, et qui pourraient bien
 influencer une version 2 de asyncio dans
 le futur.
 
-[[AL: mais alors il faudra tout réapprendre ? non, comme tu viens de
-le dire, la syntaxe et les principes de base resterons probablement
-les mêmes] 
+Bon même si ça devait arriver,
+rassurez-vous, ce qu'on
+va apprendre sur la syntaxe, les coroutines, les
+awaitables, et de façon plus générale le
+modèle mental restera valable.
+
 
 Tout ceci étant dit, nous allons en
 rester là pour les généralités, on se

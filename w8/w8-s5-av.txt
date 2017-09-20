@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# -*- autofill-mode; fill-column: 40 -*-
+# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
 # TITRE : Les boucles d'événements
 # temps estimé:
@@ -51,6 +50,10 @@ mécanismes de base qui sont
 
 [[AL: pourquoi au préalable, on peut pas ajouter ensuite de nouvelles
 coroutines avec ensure future]]
+[[TP: parce qu'il faut qu'il y ait au
+moins une tâche dans la boucle quand on
+fait run_forever(), qui ne prend aucun
+argument]]
 
 On va voir ça sur plusieurs exemples
 
@@ -61,14 +64,14 @@ utilitaires annexes pour bien visualiser
 ce qui se passe.
 
 J'ai écrit dans un module annexe deux
-fonctions qui sont start_timer et
-show_timer; je ne vous montre pas le code
-qui est très simple, mais elles
-s'utilisent comme ceci
+fonctions très simples qui sont start_timer et
+show_timer; elles s'utilisent comme ceci
 
-[[AL: je suppose que les élèves auront accès au code, tu devrais le
-dire]]
 [[AL: n'oublie pas de déplacer asynchelpers.py dans ./w8]]
+[[TP: je l'ai fait le temps que tu
+relises, mais je devrai le remettre
+comme avant si j'utilise asynchelpers
+dans les compléments.]]
 
 ========== [fragment start_timer]
 
@@ -79,6 +82,9 @@ show_timer on peut voir le temps écoulé
 depuis cette référence
 
 ========== [run cell start_timer + stop_timer]
+
+Je vous laisse à titre d'exercice imaginer comment vous pourriez
+écrire ces deux fonctions.
 
 ========== [slide utilitaire #2]
 
@@ -95,9 +101,6 @@ Bien. Je peux maintenant vous montrer un
 exemple de base, qui lance en même temps  
 deux petits traitements.
 
-[[AL: je n'arrive pas à faire d'interrupt, je n'arrive qu'à faire un
-restart de l'interpréteur]]
- 
 ========== [fragment avec ensure_future]
 
 à ce stade la boucle n'est pas active
@@ -115,8 +118,6 @@ sauf que, comme son nom l'indique
 run_forever ne va jamais retourner,
 aussi je vais devoir l'interrompre ici
 avec une interruption de mon kernel.
-
-[[AL: je n'arrive pas à interompre, mais c'est du détail]]
 
 ========== [run_until_complete vs run_forever]
 
@@ -147,14 +148,11 @@ Cette méthode est un peu surchargée;
 l'idée c'est qu'il peut y avoir
 plusieurs boucles dans une application,
 mais on veut éviter de devoir propager
-l'objet boucle de haut en bas, car ça
-
-[[AL: je ne comprends ce que ça veut dire " propager
-l'objet boucle de haut en bas"]]
-
+l'objet boucle en le passant en
+paramètre à toutes vos fonctions, car ça
 alourdit considérablement le code. Aussi
-le modèle c'est que chaque thread a une
-boucle par défaut, à laquelle on peut
+le modèle c'est que chaque thread
+possède une boucle, à laquelle on peut
 accéder de n'importe où dans le code
 avec get_event_loop.
 
@@ -163,10 +161,6 @@ et assez mal documenté, dans la 3.6 en
 tous cas, c'est que get_event_loop
 ne crée pas de boucle, sauf dans le cas
 particulier du thread principal.
-
-[[AL: tu viens juste de dire que chaque thread a une boucle par
-défaut et tu dis maintenant que uniquement le thread principal a une
-boucle par défaut. ]]
 
 ========== [slide {new,set}_event_loop()]
 
@@ -292,9 +286,6 @@ en fait celle associée au thread courant
   boucle, par exemple dans un thread
   secondaire, au travers de
   new_event_loop et set_event_loop
-
-[[AL: pour moi c'était un peu pénible, je n'ai par réussi à arrêter
-l'interpréteur. j'ai à chaque fois dû faire un restart]]
 
 ========== [fragment]
 
