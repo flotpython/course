@@ -1,0 +1,6 @@
+/* display background image 
+ * with very low opacity
+ */
+#rise-backimage {
+    opacity: 0.03;
+}
