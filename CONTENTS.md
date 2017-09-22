@@ -89,11 +89,26 @@ Plan du MOOC sur Python 3
 ### Thème: L'écosystème data science Python
 ### Niveau: BASIC
 
-* w7-s0: Présentation de la septième semaine
-* w7-s1: installer son environnement et survol des différents outils (numpy, panda, matplotlib, scikitlearn, scipy)
-* w7-s2: présentation de numpy
-* w7-s3: présentation de pandas
-* w7-s4: matplotlib
+* status le 22/09
+
+On n'aura pas le temps de tourner toutes
+ces vidéos, en tous cas pas cette année,
+on a convenu que ce serait
+principalement des notebooks
+
+Cela dit MHC me suggère de faire tout de
+même une vidéo d'introduction, et je
+pense qu'elle a raison et que ça
+fluidifiera le tout.
+
+
+* w7-s0: présentation de la septième semaine
+* w7-s1: pourquoi numpy, principes de base
+* w7-s2: survol des différents outils
+         (numpy, pandas, matplotlib, scikitlearn, scipy)
+* w7-s3: numpy
+* w7-s4: pandas
+* w7-s5: matplotlib
 
 
 ## Semaine 8
