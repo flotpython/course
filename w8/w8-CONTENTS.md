@@ -169,3 +169,7 @@ bien insister sur ces deux points.
 
 * trade-off entre une approche 'monkey-patch' à la gevent, vs une
   approche explicite avec async/await
+
+* très intéressant - pour un complément:
+  https://mdk.fr/blog/python-coroutines-with-async-and-await.html
+  pour implémenter sa propre mini-loop et bien comprendre send et yield et StopIteration et tout ça
