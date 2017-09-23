@@ -56,15 +56,21 @@ p.num()
 
 ## c'est très simple de déclarer une méthode comme statique...
 
+[[TP: pourquoi tu montres toujours des trucs
+  qui sont pas ce qu'on fait dans la vraie vie ?!?!
+  ici sans réfléchir il FAUT que tu mettes les décorateurs, IMHO
+  si ça te gêne parce qu'on n'a pas encore vu les décorateurs
+  tu n'as qu'à dire qu'on les étudie dans la vidéo suivante
+]]
+
 class Phrase:
     nb_i = 0
     def __init__(self):
         Phrase.nb_i  = Phrase.nb_i + 1
         
+    @staticmethod
     def num():
         return Phrase.nb_i
-    
-    num = staticmethod(num)         # new
 
 p = Phrase()
 Phrase.num()
@@ -86,9 +92,9 @@ PhraseSansCasse.num()
 
 ## je redéfinis la méthode statique
 class PhraseSansCasse(Phrase):
+    @staticmethod
     def num():
         return f'PhraseSansCasse {Phrase.nb_i}'
-    num = staticmethod(num)
 
 # 5m00s
     
@@ -99,19 +105,19 @@ class PhraseSansCasse(Phrase):
 ## Comment faire, pour avoir une méthode capable de maintenir un
 ## compteur différent pour Phrase et pour PhraseSansCasse ? Il faudrait
 ## pour cela maintenir un compteur dans Phrase et un dans
-## PhraseSansCasse, mais que surtout la méthode num() sache quand quand
+## PhraseSansCasse, mais que surtout la méthode num() sache que quand
 ## elle est appelée de Phrase elle accède au compteur de Phrase et que
 ## quand elle est accédé de PhraseSansCasse est accède au compteur de
 ## PhraseSansCasse. En d'autres termes, il faudrait que la méthode num()
 ## reçoivent un référence vers l'objet classe qui l'appelle.
 
 ## C'est exactement ce que permet une méthode de classe. C'est une
-## méthode bound à la classe d'appelle, elle va donc automatiquement
+## méthode bound à la classe d'appel, elle va donc automatiquement
 ## recevoir la classe comme premier argument, et si elle est appelée
 ## depuis une instance, elle recevra un référence de la classe qui a
 ## créé cette instance.
 
-## On définit une method de class avec la fonction built-in
+## On définit une method de class avec le décorateur built-in
 ## classmethod() Si l'on revient à notre exemple, on peut avoir un
 ## compteur d'instance distinct pour chaque sous classe.
 
@@ -120,12 +126,12 @@ class PhraseSansCasse(Phrase):
 class Phrase:
     nb_i = 0
     def __init__(self):
-        Phrase.nb_i  = Phrase.nb_i + 1
+        [[TP pourquoi pas += 1 en plus pour la vidéo ce serait + court ?]]
+        Phrase.nb_i = Phrase.nb_i + 1
         
+    @classmethod
     def num(cls):                 # new
         return cls.nb_i           # new
-    
-    num = classmethod(num)         # new
 
     
 class PhraseSansCasse(Phrase):
@@ -133,10 +139,9 @@ class PhraseSansCasse(Phrase):
     def __init__(self):
         PhraseSansCasse.nb_i  = PhraseSansCasse.nb_i + 1
         
+    @classmethod
     def num(cls):
         return f'PhraseSansCasse {cls.nb_i}'
-
-    num = classmethod(num)
 
 p = Phrase()
 Phrase()
