@@ -1,22 +1,24 @@
-### Avoir un ipython avec fond blanc pour pouvoir faire une incrustation vidéo ###
+### Avoir un ipython avec fond blanc pour pouvoir faire une incrustation vidï¿½o ###
 
-* dans une fenetre GIT cmd, click droit sur la barre de titre et choisir "propriétés"
+* dans une fenetre GIT cmd, click droit sur la barre de titre et choisir "propriï¿½tï¿½s"
 * Aller dans l'onglet Couleurs et choisir
    * Texte noir
-   * Arrière-plan blanc
-   * Arrière-plan (boîte) blanc
+   * Arriï¿½re-plan blanc
+   * Arriï¿½re-plan (boï¿½te) blanc
+   
+   Tester la taille de la font avec Mathieu
 
-* démarrer ipython avec 
+* dï¿½marrer ipython avec 
 ```
 > ipython --profile mooc
 ```
 
-J'ai créé un profile ipython pour le mooc avec
+J'ai crï¿½ï¿½ un profile ipython pour le mooc avec
 ```
 > ipython profile create
 ```
 
-Et j'ai modifié l'option `c.InteractiveShell.colors = 'LightBG'`
+Et j'ai modifiï¿½ l'option `c.InteractiveShell.colors = 'LightBG'`
 
 dans 
 `C:\Users\alegout\.ipython\profile_mooc\ipython_config.py `
