@@ -41,10 +41,10 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * s6-c1-surcharge-operateurs-1.ipynb
 
 * parler des fallback 
-     Itération : __iter__ puis __getitem__
-     in :  __contains__ puis __iter__ puis __getitem__
-     Test vrai/faux : __nonzero__ puis __len__ (faux si __len__ retourne 0)
-     print : __str__ puis __repr__
+ * Itération : __iter__ puis __getitem__
+ * in :  __contains__ puis __iter__ puis __getitem__
+ *     Test vrai/faux : __nonzero__ puis __len__ (faux si __len__ retourne 0)
+ * print : __str__ puis __repr__
 
 * parler des optimisations de CPython sur les opérateurs
      Plus rapide d'utiliser un opérateur que l'appel direct sur le méthode
@@ -57,6 +57,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Exercices Vidéo 2
 
 Pour mémoire, exercices du précédent MOOC sur Python 2
+
    * s6-e1-classes.ipynb
 
 
@@ -68,6 +69,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
    (  new  )
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
+
 * s5-c1-heritage.ipynb
 * s5-c2-classes-new-style.ipynb
 * s5-c3-heritage-multiple.ipynb
@@ -76,12 +78,12 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Quizz Vidéo 3
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
-* W5-S5-E1.quiz
+* w5-s5-e1.quiz
 
 ### Exercices Vidéo 3
 
 
-## Vidéo 4 (Héritage multiple et ordre de résolution des attributs)
+## Vidéo 4 (Héritage multiple et mro)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 4
 
