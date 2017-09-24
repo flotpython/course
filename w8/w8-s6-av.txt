@@ -1,225 +1,310 @@
 # -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
 
-# TITRE : Tâches et exceptions
+# TITRE : Les boucles d'événements
 # temps estimé:
 
 ## Résumé de la vidéo
 
-. tâche
-. pile, variables
-. résultat traitement
-. exceptions
-
-[[AL: commentaire global pour cette vidéo. Ça me semble un gros pas en
-avant et je pense que cette vidéo pourrait venir plus tard. Tu parles
-de Task en introduisant très/trop rapidement cette notion et de yield
-(c'est encore await dans le texte) sans avoir expliqué avant que await
-fait en fait de la délégation, mais ne rend pas la main à la boucle,
-c'est un yield dans une coroutine qui rend la main (même si ce yield
-est caché dans la librairie asynchrone). ]]
-
-[[TP: tu as raison, je pense ajouter une
-  première animation pour expliquer les
-  appels à partir d'une coroutine, les
-  empilements, et le yield
-  ça va peut-être tout décaler un peu
-  mais bon..
-  ]]
+Maintenant qu'on a vu les extensions
+asynchrones du langage, nous allons
+pouvoir nous intéresser d'un peu plus
+près aux boucles d'événements.
 
 
-Maintenant que nous avons vu comment
-créer et utiliser une une boucle
-d'événements, nous allons entrer un peu
-plus dans le détail, et parler des
-tâches.
+Jusqu'ici nous avons toujours utilisé
+nos boucles avec la méthode
+run_until_complete.
+========== [fragment run_complete]
 
-On va voir ça dans une animation:
+Cette méthode attend en argument
+exactement un objet; du coup nous avons
+utilisé gather pour montrer des exemples
+avec des traitements concurrents.
 
-* qui va je l'espère bien vous faire
-comprendre comment se passe un programme
-asynchrone,
+========== [fragment gather]
 
-* et où on va voir comment se passe la
-gestion des exceptions
 
-C'est une vision très simplifiée de la
-réalité mais j'espère que ça éclaircira
-un peu les choses. 
+Mais bon, on ne peut pas toujours faire
+ça aussi simplement; il y a des cas bien
+entendu où il faut ajouter des
+traitements à la volée, et voyons
+comment ça se présente alors.
 
-========== cliquer sur Animation
-[[pour revenir en arrière dans
-l'animation, faire Shift-left]]
+========== [slide ajout de traitements]
 
-Donc on part d'une boucle dans laquelle
-[click]
-on ajoute des coroutines avec
+La librairie propose deux autres
+mécanismes de base qui sont
+
+* ensure_future, pour ajouter un
+  traitement dans la boucle, avant ou
+  après qu'elle a commencé
+
+==========[fragment run_forever]
+
+* et aussi run_forever, qui fait tourner
+  une boucle d'événements indéfiniment;
+  cette méthode sur les boucles ne prend
+  aucun argument, ce qui suppose qu'on a
+  donc rempli la boucle au préalable
+  avec, justement, ensure_future
+
+[[AL: pourquoi au préalable, on peut pas ajouter ensuite de nouvelles
+coroutines avec ensure future]]
+[[TP: parce qu'il faut qu'il y ait au
+moins une tâche dans la boucle quand on
+fait run_forever(), qui ne prend aucun
+argument]]
+
+On va voir ça sur plusieurs exemples
+
+========== [slide utilitaire #1]
+
+Mais avant, je vais utiliser quelques
+utilitaires annexes pour bien visualiser
+ce qui se passe.
+
+J'ai écrit dans un module annexe deux
+fonctions très simples qui sont start_timer et
+show_timer; elles s'utilisent comme ceci
+
+[[AL: n'oublie pas de déplacer asynchelpers.py dans ./w8]]
+[[TP: je l'ai fait le temps que tu
+relises, mais je devrai le remettre
+comme avant si j'utilise asynchelpers
+dans les compléments.]]
+
+========== [fragment start_timer]
+
+Avec start_timer, on enregistre un
+instant de référence, ce sera pour nous
+le début de l'exécution, puis avec
+show_timer on peut voir le temps écoulé
+depuis cette référence
+
+========== [run cell start_timer + stop_timer]
+
+Je vous laisse à titre d'exercice imaginer comment vous pourriez
+écrire ces deux fonctions.
+
+========== [slide utilitaire #2]
+
+Je me définis encore une coroutine
+utilitaire - je l'ai appelé sequence -
+qui écrit simplement un message avant et
+après un certain délai. C'est donc juste
+pour montrer le début et la fin d'une
+coroutine.
+
+========== [slide boucle sans fin]
+
+Bien. Je peux maintenant vous montrer un  
+exemple de base, qui lance en même temps  
+deux petits traitements.
+
+========== [fragment avec ensure_future]
+
+à ce stade la boucle n'est pas active
+mais les deux coroutines ont été
+ajoutées, elles seront exécutées par la
+boucle dès qu'elle sera démarrée
+
+========== [slide run_forever]
+
+ce que peux faire avec run_forever.
+
+========== [run cell]
+
+sauf que, comme son nom l'indique
+run_forever ne va jamais retourner,
+aussi je vais devoir l'interrompre ici
+avec une interruption de mon kernel.
+
+========== [run_until_complete vs run_forever]
+
+Voici un résumé de ces deux méthodes, en
+gros run_until_complete se prêtera donc
+plutôt si vous avez besoin de glisser un
+traitement asynchrone au milieu d'une
+application par ailleurs essentiellement
+synchrone, alors que run_forever se
+prêtera mieux pour une application
+massivement asynchrone.
+
+
+========== [slide new_event_loop()]
+
+À ce stade de mon notebook, il est temps
+que je vous parle de `get_event_loop` et
+similaires. Ce n'est pas forcément le
+coté du langage le plus réussi, raison
+de plus donc pour l'expliquer.
+
+Vous avez peut-être remarqué qu'on n'a
+jamais jusqu'ici eu besoin de créer un
+objet loop, on a utilisé
+get_event_loop()
+
+Cette méthode est un peu surchargée;
+l'idée c'est qu'il peut y avoir
+plusieurs boucles dans une application,
+mais on veut éviter de devoir propager
+l'objet boucle en le passant en
+paramètre à toutes vos fonctions, car ça
+alourdit considérablement le code. Aussi
+le modèle c'est que chaque thread
+possède une boucle, à laquelle on peut
+accéder de n'importe où dans le code
+avec get_event_loop.
+
+Par contre ce qui est un peu troublant,
+et assez mal documenté, dans la 3.6 en
+tous cas, c'est que get_event_loop
+ne crée pas de boucle, sauf dans le cas
+particulier du thread principal.
+
+========== [slide {new,set}_event_loop()]
+
+On peut donc avoir à créer une nouvelle
+boucle avec la méthode new_event_loop,
+et je vous conseille d'enregistrer cette
+nouvelle boucle comme étant le défaut,
+ce qui nous donne ceci
+
+========== [fragment set_event_loop]
+
+Notez que dans mon cas j'ai vraiment
+besoin de faire cela, parce que la
+boucle d'événements qu'on a utilisé il y
+a un instant avec run_forever, et que
+j'ai interrompue, est en réalité dans un
+état instable, on verra dans une autre
+séquence qu'il aurait fallu la terminer
+proprement, mais pour l'instant je me
+contente de continuer mon exposé avec
+une boucle toute neuve.
+
+========== [slide Ajout de traitements]
+
+À présent, on va revenir à
+ensure_future, et  je vais vous montrer
+rapidement qu'on peut aussi l'appeler à
+l'intérieur du code asynchrone, pour
+ajouter à la volée des traitements dans
+une boucle. Imaginons que je veuille
+implémenter un scénario comme celui-ci
+
+========== [fragment figure fork]
+
+Ici on veut au milieu de la couroutine 
+c2 démarrer la coroutine c3, sans s'en 
+soucier davantage. 
+
+Pour faire ça, je ne peux pas ajouter
+les 3 coroutines au démarrage de ma
+boucle, car c3 commencerait trop tôt. Il
+faut donc faire quelque chose à
+l'endroit du point rouge. Je vous laisse
+à titre d'exercice vous convaincre que
+ni await ni gather ne font exactement ce
+qu'on veut ici. Je vais plutôt tout
+simplement ajouter c3 à la boucle avec
 ensure_future.
-[click]
-la boucle crée en interne un objet de
-type Task pour wrapper la coroutine
 
-4 x [click]
+========== slide [async def c1()]
+Pour c1 et c3, il n'y a aucun souci
 
-ici j'ajoute trois coroutines, ça me
-fait 3 tâches.
+========== fragment [async def c2()]
+Pour c2, je me contente d'ajouter c3()
+dans la boucle d'événements avec
+ensure_future()
 
-Une fois que j'ai rempli ma boucle
-d'événements, je lance ma boucle;
+========== slide start_timer()
 
-[click - run_forever() apparait]
+Voici l'exécution, je vous laisse vous
+convaincre que c'est ce qu'on veut.
 
-la première chose qu'elle va faire ça va
-être de choisir une de ses tâches et de
-lancer l'évaluation de la coroutine.
+Je vous laisse aussi à titre d'exercice
+essayer de lancer la boucle avec
+run_until_complete sur un gather de c1
+et c2, et de comparer les deux comportements.
 
-[click tâche courante]
+<commentaire sur l'intérêt qu'il y
+aurait à faire un run_until_complete
+pour retourner dans le code synchrone,
+faire un truc, et relancer la boucle ensuite>
 
-Comme les coroutines peuvent s'appeler
-les unes les autres, le lancement de la
-coroutine en question se fait dans une
-pile d'appels dédiée. 
+========== slide Mélange run_*
 
-[click]
+Dans un dernier exemple je vous montre
+rapidement comment une boucle se
+comporte quand on mélange
+run_until_complete avec
+run_forever. Pour ça je me donne
+simplement 3 coroutines de longueur 1, 2
+et 3.
 
-Si vous vous souvenez ce qu'on a dit en
-introduction, c'est conceptuellement
-exactement comme un thread, on a une
-pile par tâche - sauf qu'ici c'est la
-boucle qui va contrôler la commutation
-de contexte et pas l'OS.
-
-[click]
-
-La boucle laisse la main à cette tâche
-jusqu'à ce qu'on atteigne un await qui
-corresponde à un futur; jusqu'ici on n'a
-vu principalement que asyncio.sleep,
-mais la boucle fournit des mécanismes de
-base sur les connections, les process,
-et ce genre de choses.
-
-Bref au moment où la tâche ne peut plus
-continuer, que je représente par await
-ici
-[click montrer await]
-
-la boucle reprend le contrôle et choisit
-une autre tâche à faire avancer
-
-c'est important de noter que la pile de
-la première tâche est conservée quelque
-part; sinon on ne pourrait pas reprendre
-le traitement plus tard, car la pile
-contient naturellement les variables qui
-sont le contexte de la tache
-
-[click move to 2eme tache]
-
-Donc après avoir sauvegardé la pile on
-passe le contrôle à la coroutine dans la
-deuxieme tache, donc comme tout à
-l'heure
-
-[clics multiples jusque await]
-
-ou on détecte un point d'attente, on
-passe par exemple à la troisième tache
-
-[click]
-
-qui elle aussi travaille
-
-[clicks multiples:
-tache3 ..
-tache1 avance d'un cran
-retour à la tache 3
-]
-
-Bon, maintenant voyons comment ça se
-termine; dans le cas simple ou la
-coroutine ne lève pas d'exception, voici
-ce que fait la boucle
-
-[click enlever await]
-[click depiler]
-[click depiler]
-
-lorsque le dernier frame retourne un
-résultat, la boucle le range dans la 
-tache et marque la tache comme terminée.
-
-[click result() & opacity]
-
-et on repasse la main à une autre tache
-
-[click -> sel. tache 2]
-
-====================
-Voyons maintenant le cas où une
-exception est levée; ici deux cas se
-présentent.
-
-Le plus simple d'abord, c'est le cas où
-l'exception est attrapée dans cette
-pile-là
-
-[click x 2 : raise au lieu de await]
-
-vous vous souvenez ce qu'on a dit sur le
-traitement des exceptions, c'est pareil
-ici, à partir du raise on cherche dans
-la pile un try: qui attrape
-l'exception. Ici je suppose que j'en
-trouve un à l'intérieur de la tache 2.
-
-[click x 2]
-
-dans ce cas là c'est très simple, on
-fait exactement comme dans du code
-synchrone, et on continue comme si de
-rien n'était.
-
-[click ... select. tache 1]
-
-==========
-Maintenant si on *n'a PAS* attrapé
-l'exception dans cette pile.
-
-la tache 1 leve une exception mais on ne
-trouve pas de handler dans cette pile.
-
-[click jusqu'à voir <--- raise]
-
-Alors ce que va faire la boucle
-typiquement c'est d'attraper
-l'exception, de la conserver
-
-[click 2x exception()]
-
-dans l'objet Task comme on avait
-conservé le résultat tout a l'heure,
-et de marquer la tache comme terminée.
+========== run 
 
 
-========== [fermer animation Command w]
-========== [retour notebook]
-========== [slide bonnes pratiques]
+========== slide mélange run*
 
-Ceci nous permet de conclure avec une
-bonne pratique concernant les exceptions
+Alors si j'ajoute la plus courte et la
+plus longue dans la boucle avec
+ensure_future, et qu'ensuite je fais
+run_until_complete sur la moyenne, ce
+qui se passe c'est que les 3 coroutines
+sont dans la boucle, mais
+run_until_complete retourne dès que la
+moyenne a terminé.
+
+========== run run_until_complete
+
+Clairement
+il lui reste des choses à faire dans
+cette boucle, mais elle ne seront
+exécutées, naturellement, que lorsqu'on
+relance la boucle, par exemple avec un
+run_forever.
+
+========== run run_forever
+
+dit autrement, on peut superposer les
+appels à run_until_complete pour faire
+avancer une boucle en quelque sorte pas
+à pas, l'état est naturellement conservé.
+
+========== slide résumé
+Nous allons résumer cette séquence, on a
+vu que
 
 ========== [fragment]
-* Tout d'abord je vous conseille
-d'attraper autant que possible les
-exceptions à l'intérieur du code
-asynchrone
+* on peut accéder à la boucle courante -
+en fait celle associée au thread courant
+- avec get_event_loop()
 
-* Ensuite pour les autres cas, on verra
-  dans une autre séquence que vous êtes
-  encouragés à lire les exceptions
-  attachées aux tâches; pour cela il
-  suffit d'appeler la méthode
-  exception() sur l'objet Task.
+* on peut avoir besoin de créer une
+  boucle, par exemple dans un thread
+  secondaire, au travers de
+  new_event_loop et set_event_loop
 
+========== [fragment]
 
+* on peut ajouter des traitements dans
+  une boucle à tout moment avec ensure_future()
 
+========== [fragment]
+
+* on peut exécuter une boucle pas à pas
+  avec run_until_complete, ou
+  indéfiniment avec run_forever
+
+==========[slide conclusion]
+
+Enfin je voudrais conclure cette
+séquence pour redire que la boucle
+d'événements fait partie de la librairie
+`asyncio`, du coup tout ce qu'on a vu
+dans cette vidéo, et ce sera vrai pour
+les suivantes aussi, risque d'être
+légèrement différent si vous utilisez
+une autre librairie comme curio ou trio.

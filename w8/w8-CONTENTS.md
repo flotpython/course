@@ -61,23 +61,23 @@ Pas de quiz cette semaine
 ### NIVEAU: avancé
 
 
-## Vidéo 4b coroutines et awaitables
+## Vidéo 5 coroutines et awaitables
 
 * Le protocole awaitable, send(), la pile, await et yield
 
-## Compléments 4b
+## Compléments 5
 
 * montrer que send() et yield permettent de causer dans les deux sens entre la boucle et les awaitables
 
 
-## Vidéo 5 La boucle d'événements
+## Vidéo 6 La boucle d'événements
 ### NIVEAU: avancé
 
 * ensure_future & run_forever() - Queue()
 * ensure_future pour ajouter une tâche au milieu d'un scénario
 * parler de get_event_loop()
 
-### Compléments Vidéo 5
+### Compléments Vidéo 6
 
 * montrer l'importance de get-event_loop pour accéder à la boucle
   courante depuis le code asynchrone (trouver un exemple ou le code
@@ -95,28 +95,28 @@ Pas de quiz cette semaine
 * un complément sur wait() - cf. asynciojobs
   https://docs.python.org/3/library/asyncio-task.html#asyncio.wait
 
-### Exercices Vidéo 5
+### Exercices Vidéo 6
 
 
-## Vidéo 6 Tâches et exceptions
+## Vidéo 7 Tâches et exceptions
 ### NIVEAU: avancé
 
 * animation de la boucle, les piles, et comment sont gérées les exceptions
 
-### Compléments Vidéo 6
+### Compléments Vidéo 7
 
 * des exemples de tâches qu'on cancelle, de boucle qu'on arrête, ce
   genre de trucs
 
 * peut-être le bon endroit pour parler de wait() ?
 
-### Compléments Vidéo 6
+### Compléments Vidéo 7
 
 * s'inspirer de raise2.py qui montre comment monitorer les tâches
   d'une boucle, regarder les résultats et les exceptions..
 
 
-## Vidéo 7 La librairie asyncio 
+## Vidéo 8 La librairie asyncio 
 ### NIVEAU: avancé
 
 * Queue 
@@ -131,7 +131,7 @@ Pas de quiz cette semaine
   -> compléments / utiliser des lib. de haut niveau
      comme aiohttp asyncssh
 
-### Compléments Vidéo 7
+### Compléments Vidéo 8
 
 * a minima un exemple avec Lock
   parler de connection partagée (e.g. ssh) par plusieurs sessions ->
@@ -142,10 +142,10 @@ Pas de quiz cette semaine
   se méfier tout de même, on risque d'être limité par l'infra de
   notebooks, qui utilise localhost...
 
-### Exercices Vidéo 7
+### Exercices Vidéo 8
 
 
-## Vidéo 8 bonnes pratiques
+## Vidéo 9 bonnes pratiques
 ### NIVEAU: avancé
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
@@ -154,17 +154,13 @@ Pas de quiz cette semaine
 
 NOTES
 
-* le seul truc qui reste nouveau c'est la digression sur les
-awaitables
-* qu'on pourrait bouger dans w8-s4 (extensions asynchrones du langage)
-
-* sinon à ce stade tout ce qui est là dedans ce sont des redites, je me
+* à ce stade tout ce qui est là dedans ce sont des redites, je me
 demande si ça vaut le coup de tourner ça ou pas; on pourrait
 transformer le notebook en compléments, car ça vaut qd même le coup de
 bien insister sur ces deux points.
 
-### Compléments Vidéo 8
-### Exercices Vidéo 8
+### Compléments Vidéo 9
+### Exercices Vidéo 9
 
 *****
 
