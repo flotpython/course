@@ -68,6 +68,7 @@ Pas de quiz cette semaine
 ## Compléments 5
 
 * montrer que send() et yield permettent de causer dans les deux sens entre la boucle et les awaitables
+citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 
 ## Vidéo 6 La boucle d'événements
