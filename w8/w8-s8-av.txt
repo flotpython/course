@@ -154,49 +154,16 @@ pas que la situation va s'améliorer dans
 le futur.
 
 ========== [slide cas #8]
-Du coup si je reviens au cas numéro 8,
+Je passe enfin au cas numéro 8,
 c'est à dire un await sur le résultat
 d'une fonction normale.
 
-Pour bien comprendre ça, il faut que je
-vous explique la notion de awaitable.
+---------- fragment 2 bullets
 
-========== [objets awaitables]
-
-Alors c'est quoi un objet awaitable ?
-
-En fait, pour faire une analogie, on a
-vu la notion d'itérable qui correspond
-aux objets sur lesquels on peut faire un
-for; et les context managers qui peuvent
-faire l'objet d'un with;
-
-eh bien c'est pareil ici, le concept de
-awaitable décrit la classe des objets
-sur lesquels on peut faire un await.
-
-Les awaitables sont donc une abstraction
-des coroutines, ou dit dans l'autre
-sens, les objets coroutines sont donc un
-cas particuler d'objets awaitables, mais
-on peut en définir d'autres, via la
-méthode spéciale await
-
-[[AL: je ne suis pas sûr qu'on considére le fait d'être itérable comme
-un protocole, c'est en général le protocol d'itération que l'on nomme,
-c'est-à-dire un objet avec __iter__ et __next__, je prendrais plutôt
-cet exemple à la place d'un itérable]]
-[[TP: ah bin si, itérable c'est un
-protocole pour moi, et je suis pas le
-seul à le dire:
-https://www.python.org/dev/peps/pep-0544/#generic-protocols]]
-
-========== [slide cas #8]
-
-Si bien que si on en revient au cas #8,
-ce code en toute rigueur peut être
-légitime si la fonction synchro retourne
-un awaitable
+Si vous vous souvenez la vidéo sur les
+objets awaitables, ce code en toute
+rigueur peut être légitime si la
+fonction synchro retourne un awaitable
 
 mais une fois qu'on a dit ça, dans un
 code asynchrone - on va dire normal -
@@ -205,6 +172,14 @@ ce code-là est très très suspect.
 Et dans ce cas là vous recevrez un
 message à run-time vous disant que vous
 ne pouvez pas faire await sur l'objet.
+
+---------- fragment inspect.isawaitable
+
+Dans mon cas par exemple je peux voir
+avec inspect que l'objet retourné par
+synchro - c'est à dire None - n'est pas
+awaitable et donc que je ne peux pas
+faire await dessus.
 
 ---------- slide (texte sans support)
 

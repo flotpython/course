@@ -37,13 +37,13 @@ Pas de quiz cette semaine
 
 
 ## Vidéo 3 écosystème asyncio
-
+### NIVEAU: avancé
 ### Compléments Vidéo 3
 ### Exercices Vidéo 3
 
 
 ## Vidéo 4 Extensions asynchrones du langage
-
+### NIVEAU: avancé
 ### Compléments Vidéo 4
 
 * à faire: itérations asynchrones
@@ -57,12 +57,21 @@ Pas de quiz cette semaine
   montrer qu'un objet *peut* être context manager synchrone et asynchrone
   dire qu'il manque juste les lambda asynchrones dans 3.6
 
-* Le protocole awaitable
-
 ### Exercices Vidéo 4
+### NIVEAU: avancé
+
+
+## Vidéo 4b coroutines et awaitables
+
+* Le protocole awaitable, send(), la pile, await et yield
+
+## Compléments 4b
+
+* montrer que send() et yield permettent de causer dans les deux sens entre la boucle et les awaitables
 
 
 ## Vidéo 5 La boucle d'événements
+### NIVEAU: avancé
 
 * ensure_future & run_forever() - Queue()
 * ensure_future pour ajouter une tâche au milieu d'un scénario
@@ -90,6 +99,7 @@ Pas de quiz cette semaine
 
 
 ## Vidéo 6 Tâches et exceptions
+### NIVEAU: avancé
 
 * animation de la boucle, les piles, et comment sont gérées les exceptions
 
@@ -107,6 +117,7 @@ Pas de quiz cette semaine
 
 
 ## Vidéo 7 La librairie asyncio 
+### NIVEAU: avancé
 
 * Queue 
 
@@ -131,12 +142,11 @@ Pas de quiz cette semaine
   se méfier tout de même, on risque d'être limité par l'infra de
   notebooks, qui utilise localhost...
 
-
 ### Exercices Vidéo 7
 
 
-## Vidéo 8
-### (bonnes pratiques)
+## Vidéo 8 bonnes pratiques
+### NIVEAU: avancé
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
 * bien penser à ne pas bloquer pendant trop longtemps

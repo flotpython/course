@@ -258,9 +258,29 @@ que des mécanismes similaires existent
 aussi dans des langages comme C# et
 JavaScript.
 
+---------- slide callbacks
+
+Je vous montre ici un exemple de
+coroutine dans un
+langage imaginaire, il s'agit d'un
+serveur pour le fameux protocole
+'ping-pong` ou encore 'retour à
+l'envoyeur', dans lequel le serveur se
+contente de renvoyer au client
+exactement ce qu'il reçoit.
+
+Vous avez à gauche une version avec
+callback, et à droite une version avec
+coroutine, le code parle de lui-même,
+n'hésitez pas à faire pause
+si nécessaire.
+
 ---------- [slide suivant]
 
-On pourra donc obtenir un comportement
+Pour résumer et conclure cette
+introduction, retenez qu'avec asyncio, 
+
+vous pourrez obtenir un comportement
 comme celui-ci, qui est optimal
 vis-à-vis de l'utilisation du temps,
 sans avoir à défigurer notre code,
