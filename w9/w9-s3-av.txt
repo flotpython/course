@@ -21,7 +21,7 @@ fonctions que l'on implémente à chaque fois que l'on veut accéder ou
 modifier un attribut d'un objet. La raison de passer par des fonctions
 pour interagir avec les attributs est de pouvoir ajouter une couche de
 logique à l'accès ou à la modification, c'est une technique
-d'encapsultion. Typiquement, on peut faire de la validation des
+d'encapsulation. Typiquement, on peut faire de la validation des
 attributs, ou définir des valeurs par défaut. 
 
 La problème avec les getter et les setter, c'est qu'il faut les
@@ -42,6 +42,15 @@ systématique des getter et setter.
 
 Ouvrons un éditeur IDLE pour commencer à jouer avec la gestion avancée
 des attributs. 
+
+[[TP il me semblait qu'on s'était mis d'accord pour avoir un notebook
+complément en semaine 6 pour montrer les properties au plus grand
+nombre d'étudiants; voir le plan pour w6-s1
+
+il me semble que du coup tu pourrais faire
+l'économie de la première partie de la vidéo
+]]
+
 
 >>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (6m00s) <<<<<<<<<<
 

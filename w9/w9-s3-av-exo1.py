@@ -10,6 +10,11 @@ class Maison:
     def __init__(self, t):
         self._temperature = t
 
+[[TP: d'après moi ça c'est un contresens;
+  ta méthode n'est pas un getter mais un formatter
+  en plus tu vas te faire chier à taper un degré dans la vidéo
+  ça devrait renvoyer un nombre !]]
+
     def get_temperature(self):
         return f"{self._temperature}\u2103"  # unicode pour degré
                                              # celcius
@@ -34,7 +39,7 @@ m.set_temperature(80)
 ## temperature. Cependant, on voir bien que ça alourdi le code
 ## d'appeler systématiquement get_temperature() et set_temperature().
 
-## On Python, on peut ajouter une couche de logique à l'appel de
+## En Python, on peut ajouter une couche de logique à l'appel de
 ## l'attribut avec un mécanisme que l'on nomme property. Regardons
 ## cela.
 
@@ -67,6 +72,11 @@ class TemperatureError(Exception):
 m = Maison(10)                                 # new
 print(f"il fait {m.temperature} chez moi")     # new
 m.temperature = 79                             # new
+
+du coup là on se retrouve avec
+m.temperature = <un nombre>
+type(m.temperature) -> str 
+c'est vraiment vilain !!
 
 
 ## avec ce mécanisme de property, il devient inutile d'implémenter

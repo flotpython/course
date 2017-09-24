@@ -30,7 +30,7 @@ Nous allons voir dans cette vidéo la notion de décorateur qui est une
 des notions avancées les plus utiles en pratique. Un décorateur est
 une technique de programmation qui permet d'ajouter une couche de
 logique avant l'appel d'une fonction, une couche de logique après
-l'appel et de garder de l'état entre deux appels. Le décorateur est
+l'appel [[TP je comprends pas la phrase, tu veux dire quoi ici ?: et de garder de l'état entre deux appels]]. Le décorateur est
 également associé à une notation qui permet de rendre explicite qu'une
 fonction a été décorée, c'est-à-dire qu'on lui a ajouté une couche de
 logique.
@@ -55,6 +55,10 @@ de classe.
 
 [s2]
 
+[[TP si tu veux garder ça tu peu juste le montrer dans
+l'autre sens; d'abord avec @staticmethod et montrer que c'est comme si
+on avait écrit f = staticmethod(f)]]
+
 Imaginons que nous ayons une classe C avec deux methodes f() et g() et
 que nous souhaitions que f soit une méthode de class et g une méthode
 statique. On l'écrirait de la manière suivante.  L'inconvénient est
@@ -65,7 +69,7 @@ problème par la suite lors de la maintenance du code.
 
 [s3]
 
-Avec une décorateur, le changement de comportement est indiqué à la
+Avec un décorateur, le changement de comportement est indiqué à la
 déclaration de la méthode. Regardons cela
 
 [s4]
@@ -81,15 +85,17 @@ Regardons maintenant comment on peut implémenter un décorateur.
 
 [s5]
 
+[[TP ce serait bien de glisser à nouveau le mot de protocole callable]]
+ 
 Commençons par définir la notion de callable. Un callable est un objet
-que l'on peut appeler avec la notation "()". Un callable est donc une
-fonction, mais ça peut également être une instance donc la classe
-implémente la méthode __call__
+que l'on peut appeler avec la notation "()". Une fonction est donc un
+objet callable, mais on peut aussi donner le caractère callable à une
+instance de classe, pourvu que la classe implémente la méthode __call__
 
 [s6]
 
 Un décorateur est un callable (une fonction, ou une instance de classe
-qui implémente __call__) qui prend une fonction en argumenent et qui
+qui implémente __call__) qui prend une fonction en argument et qui
 retourne un callable (donc une fonction ou une instance d'une classe
 qui implémente __call__).
 
@@ -112,13 +118,17 @@ décorateur soit également un callable.
 
 Je vous rappelle [qu'un décorateur sert] à ajouter avec une syntaxe
 explicite et une couche de logique avant et après l'appel d'une
-fonction avec la possibilité de garder de l'état entre deux appels.
+fonction avec la possibilité de garder de l'état entre deux
+appels. [[TP ditto]]
 
 Regardons maintenant un exemple d'implémentation d'un décorateur.
 Pour cette exemple, nous allons implémenter le décorateur comme une
 classe qui a une méthode __call__.
 
 [s9]
+
+[[TP: un détail mais pourquoi tu fais s = f'blabla' puis print(s) et
+pas directement print(f'blabla') ?]]
 
 supposons que je veuille décorer avec [NbAppel] une fonction pour
 compter le nombre de fois qu'elle est appelé. Cette décoration est
