@@ -34,6 +34,11 @@
 * un notebook sur la librairie standard ?
   juste pour indiquer le niveau d'engagement que ça représente de la part de PSF
 
+* dans le notebook d'installe, parler sur macintosh de activetcl **en 8.5**
+https://www.python.org/download/mac/tcltk/
+
+
+
 ### Quizz Vidéo 3
 ### Exercices Vidéo 3
 
