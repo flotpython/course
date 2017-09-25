@@ -10,14 +10,9 @@ class Maison:
     def __init__(self, t):
         self._temperature = t
 
-[[TP: d'après moi ça c'est un contresens;
-  ta méthode n'est pas un getter mais un formatter
-  en plus tu vas te faire chier à taper un degré dans la vidéo
-  ça devrait renvoyer un nombre !]]
-
     def get_temperature(self):
-        return f"{self._temperature}\u2103"  # unicode pour degré
-                                             # celcius
+        return self._temperature
+    
     def set_temperature(self, t):
         if 5 < t and t < 25:
             self._temperature = t
@@ -50,7 +45,7 @@ class Maison:
         self._temperature = t
     
     def get_temperature(self):
-        return f"{self._temperature}\u2103"
+        return self._temperature
     
     def set_temperature(self, t):
         if 5 < t and t < 25:
@@ -69,15 +64,9 @@ class Maison:
 class TemperatureError(Exception):
     pass
  
-m = Maison(10)                                 # new
-print(f"il fait {m.temperature} chez moi")     # new
-m.temperature = 79                             # new
-
-du coup là on se retrouve avec
-m.temperature = <un nombre>
-type(m.temperature) -> str 
-c'est vraiment vilain !!
-
+m = Maison(10)                                  # new
+print(f"il fait {m.temperature} chez moi")      #new
+m.temperature = 79                              # new
 
 ## avec ce mécanisme de property, il devient inutile d'implémenter
 ## systématiquement les getter et setter, il suffit, lorsqu'on a

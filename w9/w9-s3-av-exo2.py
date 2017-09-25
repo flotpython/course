@@ -13,7 +13,7 @@ class Temperature:
     ## cet argument que l'on veut utiliser) et le dernier est la
     ## classe sur laquelle on a mis le descripteur.
     def __get__(self, inst, instype):
-        return f"{inst._temperature}\u2103"
+        return inst._temperature
 
     ## La méthode __set__ a trois paramètres également. Le premier est
     ## l'instance du descripteur, le deuxième est l'instance de la
