@@ -54,14 +54,11 @@ p.num()
 ## instance, elle reste une fonction classique et non une méthode
 ## bound.
 
-## c'est très simple de déclarer une méthode comme statique...
-
-[[TP: pourquoi tu montres toujours des trucs
-  qui sont pas ce qu'on fait dans la vraie vie ?!?!
-  ici sans réfléchir il FAUT que tu mettes les décorateurs, IMHO
-  si ça te gêne parce qu'on n'a pas encore vu les décorateurs
-  tu n'as qu'à dire qu'on les étudie dans la vidéo suivante
-]]
+## c'est très simple de déclarer une méthode comme statique. On
+## utilise pour cela un décorateur. Nous reviendrons dans une
+## prochaine vidéo sur le fonctionnement exact des décorateurs. Pour
+## le moment sachez que le décorateur @staticmethod rend la méthode
+## statique.
 
 class Phrase:
     nb_i = 0
@@ -126,7 +123,6 @@ class PhraseSansCasse(Phrase):
 class Phrase:
     nb_i = 0
     def __init__(self):
-        [[TP pourquoi pas += 1 en plus pour la vidéo ce serait + court ?]]
         Phrase.nb_i = Phrase.nb_i + 1
         
     @classmethod

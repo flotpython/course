@@ -2,7 +2,7 @@ Plan du MOOC sur Python 3
 =================================
 
 ## Semaine 1
-### Thème: Bienvenue, et prise en main des outils utilisés dans le MOOC
+### Thème: Bienvenue et prise en main des outils utilisés dans le MOOC
 ### Niveau: BASIC
 
 * w1-s1: Organisation du MOOC

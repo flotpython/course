@@ -39,7 +39,7 @@ Regardons cela
 
 >>>>>>>>>> INCLUDE W9-S2-AV-slide1.pptx (8m40s) <<<<<<<<<<
 
-[s1]
+[s2]
 
 On écrit un décorateur avec la notation arobase (@) suivie du nom du
 décorateur. Ce décorateur doit être collé à la déclaration de la
@@ -53,26 +53,29 @@ Cette notation f = decorateur(f) ne vous rappelle-t-elle pas quelque
 chose que nous avons déjà vu ? Les méthodes statique et les méthodes
 de classe.
 
-[s2]
-
-[[TP si tu veux garder ça tu peu juste le montrer dans
-l'autre sens; d'abord avec @staticmethod et montrer que c'est comme si
-on avait écrit f = staticmethod(f)]]
-
+[s3]
 Imaginons que nous ayons une classe C avec deux methodes f() et g() et
 que nous souhaitions que f soit une méthode de class et g une méthode
-statique. On l'écrirait de la manière suivante.  L'inconvénient est
-que déclarer une méthode comme statique ou de classe change
-complètement son comportement. Or, on peut définir ce changement de
-comportement loin de la déclaration de la méthode. Ça peut être un
-problème par la suite lors de la maintenance du code.
+statique. Avec un décorateur, on peut directement annoter la méthode
+au moment de sa déclaration.
 
-[s3]
+[s4]
+
+Si on n'avait pas cette notation de décorateur, on écrirait ce code de
+la manière suivante.  L'inconvénient est que déclarer une méthode
+comme statique ou de classe change complètement son comportement. Or,
+on peut définir ce changement de comportement loin de la déclaration
+de la méthode. Ça peut être un problème par la suite lors de la
+maintenance du code.
+
+On voit donc que la notion de décorateur supprime ces problèmes. 
+
+[s5]
 
 Avec un décorateur, le changement de comportement est indiqué à la
 déclaration de la méthode. Regardons cela
 
-[s4]
+[s6]
 
 Comme je vous l'ai expliqué en introduction, la notion de décorateur
 regroupe une notation, c'est ce qu'on vient de voir, mais également
@@ -83,7 +86,7 @@ mais l'objet retourné par l'appel decorateur(f)
 
 Regardons maintenant comment on peut implémenter un décorateur.
 
-[s5]
+[s7]
 
 [[TP ce serait bien de glisser à nouveau le mot de protocole callable]]
  
@@ -92,7 +95,7 @@ que l'on peut appeler avec la notation "()". Une fonction est donc un
 objet callable, mais on peut aussi donner le caractère callable à une
 instance de classe, pourvu que la classe implémente la méthode __call__
 
-[s6]
+[s8]
 
 Un décorateur est un callable (une fonction, ou une instance de classe
 qui implémente __call__) qui prend une fonction en argument et qui
@@ -103,7 +106,7 @@ On voit bien que le décorateur doit pouvoir être appelé et doit
 prendre comme argument f, mais pourquoi doit-il retourner un callable
 ?
 
-[s7]
+[s9]
 
 Un callable doit obligatoirement retourner un objet (comme une
 fonction) donc décorateur(f) retourne un objet O. Mais l'utilisateur
@@ -114,7 +117,7 @@ décorateur soit également un callable.
 
 # 4m00
 
-[s8]
+[s10]
 
 Je vous rappelle [qu'un décorateur sert] à ajouter avec une syntaxe
 explicite et une couche de logique avant et après l'appel d'une
@@ -125,10 +128,11 @@ Regardons maintenant un exemple d'implémentation d'un décorateur.
 Pour cette exemple, nous allons implémenter le décorateur comme une
 classe qui a une méthode __call__.
 
-[s9]
+[s11]
 
 [[TP: un détail mais pourquoi tu fais s = f'blabla' puis print(s) et
 pas directement print(f'blabla') ?]]
+[[AL: pour avoir une ligne moins longue]]
 
 supposons que je veuille décorer avec [NbAppel] une fonction pour
 compter le nombre de fois qu'elle est appelé. Cette décoration est
@@ -160,7 +164,7 @@ d'appel retourne le résultat de l'appel de la fonction originale.
 
 # 7m30s
 
-[s10]
+[s12]
 
 regardons maintenant l'exécution de ce décorateur.
 
