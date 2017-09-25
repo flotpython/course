@@ -16,6 +16,7 @@
 # Vidéo 2 (Les chaînes de caractères)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 2
+* todo montrer encodage / décodage sour forme de figure
 * parler des doctring (triple guillemet ou apostrophe)
 * parler des différences entre `isdigit`, `isnumeric`, `isdecimal`
 * parler de `bytearray`
@@ -79,7 +80,8 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ### Compléments Vidéo 4
 
-* **TODO**: faire un complément sur range()
+* TODO faire un complément sur range()
+* TODO un complément sur les mutables avec pythontutor 
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
@@ -102,6 +104,8 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
   plusieurs lignes. Dire que c'est pas une bonne idée de coupée une
   chaine de caractère avec \ en fin de ligne, il vaut mieux faire
   une concaténation.
+
+[[xxx TP: mais mais on n'a pas encore prononcé le mot de tuple ni dict à ce stade ?!?]]
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 

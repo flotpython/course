@@ -52,6 +52,3 @@ log_list = [math.log(x) for x in my_list if x > 1]
 nom = ['alice', 'bob', 'ana', 'bill']
 a_nom = [len(n) for n in nom if n.startswith('a')]
 
-[[TP: je vois pas trop l'intérêt de ce dernier exemple, ça n'apporte rien de nouveau..]] 
-[[AL: j'ai du temps dans cette vidéo et je voulais montrer quelque chose sur
-des chaînes de caractères]]
