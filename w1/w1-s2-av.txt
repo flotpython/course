@@ -351,9 +351,16 @@ bonne cohérence dans le langage.
 
 Voilà j'espère vous avoir convaincu que
 vous avez fait un bon choix en décidant
-d'apprendre python, je vous retrouve
-dans la prochaine vidéo
+d'apprendre python
 
+D'ici la prochaine vidéo vous aurez
+besoin d'installer python puisque nous
+allons commencer à maniper un peu, donc
+à nouveau j'attire votre attention sur
+les compléments où nous vous donnons
+quelques indications pour faire ça
+
+à bientôt
 
 ==========
 ==========
