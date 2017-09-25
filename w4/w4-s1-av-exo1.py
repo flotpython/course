@@ -115,7 +115,7 @@ f(1)
 ## polymorphes. Regardons un exemple
 
 def my_add(a, b):
-    print "j'ajoute", a, "et", b
+    print("j'ajoute", a, "et", b)
     return a + b
 
 my_add(1, 2)
