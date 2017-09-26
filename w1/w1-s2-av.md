@@ -18,7 +18,7 @@ c'est un langage très lisible.
 ========== lisible (1)
 
 Je vais essayer de vous en convaincre
-avec quelques microscopiques petits
+avec quelques petits
 exemples où je compare python avec
 d'autres langages généralistes.
 
@@ -161,7 +161,8 @@ sont arrivées exactement de la même
 façon, les mécanismes d'itération par
 exemple; et quand on décide d'intégrer
 une nouveauté dans le langage, tous les
-moyens sont bons.
+moyens sont bons [[AL: si cette nouveauté
+repond à un besoin pratique important]].
 
 ========== historique
 
@@ -177,7 +178,7 @@ voir avec python-3.6.
 ========== fragment
 
 Comme vous le savez sans doute, il y a
-eu une et une seule rupture de
+eu une seule rupture de
 compatibilité au moment de
 l'introduction de python3. Ça a été
 assez douloureux, on est tous d'accord,
@@ -185,6 +186,9 @@ mais d'un autre coté c'était nécessaire
 car on ne pouvait pas continuer avec
 cette idée qu'un caractère ça tient sur
 un octet.
+
+[AL: tu est sûr que 2.0 pouvait 
+faire tourner du code 1.5?]]
 
 Et si vous regardez les autres langages,
 une seule rupture de compatibilité en
@@ -222,6 +226,7 @@ langage à proprement parler. Il y a
 l'ai dit déjà on en parlera de manière
 opportuniste, mais sachez que cette
 librairie est maintenue indéfiniment
+[[AL: indéfiniment, c'est un peu fort]]
 aussi, c'est ce qui fait la différence
 principale avec d'autres librairies
 tierces, il faut s'en souvenir si la
@@ -236,6 +241,7 @@ code va marcher sur windows, linux et
 mac sans modification. C'est un atout
 appréciable, même si de nos jours ce
 n'est pas très discriminant.
+[[AL: un mot sur raspberryPi?]]
 
 ========== très grosse base de code
 
@@ -276,6 +282,9 @@ Si vous ajoutez à ça:
 des types de base super puissants et
 très efficaces, notamment ceux basés sur
 les tables de hachage, et les tableaux numpy
+[[AL: on pourrait croire que les tableaux
+numpy font partie des types de base, il ne faut pas
+mélanger numpy avec les types de base.]]
 
 ========== fragment
 la gestion de la mémoire qui est faite
@@ -298,6 +307,9 @@ Java. Mais bon d'un autre coté vous
 allez l'écrire beaucoup plus vite;
 est-ce que vous préfèrez économiser les
 cycles processeur ou votre temps à vous?
+
+[[AL: sans doute dire aussi que Python ouvre
+la porte à moins de bugs que C ou C++]]
 
 En plus à nouveau, il y a des tas de
 moyens d'arriver à des performances tout
@@ -324,7 +336,7 @@ commerciales ou non.
 Enfin pour dire un mot de la prise de
 décisions concernant les évolutions du langage:
 
-ça va peut étonner vous étonner mais en
+ça va peut vous étonner mais en
 fait il se passe encore beaucoup de
 choses dans la communauté python, on
 verra ça par exemple dans le module

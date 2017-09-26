@@ -28,6 +28,8 @@ fait partie de la distribution standard.
 Si vous préférez vous pouvez utiliser
 autre chose bien sûr, comme emacs, vim,
 eclipse, mais même dans ce cas il est
+[[AL: ah non, pas eclipse. Si tu cites
+un IDE cite plutot PyCharm]]
 utile que vous sachiez comment
 fonctionne IDLE pour suivre les vidéos
 avec un maximum de confort.
@@ -74,6 +76,9 @@ Si je veux relancer presque la même commande, regardez bien car ça n'est pas t
 ```
 polynome(100)
 ```
+
+[[AL: oui, et comme c'est nul ce rappel de commande
+tu peux proposer de faire un ALT-P et ALT-N également]]
 
 Si maintenant je me trompe, que je fais une faute dans le nom de la fonction, par exemple
 
@@ -175,6 +180,7 @@ polynome(10)
 `polynome is not defined`
 
 pourquoi on fait ça, eh bien en fait c'est simple, lorsque je vais vraiment exécuter ce module factoriel la prochaine fois, puisque polynome ne sera pas défini puisqu'il n'est pas dans le module `fact`.
+[[AL: cette phrase a une syntaxe bizarre]]
 
 donc j'ai perdu `polynome` mais par contre comme j'ai chargé `factoriel` je peux maintenant utiliser `fact` 
 
@@ -278,7 +284,10 @@ def fibo(n):
 ```
 fibo?
 ```
-
+[[AL: je ne suis pas sûr que ça t'avance de perdre du temps à écrire une docstring toi même, 
+importe n'importe quel module, tape le module.[TAB] pour montrer la complétion et module.attr?
+pour montrer l'aide, ça sera plus rapide et plus parlant]]
+[[AL: tu pourrais également juste recommander le lire l'aide intégrée à ipython en tapant simplement ? ]]
 
 ==================== 
 
@@ -305,6 +314,8 @@ variables très courts - pour ne pas passer trop de temps au clavier.
 Nous vous recommandons contrairement à ce qui est fait dans la vidéo,
 de bien prendre l'habitude, et même dans les exercices, d'utiliser des
 identifiants qui soient parlants. 
+[[AL: c'etait vrai dans le mooc Python 2, c'est beaucoup moins vrai
+dans cette edition. Je propose de ne pas parler de ça]]
 
 
 ====================

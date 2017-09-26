@@ -59,6 +59,8 @@ dans la deuxième partie du cours vous
 trouverez des chapitres optionnels, que
 vous pouvez suivre ou non selon votre
 curiosité.
+[[AL: tu pourrais parler des mini
+projets dans la deuxième partie]]
 
 ========== tronc commun
 
@@ -87,7 +89,8 @@ langage, c'est-à-dire:
 
 * une syntaxe conçue pour la lisibilité
 * en python tout est objet
-* la liaison statique
+* la liaison statique [[AL: j'utilise le
+  terme lexicale]]
 * le typage dynamique
 
 et nous insisterons les mécanismes
@@ -246,7 +249,7 @@ compliquée à modifier, je vous invite à
 lire le complément sur ce sujet. 
 
 ========== forum
-pour conslure sur l'organisation du
+pour conclure sur l'organisation du
 mooc, pensez à utiliser le forum, vous
 êtes un grand nombre d'étudiants, il y a
 forcément quelqu'un qui a eu le même
@@ -281,6 +284,13 @@ vous voudrez bien nous excuser si malgré
 ça il reste des traces d'anglais dans le
 cours.
 
+[[AL: peut-être dire aussi que non
+seulement le code mais aussi la doc est
+en anglais, si on utilise un terme
+français très différent de l'anglais, il
+pourrait être difficile de faire une
+recherche sur Internet]]
+
 ========== compléments
 
 Avant de vous retrouver dans la
@@ -291,4 +301,4 @@ les modalités de délivrance des
 attestations.
 
 
-
+[[AL: très clair comme vidéo !]]
