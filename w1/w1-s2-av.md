@@ -160,9 +160,10 @@ python plein d'autres innovations qui
 sont arrivées exactement de la même
 façon, les mécanismes d'itération par
 exemple; et quand on décide d'intégrer
-une nouveauté dans le langage, tous les
-moyens sont bons [[AL: si cette nouveauté
-repond à un besoin pratique important]].
+une nouveauté dans le langage, parce
+qu'on trouve que ça répond à un besoin
+important dans la pratique, tous les
+moyens sont bons
 
 ========== historique
 
@@ -226,7 +227,6 @@ langage à proprement parler. Il y a
 l'ai dit déjà on en parlera de manière
 opportuniste, mais sachez que cette
 librairie est maintenue indéfiniment
-[[AL: indéfiniment, c'est un peu fort]]
 aussi, c'est ce qui fait la différence
 principale avec d'autres librairies
 tierces, il faut s'en souvenir si la
@@ -281,10 +281,7 @@ Si vous ajoutez à ça:
 ========== fragment  
 des types de base super puissants et
 très efficaces, notamment ceux basés sur
-les tables de hachage, et les tableaux numpy
-[[AL: on pourrait croire que les tableaux
-numpy font partie des types de base, il ne faut pas
-mélanger numpy avec les types de base.]]
+les tables de hachage, et en plus les tableaux numpy
 
 ========== fragment
 la gestion de la mémoire qui est faite
@@ -307,9 +304,6 @@ Java. Mais bon d'un autre coté vous
 allez l'écrire beaucoup plus vite;
 est-ce que vous préfèrez économiser les
 cycles processeur ou votre temps à vous?
-
-[[AL: sans doute dire aussi que Python ouvre
-la porte à moins de bugs que C ou C++]]
 
 En plus à nouveau, il y a des tas de
 moyens d'arriver à des performances tout
