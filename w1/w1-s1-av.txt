@@ -194,6 +194,9 @@ du sujet.
 . et enfin vous trouverez 
 quelques exercices autoévalués.
 
+xxx ce serait bien de mettre des copies
+d'écran pour montrer mieux
+
 Les compléments et les exercices ont été
 réalisés sous forme de notebooks avec
 une technologie qui s'appelle maintenant

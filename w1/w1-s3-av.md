@@ -225,9 +225,11 @@ $ cd MOOC/brouillon
 Pour lancer python en mode interactif comme on dit, on le lance sans
 argument comme ceci
 
-$ python 
+```
+$ python
+```
 
-# Taper un truc basique
+ Taper un truc basique
 ```
 3 * 5
 ```
@@ -236,15 +238,47 @@ c'est aussi simple que possible, cela fonctionne presque exactement comme tout
 à l'heure, en plus basique (pas de couleur, d'indentation..)
 
 retaper factoriel 
-montrer qu'on peut remonter dans l'historique cette fois avec les
-fleches
 
-en fait python dans ce mode n'est pas connecté à la souris ni aux menus 
+```
+def fact(n):
+    return 1 if n <= 1 else n * fact(n-1)
+```
+
+montrer qu'on peut remonter dans l'historique cette fois avec **les flêches**
+
+**remplacer 1 par 2**
+
+```
+fact(20)
+```
+
+en fait python dans ce mode n'est pas connecté à la **souris** ni aux **menus**
 
 ```
 exit() 
 ```
 [[ Sortir de python ]]
+
+==================== 
+Je vous montre très rapidement ipython, que l'on va utiliser assez fréquement dans les vidéos; ipython, fonctionnellement c'est comme python, ça tourne dans un terminal et ça répond au fur et à mesure, mais c'est juste plus agréable à utiliser
+
+```
+$ ipython
+```
+
+```
+def fibo(n):
+    return 1 if n <= 1 else return fibo(n-1) + fibo(n-2)
+```
+
+**les flêches**
+
+**ajouter un docstring**
+
+```
+fibo?
+```
+
 
 ==================== 
 
@@ -263,7 +297,7 @@ appeler la fonction
 ***sortir***
 
 ====================
-Voila qui conclut la présentation des deux outils
+Voila qui conclut la présentation de python, ipython et IDLE
 
 J'aimerais attirer votre attention sur le fait que dans les
 vidéos, pour des raisons pratiques, on utilise massivement des noms de
