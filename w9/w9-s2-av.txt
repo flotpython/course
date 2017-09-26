@@ -28,12 +28,12 @@ factorisé.
 
 Nous allons voir dans cette vidéo la notion de décorateur qui est une
 des notions avancées les plus utiles en pratique. Un décorateur est
-une technique de programmation qui permet d'ajouter une couche de
-logique avant l'appel d'une fonction, une couche de logique après
-l'appel [[TP je comprends pas la phrase, tu veux dire quoi ici ?: et de garder de l'état entre deux appels]]. Le décorateur est
-également associé à une notation qui permet de rendre explicite qu'une
-fonction a été décorée, c'est-à-dire qu'on lui a ajouté une couche de
-logique.
+une technique de programmation qui permet suivant le besoin d'ajouter
+une couche de logique avant l'appel d'une fonction, une couche de
+logique après l'appel et de garder de l'état entre deux appels de la
+fonction décorer. Le décorateur est également associé à une notation
+qui permet de rendre explicite qu'une fonction a été décorée,
+c'est-à-dire qu'on lui a ajouté une couche de logique.
 
 Regardons cela
 
@@ -88,7 +88,9 @@ Regardons maintenant comment on peut implémenter un décorateur.
 
 [s7]
 
-[[TP ce serait bien de glisser à nouveau le mot de protocole callable]]
+[[TP ce serait bien de glisser à nouveau le mot de protocole
+callable]]
+[[AL: je ne suis pas sûr d'utiliser ce terme dans ce contexte]]
  
 Commençons par définir la notion de callable. Un callable est un objet
 que l'on peut appeler avec la notation "()". Une fonction est donc un
@@ -119,10 +121,10 @@ décorateur soit également un callable.
 
 [s10]
 
-Je vous rappelle [qu'un décorateur sert] à ajouter avec une syntaxe
-explicite et une couche de logique avant et après l'appel d'une
-fonction avec la possibilité de garder de l'état entre deux
-appels. [[TP ditto]]
+Je vous rappelle [qu'un décorateur sert] suivant le besoin à ajouter
+avec une syntaxe explicite et une couche de logique avant et après
+l'appel d'une fonction avec la possibilité de garder de l'état entre
+deux appels de la fonction décorée.
 
 Regardons maintenant un exemple d'implémentation d'un décorateur.
 Pour cette exemple, nous allons implémenter le décorateur comme une

@@ -21,3 +21,5 @@ bonnes connaissances en Python qui vous permettrons d'appréhender
 les projets les plus complexes. 
 
 Merci de nous avoir suivi durant ce MOOC. Au revoir. 
+
+[ajouter le making of]
