@@ -154,6 +154,7 @@ des arguments qu'on *doit* nommer lors de l'appel
 * parler des ordres des arguments et des ordres des paramètres
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
+
 * `Complement-passage-arguments.ipynb`
 * `Complement-pas-de-valeur-par-defaut-mutable.ipynb`
 * TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...

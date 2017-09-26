@@ -16,7 +16,6 @@
 # Vidéo 2 (Les chaînes de caractères)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 2
-* todo montrer encodage / décodage sour forme de figure
 * parler des doctring (triple guillemet ou apostrophe)
 * parler des différences entre `isdigit`, `isnumeric`, `isdecimal`
 * parler de `bytearray`
@@ -32,7 +31,11 @@
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
-* `raw-strings.ipynb` - backslashes - \n \t
+* xxx `raw-strings.ipynb` - backslashes - \n \t
+   il FAUT le garder pour les vidéos w3-s1 notamment
+* montrer encodage / décodage sous forme de figure
+  en profiter pour introduire le type bytes - on y fait référence dans w3-s1 pour les fichiers binaires
+
 * `Complement-formatage-de-chaines.ipynb` : format et % - je laisse
   tomber rjust/ljust/center pour le moment
 * `Complement-outils-sur-chaines.ipynb` : # `help(str)`  #split join
@@ -131,6 +134,8 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### NIVEAU: BASIC
 ### Compléments Vidéo 6
 Pour mémoire, notebook du précédent MOOC sur Python 2
+
+* xxx montrer range() (les slices ont déjà été vues)
 
 * `Complement-for-sur-plusieurs-variables.ipynb`: affectation a,b dans
   un for, la fonction zip

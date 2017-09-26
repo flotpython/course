@@ -15,7 +15,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * `Complement-format-json-et-autres.ipynb` : parler de json, pickle,
   csv ...
 * `Complement-fichiers-systeme.ipynb` :
-* DROPPED *montrer que sys.stdout n'est q'une variable qui peut référencer un autre fichier.
+* DROPPED *montrer que sys.stdout n'est qu'une variable qui peut référencer un autre fichier.
   Comme print écrit dans sys.stdout, c'est un moyen simple de rediriger
   les print vers un fichier. (c'est très sale cette façon de faire..) 
 
@@ -37,9 +37,17 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * `Complement-tuple-et-virgule.ipynb` : les différentes syntaxes (avec ou sans parenthèses, avec ou sans virgule terminale
+xxx ajouter ceci
+il y a quelques contextes dans lesquels il faut mettre les parenthèses
+x=1,
+type(x)
+type(1,)
+type((1,))
+
 * `Complement-sequence-unpacking.ipynb` :
   a,b = tuple
   je parle aussi de retrouver 3 dans ['abc', [(1,2), ([3], 4)], 5]
+  xxx insister dans le extended unpacking, le fait qu'on peut mettre exactement une variable avec *
 
 ### Quizz Vidéo 2
 Pour mémoire, quizz du précédent MOOC sur Python 2
@@ -61,11 +69,9 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 ### Quizz Vidéo 3
-
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ### Exercices Vidéo 3
-
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
@@ -78,6 +84,10 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 * parler des ordereddict
 * est-ce que ça vaut le coup de parler de ça :
   https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation 
+
+* xxx il faudra vérifier qu'on dit bien quelque part
+  qu'on ne peut pas modifier l'objet d'un for au milieu du for
+  qui s'applique donc au dictionnaire
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
@@ -136,22 +146,26 @@ NOTE TP: cette liste semble concerner la vidéo, je sais pas si ça a été fait
 * expliquer ce qu'est la pile d'exécution
 
 ## Compléments Vidéo 6
-Pour mémoire, notebook du précédent MOOC sur Python 2
+
+sujets possibles:
+
+* module traceback; parler de la pile, montrer comment l'afficher
+  donner la référence de la documentation de toutes les exceptions built-in
+  https://docs.python.org/3/library/exceptions.html#bltin-exceptions
+  et du tutorial Python sur les exceptions
+  https://docs.python.org/3/tutorial/errors.html
+  
+  montrer except Exception as e:
+     comme dernière clause pour tout attraper et montrer alors print_exc()
+
+* assert 
 
 * NICETOHAVE un complement sur le debugger, la pile, traceback, etc.
   la pile; montrer la pile lorsqu'on attrape une exception
   pourquoi ne pas mentionner le debugger ?
-* parler des Warning et du module warning
+
+* NICETOHAVE parler des Warning et du module warning ?
   https://docs.python.org/2.7/library/warnings.html#module-warnings
-* donner la référence de la documentation de toutes les 
-  exceptions built-in https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions
-  et du tutorial Python sur les exceptions
-  https://docs.python.org/2.7/tutorial/errors.html
-
-  en profiter pour signaler les dangers du except sans clause - parler
-  du `print_exc()`
-
-* parler de `assert` 
 
 ### Quizz Vidéo 6
 Pour mémoire, quizz du précédent MOOC sur Python 2

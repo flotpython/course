@@ -91,7 +91,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ### Compléments Vidéo 6
 
- * parler de la notation `110_220_434` (comme séparateur sur les `int` et
+ * xxx parler de la notation `110_220_434` (comme séparateur sur les `int` et
    `float` litteraux)
  * compléments sur les module `decimal`, `fractions` et `math`. Parler de
    `sys.float_info`

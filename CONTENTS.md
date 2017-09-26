@@ -2,14 +2,14 @@ Plan du MOOC sur Python 3
 =================================
 
 ## Semaine 1
-### Thème: Bienvenue et prise en main des outils utilisés dans le MOOC
+### Thème: Introduction au MOOC et aux outils Python
 ### Niveau: BASIC
 
 * w1-s1: Organisation du MOOC
-* w1-s2: Pourquoi Python 3
+* w1-s2: Pourquoi Python ?
 * w1-s3: Interpréteur et IDLE
 * w1-s4: Les notebooks
-* w1-s5: Introduction aux notions de variables, objets et typage dynamique
+* w1-s5: Notions de variables, objets et typage dynamique
 * w1-s6: Les types numériques 
 
 
@@ -17,12 +17,11 @@ Plan du MOOC sur Python 3
 ### Thème: Notions de base pour écrire son premier programme en Python
 ### Niveau: BASIC
 
-* w2-s0: Présentation de la deuxième semaine
-* w2-s1: Codage, jeux de caractères et unicode
+* w2-s1: Codage, jeux de caractères et Unicode
 * w2-s2: Les chaînes de caractères
 * w2-s3: Les séquences
 * w2-s4: Les listes
-* w2-s5: Introduction aux tests if/else et aux conventions de codage
+* w2-s5: Introduction aux tests if et à la syntaxe
 * w2-s6: Introduction aux boucles for et aux fonctions
 * w2-s7: Introduction aux compréhensions de listes
 * w2-s8: Introduction aux modules
@@ -32,7 +31,6 @@ Plan du MOOC sur Python 3
 ### Thème: Renforcement des notions de base, références partagées
 ### Niveau: BASIC, sauf w3-s8 INTERMÉDIAIRE
 
-* w3-s0: Présentation de la troisième semaine
 * w3-s1: Les fichiers
 * w3-s2: Les tuples
 * w3-s3: Tables de hash
@@ -47,10 +45,9 @@ Plan du MOOC sur Python 3
 ### Thème: Fonctions et portée des variables
 ### Niveau: BASIC
 
-* w4-s0: Présentation de la quatrième semaine
 * w4-s1: Fonctions
-* w4-s2: Les tests if/elif/else et les opérateurs booléens
-* w4-s3: Boucle while
+* w4-s2: Tests if/elif/else et opérateurs booléens
+* w4-s3: Boucles while
 * w4-s4: Portée des variables dans les fonctions: règle LEGB
 * w4-s5: Modification de la portée avec global et nonlocal
 * w4-s6: Passage d'arguments et appel de fonctions
@@ -60,26 +57,24 @@ Plan du MOOC sur Python 3
 ### Thème: Itération, importation et espace de nommage
 ### Niveau: BASIC
 
-* w5-s0: Présentation de la cinquième semaine
 * w5-s1: Itérable, itérateur, itération
 * w5-s2: Objet fonction, fonction lambda, map et filter
 * w5-s3: Compréhension de listes, sets et dictionnaires
 * w5-s4: Expressions et fonctions génératrices
 * w5-s5: Modules et espaces de nommage
 * w5-s6: Processus d'importation des modules
-* w5-s7: Impact de l'importation des modules sur les espaces de nommage
+* w5-s7: Importation des modules et espaces de nommage
 
 
 ## Semaine 6 
 ### Thème: Conception des classes
 ### Niveau: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
 
-* w6-s0: Présentation de la sixième semaine
 * w6-s1: Classes, instances et méthodes
 * w6-s2: Méthodes spéciales
 * w6-s3: Héritage
 * w6-s4: Héritage multiple et ordre de résolution des attributs
-* w6-s5: Définition et référencement des variables et des attributs
+* w6-s5: Variables et attributs
 * w6-s6: Conception d'itérateurs
 * w6-s7: Conception d'exceptions personnalisées
 * w6-s8: Conception de context manager
@@ -102,20 +97,16 @@ pense qu'elle a raison et que ça
 fluidifiera le tout.
 
 
-* w7-s0: présentation de la septième semaine
-* w7-s1: pourquoi numpy
-* w7-s2: survol des différents outils
-         (numpy, pandas, matplotlib, scikitlearn, scipy)
-* w7-s3: numpy
-* w7-s4: pandas
-* w7-s5: matplotlib
+* w7-s1: introduction, survol des différents outils
+* w7-s2: numpy
+* w7-s3: pandas
+* w7-s4: matplotlib
 
 
 ## Semaine 8
 ### Thème: Programmation asynchrone - asyncio
 ### Niveau: AVANCÉ
 
-* w8-s0: Présentation de la huitième semaine
 * w8-s1: Programmation asynchrone
 * w8-s2: Quelques exemples simples
 * w8-s3: asyncio : historique et écosystème
@@ -124,18 +115,16 @@ fluidifiera le tout.
 * w8-s6: Boucles d'événements
 * w8-s7: Tâches et exceptions
 * w8-s8: La librairie asyncio
-* w8-s9: Bonnes pratiques (écrite mais peut-être inutile)
+* w8-s9: Bonnes pratiques 
 
 
 ## Semaine 9
 ### Thème: Sujets avancés
 ### Niveau: AVANCÉ
 
-* w9-s0: Présentation de la neuvième semaine
 * w9-s1: Méthodes statiques et de classe
 * w9-s2: Les décorateurs
-* w9-s3: La gestion avancée des attributs
-	* property et descripteurs 
+* w9-s3: property et descripteurs 
 * w9-s4: Les métaclasses
 * w9-s5: Conclusion du MOOC
 

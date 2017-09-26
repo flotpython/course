@@ -6,19 +6,25 @@ cette semaine nous allons voir une
 introduction à cette énorme famille
 d'outils qui gravitent autour de python
 et qui ont à voir de près ou de loin
-avec le calcul scientifique, ou comme on
+avec le **calcul scientifique**, ou comme on
 dit maintenant le data science.
 
 je précise tout de suite que, bien
-évidemment, c'est un sujet très très
-vaste qui pourrait sans problème occuper
+évidemment, c'est un sujet **très très
+vaste** qui pourrait sans problème occuper
 un mooc de plusieurs semaines
 
-donc nous nous allons faire seulement un
-rapide survol, notre objectif c'est
-d'abord que vous sachiez que ça existe,
-comment ça s'articule par rapport aux
-types de base et autres notions python
+En ce qui nous concerne ici et dans cette édition en tous cas, 
+nous allons nous contenter d'effleurer trois outils qui sont 
+
+* numpy
+* matplotlib
+* et pandas
+
+notre objectif c'est d'abord que vous
+sachiez **que ça existe**, et que vous voyiez
+bien comment ça s'articule **par rapport aux
+types de base** et autres notions python
 qu'on a vus jusqu'ici. Comme ça on
 pourra gratter la surface avec quelques
 exemples simples, à vous ensuite de
@@ -115,36 +121,28 @@ et on a déclaré aussi la dimension du tableau
 ce qui fait qu'on peut typiquement
 implémenter un tableau comme ceci
 
-========== animatino
+========== animation
 
------ space
-je connais la taille du tableau 
------ space  
-je connais la taille de chaque cellule,
-parce que le tableau est homogène
------ space 
-donc au lieu de mettre mes cellules
-n'importe où,
------ space 
-je vais prendre un espace mémoire
-contigü
------ space  
-et ranger les éléments du tableau en
-ordre croissant
------ space 
------ space 
-et du coup quand je vais vouloir accéder
+* je connais la taille du tableau 
+* je connais la taille de chaque cellule,
+  parce que le tableau est homogène
+* donc au lieu de mettre mes cellules
+  n'importe où
+* je vais prendre un espace mémoire
+  contigü
+* et ranger les éléments du tableau en
+  ordre croissant
+* space
+* et du coup quand je vais vouloir accéder
 à un élément à partir de ses indices
 ligne et colonnes, je peux appliquer une
 formule simple, qui dépend seulement de
 la taille du tableau
------ space 
------ space 
+* space
 qui me donne directement accès à la case
 qui m'intésse.
-
------ space ...
-aussi et surtout, lorsque je vais
+* ...
+* aussi et surtout, lorsque je vais
 vouloir passer sur tout mon tableau
 pour, par exemple, appliquer la même
 fonction à toutes les cellule, avec
@@ -219,15 +217,18 @@ ou autre.]]
 
 ========== fragment
 
-maintenant je regarde combien de temps
+maintenant je vais calculer **le cosinus de tous ces nombres**.
+j'ai pris cosinus au hasard bien sûr, mais c'est très très fréquent qu'on ait besoin d'appliquer la même fonction à tous les éléments d'un tableau.
+
+je regarde combien de temps
 ça prend de calculer tous les
-cosinus, je commence par la version en
+cosinus, et je commence par la version en
 python pur avec la liste
 
 ========== run cell
 
 Pour comparer des choses comparables je
-rassemble les résultats dans une compréhension
+rassemble les résultats dans une **compréhension**
 
 donc à peu près 1.2ms pour cette version
 
@@ -359,18 +360,32 @@ calculer un indice, donc comme tout à
 l'heure l'indice 1,2 se traduit en 6
 
 ----- = 600
+
 et donc j'écris la valeur 600
+
 ----- <ecrit 600>
+
 à cet endroit du buffer
 
 si bien qu'ensuite
+
 ---- b[3, 0]
+
 b voit le buffer modifié, ça fait un
 effet de bord exactement comme avec les
 références partagées de liste ou de
 dictionnaires.
 
 ----- close animation
+
+Je n'en dis pas plus ici à propos de numpy.
+
+
+========== matplotlib
+
+En complément de numpy, nous verrons aussi bien sûr matplotlib
+
+
 
 ========== slide conclusion
 
