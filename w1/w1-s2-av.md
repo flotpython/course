@@ -27,7 +27,7 @@ d'autres langages généralistes.
 Je commence avec C++; bon tous ces
 exemples sont uniquement à titre
 indicatif, je ne voudrais pas non plus
-déclencher une tempête sur le forum, je
+déclencher une avalanche sur le forum, je
 veux simplement illustrer mon propos.
 
 Donc voici la forme générale d'un
@@ -48,7 +48,7 @@ begin/end, la syntaxe repose uniquement
 sur la présentation.
 
 Ici vous voyez par exemple que les
-appels a print() et a manage() ont la
+appels a `print()` et a `manage()` ont la
 même indentation, ça suffit pour que un
 humain voie immédiatement la logique, et
 c'est aussi comme ça que marche le langage.
@@ -96,7 +96,7 @@ en python ça donne ceci
 
 ici encore vous voyez que la version
 python est plus dépouillée, ce qui la
-rend, à mon avis en tous cas, plus
+rend, à mon avis, plus
 expressive et plus facile à lire.
 
 Bon à nouveau, j'admets volontiers que

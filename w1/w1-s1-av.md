@@ -40,9 +40,6 @@ j'indiquerai dans un complément ce que
 vous perdez si vous utilisez une version
 plus ancienne de python3.
 
-NOTE: 3.6 : released déc. 2016;
-      3.7 : scheduled juin 2018
-
 ========== 2 grandes parties
 
 Le cours est organisé en deux grandes
@@ -69,14 +66,15 @@ pour donner un peu plus de détails, le
 tronc commun couvre tous les traits du
 langage qui sont d'une utilisation
 courante, c'est-à-dire qu'on va
-. commencer par les types de
+
+* commencer par les types de
 base,
-. on verra les fonctions et les
+* on verra les fonctions et les
 structures de contrôle
-. on parlera du système de
+* on parlera du système de
 modules qui permet de rendre le code
 réutilisable,
-. et enfin on finira par les classes qui
+* et enfin on finira par les classes qui
 permettent la programmation orientée
 objet. 
 
@@ -87,10 +85,10 @@ sur les grands choix qui
 ont été faits par les concepteurs du
 langage, c'est-à-dire:
 
-. une syntaxe conçue pour la lisibilité
-. en python tout est objet
-. la liaison statique
-. le typage dynamique
+* une syntaxe conçue pour la lisibilité
+* en python tout est objet
+* la liaison statique
+* le typage dynamique
 
 et nous insisterons les mécanismes
 généraux comme les mille et une façons
@@ -100,6 +98,7 @@ presque partout dans le langage.
 
 
 ========== modules optionnels
+
 s'agissant maintenant des modules
 optionnels, à partir donc de la 7ème
 semaine, nous vous proposons
@@ -147,10 +146,10 @@ optionnels, avec le tronc commun vous
 aurez un bagage suffisant pour vous
 permettre
 
-. d'une part d'écrire un code
+* d'une part d'écrire un code
 propre et lisible,
 
-. d'autre part de 
+* d'autre part de 
 comprendre le code que vous serez amenés
 à lire
 je vous conseille d'ailleurs de saisir
@@ -158,7 +157,7 @@ toutes les occasions pour lire du code,
 c'est comme une langue étrangère, c'est
 en lisant qu'on apprend le plus.
 
-. et enfin pour vous permettre
+* et enfin pour vous permettre
 d'appréhender et d'utiliser au mieux une
 librairie tierce dont vous pourriez
 avoir besoin.
@@ -175,11 +174,11 @@ de manière opportuniste.
 en termes de supports pédagogiques,
 chaque semaine vient avec naturellement
 
-. un ensemble de vidéos, c'est selon les
+* un ensemble de vidéos, c'est selon les
 semaines mais en général de l'ordre de
 8.
 
-. cela dit dans une vidéo on ne peut pas
+* cela dit dans une vidéo on ne peut pas
 vraiment faire le tour de la question,
 donc pour approfondir vous trouverez
 souvent des compléments, j'attire votre
@@ -188,14 +187,14 @@ compléments car la vidéo toute seule en
 général ne fait que gratter la surface
 du sujet.
 
-. bien entendu il y aura également des
+* bien entendu il y aura également des
   quiz
 
-. et enfin vous trouverez 
+* et enfin vous trouverez 
 quelques exercices autoévalués.
 
-xxx ce serait bien de mettre des copies
-d'écran pour montrer mieux
+***xxx ce serait bien de mettre des copies
+d'écran pour montrer mieux***
 
 Les compléments et les exercices ont été
 réalisés sous forme de notebooks avec
