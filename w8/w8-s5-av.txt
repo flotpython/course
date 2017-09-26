@@ -202,7 +202,7 @@ du coup l'on peut faire autre chose
 lorsqu'on envoie le deuxième send, la
 pile est restaurée exactement dans
 l'état où elle était - à nouveau comme
-un générateur trditionnel - w1 se
+un générateur traditionnel - w1 se
 poursuit après le yield, retourne à w2
 la valeur 1, se fait dépiler, puis dans le
 code de w2 il y a un second appel à w1()
