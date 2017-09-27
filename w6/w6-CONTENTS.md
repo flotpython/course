@@ -1,6 +1,3 @@
-## Vidéo 0 (Présentation de la sixième semaine)
-
-
 ## Vidéo 1 (Classes, instances et méthodes)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 1
@@ -40,7 +37,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 Pour mémoire, notebook du précédent MOOC sur Python 2
 * s6-c1-surcharge-operateurs-1.ipynb
 
-* parler des fallback 
+* parler des fallback
  * Itération : __iter__ puis __getitem__
  * in :  __contains__ puis __iter__ puis __getitem__
  *     Test vrai/faux : __nonzero__ puis __len__ (faux si __len__ retourne 0)
@@ -101,7 +98,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 5
 
 Pour mémoire, exercices du précédent MOOC sur Python 2
-   
+
 * proposer quelques exercices un peu vicieux (avec des imports, des
      classes, des fonctions englobantes, etc.)
 
@@ -129,7 +126,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
      https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager
      pour faire une contexte manager avec un décorateur et une
      fonction génératrice
-  
+
    * parler de
      https://docs.python.org/3/library/contextlib.html#contextlib.ContextDecorator
      peut-être n'en parler que lorsque nous parlerons des décorateurs.
@@ -140,7 +137,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
      https://www.python.org/dev/peps/pep-0343/
 
    Pour mémoire, notebook du précédent MOOC sur Python 2
-   
+
    * en complément introduire le module logging (ça va bien ici, mais
      si ça fait trop de compléments, on peut le bouger en semaine 6 ou
      7) avec les références

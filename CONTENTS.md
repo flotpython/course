@@ -21,8 +21,8 @@ Plan du MOOC sur Python 3
 * w2-s2: Les chaînes de caractères
 * w2-s3: Les séquences
 * w2-s4: Les listes
-* w2-s5: Introduction aux tests if et à la syntaxe
-* w2-s6: Introduction aux boucles for et aux fonctions
+* w2-s5: Introduction aux tests `if` et à la syntaxe
+* w2-s6: Introduction aux boucles `for` et aux fonctions
 * w2-s7: Introduction aux compréhensions de listes
 * w2-s8: Introduction aux modules
 
