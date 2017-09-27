@@ -35,12 +35,15 @@ g(1, 2, 3)
 
 L = []
 
-def add_1(a):
+def add_1(a): # fonction a effet de bord, bien le documenter, montrer list.sort?
     a.append(1)
 
-print L
+print(L)
 add_1(L)
-print L
+print(L)
+
+L = [1, 2]
+add_1(L[:]) # par contre, pas de retour de la fonction, donc aucun effet. 
 
 ## une référence vers la liste L a été passé à la fonction add_1, la
 ## fonction a modifié en place la liste, donc en sortie de la fonction
@@ -58,11 +61,12 @@ print L
 print add_1(L)
 
 def add_1(a):
+	a = a[:]
     a.append(1)
     return a
 
-x = add_1(L)
-print(x)
+L = add_1(L)
+print(L)
 
 ## Return peut appaître n'importe ou dans une fonction et
 ## il peut même y avoir plusieurs return. Cependant, le
@@ -75,7 +79,7 @@ def f(a, b, c):
     else:
         return c
 
-print f(1, 11, 2)
+print(f(1, 11, 2))
 
 ################################ 1m45s (cumul: 4m30s) ################
 
@@ -91,22 +95,20 @@ print f(1, 11, 2)
 ## implémenté plus tard.  regardons un exemple.
 
 def f(a):
-    func(a)
+    g(a)
 
 print(f) # on a bien un objet fonction
 #f(1)   # mais on a une exception lors de l'appel puisque func
         # n'existe pas encore. 
 
-def func(a):
+def g(a):
     print(a)
 
 f(1)
 
 ################################ 1m30s (cumul: 6m00s) ################
 
-## Pour finir, je vais vous parler de polymorphisme. J'ai
-## horreur de ce mot pédant qui m'a effrayé lorsque j'ai
-## découvert la programmation objet, alors qu'il
+## Pour finir, je vais vous parler de polymorphisme qui
 ## représente un concept tout simple.
 
 ## Une fonction est polymorphe lorsqu'elle accepte en argument
@@ -115,7 +117,7 @@ f(1)
 ## polymorphes. Regardons un exemple
 
 def my_add(a, b):
-    print("j'ajoute", a, "et", b)
+    print(f"j'ajoute{a} et {b}")
     return a + b
 
 my_add(1, 2)
