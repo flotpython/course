@@ -27,9 +27,7 @@ fait partie de la distribution standard.
 
 Si vous préférez vous pouvez utiliser
 autre chose bien sûr, comme emacs, vim,
-eclipse, mais même dans ce cas il est
-[[AL: ah non, pas eclipse. Si tu cites
-un IDE cite plutot PyCharm]]
+pycharm, spyder, mais même dans ce cas il est
 utile que vous sachiez comment
 fonctionne IDLE pour suivre les vidéos
 avec un maximum de confort.
@@ -86,18 +84,31 @@ Si maintenant je me trompe, que je fais une faute dans le nom de la fonction, pa
 polynom(20)
 ```
 
-j'obtiens un message d'erreur. Dans ce cas précis le système envoie ce qu'on appelle un exception, naturellement on en reparlera 
+j'obtiens un message d'erreur. Dans ce
+cas précis le système envoie ce qu'on
+appelle un exception, naturellement on
+en reparlera
 
-mais remarquez que le message essaie de donner le maximum d'informations sur l'endroit où s'est produit le souci
+mais remarquez que le message essaie de
+donner le maximum d'informations sur
+l'endroit où s'est produit le souci
 
 *****
-je vous montre aussi rapidement comment obtenir un peu d'aide. Je commence par importer le module mathématique - là encore je suis obligé d'utiliser des notions que l'on verra bien plus en détails par la suite, ne vous en faites pas
+
+je vous montre aussi rapidement
+comment obtenir un peu d'aide. Je
+commence par importer le module
+mathématique - là encore je suis obligé
+d'utiliser des notions que l'on verra
+bien plus en détails par la suite, ne
+vous en faites pas
 
 ```
 import math
 ```
 
-alors sur cet objet math, on verra que ça s'appelle un module, je peux pour commencer voir ce qu'il y a dedans avec la fonction `dir` 
+alors sur cet objet math, on verra que ça s'appelle un module,
+je peux pour commencer voir ce qu'il y a dedans avec la fonction `dir` 
 
 ```
 dir(
@@ -265,8 +276,15 @@ exit()
 ```
 [[ Sortir de python ]]
 
-==================== 
-Je vous montre très rapidement ipython, que l'on va utiliser assez fréquement dans les vidéos; ipython, fonctionnellement c'est comme python, ça tourne dans un terminal et ça répond au fur et à mesure, mais c'est juste plus agréable à utiliser
+====================
+
+Je vous montre très rapidement ipython,
+que l'on va utiliser assez fréquement
+dans les vidéos; ipython,
+fonctionnellement c'est comme python, ça
+tourne dans un terminal et ça répond au
+fur et à mesure, mais c'est juste plus
+agréable à utiliser
 
 ```
 $ ipython
@@ -280,6 +298,11 @@ def fibo(n):
 **les flêches**
 
 **ajouter un docstring**
+
+
+```
+fib[TAB]
+```
 
 ```
 fibo?

@@ -328,75 +328,76 @@ pour bien comprendre ce qui se passe, je
 vous ai préparé une animation, je rejoue
 exactement le même scénario, alors
 lorsque je crée mon tableau en fait je
-crée deux choses distinctes, d'abord une
-zone de mémoire contigüe, dans laquelle
+crée deux choses distinctes, 
+
+* d'abord une zone de **mémoire contigüe**, dans laquelle
 vont se trouver les données bien sûr,
 mais aussi
------
-un objet tableau aui est en fait une vue
-vers ce buffer; pour dire les choses
-autrement le tableau voit les données du
-buffer au travers de sa géométrie.
+* un objet tableau qui est en fait une vue
+vers ces données; le tableau voit les données
+au travers de sa géométrie - et du type.
 
-et donc lorsque je crée l'objet b
------
-ce que je fais c'est uniquement de créer
+  et donc lorsque je crée l'objet b
+
+* ce que je fais c'est uniquement de créer
 une autre vue sur le même buffer, avec
 une autre géométrie.
 
 donc j'insiste bien, on pourrait penser
 que c'est spécifique à l'utilisation de
-reshape, mais non, c'est vraiment une
+`reshape`, mais non, c'est vraiment une
 caractéristique profonde des tableaux
 numpy, c'est vraiment important de bien
 voir ça avant de commencer, ça évite
 bien des confusions.
 
------ a[1, 2]
-
-et donc ensuite, quand on cherche
-dans a on utilise la géométrie de a pour
+* ----- a[1, 2]
+  
+  et donc ensuite, quand on cherche
+a[1, 2] on utilise la géométrie de a pour
 calculer un indice, donc comme tout à
 l'heure l'indice 1,2 se traduit en 6
 
------ = 600
+* ----- = 600
 
-et donc j'écris la valeur 600
+  et donc j'écris la valeur 600
 
------ <ecrit 600>
+* à cet endroit du buffer
 
-à cet endroit du buffer
+  si bien qu'ensuite
 
-si bien qu'ensuite
+* ---- b[3, 0]
 
----- b[3, 0]
-
-b voit le buffer modifié, ça fait un
+  b voit le buffer modifié, ça fait un
 effet de bord exactement comme avec les
 références partagées de liste ou de
 dictionnaires.
 
 ----- close animation
 
-Je n'en dis pas plus ici à propos de numpy.
+Je n'en dis pas plus ici à propos de numpy, je vous donne rendez-vous dans la deuxième séquence pour approfondir le sujet sous forme de notebooks.
 
 
-========== matplotlib
+---------- `pandas`
 
-En complément de numpy, nous verrons aussi bien sûr matplotlib
+Ensuite nous regarderons la librairie pandas, qui est également un outil extêmement utilisé. Le type central de pandas s'appelle le dataframe, vous pouvez le voir un peu comme un tableau excel sur stéroïdes, car il permet de faire d e manière très efficace, le chargement de données, l'indexation dans tous les sens de lignes et de colonnes, et même des opérations qui se rapprochent des bases de données comme des join ou des group-by. 
 
+Je vous invite donc à lire les notebooks de la troisième séquence de cette semaine.
+
+========== `matplotlib`
+
+Enfin, en complément de numpy, nous verrons aussi bien sûr matplotlib, je vous montre très rapidement deux figures obtenues avec matplotlib, c'est un outil très puissant, on en verra quelques exemples dans les notebooks de la quatrième et dernière séquence.
 
 
 ========== slide conclusion
 
-bon voila je vais en rester la pour
-cette vidéo, j'espère vous avoir fait
+bon voila je vais en rester la, ce sera la seul vidéo de cette semaine, j'espère vous avoir fait
 bien sentir les motivations qui sont
 derrière les tableaux numpy, qui sont je
 le répète omniprésents dans toutes les
 librairies scientifiques au sens large.
 
-motivations qui sont d'améliorer très
+Motivations qui sont d'améliorer très
 sensiblement les performances, notamment
 par une meilleure utilisation de la
 mémoire, au prix d'une légère limitation
@@ -407,13 +408,6 @@ fait acceptable dans ce contexte.
 
 ========== fragment
 
-je pense que vous avez par ailleurs bien
-compris que les tableaux numpy, comme
-les listes et les dictionnaires, sont
-sujets à références partagées, d'une
-manière un peu surprenante au début,
-mais une fois qu'on a compris que la
-géométrie fait partie de la vue, tout
-devient beaucoup plus simple.
+et je vous invite à finir la semaine dans les compléments au format notebook, sachant que dans ce domaine pratiquement toutes les publications se font maintenant sous forme de notebook.
 
-à bientôt 
+à bientôt

@@ -1,6 +1,3 @@
-## Vidéo 0 (Présentation de la deuxième semaine)
-
-
 ## Vidéo 1 (Codage, jeux de caractères et unicode)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 1
@@ -13,7 +10,7 @@
 ### Exercices Vidéo 1
 
 
-# Vidéo 2 (Les chaînes de caractères)
+## Vidéo 2 (Les chaînes de caractères)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 2
 * parler des doctring (triple guillemet ou apostrophe)
@@ -63,19 +60,19 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Compléments Vidéo 3
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
-* `Complement-slices.ipynb` : reprend le slicing 
+* `Complement-slices.ipynb` : reprend le slicing
 
 ### Quizz Vidéo 3
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 * `W2-S3-E1-generic-slicing.quiz` : opérations génériques sur les
-  séquences en prenant une str comme exemple 
+  séquences en prenant une str comme exemple
 
 ### Exercices Vidéo 3
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 * `Exercice-slicing.ipynb`: un peu de slicing, et des indices
-  négatifs, le slicing avec pas, utilisation de la longueur 
+  négatifs, le slicing avec pas, utilisation de la longueur
 
 
 ## Vidéo 4 (Les listes)
@@ -84,12 +81,12 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Compléments Vidéo 4
 
 * TODO faire un complément sur range()
-* TODO un complément sur les mutables avec pythontutor 
+* TODO un complément sur les mutables avec pythontutor
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * `Complement-listes.ipynb`: un complément sur les méthodes des listes
-* `Complement-tris-de-listes-1.ipynb` : sort avec les paramètres reverse, et sur des strings 
+* `Complement-tris-de-listes-1.ipynb` : sort avec les paramètres reverse, et sur des strings
 
 ### Quizz Vidéo 4
 Pour mémoire, quizz du précédent MOOC sur Python 2
@@ -100,7 +97,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
-## Vidéo 5 (Introduction aux tests if/else et aux conventions de codage)
+## Vidéo 5 (Introduction aux tests `if` et à la syntaxe)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 5
 * faire un complément sur des list, tuple, dict, fonction sur
@@ -117,7 +114,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * `Complement-indentations.ipynb` : imbrications, espaces vs
   tabulations, utilisez des indentations de 4 espaces
 * `Complement-if-comme-expression.ipynb`: return 0 if n<=1 else
-  n*factoriel (n-1) 
+  n*factoriel (n-1)
 *  `Complement-presentation.ipynb`
 *  `Complement-instruction-pass.ipynb`
 * présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
@@ -130,7 +127,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 
-## Vidéo 6 (Introduction aux boucles for et aux fonctions)
+## Vidéo 6 (Introduction aux boucles `for` et aux fonctions)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 6
 Pour mémoire, notebook du précédent MOOC sur Python 2
@@ -148,7 +145,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * Arnaud : ajouter sur les conventions de style: un espace après les
   virgules, en espace avant et après les opérateurs
   (a = f(1, 2) + g(3, 4)), un saut
-  de ligne pour séparer les bloc d'instructions et les fonctions. 
+  de ligne pour séparer les bloc d'instructions et les fonctions.
 
 
 ### Quizz Vidéo 6
@@ -187,7 +184,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * `Complement-recapitulatif-import.ipynb` : pourquoi il ne faut pas
   utiliser import *
 * `Complement-module-collections.ipynb`: des variantes utiles aux
-  types de base 
+  types de base
 
 ### Quizz Vidéo 8
 Pour mémoire, quizz du précédent MOOC sur Python 2
@@ -195,5 +192,4 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 8
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
-* `Exercice-decode-zen.ipynb` : décoder le zen de python à partir de this (de import this) 
-
+* `Exercice-decode-zen.ipynb` : décoder le zen de python à partir de this (de import this)

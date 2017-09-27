@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # -*- eval: (auto-fill-mode 0) -*-
 
-## Vidéo 0 (Présentation de la neuvième semaine)
-
 ## Vidéo 1 (Méthodes statiques et de classe)
 ### NIVEAU: AVANCÉ
 ### Compléments Vidéo 1
@@ -26,7 +24,7 @@
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * OK (S2-C1-)Complement-decorateurs.ipynb
-* les exemples pratiques que tu as déjà faits. 
+* les exemples pratiques que tu as déjà faits.
 * (initialement avec les context managers) : montrer cet exemple et
   le comparer avec les décorateur
 
@@ -62,7 +60,7 @@ with Timer() as t:
    * parler de data et non-data descripteur
    * expliquer comment rendre un descripteur read-only
      (AttributeError) dans la méthode __set__
-   
+
 ### Quizz Vidéo 3
 ### Exercices Vidéo 3
 
@@ -83,5 +81,3 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Compléments Vidéo 5
 ### Quizz Vidéo 5
 ### Exercices Vidéo 5
-
-

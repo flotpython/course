@@ -1,25 +1,18 @@
-# -*- coding: utf-8 -*-
-# -*- eval: (auto-fill-mode 0) -*-
-
-
-## Vidéo 0 (Présentation de la cinquième semaine)
-
-
 ## Vidéo 1 (Itérable, itérateur, itération)
 ### NIVEAU: BASIC
-### 
+###
 ### Compléments Vidéo 1
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
    * OK Complement-instructions-break-et-continue.ipynb
-   * OK Complement-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
+   * OK Complement-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for
    * ONGOING Complement-variables-de-boucle.ipynb  
-   * OK Complement-iterateurs-et-performances.ipynb: 
+   * OK Complement-iterateurs-et-performances.ipynb:
    * OK Complement-iterable-vs-iterateur.ipynb: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
 
    * BOF : je laisse tomber tout ca pour l'instant
-     -voir le else du for 
+     -voir le else du for
      -présenter la méthode built-in iter() en expliquant que comme
      __iter__() est une méthode Python privée, on ne doit pas l'appeler
      		directement dans un programme, on doit utiliser la built-in iter()
@@ -28,7 +21,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Quizz Vidéo 1
 ## Exercices Vidéo 1
    Pour mémoire, exercices du précédent MOOC sur Python 2
-   
+
    * OK W3-S8-E1-iterables.quiz
    * NICETOHAVE: W3-S8-E2-for.ipynb: des exercices sur des fors un peu torturés  
 
@@ -37,22 +30,22 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### NIVEAU: BASIC
 ### Compléments Vidéo 2
 
-* parler de la librairie functools 
+* parler de la librairie functools
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * OK Complement-fonctions.ipynb
 * DROPPED *voir exec et eval. Ça n'est pas en lien direct, mais il faut
      le voir et il y a peu de compléments pour cette vidéo alors
-     autant le placer ici. 
+     autant le placer ici.
 
 ## Quizz Vidéo 2
 
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 * NICETOHAVE W4-S3-E1-functions.quiz
-* comparer def et lambda 
-* comparer map/filter 
+* comparer def et lambda
+* comparer map/filter
 
 ## Exercices Vidéo 2
 
@@ -69,7 +62,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * OK Complement-comprehensions-imbriquees.ipynb compréhensions
   multiples
-   
+
 * DROPPED Comparer la performance des boucles for, de map, de la
   compréhension. - pas le temps S'inspirer de :
      http://www-sop.inria.fr/members/Arnaud.Legout/EDU/Python/performanceFonctions2.py
@@ -88,8 +81,8 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 ### Compléments Vidéo 4
 
 * Parler de la délégation avec yield from et du refactoring de
-  générateur 
-   
+  générateur
+
 * Ça serait sympa de concevoir des générateurs utiles que l'on chaine
   en fonction de traitements à faire.
 
@@ -120,14 +113,14 @@ On pourrait faire un complément très simple avec des règles de
    peuvent être grandement simplifié par la librairie Collections
 
 
-   
+
 * illustrer le gain de performance entre une boucle for sur des
      indices (à la Java), une comprréhension, une expression
      génératrice
-     
+
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
-* OK (S1-C1-)Complement-expressions-generatrices.ipynb 
+* OK (S1-C1-)Complement-expressions-generatrices.ipynb
 
 * parler des expressions génératrice et de leur intérêt (faible occupation
      mémoire) (x**6 + 3*x for x in xrange(100000000))
@@ -141,7 +134,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
   timeit pour montrer que les expressions génératrices sont un peu plus
   lente que les compréhensions, mais que lorsqu'on arrive à des
   très grosses listes, l'allocation mémoire et le swap disque font
-  que les générateurs sont beaucoup plus rapides. 
+  que les générateurs sont beaucoup plus rapides.
 
 
 ## Quizz Vidéo 4
@@ -156,12 +149,12 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
    Parler de  dict, globals(), locals(), var(), dir() et en
    particulier montrer comment on peut explorer les espaces de
    nommages des fonctions et des objets.
-   
+
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * OK Complement-attributs.ipynb
 * OK Complement-fonctions-globals-et-locals.ipynb
-   
+
 * DROPPED parler de l'impossibilité de faire __dict__ du module
      courant (en particulier du prompt interactif) et expliquer que
      l'on ne peut y accéder que depuis sys.modules[__name__].__dict__
@@ -221,9 +214,9 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * OK `Complement-import.ipynb`
    avancé
    . en profiter pour mentionner sys.modules
-   . parler de sys.builtin_module_names et de, par exemple, math 
+   . parler de sys.builtin_module_names et de, par exemple, math
    et sys, qui sont des modules built-in implémentés en C pour
-   des questions de vitesse. 
+   des questions de vitesse.
 
 * NICETOHAVE
    montrer que si bar importe foo et que foo importe sys, alors bar peut accéder à foo.sys
@@ -266,4 +259,3 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ### Exercices Vidéo 7
 Pour mémoire, exercices du précédent MOOC sur Python 2
-

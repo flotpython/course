@@ -1,8 +1,5 @@
 Pas de quiz cette semaine
 
-## Vidéo 0 (Présentation de la neuvième semaine)
-
-
 ## Vidéo 1 Introduction à la programmation asynchrone
 ### NIVEAU: avancé
 
@@ -16,8 +13,8 @@ Pas de quiz cette semaine
  * single-thread
  * avec contrôle sur les changements de contexte
 
-### Compléments Vidéo 1 
-### Exercices Vidéo 1 
+### Compléments Vidéo 1
+### Exercices Vidéo 1
 
 
 ## Vidéo 2 Quelques exemples simples
@@ -30,7 +27,7 @@ Pas de quiz cette semaine
 
 * coroutine functions vs coroutine
 * montrer ce qui se passe si on appelle une coroutine sans await
-* un message d'erreur quand on oublie le await 
+* un message d'erreur quand on oublie le await
 
 ### Compléments Vidéo 2
 ### Exercices Vidéo 2
@@ -117,10 +114,10 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
   d'une boucle, regarder les résultats et les exceptions..
 
 
-## Vidéo 8 La librairie asyncio 
+## Vidéo 8 La librairie asyncio
 ### NIVEAU: avancé
 
-* Queue 
+* Queue
 
 * ~~Subprocess~~ je crois que finalement subprocess j'ai pas le temps
   d'en parler
@@ -137,8 +134,8 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 * a minima un exemple avec Lock
   parler de connection partagée (e.g. ssh) par plusieurs sessions ->
   tout de même besoin de gérer les accès parallèles
-* un protocole de bas niveau avec connection_made() connection_lost() 
-* montrer un serveur TCP encore + basique tel que dans 
+* un protocole de bas niveau avec connection_made() connection_lost()
+* montrer un serveur TCP encore + basique tel que dans
   https://www.python.org/dev/peps/pep-0492/#types-coroutine
   se méfier tout de même, on risque d'être limité par l'infra de
   notebooks, qui utilise localhost...

@@ -1,12 +1,24 @@
-## Vidéo 0 (Présentation de la quatrième semaine)
-
-
 ## Vidéo 1 (Fonctions)
 ### NIVEAU: BASIC
 
 ### Compléments Vidéo 1
 
-* **TODO**, un complément sur les type hints
+* xxx todo: montrer sous pythontutor l'exemple de la vidéo
+
+```
+L = []
+def add_1(a):
+    a.append(1)
+add_1(L)
+# et la version avec copie
+def add_1(a):
+    a = a[:]
+    a.append(1)
+    return a
+L = add_1(L)
+```
+
+* xxx **TODO**, un complément sur les type hints (ou w4-s6 ?)
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
@@ -14,12 +26,13 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * `Complement-fonction-isinstance.ipynb`
 * `W4-S5-C1-arg-reference.ipynb`
 
-
 ### Quizz Vidéo 1
 
 Pour mémoire, quizz du précédent MOOC sur Python 2
 
 * `W4-S5-E1-functions.quiz`
+
+* xxx idée d'Arnaud : poser une question sur le glitch dans la vidéo (f(1) ne retourne rien)
 
 ### Exercices Vidéo 1
 
@@ -37,20 +50,16 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 
 ### Compléments Vidéo 2
 
-Pour mémoire, notebook du précédent MOOC sur Python 2
-
 * `Complement-evaluation-conditions.ipynb`: évaluation paresseuse (repris et aménagé de W2-S6)
 * `Complement-conditions-2.ipynb`:  recap expressions dans un if
 
 ### Quizz Vidéo 2
 
-Pour mémoire, quizz du précédent MOOC sur Python 2
-
 ### Exercices Vidéo 2
 
 Pour mémoire, exercices du précédent MOOC sur Python 2
 
-* `Exercice-if.ipynb`: des exercices sur des ifs un peu torturés 
+* `Exercice-if.ipynb`: des exercices sur des ifs un peu torturés
 * NICETOHAVE : c'est un peu léger dans l'état
 
 
@@ -65,9 +74,6 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 
 ### Quizz Vidéo 3
 
-Pour mémoire, quizz du précédent MOOC sur Python 2
-* 
-
 ### Exercices Vidéo 3
 
 Pour mémoire, exercices du précédent MOOC sur Python 2
@@ -75,14 +81,15 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 * `Exercice-pgcd.ipynb`
 
 
-## Vidéo 4 (Portée des variables dans les fonctions: règle LEGB)
-NIVEAU: BASIC
-
+## Vidéo 4 (Portée des variables - règle LEGB)
+### NIVEAU: BASIC
 ### Compléments Vidéo 4
+
+* xxx todo ? insister sur le fait qu'une affectation c'est une définition ? il se peut que on en parle mieux dans une vidéo à venir
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
-* `S6-C1-scopebuiltin.ipynb`
+* `S6-C1-scopebuiltin.ipynb` xxx relation avec mots-clés ?
 * `Complement-exception-unboundlocalerror.ipynb`
 
 ### Quizz Vidéo 4
@@ -92,9 +99,6 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 * `W4-S6-E1.quiz`
 
 ### Exercices Vidéo 4
-
-Pour mémoire, exercices du précédent MOOC sur Python 2
-*
 
 
 ## Vidéo 5 (Modification de la portée avec global et nonlocal)
@@ -116,20 +120,22 @@ NIVEAU: BASIC
   local disparaitre au retour de la fonction, le objet mutable
   modifié par effet de bord alors qu'on ne change pas la référence
   de la variable, etc. Par exemple (sans doute faire mieux):
-     
+
+```
     >>> L = [1,2]
     >>> def f(L):
-           L.append(3) 
+           L.append(3)
 	   L = [4, 5, 6]
     >>> f(L)
     >>> print L
     [1, 2, 3]
+```
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * DROPPED pas de complément ici- la vidéo est déjà très copieuse et
   détaillée montrer que global crée une variable global si elle
-  n'existe pas encore.  je trouve qu'on en a déjà bcp trop dit sur
+  n'existe pas encore. Je trouve qu'on en a déjà beaucoup trop dit sur
   `global`
 
 ### Quizz Vidéo 5
@@ -159,7 +165,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 * `Complement-pas-de-valeur-par-defaut-mutable.ipynb`
 * TODO je sais pas trop où mettre argparse, je trouve qu'ici c'est déjà bien chargé...
   * introduire sys.argv en remarquant que c'est une forme *Targs
-    et introduire le module argparse. 
+    et introduire le module argparse.
 
 
 ### Quizz Vidéo 6
