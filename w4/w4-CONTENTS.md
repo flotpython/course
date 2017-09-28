@@ -86,6 +86,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 ### Compléments Vidéo 4
 
 * xxx todo ? insister sur le fait qu'une affectation c'est une définition ? il se peut que on en parle mieux dans une vidéo à venir
+* repasser une couche sur keyword vs builtin ?
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 

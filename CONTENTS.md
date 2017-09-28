@@ -109,12 +109,12 @@ fluidifiera le tout.
 
 * w8-s1: Programmation asynchrone
 * w8-s2: Quelques exemples simples
-* w8-s3: asyncio : historique et écosystème
+* w8-s3: `asyncio` : historique et écosystème
 * w8-s4: Extensions asynchrones du langage
 * w8-s5: Coroutines et awaitables
 * w8-s6: Boucles d'événements
 * w8-s7: Tâches et exceptions
-* w8-s8: La librairie asyncio
+* w8-s8: La librairie `asyncio`
 * w8-s9: Bonnes pratiques
 
 

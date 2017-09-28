@@ -1,9 +1,8 @@
-## Vidéo 1 (numpy)
+## Vidéo 1 (Introduction, survol des différents outils)
+
+
+## Séquence 2 (`numpy`) - pas de vidéo
 ### NIVEAU: basique
-
-* pourquoi numpy ?
-* présentation des différents outils
-
 ### compléments w7-s1
 
 * installation conda
@@ -11,12 +10,12 @@
 * ...
 
 
-## Séquence 2 (pandas)
+## Séquence 3 (`pandas`) - pas de vidéo
 ### compléments w7-s2
 * ...
 
 
-## Séquence 3 (matplotlib)
+## Séquence 4 (`matplotlib`) - pas de vidéo
 ### compléments w7-s3
 * ...
 
@@ -25,4 +24,3 @@
 Mettre une référence vers les vidéos de Jake VanderPlas
 
 https://www.youtube.com/watch?v=_ZEWDGpM-vM
-

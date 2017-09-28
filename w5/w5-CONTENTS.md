@@ -243,6 +243,8 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ## Vidéo 7 (Importation des modules et espaces de nommage)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 7
+
+* xxx : s'assurer qu'on couvre bien les packages
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
    * OK Complement-import-as.ipynb

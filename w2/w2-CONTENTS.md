@@ -3,9 +3,10 @@
 ### Compléments Vidéo 1
 
 * xxx s'assurer qu'on explique %timeit la première fois qu'on s'en sert
+* faire si nécessaire un notebook là dessus - voir peut-être à récupérer des fragments du complément 'itérateurs-et-performances'
 * parler d'UTF-8, UTF-16, UTF-32
 * faire un peu d'historique avec ASCII et les pages de code
-* donner des exemples de problème d'encodage aujoud'hui
+* donner des exemples de problème d'encodage aujourd'hui
 
 ### Quizz Vidéo 1
 ### Exercices Vidéo 1
