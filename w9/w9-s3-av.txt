@@ -1,0 +1,153 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : Les clôtures de fonctions 
+## Temp total (11m40)
+
+
+## Résumé de la vidéo (1m00s)
+
+Nous avons vu dans une précédente vidéo l'implémentation d'un
+décorateur avec une classe. Cependant, souvenez-vous qu'un décorateur
+est un callable qui retourne un callable. On peut donc implémenter un
+décorateur sous forme d'une fonction en utilisant ce que l'on appelle
+une clôture. Une décorateur implémenté sous forme d'une fonction
+peut-être dans certains cas plus facile à écrire et il peut même être
+nécessaire pour décorer une méthode de classe. 
+
+Dans cette vidéo, nous allons montrer le principe des clôtures
+de fonctions et comment appliquer cette technique aux décorateurs. 
+
+Pour expliquer la notion de clôture, il faut d'abord introduire la
+notions de variables libres. Une variable libre est une variable qui
+n'est ni locale, ni globale. C'est donc une variable définie dans une
+fonction englobante.
+
+On dit qu'une fonction est une clôture (ou un terme clôt) lorsque
+toute ses variables sont soit locale, soit libre. 
+
+Ouvrons un éditeur IDLE pour jouer avec la notion de clôture. 
+
+>>>>>>>>>> INCLUDE W9-S2-bis-AV-exo1.py (2m50s) <<<<<<<<<<
+
+Maintenant que nous savons avec une clôture garder de l'état après le
+retour d'une fonction, regardons comment utiliser cela pour écrire un
+décorateur avec une fonction. 
+
+
+>>>>>>>>>> INCLUDE W9-S2-bis-AV-slide1.pptx (7m30s) <<<<<<<<<<
+
+[s2]
+Commençons par écrire un décorateur qui va calculer le temps
+d'exécution d'une fonction.
+
+Dans une fonction timer, je définis une fonction wrapper. Notons que
+la fonction wrapper prend comme paramètre *args, **dargs, elle accepte
+donc n'importe quelle passage d'argument. Ensuite, je prend le temps
+courant dans start et j'exécute la fonction passée au décorateur et je
+garde sa valeur de retour dans res. f étant une variable libre,
+wrapper est un terme clôt qui garde accès à la fonction f même après
+le retour de la fonction timer.
+Ensuite j'affiche le temps d'exécution et je retourne la valeur de
+retour de ma fonction f que j'avais gardé avec la variable res. 
+
+Ensuite je décors avec timer la méthode sum_poly5 qui calcule la somme
+des puissances de 5 des entiers entre 0 et n-1
+
+En résumé, lorsque je décors sum_poly5, j'utilise en fait la fonction
+wrapper qui grâce à une cloture garde un accès à la fonction
+originale.
+
+# 2m30
+ 
+[s3]
+
+Il y a cependant une limitation, mon terme clôt, (la fonction wrapper)
+peut accéder aux variables libres, mais ne peut pas les modifier. En
+l'état actuel, mon décorateur, ne peut pas, par exemple, incrémenter
+un compteur pour compter le nombre d'appels d'une fonction. Je vais
+maintenant vous montrer deux techniques pour modifier un état depuis
+le wrapper: nonlocal et les attributs de fonction 
+
+[s4]
+
+Je vais maintenant écrire un décorateur qui compte le nombre d'appels
+d'une fonction, je l'appelle trace_call. Je définis un compteur called
+dans mon décorateur et une fonction wrapper comme précédemment. Je
+déclare ensuite l'attribut called comme nonlocal ce qui me permet de
+modifier depuis wrapper la variable called de la fonction englobante.
+J'incrémente le compteur called et j'affiche le nombre d'appels. Pour
+finir j'appelle la fonction originale et je retourne sa valeur.
+
+Maintenant, je décore ma fonction my_func avec trace_call.
+
+# 4m30 (cumul)
+
+[s5]
+
+Une autre manière d'arriver au même effet est d'utiliser ce que l'on
+appel des attributs de fonction. En effet, l'objet fonction est une
+objet mutable. On peut donc stocker des attributs dans cet objet.
+Regardons cela.
+
+J'incrémente un attribut called de l'objet fonction
+wrapper. Cependant, cet attribut n'existe pas, est-ce que cela va
+donner une exception ? Souvenez-vous que le bloc de code de la
+fonction n'est évalué qu'à l'appel de la fonction. Regardons donc la
+suite.
+
+Je définis après la création de l'objet wrapper un attribut called
+initialisé à 0 dessus. Donc lorsque la fonction wrapper sera appelé,
+l'attribut called aura été défini.
+
+Je décore maintenant ma fonction my_func avec ce nouveau décorateur. 
+
+# 6m00 (cumul)
+
+[s6]
+
+Pour finir, je vais vous montrer un dernier problème qu'il faut savoir
+résoudre avec les décorateurs implémentés comme des fonctions.
+
+[s7]
+
+Reprenons l'exemple précédent et ajoutons simplement une docstring à
+la fonction my_func. Si l'on demande l'aide sur la fonction décorée,
+on s'attend à voir d'aide sur my_func, mais en fait on va voir l'aide
+sur wrapper.
+
+En effet, lors de la décoration, le décorateur retourne la fonction
+wrapper et la variable my_func référence maintenant cette nouvelle
+fonction. On a donc perdu les métadonnées de notre fonction décorée:
+son nom et sa docstring.
+
+[s8]
+
+Il existe dans le module functools un décorateur wraps dont le but est
+de conserver les métadonnées de la fonction décorée. Son utilisation
+est très simple. il suffit de décorer le wrapper de la manière
+suivante.
+
+[s9]
+
+On voit maintenant que l'aide sur la fonction décorée est correcte. 
+
+# 7m30 (cumul)
+
+## Conclusion(20)
+
+Il existe de nombreuses manières d'implémenter un décorateur un
+Python. Nous avons vu dans cette vidéo comment implémenter des
+décorateurs sous forme de fonction en exploitant la notion de
+clôture. Il est important de maîtriser cette technique pour pleinement
+tirer partie des décorateur en Python. 
+
+À bientôt.
