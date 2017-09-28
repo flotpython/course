@@ -9,6 +9,9 @@ class Phrase:
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
+    def nb_lettres(self):
+        return len(self.ma_phrase)
+
     def __len__(self):
         return len(self.mots)
 
@@ -18,11 +21,6 @@ class Phrase:
     def __str__(self):               
         return "\n".join(self.mots)
 
-## et ajoutons une méthode nb_lettres qui compte le nombre de lettre
-## dans la phrase. 
-
-    def nb_lettres(self):
-        return len(self.ma_phrase)
     
 
 ## J'aimerais maintenant faire une nouvelle classe qui se comporte

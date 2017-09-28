@@ -8,6 +8,9 @@ class Phrase:
                                           # mot clef
         self.ma_phrase = ma_phrase
 
+    def nb_lettres(self):
+        return len(self.ma_phrase)
+
 ## la première méthode spéciale que vous allons voir est la méthode
 ## __init__() qui est ce qu'on appelle l'initialisateur de
 ## l'instance. Cette méthode est automatiquement appellée après la
@@ -19,6 +22,9 @@ class Phrase:
 class Phrase:
     def __init__(self, ma_phrase):  
         self.ma_phrase = ma_phrase
+
+    def nb_lettres(self):
+        return len(self.ma_phrase)
 
 p = Phrase("je fais un mooc sur python")
 
@@ -46,9 +52,12 @@ class Phrase:
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()  # new
 
+    def nb_lettres(self):
+        return len(self.ma_phrase)
+
     def __len__(self):                 # new
         return len(self.mots)          # new  (doit retourner un entier)
-    
+
 p = Phrase("je fais un mooc sur python")
 
 len(p)
@@ -65,11 +74,15 @@ class Phrase:
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
+    def nb_lettres(self):
+        return len(self.ma_phrase)
+
     def __len__(self):
         return len(self.mots)
 
     def __contains__(self, mot):     # new (doit retourner un bool)
         return mot in self.mots      # new
+
 
 p = Phrase("je fais un mooc sur python")
 
@@ -90,6 +103,9 @@ class Phrase:
     def __init__(self, ma_phrase):  
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
+
+    def nb_lettres(self):
+        return len(self.ma_phrase)
 
     def __len__(self):
         return len(self.mots)
