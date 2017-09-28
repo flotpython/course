@@ -18,8 +18,10 @@ l'avez apprécié et que nous vous avons convaincu que Python
 est un excellent langage. Si vous vous êtes accroché (ce que je suppose
 si vous suivez cette dernière vidéo), vous avez maintenant de très
 bonnes connaissances en Python qui vous permettrons d'appréhender 
-les projets les plus complexes. 
+les projets les plus complexes. Mais n'oubliez pas que seul la
+pratique vous permettra d'assimiler les nombreuses notions que nous
+avons couvertes et de devenir un expert du langage. 
 
-Merci de nous avoir suivi durant ce MOOC. Au revoir. 
+Merci de nous avoir fait confiance durant ce MOOC. Au revoir. 
 
 [ajouter le making of]

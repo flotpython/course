@@ -13,10 +13,11 @@
 ## TITRE : Présentation de la neuvième semaine
 ## Temp total: ??
 
-Cette semaine vous allons finir notre couverture de Python en abordant
-plusieurs sujets avancés. Notre objectif n'est pas de vous donner une
-vue exhaustive de ces notions, il nous faudrait un autre MOOC pour
-cela, mais de vous présenter toutes les possibilités les plus avancées
-de Python. Ainsi, lorsque vous serez confronter à un problème, vous
-aurez la connaissance nécessaire pour savoir si Python offre une
-solution élégante à ce problème.
+Nous abordons la dernière semaine de ce MOOC. Vous avez maintenant de
+solides connaissances en Python, mais il vous reste à découvrir
+quelques notions avancées du langage. Notre objectif n'est pas de vous
+donner une vue exhaustive de ces notions, il nous faudrait un autre
+MOOC pour cela, mais de vous initier aux possibilités les plus
+avancées de Python. Vous allez ainsi améliorer votre compréhension du
+langage et découvrir des techniques de programmation qui vont vous
+ouvrir de nouvelles perspectives.
