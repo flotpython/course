@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : Les métaclasses
+## Temp total () 2 parts
+
+
+## Résumé de la vidéo (1m30s)
+
+Nous avons vu dans les sujets avancés qu'il était possible en Python
+d'ajouter des couches de logiques 
+
+Nous allons aborder dans cette vidéo le sujet des métaclasses. 
+
+>>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx () <<<<<<<<<<
+
+Les décorateurs sont utile pour modifier une fonction ou une classe
+après son instanciation. Les métaclasses sont utiles pour modifier
+les attributs d'une classe avant sa création. 
+
+## Conclusion()
