@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Présentation de la neuvième semaine
+## Temp total: ??
+
+Cette semaine vous allons finir notre couverture de Python en abordant
+plusieurs sujets avancés. Notre objectif n'est pas de vous donner une
+vue exhaustive de ces notions, il nous faudrait un autre MOOC pour
+cela, mais de vous présenter toutes les possibilités les plus avancées
+de Python. Ainsi, lorsque vous serez confronter à un problème, vous
+aurez la connaissance nécessaire pour savoir si Python offre une
+solution élégante à ce problème.
