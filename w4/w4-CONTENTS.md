@@ -45,7 +45,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
   versions, copie ou modif inline (essayer d'abord)
 
 
-## Vidéo 2 (Les tests if/elif/else et les opérateurs booléens)
+## Vidéo 2 (Tests `if`/`elif`/`else` et opérateurs booléens)
 ### NIVEAU: BASIC
 
 ### Compléments Vidéo 2
@@ -63,7 +63,7 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 * NICETOHAVE : c'est un peu léger dans l'état
 
 
-## Vidéo 3 (Boucle while)
+## Vidéo 3 (Boucles `while`)
 ### NIVEAU: BASIC
 
 ### Compléments Vidéo 3
@@ -101,7 +101,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 4
 
 
-## Vidéo 5 (Modification de la portée avec global et nonlocal)
+## Vidéo 5 (Modification de la portée  avec `global` et `nonlocal`)
 NIVEAU: BASIC
 
 ### Compléments Vidéo 5

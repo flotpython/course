@@ -1,3 +1,6 @@
+## Vidéo 0 (Présentation de la sixième semaine)
+
+
 ## Vidéo 1 (Classes, instances et méthodes)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 1
@@ -80,7 +83,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 3
 
 
-## Vidéo 4 (Héritage multiple et mro)
+## Vidéo 4 (Héritage multiple et ordre de résolution des attributs)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 4
 
@@ -91,7 +94,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 4
 
 
-## Vidéo 5 (Définition et référencement des variables et des attributs)
+## Vidéo 5 (Variables et attributs)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 5
 ### Quizz Vidéo 5

@@ -1,6 +1,6 @@
 Pas de quiz cette semaine
 
-## Vidéo 1 Introduction à la programmation asynchrone
+## Vidéo 1 Programmation asynchrone
 ### NIVEAU: avancé
 
 * distinction CPU-intensif / IO-intensif;
@@ -33,7 +33,7 @@ Pas de quiz cette semaine
 ### Exercices Vidéo 2
 
 
-## Vidéo 3 écosystème asyncio
+## Vidéo 3 `asyncio` : historique et écosystème
 ### NIVEAU: avancé
 ### Compléments Vidéo 3
 ### Exercices Vidéo 3
@@ -68,7 +68,7 @@ Pas de quiz cette semaine
 citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 
-## Vidéo 6 La boucle d'événements
+## Vidéo 6 Boucles d'événements
 ### NIVEAU: avancé
 
 * ensure_future & run_forever() - Queue()
@@ -114,7 +114,7 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
   d'une boucle, regarder les résultats et les exceptions..
 
 
-## Vidéo 8 La librairie asyncio
+## Vidéo 8 La librairie `asyncio`
 ### NIVEAU: avancé
 
 * Queue
@@ -143,7 +143,7 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 ### Exercices Vidéo 8
 
 
-## Vidéo 9 bonnes pratiques
+## Vidéo 9 Bonnes pratiques
 ### NIVEAU: avancé
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas

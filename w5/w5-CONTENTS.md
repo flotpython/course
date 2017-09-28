@@ -26,7 +26,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
    * NICETOHAVE: W3-S8-E2-for.ipynb: des exercices sur des fors un peu torturés  
 
 
-## Vidéo 2 (Objet fonction, fonction lambda, map et filter)
+## Vidéo 2 (Objet fonction, fonction `lambda`, `map` et `filter`)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 2
 
@@ -240,7 +240,7 @@ Pour mémoire, quizz du précédent MOOC sur Python 2
 ### Exercices Vidéo 6
 
 
-## Vidéo 7 (Impact de l'importation des modules sur les espaces de nommage)
+## Vidéo 7 (Importation des modules et espaces de nommage)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 7
 Pour mémoire, notebook du précédent MOOC sur Python 2

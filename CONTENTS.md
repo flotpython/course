@@ -10,10 +10,10 @@ Plan du MOOC sur Python 3
 * w1-s3: Interpréteur et IDLE
 * w1-s4: Les notebooks
 * w1-s5: Notions de variables, objets et typage dynamique
-* w1-s6: Les types numériques 
+* w1-s6: Les types numériques
 
 
-## Semaine 2 
+## Semaine 2
 ### Thème: Notions de base pour écrire son premier programme en Python
 ### Niveau: BASIC
 
@@ -27,7 +27,7 @@ Plan du MOOC sur Python 3
 * w2-s8: Introduction aux modules
 
 
-## Semaine 3 
+## Semaine 3
 ### Thème: Renforcement des notions de base, références partagées
 ### Niveau: BASIC, sauf w3-s8 INTERMÉDIAIRE
 
@@ -41,24 +41,24 @@ Plan du MOOC sur Python 3
 * w3-s8: Introduction aux classes
 
 
-## Semaine 4 
+## Semaine 4
 ### Thème: Fonctions et portée des variables
 ### Niveau: BASIC
 
 * w4-s1: Fonctions
-* w4-s2: Tests if/elif/else et opérateurs booléens
-* w4-s3: Boucles while
-* w4-s4: Portée des variables dans les fonctions: règle LEGB
-* w4-s5: Modification de la portée avec global et nonlocal
+* w4-s2: Tests `if`/`elif`/`else` et opérateurs booléens
+* w4-s3: Boucles `while`
+* w4-s4: Portée des variables - règle LEGB
+* w4-s5: Modification de la portée avec `global` et `nonlocal`
 * w4-s6: Passage d'arguments et appel de fonctions
 
 
-## Semaine 5 
+## Semaine 5
 ### Thème: Itération, importation et espace de nommage
 ### Niveau: BASIC
 
 * w5-s1: Itérable, itérateur, itération
-* w5-s2: Objet fonction, fonction lambda, map et filter
+* w5-s2: Objet fonction, fonction `lambda`, `map` et `filter`
 * w5-s3: Compréhension de listes, sets et dictionnaires
 * w5-s4: Expressions et fonctions génératrices
 * w5-s5: Modules et espaces de nommage
@@ -66,7 +66,7 @@ Plan du MOOC sur Python 3
 * w5-s7: Importation des modules et espaces de nommage
 
 
-## Semaine 6 
+## Semaine 6
 ### Thème: Conception des classes
 ### Niveau: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
 
@@ -97,10 +97,10 @@ pense qu'elle a raison et que ça
 fluidifiera le tout.
 
 
-* w7-s1: introduction, survol des différents outils
-* w7-s2: numpy
-* w7-s3: pandas
-* w7-s4: matplotlib
+* w7-s1: Introduction, survol des différents outils
+* w7-s2: `numpy`
+* w7-s3: `pandas`
+* w7-s4: `matplotlib`
 
 
 ## Semaine 8
@@ -115,7 +115,7 @@ fluidifiera le tout.
 * w8-s6: Boucles d'événements
 * w8-s7: Tâches et exceptions
 * w8-s8: La librairie asyncio
-* w8-s9: Bonnes pratiques 
+* w8-s9: Bonnes pratiques
 
 
 ## Semaine 9
@@ -124,7 +124,7 @@ fluidifiera le tout.
 
 * w9-s1: Méthodes statiques et de classe
 * w9-s2: Les décorateurs
-* w9-s3: property et descripteurs 
+* w9-s3: property et descripteurs
 * w9-s4: Les métaclasses
 * w9-s5: Conclusion du MOOC
 
@@ -149,27 +149,27 @@ fluidifiera le tout.
 * type hints
   * il faut à mon avis qu'on mentionne ça dans au moins une vidéo - même si c'est pour dire que ce sera traité comme un complément; par exemple W1-S5, quoique c'est sans doute trop tôt..
 
-## librairies utiles 
+## librairies utiles
 * pytest
 * Date DateTime
 * docstrings + tools
 * regexp
-  * en semaine 2 lorsqu'on parle des string, ça me semble bien dans un complément avancé. 
+  * en semaine 2 lorsqu'on parle des string, ça me semble bien dans un complément avancé.
 
 * un truc qui serait à mon avis pas mal; en semaine 8, ajouter une séquence 'projet type sous github'; sans nécessairement entrer trop dans les détails, on pourrait partir d'un projet déjà existant dans github et montrer:
   * la structure habituelle (setup.py, lalib/, )
   * où sont les tests
   * où est écrite la doc, comment on la génère, et le résultat sur redthedocs.io
-  * j'avait un [squelette de projet de ce genre](https://gitlab.com/parmentelat/minisim2) 
+  * j'avait un [squelette de projet de ce genre](https://gitlab.com/parmentelat/minisim2)
   * [AL] C'est une bonne idée, dans un genre similaire, on pourrait faire une review de code et expliquer comment l'améliorer (e.g., http://sametmax.com/revue-de-code-publique/)
-  
+
 
 
 IDEA TO DISCUSS
 ===============
 au lieu d'introduire le contenu de la semaine dans la premiere vidéo
-(ce qui fige la réorganization des vidéo), faire une vidéo 0 en chaque 
-début de semaine pour introduire le contenu de la semaine. 
+(ce qui fige la réorganization des vidéo), faire une vidéo 0 en chaque
+début de semaine pour introduire le contenu de la semaine.
 
 
 DRAFT
@@ -177,7 +177,7 @@ DRAFT
 Python 3:
 
 introduire tot les notions de différents objets (type buit-in, classe,
-module et expliquer le role de chaque type d'objet). 
+module et expliquer le role de chaque type d'objet).
 
 * faire une classe qui prend un phrase et construit une liste de mots,
 implémenter   `str`  , `__len__`, `__contains__`
@@ -187,10 +187,3 @@ implémenter   `str`  , `__len__`, `__contains__`
 * corriger des exercices en vidéo
 * pour les notions avancées commencer par expliquer à quoi ça sert
 (décorateur, métaclasse, descripteurs, etc.)
-
-
-
-    
-	
-	
-	

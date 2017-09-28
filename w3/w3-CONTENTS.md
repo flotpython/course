@@ -1,4 +1,4 @@
-## Vidéo 1 (Les fichiers & introduction aux contexts managers)
+## Vidéo 1 (Les fichiers)
 ### NIVEAU: BASIC
 ### Compléments Vidéo 1
 * parler de l'encodage des fichiers et du lien avec str et bytes
@@ -17,10 +17,8 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
   les print vers un fichier. (c'est très sale cette façon de faire..)
 
 ## Quizz Vidéo 1
-Pour mémoire, quizz du précédent MOOC sur Python 2
 
 ## Exercices Vidéo 1
-Pour mémoire, quizz du précédent MOOC sur Python 2
 
 * `Exercice-fichiers.ipynb`
 
