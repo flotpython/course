@@ -18,7 +18,9 @@
 Nous avons vu dans les sujets avancés qu'il était possible en Python
 d'ajouter des couches de logiques 
 
-Nous allons aborder dans cette vidéo le sujet des métaclasses. 
+Nous allons aborder dans cette vidéo le sujet des métaclasses.
+
+TODO
 
 >>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx () <<<<<<<<<<
 
