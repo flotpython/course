@@ -49,9 +49,16 @@ with Timer() as t:
 ### Exercices Vidéo 2
 
 
-## Vidéo 3 (La gestion avancée des attributs)
+## Vidéo 3 (Les clôtures de fonctions)
 ### NIVEAU: AVANCÉ
 ### Compléments Vidéo 3
+### Quizz Vidéo 3
+### Exercices Vidéo 3
+
+
+## Vidéo 4 (La gestion avancée des attributs)
+### NIVEAU: AVANCÉ
+### Compléments Vidéo 4
 
    * complément property (get, set, del, doc)
    * notation de décorateur pour les property
@@ -61,23 +68,23 @@ with Timer() as t:
    * expliquer comment rendre un descripteur read-only
      (AttributeError) dans la méthode __set__
 
-### Quizz Vidéo 3
-### Exercices Vidéo 3
+### Quizz Vidéo 4
+### Exercices Vidéo 4
 
-## Vidéo 4 (Les métaclasses)
+## Vidéo 5 (Les métaclasses)
 ### NIVEAU: AVANCÉ
-### Compléments Vidéo 4
+### Compléments Vidéo 5
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * lien vers
      https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 
-### Quizz Vidéo 4
-### Exercices Vidéo 4
-
-
-## Vidéo 5 (Conclusion du MOOC)
-### NIVEAU: INTERMEDIAIRE
-### Compléments Vidéo 5
 ### Quizz Vidéo 5
 ### Exercices Vidéo 5
+
+
+## Vidéo 6 (Conclusion du MOOC)
+### NIVEAU: INTERMEDIAIRE
+### Compléments Vidéo 6
+### Quizz Vidéo 6
+### Exercices Vidéo 6
