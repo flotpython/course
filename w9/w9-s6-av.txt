@@ -15,10 +15,11 @@
 
 ## Résumé de la vidéo (1m30s)
 
-Nous avons vu dans les sujets avancés qu'il était possible en Python
-d'ajouter des couches de logiques 
 
-Nous allons aborder dans cette vidéo le sujet des métaclasses.
+Nous allons aborder dans cette vidéo un des sujets les plus avancés en
+Python : les métaclasses. Une métaclasse est un objet qui instancie
+les objets classes. En écrivant une métaclasse vous pouvez donc
+contrôler la création d'une classe. 
 
 TODO
 
