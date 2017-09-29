@@ -125,6 +125,9 @@ Pour mémoire, exercices du précédent MOOC sur Python 2
 ### NIVEAU: INTERMEDIAIRE
 ### Compléments Vidéo 8
 
+* xxx vérifier qu'on a quelque part dans un complément le `finally:` qui va avec `try:`
+* xxx peut-être au moment où on voit le `while` / `else`
+
    * parler de
      https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager
      pour faire une contexte manager avec un décorateur et une
