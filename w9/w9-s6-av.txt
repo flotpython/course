@@ -19,14 +19,27 @@
 Nous allons aborder dans cette vidéo un des sujets les plus avancés en
 Python : les métaclasses. Une métaclasse est un objet qui instancie
 les objets classes. En écrivant une métaclasse vous pouvez donc
-contrôler la création d'une classe. 
+contrôler la création d'une classe.
 
-TODO
+À quoi cela peut-il servir ? On peut, par exemple, valider la syntaxe
+des méthodes définies dans la classe, générer automatiquement de
+nouvelles méthodes méthodes ou changer l'arbre d'héritage. Comme la
+métaclasse d'une classe C sera la métaclasse de toutes les sous
+classes de C, cette technique de programmation est compatible avec les
+arbres d'héritage. 
+
+Si vous utilisez de grosses librairies ou de gros projets, il est
+probable qu'il y a des métaclasses à la manoeuvre.
+
+Dans cette vidéo nous allons vous expliquer la notion de métaclasse
+pour vous permettre d'écrire vos propres métaclasse, mais aussi de
+comprendre du code utilisant des métaclasses. 
 
 >>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx () <<<<<<<<<<
 
-Les décorateurs sont utile pour modifier une fonction ou une classe
-après son instanciation. Les métaclasses sont utiles pour modifier
-les attributs d'une classe avant sa création. 
-
 ## Conclusion()
+
+Les métaclasses représentent un sujet très avancé en Python, mais qui
+offre des perspectives nouvelles de programmation. De plus, une
+profonde compréhension du langage passe par la compréhension de ce
+mécanisme de création des objets. 
