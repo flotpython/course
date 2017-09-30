@@ -13,7 +13,7 @@
 ## Temp total () 2 parts
 
 
-## Résumé de la vidéo (1m30s)
+## Résumé de la vidéo (50s)
 
 
 Nous allons aborder dans cette vidéo un des sujets les plus avancés en
@@ -23,10 +23,10 @@ contrôler la création d'une classe.
 
 À quoi cela peut-il servir ? On peut, par exemple, valider la syntaxe
 des méthodes définies dans la classe, générer automatiquement de
-nouvelles méthodes méthodes ou changer l'arbre d'héritage. Comme la
-métaclasse d'une classe C sera la métaclasse de toutes les sous
-classes de C, cette technique de programmation est compatible avec les
-arbres d'héritage. 
+nouvelles méthodes, créer automatiquement des property ou des
+descripteurs ou changer l'arbre d'héritage. Comme la métaclasse d'une
+classe C sera la métaclasse de toutes les sous classes de C, cette
+technique de programmation est compatible avec les arbres d'héritage.
 
 Si vous utilisez de grosses librairies ou de gros projets, il est
 probable qu'il y a des métaclasses à la manoeuvre.
