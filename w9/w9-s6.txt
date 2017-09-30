@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+##  TITRE : __getattribute__, __getattr__ et __setattr__
+## Temp total (11m20s) 
+
+
+## Résumé de la vidéo ()
+
+>>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (3m20) <<<<<<<<<<
+
+[s1]
+
+Nous avons vu dans une précédente vidéo les notions de property et de
+descripteur. Ces deux notions permettent d'ajouter une couche de
+logique lors de la définition ou du référencement d'un attribut
+particulier. Il existe un autre mécanisme qui permet d'ajouter une
+couche de logique pour tous les attributs, ce mécanisme se base sur
+trois méthodes [__getattribute__, __setattr__ et __getattr__]
+
+Dans cette vidéo nous allons expliquer ce mécanisme. Il s'agit d'un
+mécanisme subtile sur lequel repose les descripteurs, mais pas très
+bien documenté et avec des noms de méthodes spéciales mal choisis. Il
+est donc souvent source de confusion.
+
+[s2]
+
+Commeçons par la méthode __getattribute__
+
+Lorsque vous référencez un attribut sur un objet, la méthode
+__getattribute__() sera automatiquement appelée que cet attribut
+existe ou qu'il n'existe pas. Lorsque vous référencez un attribut sur
+une instance (c'est le cas général), l'implémentation par défaut de
+__getattribute__ se trouve dans object, la super classe de toutes les
+classes.
+
+En implémentant __getattribute__ sur votre classe, vous avez ainsi la
+possibilité d'ajouter une couche de logique lors du référencement des
+attributs sur vos instances de classe. Par contre, comme toute la
+logique d'accès aux attributs et en particulier le mécanisme des
+descripteurs, est implémenté dans la méthode __getattribute__ de
+object, si vous surchargez cette méthode dans votre classe, vous devez
+appeler la méthode sur object si vous souhaitez garder la mécanique
+des descripteurs ou accéder à l'espace de nommage de l'instance.
+
+Il faut également savoir, même si c'est d'un usage moins courant --- et
+nous sommes déjà dans des usages avancés --- que si vous référencez un
+attribut non pas sur une instance, mais directement sur une classe,
+c'est la méthode __getattribute__ de type qui sera appelée. Dans ce cas
+pour surcharger __getattribute__ il faut l'implémenter dans une
+métaclasse. Mais nous n'en parlerons par plus ici
+
+[s3]
+
+La méthode __setattr__ est la méthode qui correspond à
+__getattribute__ lorsque l'on définit un attribut sur un objet. Cette
+méthode est également implémentée dans object et elle contient la
+mécanique des descripteurs lors de l'affectation. Si vous surchargez
+cette méthode pour votre classe, la définition d'un attribut sur une
+instance passera par cette méthode. Vous devrez ensuite appeler
+également cette méthode sur object si vous voulez garder la mécanique
+des descripteurs et modifier l'espace de nommage de votre instance.
+
+[s4]
+
+La méthode __getattr__ n'est par contre appelés que si on référence un
+attribut qui n'est pas défini le long de l'arbre d'héritage de
+l'instance et si la méthode __getattribute__ n'est pas surchargée dans
+la classe. Vous remarquez donc que ces noms de méthodes sont
+troublants puisque __getattribute__ et __setattr__ sont des méthodes
+symétriques l'une pour le référencement, l'autre pour la définition
+d'un attribut, alors que __getattr__ n'est appelée que si l'attribut
+n'existe pas le long de l'arbre d'héritage.
+
+Ouvrons maintenant un éditeur IDLE pour commencer à jouer avec ces
+méthodes. 
+
+>>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (7m30) <<<<<<<<<<
+
+
+## Conclusion(30)
+
+Nous avons expliqué le fonctionnement et les différences entre les
+méthodes __getattribute__, __setattr__ et __getattr__. Nous avons vu
+en particulier que les méthodes __getattribute__ et __setattr__ de
+object étaient responsables du fonctionnement des descripteurs sur les
+instances de classes. Il est important pour assimiler toutes les
+subtilités du fonctionnement de la définition et du référencement des
+attributs en Python d'expérimenter vous même en traçant les appels des
+méthodes comme nous l'avons fait dans cette vidéo.
+
