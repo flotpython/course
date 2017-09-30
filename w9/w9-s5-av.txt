@@ -37,6 +37,51 @@ comprendre du code utilisant des métaclasses.
 
 >>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx () <<<<<<<<<<
 
+NOTE IMPORTANTE: les affichages sont obtenus sur ipython, ils peuvent
+être légèrement différent dans le présentation sur l'interpréteur
+Python classique.
+
+[s1] -> [s7] description simple des slides
+
+en résumé une classe est un objet qui a pour type type et une instance
+est un objet qui a pour type sa classe.
+
+[s8] -> [s9] description simple des slides
+
+[s10]
+
+Résumons, on réserve le terme instance pour les instances de classes
+et le mot classe pour les instance de la métaclasse de type.
+
+[s11]
+
+les types et les classes représente exactement la même catégorie
+d'objet, ce sont des objets créés par la métaclasse.
+
+[s14]
+
+nous avons deux objets de base en Python. Ces deux objets sont créés
+au démarrage de l'interpréteur Python. Essentiellement, type définit
+les comportements par défaut (c'est-à-dire les méthodes spéciales)
+pour les classes, et objet définit les comportements par défaut pour
+les instances. 
+
+########################## PART 1 ###############################
+
+########################## PART 2 ##############################
+
+[s16]: Peut-on écrire nos propres métaclasses pour instancier les
+classes ?
+
+[s17]
+
+en créant une métaclasse en C on peut contrôler le mécanisme
+d'allocation mémoire. Cela dépasse de beaucoup l'objectif de ce MOOC,
+je n'en parlerai pas plus.
+
+[s18] -> [s24] description simple des slides
+
+
 ## Conclusion()
 
 Les métaclasses représentent un sujet très avancé en Python, mais qui
