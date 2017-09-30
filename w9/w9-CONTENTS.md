@@ -72,21 +72,24 @@ with Timer() as t:
 ### Exercices Vidéo 4
 
 
-## Vidéo 5 (`__getattribute__`, `__getattr__` et `__setattr__`)
+## Vidéo 5(Les métaclasses)
 ### NIVEAU: AVANCÉ
 ### Compléments Vidéo 5
-### Quizz Vidéo 5
-### Exercices Vidéo 5
-
-
-## Vidéo 6(Les métaclasses)
-### NIVEAU: AVANCÉ
-### Compléments Vidéo 6
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
 * lien vers
      https://www.python.org/download/releases/2.2.3/descrintro#metaclasses
 
+### Quizz Vidéo 5
+### Exercices Vidéo 5
+
+
+## Vidéo 6 (`__getattribute__`, `__getattr__` et `__setattr__`)
+### NIVEAU: AVANCÉ
+### Compléments Vidéo 6
+    * citer https://docs.python.org/3/howto/descriptor.html
+	* parler de
+      https://docs.python.org/3/reference/datamodel.html?#special-method-lookup 
 ### Quizz Vidéo 6
 ### Exercices Vidéo 6
 
