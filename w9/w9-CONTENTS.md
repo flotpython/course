@@ -84,7 +84,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Exercices Vidéo 5
 
 
-## Vidéo 6 (`__getattribute__`, `__getattr__` et `__setattr__`)
+## Vidéo 6 (`__getattribute__`,  `__setattr__` et `__getattr__`)
 ### NIVEAU: AVANCÉ
 ### Compléments Vidéo 6
     * citer https://docs.python.org/3/howto/descriptor.html

@@ -127,7 +127,7 @@ fluidifiera le tout.
 * w9-s3: Les clôtures de fonctions
 * w9-s4: property et descripteurs
 * w9-s5: Les métaclasses
-* w9-s6: `__getattribute__`, `__getattr__` et `__setattr__`
+* w9-s6: `__getattribute__`,  `__setattr__` et `__getattr__`
 * w9-s7: Conclusion du MOOC
 
 
