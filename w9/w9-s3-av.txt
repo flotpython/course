@@ -46,6 +46,10 @@ toute ses variables sont soit locale, soit libre.
 [[AL: ma compréhension est qu'une fonction qui n'utilise aucune
 variable globale est un terme clos, et donc que référencer une
 variable libre pour être clos n'est pas nécessaire.]]
+[[TP: je suis d'accord, mais dire le terme de cloture c'est plus
+spécifique il me semble; je suis d'accord pour dire que
+lambda x: x est un terme clos, mais ce n'est pas une cloture dans le
+sens ou on l'entend habituellement]]
 
 Ouvrons un éditeur IDLE pour jouer avec la notion de clôture. 
 
