@@ -26,7 +26,7 @@ class Temperature:
         if 5 < t and t < 25:
             inst._temperature = t
             return
-        raise TemperatureError()
+            raise TemperatureError()
 
     
 class Maison:

@@ -15,7 +15,7 @@
 
 ## Résumé de la vidéo ()
 
->>>>>>>>>> INCLUDE W9-S6-AV-exo1.py (3m20) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx (3m20) <<<<<<<<<<
 
 [s1]
 
@@ -27,7 +27,7 @@ couche de logique pour tous les attributs, ce mécanisme se base sur
 trois méthodes [__getattribute__, __setattr__ et __getattr__]
 
 Dans cette vidéo nous allons expliquer ce mécanisme. Il s'agit d'un
-mécanisme subtile sur lequel repose les descripteurs, mais pas très
+mécanisme subtil [[sur lequel reposent: c'est plutôt l'inverse]] les descripteurs, mais pas très
 bien documenté et avec des noms de méthodes spéciales mal choisis. Il
 est donc souvent source de confusion.
 
@@ -53,6 +53,8 @@ object, si vous surchargez cette méthode dans votre classe, vous devez
 appeler la méthode sur object si vous souhaitez garder la mécanique
 des descripteurs ou accéder à l'espace de nommage de l'instance.
 
+[[moi perso j'enlèverais ça, ça alourdit le tout avec une valeur
+ajoutée très très faible]]
 Il faut également savoir, même si c'est d'un usage moins courant --- et
 nous sommes déjà dans des usages avancés --- que si vous référencez un
 attribut non pas sur une instance, mais directement sur une classe,
@@ -62,6 +64,13 @@ métaclasse. Mais nous n'en parlerons par plus ici
 
 [s3]
 
+[[as-tu envisagé de faire d'abord toute la logique du read, puis après
+seulement le write; en expliquant que le write c'est plus simple parce
+que c'est toujours dans l'objet sujet qu'on écrit l'attribut (je crois..)]]
+
+[[TP ce serait bien de dire oralement que le nom est mal choisi et
+qu'il aurait été plus clair de choisir `setattribute` car ça aiderait
+à mieux comprendre]]
 La méthode __setattr__ est la méthode qui correspond à
 __getattribute__ lorsque l'on définit un attribut sur un objet. Cette
 méthode est également implémentée dans object et elle contient la

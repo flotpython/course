@@ -45,10 +45,6 @@ class Maison:
 ## descripteur Temperature et la classe Maison avec ses méthodes
 ## __getattribute__, __setattr__ et __str__
 
-[[TP alors là je suis complètement perdu dans la logique temporelle
-  on n'a encore jamais dit le mot descripteur à ce stade, si ?]]
-
-
 ## Créons une instance de maison
 
 m = Maison(10)
@@ -109,6 +105,8 @@ m.x
 
 ## on passe par __getattribute__
 
+[[TP moi perso j'enlèverais ça aussi, même remarque sur le rapport lourdeur/valeur ajoutée]]
+
 ## Les appels implicites des méthodes spéciales ne passent pas par
 ## __getattribute__, c'est un détail d'implémentation mais qui a un
 ## impact sur la performance. Un appel implicite est un appel fait par
@@ -132,4 +130,3 @@ a = [1]
 ## sur cette classe passe par le __getattribute__ de la métaclasse
 ## type et non par le __getattribute__ définis pour la classe. 
 
-[[c'est sûrement clair pour toi mais moi j'ai rien compris]]
