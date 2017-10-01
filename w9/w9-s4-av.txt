@@ -74,16 +74,16 @@ les instances.
 
 ########################## PART 2 ##############################
 
-[s16]: Peut-on écrire nos propres métaclasses pour instancier les
+[s17]: Peut-on écrire nos propres métaclasses pour instancier les
 classes ?
 
-[s17]
+[s18]
 
 en créant une métaclasse en C on peut contrôler le mécanisme
 d'allocation mémoire. Cela dépasse de beaucoup l'objectif de ce MOOC,
 je n'en parlerai pas plus.
 
-[s18] -> [s24] description simple des slides
+[s19] -> [s26] description simple des slides
 
 ## Conclusion()
 
