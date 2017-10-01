@@ -1,10 +1,8 @@
-# missing
+# general
 
-* f-strings
-* `pathlib`
-
+* manque encore un truc sur les type hints
 * check all hrefs to python docs in section /2/ -> /3.5/
-* remove most calls to `from __future__ import print_function`
+* remove most/all calls to `from __future__ import print_function`
 
 ## compréhensions
 
@@ -12,19 +10,10 @@
 
 ## `w3-s8-c4-iterateurs-et-performances`
 
-A besoin d'être repris
+* La partie sur les itérateurs est OK
 
-* on peut garder l'idée d'introduire les différentes méthodes de benchmarking
-* ajouter d'ailleurs les magics jupyter `%timeit` ou `%%timeit`
-* mais il faudra à cous sûr séparer ça de l'histoire des itérateurs qui sera forcément abordé ailleurs/avant ?
-
-On pourra découper en deux notebooks distincts:
-
-* `w3-s8-c4-performances`
-  * pure python: `time.time()` et le module `timeit`
-  * https://docs.python.org/3.5/library/timeit.html
-  * ipython: `%time` et `%timeit`
-  * http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
+* Il faut sans doute isoler la partie sur %%timeit ailleurs
+ http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
 
 * `w3-s8-c4bis-iterateurs`
   * pas très sûr si ça a encore du sens de toutes façons..
@@ -34,9 +23,6 @@ On pourra découper en deux notebooks distincts:
 * J'ai écrit au départ ce notebook parce qu'Arnaud avait beaucoup mélangé itérable et itérateur dans la vidéo
 * on n'aura pas forcément besoin de le préserver
 
-## `w4-s1-c2-utilitaires-sur-fichiers`
-
-* ceci est presque entièrement obsolète, il faut faire la promo de `pathlib` en indiquant que c'est standard à partir de 3.4 (et dispo sur pypi pour les versions précédentes)
 
 ## `w4-s6-c2-exception-unboundlocalerror`
 
@@ -93,9 +79,6 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 
 ## CLASSES
 
-* il manque cruellement un complément sur les properties
-* je supprime entièrement `w5-s5-c2-classes-new-style.ipynb` qui n'est plus pertinent en python3.
-
 
 ## Type hints
 * un impact sans doute sur le ou les compléments `w5-s5-c3-heritage-multiple` et/ou `w5-s5-c4-heritage-typage`
@@ -106,5 +89,3 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 ## Décorateurs
 * check out `functools.update_wrapper`
 * apparemment il n'y a rien à faire pour refaire marcher le décorateur de classe `singleton` (sans imposer de redéfinir `__new__` sur la classe à décorer, ce qui est une contrainte trop forte)
-
-

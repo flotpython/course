@@ -9,9 +9,8 @@ bienvenue dans ce cours sur python3.
 ========== cette semaine 
 
 Durant cette première semaine nous
-allons voir des généralités pour vous
-laisser le temps de vous installer et de
-vous familiariser avec les outils qu'on
+allons voir des **généralités** sur le langage, 
+on parlera des **outils** qu'on
 utilisera dans le MOOC, puis nous
 commencerons tout doucement le cours en
 fin de semaine.
@@ -19,48 +18,41 @@ fin de semaine.
 ========== cette vidéo
 
 Dans cette première vidéo, je vais
-m'efforcer de vous décrire le programme,
+m'efforcer de vous décrire **le programme**,
 et de manière générale comment le cours
-est organisé.
+est **organisé**.
 
 ========== contenu
 
 Tout d'abord, je précise qu'il s'agit
-d'une édition revue et augmentée du
+d'une édition **revue et augmentée** du
 cours sur python2 que nous avions joué
 de 2014 à 2016, car depuis cette époque
 l'écosystème python a largement basculé
 du coté de python3.
 
-Plus précisément notre référence, car il
-faut bien en choisir une, est
-python-3.6, qui date de fin 2016. Ce
-n'est pas forcément une contrainte dure,
-j'indiquerai dans un complément ce que
-vous perdez si vous utilisez une version
-plus ancienne de python3.
+Plus précisément notre référence est
+**python-3.6**, qui date de fin 2016. Quand je dis référence, je veux dire surtout que c'est la version qui est utilisée dans les vidéos. 
 
 ========== 2 grandes parties
 
 Le cours est organisé en deux grandes
-parties; pendant les 6 premières
-semaines, on peut voir ça comme un tronc
-commun, nous verrons les fondamentaux du
+parties; pendant **les 6 premières
+semaines**, on peut voir ça comme un **tronc
+commun**, nous verrons les fondamentaux du
 langage.
 
 Au delà de ces 6 semaines, le cours sera
-consacré à des applications et
-approfondissements.
+consacré à des **applications et
+approfondissements**.
 
 Je vais détailler ces deux parties dans
-un instant, mais sachez que l'évaluation
+un instant, mais sachez que **l'évaluation**
 portera sur le tronc commun uniquement,
 dans la deuxième partie du cours vous
 trouverez des chapitres optionnels, que
 vous pouvez suivre ou non selon votre
 curiosité.
-[[AL: tu pourrais parler des mini
-projets dans la deuxième partie]]
 
 ========== tronc commun
 
@@ -107,8 +99,7 @@ semaine, nous vous proposons
 essentiellement 3 directions
 d'approfondissement, selon vos besoins
 
-On commence par une semaine consacrée à
-la data science; c'est naturellement un
+On commence par une semaine consacrée au calcul scientifique - on dit maintenant data science; c'est naturellement un
 sujet très vaste qui justifierait un
 MOOC à lui tout seul, on va devoir se
 limiter à une brève introduction, mais
@@ -156,7 +147,7 @@ comprendre le code que vous serez amenés
 à lire
 je vous conseille d'ailleurs de saisir
 toutes les occasions pour lire du code,
-c'est comme une langue étrangère, c'est
+c'est comme pour une langue étrangère, c'est
 en lisant qu'on apprend le plus.
 
 * et enfin pour vous permettre
@@ -174,13 +165,13 @@ de manière opportuniste.
 ========== organisation du cours
 
 en termes de supports pédagogiques,
-chaque semaine vient avec naturellement
+chaque semaine vient avec
 
-* un ensemble de vidéos, c'est selon les
+* naturellement un ensemble de vidéos, c'est selon les
 semaines mais en général de l'ordre de
 8.
 
-* cela dit dans une vidéo on ne peut pas
+* maintenant dans une vidéo on ne peut pas
 vraiment faire le tour de la question,
 donc pour approfondir vous trouverez
 souvent des compléments, j'attire votre
@@ -200,7 +191,7 @@ d'écran pour montrer mieux***
 
 Les compléments et les exercices ont été
 réalisés sous forme de notebooks avec
-une technologie qui s'appelle maintenant
+une technologie qui s'appelle
 jupyter. Ce sont des documents
 interactifs qui mélangent du texte et du
 code, je vous montrerai dans une
@@ -217,10 +208,10 @@ pourrez aussi le modifier si vous êtes
 curieux pour explorer une variante par
 exemple. 
 
-Pour les exercices auto-évalués, on vous
+Et pour les exercices auto-évalués, on vous
 demandera d'écrire des fonctions ou des
 classes, et vous pourrez vous-même
-vérifier si votre code fait bien ce qui
+corriger votre code et vérifier s'il fait bien ce qui
 est demandé.
 
 ========== niveaux de difficulté
@@ -294,3 +285,4 @@ donc, les compléments qui sont attachés
 les modalités de délivrance des
 attestations.
 
+À bientôt
