@@ -43,6 +43,10 @@ toute ses variables sont soit locale, soit libre.
   avec celui de python..
 ]]
 
+[[AL: ma compréhension est qu'une fonction qui n'utilise aucune
+variable globale est un terme clos, et donc que référencer une
+variable libre pour être clos n'est pas nécessaire.]]
+
 Ouvrons un éditeur IDLE pour jouer avec la notion de clôture. 
 
 >>>>>>>>>> INCLUDE W9-S2-bis-AV-exo1.py (2m50s) <<<<<<<<<<
