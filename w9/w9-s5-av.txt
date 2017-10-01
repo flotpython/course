@@ -21,14 +21,13 @@ Python : les métaclasses. Une métaclasse est un objet qui instancie
 les objets classes. En écrivant une métaclasse vous pouvez donc
 contrôler la création d'une classe.
 
-À quoi cela peut-il servir ? On peut, par exemple, valider la syntaxe
-des méthodes définies dans la classe, [[TP: je vois pas ce que tu veux
-dire ?; PS: après avoir fini de lire je crois que je devine, tu veux parler de
-la casse des noms de méthodes ? ça n'est pas clair dit comme ça]] générer automatiquement de
-nouvelles méthodes, créer automatiquement des property ou des
-descripteurs ou changer [[TP la façon de parcourir ?]] l'arbre d'héritage. Comme la métaclasse d'une
-classe C sera la métaclasse de toutes les sous classes de C, cette
-technique de programmation est compatible avec les arbres d'héritage.
+À quoi cela peut-il servir ? On peut, par exemple, valider que la
+syntaxe des noms de méthodes respectent une convention, générer
+automatiquement de nouvelles méthodes, créer automatiquement des
+property ou des descripteurs ou changer l'arbre d'héritage. Comme la
+métaclasse d'une classe C sera la métaclasse de toutes les sous
+classes de C, cette technique de programmation est compatible avec les
+arbres d'héritage.
 
 Si vous utilisez de grosses librairies ou de gros projets, il est
 probable qu'il y a des métaclasses à la manoeuvre.

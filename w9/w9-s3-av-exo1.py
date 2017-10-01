@@ -29,9 +29,8 @@ def plus_n(y):
 ## lors de l'appel de la fonction.
 plus3 = plus_n(3)
 
-[[TP je suppose que tu vas nous montrer ce que donne
-plus_3(10)
-]]
+plus3(10)
+
 
 ## Comment cela est possible, le terme clôt a un attribut __closure__
 ## qui est un tuple qui contient les références vers les variables
