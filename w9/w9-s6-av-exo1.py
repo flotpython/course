@@ -18,6 +18,7 @@ class Temperature:
     
 class Maison:
     def __init__(self, t):
+        [[TP le underscore est de trop ici, non ?]]
         self._temperature = t
 
     def __getattribute__(self, a):
@@ -31,17 +32,21 @@ class Maison:
     def __str__(self):
         return f"Maison: {self._temperature}"
 
+    [[et là je suis mais alors complètement perdu]]
     temperature = Temperature()
 
 ## **** FIN PREPARATION ****
 
 
 
-## reprenons notre exemple des desripteurs en simplifiant un peu la
+## reprenons notre exemple des descripteurs en simplifiant un peu la
 ## méthode __set__ puisqu'ici nous voulons simplement tracer les
 ## appels des méthodes. Prenez quelques instants pour taper le
 ## descripteur Temperature et la classe Maison avec ses méthodes
 ## __getattribute__, __setattr__ et __str__
+
+[[TP alors là je suis complètement perdu dans la logique temporelle
+  on n'a encore jamais dit le mot descripteur à ce stade, si ?]]
 
 
 ## Créons une instance de maison
@@ -126,3 +131,5 @@ a = [1]
 ## __getattribute__ sur une classe et que la référence d'un attribut
 ## sur cette classe passe par le __getattribute__ de la métaclasse
 ## type et non par le __getattribute__ définis pour la classe. 
+
+[[c'est sûrement clair pour toi mais moi j'ai rien compris]]

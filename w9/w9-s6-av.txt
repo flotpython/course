@@ -15,7 +15,7 @@
 
 ## Résumé de la vidéo ()
 
->>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (3m20) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W9-S6-AV-exo1.py (3m20) <<<<<<<<<<
 
 [s1]
 
@@ -43,8 +43,10 @@ __getattribute__ se trouve dans object, la super classe de toutes les
 classes.
 
 En implémentant __getattribute__ sur votre classe, vous avez ainsi la
-possibilité d'ajouter une couche de logique lors du référencement des
-attributs sur vos instances de classe. Par contre, comme toute la
+possibilité d'ajouter [[TP je dirais plutôt ici de REMPLACER la
+logique, puisque quand on se récrit __getattibute__ on court-circuite
+tout le reste]] une couche de logique lors du référencement des
+attributs sur vos instances de classe. Du coup, comme toute la
 logique d'accès aux attributs et en particulier le mécanisme des
 descripteurs, est implémenté dans la méthode __getattribute__ de
 object, si vous surchargez cette méthode dans votre classe, vous devez
