@@ -9,7 +9,7 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-##  TITRE : La gestion avancée des attributs
+##  TITRE : property et descripteurs
 ## Temp total () 2 parts
 
 
