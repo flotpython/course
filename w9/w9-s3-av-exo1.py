@@ -6,7 +6,7 @@ y = 3
 def incremente(x):
     return x + y
 
-## y est une variable globale, donc increment n'est pas un terme clôt. 
+## y est une variable globale, donc incremente n'est pas un terme clôt. 
 
 ## regardons maintenant ce deuxième exemple
 
@@ -28,6 +28,10 @@ def plus_n(y):
 ## les variables libres, on pourra donc utiliser ses variables libres
 ## lors de l'appel de la fonction.
 plus3 = plus_n(3)
+
+[[TP je suppose que tu vas nous montrer ce que donne
+plus_3(10)
+]]
 
 ## Comment cela est possible, le terme clôt a un attribut __closure__
 ## qui est un tuple qui contient les références vers les variables

@@ -31,8 +31,17 @@ notions de variables libres. Une variable libre est une variable qui
 n'est ni locale, ni globale. C'est donc une variable définie dans une
 fonction englobante.
 
-On dit qu'une fonction est une clôture (ou un terme clôt) lorsque
-toute ses variables sont soit locale, soit libre. 
+On dit qu'une fonction est une clôture (ou un terme clos) lorsque
+toute ses variables sont soit locale, soit libre.
+
+[[TP c'est un peu confusant pour moi cette façon de dire
+  si on le prend littéralement, toutes les fonctions usuelles
+  sont des clotures du coup, non ?
+
+  j'aurais plutôt dit qu'une cloture contient au moins une variable
+  libre; mais bon je sais que mon modèle mental n'est pas en ligne
+  avec celui de python..
+]]
 
 Ouvrons un éditeur IDLE pour jouer avec la notion de clôture. 
 
@@ -51,7 +60,7 @@ d'exécution d'une fonction.
 
 Dans une fonction timer, je définis une fonction wrapper. Notons que
 la fonction wrapper prend comme paramètre *args, **dargs, elle accepte
-donc n'importe quelle passage d'argument. Ensuite, je prend le temps
+donc n'importe quel passage d'argument. Ensuite, je prend le temps
 courant dans start et j'exécute la fonction passée au décorateur et je
 garde sa valeur de retour dans res. f étant une variable libre,
 wrapper est un terme clôt qui garde accès à la fonction f même après
@@ -94,13 +103,13 @@ Maintenant, je décore ma fonction my_func avec trace_call.
 [s5]
 
 Une autre manière d'arriver au même effet est d'utiliser ce que l'on
-appel des attributs de fonction. En effet, l'objet fonction est une
+appel des attributs de fonction. En effet, l'objet fonction est un
 objet mutable. On peut donc stocker des attributs dans cet objet.
 Regardons cela.
 
 J'incrémente un attribut called de l'objet fonction
 wrapper. Cependant, cet attribut n'existe pas, est-ce que cela va
-donner une exception ? Souvenez-vous que le bloc de code de la
+lever une exception ? Souvenez-vous que le bloc de code de la
 fonction n'est évalué qu'à l'appel de la fonction. Regardons donc la
 suite.
 
@@ -108,7 +117,7 @@ Je définis après la création de l'objet wrapper un attribut called
 initialisé à 0 dessus. Donc lorsque la fonction wrapper sera appelé,
 l'attribut called aura été défini.
 
-Je décore maintenant ma fonction my_func avec ce nouveau décorateur. 
+Je décore maintenant ma fonction my_func avec ce nouveau décorateur.
 
 # 6m00 (cumul)
 
@@ -144,7 +153,7 @@ On voit maintenant que l'aide sur la fonction décorée est correcte.
 
 ## Conclusion(20)
 
-Il existe de nombreuses manières d'implémenter un décorateur un
+Il existe de nombreuses manières d'implémenter un décorateur en
 Python. Nous avons vu dans cette vidéo comment implémenter des
 décorateurs sous forme de fonction en exploitant la notion de
 clôture. Il est important de maîtriser cette technique pour pleinement
