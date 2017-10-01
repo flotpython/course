@@ -43,7 +43,7 @@ systématique des getter et setter.
 Ouvrons un éditeur IDLE pour commencer à jouer avec la gestion avancée
 des attributs. 
 
->>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (6m00s) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W9-S5-AV-exo1.py (6m00s) <<<<<<<<<<
 
 ############################### FIN PART 1 (7m30s) ###################
 
@@ -58,7 +58,7 @@ Ouvrons un éditeur IDLE pour regarder un exemple de descripteur.
 
 #15s
 
->>>>>>>>>> INCLUDE W9-S3-AV-exo2.py (3m30s) <<<<<<<<<<
+>>>>>>>>>> INCLUDE W9-S5-AV-exo2.py (3m30s) <<<<<<<<<<
 
 
 ## Conclusion(20)

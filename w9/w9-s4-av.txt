@@ -36,7 +36,7 @@ Dans cette vidéo nous allons vous expliquer la notion de métaclasse
 pour vous permettre d'écrire vos propres métaclasse, mais aussi de
 comprendre du code utilisant des métaclasses. 
 
->>>>>>>>>> INCLUDE W9-S6-AV-slide1.pptx () <<<<<<<<<<
+>>>>>>>>>> INCLUDE W9-S4-AV-slide1.pptx () <<<<<<<<<<
 
 NOTE IMPORTANTE: les affichages sont obtenus sur ipython, ils peuvent
 être légèrement différent dans le présentation sur l'interpréteur
