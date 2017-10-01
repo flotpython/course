@@ -22,9 +22,11 @@ les objets classes. En écrivant une métaclasse vous pouvez donc
 contrôler la création d'une classe.
 
 À quoi cela peut-il servir ? On peut, par exemple, valider la syntaxe
-des méthodes définies dans la classe, générer automatiquement de
+des méthodes définies dans la classe, [[TP: je vois pas ce que tu veux
+dire ?; PS: après avoir fini de lire je crois que je devine, tu veux parler de
+la casse des noms de méthodes ? ça n'est pas clair dit comme ça]] générer automatiquement de
 nouvelles méthodes, créer automatiquement des property ou des
-descripteurs ou changer l'arbre d'héritage. Comme la métaclasse d'une
+descripteurs ou changer [[TP la façon de parcourir ?]] l'arbre d'héritage. Comme la métaclasse d'une
 classe C sera la métaclasse de toutes les sous classes de C, cette
 technique de programmation est compatible avec les arbres d'héritage.
 
@@ -42,6 +44,9 @@ NOTE IMPORTANTE: les affichages sont obtenus sur ipython, ils peuvent
 Python classique.
 
 [s1] -> [s7] description simple des slides
+
+[[TP je joins une suggestion de figure qui peut contribuer à illustrer
+tout ça]]
 
 en résumé une classe est un objet qui a pour type type et une instance
 est un objet qui a pour type sa classe.
@@ -80,7 +85,6 @@ d'allocation mémoire. Cela dépasse de beaucoup l'objectif de ce MOOC,
 je n'en parlerai pas plus.
 
 [s18] -> [s24] description simple des slides
-
 
 ## Conclusion()
 
