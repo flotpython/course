@@ -31,18 +31,16 @@ notions de variables libres. Une variable libre est une variable qui
 n'est ni locale, ni globale. C'est donc une variable définie dans une
 fonction englobante.
 
-On dit qu'une fonction est une clôture (ou un terme clos) lorsque
-toute ses variables sont soit locale, soit libre.
+On dit qu'une fonction est un terme clos lorsque toute ses variables
+sont soit locale, soit libre.
 
 [[TP c'est un peu confusant pour moi cette façon de dire
   si on le prend littéralement, toutes les fonctions usuelles
   sont des clotures du coup, non ?
-
   j'aurais plutôt dit qu'une cloture contient au moins une variable
   libre; mais bon je sais que mon modèle mental n'est pas en ligne
   avec celui de python..
 ]]
-
 [[AL: ma compréhension est qu'une fonction qui n'utilise aucune
 variable globale est un terme clos, et donc que référencer une
 variable libre pour être clos n'est pas nécessaire.]]
@@ -50,6 +48,9 @@ variable libre pour être clos n'est pas nécessaire.]]
 spécifique il me semble; je suis d'accord pour dire que
 lambda x: x est un terme clos, mais ce n'est pas une cloture dans le
 sens ou on l'entend habituellement]]
+[[AL: j'avais donc pas bien compris la différence entre terme clos et
+clôture, je comprends ton idée je pense, que l'attribut __closure__
+  ne contient que les variables libres. ]]
 
 Ouvrons un éditeur IDLE pour jouer avec la notion de clôture. 
 

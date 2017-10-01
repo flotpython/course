@@ -18,8 +18,7 @@ class Temperature:
     
 class Maison:
     def __init__(self, t):
-        [[TP le underscore est de trop ici, non ?]]
-        self._temperature = t
+        self.temperature = t
 
     def __getattribute__(self, a):
         print(f"__getattribute__: {a}")
@@ -30,9 +29,8 @@ class Maison:
         return object.__setattr__(self, a, v)
 
     def __str__(self):
-        return f"Maison: {self._temperature}"
+        return f"Maison: {self.temperature}"
 
-    [[et là je suis mais alors complètement perdu]]
     temperature = Temperature()
 
 ## **** FIN PREPARATION ****
@@ -105,8 +103,9 @@ m.x
 
 ## on passe par __getattribute__
 
-[[TP moi perso j'enlèverais ça aussi, même remarque sur le rapport lourdeur/valeur ajoutée]]
-
+[[TP: moi perso j'enlèverais ça aussi, même remarque sur le rapport 
+lourdeur/valeur ajoutée]] 
+[[AL: REMOVE BEGIN]]
 ## Les appels implicites des méthodes spéciales ne passent pas par
 ## __getattribute__, c'est un détail d'implémentation mais qui a un
 ## impact sur la performance. Un appel implicite est un appel fait par
@@ -129,4 +128,4 @@ a = [1]
 ## __getattribute__ sur une classe et que la référence d'un attribut
 ## sur cette classe passe par le __getattribute__ de la métaclasse
 ## type et non par le __getattribute__ définis pour la classe. 
-
+[[AL: REMOVE END]]

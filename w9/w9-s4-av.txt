@@ -43,15 +43,6 @@ systématique des getter et setter.
 Ouvrons un éditeur IDLE pour commencer à jouer avec la gestion avancée
 des attributs. 
 
-[[TP il me semblait qu'on s'était mis d'accord pour avoir un notebook
-complément en semaine 6 pour montrer les properties au plus grand
-nombre d'étudiants; voir le plan pour w6-s1
-
-il me semble que du coup tu pourrais faire
-l'économie de la première partie de la vidéo
-]]
-
-
 >>>>>>>>>> INCLUDE W9-S3-AV-exo1.py (6m00s) <<<<<<<<<<
 
 ############################### FIN PART 1 (7m30s) ###################

@@ -27,7 +27,8 @@ couche de logique pour tous les attributs, ce mécanisme se base sur
 trois méthodes [__getattribute__, __setattr__ et __getattr__]
 
 Dans cette vidéo nous allons expliquer ce mécanisme. Il s'agit d'un
-mécanisme subtil [[sur lequel reposent: c'est plutôt l'inverse]] les descripteurs, mais pas très
+mécanisme subtil qui implémente toute la logique de recherche et
+d'affectation des attributs y compris les descripteurs, mais pas très
 bien documenté et avec des noms de méthodes spéciales mal choisis. Il
 est donc souvent source de confusion.
 
@@ -52,32 +53,37 @@ surchargez cette méthode dans votre classe, vous devez appeler la
 méthode sur object si vous souhaitez garder la mécanique des
 descripteurs ou accéder à l'espace de nommage de l'instance.
 
-[[moi perso j'enlèverais ça, ça alourdit le tout avec une valeur
+[[TP: moi perso j'enlèverais ça, ça alourdit le tout avec une valeur
 ajoutée très très faible]]
+[[AL: REMOVE BEGIN]]
 Il faut également savoir, même si c'est d'un usage moins courant --- et
 nous sommes déjà dans des usages avancés --- que si vous référencez un
 attribut non pas sur une instance, mais directement sur une classe,
 c'est la méthode __getattribute__ de type qui sera appelée. Dans ce cas
 pour surcharger __getattribute__ il faut l'implémenter dans une
 métaclasse. Mais nous n'en parlerons par plus ici
+[[AL: REMOVE END]]
 
 [s3]
 
-[[as-tu envisagé de faire d'abord toute la logique du read, puis après
+[[TP: as-tu envisagé de faire d'abord toute la logique du read, puis après
 seulement le write; en expliquant que le write c'est plus simple parce
-que c'est toujours dans l'objet sujet qu'on écrit l'attribut (je crois..)]]
+que c'est toujours dans l'objet sujet qu'on écrit l'attribut (je
+crois..)]]
 
-[[TP ce serait bien de dire oralement que le nom est mal choisi et
-qu'il aurait été plus clair de choisir `setattribute` car ça aiderait
-à mieux comprendre]]
-La méthode __setattr__ est la méthode qui correspond à
-__getattribute__ lorsque l'on définit un attribut sur un objet. Cette
-méthode est également implémentée dans object et elle contient la
-mécanique des descripteurs lors de l'affectation. Si vous surchargez
-cette méthode pour votre classe, la définition d'un attribut sur une
-instance passera par cette méthode. Vous devrez ensuite appeler
-également cette méthode sur object si vous voulez garder la mécanique
-des descripteurs et modifier l'espace de nommage de votre instance.
+[[AL: je ne suis pas sûr de comprendre]]
+
+ La méthode __setattr__ est la méthode qui correspond à
+__getattribute__ lorsque l'on définit un attribut sur un objet. Vous
+noterez que cette méthode devrait en fait s'appeler __setattribute__,
+mais pour des raisons historique source de confusion, cette méthode
+s'appelle __setattr__. Cette méthode est également implémentée dans
+object et elle contient la mécanique des descripteurs lors de
+l'affectation. Si vous surchargez cette méthode pour votre classe, la
+définition d'un attribut sur une instance passera par cette
+méthode. Vous devrez ensuite appeler également cette méthode sur
+object si vous voulez garder la mécanique des descripteurs et modifier
+l'espace de nommage de votre instance.
 
 [s4]
 
