@@ -7,7 +7,8 @@
    * Arri�re-plan blanc
    * Arri�re-plan (bo�te) blanc
    
-   Taille de font: 36
+   Taille de font: 28
+   font: Lucida Console
    
 
 * d�marrer ipython avec 
