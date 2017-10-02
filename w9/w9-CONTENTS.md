@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# -*- eval: (auto-fill-mode 0) -*-
-
 ## Vidéo 1 (Méthodes statiques et de classe)
 ### NIVEAU: AVANCÉ
 ### Compléments Vidéo 1
@@ -88,7 +85,7 @@ Pour mémoire, notebook du précédent MOOC sur Python 2
 ### Compléments Vidéo 6
     * citer https://docs.python.org/3/howto/descriptor.html
 	* parler de
-      https://docs.python.org/3/reference/datamodel.html?#special-method-lookup 
+      https://docs.python.org/3/reference/datamodel.html?#special-method-lookup
 ### Quizz Vidéo 6
 ### Exercices Vidéo 6
 

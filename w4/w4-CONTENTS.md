@@ -4,6 +4,8 @@
 ### Compléments Vidéo 1
 
 * xxx todo: montrer sous pythontutor l'exemple de la vidéo
+* xxx ONGOING, un complément sur les type hints
+
 
 ```
 L = []
@@ -17,8 +19,6 @@ def add_1(a):
     return a
 L = add_1(L)
 ```
-
-* xxx **TODO**, un complément sur les type hints (ou w4-s6 ?)
 
 Pour mémoire, notebook du précédent MOOC sur Python 2
 
