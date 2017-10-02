@@ -109,7 +109,7 @@ fluidifiera le tout.
 
 * w8-s1: Programmation asynchrone
 * w8-s2: Quelques exemples simples
-* w8-s3: `asyncio` : historique et écosystème
+* w8-s3: `asyncio`: historique et écosystème
 * w8-s4: Extensions asynchrones du langage
 * w8-s5: Coroutines et awaitables
 * w8-s6: Boucles d'événements
@@ -126,8 +126,8 @@ fluidifiera le tout.
 * w9-s2: Les décorateurs
 * w9-s3: Les clôtures de fonctions
 * w9-s4: Les métaclasses
-* w9-s5: property et descripteurs
-* w9-s6: `__getattribute__`,  `__setattr__` et `__getattr__`
+* w9-s5: `property` et descripteurs
+* w9-s6: Protocole d'accès aux attributs
 * w9-s7: Conclusion du MOOC
 
 
