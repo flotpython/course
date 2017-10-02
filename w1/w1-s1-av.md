@@ -1,12 +1,10 @@
-# -*- autofill-mode:true; fill-column: 40 -*-
-
-Bonjour, 
+Bonjour à tous,
 
 Je suis Thierry Parmentelat, et avec
 Arnaud Legout je vous souhaite la
 bienvenue dans ce cours sur python3.
 
-========== cette semaine 
+========== cette semaine
 
 Durant cette première semaine nous
 allons voir des **généralités** sur le langage, 
@@ -32,7 +30,7 @@ l'écosystème python a largement basculé
 du coté de python3.
 
 Plus précisément notre référence est
-**python-3.6**, qui date de fin 2016. Quand je dis référence, je veux dire surtout que c'est la version qui est utilisée dans les vidéos. 
+**python-3.6**, qui date de fin 2016. Quand je dis référence, je veux dire surtout que c'est la version qui est utilisée dans les vidéos.
 
 ========== 2 grandes parties
 
@@ -70,7 +68,7 @@ modules qui permet de rendre le code
 réutilisable,
 * et enfin on finira par les classes qui
 permettent la programmation orientée
-objet. 
+objet.
 
 ========== traits marquants
 
@@ -81,7 +79,7 @@ langage, c'est-à-dire:
 
 * une syntaxe conçue pour la lisibilité
 * en python tout est objet
-* la liaison lexicale 
+* la liaison lexicale
 * le typage dynamique
 
 et nous insisterons les mécanismes
@@ -127,9 +125,9 @@ trouverez ça intéressant.
 Enfin dans la dernière semaine on
 reviendra à du pur python, pour étudier
 des mécanismes avancés du langage comme
-notamment la gestion fine des attributs, 
+notamment la gestion fine des attributs,
 les décorateurs, les métaclasses, et
-autres sujets de ce genre. 
+autres sujets de ce genre.
 
 
 ========== objectifs
@@ -142,7 +140,7 @@ permettre
 * d'une part d'écrire un code
 propre et lisible,
 
-* d'autre part de 
+* d'autre part de
 comprendre le code que vous serez amenés
 à lire
 je vous conseille d'ailleurs de saisir
@@ -183,7 +181,7 @@ du sujet.
 * bien entendu il y aura également des
   quiz
 
-* et enfin vous trouverez 
+* et enfin vous trouverez
 quelques exercices autoévalués.
 
 ***xxx ce serait bien de mettre des copies
@@ -206,7 +204,7 @@ pourrez exécuter le code python au fur
 et à mesure de votre lecture, et vous
 pourrez aussi le modifier si vous êtes
 curieux pour explorer une variante par
-exemple. 
+exemple.
 
 Et pour les exercices auto-évalués, on vous
 demandera d'écrire des fonctions ou des
@@ -225,7 +223,7 @@ Bon c'est à prendre à titre
 indicatif. L'idée c'est surtout de vous
 permettre de gérer au mieux votre temps
 et votre parcours en fonction de vos
-intérêts. 
+intérêts.
 
 ========== attestation
 
@@ -236,7 +234,7 @@ s'attendre à des modifications
 d'une années sur l'autre. Du coup plutôt
 que de décrire ça dans une vidéo qui est
 compliquée à modifier, je vous invite à
-lire le complément sur ce sujet. 
+lire le complément sur ce sujet.
 
 ========== forum
 
