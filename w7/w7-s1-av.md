@@ -21,6 +21,8 @@ nous allons nous contenter d'effleurer trois outils qui sont
 * matplotlib
 * et pandas
 
+[[AL: citer pandas avant matplotlib]]
+
 notre objectif c'est d'abord que vous
 sachiez **que ça existe**, et que vous voyiez
 bien comment ça s'articule **par rapport aux
@@ -111,7 +113,7 @@ d'abord typiquement que le tableau est
 homogène, je veux dire que tous les
 éléments sont de même type, et pour un
 langage compilé ça veut dire qu'ils
-occupent la même place en mémoire
+ont la même taille en mémoire
 
 ========== fragment
 et on a déclaré aussi la dimension du tableau
@@ -281,6 +283,24 @@ python ça me donne ceci en python pur
 et ceci en numpy, vous voyez qu'on est
 ici encore dans un facteur 10 en gros.
 
+
+[[AL: je trouve qu'un facteur 10 c'est très en deça de ce qu'on
+peut avoir en numpy. Je te donne ci dessous un exemple plus 
+spectaculaire
+In [45]: L = [random.randint(0,10) for i in range(1000000)]
+
+In [46]: %timeit [x**2 for x in L]
+1 loop, best of 3: 296 ms per loop
+
+In [47]: a = np.array(L)
+
+In [48]: %timeit np.square(a)
+1000 loops, best of 3: 1.85 ms per loop
+
+In [49]: %timeit np.square(a, out=a)
+1000 loops, best of 3: 788 µs per loop
+
+]]
 ========== slide tableau = vue
 
 On a vu donc qu'un tableau numpy est un
