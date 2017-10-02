@@ -128,16 +128,14 @@ fluidifiera le tout.
 * w9-s4: Les métaclasses
 * w9-s5: `property` et descripteurs
 * w9-s6: Protocole d'accès aux attributs
-* w9-s7: Conclusion du MOOC
 
 
-## Semaine 10
+******
+******
+# fin du cours
+******
+******
 
-**Du temps pour les mini-projets ?**
-
-****
-****
-****
 
 # DROPPED/TODO LATER
 
