@@ -1,14 +1,11 @@
-# -*- autofill-mode:true; fill-column: 40 -*-
-* [[ commencer avec le transparent ]]
-* [[ capturer tout l'ecran ]]
-
 Bonjour  
- 
+
 Aujourd'hui nous allons voir rapidement
-comment utiliser les 2 outils que nous
+comment utiliser les outils que nous
 utiliserons dans les vidéos.
 
-D'une part, vous aurez besoin d'un
+On va utiliser deux familles d'outils,
+d'une part, vous aurez besoin d'un
 environnement de développement,
 c'est-à-dire un outil pour écrire votre
 code, et l'essayer au fur et à mesure.
@@ -33,7 +30,7 @@ fonctionne IDLE pour suivre les vidéos
 avec un maximum de confort.
 
 
-Je vais lancer IDLE. 
+Je vais lancer IDLE.
 
 ***Montrer le numéro de version, vérifier >= 3.6***
 
@@ -68,8 +65,8 @@ polynome(10)
 Si je veux relancer presque la même commande, regardez bien car ça n'est pas tres intuitif au début:
 
 * je remonte avec les flêches du clavier
-* une fois sur la ligne qui m'intéresse je fais Entrée; c'est ça qui est un peu perturbant, si je ne fais pas 
-* et là l'outil me recopie la ligne et seulement maintenant je peux l'éditer 
+* une fois sur la ligne qui m'intéresse je fais Entrée; c'est ça qui est un peu perturbant, si je ne fais pas
+* et là l'outil me recopie la ligne et seulement maintenant je peux l'éditer
 
 ```
 polynome(100)
@@ -108,7 +105,7 @@ import math
 ```
 
 alors sur cet objet math, on verra que ça s'appelle un module,
-je peux pour commencer voir ce qu'il y a dedans avec la fonction `dir` 
+je peux pour commencer voir ce qu'il y a dedans avec la fonction `dir`
 
 ```
 dir(
@@ -125,7 +122,7 @@ dir(math)
 et avec dir j'obtiens le contenu de ce module, par exemple je vois qu'il y a une fonction qui s'appelle `asin`, c'est sûrement arc-sinus; il y a une fonction `sqrt`, si je ne sais pas ce qu'elle fait je utiliser la fonction `help` comme ceci
 
 ```
-help(math.sqrt) 
+help(math.sqrt)
 ```
 
 qui me dit que c'est la racine carrée, sqrt comme square root.
@@ -160,11 +157,11 @@ Je fais donc *File* ➝ *New File*
 et j'écris une fonction, disons l'incontournable fonction factoriel
 
 ```
-def fact(n):
+def factoriel(n):
     if n <= 1:
         return 1
     else:
-        return n * fact(n-1)
+        return n * factoriel(n-1)
 ```
 
 * ***mettre un commentaire*** expliquer que
@@ -174,7 +171,7 @@ dans une chaine de caracteres
 
 * ***mettre un docstring***
 
-C'est là que ça devient intéressant. Je veux exécuter ce morceau de code. Pour ça 
+C'est là que ça devient intéressant. Je veux exécuter ce morceau de code. Pour ça
 je peux faire *Run* -> *Run Module* - ou de manière équivalente `F5`, c'est plus rapide on fait toujours F5.
 
 Sauf que, la première fois que je fais ça, IDLE va me demander dans quel fichier je veux sauver ça, il lui faut un fichier pour passer ce contenu à python
@@ -190,54 +187,56 @@ polynome(10)
 ```
 `polynome is not defined`
 
-pourquoi on fait ça, eh bien en fait c'est simple, lorsque je vais vraiment exécuter ce module factoriel la prochaine fois, puisque polynome ne sera pas défini puisqu'il n'est pas dans le module `fact`.
-[[AL: cette phrase a une syntaxe bizarre]]
+c'est pratique parce que ce qu'on veut, c'est voir ce que ça donnerait si on exécutait le programme contenu dans le fichier factoriel.
 
-donc j'ai perdu `polynome` mais par contre comme j'ai chargé `factoriel` je peux maintenant utiliser `fact` 
+donc j'ai perdu `polynome` mais par contre comme j'ai chargé `factoriel` je peux maintenant utiliser `factoriel`
 
 ```
-fact(10)
+factoriel(10)
 ```
 
-retourner dans le fichier. modifier le code  par exemple pour retourner 2 quand n<=1 
+retourner dans le fichier. modifier le code  par exemple pour retourner 2 quand n<=1
 
-refaire F5 et refaire fact(10)
+refaire F5 et refaire factoriel(10)
 
 montrer la boucle changer code - retourner le code
 
 Conclure sur IDLE:
 
-* créer des fichiers 
-* les sauver 
+* créer des fichiers
+* les sauver
 * les exécuter dans un environnement "propre"
 
 ========================================
 
 Je vais à present vous montrer comment utiliser l'interpréteur python.
 
-Comme je l'ai dit tout à l'heure, l'interpréteur est nécessaire
-pour exécuter le code. Que vous développiez avec IDLE, ou avec autre
-chose, vous avez besoin de l'interpréteur. Et si vous publiez votre
-code, vos utilisateurs auront besoin de l'interpréteur.
+L'interpréteur python, c'est central parce que si vous écrivez un programme python et que vous l'installez chez un client ou un utilisateur, il sera indispensable d'y installer l'interpréteur, c'est lui qui fait le travail à run-time.
+
+Par contre on ne peut pas appeler ça un environnement de développement. Je vous montre tout de même le B-A-BA:
 
 Je vais vous montrer son utilisation dans un terminal. Naturellement
 une fois votre programme terminé et distribué, vos utilisateurs
-n'auront pas besoin de lancer un terminal, mais quelle que soit la
-façon de lancer votre programme, il y aura une instance de
-l'interpréteur à la manoeuvre quelque part dans les processus de
-l'ordinateur.
+n'auront pas besoin de lancer un terminal.
 
-Je lance donc un terminal. 
+Je lance donc un terminal.
 
 Selon les systèmes, vous pouvez lancer une console de ce genre en utilisant
 "cmd" sur windows, "xterm" sur linux, ou l'application "Terminal" sur
-macos, comme je vais le faire tout de suite. 
+macos, comme je vais le faire tout de suite.
 
 ====================
 [[Ouvrir terminal]]
 
 Je me deplace dans le repertoire ou j'ai créé factoriel.py
-$ cd MOOC/brouillon
+
+``
+$ cd Documents
+```
+
+```
+python -V
+```
 
 Pour lancer python en mode interactif comme on dit, on le lance sans
 argument comme ceci
@@ -252,94 +251,83 @@ $ python
 ```
 
 c'est aussi simple que possible, cela fonctionne presque exactement comme tout
-à l'heure, en plus basique (pas de couleur, d'indentation..)
+à l'heure dans IDLE, mais en plus basique (pas de couleur, pas de complétion, possibilités d'édition limitées..)
 
-retaper factoriel 
-
-```
-def fact(n):
-    return 1 if n <= 1 else n * fact(n-1)
-```
-
-montrer qu'on peut remonter dans l'historique cette fois avec **les flêches**
-
-**remplacer 1 par 2**
+Mais pour ce genre d'usage, en tous cas dans les vidéos, nous utiliserons plutôt ipython, que je vais vous montrer dans un instant.
 
 ```
-fact(20)
+exit()
 ```
 
-en fait python dans ce mode n'est pas connecté à la **souris** ni aux **menus**
+Par contre je vais vous montrer comment utiliser l'interpréteur pour lancer un programme.
 
 ```
-exit() 
+cat factoriel.py
 ```
-[[ Sortir de python ]]
+
+La façon de lancer un programme c'est tout simplement d'invoquer python avec un nom de ficher qui contient le programme;
+
+Par exemple je vais repartir de `fact.py`, mais je vais devoir l'éditer pour qu'il fasse quelque chose par ce que dans l'état on a défini une fonction mais on ne l'a pas appelée
+
+```
+emacs factoriel.py
+```
+
+> ajouter à la fin print(fact(100))
+
+```
+python factoriel.py
+```
+
+Donc voilà, l'interpréteur python c'est tout simplement le programme que **l'on lance pour exécuter un programme python**
 
 ====================
 
-Je vous montre très rapidement ipython,
+Je vais maintenant vous montrer très rapidement **ipython**,
 que l'on va utiliser assez fréquement
-dans les vidéos; ipython,
-fonctionnellement c'est comme python, ça
+dans les vidéos; 
+
+ipython, fonctionnellement c'est comme l'interpréteur python, ça
 tourne dans un terminal et ça répond au
-fur et à mesure, mais c'est juste plus
-agréable à utiliser
+fur et à mesure, mais c'est juste **plus agréable** à utiliser
 
 ```
 $ ipython
 ```
 
 ```
-def fibo(n):
-    return 1 if n <= 1 else return fibo(n-1) + fibo(n-2)
+def fibonacci(n):
+    return 1 if n <= 1 else return fibonacci(n-1) + fibonacci(n-2)
+```
+
+```
+fibo[TAB]
+```
+
+```
+fibonacci?
+```
+
+```
+import math
+math.[TAB]
+```
+> pick `math.ceil`
+
+```
+math.ceil?
 ```
 
 **les flêches**
 
-**ajouter un docstring**
-
-
-```
-fib[TAB]
-```
+Je vous montre aussi comment on remonte dans l'historique, cette fois c'est plus simple que sous IDLE pour remonter, mais il faut bien penser à aller au bout de la ligne avant de faire Entrée
 
 ```
-fibo?
+exit()
 ```
-[[AL: je ne suis pas sûr que ça t'avance de perdre du temps à écrire une docstring toi même, 
-importe n'importe quel module, tape le module.[TAB] pour montrer la complétion et module.attr?
-pour montrer l'aide, ça sera plus rapide et plus parlant]]
-[[AL: tu pourrais également juste recommander le lire l'aide intégrée à ipython en tapant simplement ? ]]
-
-==================== 
-
-Je voudrais maintenant vous montrer comment on utilise python pour lancer un vrai programme
-
-reprendre factoriel.py (montrer le contenu)
-
-lancer python factoriel.py, montrer que ça ne fait rien car on n'a pas appelé la fonction
-
-expliquer que c'est le mode de fonctionnement "normal" de python
-que le fichier passé en argument s'appelle le point d'entrée
-
-relancer sur factoriel.py avec python -i
-appeler la fonction 
-
-***sortir***
 
 ====================
 Voila qui conclut la présentation de python, ipython et IDLE
+Je vous retrouve la prochaine fois pour vous montrer les notebooks; 
 
-J'aimerais attirer votre attention sur le fait que dans les
-vidéos, pour des raisons pratiques, on utilise massivement des noms de
-variables très courts - pour ne pas passer trop de temps au clavier.
-Nous vous recommandons contrairement à ce qui est fait dans la vidéo,
-de bien prendre l'habitude, et même dans les exercices, d'utiliser des
-identifiants qui soient parlants. 
-[[AL: c'etait vrai dans le mooc Python 2, c'est beaucoup moins vrai
-dans cette edition. Je propose de ne pas parler de ça]]
-
-
-====================
-Je vous retrouve la prochaine fois pour vous montrer les notebooks; à bientôt
+à bientôt

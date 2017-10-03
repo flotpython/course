@@ -1,7 +1,3 @@
-# -*- autofill-mode:true; fill-column: 40 -*-
-
-Bonjour, 
-
 Après la vidéo sur l'organisation du
 cours et avant notre premier contact
 avec la technique, je vais vous
@@ -22,7 +18,7 @@ avec quelques petits
 exemples où je compare python avec
 d'autres langages généralistes.
 
-========== fragment
+========== fragment code C++
 
 Je commence avec C++; bon tous ces
 exemples sont uniquement à titre
@@ -216,24 +212,24 @@ python2 a été d'abord maintenu jusque
 2020, ça fait quand même en tout presque
 12 ans.
 
-========== librairie standard
+========== fragment librairie standard
 
 Ça me donne l'occasion de vous parler de
 la librairie standard; la librairie
 standard, c'est l'ensemble des
-utilitaires qui sont installés avec le
-langage à proprement parler. Il y a
-énormément de choses là dedans, comme je
-l'ai dit déjà on en parlera de manière
-opportuniste, mais sachez que cette
-librairie est maintenue indéfiniment
-aussi, c'est ce qui fait la différence
+utilitaires qui sont **installés avec le
+langage** à proprement parler. 
+
+Elle fait partie du **même package logiciel**, 
+du coup elle est **maintenue indéfiniment**
+ - en tous cas autant que le langage lui-même
+ - c'est ce qui fait la différence
 principale avec d'autres librairies
 tierces, il faut s'en souvenir si la
 stabilité à long terme est une
 préoccupation pour vous.
 
-========== portable
+========== slide portable
 
 Je signale aussi rapidement que python
 est portable, ça veut dire que le même
@@ -248,13 +244,17 @@ n'est pas très discriminant.
 Sinon vous pouvez trouver en quelques
 clics une librairie pour faire à peu
 près tout; il y a bien sûr les gros
-joueurs pour le calcul scientifique et
+joueurs pour le calcul scientifique 
+
+--- fragments ...
+
+et
 le traitement de données, et tout ce qui
 est services web, mais au-delà de ça si
 on est pressé on trouve vraiment tout ce
 qu'on veut.
 
-========== très grosse base de code ..
+========== 2eme slide "très grosse base de code"
 
 Et pour répondre à une critique que
 j'entends souvent par rapport à la
@@ -368,9 +368,3 @@ quelques indications pour faire ça
 
 à bientôt
 
-==========
-==========
-==========
-j'aurais aimé dire à un moment que ce
-n'est pas un langage de script mais je
-trouve déjà ça super long alors...

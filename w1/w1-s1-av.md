@@ -7,7 +7,7 @@ bienvenue dans ce cours sur python3.
 ========== cette semaine
 
 Durant cette première semaine nous
-allons voir des **généralités** sur le langage, 
+allons voir des **généralités** sur le langage,
 on parlera des **outils** qu'on
 utilisera dans le MOOC, puis nous
 commencerons tout doucement le cours en
@@ -30,7 +30,8 @@ l'écosystème python a largement basculé
 du coté de python3.
 
 Plus précisément notre référence est
-**python-3.6**, qui date de fin 2016. Quand je dis référence, je veux dire surtout que c'est la version qui est utilisée dans les vidéos.
+**python-3.6**, qui date de fin 2016.
+Quand je dis référence, je veux dire que c'est la version qui est utilisée dans les vidéos.
 
 ========== 2 grandes parties
 

@@ -1,6 +1,4 @@
-# -*- autofill-mode:true; fill-column: 40 -*-
-
-Bonjour, 
+Bonjour à tous,
 
 cette semaine nous allons voir une
 introduction à cette énorme famille
@@ -9,19 +7,25 @@ et qui ont à voir de près ou de loin
 avec le **calcul scientifique**, ou comme on
 dit maintenant le data science.
 
+quand je dis data science, c'est
+à prendre au sens très très large, ça
+peut être classiquement du traitement
+d'images, du traitement du signal, des
+statistiques, de l'intelligence
+artificielle, bref dès qu'il s'agit de
+faire beaucoup de calculs sur des nombres.
+
 je précise tout de suite que, bien
 évidemment, c'est un sujet **très très
 vaste** qui pourrait sans problème occuper
 un mooc de plusieurs semaines
 
-En ce qui nous concerne ici et dans cette édition en tous cas, 
-nous allons nous contenter d'effleurer trois outils qui sont 
+En ce qui nous concerne ici et dans cette édition en tous cas,
+nous allons nous contenter d'effleurer trois outils qui sont
 
 * numpy
-* matplotlib
-* et pandas
-
-[[AL: citer pandas avant matplotlib]]
+* pandas
+* et matplotlib
 
 notre objectif c'est d'abord que vous
 sachiez **que ça existe**, et que vous voyiez
@@ -33,13 +37,6 @@ exemples simples, à vous ensuite de
 creuser les différentes librairies en
 fonction de vos besoins.
 
-quand je dis data science, c'est
-à prendre au sens très très large, ça
-peut être classiquement du traitement
-d'images, du traitement du signal, des
-statistiques, de l'intelligence
-artificielle, bref dès qu'il s'agit de
-faire beaucoup de calculs sur des nombres.
 
 ========== numpy
 
@@ -70,21 +67,25 @@ complexes, mais quand il s'agit de les
 organiser en tableaux, eh bien en fait
 il y a un gros problème d'efficacité.
 
-========== fragment 
+========== fragment
+
 Je peux bien sûr représenter une matrice
 comme une liste de listes par
 exemple.
 
 ========== fragment
+
 Ou bien comme un dictionnaire indexé par
 des tuples
 
 ========== fragment
+
 si je choisis la première option je peux
 accéder à un élément de tableau comme
 ceci
 
 ========== fragment
+
 et si je choisis l'autre option je ferai
 comme ceci
 
@@ -116,6 +117,7 @@ langage compilé ça veut dire qu'ils
 ont la même taille en mémoire
 
 ========== fragment
+
 et on a déclaré aussi la dimension du tableau
 
 ========== accès direct
@@ -125,7 +127,7 @@ implémenter un tableau comme ceci
 
 ========== animation
 
-* je connais la taille du tableau 
+* je connais la taille du tableau
 * je connais la taille de chaque cellule,
   parce que le tableau est homogène
 * donc au lieu de mettre mes cellules
@@ -192,6 +194,7 @@ pour comparer, ça nous donnera l'occasion
 de jouer un peu avec numpy.
 
 ========== fragment
+
 on va calculer le cosinus de 10.000
 nombres
 
@@ -245,7 +248,7 @@ entrées
 ========== run cell
 
 si je l'exécute vous pouvez voir que ça
-va environ 10 fois plus vite. 
+va environ 10 fois plus vite.
 
 
 ========== slide benchmark 2 - dict / tuple
@@ -258,7 +261,7 @@ tuples d'entiers, voyons ce que ça
 donnerait avec cette idée-là.
 
 Du coup cette fois-ci je vais prendre un
-tableau à deux dimensions. 
+tableau à deux dimensions.
 
 dans la version en pur python je crée
 donc un dictionnaire d qui est indexé
@@ -269,23 +272,26 @@ taille qu'à l'instant avec les listes
 vous pouvez comparer si vous êtes curieux
 
 ========== fragment
+
 pour créer l'objet ndarray c'est comme
 tout à l'heure, je passe par une liste
 pour me simplifier le travail
 
 ========== fragment
+
 si à nouveau je calcule une structure
 analogue à l'entrée mais qui contient
 les cosinus, avec une compréhension en
 python ça me donne ceci en python pur
 
 ========== fragment
+
 et ceci en numpy, vous voyez qu'on est
 ici encore dans un facteur 10 en gros.
 
 
 [[AL: je trouve qu'un facteur 10 c'est très en deça de ce qu'on
-peut avoir en numpy. Je te donne ci dessous un exemple plus 
+peut avoir en numpy. Je te donne ci dessous un exemple plus
 spectaculaire
 In [45]: L = [random.randint(0,10) for i in range(1000000)]
 
@@ -324,6 +330,7 @@ que tout à l'heure avec 3 lignes de 4
 colonnes, très bien
 
 ==========
+
 maintenant je crée un second tableau b à
 partir de a. Bon ici j'utilise la
 méthode reshape, c'est parce que c'est
@@ -339,6 +346,7 @@ référence partagée, un peu comme avec
 les listes. Regardons ça,
 
 ========== run
+
 il suffit que je touche au contenu de a
 pour que b soit modifié aussi.
 
@@ -348,7 +356,7 @@ pour bien comprendre ce qui se passe, je
 vous ai préparé une animation, je rejoue
 exactement le même scénario, alors
 lorsque je crée mon tableau en fait je
-crée deux choses distinctes, 
+crée deux choses distinctes,
 
 * d'abord une zone de **mémoire contigüe**, dans laquelle
 vont se trouver les données bien sûr,
@@ -372,7 +380,7 @@ voir ça avant de commencer, ça évite
 bien des confusions.
 
 * ----- a[1, 2]
-  
+
   et donc ensuite, quand on cherche
 a[1, 2] on utilise la géométrie de a pour
 calculer un indice, donc comme tout à
@@ -400,18 +408,18 @@ Je n'en dis pas plus ici à propos de numpy, je vous donne rendez-vous dans la d
 
 ---------- `pandas`
 
-Ensuite nous regarderons la librairie pandas, qui est également un outil extêmement utilisé. Le type central de pandas s'appelle le dataframe, vous pouvez le voir un peu comme un tableau excel sur stéroïdes, car il permet de faire d e manière très efficace, le chargement de données, l'indexation dans tous les sens de lignes et de colonnes, et même des opérations qui se rapprochent des bases de données comme des join ou des group-by. 
+Ensuite nous regarderons la librairie pandas, qui est également un outil extêmement utilisé. Le type central de pandas s'appelle le dataframe, vous pouvez le voir un peu comme un tableau excel sur stéroïdes, car il permet de faire d e manière très efficace, le chargement de données, l'indexation dans tous les sens de lignes et de colonnes, et même des opérations qui se rapprochent des bases de données comme des join ou des group-by.
 
 Je vous invite donc à lire les notebooks de la troisième séquence de cette semaine.
 
 ========== `matplotlib`
 
-Enfin, en complément de numpy, nous verrons aussi bien sûr matplotlib, je vous montre très rapidement deux figures obtenues avec matplotlib, c'est un outil très puissant, on en verra quelques exemples dans les notebooks de la quatrième et dernière séquence.
+Enfin, en complément de numpy, nous verrons aussi matplotlib, je vous montre très rapidement deux figures obtenues avec matplotlib, c'est un outil très puissant, on en verra quelques exemples dans les notebooks de la quatrième et dernière séquence.
 
 
 ========== slide conclusion
 
-bon voila je vais en rester la, ce sera la seul vidéo de cette semaine, j'espère vous avoir fait
+bon voila je vais en rester la, ce sera la seule vidéo de cette semaine, j'espère vous avoir fait
 bien sentir les motivations qui sont
 derrière les tableaux numpy, qui sont je
 le répète omniprésents dans toutes les
@@ -420,14 +428,10 @@ librairies scientifiques au sens large.
 Motivations qui sont d'améliorer très
 sensiblement les performances, notamment
 par une meilleure utilisation de la
-mémoire, au prix d'une légère limitation
-par rapport à la flexibilité des types
-de base, limitation par ailleurs tout à
-fait acceptable dans ce contexte.
-
+mémoire, au prix d'une petite limitation - si on compare aux type de base de python - tout à fait inoffensive dans ce contexte.
 
 ========== fragment
 
-et je vous invite à finir la semaine dans les compléments au format notebook, sachant que dans ce domaine pratiquement toutes les publications se font maintenant sous forme de notebook.
+Ce sera la seule vidéo de la semaine, je vous invite à nous retrouver dans les notebooks des trois séquences consacrées aux trois outils que je viens d'évoquer - sachant que dans ce domaine pratiquement toutes les publications se font maintenant sous forme de notebook.
 
 à bientôt
