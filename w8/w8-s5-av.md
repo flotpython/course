@@ -1,6 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-Bonjour
+#w8-s5
 
 Maitenant qu'on a vu les mécanismes de
 base du langage pour créer des objets

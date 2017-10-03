@@ -1,7 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : Les boucles d'événements
-# temps estimé:
+# w8-s6
 
 ## Résumé de la vidéo
 

@@ -1,4 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
+# w8 s0
 
 Cette semaine nous allons parler de
 programmation asynchrone, ce qu'on

@@ -1,8 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : Tâches et exceptions
-# temps estimé:
-
+# w8-s7
 ## Résumé de la vidéo
 
 . tâche

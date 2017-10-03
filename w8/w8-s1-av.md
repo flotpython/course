@@ -1,8 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : Introduction à la Programmation Asynchrone
-
-# temps estimé 7-8'
+# w8-s1
 
 ## Résumé de la vidéo
 

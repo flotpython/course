@@ -1,7 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : Bonnes pratiques
-# temps estimé:
+# w8-s9
 
 ## Résumé de la vidéo
 

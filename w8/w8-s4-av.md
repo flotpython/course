@@ -1,7 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : Extensions asynchrones du langage
-# temps estimé:
+# w8-s4
 
 ## Résumé de la vidéo
 

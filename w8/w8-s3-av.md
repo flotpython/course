@@ -1,7 +1,4 @@
-# -*- coding: utf-8; autofill-mode: true; fill-column: 40 -*-
-
-# TITRE : L'écosystème asyncio
-# temps estimé:
+# w8-s3
 
 ## Résumé de la vidéo
 
