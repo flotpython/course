@@ -6,4 +6,7 @@ async def boom(n):
 asyncio.ensure_future(boom(1))
 asyncio.ensure_future(boom(0))
 
-asyncio.get_event_loop().run_forever()
+try:
+    asyncio.get_event_loop().run_forever()
+except KeyboardInterrupt:
+    print('bye')
