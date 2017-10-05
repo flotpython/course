@@ -68,7 +68,7 @@ Plan du MOOC sur Python 3
 
 ## Semaine 6
 ### Thème: Conception des classes
-### Niveau: BASIC, sauf w6-s6, s6-s7, s6-s8 INTERMÉDIAIRE
+### Niveau: BASIC, sauf w6-s6, w6-s7, w6-s8 INTERMÉDIAIRE
 
 * w6-s1: Classes, instances et méthodes
 * w6-s2: Méthodes spéciales
