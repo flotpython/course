@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Types numériques (1)
+=====
+
+Comment calculer la 16-ème puissance de 2 ?
+
+( ) <code>2 &amp; 16</code>
+(x) <code>2 ** 16</code>
+( ) <code>2 &amp;&amp; 16</code>
+( ) <code>2 | 16</code>
+
+[explanation]
+Le signe puissance en python est **
+[explanation]
+
+<hr/>
+Types numériques (2)
+=====
+
+Comment entrer la valeur du complexe 3 + 2i ? (plusieurs réponses possibles)
+
+[ ] <code>3 + 2i</code>
+[x] <code>3 + 2j</code>
+[x] <code>3 + 2 * 1j</code>
+[ ] <code>3 + 2 * i</code>
+[ ] <code>3 + 2 * j</code>
+
+[explanation]
+Python utilise 'j' plutôt que 'i' pour identifier la partie imaginaire. 
+Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
+[explanation]
+
+<hr/>
+Types numériques (3)
+=====
+
+
+Quel est le résultat de <code>(2.5 + 2)*3/4</code>
+
+[ ] <code>3.0</code>
+[ ] <code>3</code>
+[x] <code>3.375</code>
+[ ] <code>-1</code>
+
+[explanation]
+L'opération <code>/</code> est une division naturelle en Python. 
+[explanation]

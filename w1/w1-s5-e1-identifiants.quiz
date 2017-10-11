@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Noms de variables
+=====
+
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? <em>(plusieurs réponses possibles)</em>
+
+[x] <code>nom_de_variable</code>
+[ ] <code>nom-de-variable</code>
+[x] <code>nom_de_variable2</code>
+[ ] <code>nom:de:variable</code>
+[x] <code>NomDeVariable</code>
+[ ] <code>2eme_variable</code>
+[x] <code>_nom_de_variable</code>
+
+
+<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides; il peut y en avoir une ou plusieurs.</em>
+
+[explanation]
+Seules les réponses d'indice impair sont correctes.
+
+le caractère deux-points ':' n'est pas autorisé
+
+le caractère '-' n'est pas autorisé
+
+un identifiant ne peut pas commencer par un chiffre
+[explanation]
+
+
+<hr/>
+Tirets dans les noms de variables
+=====
+
+Parmi les noms de variables suivants, lesquels sont autorisés par le langage ? Pour être très clair, on parle bien de ce qui est <b>permis</b> par le langage, sans tenir compte de ce qui est <b>recommandé</b> ou pas.
+
+[x] <code>_</code>
+[x] <code>_A</code>
+[x] <code>_a_</code>
+[x] <code>A_</code>
+[x] <code>__</code>
+
+[explanation]
+Toutes ces formes sont légales, y compris la première malgré l'absence de caractère alphanumérique
+
+On notera toutefois qu'elles sont toutes non recommandées
+
+[explanation]
+
+
+<hr/>
+Objets, affectation et typage dynamique
+=====
+
+Quelles affirmations sont vraies ?
+
+[ ] Les variables définissent un type
+[x] Les objets ont un type, pas les variables
+[ ] Le typage dynamique permet de changer le type des objets
+[x] L'opération d'affectation permet de donner un nom à un objet
+
+[explanation]
+
+En Python, seuls les objets ont un type, les variables n'ont pas de type et c'est le mécanisme de typage dynamique qui permet d'associer des objets typés à des variables sans type. Une variable ne définit donc qu'un nom pour un objet. 
+
+Python utilise le typage dynamique mais également le typage fort. C'est deux notions qu'il ne faut pas confondre. Avec le typage fort, tous les objets ont un type et ce type ne peut plus changer après la création de l'objet. 
+
+
+[explanation]
