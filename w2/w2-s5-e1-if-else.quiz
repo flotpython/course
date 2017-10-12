@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+<hr/>
+<code>if</code> et syntaxe
+=====
+
+Que peut-on dire du code suivant ?
+<pre>
+if 1 < 2
+    print('oui')
+else:
+    print('non')
+</pre>
+
+[x] Ce code est invalide
+[ ] Ce code affiche 'oui'
+[ ] Ce code affiche 'non'
+
+[explanation]
+
+Il manque le <code>:</code> en fin de ligne du <code>if</code> pour que la syntaxe soit correcte
+
+[explanation]
+
+
+
+
+<hr/>
+Quelle(s) affirmation(s) est(sont) vraie(s)
+=====
+
+[x] Les conventions de codage sont dans la syntaxe de Python
+[ ] En Python, il y a peu de contraintes sur la manière de présenter le code
+[ ] On utilise des accolades en Python pour identifier les blocs d'instructions
+[x] Il faut toujours un <code>:</code> à la fin de la ligne précédent un bloc de code
+
+[explanation]
+
+Python impose des contraintes fortes sur la manière de présenter le code en faisant entrer la présentation du code dans la syntaxe du langage. 
+
+Un bloc d'instruction est nécessairement identifié par une indentation commune de chaque ligne, mais pas par des accolades.
+[explanation]
+

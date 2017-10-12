@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Boucles <code>for</code>
+=====
+
+Voici une boucle for, que va afficher cette boucle.
+
+<pre>
+a = []
+for n in [1, 2, '3', 4, 'FIN']:
+    a.append(str(n))
+print(",".join(a))     		
+</pre>
+
+<h3>Solution 1</h3>
+Une erreur
+
+<h3>Solution 2</h3>
+<pre>
+1,2,'3',4,'FIN'
+</pre>
+
+<h3>Solution 3</h3>
+<pre>
+1,2,3,4,FIN
+</pre>
+
+<h3>Solution 4</h3>
+<pre>
+1,
+2,
+3,
+4,
+FIN
+</pre>
+
+Quelle affichage est correct ?
+
+[ ] Solution 1
+[ ] Solution 2
+[x] Solution 3
+[ ] Solution 4
+
+[explanation]
+La boucle parcourt la liste, convertit chaque élément en chaîne de caractères et met le résultat dans une nouvelle liste. On affiche ensuite
+le résultat du <code>",".join(a)</code> qui produit une chaîne de caractères qui contient chaque élément de la nouvelle liste séparé par une virgule.
+[explanation]
+
+
+<hr/>
+Fonctions
+=====
+
+Voici une fonction
+
+<pre>
+def to_str(a):
+    tmp = []
+	for i in a:
+	    tmp.append(str(i))
+    return " ".join(tmp)   
+</pre>
+
+Quel(s) appel(s) va(vont) produire le retour suivant
+
+<code>'1 2 3'</code>
+
+<h3>Appel 1</h3>
+<pre>
+to_str([1, 2, 3])
+</pre>
+
+<h3>Appel 2</h3>
+<pre>
+to_str(['1', '2', '3'])
+</pre>
+
+<h3>Appel 3</h3>
+<pre>
+to_str('123')
+</pre>
+
+<h3>Appel 4</h3>
+<pre>
+[1, 2, 3].to_str()
+</pre>
+
+<h3>Appel 5</h3>
+<pre>
+a = [1, 2, 3]
+to_str
+</pre>
+
+
+<h3>Appel 6</h3>
+<pre>
+to_str(['123'])
+</pre>
+
+
+[x] Appel 1
+[x] Appel 2
+[x] Appel 3
+[ ] Appel 4
+[ ] Appel 5
+[ ] Appel 6
+
+
+[explanation]
+Les trois premiers appels retournent le bon résultat, puisque la boucle for de la fonction parcourt une séquence.
+
+Le quatrième appel n'a pas de sens puisque la fonction <code>to_str</code> n'est pas définie sur les listes.
+
+Le cinquième appel est faux puisqu'on n'appel <code>to_str</code> pas la fonction, pour l'appeler il faut utiliser des parenthèses et lui passer un arguement dans notre cas.
+
+Le sixième appel parcourt la liste qui ne contient qu'un élément la chaîne '123'. 
+[explanation]

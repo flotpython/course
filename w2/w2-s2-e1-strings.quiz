@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+<hr/>
+Strings (1)
+=====
+
+Les chaînes de caractères en Python sont mutables. 
+
+( ) Vrai
+(x) Faux
+
+[explanation]
+
+Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet créé on ne peut plus de modifier. 
+
+[explanation]
+
+
+<hr/>
+Strings (2)
+=====
+
+Cocher la ou les expressions qui définissent correctement une chaîne de caractères en Python
+
+[ ] <code>'spam"</code>
+[x] <code>"spam"</code>
+[x] <code>'spam"'</code>
+[x] <code>'spam'</code>
+[x] <code>'""'</code>
+[x] <code>"'"</code>
+[ ] <code>'"'"</code>
+
+[explanation]
+Une chaîne de caractères est entourée soit par deux <code>'</code> ou par deux <code>"</code>. Si la chaîne est entourée par deux <code>'</code> (respectivement <code>"</code>), alors le caractères <code>"</code> (respectivement <code>'</code>) pourra être utilisé comme un caractère normal dans la chaîne de caractères. 
+
+[explanation]
+
+<hr/>
+Strings - formatage
+=====
+
+On veut afficher la chaîne de caractères <code>le numéro d'appel des urgences est le 112</code>  et on a les variables suivantes qui sont définies :
+<pre>
+text = 'des urgences'
+numero = 112
+<pre>
+
+Quelle(s) solution(s) est(sont) correcte(s) ?
+
+[ ] <code>'le numéro d'appel {} est le {}'.format(text, numero)</code>
+[ ] <code>"le numéro d'appel {text} est le {numero}"</code>
+[x] <code>"le numéro d'appel {} est le {}".format(text, numero)</code>
+[x] <code>f"le numéro d'appel {text} est le {numero}"</code>
+
+[explanation]
+Attention de ne pas mettre d'apostrophes (sans caractère <code>\</code> devant) dans une chaîne délimitée par des apostrophes.
+
+Une f-string doit toujours commencer être précédée d'un <code>f</code>
+[explanation]
+
+<hr/>
+Strings - encodage
+=====
+
+Quelle(s) affirmation(s) est(sont) vraie(s) ?
+
+[x] Sans spécifier explicitement l'encodage choisit, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme. 
+[x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> et pour les chaînes de caractères encodées. 
+[ ] Lorsqu'une chaîne est décodée on ne peut plus l'encoder.
+
+[explanation]
+On peut décoder et encoder une chaîne de caractères autant de fois que nécessaire. 
+[explanation]
+
