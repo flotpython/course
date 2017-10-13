@@ -3,46 +3,56 @@
 Types numériques (1)
 =====
 
-Comment calculer la 16-ème puissance de 2 ?
+Comment calculer la 16-ème puissance de 2 ? (rappel: plusieurs réponses possibles)
 
-( ) <code>2 &amp; 16</code>
-(x) <code>2 ** 16</code>
-( ) <code>2 &amp;&amp; 16</code>
-( ) <code>2 | 16</code>
+[x] <code>2 ** 16</code>
+[ ] <code>2 &amp;&amp; 16</code>
+[ ] <code>2 | 16</code>
+[x] <code>1 &lt;&lt; 16</code>
 
 [explanation]
 Le signe puissance en python est **
+
+On peut obtenir aussi le résultat en partant de 1 (un seul bit), avec un décalage à gauche de 16 bits
+
 [explanation]
 
 <hr/>
 Types numériques (2)
 =====
 
-Comment entrer la valeur du complexe 3 + 2i ? (plusieurs réponses possibles)
+Parmi les expressions suivantes, quelles sont celles qui retournent un flottant 1.0 ?
 
-[ ] <code>3 + 2i</code>
-[x] <code>3 + 2j</code>
-[x] <code>3 + 2 * 1j</code>
-[ ] <code>3 + 2 * i</code>
-[ ] <code>3 + 2 * j</code>
+[ ] (3.0 + 3.0) / 5
+[ ] (3.0 + 3) / 5
+[ ] (3 + 3) / 5
+[x] (3.0 + 3.0) // 5
+[x] (3.0 + 3) // 5
+[ ] (3 + 3) // 5
 
 [explanation]
-Python utilise 'j' plutôt que 'i' pour identifier la partie imaginaire. 
-Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
+L'opération <code>/</code> est la division en Python, les trois premières expressions s'évaluent toutes les 3 à 1.2
+
+La dernière expression est une opération entre entiers, elle retourne donc l'entier 1, et un entier n'est pas un flottant. 
 [explanation]
 
 <hr/>
 Types numériques (3)
 =====
 
+Comment entrer la valeur du complexe 3 + 2i ?
 
-Quel est le résultat de <code>(2.5 + 2)*3/4</code>
-
-[ ] <code>3.0</code>
-[ ] <code>3</code>
-[x] <code>3.375</code>
-[ ] <code>-1</code>
+[ ] <code>3 + 2i</code>
+[x] <code>3 + 2j</code>
+[x] <code>3 + 2 * 1j</code>
+[x] <code>3 + 2 * 1.j</code>
+[x] <code>3 + 2.j</code>
+[ ] <code>3 + 2 * i</code>
+[ ] <code>3 + 2 * j</code>
 
 [explanation]
-L'opération <code>/</code> est une division naturelle en Python. 
+Python utilise 'j' plutôt que 'i' pour identifier la partie imaginaire. 
+
+Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
 [explanation]
+
