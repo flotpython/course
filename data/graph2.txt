@@ -1,0 +1,5 @@
+paris 300 metz
+metz 500 lyon
+lyon 300 marseille
+marseille 200 nice
+marseille 500 bordeaux
