@@ -1,19 +1,20 @@
-# -*- coding: utf-8 -*-
 <hr/>
 <code>if</code> et syntaxe
 =====
 
 Que peut-on dire du code suivant ?
 <pre>
-if 1 < 2
+<code>
+if 1 &lt; 2
     print('oui')
 else:
     print('non')
+</code>
 </pre>
 
-[x] Ce code est invalide
-[ ] Ce code affiche 'oui'
-[ ] Ce code affiche 'non'
+(x) Ce code est invalide
+( ) Ce code affiche 'oui'
+( ) Ce code affiche 'non'
 
 [explanation]
 
