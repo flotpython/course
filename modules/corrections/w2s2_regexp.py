@@ -10,47 +10,87 @@ for germ in germs:
         for seed in '-_':
             pythonid_strings.append(germ[:i]+seed+germ[i:])
 
-# @BEG@ week=6 sequence=6 name=pythonid more=regexp
+# @BEG@ name=pythonid more=regexp
 # un identificateur commence par une lettre ou un underscore
 # et peut être suivi par n'importe quel nombre de
 # lettre, chiffre ou underscore, ce qui se trouve être \w
 # si on ne se met pas en mode unicode
-pythonid = "[a-zA-Z_]\w*"
+pythonid_regexp = "[a-zA-Z_]\w*"
 # @END@
 
-# @BEG@ week=6 sequence=6 name=pythonid more=v2
+# @BEG@ name=pythonid more=v2
 # on peut aussi bien sûr l'écrire en clair
 pythonid_bis = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
-exo_pythonid = ExerciseRegexp('pythonid', pythonid,
-                              [Args(x) for x in pythonid_strings],
-                              nb_examples = 8)
+exo_pythonid = ExerciseRegexp(
+    'pythonid', pythonid_regexp,
+    [Args(x) for x in pythonid_strings],
+    nb_examples = 8)
 
 pythonid_ko = "\w+"
 
-######################################## specials
-# on ne prend pas le dernier pour le premier exo
-specials_strings = [ '__y3s__', '_n0__', '___n0__',
-                     '__0no__', '__n0_', '__n0___',
-                     '__y3s_too__', '__y__', ]
+######################################## agenda
+agenda_strings = [
+    "Daniel:Durand",
+    "Jean:Dupont:",
+    "Jean:Dupont::",
+    ":Dupontel:",
+    "Jean-Noël:Dupont-Nemours",
+    "Charles-Henri:Du Pré",
+    "Charles Henri:DuPré",
+]
 
-# @BEG@ week=6 sequence=6 name=specials more=regexp
-# il faut commencer par exactement 2 underscores
-# donc le caractère suivant doit être une lettre
-# ensuite on peut mettre ce qu'on veut comme alphanumérique,
-# mais avant les deux derniers underscores on ne peut pas avoir
-# un underscore
-# enfin pour traiter le cas où la partie centrale est réduite
-# à un seul caractère, on met une option - avec ()? 
-specials = "__[a-zA-Z](\w*[a-zA-Z0-9])?__"
+# @BEG@ name=agenda more=regexp
+# l'exercice est basé sur re.match, ce qui signifie que
+# le match est cherché au début de la chaine
+# MAIS il nous faut bien mettre \Z à la fin de notre regexp,
+# sinon par exemple avec la cinquième entrée le nom 'Du Pré'
+# sera reconnu partiellement comme simplement 'Du'
+# au lieu d'être rejeté à cause de l'espace
+# 
+# du coup pensez à bien toujours définir
+# vos regexps avec des raw-strings
+#
+# remarquez sinon l'utilisation à la fin de :? pour signifier qu'on peut
+# mettre ou non un deuxième séparateur ':' 
+#   
+agenda_regexp = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?\Z"
 # @END@
 
-exo_specials = ExerciseRegexp('specials', specials,
-                              [Args(x) for x in specials_strings],
-                              nb_examples = 0)
+agenda_groups = ['nom', 'prenom']
 
-specials_ko = "__\w*__"
+exo_agenda = ExerciseRegexpGroups(
+    'agenda', agenda_regexp, agenda_groups,
+    [Args(x) for x in agenda_strings],
+    nb_examples = 0)
+
+######################################## phone
+phone_strings = [
+    "0123456789",
+    "01234567890",
+    "012345678",
+    "1234567890",
+    "+33123456789",
+    "+3312345678",
+    "+330123456789",
+]
+
+# @BEG@ name=phone more=regexp
+# idem concernant le \Z final
+#
+# il faut bien backslasher le + dans le +33
+# car sinon cela veut dire 'un ou plusieurs'
+#
+phone_regexp = r"(\+33|0)(?P<number>[0-9]{9})\Z"
+# @END@
+
+phone_groups = ['number']
+
+exo_phone = ExerciseRegexpGroups(
+    'phone', phone_regexp, phone_groups,
+    [Args(x) for x in phone_strings],
+    nb_examples = 0)
 
 ######################################## url
 url_strings = """
@@ -63,7 +103,7 @@ gopher://unsupported.proto.col/
 http:///missing/hostname/
 """.split()
 
-# @BEG@ week=6 sequence=6 name=url more=regexp
+# @BEG@ name=url more=regexp
 # en ignorant la casse on pourra ne mentionner les noms de protocoles
 # qu'en minuscules
 i_flag = "(?i)"
