@@ -34,7 +34,7 @@ def decode_zen(this_module):
     return ''.join([code[c] if c in code else c for c in encoded])
 # @END@
 
-# @BEG@ name=decode_zen more=v2
+# @BEG@ name=decode_zen more=bis
 # une autre version un peu plus courte
 #
 # on utilise la méthode get d'un dictionnaire, qui permet de spécifier
@@ -49,10 +49,10 @@ def decode_zen_bis(this_module):
     return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
 
-# @BEG@ name=decode_zen more=v3
+# @BEG@ name=decode_zen more=ter
 # presque la même chose, mais en utilisant une expression génératrice
-# à la place de la compréhension; la seule différence avec la v2 est
-# l'absence des crochets carrés []
+# à la place de la compréhension; la seule différence avec la version bis
+# est l'absence des crochets carrés []
 # ici je triche, nous n'avons pas encore vu ces expressions-là,
 # nous les verrons en semaine 6, mais ça me permet de les introduire
 # pour les curieux donc:

@@ -7,14 +7,15 @@ from nbautoeval.args import Args
 def P(x):
     return 2 * x**2 - 3 * x - 2
 
-
 def liste_P(liste_x):
     """
     retourne la liste des valeurs de P 
     sur les entrées figurant dans liste_x
     """
     return [P(x) for x in liste_x]
+# @END
 
+# @BEG@ name=liste_P more=bis
 # On peut bien entendu faire aussi de manière pédestre
 def liste_P_bis(liste_x):
     liste_y = []
@@ -111,7 +112,9 @@ def produit_scalaire(X, Y):
         scalaire += x * y
     # on retourne le résultat
     return scalaire
+# @END@
 
+# @BEG@ name=produit_scalaire more=bis
 # Il y a plein d'autres solutions qui marchent aussi
 # en voici notamment une qui utilise la fonction builtin sum
 # (que nous n'avons pas encore vue, nous la verrons en semaine 4)
@@ -120,10 +123,11 @@ def produit_scalaire(X, Y):
 def produit_scalaire_bis(X, Y):
     return sum([x * y for x, y in zip(X, Y)])
 
-# Et encore une; celle-ci par contre est
-# assez peu "pythonique"
-# on aime bien en général éviter
-# les boucles du genre
+# @END@
+
+# @BEG@ name=produit_scalaire more=ter
+# Et encore une: celle-ci par contre est assez peu "pythonique"
+# on aime bien en général éviter les boucles du genre
 # for i in range(l)
 #     ... l[i]
 def produit_scalaire_ter(X, Y):

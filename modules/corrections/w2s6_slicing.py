@@ -25,7 +25,7 @@ def inconnue(composite, connue):
     return composite[ len(connue) : -len(connue) ]
 # @END@ 
 
-# @BEG@ name=inconnue more=v2
+# @BEG@ name=inconnue more=bis
 # ce qui peut aussi s'écrire comme ceci si on préfère
 def inconnue_bis(composite, connue):
     return composite[ len(connue) : len(composite)-len(connue) ]

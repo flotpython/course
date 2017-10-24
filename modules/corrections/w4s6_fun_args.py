@@ -52,7 +52,7 @@ def doubler_premier(f, first, *args):
     return f(2*first, *args)
 # @END@
 
-# @BEG@ name=doubler_premier more=v2
+# @BEG@ name=doubler_premier more=bis
 def doubler_premier_bis(f, *args):
     "marche aussi mais moins élégant"
     first = args[0]

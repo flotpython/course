@@ -21,8 +21,6 @@ def libelle(ligne):
     ligne = ligne.replace(' ', '').replace('\t','')
     # on cherche les 3 champs
     mots = ligne.split(',')
-    # on enleve les morceaux vides
-    mots = [mot for mot in mots if mot]
     # si on n'a pas le bon nombre de champs
     # rappelez-vous que 'return' tout court
     # est équivalent à 'return None'
@@ -34,13 +32,7 @@ def libelle(ligne):
     msg_rang = "1er" if rang == "1" \
                else "2nd" if rang == "2" \
                     else "{}-ème".format(rang)
-    return "{prenom}.{nom} ({msg_rang})"\
-        .format(nom=nom, prenom=prenom, msg_rang=msg_rang)
-    # NOTE:
-    # on verra plus tard qu'on pourrait écrire beaucoup
-    # plus simplement ici
-    # return "{prenom}.{nom} ({msg_rang})"\
-    #    .format(**locals())
+    return f"{prenom}.{nom} ({msg_rang})"
 # @END@ ##########
 
 def libelle_ko(ligne):
@@ -59,6 +51,7 @@ inputs_libelle = [
     Args(" Jacques , Martin, 3 \t"),
     Args("Sheldon, Cooper ,5,  "),
     Args("\t John, Doe\t, "),
+    Args("John, Smith, , , , 3"),
 ]
 
 exo_libelle = ExerciseFunction(

@@ -12,7 +12,7 @@ def divisible(a, b):
     return a % b == 0 or b % a == 0
 # @END@
 
-# @BEG@ name=divisible more=v2
+# @BEG@ name=divisible more=bis
 def divisible_bis(a, b):
     if a % b == 0:
         return True
@@ -56,7 +56,7 @@ def morceaux(x):
         return x / 5 - 1
 # @END@
 
-# @BEG@ name=morceaux more=v2
+# @BEG@ name=morceaux more=bis
 def morceaux_bis(x):
     if x <= -5:
         return -x - 5
@@ -65,7 +65,7 @@ def morceaux_bis(x):
     return x / 5 - 1
 # @END@
 
-# @BEG@ name=morceaux more=v3
+# @BEG@ name=morceaux more=ter
 # on peut aussi faire des tests d'intervalle
 # comme ceci  0 <= x <= 10
 def morceaux_ter(x):

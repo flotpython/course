@@ -68,7 +68,7 @@ def index(bateaux):
     return {bateau[0] : bateau for bateau in bateaux}
 # @END@
 
-# @BEG@ name=index more=v2
+# @BEG@ name=index more=bis
 def index_bis(bateaux):
     """
     La même chose mais de manière itérative
@@ -130,7 +130,7 @@ def merge(extended, abbreviated):
 # @END@
 
 
-# @BEG@ name=merge more=v2
+# @BEG@ name=merge more=bis
 def merge_bis(extended, abbreviated):
     """
     Une deuxième version, linéaire également
@@ -156,7 +156,7 @@ def merge_bis(extended, abbreviated):
 # @END@
 
 
-# @BEG@ name=merge more=v3
+# @BEG@ name=merge more=ter
 def merge_ter(extended, abbreviated):
     """
     Une troisième solution

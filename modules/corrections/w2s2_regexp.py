@@ -18,7 +18,7 @@ for germ in germs:
 pythonid_regexp = "[a-zA-Z_]\w*"
 # @END@
 
-# @BEG@ name=pythonid more=v2
+# @BEG@ name=pythonid more=bis
 # on peut aussi bien sûr l'écrire en clair
 pythonid_bis = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@

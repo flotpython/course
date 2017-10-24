@@ -51,7 +51,7 @@ def diff(extended, abbreviated):
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
 
-# @BEG@ name=diff latex_size=footnotesize more=v2
+# @BEG@ name=diff latex_size=footnotesize more=bis
 def diff_bis(extended, abbreviated):
     """
     Idem avec seulement des compréhensions
