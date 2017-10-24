@@ -11,7 +11,7 @@ Que faut-il faire ? (plusieurs réponses possibles)
 
 [ ] <code>liste[2] = 4</code>
 [ ] <code>liste[2] = [4]</code>
-[x] <code>liste.insert(2,4)</code>
+[x] <code>liste.insert(2, 4)</code>
 [ ] <code>liste[2:3] = [4]</code>
 [x] <code>liste[2:2] = [4]</code>
 
@@ -31,7 +31,7 @@ Listes (2)
 À nouveau on a 
 <pre>liste = [0, 1, 2, 3]</pre>
 
-On souhaite <em>extraire</em> et retourner le premier élément <code>0</code>, tout en la retirant de la liste.
+On veut <em>extraire</em> et retourner le premier élément <code>0</code>, tout en la retirant de la liste.
 Plus précisément on veut affecter à la variable <code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>
 
 Que faut-il faire ? (plusieurs réponses possibles)
@@ -60,7 +60,7 @@ On a cette fois
 
 On veut trier la liste en ordre décroissant et <b>en place</b>, c'est-à-dire <b>sans dupliquer</b> la liste ni ses éléments.
 
-Faut-il faire : (plusieurs réponses possibles)
+Comment peut-on faire ? (plusieurs réponses possibles)
 
 [x] <code>liste.sort(reverse=True)</code>
 [ ] <code>liste.sort()</code>
