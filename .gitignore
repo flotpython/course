@@ -34,25 +34,55 @@ corriges/*.txt
 corriges/*.toc
 *foo*
 *.pure
+*.tgz
+*.help
 
 a-admin/
+a-samples/
 
 old-weeks/archive/
-
 old-weeks/markdown/
-
-*.tgz
+old-weeks/more-stuff/
 
 w8/loop-stacks/
-
 w8/single-stack/
+w7/w7-directaccess/
+w7/w7-view/
 
 standalone/
-
 py2-standalone/
 
 *.gz
 
-w7/w7-directaccess/
+bundles/
+ipynb/
+essais-mathieu/
+html/w*.html
+html/media/
 
-w7/w7-view/
+data/check-cities\.py
+data/marine-prepare-data\.ipynb
+
+modules/corrections/bar\.html
+modules/corrections/data
+modules/classes\.py
+
+projects/exo-diskusage/spam/big/
+projects/exo-diskusage/spam/little/
+projects/exo-diskusage/spam/medium/
+projects/exo-diskusage/spam/small/
+
+projects/exo-ships/*.md
+projects/exo-ships/*.txt
+projects/exo-ships/raw
+projects/exo-ships/normalize\.py
+
+tools/isolatin2unicode\.py
+tools/*students*
+tools/nbmv\.py
+
+w1/turtle*\.py
+w1/fibonacci\.py
+
+stats\.s1\.readme
+skel\.quiz

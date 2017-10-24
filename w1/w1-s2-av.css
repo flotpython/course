@@ -1,0 +1,13 @@
+/*
+ * custom.js already sets 90%
+ * but the java fragment is still
+ * too large at 90% 
+ */
+div.inner_cell>div.text_cell_render.rendered_html>pre {
+    margin: 0px;
+}
+
+div.inner_cell>div.text_cell_render.rendered_html>pre>code {
+    font-size: 70%;
+}
+
