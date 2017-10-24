@@ -5,4 +5,3 @@ chargement / rechargement
 """
 
 print("chargement de", __name__)
-

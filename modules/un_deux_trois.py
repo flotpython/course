@@ -6,7 +6,6 @@ def un():
 def deux():
     print("la fonction deux dans le module", __name__)
 
+
 def trois():
     print("la fonction trois dans le module", __name__)
-
- 

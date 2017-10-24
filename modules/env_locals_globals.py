@@ -17,9 +17,9 @@ def display_env(env):
 def temoin(x):
     "la fonction témoin"
     y = x ** 2
-    print(20*'-', 'globals:')
+    print(20 * '-', 'globals:')
     display_env(globals())
-    print(20*'-', 'locals:')
+    print(20 * '-', 'locals:')
     display_env(locals())
 
 class Foo:
