@@ -8,7 +8,7 @@ Voici une boucle for, que va afficher cette boucle.
 a = []
 for n in [1, 2, '3', 4, 'FIN']:
     a.append(str(n))
-print(",".join(a))     		
+print(",".join(a))
 </pre>
 
 <h3>Solution 1</h3>
@@ -55,8 +55,8 @@ Voici une fonction
 <pre>
 def to_str(a):
     tmp = []
-	for i in a:
-	    tmp.append(str(i))
+        for i in a:
+            tmp.append(str(i))
     return " ".join(tmp)   
 </pre>
 
