@@ -4,53 +4,34 @@ from nbautoeval.args import Args
 
 alphabet = "0123456789abcdef"
 
-# on calcule connue et inconnue comme une chaine aleatoire
+# on fabrique des jeux de données
 import random
-connue = "".join(random.sample(alphabet, random.randint(4, 6)))
-inconnue = "".join(random.sample(alphabet, random.randint(5, 8)))
-composite = connue + inconnue + connue
 
+def args(connue, inconnue):
+    # composite, connue
+    return Args(connue + inconnue + connue, connue)
 
-class ExoInconnue(ExerciseFunction):
+inconnue_inputs = [
+    args("".join(random.sample(alphabet, random.randint(3, 6))),
+         "".join(random.sample(alphabet, random.randint(5, 8))))
+    for i in range(4)
+]
 
-    def __init__(self, connue, composite):
-        # on appelle ExerciseFunction.__init__ pour remplir tous les champs
-        # mais self.datasets sera en fait rempli plus tard
-        # une petite clôture..
-        def target(inconnue):
-            return composite
-        ExerciseFunction.__init__(
-            self, target, None,
-            render_name=False,
-            column_headers=("inconnue",
-                            "composite",
-                            "connue + inconnue + connue"
-                            )
-        )
-        self.connue = connue
-        self.composite = composite
+# @BEG@ name=inconnue
+# pour enlever à gauche et à droite une chaine de longueur x
+# on peut faire composite[ x : -x ]
+# or ici x vaut len(connue)
+def inconnue(composite, connue):
+    return composite[ len(connue) : -len(connue) ]
+# @END@ 
 
-    def correction(self, inconnue):
-        # dans notre cas il n'y a qu'un seul jeu d'entrées
-        self.datasets = [Args(inconnue)]
-
-        def check(inconnue):
-            return self.connue + inconnue + self.connue
-        return ExerciseFunction.correction(self, check)
-
-exo_inconnue = ExoInconnue(connue, composite)
-
-inconnue_ko = "votre code"
-
-####################
-# la solution est bien sûr
-# @BEG@ name=inconnue no_example=skip
-# Pour calculer inconnue, on extrait une sous-chaine de composite
-# qui commence a l'index len(connue)
-# qui se termine a l'index len(composite)-len(connue)
-# ce qui donne en utilisant une slice
-inconnue = composite [ len(connue) : len(composite)-len(connue) ]
-#
-# on peut aussi faire encore plus simplement
-inconnue = composite [ len(connue) : -len(connue) ]
+# @BEG@ name=inconnue more=v2
+# ce qui peut aussi s'écrire comme ceci si on préfère
+def inconnue_bis(composite, connue):
+    return composite[ len(connue) : len(composite)-len(connue) ]
 # @END@
+
+exo_inconnue = ExerciseFunction(
+    inconnue, inconnue_inputs
+)
+
