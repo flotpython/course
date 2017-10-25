@@ -2,7 +2,7 @@
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
-####################
+
 # @BEG@ name=divisible
 def divisible(a, b):
     "renvoie True si un des deux arguments divise l'autre"
@@ -11,6 +11,7 @@ def divisible(a, b):
     # et il faut regarder aussi si a divise b
     return a % b == 0 or b % a == 0
 # @END@
+
 
 # @BEG@ name=divisible more=bis
 def divisible_bis(a, b):
@@ -23,6 +24,7 @@ def divisible_bis(a, b):
 
 def divisible_ko(a, b):
     return a % b == 0
+
 
 inputs_divisible = [
     Args(10, 30),
@@ -44,45 +46,4 @@ exo_divisible = ExerciseFunction(
     divisible, inputs_divisible
 )
 
-
-####################
-# @BEG@ name=morceaux
-def morceaux(x):
-    if x <= -5:
-        return -x - 5
-    elif x <= 5:
-        return 0
-    else:
-        return x / 5 - 1
-# @END@
-
-# @BEG@ name=morceaux more=bis
-def morceaux_bis(x):
-    if x <= -5:
-        return -x - 5
-    if x <= 5:
-        return 0
-    return x / 5 - 1
-# @END@
-
-# @BEG@ name=morceaux more=ter
-# on peut aussi faire des tests d'intervalle
-# comme ceci  0 <= x <= 10
-def morceaux_ter(x):
-    if x <= -5:
-        return -x - 5
-    elif -5 <= x <= 5:
-        return 0
-    else:
-        return x / 5 - 1
-# @END@
-
-inputs_morceaux = [
-    Args(x) for x in (-10, 0, 10, -6, -5, -4, 4, 5, 6)
-]
-
-exo_morceaux = ExerciseFunction(
-    morceaux, inputs_morceaux,
-    nb_examples = 3,
-)
 
