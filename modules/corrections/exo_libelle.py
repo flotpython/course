@@ -17,10 +17,10 @@ def libelle(ligne):
     # maintenant on a les trois valeurs
     nom, prenom, rang = mots
     # comment presenter le rang
-    msg_rang = "1er" if rang == "1" \
-               else "2nd" if rang == "2" \
-                    else "{}-ème".format(rang)
-    return f"{prenom}.{nom} ({msg_rang})"
+    rang_ieme = "1er" if rang == "1" \
+                else "2nd" if rang == "2" \
+                else f"{rang}-ème"
+    return f"{prenom}.{nom} ({rang_ieme})"
 # @END@ ##########
 
 def libelle_ko(ligne):
