@@ -2,8 +2,12 @@
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
+
 # @BEG@ name=pgcd
 def pgcd(a, b):
+    # le cas pathologique
+    if a * b == 0:
+        return 0
     "le pgcd de a et b par l'algorithme d'Euclide"
     # l'algorithme suppose que a >= b
     # donc si ce n'est pas le cas 
@@ -21,6 +25,7 @@ def pgcd(a, b):
         a, b = b, r
 # @END@
 
+
 # @BEG@ name=pgcd more=bis
 # il se trouve qu'en fait la première inversion n'est
 # pas nécessaire
@@ -31,6 +36,9 @@ def pgcd(a, b):
 # a, b = b, r = b, a
 # ce qui provoque l'inversion
 def pgcd_bis(a, b):
+    # le cas pathologique
+    if a == 0 or b == 0:
+        return 0
     while True:
         # on calcule le reste 
         r = a % b
@@ -41,25 +49,44 @@ def pgcd_bis(a, b):
         a, b = b, r
 # @END@
 
-# xxx à publier ?
-# le code proposé par un étudiant, et qui serait en mesure de gérer
-# le cas b=0 qui semble-t-il provoque un ZeroDivisionError
-# à voir aussi: l'inversion des deux entrées est probablement inutile
+# @BEG@ name=pgcd more=ter
+# une autre alternative, qui fonctionne aussi
+# plus court, mais on passe du temps à se convaincre
+# que ça fonctionne bien comme demandé
 def pgcd_ter(a, b):
-    if b > a : 
-        a, b = b, a
+    # le cas pathologique
+    if a * b == 0:
+        return 0
+    # si on n'aime pas les boucles sans fin
+    # on peut faire aussi comme ceci
     while b:
         a, b = b, a % b
     return a
+# @END@
 
 
 def pgcd_ko(a, b):
     return a % b
 
 inputs_pgcd = [
-    Args(36 * 2**i * 3**j * 5**k,
-         36 * 2**j * 3**k * 5**i)
- for i in range(3) for j in range(3) for k in range(2)
+    Args(0, 0),
+    Args(0, 1),
+    Args(1, 0),
+    Args(15, 10),
+    Args(10, 15),
+    Args(3, 10),
+    Args(10, 3),
+    Args(10, 1),
+    Args(1, 10),
 ]
 
-exo_pgcd = ExerciseFunction(pgcd, inputs_pgcd)
+inputs_pgcd += [
+    Args(36 * 2**i * 3**j * 5**k,
+         36 * 2**j * 3**k * 5**i)
+    for i in range(3) for j in range(3) for k in range(2)
+]
+
+exo_pgcd = ExerciseFunction(
+    pgcd, inputs_pgcd,
+    nb_examples = 9
+)

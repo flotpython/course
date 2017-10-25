@@ -20,7 +20,9 @@ def multi_tri_reverse(listes, reverses):
 
 
 def multi_tri_reverse_ko(listes, reverses):
-    return multi_tri(listes)
+    for liste in listes:
+        liste.sort()
+    return listes
 
 
 inputs_multi_tri_reverse = [
@@ -37,4 +39,5 @@ exo_multi_tri_reverse = ExerciseFunction(
     multi_tri_reverse, inputs_multi_tri_reverse,
     layout_args=(24, 24, 24),
     nb_examples=2)
+
 

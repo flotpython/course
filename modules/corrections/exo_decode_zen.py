@@ -2,6 +2,7 @@
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
+
 # @BEG@ name=decode_zen no_example=skip
 # le module this est implémenté comme une petite énigme 
 # comme le laissent entrevoir les indices, on y trouve
@@ -34,6 +35,7 @@ def decode_zen(this_module):
     return ''.join([code[c] if c in code else c for c in encoded])
 # @END@
 
+
 # @BEG@ name=decode_zen more=bis
 # une autre version un peu plus courte
 #
@@ -48,6 +50,7 @@ def decode_zen_bis(this_module):
     "une autre version plus courte"
     return "".join([this_module.d.get(c, c) for c in this_module.s])
 # @END@
+
 
 # @BEG@ name=decode_zen more=ter
 # presque la même chose, mais en utilisant une expression génératrice
@@ -68,8 +71,7 @@ def decode_zen_ter(this_module):
     return "".join(this_module.d.get(c, c) for c in this_module.s)
 # @END@
 
-def decode_zen_ko(this_module):
-    return "".join([this_module.d.get(c, ' ') for c in this_module.s])    
+
 
 import this
 
@@ -88,3 +90,9 @@ exo_decode_zen = ExoDecodeZen(
     copy_mode='none',
     layout='text', layout_args=(None, 'xx-small', 'xx-small'),
     call_layout='void', render_name=False)
+
+
+
+def decode_zen_ko(this_module):
+    return "".join([this_module.d.get(c, ' ') for c in this_module.s])    
+

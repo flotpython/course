@@ -2,6 +2,7 @@
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
+
 ##############################
 # @BEG@ name=carre
 def carre(s):
@@ -22,12 +23,14 @@ def carre(s):
     return ":".join([str(entier**2) for entier in entiers])
 # @END@
 
+
 inputs_carre = [
     Args("1;2;3"),
     Args(" 2 ;  5;6;"),
     Args("; 12 ;  -23;\t60; 1\t"),
     Args("; -12 ; ; -23; 1 ;;\t"),
 ]
+
 
 exo_carre = ExerciseFunction(
     carre, inputs_carre,
@@ -36,3 +39,6 @@ exo_carre = ExerciseFunction(
     )
 
 
+def carre_ko(s):
+    return ":".join( str(i**2) for i in
+                     (int(token) for token in s.split(';')))

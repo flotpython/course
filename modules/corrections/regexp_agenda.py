@@ -2,7 +2,7 @@
 from nbautoeval.exercise_regexp import ExerciseRegexp, ExerciseRegexpGroups
 from nbautoeval.args import Args
 
-######################################## agenda
+
 agenda_strings = [
     "Daniel:Durand",
     "Jean:Dupont:",
@@ -12,6 +12,7 @@ agenda_strings = [
     "Charles-Henri:Du Pré",
     "Charles Henri:DuPré",
 ]
+
 
 # @BEG@ name=agenda more=regexp
 # l'exercice est basé sur re.match, ce qui signifie que
@@ -27,12 +28,17 @@ agenda_strings = [
 # remarquez sinon l'utilisation à la fin de :? pour signifier qu'on peut
 # mettre ou non un deuxième séparateur ':' 
 #   
-agenda_regexp = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?\Z"
+agenda = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?\Z"
 # @END@
+
 
 agenda_groups = ['nom', 'prenom']
 
+
 exo_agenda = ExerciseRegexpGroups(
-    'agenda', agenda_regexp, agenda_groups,
+    'agenda', agenda, agenda_groups,
     [Args(x) for x in agenda_strings],
     nb_examples = 0)
+
+
+agenda_ko = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?"

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
+
 
 # load all the data
 import json
@@ -14,8 +13,9 @@ with open("data/marine-e2-ext.json") as feed:
 with open("data/marine-e2-abb.json") as feed:
     abbreviated_full = json.load(feed)
 
-from corrections.w3s2_marine_dict import simplify
+from .exo_marine_dict import simplify
 extended_full = [ simplify(e) for e in extended_full ]
+
 
 # @BEG@ name=diff latex_size=footnotesize no_example=skip
 def diff(extended, abbreviated):
@@ -51,6 +51,7 @@ def diff(extended, abbreviated):
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
 
+
 # @BEG@ name=diff latex_size=footnotesize more=bis
 def diff_bis(extended, abbreviated):
     """
@@ -67,6 +68,7 @@ def diff_bis(extended, abbreviated):
     return extended_only, both, abbreviated_only
 # @END@
 
+
 # une version qui ne marche pas pour la validation
 def diff_ko(extended, abbreviated):
      extended_ids =     {ship[0] for ship in extended}
@@ -74,6 +76,7 @@ def diff_ko(extended, abbreviated):
      extended_only =    {ship[4] for ship in extended    if ship[0] not in abbreviated_only}
      both =             {ship[4] for ship in extended    if ship[0] in abbreviated_only}
      return extended_only, both, abbreviated_only
+
 
 ########## expose simpler set of data for clearer correction
 # keep only 2 items in each category (ext_only, abb_only, and both)
@@ -84,6 +87,7 @@ names = set()
 for i in range(selection): names.add(e_o_names.pop())
 e_o = [ e for e in extended_full if e[4] in names ]
 #print("e_o has {} elts".format(len(e_o)))
+
 
 # find (selection?) entries in extended_full with the first name in b_n
 names = set()
@@ -97,9 +101,11 @@ for e in extended_full:
         ids.add(e[0])
 #print("b_e has {} elts".format(len(b_e)))
 
+
 # find (selection?) entries in abbreviated_full about the boats in b_e
 b_a = [ a for a in abbreviated_full if a[0] in ids ]
 #print("b_a has {} elts".format(len(b_a)))
+
 
 # find (selection) entries in abbreviated_full with the first id in a_o_i
 ids = set()
@@ -111,6 +117,7 @@ a_o = [ a for a in abbreviated_full if a[0] in ids ]
 extended = e_o + b_e
 abbreviated = b_a + a_o
 
+
 ##############################
 # on passe des copies pour éviter qu'un bout de code ne pollue
 # tout l'exercice en modifiant le master 
@@ -118,6 +125,7 @@ import copy
 
 # a single dataset is enough
 class ExoDiff(ExerciseFunction):
+
     def correction(self, student_diff, extended=extended, abbreviated=abbreviated):
         self.datasets = [Args(extended, abbreviated).clone('deep')]
         return ExerciseFunction.correction(self, student_diff)
@@ -126,6 +134,7 @@ class ExoDiff(ExerciseFunction):
         return self.solution(extended, abbreviated)
 
 exo_diff = ExoDiff(diff, "inputs_gets_overridden")
+
 
 ##############################
 # one-shot code

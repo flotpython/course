@@ -14,7 +14,7 @@ for germ in germs:
 # et peut être suivi par n'importe quel nombre de
 # lettre, chiffre ou underscore, ce qui se trouve être \w
 # si on ne se met pas en mode unicode
-pythonid_regexp = "[a-zA-Z_]\w*"
+pythonid = "[a-zA-Z_]\w*"
 # @END@
 
 # @BEG@ name=pythonid more=bis
@@ -23,9 +23,10 @@ pythonid_bis = "[a-zA-Z_][a-zA-Z0-9_]*"
 # @END@
 
 exo_pythonid = ExerciseRegexp(
-    'pythonid', pythonid_regexp,
+    'pythonid', pythonid,
     [Args(x) for x in pythonid_strings],
     nb_examples = 8)
 
 pythonid_ko = "\w+"
+
 

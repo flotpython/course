@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-
-from __future__ import print_function
-
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 

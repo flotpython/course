@@ -26,9 +26,6 @@ def liste_P_bis(liste_x):
 # @END@
 
 
-def liste_P_ko(liste):
-    return [P(liste[0])]
-
 inputs_liste_P = [
     Args(list(range(5))),
     Args(list(range(-7, 8, 2))),
@@ -40,4 +37,9 @@ exo_liste_P = ExerciseFunction(
     liste_P,
     inputs_liste_P,
 )
+
+
+def liste_P_ko(liste):
+    return [P(liste[0])]
+
 

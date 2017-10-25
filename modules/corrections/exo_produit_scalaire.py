@@ -3,7 +3,6 @@ from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 
-####################
 # @BEG@ name=produit_scalaire
 def produit_scalaire(X, Y):
     """
@@ -47,10 +46,6 @@ def produit_scalaire_ter(X, Y):
 # @END@
 
 
-def produit_scalaire_ko(X, Y):
-    return [x * y for x, y in zip(X, Y)]
-
-
 from fractions import Fraction
 
 
@@ -68,3 +63,9 @@ exo_produit_scalaire = ExerciseFunction(
     produit_scalaire,
     inputs_produit_scalaire,
 )
+
+
+def produit_scalaire_ko(X, Y):
+    return [x * y for x, y in zip(X, Y)]
+
+

@@ -29,3 +29,6 @@ exo_multi_tri = ExerciseFunction(
     layout_args=(20, 20, 20),
 )
                                
+
+def multi_tri_ko(listes):
+    return listes
