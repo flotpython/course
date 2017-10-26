@@ -2,7 +2,9 @@
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
+
 inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
+
 
 # @BEG@ name=dispatch1
 def dispatch1(a, b):
@@ -21,19 +23,26 @@ def dispatch1(a, b):
         return a*a - b*b
 # @END@
 
+
 def dispatch1_ko(a, b, *args):
     return a*a + b*b
 
+
 exo_dispatch1 = ExerciseFunction(
     dispatch1, inputs_dispatch1)
+
+
 
 ####################
 samples_A = [(2, 4, 6), [2, 4, 6]]
 samples_B = [{6, 8, 10}]
 
 inputs_dispatch2 = [
-    Args(a, b, A, B) for a, A in zip(range(3, 5), samples_A) for b in range(7, 10) for B in samples_B
+    Args(a, b, A, B)
+      for a, A in zip(range(3, 5), samples_A)
+         for b in range(7, 10) for B in samples_B
 ]
+
 
 # @BEG@ name=dispatch2
 def dispatch2(a, b, A, B):
@@ -51,7 +60,9 @@ def dispatch2(a, b, A, B):
         return (a-1)*b
 # @END@
 
+
 dispatch2_ko = dispatch1_ko
+
 
 exo_dispatch2 = ExerciseFunction(
     dispatch2, inputs_dispatch2,
