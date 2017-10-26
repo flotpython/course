@@ -13,7 +13,7 @@ def liste_P(liste_x):
     sur les entrées figurant dans liste_x
     """
     return [P(x) for x in liste_x]
-# @END
+# @END@
 
 
 # @BEG@ name=liste_P more=bis

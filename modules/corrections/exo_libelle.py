@@ -16,7 +16,7 @@ def libelle(ligne):
         return
     # maintenant on a les trois valeurs
     nom, prenom, rang = mots
-    # comment presenter le rang
+    # comment présenter le rang
     rang_ieme = "1er" if rang == "1" \
                 else "2nd" if rang == "2" \
                 else f"{rang}-ème"

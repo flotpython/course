@@ -8,18 +8,22 @@ def divisible(a, b):
     "renvoie True si un des deux arguments divise l'autre"
     # b divise a si et seulement si le reste
     # de la division de a par b est nul
+    if a % b == 0:
+        return True
     # et il faut regarder aussi si a divise b
-    return a % b == 0 or b % a == 0
+    if b % a == 0:
+        return True
+    return False
 # @END@
 
 
 # @BEG@ name=divisible more=bis
 def divisible_bis(a, b):
-    if a % b == 0:
-        return True
-    if b % a == 0:
-        return True
-    return False
+    "renvoie True si un des deux arguments divise l'autre"
+    # on n'a pas encore vu les opérateurs logiques, mais
+    # on peut aussi faire tout simplement comme ça
+    # sans faire de if du tout
+    return a % b == 0 or b % a == 0
 # @END@
 
 def divisible_ko(a, b):
