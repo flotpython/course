@@ -10,6 +10,7 @@ inputs_label = [
     Args( 'Jean', 14  ),
 ]
 
+# @BEG@ name=label
 def label(prenom, note):
     if note < 10:
         return f"{prenom} est recalé"
@@ -17,6 +18,7 @@ def label(prenom, note):
         return f"{prenom} est reçu"
     else:
         return f"félicitations à {prenom}"
+# @END@
 
 exo_label = ExerciseFunction(
     label, inputs_label, nb_examples=3,
