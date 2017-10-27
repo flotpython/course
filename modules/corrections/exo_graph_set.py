@@ -3,31 +3,31 @@ from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 
-# @BEG@ name=parse_graph
+# @BEG@ name=graph_set
 from collections import defaultdict
 
-def parse_graph(filename):
-    g = defaultdict(list)
+def graph_set(filename):
+    g = defaultdict(set)
     with open(filename) as f:
         for line in f:
             begin, value, end = line.split()
-            g[begin].append( (end, int(value)))
+            g[begin].add( (end, int(value)))
     return g
 # @END@
 
 
-inputs_parse_graph = [
+inputs_graph_set = [
     Args("data/graph1.txt"),
     Args("data/graph2.txt"),
     Args("data/graph3.txt"),
 ]
 
 
-exo_parse_graph = ExerciseFunction(parse_graph,
-                                   inputs_parse_graph,
-                                   nb_examples = 1,
+exo_graph_set = ExerciseFunction(
+    graph_set, inputs_graph_set,
+    nb_examples = 1,
 )
 
 
-def parse_graph_ko(filename):
-    return {'ko' : False}
+def graph_set_ko(filename):
+    return {'ko' : []}
