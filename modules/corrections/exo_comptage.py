@@ -60,8 +60,6 @@ def show_comptage(in_name, out_name, comptage, suffix):
     html += "</table>"
     return HTML(html)
     
-####################
-# comptage ()
 @exercice_compliant
 # @BEG@ name=comptage 
 def comptage(in_filename, out_filename):
@@ -75,40 +73,36 @@ def comptage(in_filename, out_filename):
     with open(in_filename, encoding='utf-8') as input:
         # on ouvre la sortie en écriture
         with open(out_filename, "w", encoding='utf-8') as output:
-            # initialisations
-            total_words = 0
-            total_chars = 0
+            lineno = 1
             # pour toutes les lignes du fichier d'entrée
             # le numéro de ligne commence à 1
-            for lineno, line in enumerate(input, 1):
+            for line in input:
                 # autant de mots que d'éléments dans split()
                 nb_words = len(line.split())
-                total_words += nb_words
                 # autant de caractères que d'éléments dans la ligne
                 nb_chars = len(line)
-                total_chars += nb_chars
                 # on écrit la ligne de sortie; pas besoin
                 # de newline (\n) car line en a déjà un
-                output.write("{}:{}:{}:{}"
-                             .format(lineno, nb_words, nb_chars, line))
-            # on écrit la ligne de synthèse
-            # lineno est une variable de boucle, elle "fuite"
-            # on peut donc utiliser sa dernière valeur
-            # mais remarquez que ce code ne fonctionnerait
-            # pas sur un fichier vide, ou on aurait lineno non définie
-            output.write("{}:{}:{}\n"
-                         .format(lineno, total_words, total_chars))
+                output.write(f"{lineno}:{nb_words}:{nb_chars}:{line}")
+                lineno += 1
+# @END@
+
+@exercice_compliant
+# @BEG@ name=comptage more=bis
+# un peu plus pythonique: on peut utiliser enumerate
+# qu'on n'a pas encore vu
+def comptage_bis(in_filename, out_filename):
+    with open(in_filename, encoding='utf-8') as input:
+        with open(out_filename, "w", encoding='utf-8') as output:
+            for lineno, line in enumerate(input, 1):
+                output.write(f"{lineno}:{len(line.split())}:{len(line)}:{line}")
 # @END@
 
 def comptage_ko(in_filename, out_filename):
     with open(in_filename) as input:
         with open(out_filename, 'w') as output:
             for lineno, line in enumerate(input):
-                output.write("{}:{}:{}:{}"
-                             .format(lineno,
-                                     len(line.split()),
-                                     len(line),
-                                     line))
+                output.write(f"{lineno}:{len(line.split())}:{len(line)}:{line}")
 
 # on passe ceci à ExerciseFunction donc pas besoin de rajouter les **keywords
 comptage_args = [
