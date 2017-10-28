@@ -31,11 +31,6 @@
   * le fait que l'on peut mettre un * avant des paramètres nommés
 * envisager de le couper en deux ?
 
-## `w5-s1-c2-fonctions-globals-et-locals`
-
-* je mentionne les f-strings, qui ne sont décrits nulle part encore
-* je donne un petit exemple avec les f-strings
-
 ## `w5-s3-c1-import-as`
 
 * il semble qu'il y a ici des redites par rapport à des choses vues en semaine 3 (`import as`)
