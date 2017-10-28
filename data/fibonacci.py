@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ## La suite de Fibonacci (Suite)
 
 from argparse import ArgumentParser
