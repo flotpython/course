@@ -1,9 +1,3 @@
-# general
-
-* manque encore un truc sur les type hints
-* check all hrefs to python docs in section /2/ -> /3.5/
-* remove most/all calls to `from __future__ import print_function`
-
 ## compréhensions
 
 `w2-s7-c2-comprehension-de-liste` et `w4-s4-c1-comprehensions-imbriquees` ont un overlap non vide, les compréhensions imbriquées.
@@ -58,6 +52,9 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 
 * renommer `w5-s6-e2-classes` en `w5-s6-e2-classes-shipdict` ?
 
+* ajouter exercice pairwise ? -- voir nbautoeval et ExerciseClass
+
+
 ## `w7`
 
 * `w7-s2-c1-decorateurs.ipynb` doit être revu car `singleton` ne marche plus en l'état
@@ -89,3 +86,4 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 ## Décorateurs
 * check out `functools.update_wrapper`
 * apparemment il n'y a rien à faire pour refaire marcher le décorateur de classe `singleton` (sans imposer de redéfinir `__new__` sur la classe à décorer, ce qui est une contrainte trop forte)
+
