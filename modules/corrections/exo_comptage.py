@@ -89,13 +89,15 @@ def comptage(in_filename, out_filename):
 
 @exercice_compliant
 # @BEG@ name=comptage more=bis
-# un peu plus pythonique: on peut utiliser enumerate
-# qu'on n'a pas encore vu
+# un peu plus pythonique avec enumerate
 def comptage_bis(in_filename, out_filename):
     with open(in_filename, encoding='utf-8') as input:
         with open(out_filename, "w", encoding='utf-8') as output:
+            # enumerate(.., 1) pour commencer avec une ligne
+            # numérotée 1 et pas 0
             for lineno, line in enumerate(input, 1):
-                output.write(f"{lineno}:{len(line.split())}:{len(line)}:{line}")
+                output.write(f"{lineno}:{len(line.split())}:"
+                             f"{len(line)}:{line}")
 # @END@
 
 def comptage_ko(in_filename, out_filename):
