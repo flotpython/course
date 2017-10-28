@@ -4,7 +4,31 @@ from nbautoeval.args import Args
 
 # @BEG@ name=fifo
 class Fifo:
+    """
+    Une classe FIFO implémentée avec une simple liste
+    """
+    
+    def __init__(self):
+        # l'attribut queue est un objet liste
+        self.queue = []
 
+    def incoming(self, x):
+        # on insère au début de la liste
+        self.queue.insert(0, x)
+
+    def outgoing(self):
+        # une première façon de faire consiste à
+        # utiliser un try/except
+        try:
+            return self.queue.pop()
+        except IndexError:
+            return None
+# @END@
+
+
+# @BEG@ name=fifo more=bis
+# une autre implémentation pourrait faire comme ceci
+class FifoBis(Fifo):
     def __init__(self):
         self.queue = []
 
@@ -12,20 +36,30 @@ class Fifo:
         self.queue.insert(0, x)
 
     def outgoing(self):
-        try:
+        # plus concis mais peut-être moins lisible
+        if len(self.queue):
             return self.queue.pop()
-        # liste vide..
-        except IndexError:
-            return None
-# @END@
+        # en fait on n'a même pas besoin du else..
 
+# @END@ 
 
 fifo_scenarios = [
     ScenarioClass(
         # init arguments
         Args(),
+        'outgoing', Args(),
         'incoming', Args(1),
         'incoming', Args(2),
+        'outgoing', Args(),
+        'outgoing', Args(),
+        'outgoing', Args(),
+    ),
+    ScenarioClass(
+        # init arguments
+        Args(),
+        'incoming', Args(1),
+        'incoming', Args(2),
+        'outgoing', Args(),
         'incoming', Args(3),
         'outgoing', Args(),
         'outgoing', Args(),
@@ -45,14 +79,6 @@ fifo_scenarios = [
         'outgoing', Args(),
     ),
 
-    ScenarioClass(
-        # init arguments
-        Args(),
-        'outgoing', Args(),
-        'incoming', Args(1),
-        'outgoing', Args(),
-        'outgoing', Args(),
-    ),
 ]
 
 exo_fifo = ExerciseClass (

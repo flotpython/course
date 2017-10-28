@@ -65,6 +65,7 @@ def index(bateaux):
     return {bateau[0] : bateau for bateau in bateaux}
 # @END@
 
+
 # @BEG@ name=index more=bis
 def index_bis(bateaux):
     """
@@ -76,6 +77,27 @@ def index_bis(bateaux):
         resultat [bateau[0]] = bateau
     return resultat
 # @END@
+
+
+
+# @BEG@ name=index more=ter
+def index_ter(bateaux):
+    """
+    Encore une autre, avec un extended unpacking
+    """
+    # si on veut décortiquer
+    resultat = {}
+    for bateau in bateaux:
+        # avec un extended unpacking on peut extraire
+        # le premier champ; en appelant le reste _
+        # on indique qu'on n'en fera en fait rien
+        id, *_ = bateau
+        resultat [id] = bateau
+    return resultat
+# @END@
+
+
+
 
 def index_ko(ships):
     return index(extended)
