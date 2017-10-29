@@ -50,12 +50,9 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 * ajouter exercice pairwise ? -- voir nbautoeval et ExerciseClass
 
 
-## `w7`
-
-* `w7-s2-c1-decorateurs.ipynb` doit être revu car `singleton` ne marche plus en l'état
-* `w7-s6-c1-python3-vs-python2.ipynb` est essentiellement tel-quel, j'ai failli le supprimer en fait.
-
 # mini-projets
+
+## dropped for the 2017 session
 
 ## `diskusage`
 
@@ -77,8 +74,4 @@ Le complément avancé dans ce notebook ne me paraît pas forcément très utile
 
 ## Introspection
 * parler du module `inspect` et de `inspect.signature` ?
-
-## Décorateurs
-* check out `functools.update_wrapper`
-* apparemment il n'y a rien à faire pour refaire marcher le décorateur de classe `singleton` (sans imposer de redéfinir `__new__` sur la classe à décorer, ce qui est une contrainte trop forte)
 
