@@ -29,7 +29,7 @@ Il manque le <code>:</code> en fin de ligne du <code>if</code> pour que la synta
 Quelle(s) affirmation(s) est(sont) vraie(s)
 =====
 
-[x] Les conventions de codage sont dans la syntaxe de Python
+[x] Des conventions de codage sont dans la syntaxe de Python
 [ ] En Python, il y a peu de contraintes sur la manière de présenter le code
 [ ] On utilise des accolades en Python pour identifier les blocs d'instructions
 [x] Il faut toujours un <code>:</code> à la fin de la ligne précédent un bloc de code
