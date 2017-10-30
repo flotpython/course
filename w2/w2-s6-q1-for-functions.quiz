@@ -41,8 +41,7 @@ Quelle affichage est correct ?
 [ ] Solution 4
 
 [explanation]
-La boucle parcourt la liste, convertit chaque élément en chaîne de caractères et met le résultat dans une nouvelle liste. On affiche ensuite
-le résultat du <code>",".join(a)</code> qui produit une chaîne de caractères qui contient chaque élément de la nouvelle liste séparé par une virgule.
+La boucle parcourt la liste, convertit chaque élément en chaîne de caractères et met le résultat dans une nouvelle liste. On affiche ensuite le résultat du <code>",".join(a)</code> qui produit une chaîne de caractères qui contient chaque élément de la nouvelle liste séparé par une virgule.
 [explanation]
 
 
@@ -110,7 +109,7 @@ Les trois premiers appels retournent le bon résultat, puisque la boucle for de 
 
 Le quatrième appel n'a pas de sens puisque la fonction <code>to_str</code> n'est pas définie sur les listes.
 
-Le cinquième appel est faux puisqu'on n'appel <code>to_str</code> pas la fonction, pour l'appeler il faut utiliser des parenthèses et lui passer un arguement dans notre cas.
+Le cinquième appel est faux puisque <code>to_str</code> n'appelle pas la fonction, pour l'appeler il faut utiliser des parenthèses et lui passer un arguement dans notre cas.
 
 Le sixième appel parcourt la liste qui ne contient qu'un élément la chaîne '123'. 
 [explanation]
