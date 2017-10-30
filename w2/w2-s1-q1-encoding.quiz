@@ -10,7 +10,7 @@ Encodage
 [x] À obtenir un code que l'on utilisera pour trouver un caractère dans un jeux de caractères
 
 [explanation]
-Le décodage sert à définir un découpage des bits en bloc de bits pour obtenir un code qui l'on utilisera pour trouver un caractère dans un jeux de caractères. 
+Le décodage sert à définir un découpage des bits en bloc de bits pour obtenir un code que l'on utilisera pour trouver un caractère dans un jeux de caractères. 
 [explanation]
 
 <hr/>
