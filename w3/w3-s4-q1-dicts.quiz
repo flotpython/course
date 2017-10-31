@@ -1,0 +1,61 @@
+Dictionnaires (1)
+=====
+
+Le type dictionnaire est un type : 
+
+( ) immuable
+(x) mutable
+
+[explanation]
+On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
+[explanation]
+
+
+<hr/>
+Dictionnaires (2)
+=====
+
+Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ? : 
+
+( ) oui
+(x) non
+
+[explanation]
+Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
+
+Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+
+NB. la classe <code>OrderedDict</code>, dans le module <code>collections</code>, ajoute cette fonctionnalité.
+[explanation]
+
+<hr/>
+Dictionnaires (3)
+=====
+
+Parmi les objets suivants, quels sont ceux qui peuvent être utilisés comme une clé dans un dictionnaire : 
+
+[x] <code>1</code>
+[ ] <code>[1, 2]</code>
+[x] <code>(1, 2)</code>
+[ ] <code>([1, 2], [3, 4])</code>
+
+[explanation]
+Les objets des réponses 2 et 4 peuvent être modifiés car ils contiennent au moins une liste, ils ne peuvent donc pas servir de clé.
+[explanation]
+
+
+<hr/>
+Dictionnaires (4)
+=====
+
+Pour modifier la valeur de la clé <code>'marc'</code> <b>dont on sait</b> qu'elle est <b>présente</b> dans le dictionnaire <code>annuaire</code>, on peut faire : 
+
+[x] <code>annuaire['marc'] = 50</code>
+[ ] <code>annuaire.get('marc', 50)</code>
+[ ] <code>annuaire.setdefault('marc', 50)</code>
+
+[explanation]
+La seconde forme retourne la valeur pour <code>'marc'</code> si elle existe, et sinon <code>50</code>, mais ne modifie pas <code>annuaire</code>.
+
+La troisième forme ne modifie <code>annuaire</code> que lorsque la clé <code>'marc'</code> n'est pas encore présente.
+[explanation]
