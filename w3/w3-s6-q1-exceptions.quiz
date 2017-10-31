@@ -6,8 +6,8 @@ Cochez la ou les affirmations exactes.
 [ ] Une exception provoque toujours l'arrêt du programme
 [ ] Une exception non capturée est perdue
 [x] Une exception non capturée remonte la pile d'exécution
-[x] Les exceptions représentes le mécanisme standard de notification des erreurs d'exécution dans un programme
-[x] On peut capturer une exception et déclancher une action pour corriger le problème notifié
+[x] Les exceptions représentent le mécanisme standard de notification des erreurs d'exécution dans un programme
+[x] On peut capturer une exception et déclencher une action pour corriger le problème notifié
 
 [explanation]
 Une exception capturée ne va pas provoquer l'arrêt du programme. Il existe également des exceptions (comme StopIteration) qui sont automatiquement capturée (par exemple, par une boucle for) sans provoquer d'arrêt du programme. 
@@ -24,9 +24,9 @@ Avec une instruction <code>try except</code>, on peut capturer une exception et 
 Exceptions (2)
 =====
 
-On a du code qui peut produire une exception TypeError. Cochez les affirmations qui sont correctes : 
+On a du code qui peut produire une exception <code>TypeError</code>. Cochez les affirmations qui sont correctes : 
 
-[ ] Il vaut mieux capturer <code>Exception</code> que <code>TypeError</code>, ainsi notre code sera plus robuste.
+[ ] Il vaut mieux capturer <code>Exception</code> plutôt que <code>TypeError</code>, ainsi notre code sera plus robuste.
 [x] On peut capturer l'exception n'importe où le long de la pile d'exécution.
 [x] Il vaut mieux capturer l'exception au plus proche de là où elle est produite.
 
@@ -35,5 +35,5 @@ On a du code qui peut produire une exception TypeError. Cochez les affirmations 
 [explanation]
 On doit capturer les exceptions qui sont prévisibles et donc, on doit éviter de capturer <code>Exception</code> qui permet de capturer toutes les exceptions d'un coup et qui donc peut cacher une exception que nous n'avions par prévue et pour laquelle on n'a implémenté aucun comportement spécifique. 
 
-Une exception peut se capturer n'importe où dans la pile d'exécution, mais on recommande en général de capturer l'exception au plus prêt de là où elle est produite. 
+Une exception peut se capturer n'importe où dans la pile d'exécution, mais on recommande en général de capturer l'exception au plus près de là où elle est produite. 
 [explanation]

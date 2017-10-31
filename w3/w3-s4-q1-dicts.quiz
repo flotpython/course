@@ -23,7 +23,7 @@ Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été
 [explanation]
 Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
 
-Comme les clés sont rangées en fonction de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+Comme les clés sont rangées sur la base de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
 
 NB. la classe <code>OrderedDict</code>, dans le module <code>collections</code>, ajoute cette fonctionnalité.
 [explanation]

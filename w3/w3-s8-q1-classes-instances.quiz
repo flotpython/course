@@ -8,7 +8,7 @@ class Parser:
     def __init__(self, sep=' '):
         self.sep = sep
         self.parsed_line = ''
-        
+
     def parse(self, line):
         self.parsed_line = [i.strip() for i in line.split(self.sep)
                             if i.strip().isdigit()]
@@ -53,7 +53,10 @@ L'instruction <code>class</code> permet de créer une classe. Par conséquent, <
 ( ) Une chaîne de caractères vide
 
 [explanation]
-La méthode <code>parse()</code> va découper la chaîne <code>test</code> en mots, chaque mot étant séparé par le caractère <code>:</code> dans <code>test(line.split(self.sep))</code>, et <code>parse()</code> va enlever tous les espaces autour de chaque mot (<code>i.strip()</code>) et créer une liste ne contenant que les mots qui représentent des nombres (<code>i.strip().isdigit()</code>). On notera que toutes ces opérations peuvent être faites en une seule compréhension de liste. 
 
-La méthode <code>__str__</code> appelée par l'instruction <code>print</code> va retourner une chaîne de caractères.
+On commence par créer un objet, qui contient comme information le séparateur (dans <code>self.sep</code>)
+
+La méthode <code>parse()</code> va découper la chaîne <code>test</code> en mots (avec <code>split</code>) en se basant sur le séparateur; on ne conserve que les mots correspondant à des entiers(<code>if i.strip().isdigit()</code>); on notera que toutes ces opérations peuvent être faites en une seule compréhension de liste. 
+
+Enfin avec <code>print</code> on invoque en réalité la méthode <code>__str__</code>, qui tire profit du calcul de <code>parse</code> (rangé dans <code>self.parsed_line</code>) pour formatter, cette fois avec un espace comme séparateur.
 [explanation]
