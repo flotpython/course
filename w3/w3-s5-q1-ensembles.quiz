@@ -45,7 +45,7 @@ La fonction <code>set</code> accepte donc en argument un objet de type quelconqu
 Test d'appartenance à un ensemble
 =====
 
-On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelles sont les affirmations correctes ? : 
+On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelle  affirmation est correcte ? : 
 
 ( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble
 (x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant
