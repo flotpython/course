@@ -109,7 +109,7 @@ Les trois premiers appels retournent le bon résultat, puisque la boucle for de 
 
 Le quatrième appel n'a pas de sens puisque la fonction <code>to_str</code> n'est pas définie sur les listes.
 
-Le cinquième appel est faux puisque <code>to_str</code> n'appelle pas la fonction, pour l'appeler il faut utiliser des parenthèses et lui passer un arguement dans notre cas.
+Le cinquième appel est faux puisque <code>to_str</code> n'appelle pas la fonction, pour l'appeler il faut utiliser des parenthèses et lui passer un argument dans notre cas.
 
 Le sixième appel parcourt la liste qui ne contient qu'un élément la chaîne '123'. 
 [explanation]
