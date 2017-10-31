@@ -1,0 +1,76 @@
+<hr/>
+Tuples (1)
+=====
+
+On se donne en entrée 
+<pre>triple = (1, 2, 3,)</pre>
+
+Parmi les expressions et instructions ci-dessous, lesquelles sont valides ?
+
+[x] <code>triple[0]</code>
+[x] <code>triple[:]</code>
+[ ] <code>triple[len(triple)]</code>
+[ ] <code>triple[0] = 0</code>
+
+[explanation]
+La première expression est correcte et renvoie 1
+La seconde expression est correcte et renvoie une copie du tuple
+La troisième expression n'est pas valable et renvoie une exception <em>IndexError</em>, car <code>triple</code> n'a pas de case numéro 3 (<em>index out of range</em>)
+L'affection de la quatrième réponse n'est pas autorisée, un tuple est un objet immuable
+[explanation]
+
+<hr/>
+Tuples (2)
+=====
+
+Quelles sont les expressions qui renvoient <code>True</code> ?
+
+[x] <code>[ ( [ (1) ] ) ] == [ [ 1 ] ]</code>
+[ ] <code>(1,) == (1)</code>
+[x] <code>[ (1,) ] [0][0] == 1</code>
+[ ] <code>[ (1), ] [0][0] == 1</code>
+
+[explanation]
+Dans la première expression, l'absence de virgule rend les parenthèses vides de sens
+Dans la seconde expression la partie droite n'est pas un tuple, mais un simple entier à cause de l'absence de virgule
+Dans la troisième expression, on a une liste contenant un tuple contenant l'entier, l'expression renvoie <code>True</code>
+Dans la quatrième expression, la virgule n'est pas correctement placée et la parenthèse ne crée pas un tuple.
+[explanation]
+
+<hr/>
+<em>Unpacking</em> (1)
+=====
+
+On pose
+<pre>quadruple = (1, [2, 3], True, [ (4,) ] )</pre>
+
+Quelles sont parmi les affectations suivantes celles qui sont valables, et qui affectent 4 à <code>four</code> ?
+
+[ ] <code>( one, (two, three), ignored, ( ( four ) ) ) = quadruple</code>
+[x] <code>( one, (two, three,), _, ( ( four, ), ) ) = quadruple</code>
+[ ] <code>( (one,),  (two, three), _, [ [ four ] ] ) = quadruple</code>
+[x] <code>( one,  (two, three), _, [ [ four ] ] ) = quadruple</code>
+
+
+[explanation]
+Dans la première forme, <code>four</code> ne se trouve pas dans un tuple à cause de l'absence de virgule
+La seconde forme est correcte
+Dans la troisième forme, <code>one</code> est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
+La dernière forme est correcte, même si les parties droite et gauche de l'affectation mélangent listes et tuples.
+[explanation]
+
+<hr/>
+<em>Unpacking</em> (2)
+=====
+
+On cherche à écrire un code qui permette d'intervertir les deux derniers éléments dans une liste. On suppose que la liste en entrée a au moins deux éléments. Quelles sont parmi les variantes suivantes celles qui font bien ce qu'on veut ?
+
+[x] <code>tmp = liste[-1]; liste[-1] = liste [-2]; liste[-2] = tmp</code>
+[ ] <code>liste.reverse(-2, -1)</code>
+[x] <code>liste[-2], liste[-1] = liste[-1], liste[-2]</code>
+
+[explanation] 
+La première formule fonctionne, quoi que pas très "pythonique"
+La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(list.reverse)
+La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à droite de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
+[explanation]
