@@ -53,7 +53,7 @@ Quelles sont parmi les affectations suivantes celles qui sont valables, et qui a
 
 
 [explanation]
-Dans la première forme, <code>four</code> ne se trouve pas dans un tuple à cause de l'absence de virgule; du coup <code>four</code> va valoir <code>[(4,)]</code> et non pas <code>4</code>
+Dans la première forme, <code>four</code> ne se trouve pas dans un tuple à cause de l'absence de virgule; du coup <code>four</code> va valoir <code> &#91;(4,)&#93;</code> et non pas <code>4</code>
 La seconde forme est correcte
 Dans la troisième forme, <code>one</code> est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
 La dernière forme est correcte, même si les parties droite et gauche de l'affectation mélangent listes et tuples.
