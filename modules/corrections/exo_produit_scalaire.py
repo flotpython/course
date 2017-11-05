@@ -9,10 +9,21 @@ def produit_scalaire(X, Y):
     retourne le produit scalaire
     de deux listes de même taille
     """
+    # on utilise la fonction builtin sum sur une itération
+    # des produits x*y 
+    # avec zip() on peut faire correspondre les X avec les Y
+    # remarquez bien qu'on utilise ici une expression génératrice
+    # et PAS une compréhension car on n'a pas du tout besoin de
+    # créer la liste des produits x*y 
+    return sum(x * y for x, y in zip(X, Y))
+# @END@
+
+
+# @BEG@ name=produit_scalaire more=bis
+# Il y a plein d'autres solutions qui marchent aussi
+def produit_scalaire_bis(X, Y):
     # initialisation du résultat
     scalaire = 0
-    # ici encore avec zip() on peut faire correspondre
-    # les X avec les Y
     for x, y in zip(X, Y):
         scalaire += x * y
     # on retourne le résultat
@@ -20,23 +31,12 @@ def produit_scalaire(X, Y):
 # @END@
 
 
-# @BEG@ name=produit_scalaire more=bis
-# Il y a plein d'autres solutions qui marchent aussi
-# en voici notamment une qui utilise la fonction builtin sum
-# (que nous n'avons pas encore vue, nous la verrons en semaine 4)
-# en voici toutefois un avant-goût: la fonction sum est très pratique
-# pour faire la somme de toute une liste de valeurs
-def produit_scalaire_bis(X, Y):
-    return sum([x * y for x, y in zip(X, Y)])
-
-# @END@
-
-
 # @BEG@ name=produit_scalaire more=ter
-# Et encore une: celle-ci par contre est assez peu "pythonique"
+# et encore une: celle-ci par contre est assez peu "pythonique"
+# je la donne plutôt comme un exemple de ce qu'il faut éviter
 # on aime bien en général éviter les boucles du genre
-# for i in range(l)
-#     ... l[i]
+# for i in range(len(iterable)):
+#     ... iterable[i]
 def produit_scalaire_ter(X, Y):
     scalaire = 0
     n = len(X)
