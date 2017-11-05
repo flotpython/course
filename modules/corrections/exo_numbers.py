@@ -44,8 +44,9 @@ def numbers_bis(*liste):
         # parce que start n'a pas de valeur par défaut
         sum(liste, 0),
         # par contre avec min c'est min(iterable, *[, key, default])
-        # du coup on peut appeler min avec default=0 qui est plus clair
-        # c'est grâce à l'étoile qui apparaît dans la signature
+        # du coup on doit appeler min avec default=0 qui est plus clair
+        # l'étoile qui apparaît dans la signature
+        # rend le paramètre default keyword-only
         min(liste, default=0),
         max(liste, default=0),
     )
