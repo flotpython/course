@@ -17,5 +17,5 @@ parser.add_argument (dest="entier", type=int,
                      help="entier d'entree")
 input_args = parser.parse_args()
 entier = input_args.entier
-print "fibonacci({}) = {}".format(entier, fibonacci (entier))
+print("fibonacci({}) = {}".format(entier, fibonacci (entier)))
 
