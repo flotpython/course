@@ -1,0 +1,88 @@
+<hr/>
+Portée des variables (1)
+=====
+
+Dans quel cas rencontre-t-on une exception <code>UnboundLocalError</code> ?
+
+[ ] si on référence une variable globale depuis  une fonction
+[ ] si on affecte dans une fonction une variable déjà définie globalement
+[x] si on référence dans une fonction une variable définie en dessous dans la fonction
+[ ] si on affecte deux fois une variable locale dans une fonction
+
+[explanation]
+L'exception <code>UnboundLocalError</code> ne se produit que si on référence dans une fonction une variable définie en dessous dans la fonction.
+[explanation]
+
+
+<hr/>
+Portée des variables (2)
+=====
+
+Dans quel cas la variable <code>var</code> est locale à la fonction.
+
+<h3>Proposition 1</h3>
+<pre>
+var = 'globale'
+def f():
+    tmp = 'locale'
+    return var
+</pre>
+
+<h3>Proposition 2</h3>
+<pre>
+var = 'globale'
+def f():
+    var = 'locale'
+    return var
+</pre>
+
+<h3>Proposition 3</h3>
+<pre>
+var = 'globale'
+def f():
+    print(var)
+    var = 'locale'
+    return var
+</pre>
+
+
+Choisissez une ou plusieurs propositions
+
+[ ] Proposition 1
+[x] Proposition 2
+[ ] Proposition 3
+
+[explanation]
+Dans la proposition 1, la variable <code>var</code> n'est jamais affectée dans la fonction, donc elle n'est pas une variable locale à la fonction, mais une variable globale. 
+
+Dans la proposition 2, la variable <code>var</code> est affectée à la première ligne de la fonction. Elle devient donc locale à la fonction. 
+
+Dans la proposition 3, la variable <code>var</code> est affectée à la deuxième ligne de la fonction, mais après avoir été référencée à la première ligne. Dans ce cas, Python juge qu'il y a une ambiguïté et va lancer une exception particulière qui n'est lancée que dans ce cas précis : <code>UnboundLocalError</code>. Il y a un complément spécifique sur cette erreur qu'il est très important de comprendre. 
+[explanation]
+
+<hr/>
+Portée des variables (3)
+=====
+
+Que va afficher : <code>print(f())</code>  ?
+
+<pre>
+var = 10
+def f():
+    var = 20
+    def g():
+        return var
+    return g()
+print(f())
+</pre>
+
+Choisissez une proposition.
+
+( ) <code>10</code>
+(x) <code>20</code>
+( ) <code>None</code>
+( ) Une exception
+
+[explanation]
+Suivant la règle LEGB, la valeur de <code>var</code> dans <code>g</code> est <code>20</code>. Comme <code>g</code> retourne la valeur de <code>var</code> et que <code>f</code> retourne la valeur de retour de <code>g</code>, <code>print(f())</code> affiche <code>20</code>. 
+[explanation]
