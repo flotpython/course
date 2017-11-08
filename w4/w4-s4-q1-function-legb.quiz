@@ -4,7 +4,7 @@ Portée des variables (1)
 
 Dans quel cas rencontre-t-on une exception <code>UnboundLocalError</code> ?
 
-[ ] si on référence une variable globale depuis  une fonction
+[ ] si on référence une variable globale depuis une fonction
 [ ] si on affecte dans une fonction une variable déjà définie globalement
 [x] si on référence dans une fonction une variable définie en dessous dans la fonction
 [ ] si on affecte deux fois une variable locale dans une fonction
@@ -84,5 +84,5 @@ Choisissez une proposition.
 ( ) Une exception
 
 [explanation]
-Suivant la règle LEGB, la valeur de <code>var</code> dans <code>g</code> est <code>20</code>. Comme <code>g</code> retourne la valeur de <code>var</code> et que <code>f</code> retourne la valeur de retour de <code>g</code>, <code>print(f())</code> affiche <code>20</code>. 
+Suivant la règle LEGB, la valeur de <code>var</code> dans <code>g</code> est <code>20</code>. Comme <code>g</code> retourne la valeur de <code>var</code> et que <code>f</code> retourne la valeur de retour de <code>g</code>, <code>f()</code> retourne <code>20</code>. 
 [explanation]

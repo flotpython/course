@@ -1,5 +1,5 @@
 <hr/>
-Variables et objets (1)
+Variables globales (1)
 =====
 
 Peut-on modifier une variable globale depuis une fonction ?
@@ -13,7 +13,7 @@ Une variable globale ne peut être modifiée depuis une fonction que si elle est
 [explanation]
 
 <hr/>
-Variables et objets (2)
+Variables globales (2)
 =====
 
 <pre>
@@ -42,7 +42,8 @@ La directive <code>global</code> permet de modifier la variable <code>x</code> d
 Variables et objets (3)
 =====
 
-Dans quel cas la fonction modifie en place <b>l'objet</b> référencé par la variable <code>var</code> ?
+Dans quel cas la fonction modifie en place <b>l'objet</b> <code>[1, 2]</code>
+initialement référencé par la variable <code>var</code> ?
 
 <h3>Proposition 1</h3>
 <pre>

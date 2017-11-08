@@ -39,5 +39,19 @@ Quand est exécuté le bloc de code d'une fonction ?
 ( ) À la création de l'objet fonction
 
 [explanation]
- Lors de l'importation du module contenant la fonction, l'objet fonction est créé, mais le bloc de code de la fonction n'est pas exécuté. Le bloc de code d'une fonction n'est exécuté qu'à l'appel de la fonction.
+Lors de l'importation du module contenant la fonction, l'objet fonction est créé, mais le bloc de code de la fonction n'est pas exécuté. Le bloc de code d'une fonction n'est exécuté qu'à l'appel de la fonction.
+[explanation]
+
+<hr/>
+Type hints
+=====
+
+Parmi les déclarations de fonction suivantes, lesquelles sont légales en python3.6:
+
+[x] <code> def fact(n): </code>
+[x] <code> def fact(n : int):</code>
+[x] <code> def fact(n : int): -> int</code>
+
+[explanation]
+Les trois formes sont légales, les deux dernières utilisent les *type hints* pour indiquer le type du paramètre, et pour la dernière le type de retour
 [explanation]

@@ -35,7 +35,7 @@ Combien de tours va faire cette boucle <code>while</code> ?
 ( ) 99 tours
 
 [explanation]
-À chaque tour, la chaîne de caractères <code>a</code> perd le dernier caractères. Comme <code>a</code> compte 11 caractères au début et que la boucle <code>while</code> va évaluer <code>a</code> à faux lorsque la chaîne sera vide, il y a 11 tours de boucle.
+À chaque tour, la chaîne de caractères <code>a</code> perd le dernier caractère. Comme <code>a</code> compte 11 caractères au début et que la boucle <code>while</code> va évaluer <code>a</code> à faux lorsque la chaîne sera vide, il y a 11 tours de boucle.
 [explanation]
 
 <hr/>
