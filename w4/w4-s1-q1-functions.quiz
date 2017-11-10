@@ -6,7 +6,7 @@ Une fonction en python
 
 ( ) doit contenir une instruction <code>return</code> 
 ( ) peut contenir 0 ou 1 instruction <code>return</code>
-(x) peut contenir 0 on n instructions <code>return</code>
+(x) peut contenir 0 ou n instructions <code>return</code>
 
 [explanation]
 Le <code>return</code> est optionnel, si la fonction termine sans avoir rencontré <code>return</code> elle retourne <code>None</code>.
