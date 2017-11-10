@@ -50,7 +50,7 @@ Parmi les déclarations de fonction suivantes, lesquelles sont légales en pytho
 
 [x] <code> def fact(n): </code>
 [x] <code> def fact(n : int):</code>
-[x] <code> def fact(n : int): -> int</code>
+[x] <code> def fact(n : int) -> int:</code>
 
 [explanation]
 Les trois formes sont légales, les deux dernières utilisent les *type hints* pour indiquer le type du paramètre, et pour la dernière le type de retour
