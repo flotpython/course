@@ -54,8 +54,8 @@ Voici une fonction
 <pre>
 def to_str(a):
     tmp = []
-        for i in a:
-            tmp.append(str(i))
+    for i in a:
+        tmp.append(str(i))
     return " ".join(tmp)   
 </pre>
 
