@@ -2,12 +2,12 @@
 Encodage 
 =====
 
-À quoi sert le décodage d'un flux de bit en informatique ?
+À quoi sert le décodage d'un flux de bits en informatique ?
 
 
-[ ] À obtenir un caratère
+[ ] À obtenir un caractère
 [ ] À obtenir une phrase
-[x] À obtenir un code que l'on utilisera pour trouver un caractère dans un jeux de caractères
+[x] À obtenir un code que l'on utilisera pour trouver un caractère dans un jeu de caractères
 
 [explanation]
 Le décodage sert à définir un découpage des bits en bloc de bits pour obtenir un code que l'on utilisera pour trouver un caractère dans un jeux de caractères. 
@@ -22,7 +22,7 @@ Cocher la ou les affirmations qui sont vraies.
 [x] Unicode est un standard qui définit à la fois un jeu de caractères et des encodages
 [x] Unicode définit trois encodages UTF-8, UTF-16 et UTF-32
 [x] UTF-8 est l'encodage à favoriser
-[ ] Unicode ne supportent pas certains caractères courants comme le symbole de l'euro
+[ ] Unicode ne supporte pas certains caractères courants comme le symbole de l'euro
 
 
 [explanation]
