@@ -63,7 +63,7 @@ Strings - encodage
 Quelle(s) affirmation(s) est(sont) vraie(s) ?
 
 [x] Sans spécifier explicitement l'encodage choisit, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme. 
-[x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> et pour les chaînes de caractères encodées. 
+[x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> est pour les chaînes de caractères encodées. 
 [ ] Lorsqu'une chaîne est décodée on ne peut plus l'encoder.
 
 [explanation]
