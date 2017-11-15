@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 un module pour illustrer les fonctions globals et locals
 """
