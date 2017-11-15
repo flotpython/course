@@ -1,0 +1,69 @@
+<hr/>
+Modules et espaces de nommage (1)
+=====
+
+Sélectionnez les assertions suivantes qui sont vraies.
+
+[x] Un module est un fichier qui finit en <code>.py</code>
+[x] Un module peut contenir n'importe quel code python
+[x] L'import d'un module va créer un objet 
+[x] On utilise les modules comme des boîtes à outils
+
+[explanation]
+Un module est un fichier finissant en .py qui contient du code Python. Lors de l'import, un objet module est créé, cet objet peut ensuite être utilisé comme une boîte à outils. 
+[explanation]
+
+<hr/>
+Modules et espaces de nommage (2)
+=====
+
+Sélectionnez les assertions suivantes qui sont vraies.
+
+[x] Un espace de nommage sert à isoler les variables 
+[ ] Un espace de nommage sert à isoler les objets
+[ ] Deux variables de même nom dans deux espaces de nommage référencent toujours le même objet
+[x] Chaque module définit son propre espace de nommage
+[x] Je peux accéder à n'importe quelle variable <code>x</code> dans le module <code>mod</code> avec la notation <code>mod.x</code>
+
+
+[explanation]
+Les espaces de nommage servent à isoler les variables, mais pas les objets qui eux vivent dans un espace mémoire partagé. Chaque module crée son propre espace de nommage (c'est une des qualités des modules) et on peut accéder à une variable dans l'espace de nommage d'un module en utilisant la notation <code>nom_du_module.nom_variable</code>.
+[explanation]
+
+
+
+<hr/>
+Modules et espaces de nommage (3)
+=====
+
+Dans un fichier <code>spam.py</code> on a 
+<pre>
+# fichier spam.py
+spam = 1
+def egg():
+    return spam
+</pre>
+
+et dans un fichier <code>egg.py</code> on a
+<pre>
+# fichier egg.py
+import spam
+egg = 2
+def f():
+    return spam.egg(), spam.spam, egg
+print(f())
+</pre>
+
+On exécute le fichier <code>egg.py</code> en ligne de commande. Que va imprimer le programme ?
+
+( ) Une exception
+( ) La liste <code>[2, 1, 2]</code>
+( ) Le tuple <code>(None, 1, 1)</code>
+( ) La chaîne de caractère <code>'112'</code>
+(x) Le tuple <code>(1, 1, 2)</code>
+
+[explanation]
+Le module <code>egg.py</code> importe le module <code>spam</code>. La variable <code>spam</code> dans le module <code>egg</code> permet alors d'accéder à l'espace de nommage du module <code>spam</code>. Par conséquent, <code>spam.egg()</code> appelle la fonction <code>egg</code> dans le module <code>spam</code>. Suivant la règle LEGB, la variable <code>spam</code> retournée par la fonction <code>egg</code> est la variable <code>spam</code> du module <code>spam.py</code>, donc <code>1</code>. <code>spam.spam</code> représente la variable <code>spam</code> dans le module <code>spam</code>, et <code>egg</code> est la variable <code>egg</code> dans le module <code>egg</code>. 
+
+Notons que le choix des noms de variables et de modules entraîne volontairement de la confusion pour tester votre compréhension dans ce quiz. Dans un cas réel de programme, on évitera au maximum d'utiliser dans deux modules que l'on écrit des variables avec un nom générique qui ont un rôle différent (entier et fonction pour <code>egg</code>). D'une manière générale, il est souhaitable que le nom du module et de ses attributs soient suffisamment explicites pour comprendre leur rôle sans regarder la documentation (ça n'est évidemment pas le cas ici). 
+[explanation]

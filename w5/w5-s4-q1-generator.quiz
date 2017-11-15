@@ -1,0 +1,78 @@
+<hr/>
+Expression génératrice (1)
+=====
+
+Quel est l'intérêt d'une expression génératrice par rapport à une compréhension de liste ?
+
+[ ] C'est beaucoup plus rapide à parcourir
+[ ] C'est plus facile à écrire
+[x] Ça occupe moins de mémoire
+[ ] C'est totalement équivalent
+
+[explanation]
+
+Le temps de parcours d'une expression génératrice est de l'ordre de grandeur du temps de parcours d'une compréhension. 
+
+Une expression génératrice s'écrit comme une compréhension en remplacement simplement les crochets par des parenthèses. 
+
+Une expression génératrice ne crée aucune liste temporaire, elle est donc beaucoup plus économe en mémoire qu'une compréhension.
+
+[explanation]
+
+<hr/>
+Expression génératrice (2)
+=====
+
+<pre>
+carre = (x**2 for x in range(10))
+print(list(carre))
+res = [x**2 for x in carre]
+</pre>
+
+Que va référencer la variable res ?
+
+[ ] Une liste contenant le carré des carrés des entiers allant de 0 à 9
+[x] Une liste vide
+[ ] Un objet générator
+[ ] Ce code va produire une exception
+
+[explanation]
+
+L'objet produit par l'expression génératrice (donc référencé par <code>carre</code>) est un itérateur. Il ne peut
+donc être parcouru qu'une seule fois. <code>list(carre)</code> va parcourir l'itérateur, donc lorsque l'on va exécuter
+la compréhension qui parcours <code>carre</code>, il n'y aura plus rien à parcourir. La compréhension va alors retourner une liste vide. 
+
+[explanation]
+
+
+<hr/>
+Fonction génératrice
+=====
+<pre>
+def gen(it):
+   for i in it:
+       if isinstance(i, int):
+           yield i**2
+       else:
+           yield 'nan'	   
+	  
+L = [1, 2, 0, '18', 'x', [11], 25]
+print(list(gen(L)))
+</pre>
+
+Que va afficher <code>print(list(gen(L)))</code> ?
+
+( ) <code>[]</code>
+(x) <code>[1, 4, 0, 'nan', 'nan', 'nan', 625]</code>
+( ) <code>[1, 4, 0, '324', 'nan', [121], 625]</code>
+( ) <code><function gen at ...></code>
+( ) Une exception
+( ) <code>[1, 2, 0, '18', 'x', [11], 25]</code>
+
+
+[explanation]
+
+Le générateur va retourner le carré de tous les entiers et la chaîne de caractères 'nan' sinon. 
+
+[explanation]
+

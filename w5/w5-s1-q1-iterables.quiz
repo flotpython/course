@@ -1,0 +1,55 @@
+Itérables
+=====
+
+Parmi les types suivants, lesquels sont des itérables ? : 
+
+[x] <code>list</code>
+[x] <code>tuple</code>
+[x] <code>dict</code>
+[x] <code>set</code>
+[ ] <code>float</code>
+[x] <code>str</code>
+[ ] <code>complex</code>
+
+[explanation]
+On peut itérer sur tous les types de base qui constituent une collection d'autres objets (<code>list</code>, <code>tuple</code>, <code>set</code>)
+On peut itérer sur les chaînes de caractères, dans ce cas on balaye les caractères contenus dans la chaîne
+On peut itérer sur les dictionnaires, on balaye alors toutes les clés du dictionnaire.
+
+On ne peut pas itérer sur les objets atomiques, en particulier <code>float</code> et <code>complex</code>.
+[explanation]
+
+<hr/>
+Itérateurs 
+=====
+
+Est-ce qu'on peut toujours faire une boucle sur un objet qui a une méthode <code>__iter__()</code> qui renvoie un itérateur ? : 
+
+(x) Oui
+( ) Non
+
+[explanation]
+Oui, et dans ce cas la boucle <code>for</code> va utiliser cet itérateur pour implémenter son parcours.
+[explanation]
+
+<hr/>
+Itérables et itérateurs
+=====
+
+Quelle(s) affirmation(s) est(sont) vraie(s) ? 
+
+[ ] On peut itérer autant de fois que l'on veut sur un itérateur.
+[x] La création d'un objet itérateur est très économique.
+[x] Un objet itérable doit implémenter une méthode __iter__ qui retourne un objet itérateur.
+[ ] La notion d'itérable est d'itérateur est équivalente.
+
+[explanation]
+On itérateur ne se consomme qu'une seule fois. On ne peut itérer qu'une seule fois dessus.
+
+La création d'un objet itérateur est économique puisque cet objet ne fait aucun calcul tant qu'on ne le parcours pas. 
+
+La troisième affirmation est vraie.
+
+Les itérables et les itérateurs représentent deux notions distinctes. Un itérable a une méthode __iter__ qui produit des itérateur. Un itérateur a deux méthodes __iter__ et __next__. 
+
+[explanation]
