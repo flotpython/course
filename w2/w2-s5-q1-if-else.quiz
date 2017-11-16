@@ -32,7 +32,7 @@ Quelle(s) affirmation(s) est(sont) vraie(s)
 [x] Des conventions de codage sont dans la syntaxe de Python
 [ ] En Python, il y a peu de contraintes sur la manière de présenter le code
 [ ] On utilise des accolades en Python pour identifier les blocs d'instructions
-[x] Il faut toujours un <code>:</code> à la fin de la ligne précédent un bloc de code
+[x] Il faut toujours un <code>:</code> à la fin de la ligne précédant un bloc de code
 
 [explanation]
 
