@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 def un():
     print("la fonction un dans le module", __name__)
 
