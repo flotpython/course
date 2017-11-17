@@ -11,7 +11,11 @@ Quelles expressions sont des fonctions <code>lambda</code> syntaxiquement valide
 [x] <code> lambda x, y: x ** 2</code>
 
 [explanation]
-Une fonction <code>lambda</code> commence toujours par le mot clef <code>lambda</code> suivi d'une liste d'arguments séparés par une virgule. Un <code>:</code> sépare la liste des arguments d'une expression utilisant tout ou partie des arguments. Cette expression sera retournée lors de l'appel de la fonction. 
+Une fonction <code>lambda</code> commence toujours par le mot clef <code>lambda</code> suivi d'une liste d'arguments séparés par une virgule.
+
+Un <code>:</code> sépare la liste des arguments d'une expression utilisant tout ou partie des arguments.
+
+C'est cette expression qui sera retournée lors de l'appel de la fonction. 
 [explanation]
 
 <hr/>
@@ -29,7 +33,8 @@ map(lambda x: x**2, range(10))
 [ ] une fonction lambda
 
 [explanation]
-La fonction <code>map</code> prend comme premier argument une fonction, applique cette fonction à chaque élément de l'objet itérable passé en deuxième argument et retourne une liste des résultats.
+La fonction <code>map</code> prend comme premier argument une fonction, applique cette fonction à chaque élément de l'objet itérable passé en deuxième argument, et retourne une liste des résultats.
+
 Ici, la fonction est une fonction <code>lambda</code> qui retourne le carré de l'élément passé, et l'objet itérable est la liste des entiers de 0 à 9. La fonction <code>map</code> va donc retourner la liste des carrés des entiers de 0 à 9. 
 [explanation]
 
@@ -39,16 +44,16 @@ Programmation fonctionnelle (2)
 
 Que va retourner
 <pre>
-map(lambda x: x**2, filter(lambda x: x%2==0, range(10)))
+map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10)))
 </pre>
 
 [ ] une exception
 [ ] l'objet <code>None</code>
 [ ] la liste des carrés des entiers de 0 à 9
 [ ] la fonction <code>filter</code>
-[x] les carrés des nombres pairs allant de 0 à 9
+[x] la liste des carrés des nombres pairs entre 0 et 9
 
 [explanation]
 La fonction <code>filter</code> prend comme premier argument une fonction et retourne une liste contenant tous les éléments du deuxième argument - qui doit être itérable - pour lesquels la fonction est évaluée à <code>True</code>. 
-Le test <code>x%2==0</code> est vrai lorsque <code>x</code> est pair. Le résultat sera donc le carré de tous les nombres pairs allant de 0 à 9.
+Le test <code>x % 2 == 0</code> est vrai lorsque <code>x</code> est pair. Le résultat sera donc le carré de tous les nombres pairs entre 0 et 9.
 [explanation]

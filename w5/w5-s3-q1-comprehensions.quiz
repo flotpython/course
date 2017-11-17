@@ -3,19 +3,24 @@ Comprehensions de liste
 =====
 
 <pre>
-map(lambda x: x**2, filter(lambda x: x%2==0, range(10)))
+map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10)))
 </pre>
 
 Valider toutes les réponses qui donnent un résultat équivalent au fragment de code ci-dessus.
 
-[ ] <code>[x ** 2 : for x in range(10) : if x%2==0]</code>
-[ ] <code>[lambda x: x**2 for x in range(10) if x%2==0]</code>
-[x] <code>[x**2 for x in range(10) if x%2==0]</code>
-[x] <code>[(lambda x: x**2)(x) for x in range(10) if x%2 ==0]</code>
+[ ] <code>[x ** 2 : for x in range(10) : if x % 2 == 0]</code>
+[ ] <code>[lambda x: x**2 for x in range(10) if x % 2 == 0]</code>
+[x] <code>[x**2 for x in range(10) if x % 2 == 0]</code>
+[x] <code>[(lambda x: x**2)(x) for x in range(10) if x % 2 == 0]</code>
 
 [explanation]
-La première expression n'est pas valide syntaxiquement, on ne doit pas avoir un <code>:</code> entre le <code>x**2</code> et le <code>for</code> et entre le <code>for</code> et le <code>if</code>. La deuxième expression va retourner une liste de fonctions lambda (au lieu d'exécuter ces fonctions comme on le fait dans la quatrième expression). 
-Les deux dernières expressions donnent un résultat équivalent au fragment de code donné. Cependant, la dernière expression est inutilement lourde avec l'utilisation d'une fonction <code>lambda</code>.
+La première expression n'est pas valide syntaxiquement, chacun des deux <code>:</code> est en trop et cause une erreur de syntaxe.
+
+La deuxième expression va retourner une liste de fonctions lambda (au lieu d'exécuter ces fonctions comme on le fait dans la quatrième expression). 
+
+Les deux dernières expressions donnent un résultat équivalent au fragment de code donné.
+
+Cependant bien sûr, la dernière expression est inutilement lourde avec l'utilisation d'une fonction <code>lambda</code>.
 [explanation]
 
 
@@ -26,7 +31,7 @@ Compréhensions d'ensemble
 ma_liste = [1, 2, 4, 1, 2, 7, 4, 2, 1, 3, 4, 2, 5, 1, 7, 4, 9, 5, 4, 2, 4]
 </pre>
 
-Valider toutes les réponses qui retournent l'ensemble de tous les éléments uniques de <code>ma_liste</code> élevés au carré ?
+Valider toutes les réponses qui retournent un ensemble de tous les éléments uniques de <code>ma_liste</code> élevés au carré ?
 
 [x] <code>{x**2 for x in ma_liste}</code>
 [x] <code>set([x**2 for x in ma_liste])</code>
@@ -34,24 +39,31 @@ Valider toutes les réponses qui retournent l'ensemble de tous les éléments un
 [ ] <code>{x**2 for x in ma_liste if x is unique}</code>
 
 [explanation]
-Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble. La troisième expression n'est pas syntaxiquement valide, il ne faut pas un <code>:</code> entre le <code>x**2</code> et le <code>for</code>. La dernière expression est fausse parce que le <code>if x is unique</code> teste si la variable <code>x</code> référence le même objet que la variable <code>unique</code>, ce qui n'a pas de sens dans notre exemple. 
+Les deux premières réponses donnent un résultat valide. Cependant, si le résultat attendu est un ensemble, il est plus efficace de passer directement par une compréhension d'ensemble.
+
+La troisième expression n'est pas syntaxiquement valide, il ne faut pas un <code>:</code> entre le <code>x**2</code> et le <code>for</code>.
+
+La dernière expression est fantaisiste, parce que le <code>if x is unique</code> ferait référence à une variable <code>unique</code> qui n'est pas définie. 
 [explanation]
 
 <hr/>
 Compréhensions de dictionnaire
 =====
 <pre>
-age_donnees = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
-age_mystere = {nom:age for nom, age in age_donnees.iteritems() if age>=18}
+data = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
+age_mystere = {nom:age for nom, age in data.items() if age >= 18}
 </pre>
 
 Que va contenir age_mystere ?
-( ) le même dictionnaire que <code>age_donnees</code>
-(x) le même dictionnaire que <code>age_donnees</code>, mais qui ne contient que les entrées avec un âge supérieur à 18 ans 
-( ) le même dictionnaire que <code>age_donnees</code>, mais qui ne contient que les entrées avec un âge inférieur à 18 ans 
+( ) le même dictionnaire que <code>data</code>
+(x) le même dictionnaire que <code>data</code>, mais qui ne contient que les entrées avec un âge supérieur à 18 ans 
+( ) le même dictionnaire que <code>data</code>, mais qui ne contient que les entrées avec un âge inférieur à 18 ans 
 ( ) un dictionnaire vide
 
 [explanation]
-<code>age_mystere</code> est construit avec une compréhension de dictionnaire. Il va avoir comme clefs les noms et comme valeurs les âges. Il y a un test dans cette compréhension qui va garder uniquement les entrées pour lesquelles l'âge est supérieur à 18.
-[explanation]
+<code>age_mystere</code> est construit avec une compréhension de dictionnaire.
 
+Il a comme clefs les noms et comme valeurs les âges.
+
+Il y a un test dans cette compréhension qui va garder uniquement les entrées pour lesquelles l'âge est supérieur à 18.
+[explanation]

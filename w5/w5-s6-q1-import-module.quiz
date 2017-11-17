@@ -38,7 +38,7 @@ Cochez les cas pour lesquels un fichier <code>mod.pyc</code> est créé.
 
 [x] Lors de l'importation du module avec <code>import mod</code> si le fichier <code>mod.pyc</code> n'existe pas encore
 [ ] Toujours lors de l'importation du module avec <code>importlib.reload(mod)</code> 
-[x] Lors de l'importation du module avec <code>from mod import x</code> si le fichier <code>mod.pyc</code> n'existe pas encore
+[x] Lors de l'importation du module avec <code>from mod import x</code> si le fichier <code>mod.pyc</code> est plus ancien que <code>mod.py</code>
 
 [explanation]
 Un fichier <code>mod.pyc</code> est créé à chaque fois que le module est compilé ou recompilé, c'est-à-dire, si le fichier <code>mod.py</code> n'a jamais été compilé ou s'il a changé depuis la dernière compilation. Un <code>reload</code> suppose qu'il y a déjà eu un import, donc que le fichier <code>mod.pyc</code> existe déjà. Le <code>reload</code> ne va créer le fichier <code>mod.pyc</code> que si le fichier <code>mod.py</code> a changé depuis la dernière compilation.

@@ -29,7 +29,7 @@ print(list(carre))
 res = [x**2 for x in carre]
 </pre>
 
-Que va référencer la variable res ?
+Que va référencer la variable <code>res</code> après avoir évalué le code ci-dessus ?
 
 [ ] Une liste contenant le carré des carrés des entiers allant de 0 à 9
 [x] Une liste vide
@@ -38,9 +38,12 @@ Que va référencer la variable res ?
 
 [explanation]
 
-L'objet produit par l'expression génératrice (donc référencé par <code>carre</code>) est un itérateur. Il ne peut
-donc être parcouru qu'une seule fois. <code>list(carre)</code> va parcourir l'itérateur, donc lorsque l'on va exécuter
-la compréhension qui parcours <code>carre</code>, il n'y aura plus rien à parcourir. La compréhension va alors retourner une liste vide. 
+L'objet <code>carre</code> produit par l'expression génératrice (donc référencé par <code>carre</code>) est un itérateur. Il ne peut
+donc être parcouru qu'une seule fois.
+
+Lors de l'évaluation de la ligne <code>print</code>, l'évaluation de <code>list(carre)</code> va parcourir l'itérateur, et donc le consommer.
+
+Du coup avant d'évaluer la dernière ligne l'itérateur est épuisé, il n'y a plus rien à parcourir, la compréhension va retourner une liste vide. 
 
 [explanation]
 
@@ -63,8 +66,8 @@ print(list(gen(L)))
 Que va afficher <code>print(list(gen(L)))</code> ?
 
 ( ) <code>[]</code>
-(x) <code>[1, 4, 0, 'nan', 'nan', 'nan', 625]</code>
 ( ) <code>[1, 4, 0, '324', 'nan', [121], 625]</code>
+(x) <code>[1, 4, 0, 'nan', 'nan', 'nan', 625]</code>
 ( ) <code><function gen at ...></code>
 ( ) Une exception
 ( ) <code>[1, 2, 0, '18', 'x', [11], 25]</code>
@@ -72,7 +75,7 @@ Que va afficher <code>print(list(gen(L)))</code> ?
 
 [explanation]
 
-Le générateur va retourner le carré de tous les entiers et la chaîne de caractères 'nan' sinon. 
+Le générateur va retourner pour tous les éléments de la liste, soit le carré si c'est un entier, soit la chaîne 'nan' sinon. 
 
 [explanation]
 
