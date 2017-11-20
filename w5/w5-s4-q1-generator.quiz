@@ -26,7 +26,7 @@ Expression génératrice (2)
 <pre>
 carre = (x**2 for x in range(10))
 print(list(carre))
-res = [x**2 for x in carre]
+res = &#91;x**2 for x in carre&#93;
 </pre>
 
 Que va référencer la variable <code>res</code> après avoir évalué le code ci-dessus ?
@@ -59,18 +59,18 @@ def gen(it):
        else:
            yield 'nan'	   
 	  
-L = [1, 2, 0, '18', 'x', [11], 25]
+L = &#91;1, 2, 0, '18', 'x', &#91;11&#93;, 25&#93;
 print(list(gen(L)))
 </pre>
 
 Que va afficher <code>print(list(gen(L)))</code> ?
 
-( ) <code>[]</code>
-( ) <code>[1, 4, 0, '324', 'nan', [121], 625]</code>
-(x) <code>[1, 4, 0, 'nan', 'nan', 'nan', 625]</code>
-( ) <code><function gen at ...></code>
+( ) <code>&#91;&#93;</code>
+( ) <code>&#91;1, 4, 0, '324', 'nan', &#91;121&#93;, 625&#93;</code>
+(x) <code>&#91;1, 4, 0, 'nan', 'nan', 'nan', 625&#93;</code>
+( ) <code>&lt;function gen at ...&gt;</code>
 ( ) Une exception
-( ) <code>[1, 2, 0, '18', 'x', [11], 25]</code>
+( ) <code>&#91;1, 2, 0, '18', 'x', &#91;11&#93;, 25&#93;</code>
 
 
 [explanation]
