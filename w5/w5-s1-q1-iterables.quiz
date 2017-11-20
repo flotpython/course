@@ -46,7 +46,7 @@ Quelle(s) affirmation(s) est(sont) vraie(s) ?
 [ ] Les notions d'itérable est d'itérateur sont équivalentes.
 
 [explanation]
-On itérateur ne se consomme qu'une seule fois. On ne peut itérer qu'une seule fois dessus.
+Un itérateur ne se consomme qu'une seule fois. On ne peut itérer qu'une seule fois dessus.
 
 La création d'un objet itérateur est économique, puisque cet objet ne fait aucun calcul tant qu'on ne le parcourt pas. 
 
