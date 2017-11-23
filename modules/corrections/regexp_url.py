@@ -28,7 +28,9 @@ protos      = "(?P<proto>" + "|".join(protos_list) + ")"
 password    = r"(:(?P<password>[^:]+))?"
 
 # la partie user-password elle-même est optionnelle
-user        = r"((?P<user>\w+){password}@)?".format(**locals())
+# on utilise ici un raw f-string avec le préfixe rf
+# pour insérer la regexp <password> dans la regexp <user>
+user        = rf"((?P<user>\w+){password}@)?"
 
 # pour le hostname on accepte des lettres, chiffres, underscore et '.'
 # attention à backslaher . car sinon ceci va matcher tout y compris /

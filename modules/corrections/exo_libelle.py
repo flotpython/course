@@ -26,8 +26,7 @@ def libelle(ligne):
 def libelle_ko(ligne):
     try:
         nom, prenom, rang = ligne.split(',')
-        return "{prenom}.{nom} ({rang})"\
-            .format(**locals())
+        return f"{prenom}.{nom} ({rang})"
     except:
         return None
 
