@@ -1,10 +1,19 @@
-[comment]: <url> "-*- coding: utf-8 -*-"
+# Python3
 
-Plateforme
-=======
+#### notebooks / cookies / antivirus
+
+* pour l'accès aux notebooks, mieux documenter la configuration des cookies
+* il suffit d'ajouter une exception pour `nbhosting.inria.fr`
+  ce n'est pas nécessaire d'ouvrir tout en grand
+* mentionner aussi les conflits occasionnellement identifiés avec les antivirus
+
+
+*************
+
+# Plateforme
 
 * Prévoir des mécanismes plus conviviaux pour échanger le code (miniprojets) - étudier un mini-github
-  * MOF, pas 'evident à mettre en place
+  * MOF, pas évident à mettre en place
 
 * montrer dans une vidéo comment publier du code
   * l'icone '010010' dans la barre de menu
@@ -14,8 +23,7 @@ Plateforme
   * parler aussi de la possibilité de publier les notebooks (liens statiques)
   * et donc du point précédent (un site pour exposer le code ?)
 
-Général
-=======
+# Général
 
 * la mise à disposition au format html
   une idée sans doute intéressante, proposée dans les questionnaires:
@@ -27,45 +35,24 @@ Général
 * un autre aurait apprécié un glossaire...
 
 * exercices sans doute trop difficiles en moyenne
-   on observe un taux de 1 succès pour 3 échecs dans les stats
+  on observe un taux de 1 succès pour 3 échecs dans les stats
 
 * les quelques séquences qui ont 2 vidéos : des gens sont arrivés à
    rater la deuxième; il suffirait de reprendre un peu la présentation
    pour rendre ça + explicite (un message AVANT la première vidéo).
 
 
-Pour Python3
-=========
+# Séquelles python2
 
-* équilibre cours
-   * la semaine 2 est très chargée
-   * les libellés des différentes semaines sont imprécis
-   * -> plus de semaines, moins chargées
-   * faire davantage de 101 avant de passer en mode balayage du manuel
-     de référence (pourquoi pas un primer de niveau super basique
-     pendant 2 semaines)
-   * passage semaine5 -> semaine6 trop raide de l'avis de tous
-
-* équilibre cours - suite
-  * essayer de parler de plus de librairies standard
-  * mentionner le debugger
-  * on ne parle pas du tout de la pile par exemple
-
-* Le libellé de 'fonction lambda' est à revoir car dans cette section
-  on parle des fonctions comme objets, les lambda c'est juste un cas
-  particulier. Pourquoi pas un titre comme "Les fonctions sont des
-  objets comme les autres"
-  
-W1
-===
+### w1
 
  * installation sur windows
    * donner un peu plus d'indications a propos du PATH
    * idem peut-être pour le shebang sur windows
  * le notebook sur le shebang ne doit pas être tout à fait clair par rapport au PATH, pas mal de monde en effet n'a pas '.' dans son PATH
 
-W2
-===
+### w2
+
  * W2-S6-E1 : dans le quiz on parle de l'opérateur `is` qui n'a pas
    encore été introduit à ce stade du cours
  * W2-S8-C3-la-fonction-raw_input.ipynb : il semble que `readline` ne
@@ -75,18 +62,15 @@ W2
   est trop laxiste
  * vérifier qu'on montre au moins une fois un exemple de `if` sans `else`
 
-W3
-===
+### w3
 
  * je ne suis plus très sûr de la semaine, mais la digression sur les clés de dictionnaires qui doivent être globalement immutables est assez erronée en ce qui concernent les objets, qui peuvent être utilisés dans les ensembles, donc sans doute comme clé de dictionnaires.
 
-W4
-===
+### w4
 
  * voir `pgcd_ter`, faut-il le publier dans les corrigés ?
 
-W5
-===
+### w5
 
 * quiz 'modules et espaces de nommage' : beaucoup d'émoi suscité par
   la formule 'toutes les variables du module'; j'avoue que je suis
@@ -94,9 +78,9 @@ W5
 
 * exercice bateau : voir s'il ne serait pas mieux d'utiliser une librairie ?
   * le module LatLon est pour 2.7 seulement
- 
-W7
-===
+
+### w6
+
  * le complément sur les décorateurs : plutoôt que de rediriger vers
    https://wiki.python.org/moin/PythonDecoratorLibrary#Singleton à la
    fin, ce serait mieux de le refaire en le commentant; rien que
@@ -104,10 +88,9 @@ W7
 
  * il semble que dans une vidéo on a annoncé un complément sur le
    binding avec C/C++, qu'on n'a jamais fait.. faire a minima un
-   erratum là-dessus 
+   erratum là-dessus
 
-Exos
-===
+### Exos
 
 * shipdict.py - il faudrait enlever les doublons (même mesure dans 2
   fichiers) - voir bateaux "ENFORCER" et le "SANTA CRUZ" d'après un
@@ -117,8 +100,8 @@ Exos
   les bateaux qu'il peut y avoir des bateaux de même nom
 
 
-Notebooks et process
-====================
+### Notebooks et process
+
  * un bouton pour faire kernel_restart + clear_all_cells + run_all_cells serait très appréciable
  * un bouton pour faire clear_all_cells + remove_empty_cells serait très appréciable
  * avoir git mieux intégré à IPython serait cool
@@ -149,7 +132,7 @@ Exercices
 * ai rencontré une mention aux tags MP3 (Id3) qui pourrait peut-être
   faire un bon exo, surtout dans la perspective de python3 et
   bytes ?
-  
+
 
 Notes on python3
 ====================
