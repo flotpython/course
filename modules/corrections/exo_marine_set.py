@@ -26,11 +26,15 @@ def diff(extended, abbreviated):
     """
     ### on n'utilise que des ensembles dans tous l'exercice
     # les ids de tous les bateaux dans extended
-    # une compréhension d'ensemble
-    extended_ids = {ship[0] for ship in extended}
+    # avec ce qu'on a vu jusqu'ici le moyen le plus naturel
+    # consiste à calculer une compréhension de liste
+    # et à la traduire en ensemble comme ceci
+    extended_ids = set([ship[0] for ship in extended])
     # les ids de tous les bateaux dans abbreviated
-    # idem
-    abbreviated_ids = {ship[0] for ship in abbreviated}
+    # je fais exprès de ne pas mettre les []
+    # de la compréhension de liste, c'est pour vous introduire
+    # les expressions génératrices - voir semaine 5
+    abbreviated_ids = set(ship[0] for ship in abbreviated)
     # les ids des bateaux seulement dans abbreviated
     # une difference d'ensembles
     abbreviated_only_ids = abbreviated_ids - extended_ids
@@ -44,9 +48,9 @@ def diff(extended, abbreviated):
     # on recalcule les noms des bateaux
     # par une compréhension d'ensemble
     both_names = \
-          {ship[4] for ship in extended if ship[0] in both_ids}
+        set([ship[4] for ship in extended if ship[0] in both_ids])
     extended_only_names = \
-          {ship[4] for ship in extended if ship[0] in extended_only_ids}
+        set([ship[4] for ship in extended if ship[0] in extended_only_ids])
     # enfin on retourne les 3 ensembles sous forme d'un tuple
     return extended_only_names, both_names, abbreviated_only_ids
 # @END@
@@ -55,7 +59,31 @@ def diff(extended, abbreviated):
 # @BEG@ name=diff latex_size=footnotesize more=bis
 def diff_bis(extended, abbreviated):
     """
-    Idem avec seulement des compréhensions
+    Même code mais qui utilise les compréhensions d'ensemble
+    que l'on n'a pas encore vues - à nouveau, voir semaine 5
+    mais vous allez voir que c'est assez intuitif 
+    """
+    extended_ids = {ship[0] for ship in extended}
+    abbreviated_ids = {ship[0] for ship in abbreviated}
+
+    abbreviated_only_ids = abbreviated_ids - extended_ids
+    both_ids = abbreviated_ids & extended_ids
+    extended_only_ids = extended_ids - abbreviated_ids
+
+    both_names = \
+          {ship[4] for ship in extended if ship[0] in both_ids}
+    extended_only_names = \
+          {ship[4] for ship in extended if ship[0] in extended_only_ids}
+
+    return extended_only_names, both_names, abbreviated_only_ids
+# @END@
+
+
+# @BEG@ name=diff latex_size=footnotesize more=ter
+def diff_ter(extended, abbreviated):
+    """
+    Idem sans les calculs d'ensembles intermédiaires
+    en utilisant les conditions dans les compréhensions
     """
     extended_ids =     {ship[0] for ship in extended}
     abbreviated_ids =  {ship[0] for ship in abbreviated}
@@ -65,6 +93,23 @@ def diff_bis(extended, abbreviated):
                         if ship[0] not in abbreviated_ids}
     both =             {ship[4] for ship in extended
                         if ship[0] in abbreviated_ids}
+    return extended_only, both, abbreviated_only
+# @END@
+
+
+# @BEG@ name=diff latex_size=footnotesize more=quater
+def diff_quater(extended, abbreviated):
+    """
+    Idem sans indices
+    """
+    extended_ids =     {id for id, *_ in extended}
+    abbreviated_ids =  {id for id, *_ in abbreviated}
+    abbreviated_only = {id for id, *_ in abbreviated
+                        if id not in extended_ids}
+    extended_only =    {name for id, _, _, _, name, *_ in extended
+                        if id not in abbreviated_ids}
+    both =             {name for id, _, _, _, name, *_ in extended
+                        if id in abbreviated_ids}
     return extended_only, both, abbreviated_only
 # @END@
 

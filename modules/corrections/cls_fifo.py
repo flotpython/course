@@ -27,8 +27,11 @@ class Fifo:
 
 
 # @BEG@ name=fifo more=bis
-# une autre implémentation pourrait faire comme ceci
 class FifoBis(Fifo):
+    """
+    une alternative en testant directement
+    plutôt que d'attraper l'exception
+    """
     def __init__(self):
         self.queue = []
 
