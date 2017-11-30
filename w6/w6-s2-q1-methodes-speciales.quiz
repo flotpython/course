@@ -1,0 +1,29 @@
+<hr/>
+Surcharge d'opérateurs (1)
+=====
+
+Quand est appelée la méthode <code>__init__</code> dans une classe ?
+
+( ) À la création de l'objet classe
+( ) Après la création de la première instance de la classe
+(x) Après la création de chaque instance de la classe
+
+[explanation]
+La méthode <code>__init__</code> est la première méthode qui est appelée automatiquement après la création de l'instance d'une classe. 
+[explanation]
+
+<hr/>
+Surcharge d'opérateurs (2)
+=====
+
+Supposons que nous ayons deux instances <code>a</code> et <code>b</code> d'une classe <code>C</code>. Cochez les opérations qu'il sera possible de définir sur les instances avec la surcharge d'opérateurs.
+
+[x] <code>print(a, b)</code>
+[x] <code>1 in a</code>
+[x] <code>a > b</code>
+[x] <code>a[3]</code>
+[x] <code>a + b</code>
+
+[explanation]
+Avec la surcharge d'opérateurs, on peut définir pour nos propres objets toutes les opérations que l'on peut faire avec les types built-in. Les deux compléments de la séquence détaillent les méthodes à implémenter pour définir les opérations citées dans ce quiz. 
+[explanation]

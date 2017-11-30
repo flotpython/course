@@ -1,0 +1,81 @@
+<hr/>
+Classes, instances et méthodes
+=====
+
+Observez le code suivant :
+
+<pre>
+class Quiz:
+    def __init__(self, question, reponse):
+        self.question = question
+        self.reponse = reponse
+        self.tries = 0
+
+    def ask(self):
+        print(self.question)
+        rep = input()
+        if rep == self.reponse:
+            print('bravo')
+        else:
+            print("c'est faux !")
+            self.tries += 1
+            if self.tries > 2:
+                print("perdu")
+                return
+            self.ask()
+         
+q = Quiz("Est-ce que ce MOOC est sur Python 3 ?", "oui")
+q.ask()
+</pre>
+
+Que référence <code>q.ask</code> ?
+
+( ) Une fonction
+( ) Une instance
+(x) Une méthode bound
+( ) Une classe
+( ) None
+( ) Une chaîne de caractères
+
+[explanation]
+<code>q.ask</code> référence une méthode bound sur l'instance référencée par <code>q</code>. 
+[explanation]
+
+
+À quoi correspond le premier paramètre <code>self</code> d'une méthode ?
+
+( ) À la classe sur laquelle est définie la méthode
+(x) À l'instance sur laquelle on appelle la méthode
+( ) À rien de particulier, c'est un paramètre comme un autre
+( ) À une référence sur la méthode elle même
+
+[explanation]
+<code>self</code> référence l'instance sur laquelle on appelle la méthode. 
+[explanation]
+
+À quoi sert la ligne <code>self.question = question</code> (une ou plusieurs réponses possibles)?
+
+[ ] À rien, on n'en n'a pas besoin
+[x] À garder une référence dans l'instance vers la première chaîne de caractère passée à <code>Quiz()</code>
+[x] À créer un attribut <code>reponse</code> sur l'instance
+[x] À initialiser l'instance
+[ ] À définir un attribut <code>reponse</code> sur la classe 
+
+[explanation]
+Cette ligne va définir un attribut <code>reponse</code> sur l'instance et cet attribut va référencer la première chaîne de caractère passée à <code>Quiz()</code>
+
+Cette ligne sert donc à initialiser l'instance. 
+[explanation]
+
+À quoi est équivalent l'appel <code>q.ask()</code>
+
+( ) <code>Quiz.q(self)</code>
+( ) <code>Quiz.ask(self)</code>
+( ) <code>Quiz.ask.q</code>
+(x) <code>Quiz.ask(q)</code>
+( ) <code>q.ask(Quiz)</code>
+( ) <code>ask(q)</code>
+
+[explanation]
+<code>ask</code> est une méthode bound à l'instance <code>q</code>, l'appel est donc équivalent à <code>Quiz.ask(q)</code>. 
+[explanation]

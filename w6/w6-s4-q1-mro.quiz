@@ -1,0 +1,92 @@
+<hr/>
+Héritage et attributs <code>__class__</code> et <code>__bases__</code>
+=====
+
+Supposons que nous ayons le code suivant, volontairement obscur.
+<pre>
+class C(object):
+    def f(self):
+        self.x = 1
+
+    def g(self):
+        self.y = 1
+
+class A(C):
+    def f(self):
+        self.x = 2
+
+c = C()
+a = A()
+c.f()
+c.g()
+a.f()
+a.g()
+</pre>
+
+<h3>Que retourne <code>a.__class__</code> ?</h3>
+( ) Une référence de la classe <code>C</code>
+(x) Une référence de la classe <code>A</code>
+( ) Une exception
+
+[explanation]
+L'attribut <code>__class__</code> sur une instance retourne une référence de la classe qui a créé cette instance. 
+[explanation]
+
+<h3>Que retourne <code>A.__bases__</code> ?</h3>
+(x) Un tuple contenant une référence de la classe C
+( ) Une référence de l'instance créée par la classe A
+( ) Une exception
+
+[explanation]
+L'attribut <code>__bases__</code> sur une classe retourne le tuple des références des super classes de cette classe. 
+[explanation]
+
+
+<hr/>
+MRO
+=====
+
+Supposons que nous ayons le code suivant, volontairement obscur.
+<pre>
+class E:
+    pass
+
+class F:
+    pass
+
+class B(E, F):
+    pass
+
+class C(F):
+    pass
+
+class D(F):
+    pass
+
+class A(B, C, D):
+    pass
+</pre>
+
+<h3>Quel est la MRO pour la class A ?</h3>
+( ) A, B, C, D, E, F
+( ) A, B, E, F, C, D
+( ) A, B, E, F, C, D, object
+( ) A, C, B, D, E, F, object
+(x) A, B, E, C, D, F, object
+( ) B, C, D, object
+
+[explanation]
+La bonne réponse est <code>A, B, E, C, D, F, object<\code>. On peut le vérifier
+en appelant <code>A.mro()</code>
+[explanation]
+
+<h3>Que va afficher <code>A.x, A.y</code> ?</h3>
+( ) ('F', 'E')
+( ) ('F', 'D')
+(x) ('D', 'E')
+( ) ('D', 'D')
+
+[explanation]
+La bonne réponse est <code>('D', 'E')<\code>. En effet, comme la MRO est <code>A, B, E, C, D, F, object<\code>, l'attribut <code>x<\code> sera trouvé dans <code>D<\code> qui est avant <code>F<\code>, et l'attribut <code>y<\code> sera trouvé dans
+<code>E<\code> qui est avant <code>D<\code>
+[explanation]
