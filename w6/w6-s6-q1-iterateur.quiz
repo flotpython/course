@@ -1,0 +1,59 @@
+<hr/>
+Conception d'itérable et d'itérateurs (1)
+=====
+
+Quelle(s) affirmation(s) est(sont) vraie(s) ? ?
+
+[x] Un itérateur doit implémenter une méthode <code>__iter__</code> et une méthode <code>__next__</code>.
+[x] Un itérable doit implémenter une méthode <code>__iter__</code> qui retourne un itérateur.
+[x] Une méthode simple pour implémenter un itérable est d'implémenter la méthode <code>__iter__</code> comme une fonction génératrice.
+[x] Une fonction génératrice produit automatiquement un itérateur lorsqu'elle est appelée.
+
+[explanation]
+Toutes ces affirmations sont vraies.
+[explanation]
+
+<hr/>
+Conception d'itérable et d'itérateurs (2)
+=====
+Supposons que l'on ait le code suivant
+<pre>
+class Aplatir:
+    def __init__(self, my_iter):
+        self.my_iter = my_iter
+
+    def __iter__(self):
+        for elem in self.my_iter:
+            for e in elem:
+                yield e
+
+a = Aplatir(['on', [1, 2, 3], 'mer', (True, 4), 'va'])
+print("".join([str(i) for i in a]))
+</pre>
+
+<h3>Que va retourner <code>iter(a)</code> ?</h3>
+[x] un itérateur
+[x] un objet générateur
+[ ] une fonction génératrice
+[ ] <code>StopIteration</code>
+[ ] <code>None</code>
+[ ] une nouvelle instance de la classe Aplatir
+
+[explanation]
+
+<code>iter(a)</code> va appeler la méthode <code>__iter__</code> qui est implémenté comme une fonction génératrice. Lors de l'appel cette fonction génératrice va retourner un objet générateur qui est également un itérateur. 
+
+Attention de ne pas confondre les notions de fonction génératrice et d'objet générateur. La fonction génératrice retourne lorsqu'on l'appelle une objet générateur. 
+
+[explanation]
+
+<h3>Que va afficher  <code>print("".join([str(i) for i in a]))</code> ?</h3>
+( ) <code>['on', [1, 2, 3], 'mer', (True, 4), 'va']</code>
+( ) <code>on[1, 2, 3]mer(True, 4)'va'</code>
+(x) <code>on123merTrue4va</code>
+( ) <code>onmerva</code>
+
+[explanation]
+La bonne réponse est la troisième possibilité. L'instance <code>a</code> va aplatir la liste lors du parcours dans la compréhension. 
+[explanation]
+
