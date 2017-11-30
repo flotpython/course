@@ -69,10 +69,9 @@ def comptage(in_filename, out_filename):
     et de caractères
     """
     # on ouvre le fichier d'entrée en lecture
-    # on aurait pu mettre open(in_filename, 'r')
     with open(in_filename, encoding='utf-8') as input:
         # on ouvre la sortie en écriture
-        with open(out_filename, "w", encoding='utf-8') as output:
+        with open(out_filename, 'w', encoding='utf-8') as output:
             lineno = 1
             # pour toutes les lignes du fichier d'entrée
             # le numéro de ligne commence à 1
@@ -89,22 +88,44 @@ def comptage(in_filename, out_filename):
 
 @exercice_compliant
 # @BEG@ name=comptage more=bis
-# un peu plus pythonique avec enumerate
 def comptage_bis(in_filename, out_filename):
+    """
+    un peu plus pythonique avec enumerate
+    """
     with open(in_filename, encoding='utf-8') as input:
-        with open(out_filename, "w", encoding='utf-8') as output:
+        with open(out_filename, 'w', encoding='utf-8') as output:
             # enumerate(.., 1) pour commencer avec une ligne
             # numérotée 1 et pas 0
             for lineno, line in enumerate(input, 1):
+                # une astuce : si on met deux chaines 
+                # collées comme ceci elle sont concaténées
+                # et on n'a pas besoin de mettre de backslash
+                # puisqu'on est dans des parenthèses
                 output.write(f"{lineno}:{len(line.split())}:"
                              f"{len(line)}:{line}")
 # @END@
+
+@exercice_compliant
+# @BEG@ name=comptage more=ter
+def comptage_ter(in_filename, out_filename):
+    """
+    pareil mais avec un seul with
+    """
+    with open(in_filename, encoding='utf-8') as input, \
+         open(out_filename, 'w', encoding='utf-8') as output:
+        for lineno, line in enumerate(input, 1):
+            output.write(f"{lineno}:{len(line.split())}:"
+                         f"{len(line)}:{line}")
+# @END@
+
+
 
 def comptage_ko(in_filename, out_filename):
     with open(in_filename) as input:
         with open(out_filename, 'w') as output:
             for lineno, line in enumerate(input):
-                output.write(f"{lineno}:{len(line.split())}:{len(line)}:{line}")
+                output.write(f"{lineno}:{len(line.split())}:"
+                             f"{len(line)}:{line}")
 
 # on passe ceci à ExerciseFunction donc pas besoin de rajouter les **keywords
 comptage_args = [
