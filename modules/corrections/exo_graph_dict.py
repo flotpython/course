@@ -4,38 +4,48 @@ from nbautoeval.args import Args
 
 
 # @BEG@ name=graph_dict
-# on va utiliser un defaultdict
+# une première solution avec un defaultdict
 
 from collections import defaultdict
 
 def graph_dict(filename):
-    # on le déclare de type list
+    """
+    construit une stucture de données de graphe
+    à partir du nom du fichier d'entrée
+    """
+    # on déclare le defaultdict de type list
+    # de cette façon si une clé manque elle
+    # sera initialisée avec un appel à list()
     g = defaultdict(list)
+    
     with open(filename) as f:
         for line in f:
             # on coupe la ligne en trois parties
             begin, value, end = line.split()
             # comme c'est un defaultdict on n'a
             # pas besoin de l'initialiser
-            g[begin].append( (end, int(value)))
+            g[begin].append((end, int(value)))
     return g
 # @END@
 
 
 # @BEG@ name=graph_dict more=bis
-# la même chose mais sans defaultdict
-
 def graph_dict_bis(filename):
-    # un dictionnaire vide
+    """
+    pareil mais sans defaultdict
+    """
+    # un dictionnaire vide normal
     g = {}
+
     with open(filename) as f:
         for line in f:
             begin, value, end = line.split()
-            # c'est ça qu'on économise avec un defaultdict
+            # c'est cette partie
+            # qu'on économise avec un defaultdict
             if begin not in g:
                 g[begin] = []
             # sinon c'est tout pareil
-            g[begin].append( (end, int(value)))
+            g[begin].append((end, int(value)))
     return g
 # @END@
 

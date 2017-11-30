@@ -24,26 +24,33 @@ def diff(extended, abbreviated):
     (*) les noms des bateaux présents dans les deux listes
     (*) les ids des bateaux seulement dans abbreviated
     """
+
     ### on n'utilise que des ensembles dans tous l'exercice
+
     # les ids de tous les bateaux dans extended
     # avec ce qu'on a vu jusqu'ici le moyen le plus naturel
     # consiste à calculer une compréhension de liste
     # et à la traduire en ensemble comme ceci
     extended_ids = set([ship[0] for ship in extended])
+
     # les ids de tous les bateaux dans abbreviated
     # je fais exprès de ne pas mettre les []
     # de la compréhension de liste, c'est pour vous introduire
     # les expressions génératrices - voir semaine 5
     abbreviated_ids = set(ship[0] for ship in abbreviated)
+
     # les ids des bateaux seulement dans abbreviated
     # une difference d'ensembles
     abbreviated_only_ids = abbreviated_ids - extended_ids
+
     # les ids des bateaux dans les deux listes
     # une intersection d'ensembles
     both_ids = abbreviated_ids & extended_ids
+
     # les ids des bateaux seulement dans extended 
     # ditto
     extended_only_ids = extended_ids - abbreviated_ids
+
     # pour les deux catégories où c'est possible
     # on recalcule les noms des bateaux
     # par une compréhension d'ensemble

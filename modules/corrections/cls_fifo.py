@@ -42,7 +42,7 @@ class FifoBis(Fifo):
         # plus concis mais peut-être moins lisible
         if len(self.queue):
             return self.queue.pop()
-        # en fait on n'a même pas besoin du else..
+        # en fait on n'a même plus besoin du else..
 
 # @END@ 
 

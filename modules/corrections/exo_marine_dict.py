@@ -74,7 +74,7 @@ def index_bis(bateaux):
     # si on veut décortiquer
     resultat = {}
     for bateau in bateaux:
-        resultat [bateau[0]] = bateau
+        resultat[bateau[0]] = bateau
     return resultat
 # @END@
 
@@ -92,7 +92,7 @@ def index_ter(bateaux):
         # le premier champ; en appelant le reste _
         # on indique qu'on n'en fera en fait rien
         id, *_ = bateau
-        resultat [id] = bateau
+        resultat[id] = bateau
     return resultat
 # @END@
 
@@ -133,7 +133,7 @@ def merge(extended, abbreviated):
     # pour les données étendues
     # on affecte les 6 premiers champs
     # et on ignore les champs de rang 6 et au delà
-    for id, latitude, longitude, timestamp, name, country, *ignore in extended:
+    for id, latitude, longitude, timestamp, name, country, *_ in extended:
         # on crée une entrée dans le résultat, 
         # avec la mesure correspondant aux données étendues
         result[id] = [name, country, (latitude, longitude, timestamp)]
@@ -141,8 +141,8 @@ def merge(extended, abbreviated):
     for id, latitude, longitude, timestamp in abbreviated:
         # et avec les hypothèses on sait que le bateau a déjà été 
         # inscrit dans le résultat, donc result[id] doit déjà exister
-        # et on peut se contenter d'ajouter ls mesure abrégée
-        # dans l'entrée correspondant dans result
+        # et on peut se contenter d'ajouter la mesure abrégée
+        # dans l'entrée correspondante dans result
         result[id].append((latitude, longitude, timestamp))
     # et retourner le résultat
     return result
@@ -153,6 +153,7 @@ def merge(extended, abbreviated):
 def merge_bis(extended, abbreviated):
     """
     Une deuxième version, linéaire également
+    mais qui utilise les indices plutôt que l'unpacking
     """
     # on initialise le résultat avec un dictionnaire vide
     result = {}
