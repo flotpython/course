@@ -1,6 +1,6 @@
 <hr/>
 Classes, instances et méthodes
-=====
+====
 
 Observez le code suivant :
 
@@ -41,13 +41,16 @@ Que référence <code>q.ask</code> ?
 <code>q.ask</code> référence une méthode bound sur l'instance référencée par <code>q</code>. 
 [explanation]
 
+<hr/>
+self
+====
 
 À quoi correspond le premier paramètre <code>self</code> d'une méthode ?
 
 ( ) À la classe sur laquelle est définie la méthode
 (x) À l'instance sur laquelle on appelle la méthode
 ( ) À rien de particulier, c'est un paramètre comme un autre
-( ) À une référence sur la méthode elle même
+( ) À une référence sur la méthode elle-même
 
 [explanation]
 <code>self</code> référence l'instance sur laquelle on appelle la méthode. 
@@ -57,15 +60,19 @@ Que référence <code>q.ask</code> ?
 
 [ ] À rien, on n'en n'a pas besoin
 [x] À garder une référence dans l'instance vers la première chaîne de caractère passée à <code>Quiz()</code>
-[x] À créer un attribut <code>reponse</code> sur l'instance
+[x] À créer un attribut <code>question</code> sur l'instance
 [x] À initialiser l'instance
-[ ] À définir un attribut <code>reponse</code> sur la classe 
+[ ] À définir un attribut <code>question</code> sur la classe 
 
 [explanation]
-Cette ligne va définir un attribut <code>reponse</code> sur l'instance et cet attribut va référencer la première chaîne de caractère passée à <code>Quiz()</code>
+Cette ligne va définir un attribut <code>question</code> sur l'instance et cet attribut va référencer la première chaîne de caractère passée à <code>Quiz()</code>
 
 Cette ligne sert donc à initialiser l'instance. 
 [explanation]
+
+<hr/>
+Appel de méthode
+====
 
 À quoi est équivalent l'appel <code>q.ask()</code>
 

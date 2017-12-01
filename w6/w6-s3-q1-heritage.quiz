@@ -35,6 +35,8 @@ a.g()
 <code>c</code> est une instance de la classe <code>C</code>. <code>c.f()</code> appelle la méthode <code>f</code> définie dans la classe <code>C</code>. Cette méthode définit l'attribut <code>x</code> dans l'instance à <code>1</code>. <code>c.g()</code> appelle la méthode <code>g</code> définie dans la classe <code>C</code>, cette méthode définit l'attribut <code>y</code> dans l'instance à <code>1</code>.
 [explanation]
 
+<hr/>
+
 <h3>Que retourne <code>vars(a)</code> ?</h3>
 ( ) <code>{'y': 1, 'x': 1}</code>
 (x) <code>{'y': 1, 'x': 2}</code>

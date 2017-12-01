@@ -7,7 +7,7 @@ Comment concevoir une exception ?
 (x) Il faut créer une classe qui hérite de la classe<code>Exception</code>
 ( ) Il faut créer une classe qui contient <code>raise Exception</code>
 ( ) Ça n'est pas possible en Python
-( ) Il faut écrire un bloc <code>try except</code> dans une fonction
+( ) Il faut écrire un bloc <code>try / except</code> dans une fonction
 
 [explanation]
 

@@ -44,11 +44,14 @@ Supposons que l'on ait le code suivant
 <pre>
 a = "a dans module"
 b = "b dans module"
+
 class C:
     a = "a dans C"
     b = "b dans C"
+
     def f(self):
         b = "b dans f"
+
         def g():
             print(a)
             print(b)
@@ -64,7 +67,9 @@ C().f()
 (x) un affichage de<code>: "a dans module" et "b dans f</code>
 
 [explanation]
-L'interpréteur python suit toujours la règle LEGB pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobante uniquement. Lorsque l'on execute <code>print(a)</code>, <code>a</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>) puis dans le module. C'est donc la valeur de <code>a</code> définie dans le module qui sera utilisée (on note que l'on saute la classe englobante lors de la recherche de la variable). 
+L'interpréteur python suit toujours la règle LEGB pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobantes uniquement.
 
-Lorsque l'on execute <code>print(b)</code>, <code>b</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>). <code>b</code> est définie dans la fonction englobante <code>f</code>, c'est donc cette valeur de <code>b</code> qui sera utilisée. 
+Lorsque l'on exécute <code>print(a)</code>, <code>a</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>) puis dans le module, mais pas dans la classe. C'est donc la valeur de <code>a</code> définie dans le module qui sera utilisée (on note que l'on saute la classe englobante lors de la recherche de la variable). 
+
+Lorsque l'on exécute <code>print(b)</code>, <code>b</code> est cherchée localement, puis dans les fonctions englobantes (donc la fonction <code>f</code>). <code>b</code> est définie dans la fonction englobante <code>f</code>, c'est donc cette valeur de <code>b</code> qui sera utilisée. 
 [explanation]

@@ -32,6 +32,8 @@ a.g()
 L'attribut <code>__class__</code> sur une instance retourne une référence de la classe qui a créé cette instance. 
 [explanation]
 
+<hr/>
+
 <h3>Que retourne <code>A.__bases__</code> ?</h3>
 (x) Un tuple contenant une référence de la classe C
 ( ) Une référence de l'instance créée par la classe A
@@ -79,6 +81,8 @@ class A(B, C, D):
 La bonne réponse est <code>A, B, E, C, D, F, object<\code>. On peut le vérifier
 en appelant <code>A.mro()</code>
 [explanation]
+
+<hr/>
 
 <h3>Que va afficher <code>A.x, A.y</code> ?</h3>
 ( ) ('F', 'E')
