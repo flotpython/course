@@ -1,0 +1,82 @@
+<hr/>
+Context manager (1)
+=====
+
+Quelle(s) affirmation(s) est(sont) vraie(s) ?
+
+[ ] Le but d'un context manager est de remplacer un bloc <code>try except</code>
+[x] Le but d'un context manager est de permettre à un développeur de définir dans son objet des opérations de finalisation qui seront automatiquement exécutées en sortie d'une instruction <code>with</code>.
+[x] Les opérations de finalisation sont exécutées même s'il y a une exception dans le bloc de code de l'instruction <code>with</code>.
+[x] Le protocole de context manager est défini par l'implémentation des méthodes <code>__enter__</code> et <code>__exit__</code>
+
+
+
+[explanation]
+Toutes les affirmations sont vraies sauf la première. Le but du protocole de context manager est plutôt de remplacer la construction <code>try finally</code>
+[explanation]
+
+<hr/>
+Affectation et référencement (2)
+=====
+Supposons que l'on ait le code suivant
+<pre>
+class MyContext:
+    def __enter__(self):
+        print("in enter")
+        return self
+
+    def __exit__(self, *args):
+        print("in exit")
+        return True
+
+with MyContext() as c:
+    print("bloc with enter")
+    raise Exception
+    print("bloc with exit")
+</pre>
+
+Que va afficher ce code
+
+Choix 1
+<pre>
+in enter
+bloc with enter
+in exit
+bloc with exit
+</pre>
+
+Choix 2
+<pre>
+in enter
+bloc with enter
+in exit
+Traceback (most recent call last):
+  File "C:/Users/alegout/Desktop/temp.py", line 12, in <module>
+    raise Exception
+Exception
+</pre>
+
+Choix 3
+<pre>
+in enter
+bloc with enter
+in exit
+</pre>
+
+Choix 4
+<pre>
+Traceback (most recent call last):
+  File "C:/Users/alegout/Desktop/temp.py", line 12, in <module>
+    raise Exception
+Exception
+</pre>
+
+( ) Choix 1
+( ) Choix 2
+(x) Choix 3
+( ) Choix 4
+
+[explanation]
+Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va intérrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée. 
+[explanation]
+
