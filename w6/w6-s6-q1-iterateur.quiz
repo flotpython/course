@@ -42,7 +42,7 @@ a = Aplatir(['on', [1, 2, 3], 'mer', (True, 4), 'va'])
 
 <code>iter(a)</code> va appeler la méthode <code>__iter__</code> qui est implémentée comme une fonction génératrice. Lors de l'appel, cette fonction génératrice va retourner un objet générateur, qui est également un itérateur. 
 
-Attention de ne pas confondre les notions de fonction génératrice et d'objet générateur. La fonction génératrice retourne lorsqu'on l'appelle une objet générateur. 
+Attention de ne pas confondre les notions de fonction génératrice et d'objet générateur. Lorsqu'on l'appelle, la fonction génératrice retourne un objet générateur. 
 
 [explanation]
 
