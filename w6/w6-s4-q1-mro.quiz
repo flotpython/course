@@ -49,10 +49,10 @@ MRO
 Supposons que nous ayons le code suivant, volontairement obscur.
 <pre>
 class E:
-    pass
+    y = 'E'
 
 class F:
-    pass
+    x = 'F'
 
 class B(E, F):
     pass
@@ -61,7 +61,8 @@ class C(F):
     pass
 
 class D(F):
-    pass
+    x = 'D'
+    y = 'D'
 
 class A(B, C, D):
     pass

@@ -2,7 +2,7 @@
 Affectation et référencement (1)
 =====
 
-Quel est le méchanisme par défaut de recherche d'un attribut <code>att</code> d'une instance <code>inst</code> lorsqu'il est référencé avec la notation <code>inst.att</code> ?
+Quel est le méchanisme par défaut de recherche d'un attribut <code>att</code> d'une instance <code>inst</code> lorsqu'il est référencé pour un accès en lecture avec la notation <code>inst.att</code> ?
 
 (x) L'attribut est recherché suivant l'arbre d'héritage de l'instance
 ( ) L'attribut est recherché suivant la règle LEGB
