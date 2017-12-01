@@ -77,6 +77,9 @@ Exception
 ( ) Choix 4
 
 [explanation]
-Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va intérrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée. 
+Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va intérrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée.
+
+Dans du code réel naturellement, la méthode <code>__exit__</code> devrait tester si une exception a eu lieu on non, et la propager si nécessaire, ce que cet exemple simplifié ne fait pas.
+
 [explanation]
 

@@ -9,7 +9,7 @@ Quand est appelée la méthode <code>__init__</code> dans une classe ?
 (x) Après la création de chaque instance de la classe
 
 [explanation]
-La méthode <code>__init__</code> est la première méthode qui est appelée automatiquement après la création de l'instance d'une classe. 
+La méthode <code>__init__</code> est la méthode qui est appelée automatiquement après la création de l'instance d'une classe, elle vous permet donc de l'initialiser.
 [explanation]
 
 <hr/>
@@ -26,4 +26,45 @@ Supposons que nous ayons deux instances <code>a</code> et <code>b</code> d'une c
 
 [explanation]
 Avec la surcharge d'opérateurs, on peut définir pour nos propres objets toutes les opérations que l'on peut faire avec les types built-in. Les deux compléments de la séquence détaillent les méthodes à implémenter pour définir les opérations citées dans ce quiz. 
+[explanation]
+
+<hr/>
+Surcharge d'opérateurs (3)
+=====
+
+Avec la librairie pathlib on peut écrire par exemple
+
+<code>
+<pre>
+>>> from pathlib import Path
+>>>
+>>> Path.home() / "abc"
+PosixPath('/Users/tparment/abc')
+</pre>
+</code>
+
+Si maintenant je fais (évidemment ceci est déconseillé !):
+
+<code>
+<pre>
+>>> def my_div(path, str):
+...     return path
+...
+>>> Path.__truediv__ = my_div
+>>>
+>>> Path.home() / "abc" == Path.home()
+</pre>
+</code>
+
+Que va-t-il se passer ?
+
+( ) le test retourne False
+(x) le test retourne True
+( ) une exception est levée
+
+[explanation]
+En réaffectant la méthode spéciale truediv, je modifie la façon dont l'interpréteur évalue la division, qui va maintenant retourner la partie gauche de l'expression. C'est pourquoi le test renvoie True.
+
+Évidemment il s'agit d'un cas à vocation uniquement pédagogique, il est fortement déconseillé de modifier de cette façon le comportement de la librairie standard; si un tel comportement était réellement souhaité il faudrait créer une sous-classe de Path, bien entendu.
+
 [explanation]
