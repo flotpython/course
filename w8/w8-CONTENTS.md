@@ -1,46 +1,32 @@
 Pas de quiz cette semaine
 
 ## Vidéo 1 Programmation asynchrone
-### NIVEAU: avancé
-
-* distinction CPU-intensif / IO-intensif;
-* exhiber un exemple simple (aller chercher plusieurs pages web) et montrer comment est utilisé le CPU
-* écarter rapidement le mode multi-CPUs (qui s'adresse aux applis CPU-intensifs)
-* mono CPU / multi-threads: pas de contrôle sur le context switching; sections critiques, dur à débugger...
-* callbacks: exhiber saucissonnage délirant https://cdn-images-1.medium.com/max/1600/1*cS467MRjN5awIWqFeD27XQ.jpeg
-* utilité de définir un modèle qui permette
- * la concurrence
- * single-thread
- * avec contrôle sur les changements de contexte
 
 ### Compléments Vidéo 1
+
 ### Exercices Vidéo 1
 
 
+
 ## Vidéo 2 Quelques exemples simples
-### NIVEAU: avancé
-
-* plus petit exemple complet (une boucle, deux tâches qui font sleep())
-* conclure
-  * (async def / await) pour définir les coroutines,
-  * librairie asyncio pour la gestion des boucles d'événements (signaler par exemple curio)
-
-* coroutine functions vs coroutine
-* montrer ce qui se passe si on appelle une coroutine sans await
-* un message d'erreur quand on oublie le await
 
 ### Compléments Vidéo 2
+
+* citer https://en.wikipedia.org/wiki/Coroutine
+
 ### Exercices Vidéo 2
 
 
+
 ## Vidéo 3 `asyncio` : historique et écosystème
-### NIVEAU: avancé
+
 ### Compléments Vidéo 3
 ### Exercices Vidéo 3
 
 
+
 ## Vidéo 4 Extensions asynchrones du langage
-### NIVEAU: avancé
+
 ### Compléments Vidéo 4
 
 * à faire: itérations asynchrones
@@ -55,7 +41,7 @@ Pas de quiz cette semaine
   dire qu'il manque juste les lambda asynchrones dans 3.6
 
 ### Exercices Vidéo 4
-### NIVEAU: avancé
+
 
 
 ## Vidéo 5 coroutines et awaitables
@@ -64,12 +50,10 @@ Pas de quiz cette semaine
 
 ## Compléments 5
 
-* montrer que send() et yield permettent de causer dans les deux sens entre la boucle et les awaitables
-citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 
 ## Vidéo 6 Boucles d'événements
-### NIVEAU: avancé
+
 
 * ensure_future & run_forever() - Queue()
 * ensure_future pour ajouter une tâche au milieu d'un scénario
@@ -96,8 +80,8 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 ### Exercices Vidéo 6
 
 
+
 ## Vidéo 7 Tâches et exceptions
-### NIVEAU: avancé
 
 * animation de la boucle, les piles, et comment sont gérées les exceptions
 
@@ -108,14 +92,17 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 * peut-être le bon endroit pour parler de wait() ?
 
+
+
 ### Compléments Vidéo 7
 
 * s'inspirer de raise2.py qui montre comment monitorer les tâches
   d'une boucle, regarder les résultats et les exceptions..
 
 
+
 ## Vidéo 8 La librairie `asyncio`
-### NIVEAU: avancé
+
 
 * Queue
 
@@ -144,7 +131,6 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 
 ## Vidéo 9 Bonnes pratiques
-### NIVEAU: avancé
 
 * quels appels entre monde synchrone et monde asynchrone sont légaux ou pas
 * bien penser à ne pas bloquer pendant trop longtemps
@@ -152,7 +138,7 @@ citer https://mdk.fr/blog/python-coroutines-with-async-and-await.html
 
 NOTES
 
-* à ce stade tout ce qui est là dedans ce sont des redites, je me
+* tout ce qui est là dedans ce sont des redites, je me
 demande si ça vaut le coup de tourner ça ou pas; on pourrait
 transformer le notebook en compléments, car ça vaut qd même le coup de
 bien insister sur ces deux points.
