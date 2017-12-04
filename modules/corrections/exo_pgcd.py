@@ -5,15 +5,14 @@ from nbautoeval.args import Args
 
 # @BEG@ name=pgcd
 def pgcd(a, b):
-    # le cas pathologique
-    if a * b == 0:
-        return 0
     "le pgcd de a et b par l'algorithme d'Euclide"
     # l'algorithme suppose que a >= b
     # donc si ce n'est pas le cas 
     # il faut inverser les deux entrées
     if b > a : 
         a, b = b, a
+    if b == 0:
+        return a
     # boucle sans fin
     while True:
         # on calcule le reste 
@@ -36,9 +35,10 @@ def pgcd(a, b):
 # a, b = b, r = b, a
 # ce qui provoque l'inversion
 def pgcd_bis(a, b):
-    # le cas pathologique
-    if a == 0 or b == 0:
-        return 0
+    # si l'on des deux est nul on retourne l'autre
+    if a * b == 0:
+        return a or b
+    # sinon on fait une boucle sans fin
     while True:
         # on calcule le reste 
         r = a % b
@@ -54,9 +54,6 @@ def pgcd_bis(a, b):
 # plus court, mais on passe du temps à se convaincre
 # que ça fonctionne bien comme demandé
 def pgcd_ter(a, b):
-    # le cas pathologique
-    if a * b == 0:
-        return 0
     # si on n'aime pas les boucles sans fin
     # on peut faire aussi comme ceci
     while b:
@@ -88,5 +85,5 @@ inputs_pgcd += [
 
 exo_pgcd = ExerciseFunction(
     pgcd, inputs_pgcd,
-    nb_examples = 9
+    nb_examples = 6,
 )
