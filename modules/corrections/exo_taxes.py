@@ -18,61 +18,90 @@ bands = [
 
 def taxes(income):
     """
-    calcule l'impôt sur le revenu
-    en U.K. selon le barême 
+    U.K. income taxes calculator
     https://www.gov.uk/income-tax-rates
 
     utilise un for avec un break
     """
     # on accumule les morceaux
     amount = 0
+    
     # en faisant ce zip un peu étrange, on va
     # considérer les couples de tuples consécutifs dans
     # la liste bands
-    for (b1, rate1), (b2, _) in zip(bands, bands[1:]):
-        #print(f"{b1:6} {b2:6}", end=' ')
+    for (band1, rate1), (band2, _) in zip(bands, bands[1:]):
         # le salaire est au-delà de cette tranche
-        if income >= b2:
-            delta = (b2-b1) * rate1
-            #print(f"(1) base = {b2-b1}, rate = {rate1} -> {delta}")
-            amount += delta
+        if income >= band2:
+            amount += (band2-band1) * rate1
         # le salaire est dans cette tranche
         else:
-            delta = (income-b1) * rate1
-            #print(f"(2) base = {income-b1}, rate = {rate1} -> {delta}")
-            amount += delta
+            amount += (income-band1) * rate1
             # du coup on peut sortir du for par un break
             # et on ne passera pas par le else du for
             break
     # on ne passe ici qu'avec les salaires dans la dernière tranche
     # en effet pour les autres on est sorti du for par un break
     else:
-        btop, rate_top = bands[-1]
-        #print(f"{btop:6} {6*'.'}", end=' ')
-        delta = (income - btop) * rate_top
-        #print(f"(3) base = {income-btop}, rate = {rate1} -> {delta}")
-        amount += delta
+        band_top, rate_top = bands[-1]
+        amount += (income - band_top) * rate_top
     return(int(amount))
 # @END@
 
 
 # @BEG@ name=taxes more=bis
-# exactement le même sans le bavardage et le debug
+# Une version proposée par adrienollier
+# qui contourne la difficulté en utilisant
+# habilement math.inf
+# nombre infini qui est supérieur à tous les nombres
+
+import math
+
+TaxRate = (
+    (0, 11_500, 0),
+    (11_501, 45_000, 20),
+    (45_001, 150_000, 40),
+    (150_001, math.inf, 45),
+)
+
 def taxes_bis(income):
-    """
-    U.K. income taxes calculator
-    """
-    amount = 0
-    for (band1, rate), (band2, _) in zip(bands, bands[1:]):
-        if income >= band2:
-            amount += (band2 - band1) * rate
-        else:
-            amount += (income - band1) * rate
-            break
-    else:
-        band_top, rate = bands[-1]
-        amount += (income - band_top) * rate
-    return int(amount)
+
+    due = 0
+    for floor, ceiling, rate in TaxRate:
+        due += (min(income, ceiling) - floor + 1) * rate / 100
+        if income <= ceiling:
+            return int(due)
+# @END@
+
+# @BEG@ name=taxes more=ter
+# La même chose mais améliorée pour éviter les
+# répétitions dans le tuple qui sert de base au calcul
+
+import math
+tax_rate_nodup = (
+    (11_500, 0),
+    (45_000, 20),
+    (150_000, 40),
+    (math.inf, 45),
+)
+
+# calculer ce qui s'appelle TaxRate dans la solution taxes_bis
+b1, r1 = tax_rate_nodup[0]
+
+tax_rate = [ (0., b1, r1) ]
+tax_rate += [    
+    (b1, b2, r2)
+      for (b1, _), (b2, r2) in zip(tax_rate_nodup, tax_rate_nodup[1:])
+]
+
+# à ce stade on peut utiliser le code de taxes_bis
+# presque à l'identique
+def taxes_ter(income):
+
+    due = 0
+    for floor, ceiling, rate in tax_rate:
+        due += (min(income, ceiling) - floor) * rate / 100
+        if income <= ceiling:
+            return int(due)
 # @END@
 
 def taxes_ko(income):
