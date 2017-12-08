@@ -18,6 +18,7 @@ Toutes les affirmations sont vraies sauf la première. Le but du protocole de co
 <hr/>
 Affectation et référencement (2)
 =====
+
 Supposons que l'on ait le code suivant
 <pre>
 class MyContext:
@@ -35,7 +36,7 @@ with MyContext() as c:
     print("bloc with exit")
 </pre>
 
-Que va afficher ce code
+<h3>Que va afficher ce code ?</h3>
 
 Choix 1
 <pre>
@@ -51,7 +52,7 @@ in enter
 bloc with enter
 in exit
 Traceback (most recent call last):
-  File "C:/Users/alegout/Desktop/temp.py", line 12, in <module>
+  File "C:/Users/alegout/Desktop/temp.py", line 12, in  &lt;module&gt;
     raise Exception
 Exception
 </pre>
@@ -66,7 +67,7 @@ in exit
 Choix 4
 <pre>
 Traceback (most recent call last):
-  File "C:/Users/alegout/Desktop/temp.py", line 12, in <module>
+  File "C:/Users/alegout/Desktop/temp.py", line 12, in  &lt;module&gt;
     raise Exception
 Exception
 </pre>
@@ -78,8 +79,5 @@ Exception
 
 [explanation]
 Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va intérrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée.
-
 Dans du code réel naturellement, la méthode <code>__exit__</code> devrait tester si une exception a eu lieu on non, et la propager si nécessaire, ce que cet exemple simplifié ne fait pas.
-
 [explanation]
-
