@@ -3,8 +3,40 @@ from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 
-# @BEG@ name=taxes latex_size=footnotesize
-# la définition des différentes tranches
+# @BEG@ name=taxes
+
+# une solution très élégante proposée par adrienollier
+
+# les tranches en ordre décroissant
+TaxRate = (
+    (150_000, 45),
+    (45_000, 40),
+    (11_500, 20),
+    (0, 0),
+)
+
+def taxes(income):
+    """
+    U.K. income taxes calculator
+    https://www.gov.uk/income-tax-rates
+    """
+    due = 0
+    for floor, rate in TaxRate:
+        if income > floor:
+            due += (income - floor) * rate / 100
+            income = floor
+    return int(due)
+
+# @END@
+
+
+# @BEG@ name=taxes more=bis  latex_size=footnotesize
+
+# cette solution est plus lourde
+# je la retiens parce qu'elle montre un cas de for .. else ..
+# qui ne soit pas trop tiré par les cheveux
+# quoique
+
 bands = [
     # à partir de 0. le taux est nul
     (0, 0.),
@@ -15,15 +47,10 @@ bands = [
     (150_000, 45/100),
 ]
 
-
-def taxes(income):
+def taxes_bis(income):
     """
-    U.K. income taxes calculator
-    https://www.gov.uk/income-tax-rates
-
-    utilise un for avec un break
+    utilise un for avec un else
     """
-    # on accumule les morceaux
     amount = 0
     
     # en faisant ce zip un peu étrange, on va
@@ -48,61 +75,32 @@ def taxes(income):
 # @END@
 
 
-# @BEG@ name=taxes more=bis
-# Une version proposée par adrienollier
+# pas dans les corrigés, ce sera suffisant
+# @ BEG @ name=taxes more=ter
+# Une autre version proposée aussi par adrienollier
 # qui contourne la difficulté en utilisant
 # habilement math.inf
 # nombre infini qui est supérieur à tous les nombres
 
 import math
 
-TaxRate = (
+TaxRate2 = (
     (0, 11_500, 0),
     (11_501, 45_000, 20),
     (45_001, 150_000, 40),
     (150_001, math.inf, 45),
 )
 
-def taxes_bis(income):
+def taxes_ter(income):
 
     due = 0
-    for floor, ceiling, rate in TaxRate:
+    for floor, ceiling, rate in TaxRate2:
         due += (min(income, ceiling) - floor + 1) * rate / 100
         if income <= ceiling:
             return int(due)
 # @END@
 
-# @BEG@ name=taxes more=ter
-# La même chose mais améliorée pour éviter les
-# répétitions dans le tuple qui sert de base au calcul
 
-import math
-tax_rate_nodup = (
-    (11_500, 0),
-    (45_000, 20),
-    (150_000, 40),
-    (math.inf, 45),
-)
-
-# calculer ce qui s'appelle TaxRate dans la solution taxes_bis
-b1, r1 = tax_rate_nodup[0]
-
-tax_rate = [ (0., b1, r1) ]
-tax_rate += [    
-    (b1, b2, r2)
-      for (b1, _), (b2, r2) in zip(tax_rate_nodup, tax_rate_nodup[1:])
-]
-
-# à ce stade on peut utiliser le code de taxes_bis
-# presque à l'identique
-def taxes_ter(income):
-
-    due = 0
-    for floor, ceiling, rate in tax_rate:
-        due += (min(income, ceiling) - floor) * rate / 100
-        if income <= ceiling:
-            return int(due)
-# @END@
 
 def taxes_ko(income):
     return (income - 11_500) * 20/100
