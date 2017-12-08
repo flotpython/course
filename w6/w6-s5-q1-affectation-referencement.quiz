@@ -61,10 +61,10 @@ C().f()
 
 <h3>Que va être le résultat de l'exécution de ce code ?</h3>
 ( ) une exception
-( ) un affichage de : <code>a dans C" et "b dans f</code>
-( ) un affichage de : <code>a dans module" et "b dans module</code>
-( ) un affichage de : <code>a dans C" et "b dans C</code>
-(x) un affichage de<code>: "a dans module" et "b dans f</code>
+( ) un affichage de : <code>"a dans C" et "b dans f"</code>
+( ) un affichage de : <code>"a dans module" et "b dans module"</code>
+( ) un affichage de : <code>"a dans C" et "b dans C"</code>
+(x) un affichage de<code>: "a dans module" et "b dans f"</code>
 
 [explanation]
 L'interpréteur python suit toujours la règle LEGB pour trouver la valeur d'une variable dans une fonction, en notant que le E est pour les fonctions englobantes uniquement.
