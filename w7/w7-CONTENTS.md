@@ -16,13 +16,19 @@
   * dessiner
   * voir aussi bien sûr np.array(iterable) / ones / zeroes /
 
-* **c2** plusieurs dimensions & reshaping
+* **c2** type d'un tableau numpy -- attribut `dtype`
+
+* **c3** plusieurs dimensions & reshaping
   * les attributs d'un tableau (ndim, shape, size, dtype, itemsize, data)
   * (printing)
 
-* **c3** indexing, slicing & broadcasting
+* **c4** initialisations de tableaux (empty, zeros, ones, arange, linspace, gridmesh, ...)
 
-* ...
+* **c5** broadcasting
+
+* **c6** slicing
+
+* **c7** indexing
 
 
 ## Séquence 3 (`pandas`) - pas de vidéo
@@ -35,6 +41,7 @@
 * ...
 
 
+# Idées
 
 Mettre une référence vers les vidéos de Jake VanderPlas
 
