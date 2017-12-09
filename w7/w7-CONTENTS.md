@@ -22,9 +22,13 @@
   * les attributs d'un tableau (ndim, shape, size, dtype, itemsize, data)
   * (printing)
 
-* **c4** indexing, slicing & broadcasting
+* **c4** initialisations de tableaux (empty, zeros, ones, arange, linspace, gridmesh, ...)
 
-* ...
+* **c5** broadcasting
+
+* **c6** slicing
+
+* **c7** indexing
 
 
 ## Séquence 3 (`pandas`) - pas de vidéo
@@ -37,7 +41,7 @@
 * ...
 
 
-# Idées 
+# Idées
 
 Mettre une référence vers les vidéos de Jake VanderPlas
 
