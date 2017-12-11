@@ -24,7 +24,7 @@ Programmation fonctionnelle (1)
 
 Que va retourner
 <pre>
-map(lambda x: x**2, range(10))
+list(map(lambda x: x**2, range(10)))
 </pre>
 
 [ ] une exception
@@ -33,9 +33,9 @@ map(lambda x: x**2, range(10))
 [ ] une fonction lambda
 
 [explanation]
-La fonction <code>map</code> prend comme premier argument une fonction, applique cette fonction à chaque élément de l'objet itérable passé en deuxième argument, et retourne une liste des résultats.
+La fonction <code>map</code> prend comme premier argument une fonction, applique cette fonction à chaque élément de l'objet itérable passé en deuxième argument, et retourne un objet map que l'on transforme en liste en le passant à <code>list</code>.
 
-Ici, la fonction est une fonction <code>lambda</code> qui retourne le carré de l'élément passé, et l'objet itérable est la liste des entiers de 0 à 9. La fonction <code>map</code> va donc retourner la liste des carrés des entiers de 0 à 9. 
+Ici, la fonction est une fonction <code>lambda</code> qui retourne le carré de l'élément passé, et l'objet itérable est un objet <code>range</code> qui parcourt les entiers de 0 à 9. La fonction <code>map</code> va donc retourner un objet map que l'on transforme en liste des carrés des entiers de 0 à 9. 
 [explanation]
 
 <hr/>
@@ -44,7 +44,7 @@ Programmation fonctionnelle (2)
 
 Que va retourner
 <pre>
-map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10)))
+list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10))))
 </pre>
 
 [ ] une exception
@@ -54,6 +54,6 @@ map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10)))
 [x] la liste des carrés des nombres pairs entre 0 et 9
 
 [explanation]
-La fonction <code>filter</code> prend comme premier argument une fonction et retourne une liste contenant tous les éléments du deuxième argument - qui doit être itérable - pour lesquels la fonction est évaluée à <code>True</code>. 
+La fonction <code>filter</code> prend comme premier argument une fonction et retourne un objet <code>filter</code> qui parcourt tous les éléments du deuxième argument - qui doit être itérable - pour lesquels la fonction est évaluée à <code>True</code>. 
 Le test <code>x % 2 == 0</code> est vrai lorsque <code>x</code> est pair. Le résultat sera donc le carré de tous les nombres pairs entre 0 et 9.
 [explanation]

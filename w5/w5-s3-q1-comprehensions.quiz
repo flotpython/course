@@ -3,7 +3,7 @@ Comprehensions de liste
 =====
 
 <pre>
-map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10)))
+list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, range(10))))
 </pre>
 
 Valider toutes les réponses qui donnent un résultat équivalent au fragment de code ci-dessus.
