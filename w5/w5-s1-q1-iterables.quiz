@@ -43,7 +43,7 @@ Quelle(s) affirmation(s) est(sont) vraie(s) ?
 [ ] On peut itérer autant de fois que l'on veut sur un itérateur.
 [x] La création d'un objet itérateur est très économique.
 [x] Un objet itérable doit implémenter une méthode __iter__ qui retourne un objet itérateur.
-[ ] Les notions d'itérable est d'itérateur sont équivalentes.
+[ ] Les notions d'itérable et d'itérateur sont équivalentes.
 
 [explanation]
 Un itérateur ne se consomme qu'une seule fois. On ne peut itérer qu'une seule fois dessus.
