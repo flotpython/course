@@ -26,9 +26,12 @@
 
 * **c5** broadcasting
 
-* **c6** slicing
+* **x1** première tranche d'exercices - pour montrer qu'on
+  peut faire **plein** de trucs sans indexation
+  * distributions normale et uniforme (introduire np.random)
+  * mandelbrot
 
-* **c7** indexing
+* **c6** indexing & slicing
 
 
 ## Séquence 3 (`pandas`) - pas de vidéo
