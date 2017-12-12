@@ -5,8 +5,6 @@ from nbautoeval.args import Args
 from random import randint
 
 # @BEG@ name=numbers
-from operator import mul
-
 def numbers(*liste):
     """
     retourne un tuple contenant
@@ -40,11 +38,11 @@ def numbers_bis(*liste):
     return (
         # attention:
         # la signature de sum est: sum(iterable[, start])
-        # du coup on ne peut pas passer à sum start=0
+        # du coup on ne PEUT PAS passer à sum start=0
         # parce que start n'a pas de valeur par défaut
         sum(liste, 0),
         # par contre avec min c'est min(iterable, *[, key, default])
-        # du coup on doit appeler min avec default=0 qui est plus clair
+        # du coup on DOIT appeler min avec default=0 qui est plus clair
         # l'étoile qui apparaît dans la signature
         # rend le paramètre default keyword-only
         min(liste, default=0),

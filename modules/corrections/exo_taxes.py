@@ -4,7 +4,6 @@ from nbautoeval.args import Args
 
 
 # @BEG@ name=taxes
-
 # une solution très élégante proposée par adrienollier
 
 # les tranches en ordre décroissant
@@ -26,7 +25,6 @@ def taxes(income):
             due += (income - floor) * rate / 100
             income = floor
     return int(due)
-
 # @END@
 
 

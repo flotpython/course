@@ -16,13 +16,19 @@ def distance(*args):
 # @END@
 
 
-# ceci est testé mais je préfère ne pas l'exposer dans les corriges pour l'instant
+# @BEG@ name=distance more=bis
 def distance_bis(*args):
     "idem mais avec une expression génératrice"
     # on n'a pas encore vu cette forme - cf Semaine 6
     # mais pour vous donner un avant-goût d'une expression
-    # génératrice:
-    return math.sqrt(sum( (x**2 for x in args) ))
+    # génératrice on peut faire aussi ceci
+    # observez l'absence de crochets []
+    # la différence c'est juste qu'on ne
+    # construit pas la liste des carrés,
+    # car on n'en a pas besoin
+    # et donc un itérateur nous suffit
+    return math.sqrt(sum(x**2 for x in args))
+# @END@
 
 
 distance_inputs = [
