@@ -35,9 +35,11 @@
 
 * **c7** opérations logiques
 
-* **c8** algèbre linéaire
+* **c8** l'option out=
 
-* **c9** indexations évoluées (booléens, listes et tableaux)
+* **c9** algèbre linéaire
+
+* **c10** indexations évoluées (booléens, listes et tableaux)
 
 ## Séquence 3 (`pandas`) - pas de vidéo
 ### compléments w7-s3
@@ -47,6 +49,8 @@
 ## Séquence 4 (`matplotlib`) - pas de vidéo
 ### compléments w7-s4
 * ...
+
+* **cxx** : notebooks interactifs : `interact` et `ipywidgets`
 
 
 # Idées
