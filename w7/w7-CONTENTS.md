@@ -33,6 +33,11 @@
 
 * **c6** indexing & slicing
 
+* **c7** opérations logiques
+
+* **c8** algèbre linéaire
+
+* **c9** indexations évoluées (booléens, listes et tableaux)
 
 ## Séquence 3 (`pandas`) - pas de vidéo
 ### compléments w7-s3
