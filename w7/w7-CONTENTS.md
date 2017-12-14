@@ -29,17 +29,27 @@
 * **x1** première tranche d'exercices - pour montrer qu'on
   peut faire **plein** de trucs sans indexation
   * distributions normale et uniforme (introduire np.random)
-  * mandelbrot
 
 * **c6** indexing & slicing
 
 * **c7** opérations logiques
 
-* **c8** l'option out=
+* **c8** algèbre linéaire
 
-* **c9** algèbre linéaire
+* **c9** indexation - revisitée
+  * indexations évoluées (booléens, listes et tableaux)
 
-* **c10** indexations évoluées (booléens, listes et tableaux)
+* **c10** divers
+  * copies
+  * l'option out=
+  * stacking & tiling
+  * structured arrays
+
+* **x2**
+
+  * ACP
+  * mandelbrot (avancé)
+
 
 ## Séquence 3 (`pandas`) - pas de vidéo
 ### compléments w7-s3
