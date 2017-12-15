@@ -1,3 +1,5 @@
+DATA = ../../data
+
 std:
 	merger.py json/*
 verbose:
@@ -11,26 +13,26 @@ diff:
            base=$$(basename $$file .ref); diff $$file $$base; done
 
 ref-tar:
-	tar cf ../data/ships-ref.tar $(REF-FILES)
+	tar cf $(DATA)/ships-ref.tar $(REF-FILES)
 
 ref-tgz:
-	tar czf ../data/ships-ref.tgz $(REF-FILES)
+	tar czf $(DATA)/ships-ref.tgz $(REF-FILES)
 
 ref-zip:
-	zip ../data/ships-ref.zip $(REF-FILES)
+	zip $(DATA)/ships-ref.zip $(REF-FILES)
 
 ref: ref-tar ref-tgz ref-zip
 .PHONY: ref-tar ref-tgz ref-zip
 
 
 json-tar:
-	tar cf ../data/ships-json.tar json/
+	tar cf $(DATA)/ships-json.tar json/
 
 json-tgz:
-	tar czf ../data/ships-json.tgz json/
+	tar czf $(DATA)/ships-json.tgz json/
 
 json-zip:
-	zip ../data/ships-json.zip json/*
+	zip $(DATA)/ships-json.zip json/*
 
 json: json-tar json-tgz json-zip
 .PHONY: json-tar json-tgz json-zip

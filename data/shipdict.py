@@ -6,16 +6,19 @@
 # helpers - used for verbose mode only
 # could have been implemented as static methods in Position
 # but we had not seen that at the time
+
+
 def d_m_s(f):
     """
     make a float readable; e.g. transform 2.5 into 2.30'00'' 
     we avoid using the degree sign to keep things simple
     input is assumed positive
     """
-    d = int (f)
-    m = int((f-d)*60)
-    s = int( (f-d)*3600 - 60*m)
-    return "{:02d}.{:02d}'{:02d}''".format(d,m,s)
+    d = int(f)
+    m = int((f - d) * 60)
+    s = int((f - d) * 3600 - 60 * m)
+    return "{:02d}.{:02d}'{:02d}''".format(d, m, s)
+
 
 def lat_d_m_s(f):
     """
@@ -25,7 +28,8 @@ def lat_d_m_s(f):
         return "{} N".format(d_m_s(f))
     else:
         return "{} S".format(d_m_s(-f))
-        
+
+
 def lon_d_m_s(f):
     """
     degree-minute-second conversion on a longitude float
@@ -37,9 +41,11 @@ def lon_d_m_s(f):
 # @END@
 
 # @BEG@ name=shipdict more=suite
+
+
 class Position(object):
     "a position atom with timestamp attached"
-    
+
     def __init__(self, latitude, longitude, timestamp):
         "constructor"
         self.latitude = latitude
@@ -49,6 +55,7 @@ class Position(object):
 # all these methods are only used when merger.py runs in verbose mode
     def lat_str(self):
         return lat_d_m_s(self.latitude)
+
     def lon_str(self):
         return lon_d_m_s(self.longitude)
 
@@ -56,19 +63,21 @@ class Position(object):
         """
         only used when merger.py is run in verbose mode
         """
-        return "<{} {} @ {}>".format(self.lat_str(),
-                                     self.lon_str(), self.timestamp)
+        return f"<{self.lat_str()} {self.lon_str()} @ {self.timestamp}>"
 # @END@
 
 # @BEG@ name=shipdict more=suite
+
+
 class Ship(object):
     """
     a ship object, that requires a ship id, 
     and optionnally a ship name and country
     which can also be set later on
-    
+
     this object also manages a list of known positions
     """
+
     def __init__(self, id, name=None, country=None):
         "constructor"
         self.id = id
@@ -93,17 +102,20 @@ class Ship(object):
 # @END@
 
 # @BEG@ name=shipdict more=suite
+
+
 class ShipDict(dict):
     """
     a repository for storing all ships that we know about
     indexed by their id
     """
+
     def __init__(self):
         "constructor"
         dict.__init__(self)
 
     def __repr__(self):
-        return "<ShipDict instance with {} ships>".format(len(self))
+        return f"<ShipDict instance with {len(self)} ships>"
 
     def is_abbreviated(self, chunk):
         """
@@ -120,8 +132,8 @@ class ShipDict(dict):
         if id not in self:
             self[id] = Ship(id)
         ship = self[id]
-        ship.add_position (Position (latitude, longitude, timestamp))
-        
+        ship.add_position(Position(latitude, longitude, timestamp))
+
     def add_extended(self, chunk):
         """
         adds an extended data chunk to the repository
@@ -135,7 +147,7 @@ class ShipDict(dict):
         if not ship.name:
             ship.name = name
             ship.country = country
-        self[id].add_position (Position (latitude, longitude, timestamp))
+        self[id].add_position(Position(latitude, longitude, timestamp))
 # @END@
 
 # @BEG@ name=shipdict more=suite
@@ -170,8 +182,8 @@ class ShipDict(dict):
         # we cannot do all in a single loop as this would amount to
         # changing the loop subject
         # so let us collect the ids to remove first
-        unnamed_ids = { id for id, ship in self.items()
-                        if ship.name is None }
+        unnamed_ids = {id for id, ship in self.items()
+                       if ship.name is None}
         # and remove them next
         for id in unnamed_ids:
             del self[id]
@@ -182,7 +194,7 @@ class ShipDict(dict):
         """
         returns a list of all known ships with name <name>
         """
-        return [ ship for ship in self.values() if ship.name == name ]
+        return [ship for ship in self.values() if ship.name == name]
 
     def all_ships(self):
         """

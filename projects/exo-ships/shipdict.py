@@ -1,1 +1,1 @@
-../data/shipdict.py
+../../data/shipdict.py
