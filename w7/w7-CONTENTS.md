@@ -9,18 +9,11 @@
 ### NIVEAU: basique
 ### compléments w7-s2
 
-  * **c1** programmation vectorielle à 1 dimension
-  * créer un tableau genre linspace - arange
-  * appeler / enchainer les fonctions (out=)
-  * opérations arithmétiques avec constantes et entre tableaux
-  * dessiner
-  * voir aussi bien sûr np.array(iterable) / ones / zeroes /
+* **c1** programmation vectorielle à 1 dimension
 
 * **c2** type d'un tableau numpy -- attribut `dtype`
 
 * **c3** plusieurs dimensions & reshaping
-  * les attributs d'un tableau (ndim, shape, size, dtype, itemsize, data)
-  * (printing)
 
 * **c4** initialisations de tableaux (empty, zeros, ones, arange, linspace, gridmesh, ...)
 
