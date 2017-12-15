@@ -9,7 +9,7 @@
 ### NIVEAU: basique
 ### compléments w7-s2
 
-* **c1** programmation vectorielle à 1 dimension
+  * **c1** programmation vectorielle à 1 dimension
   * créer un tableau genre linspace - arange
   * appeler / enchainer les fonctions (out=)
   * opérations arithmétiques avec constantes et entre tableaux
@@ -40,14 +40,14 @@
   * indexations évoluées (booléens, listes et tableaux)
 
 * **c10** divers
-  * copies
-  * l'option out=
-  * stacking & tiling
+  * mémoire / copies / views / l'option out=
   * structured arrays
+  * stacking & tiling
 
 * **x2**
 
   * ACP
+  * modeliser D4 avec des structured arrays
   * mandelbrot (avancé)
 
 
