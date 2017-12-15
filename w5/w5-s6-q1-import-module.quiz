@@ -21,7 +21,7 @@ Processus d'importation d'un module (2)
 
 Comment forcer un module <code>mod</code> à être rechargé (on suppose que l'on utilise python 3.4 ou supérieur) ?
 
-(x) <code>import importlib; importlib.reload(module)</code>
+(x) <code>import importlib; importlib.reload(mod)</code>
 ( ) <code>import mod</code>
 ( ) Un module ne peut être chargé qu'une seule fois
 
