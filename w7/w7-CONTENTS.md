@@ -46,15 +46,16 @@
 
 ## Séquence 3 (`pandas`) - pas de vidéo
 ### compléments w7-s3
+
 * ...
 
 
 ## Séquence 4 (`matplotlib`) - pas de vidéo
 ### compléments w7-s4
-* ...
 
+* 2D: on peut sans doute s'inspirer de https://matplotlib.org/2.0.2/users/pyplot_tutorial.html
+* 3D : s'inspirer de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 * **cxx** : notebooks interactifs : `interact` et `ipywidgets`
-
 
 # Idées
 
