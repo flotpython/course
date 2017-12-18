@@ -25,14 +25,14 @@ Supposons que nous ayons deux instances <code>a</code> et <code>b</code> d'une c
 [x] <code>a + b</code>
 
 [explanation]
-Avec la surcharge d'opérateurs, on peut définir pour nos propres objets toutes les opérations que l'on peut faire avec les types built-in. Les deux compléments de la séquence détaillent les méthodes à implémenter pour définir les opérations citées dans ce quiz. 
+Avec la surcharge d'opérateurs, on peut définir pour nos propres objets toutes les opérations que l'on peut faire avec les types built-in. Les deux compléments de la séquence détaillent les méthodes à implémenter pour définir les opérations citées dans ce quiz.
 [explanation]
 
 <hr/>
 Surcharge d'opérateurs (3)
 =====
 
-Avec la librairie pathlib on peut écrire par exemple
+Avec la bibliothèque pathlib on peut écrire par exemple
 
 <code>
 <pre>
@@ -65,6 +65,6 @@ Que va-t-il se passer ?
 [explanation]
 En réaffectant la méthode spéciale truediv, je modifie la façon dont l'interpréteur évalue la division, qui va maintenant retourner la partie gauche de l'expression. C'est pourquoi le test renvoie True.
 
-Évidemment il s'agit d'un cas à vocation uniquement pédagogique, il est fortement déconseillé de modifier de cette façon le comportement de la librairie standard; si un tel comportement était réellement souhaité il faudrait créer une sous-classe de Path, bien entendu.
+Évidemment il s'agit d'un cas à vocation uniquement pédagogique, il est fortement déconseillé de modifier de cette façon le comportement de la bibliothèque standard; si un tel comportement était réellement souhaité il faudrait créer une sous-classe de Path, bien entendu.
 
 [explanation]
