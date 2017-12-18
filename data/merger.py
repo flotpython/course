@@ -127,7 +127,7 @@ class Merger(object):
         #  - whether the --gzip option was passed or not
         suffix = "kmz" if self.args.gzip else "kml"
         # compute full filename
-        kml_filename = "{out_name}.{suffix}"
+        kml_filename = f"{out_name}.{suffix}"
         # message
         print(f"Opening {kml_filename} for ship {out_name}")
         # open a plain file or compressed file as requested
