@@ -24,7 +24,6 @@ COPY start-in-dir-as-uid.sh /usr/local/bin
 RUN (find /opt /usr -name notebook.js -o -name main.min.js | xargs sed -i -e 's|if (check_last_modified)|if (false)|') \
  &&  (find /opt /usr -name notificationarea.js -o -name main.min.js | xargs sed -i -e 's|this.init_trusted_notebook_notification_widget();||')
 
-
 # --------
 # the ipythontutor magic
 RUN pip install ipythontutor
@@ -35,5 +34,11 @@ RUN pip install ipythontutor
 # look in the console in a jupyter that has it enabled
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --system && jupyter nbextension enable splitcell/splitcell
 
+# --------
+# get the latest pandas (we need 0.21) and numpy while we are at it
+RUN conda update -y numpy pandas
+
+# --------
 # install plotly for w7
 RUN pip install plotly
+
