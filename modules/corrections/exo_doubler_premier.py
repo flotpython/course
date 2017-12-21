@@ -19,7 +19,9 @@ def doubler_premier(f, first, *args):
 
 # @BEG@ name=doubler_premier more=bis
 def doubler_premier_bis(f, *args):
-    "marche aussi mais moins élégant"
+    """
+    marche aussi mais moins élégant
+    """
     first = args[0]
     remains = args[1:]
     return f(2*first, *remains)
