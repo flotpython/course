@@ -7,7 +7,10 @@ from .exo_aplatir import aplatir
 
 # @BEG@ name=alternat
 def alternat(l1, l2):
-    "renvoie une liste des éléments pris un sur deux dans l1 et dans l2"
+    """
+    renvoie une liste des éléments
+    pris alternativement dans l1 et dans l2
+    """
     # pour réaliser l'alternance on peut combiner zip avec aplatir
     # telle qu'on vient de la réaliser
     return aplatir(zip(l1, l2))
@@ -16,7 +19,9 @@ def alternat(l1, l2):
 
 # @BEG@ name=alternat more=bis
 def alternat_bis(l1, l2):
-    "une deuxième version de alternat"
+    """
+    une deuxième version de alternat
+    """
     # la même idée mais directement, sans utiliser aplatir
     return [element for conteneur in zip(l1, l2) for element in conteneur]
 # @END@

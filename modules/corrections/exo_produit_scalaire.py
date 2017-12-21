@@ -21,8 +21,11 @@ def produit_scalaire(X, Y):
 
 # @BEG@ name=produit_scalaire more=bis
 # Il y a plein d'autres solutions qui marchent aussi
+#
 def produit_scalaire_bis(X, Y):
-    # initialisation du résultat
+    """
+    Une autre version
+    """
     scalaire = 0
     for x, y in zip(X, Y):
         scalaire += x * y
@@ -32,14 +35,23 @@ def produit_scalaire_bis(X, Y):
 
 
 # @BEG@ name=produit_scalaire more=ter
-# et encore une: celle-ci par contre est assez peu "pythonique"
-# je la donne plutôt comme un exemple de ce qu'il faut éviter
-# on aime bien en général éviter les boucles du genre
-# for i in range(len(iterable)):
-#     ... iterable[i]
+# Et encore une:
+# celle-ci par contre est assez peu "pythonique"
+# considérez-la comme un exemple de ce qu'il faut éviter
+#
 def produit_scalaire_ter(X, Y):
+    """
+    Un exemple de ce qu'il faut éviter de faire:
+    for i in range(len(iterable):
+        x = iterable[i]
+    peut le plus souvent se remplacer par un
+    for x in iterable:
+        ...
+    """
     scalaire = 0
+    # on calcule la taille
     n = len(X)
+    # uniquement pour faire ce vilain idiome
     for i in range(n):
         scalaire += X[i] * Y[i]
     return scalaire

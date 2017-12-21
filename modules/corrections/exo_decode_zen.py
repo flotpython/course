@@ -10,29 +10,27 @@ from nbautoeval.args import Args
 # (*) dans l'attribut 'd' le code à utiliser pour décoder
 # 
 # ce qui veut dire qu'en première approximation on pourrait 
-# obtenir une liste des caractères du manifeste en faisant
-# 
-# [ this.d[c] for c in this.s ]
+# énumérer les caractères du manifeste en faisant
+# (this.d[c] for c in this.s)
 # 
 # mais ce serait le cas seulement si le code agissait sur 
 # tous les caractères; comme ce n'est pas le cas il faut
 # laisser intacts les caractères de this.s qui ne sont pas
-# dans this.d (dans le sens "c in this.d")
-#
-# je fais exprès de ne pas appeler l'argument this pour
-# illustrer le fait qu'un module est un objet comme un autre
+# dans this.d
 
 def decode_zen(this_module):
-    "décode le zen de python à partir du module this"
+    """
+    décode le zen de python à partir du module this
+    """
     # la version encodée du manifeste
     encoded = this_module.s
-    # le 'code' 
+    # le dictionnaire qui implémente le code
     code = this_module.d
     # si un caractère est dans le code, on applique le code
     # sinon on garde le caractère tel quel
     # aussi, on appelle 'join' pour refaire une chaîne à partir
     # de la liste des caractères décodés
-    return ''.join([code[c] if c in code else c for c in encoded])
+    return ''.join(code[c] if c in code else c for c in encoded)
 # @END@
 
 
@@ -44,33 +42,14 @@ def decode_zen(this_module):
 # clé n'est pas présente dans le dictionnaire
 # 
 # dict.get(key, default)
-# retourne dict[key] si elle eset présente, et default sinon
+# retourne dict[key] si elle est présente, et default sinon
  
 def decode_zen_bis(this_module):
-    "une autre version plus courte"
-    return "".join([this_module.d.get(c, c) for c in this_module.s])
-# @END@
-
-
-# @BEG@ name=decode_zen more=ter
-# presque la même chose, mais en utilisant une expression génératrice
-# à la place de la compréhension; la seule différence avec la version bis
-# est l'absence des crochets carrés []
-# ici je triche, nous n'avons pas encore vu ces expressions-là,
-# nous les verrons en semaine 6, mais ça me permet de les introduire
-# pour les curieux donc:
-# avec ce code, **on ne crée pas la liste** qui est passée au join(),
-# c'est comme si cette liste était cette fois
-# parcourue à travers **un itérateur**
-#
-# on est donc un peu plus efficace - même si ça n'est évidemment
-# pas très sensible dans ce cas précis 
-
-def decode_zen_ter(this_module):
-    "une version avec une expression génératrice plutôt qu'une compréhension"
+    """
+    une autre version un peu plus courte
+    """
     return "".join(this_module.d.get(c, c) for c in this_module.s)
 # @END@
-
 
 
 import this
