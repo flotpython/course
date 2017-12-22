@@ -53,12 +53,13 @@
 ## Séquence 4 (`matplotlib`) - pas de vidéo
 ### compléments w7-s4
 
-* 2D: on peut sans doute s'inspirer de https://matplotlib.org/2.0.2/users/pyplot_tutorial.html
-* 3D : s'inspirer de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
+* **c01** matplotlib: juste mentionner les deux tutos
+  * 2D: on peut sans doute s'inspirer de https://matplotlib.org/2.0.2/users/pyplot_tutorial.html
+  * 3D : s'inspirer de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
+
+* **c02** autres librairies ?
+  * bokeh
+  * plotly
+  * seaborn
+
 * **cxx** : notebooks interactifs : `interact` et `ipywidgets`
-
-# Idées
-
-Mettre une référence vers les vidéos de Jake VanderPlas
-
-https://www.youtube.com/watch?v=_ZEWDGpM-vM
