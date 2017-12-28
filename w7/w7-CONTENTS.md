@@ -58,8 +58,8 @@
   * 3D : s'inspirer de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 * **c02** autres librairies ?
-  * bokeh
-  * plotly
+  * bokeh - notamment https://bokeh.pydata.org/en/latest/docs/user_guide/notebook.html#inline-plots
+  * plotly https://plot.ly/python/offline/
   * seaborn
 
 * **cxx** : notebooks interactifs : `interact` et `ipywidgets`
