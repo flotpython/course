@@ -12,7 +12,7 @@ def carre(line):
     # d'abord on appelle split() pour découper selon les ';'
     # dans le cas où on a des ';' en trop, on obtient dans le 
     #    résultat du split un 'token' vide, que l'on ignore 
-    #    ici avec le clause 'if token'
+    #    ici avec la clause 'if token'
     # enfin on convertit tous les tokens restants en entiers avec int()
     entiers = [int(token) for token in line.split(";")
                # en éliminant les entrées vides qui correspondent
