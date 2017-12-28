@@ -96,8 +96,6 @@ def taxes_ter(income):
         due += (min(income, ceiling) - floor + 1) * rate / 100
         if income <= ceiling:
             return int(due)
-# @END@
-
 
 
 def taxes_ko(income):
