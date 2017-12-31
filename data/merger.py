@@ -188,12 +188,16 @@ class Merger(object):
 
             kml_filename = self.write_kml_output(ships, output_name)
 
-            # for each of the 2 files, compare contents with the reference
-            # that is expected to be in this directory with a .ref extension
-            ok_summary = Compare(summary_filename).compare_and_print()
-            ok_kml = Compare(kml_filename).compare_and_print()
-            # is everything fine ?
-            ok = ok_summary and ok_kml
+            # if a ship name was specified, we cannot compare anything
+            if self.args.ship_name:
+                ok = True
+            else:
+                # for each of the 2 files, compare contents with the reference
+                # that is expected to be in this directory with a .ref extension
+                ok_summary = Compare(summary_filename).compare_and_print()
+                ok_kml = Compare(kml_filename).compare_and_print()
+                # is everything fine ?
+                ok = ok_summary and ok_kml
             # if so return 0 otherwise 1
             return 0 if ok else 1
 
