@@ -34,7 +34,7 @@ class Game:
             if not bytes:
                 break
             line = bytes.decode().strip()
-            print(f"received line `{line}` on {streamname} from {worker}")
+            print(8*' ', f"got `{line}` on {streamname} from {worker}")
     
         
     async def fork_players(self, groupnb):
@@ -61,7 +61,7 @@ class Game:
             self.read_and_display(process.stdout, worker, 'stdout'),
             self.read_and_display(process.stderr, worker, 'stderr'))
         retcod = await process.wait()
-        print(f"worker {worker} is over with -> {retcod}")
+        print(8*'<', f"worker {worker} -> {retcod}")
         self.running -= 1
         return retcod
 
