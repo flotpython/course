@@ -14,11 +14,11 @@ class Player:
     # les 4 directions
     directions = ('N', 'E', 'S', 'W')
 
-    def __init__(self, name, period, cycles=None):
+    def __init__(self, name, period, cycles):
         self.name = name
         self.period = period
         # durer indéfiniment
-        self.cycles = cycles if cycles is not None else math.inf
+        self.cycles = cycles
 
     async def run(self):
         counter = 0
