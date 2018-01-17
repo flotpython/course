@@ -53,7 +53,7 @@ Quelle(s) solution(s) est(sont) correcte(s) ?
 [explanation]
 Attention de ne pas mettre d'apostrophes (sans caractère <code>\</code> devant) dans une chaîne délimitée par des apostrophes.
 
-Une f-string doit toujours commencer être précédée d'un <code>f</code>
+Une f-string doit toujours être précédée d'un <code>f</code>
 [explanation]
 
 <hr/>
