@@ -43,4 +43,4 @@ RUN conda update -y numpy pandas
 RUN pip install plotly
 
 # add lsof to help troubleshoot shortages of open files
-RUN apt-get install lsof
+RUN apt-get update && apt-get install lsof
