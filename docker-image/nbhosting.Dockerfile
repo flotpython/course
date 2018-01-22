@@ -42,3 +42,5 @@ RUN conda update -y numpy pandas
 # install plotly for w7
 RUN pip install plotly
 
+# add lsof to help troubleshoot shortages of open files
+RUN apt-get install lsof
