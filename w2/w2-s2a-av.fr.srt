@@ -1,0 +1,288 @@
+1
+00:00:00,000 --> 00:00:05,156
+...
+
+2
+00:00:05,356 --> 00:00:09,281
+Dans cette vidéo nous allons parler des chaînes de caractère et notamment de comment gérer
+
+3
+00:00:09,481 --> 00:00:13,935
+l'encodage avec les chaînes de caractères. Ouvrons un interpréteur python pour commencer à jouer
+
+4
+00:00:14,135 --> 00:00:15,591
+avec les chaines de caractères.
+
+5
+00:00:15,691 --> 00:00:20,091
+Pour créer une chaîne de caractère c'est très simple en python, vous n'avez qu'à l'entourer
+
+6
+00:00:20,183 --> 00:00:23,818
+soit par des apostrophes donc par exemple je fais la chaîne de caractères 'spam'
+
+7
+00:00:24,018 --> 00:00:28,663
+ou alors par des guillemets. Cela créé 2 chaînes de caractères totalement équivalentes.
+
+8
+00:00:28,863 --> 00:00:32,235
+Maintenant je vais affecter ma chaîne de caractères à une variable pour pouvoir la manipuler
+
+9
+00:00:32,435 --> 00:00:35,873
+les chaînes de caractères sont des objets immuables ça veut dire qu'une fois qu'ils ont été créés
+
+10
+00:00:35,973 --> 00:00:38,418
+on ne peut plus les modifier. 
+
+11
+00:00:38,518 --> 00:00:42,264
+Les chaînes de caractères contiennent également de nombreuses méthodes
+
+12
+00:00:42,374 --> 00:00:44,834
+qui permettent de manipuler ses chaînes de caractères. Comme je viens de l'expliquer,
+
+13
+00:00:45,034 --> 00:00:49,209
+les chaînes de caractères sont immuables ça veut dire que toutes les opérations
+
+14
+00:00:49,409 --> 00:00:53,416
+toutes les méthodes, les fonctions qui manipulent les chaînes de caractères vont retourner
+
+15
+00:00:53,616 --> 00:00:55,760
+un nouvel objet 'chaîne de caractères'
+
+16
+00:00:55,960 --> 00:01:00,977
+Vous pouvez vous demander comment je fais pour connaître toutes les méthodes
+
+17
+00:01:01,174 --> 00:01:03,961
+sur les chaînes de caractères.Python a l'avantage d'être un langage auto-documenté...
+
+18
+00:01:04,161 --> 00:01:08,535
+ça veut dire que vous pouvez très facilement interroger depuis un interpréteur, l'aide python.
+
+19
+00:01:08,735 --> 00:01:12,684
+Regardons un exemple, je sais que les chaînes de caractères c'est de type str
+
+20
+00:01:12,712 --> 00:01:20,408
+je peux donc écrire directement str? cette opération ? n'est possible que depuis un interpréteur Ipithon
+
+21
+00:01:20,608 --> 00:01:25,960
+ou depuis un notebook, regardons ce que j'obtiens. J'obtiens une aide succincte sur
+
+22
+00:01:26,060 --> 00:01:30,945
+le type 'chaîne de caractères'. Je peux également accéder à l'intégralité des méthodes
+
+23
+00:01:31,145 --> 00:01:34,986
+qui existent sur un objet particulier, en utilisant la fonction builtin str
+
+24
+00:01:35,186 --> 00:01:38,155
+pardon en utilisant la fonction builtin dir()
+
+25
+00:01:38,355 --> 00:01:43,157
+Donc si je fais dir(str), je vais voir toutes les méthodes qui sont associés aux chaînes de caractères.
+
+26
+00:01:43,357 --> 00:01:46,191
+vous avez remarquer que vous avez certaines méthodes qui commencent et finissent
+
+27
+00:01:46,391 --> 00:01:49,470
+par des doubles underscore, nons ne parlerons pas de ces méthodes pour le moment
+
+28
+00:01:49,670 --> 00:01:53,564
+nous reviendrons dessus dans de prochaines vidéos puisqu'il s'agit d'un sujet avancé
+
+29
+00:01:53,764 --> 00:01:58,566
+lié aux méthodes spéciales. Donc pour l'instant concentrons-nous sur les méthodes
+
+30
+00:01:58,766 --> 00:02:03,897
+qui utilisent simplement le nom sans underscore. Nous remarquons que ces méthodes ont
+
+31
+00:02:04,097 --> 00:02:09,032
+des noms qui ont l'air assez explicites par exemple la méthode 'title', essayons cette méthode 'title'
+
+32
+00:02:09,232 --> 00:02:13,790
+donc j'écris 'un mooc sur python'. Comment est-ce que j'appelle cette méthode ?
+
+33
+00:02:13,990 --> 00:02:19,167
+simplement en mettant  point puis title() et exécutons cette méthode et regardons le résultat
+
+34
+00:02:19,367 --> 00:02:23,968
+En fait, cette méthode .title() va simplement mettre chaque mot avec la 1ère lettre en majuscule
+
+35
+00:02:24,168 --> 00:02:31,705
+J'ai également une méthode 'replace' donc pour ça je vais écrire s = 'le poulet... non...
+
+36
+00:02:31,905 --> 00:02:38,371
+comme j'ai une apostrophe, je vais les entourer par des guillemets, je vais écrire s = "le poulet c'est bon"
+
+37
+00:02:38,571 --> 00:02:41,965
+donc vous voyez ici l'intérêt d'avoir la notation guillemets et apostrophes
+
+38
+00:02:42,165 --> 00:02:45,137
+c'est de pouvoir par exemple mettre une apostrophe dans une chaîne de caractères
+
+39
+00:02:45,337 --> 00:02:49,521
+en l'entourant par des guillemets sans avoir à mettre un backslash devant une barre oblique inversée \
+
+40
+00:02:49,721 --> 00:03:02,498
+Donc j'écris s = "le poulet c'est bon" et je peux maintenant faire un s.replace( 'poulet' , 'spam' )
+
+41
+00:03:02,698 --> 00:03:07,420
+et regardons,on obtient une nouvelle chaîne de caractères qui va être "le spam c'est bon".
+
+42
+00:03:07,620 --> 00:03:11,975
+Evidemment comme c'est un nouvel objet chaîne de caractère puisque les chaînes de caractères...
+
+43
+00:03:12,175 --> 00:03:16,776
+sont immuables, je peux réaffecter le retour de cette méthode sur les chaînes de caractères
+
+44
+00:03:16,976 --> 00:03:23,986
+à ma chaîne de caractères s pour obtenir une chaîne de référencé par s qui référence "le spam c'est bon"
+
+45
+00:03:24,086 --> 00:03:28,118
+J'ai ensuite sur les chaînes de caractère un certain nombre de méthodes qui me permettent
+
+46
+00:03:28,318 --> 00:03:32,716
+de faire des comparaisons donc ou de faire des tests. Regardons par exemple un exemple
+
+47
+00:03:32,916 --> 00:03:37,901
+d'une chaîne de caractères qui représente un entier qui est 123 et avant de le convertir
+
+48
+00:03:38,101 --> 00:03:41,943
+je pourrais vouloir m'assurer que cette chaîne de caractères représente bien un nombre décimal.
+
+49
+00:03:42,143 --> 00:03:47,830
+Hé bien,je faire ça avec la méthode .isdecimal() qui va simplement me retourner vrai
+
+50
+00:03:48,030 --> 00:03:51,991
+si la chaîne de caractères représente un nombre décimal et faux sinon. Donc encore une fois
+
+51
+00:03:52,191 --> 00:03:55,827
+je vous invite à regarder l'intégralité des méthodes qui existent sur les chaînes de caractères
+
+52
+00:03:56,027 --> 00:03:59,124
+puisque ces méthodes sont très puissantes et très souvent répondent
+
+53
+00:03:59,324 --> 00:04:02,146
+aux besoins que vous avez de manipulation de ces chaînes.
+
+54
+00:04:02,346 --> 00:04:07,438
+Pour finir regardons comment formater une chaîne de caractères donc je vais prendre un exemple suivant
+
+55
+00:04:07,638 --> 00:04:14,629
+je vais écrire n = le prénom sonia et je vais écrire age = 30
+
+56
+00:04:14,829 --> 00:04:17,217
+et maintenant j'aimerais écrire sonia à 30 ans
+
+57
+00:04:17,417 --> 00:04:23,506
+En python on utilise pour cela ce qu'on appelle la l'instruction format() qui permet de formater
+
+58
+00:04:23,706 --> 00:04:29,602
+une chaîne de caractère en fonction de certaines variables. Donc je vais écrire ... accolade ... accolade
+
+59
+00:04:29,802 --> 00:04:34,844
+.format( n, age ) et que va faire l'instruction format ?
+
+60
+00:04:35,044 --> 00:04:39,436
+elle va substituer le premier argument que je lui passe ... n à la première accolade
+
+61
+00:04:39,636 --> 00:04:43,179
+et le deuxième argument je lui passe age à la deuxième accolade
+
+62
+00:04:43,279 --> 00:04:47,435
+ça me permet donc d'obtenir une chaîne de caractères qui est 'sonia 30'
+
+63
+00:04:47,635 --> 00:04:53,667
+Donc revenons sur cette chaîne de caractères, sonia et je vais écrire un tout petit peu plus de texte ... à ... ans
+
+64
+00:04:53,867 --> 00:05:01,054
+ et on remarque qu'il y a une petite limitation à ce format, c'est que ce n'est pas complètement expressif
+
+65
+00:05:01,254 --> 00:05:04,956
+puisque j'écris des accolades vides avec ensuite .format()
+
+66
+00:05:05,156 --> 00:05:08,995
+Depuis Python 3.5, il est possible de créer ce qu'on appelle f-string
+
+67
+00:05:09,195 --> 00:05:12,910
+c'est quelque chose d'extrêmement pratique et qu'on vous recommande d'utiliser systématiquement
+
+68
+00:05:13,010 --> 00:05:17,049
+je mets simplement un f devant ma chaîne de caractère et entre les accolades
+
+69
+00:05:17,149 --> 00:05:19,876
+je vais mettre la variable que je veux substituer.
+
+70
+00:05:20,076 --> 00:05:23,353
+Donc ici je vais mettre un ... n et ici je vais mettre ... age
+
+71
+00:05:23,553 --> 00:05:26,955
+Le résultat de l'évaluation de cette chaîne de caractères va être 'sonia a 30 ans'
+
+72
+00:05:27,155 --> 00:05:30,321
+J'ai maintenant une chaîne de caractères totalement expressive
+
