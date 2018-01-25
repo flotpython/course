@@ -23,6 +23,9 @@ COPY start-in-dir-as-uid.sh /usr/local/bin
 # container root was OK at 1024*1024
 RUN for type in hard soft; do echo '*' $type nofile 131072 ; done > /etc/security/limits.d/open-file.conf
 
+# add lsof in the mix to help troubleshoot shortages of open files
+RUN apt-get update && apt-get install lsof
+
 # --------
 # hacks for jupyter itself
 # (*) disable check done when saving files - see https://github.com/jupyter/notebook/issues/484
@@ -48,5 +51,3 @@ RUN conda update -y numpy pandas
 # install plotly for w7
 RUN pip install plotly
 
-# add lsof to help troubleshoot shortages of open files
-RUN apt-get update && apt-get install lsof
