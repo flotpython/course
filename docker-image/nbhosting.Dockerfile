@@ -16,6 +16,12 @@ FROM jupyter/scipy-notebook:latest
 USER root
 COPY start-in-dir-as-uid.sh /usr/local/bin
 
+# this is to increase the ulimit -n (max nb of open files)
+# as perceived by regular user processes in the container 
+# before we implement this setting, default was 1024
+# 128 * 1024 looks about right
+# container root was OK at 1024*1024
+RUN for type in hard soft; do echo '*' $type nofile 131072 ; done > /etc/security/limits.d/open-file.conf
 
 # --------
 # hacks for jupyter itself
