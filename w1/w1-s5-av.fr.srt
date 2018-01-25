@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:05,321 --> 00:00:07,175
 Bonjour, je suis Arnaud Legout
 
