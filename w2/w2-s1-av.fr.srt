@@ -16,11 +16,11 @@ ce que sont les notions de codage-décodage jeux de caractères et Unicode
 
 5
 00:00:25,887 --> 00:00:28,580
-ce sont des notions fondamentales que vous devez maîtriser...
+ce sont des notions fondamentales que vous devez maîtriser
 
 6
 00:00:28,780 --> 00:00:30,500
-dès que vous manipuler des chaînes de caractères
+dès que vous manipulez des chaînes de caractères
 
 7
 00:00:30,700 --> 00:00:35,535
@@ -32,15 +32,15 @@ d'ailleurs partie. Dans la deuxième partie de cette semaine
 
 9
 00:00:39,690 --> 00:00:43,690
-nous couvriront un certain nombre de sujets très important pour commencer à faire
+nous couvrirons un certain nombre de sujets très important pour commencer à faire
 
 10
 00:00:43,916 --> 00:00:47,151
-pour premier programme. Nous parlerons notamment de test if-else
+pour premier programme. Nous parlerons notamment de test if-else, nous parlerons
 
 11
 00:00:47,351 --> 00:00:53,421
-nous parlerons de compréhension de listes de fonctions et de modules. Egalement nous ouvrirons la boucle for
+de compréhension de listes de fonctions et de modules. Egalement nous ouvrirons la boucle for
 
 12
 00:00:53,621 --> 00:00:55,962
@@ -56,7 +56,7 @@ Dans cette vidéo nous allons parler des notions fondamentales de codage
 
 15
 00:01:06,888 --> 00:01:13,353
-décodage jeux de caractères et unicode. Commençons par regarder cette chaîne de caractère...
+décodage jeux de caractères et Unicode. Commençons par regarder cette chaîne de caractère
 
 16
 00:01:13,553 --> 00:01:16,029
@@ -100,7 +100,7 @@ En fait nous faisons en informatique la même opération : une opération de dé
 
 26
 00:01:48,667 --> 00:01:50,452
-donc en quoi va consister ce décodage ?
+Donc en quoi va consister ce décodage ?
 
 27
 00:01:50,652 --> 00:01:54,616
@@ -124,7 +124,7 @@ Donc découpons notre flux de bits en blocs 16 bits et
 
 32
 00:02:08,126 --> 00:02:12,379
-regardons à quel nombre correspond ces blocs de 16 bits. Donc ici
+regardons à quel nombre correspond ces blocs de 16 bits. Donc ici
 
 33
 00:02:12,579 --> 00:02:18,087
@@ -136,7 +136,7 @@ nous restons évidemment en binaire. Donc on voit que le premier bloc de 16 bits
 
 35
 00:02:24,492 --> 00:02:30,069
-au nombre 97... le deuxième au code à 108 etc. 105, 99 et 101. Maintenant que nous avons été
+au nombre 97... le deuxième au code à 108 etc. 105, 99 et 101. Maintenant que nous avons été
 
 36
 00:02:30,269 --> 00:02:35,263
@@ -144,11 +144,11 @@ capable de découper notre flux de bits en blocs et qu'on a obtenu un code corre
 
 37
 00:02:35,463 --> 00:02:38,925
-il faut être pas de dire à quelle lettre correspond ce code...
+il faut être capable de dire à quelle lettre correspond ce code...
 
 38
 00:02:39,125 --> 00:02:42,861
-nous utilisons pour cela ce qu'on appelle un jeu de caractères.
+Nous utilisons pour cela ce qu'on appelle un jeu de caractères.
 
 39
 00:02:43,061 --> 00:02:47,472
@@ -160,7 +160,7 @@ Nous allons prendre le jeu de caractères ASCII et dans le jeu de caractères AS
 
 41
 00:02:52,705 --> 00:02:58,387
-la lettre du code 97 va correspondre à la lettre A, le code 108 à la lettre L etc.
+le code 97 va correspondre à la lettre A, le code 108 à la lettre L etc.
 
 42
 00:02:58,587 --> 00:03:03,496
@@ -200,7 +200,7 @@ nous avons un flux de bits et nous avons donc des opérations de décodage pour 
 
 51
 00:03:42,318 --> 00:03:44,890
-et de manière inverse  sur ce que l'on veut écrire quelque chose sur un disque dur
+et de manière inverse  lorsque l'on veut écrire quelque chose sur un disque dur
 
 52
 00:03:45,090 --> 00:03:46,700
@@ -216,11 +216,11 @@ Cependant vous avez peut-être remarqué un problème avec notre codage
 
 55
 00:03:56,509 --> 00:03:58,760
-nous avons utiliser un codage ASCII qui est sur 16 bits.
+nous avons utilisez un codage ASCII qui est sur 16 bits.
 
 56
 00:03:58,960 --> 00:04:03,421
-Hors sur 16 bits vous ne pouvez coder que 128 caractères différents.
+Or sur 16 bits vous ne pouvez coder que 128 caractères différents.
 
 57
 00:04:03,621 --> 00:04:07,874
@@ -232,7 +232,7 @@ Nous voyons bien que nous ne pouvons pas coder tous les caractères du monde sur
 
 59
 00:04:12,724 --> 00:04:17,010
-Donc,il existe des codages ASCII étendus qui sont codés sur 8 bits.
+Donc, il existe des codages ASCII étendus qui sont codés sur 8 bits.
 
 60
 00:04:17,210 --> 00:04:19,872
@@ -244,7 +244,7 @@ mais encore une fois 256 caractères ce n'est pas suffisant pour coder tous les 
 
 62
 00:04:25,037 --> 00:04:30,358
-Hors pendant des années nous avons utilisé un grand nombre de codage ASCII étendue
+Or pendant des années nous avons utilisé un grand nombre de codage ASCII étendue
 
 63
 00:04:30,558 --> 00:04:33,277
@@ -280,11 +280,11 @@ Pour résoudre ce problème, un projet à été démarré qui s'appelle le proje
 
 71
 00:05:03,757 --> 00:05:09,270
-L'objectif de ce projet est de coder l'intégralité des caractères du monde. Dans Unicode, dans le jeu...
+L'objectif de ce projet est de coder l'intégralité des caractères du monde. Dans Unicode, dans le jeu
 
 72
 00:05:09,470 --> 00:05:14,154
-de caractères Unicode nous avons actuellement plus de 120000 caractères qui ont été codés. Ainsi en utilisant
+de caractères Unicode nous avons actuellement plus de 120000 caractères qui ont été codés. Ainsi en utilisant
 
 73
 00:05:14,354 --> 00:05:21,511
@@ -292,7 +292,7 @@ Unicode vous avez la certitude de pouvoir coder et décoder l'intégralité des 
 
 74
 00:05:21,611 --> 00:05:30,032
-Unicode utilise différent type de codage qui s'appelle UTF-8, UTF-16 et UTF-32. Sans rentrer dans le détail
+Unicode utilise différents types de codage qui s'appellent UTF-8, UTF-16 et UTF-32. Sans rentrer dans le détail
 
 75
 00:05:30,132 --> 00:05:35,148
@@ -324,11 +324,11 @@ les caractères du monde mais il existe encore de nombreux autres jeux de caract
 
 82
 00:06:06,438 --> 00:06:12,229
- utilisés dans d'anciens documents. Si vous ne contrôlez pas finement votre codage et décodage
+ utilisés dans d'anciens documents. Si vous ne contrôlez pas finement votre codage et décodage
 
 83
 00:06:12,429 --> 00:06:16,296
-vous ne pourrez pas dire à Python quel type de jeu de caractères utilisé.
+vous ne pourrez pas dire à Python quel type de jeu de caractères utiliser.
 
 84
 00:06:16,496 --> 00:06:20,954

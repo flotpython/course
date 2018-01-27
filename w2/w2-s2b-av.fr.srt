@@ -1,6 +1,6 @@
 1
 00:00:00,000 --> 00:00:01,170
-Semaine 2 Séquence 2 - 2ème partie
+...
 
 2
 00:00:01,370 --> 00:00:03,370
@@ -24,7 +24,7 @@ passer à Python 3. Donc regardons un exemple de
 
 7
 00:00:14,704 --> 00:00:16,704
-chaîne de caractères en python. Donc je vais écrire
+chaîne de caractère en python. Donc je vais écrire
 
 8
 00:00:16,904 --> 00:00:23,585
@@ -32,11 +32,11 @@ une chaîne de caractères comme par exemple Noël,
 
 9
 00:00:23,785 --> 00:00:30,395
-été, non je recommence été, voilà. Donc là j'ai
+été ... non je recommence été, voilà. Donc là j'ai
 
 10
 00:00:30,595 --> 00:00:32,212
-une chaîne de caractères avec des caractères
+une chaîne de caractère avec des caractères
 
 11
 00:00:32,412 --> 00:00:35,032
@@ -80,19 +80,19 @@ correspond à un caractère dans le jeu de
 
 21
 00:00:59,121 --> 00:01:01,807
-caractères Unicode et je veux obtenir la lettre Phi
+caractères Unicode et je veux obtenir la lettre Phi
 
 22
 00:01:02,007 --> 00:01:09,007
-Regardons maintenant un 2ème caractère "\u0556"
+Regardons maintenant un 2ème caractère "\u0556"
 
 23
 00:01:09,207 --> 00:01:11,462
-qui correspond àla lettre arménienne C
+qui correspond à la lettre arménienne C
 
 24
 00:01:11,662 --> 00:01:13,464
-exécutons et regardons ce que je vois. Je vois
+Exécutons et regardons ce que je vois. Je vois
 
 25
 00:01:13,664 --> 00:01:15,577
@@ -112,7 +112,7 @@ caractères qui ne supporte pas ce caractère.
 
 29
 00:01:24,398 --> 00:01:25,678
-Donc il faut comprendre qu'en fait lorsque l'on parle
+Donc il faut comprendre qu'en fait lorsque l'on parle
 
 30
 00:01:25,878 --> 00:01:28,559
@@ -148,7 +148,7 @@ caractères qui le supporte. Donc pour se faire
 
 38
 00:01:44,425 --> 00:01:46,462
-je vais aller dans mon interpréteur et je vais prendre
+je vais aller dans mon interpréteur et je vais prendre
 
 39
 00:01:46,662 --> 00:01:48,783
@@ -168,19 +168,19 @@ donc ici je vois maintenant mon fameux caractère
 
 43
 00:01:55,957 --> 00:01:59,137
-je remets mon interpréteur en plein écran, mon
+je remets mon interpréteur en plein écran, mon
 
 44
 00:01:59,337 --> 00:02:04,439
-fameux caractère 05156 correspond bien maintenant
+fameux caractère 05156 correspond bien maintenant
 
 45
 00:02:04,639 --> 00:02:05,797
-à la lettre arménienne c.
+à la lettre arménienne c
 
 46
 00:02:05,997 --> 00:02:07,997
-Revenons maintenant à la notion
+Revenons maintenant à la notion
 
 47
 00:02:08,385 --> 00:02:10,859
@@ -192,11 +192,11 @@ que sur votre ordinateur vous avez un flux de bits
 
 49
 00:02:13,534 --> 00:02:15,467
-que vous pouvez avoir à lire lorsque vous lisez
+que vous pouvez avoir à lire lorsque vous lisez
 
 50
 00:02:15,667 --> 00:02:17,467
-ce flux de bits, vous devez décoder ce flux de bits
+ce flux de bits, vous devez décoder ce flux de bits
 
 51
 00:02:17,667 --> 00:02:20,944
@@ -236,7 +236,7 @@ vous utilisez le type 'str'. Dès que vous
 
 60
 00:02:41,544 --> 00:02:44,775
-manipulez des flux de bits vous utilisez le type
+manipulez des flux de bits vous utilisez le type
 
 61
 00:02:44,975 --> 00:02:47,735
@@ -252,7 +252,7 @@ des bytes aux chaînes de caractères. Regardons un
 
 64
 00:02:53,592 --> 00:03:01,742
-exemple : s = 'un noël en été', j'ai donc une chaîne
+exemple : s = "un noël en été", j'ai donc une chaîne
 
 65
 00:03:01,942 --> 00:03:05,349
@@ -360,11 +360,11 @@ j'ai ma chaîne de caractères qui a été encodée donc
 
 91
 00:04:16,210 --> 00:04:19,441
-je vais l'appeler en ... voici ma chaîne de caractères
+je vais l'appeler en ... voici ma chaîne de caractères
 
 92
 00:04:19,641 --> 00:04:21,462
-je peux maintenant la décoder pour repasser
+je peux maintenant la décoder pour repasser
 
 93
 00:04:21,662 --> 00:04:24,755
@@ -380,7 +380,7 @@ je vais lui passer le codec que j'utilise
 
 96
 00:04:30,384 --> 00:04:37,592
-qui est utf-8 ... ... et donc je verrai ré-obtenir
+qui est utf-8 ... ... et donc je vais ré-obtenir
 
 97
 00:04:37,792 --> 00:04:40,341
@@ -416,11 +416,11 @@ décodages. C'est pour ça qu'on vous recommande
 
 105
 00:04:58,231 --> 00:05:00,625
-de toujours utiliser utf-8 qui a la caractéristique
+de toujours utiliser utf-8 qui a la caractéristique
 
 106
 00:05:00,825 --> 00:05:04,486
-importante d'être un encodage qui supporte Unicode
+importante d'être un encodage qui supporte Unicode
 
 107
 00:05:04,686 --> 00:05:07,158
@@ -432,11 +432,11 @@ existent aujourd'hui avec l'encodage et le décodage
 
 109
 00:05:09,690 --> 00:05:10,962
-ne sont pas liés au jeux de caractères
+ne sont pas liés au jeux de caractères
 
 110
 00:05:11,162 --> 00:05:13,053
-puisqu'on a Unicode, ils sont quasiment toujours
+puisqu'on a Unicode, ils sont quasiment toujours
 
 111
 00:05:13,288 --> 00:05:15,415
@@ -472,7 +472,7 @@ aux personnes qui vont utiliser votre code
 
 119
 00:05:32,004 --> 00:05:33,704
-quel type d'encodage vous utilisez.
+quel type d'encodage vous utilisez.
 
 120
 00:05:33,904 --> 00:05:35,904

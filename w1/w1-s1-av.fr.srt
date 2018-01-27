@@ -236,7 +236,7 @@ pour approfondir le cours
 
 60
 00:02:28,350 --> 00:02:30,329
-Un première semaine dans laquelle
+Une première semaine dans laquelle
 
 61
 00:02:30,529 --> 00:02:32,158
@@ -316,7 +316,7 @@ on cherche à gratter la surface du sujet
 
 80
 00:03:17,308 --> 00:03:18,734
-on cherche surtout à que vous sachiez
+on cherche surtout à ce que vous sachiez
 
 81
 00:03:18,934 --> 00:03:20,447
@@ -404,7 +404,7 @@ et bien utiliser toutes les librairies tierces
 
 102
 00:03:59,936 --> 00:04:02,136
-que vous pourriez avoir besoin, parce c'est
+dont vous pourriez avoir besoin parce c'est
 
 103
 00:04:02,336 --> 00:04:03,438
