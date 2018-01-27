@@ -1,0 +1,776 @@
+1
+00:00:05,000 --> 00:00:06,360
+Dans la vidéo précédente,
+
+2
+00:00:06,460 --> 00:00:07,300
+nous avons vu des exemples
+
+3
+00:00:07,400 --> 00:00:08,500
+d'utilisation d'asyncio
+
+4
+00:00:08,600 --> 00:00:10,110
+peut-être un petit peu moins abstraits
+
+5
+00:00:10,210 --> 00:00:11,100
+que ce qu'on avait pu voir
+
+6
+00:00:11,200 --> 00:00:12,180
+dans la toute première.
+
+7
+00:00:12,500 --> 00:00:14,010
+Maintenant je vais vous donner
+
+8
+00:00:14,110 --> 00:00:15,900
+un petit aperçu de l'historique
+
+9
+00:00:16,000 --> 00:00:17,154
+et de ce qui est disponible,
+
+10
+00:00:17,254 --> 00:00:18,820
+puis vous donner quelques indications
+
+11
+00:00:18,920 --> 00:00:20,396
+pour savoir peut-être
+
+12
+00:00:20,496 --> 00:00:22,600
+vers quelle direction les choses sont
+
+13
+00:00:22,700 --> 00:00:25,236
+susceptibles de se diriger.
+
+14
+00:00:25,336 --> 00:00:27,523
+Donc pour commencer, un petit historique:
+
+15
+00:00:27,623 --> 00:00:29,123
+donc s'agissant de python3,
+
+16
+00:00:30,500 --> 00:00:32,260
+la syntaxe on va dire moderne
+
+17
+00:00:32,360 --> 00:00:34,200
+avec des async et des await,
+
+18
+00:00:34,300 --> 00:00:35,260
+qu'on a vue tout à l'heure,
+
+19
+00:00:35,360 --> 00:00:38,250
+c'est une syntaxe qui date de python3.5.
+
+20
+00:00:38,350 --> 00:00:42,240
+Donc je vous signale que dans la version 3.4,
+
+21
+00:00:42,340 --> 00:00:44,700
+il y a eu une première introduction de asyncio
+
+22
+00:00:44,800 --> 00:00:46,450
+à titre expérimental,
+
+23
+00:00:46,550 --> 00:00:48,090
+avec une syntaxe différente
+
+24
+00:00:48,190 --> 00:00:49,950
+que je vous indique à l'écran.
+
+25
+00:00:50,050 --> 00:00:52,880
+Ce n'est plus beaucoup utilisé,
+
+26
+00:00:52,980 --> 00:00:54,120
+en tout cas, le nouveau code bien sûr
+
+27
+00:00:54,220 --> 00:00:55,870
+ne l'utilise pas mais vous avez
+
+28
+00:00:55,970 --> 00:00:57,000
+une petite chance de le trouver
+
+29
+00:00:57,100 --> 00:00:59,300
+dans du code encore
+
+30
+00:00:59,400 --> 00:01:01,970
+si vous lisez les librairies tierces.
+
+31
+00:01:03,738 --> 00:01:05,460
+S'agissant de python2,
+
+32
+00:01:05,560 --> 00:01:07,400
+je voulais simplement signaler qu'en fait
+
+33
+00:01:07,500 --> 00:01:08,814
+de manière assez étonnante,
+
+34
+00:01:10,000 --> 00:01:11,890
+c'est en 2006 déjà
+
+35
+00:01:11,990 --> 00:01:13,420
+qu'on a introduit dans le langage
+
+36
+00:01:13,520 --> 00:01:16,600
+ce qui est vraiment la clé,
+
+37
+00:01:16,700 --> 00:01:18,400
+ce qui a déverrouillé le tout
+
+38
+00:01:18,500 --> 00:01:19,480
+c'est-à-dire le moment où
+
+39
+00:01:19,580 --> 00:01:21,622
+on a introduit la possibilité
+
+40
+00:01:21,722 --> 00:01:23,140
+d'envoyer des messages aux générateurs,
+
+41
+00:01:23,240 --> 00:01:25,111
+je reviendrai là-dessus longuement
+
+42
+00:01:25,211 --> 00:01:26,300
+dans les vidéos suivantes.
+
+43
+00:01:26,800 --> 00:01:28,070
+Mais tout ça pour vous dire que
+
+44
+00:01:28,170 --> 00:01:29,940
+depuis 2006, il y a déjà
+
+45
+00:01:30,040 --> 00:01:31,278
+un certain nombre de communautés
+
+46
+00:01:31,378 --> 00:01:33,550
+qui se sont intéressées à ce paradigme,
+
+47
+00:01:33,650 --> 00:01:35,845
+qui ont défriché le terrain.
+
+48
+00:01:35,945 --> 00:01:37,750
+J'en ai signalées 3 principalement
+
+49
+00:01:37,850 --> 00:01:40,000
+qui sont assez fréquemment citées
+
+50
+00:01:40,100 --> 00:01:42,980
+dans toute la littérature autour de asyncio.
+
+51
+00:01:45,550 --> 00:01:48,043
+Ce que je voudrais aussi faire maintenant
+
+52
+00:01:48,143 --> 00:01:50,568
+c'est une distinction très nette entre
+
+53
+00:01:50,668 --> 00:01:52,700
+ce qui appartient au langage lui-même
+
+54
+00:01:52,800 --> 00:01:55,380
+de ce qui appartient à la librairie asyncio.
+
+55
+00:01:55,480 --> 00:01:57,867
+Pourquoi ? Parce que la librairie asyncio
+
+56
+00:01:57,967 --> 00:02:00,300
+est dans la librairie standard maintenant,
+
+57
+00:02:01,000 --> 00:02:02,440
+donc ça veut dire qu'elle va être maintenue
+
+58
+00:02:02,540 --> 00:02:03,850
+de manière indéfinie,
+
+59
+00:02:03,950 --> 00:02:05,710
+elle n'est plus expérimentale d'ailleurs,
+
+60
+00:02:05,810 --> 00:02:08,480
+mais il n'est pas complètement exclu que
+
+61
+00:02:08,580 --> 00:02:12,370
+à terme ce soit, pas remplacé, mais que
+
+62
+00:02:12,470 --> 00:02:14,230
+il y ait d'autres librairies du même genre
+
+63
+00:02:14,330 --> 00:02:15,630
+qui apparaissent.
+
+64
+00:02:15,730 --> 00:02:17,400
+Donc c'est assez important de bien voir
+
+65
+00:02:17,500 --> 00:02:19,180
+ce qui appartient au langage lui-même
+
+66
+00:02:20,125 --> 00:02:22,400
+par rapport à ce qui appartient à la librairie
+
+67
+00:02:22,500 --> 00:02:25,300
+parce que, si vous voulez utiliser
+
+68
+00:02:25,400 --> 00:02:26,500
+une autre librairie,
+
+69
+00:02:26,600 --> 00:02:29,400
+il est possible que vous ayez à utiliser
+
+70
+00:02:29,500 --> 00:02:31,120
+d'autres mécanismes et donc c'est important
+
+71
+00:02:31,220 --> 00:02:32,720
+qu'on voit bien la différence.
+
+72
+00:02:32,860 --> 00:02:35,180
+Donc ce qui appartient au langage,
+
+73
+00:02:35,280 --> 00:02:36,350
+ce sera là-dessus que je vais
+
+74
+00:02:36,450 --> 00:02:37,710
+me focaliser pour commencer,
+
+75
+00:02:37,810 --> 00:02:39,410
+c'est la notion de coroutine,
+
+76
+00:02:39,510 --> 00:02:42,100
+donc les async def et await,
+
+77
+00:02:43,200 --> 00:02:45,372
+les itérateurs asynchrones,
+
+78
+00:02:45,472 --> 00:02:48,560
+on va en parler dans une vidéo,
+
+79
+00:02:48,660 --> 00:02:49,815
+les compréhensions asynchrones,
+
+80
+00:02:49,915 --> 00:02:51,200
+les context managers asynchrones,
+
+81
+00:02:51,300 --> 00:02:52,890
+en gros, tous les mécanismes qui sont
+
+82
+00:02:52,990 --> 00:02:54,280
+vraiment internes au langage.
+
+83
+00:02:54,680 --> 00:02:56,200
+Par contre, ce qui appartient à la librairie,
+
+84
+00:02:56,300 --> 00:02:58,195
+c'est la boucle d'événements elle-même,
+
+85
+00:02:59,520 --> 00:03:01,892
+les mécanismes de synchronisation
+
+86
+00:03:01,992 --> 00:03:03,900
+- alors là, à nouveau on verra ça
+
+87
+00:03:04,000 --> 00:03:05,800
+en détail dans une autre vidéo -
+
+88
+00:03:05,900 --> 00:03:07,700
+mais il y a des mécanismes de synchronisation
+
+89
+00:03:07,800 --> 00:03:09,225
+qui ressemblent assez à ce que vous pourriez
+
+90
+00:03:09,325 --> 00:03:11,240
+trouver dans une librairie de thread.
+
+91
+00:03:12,120 --> 00:03:14,800
+Il y a également un certain nombre
+
+92
+00:03:14,900 --> 00:03:16,126
+de fonctionnalités qui s'adressent
+
+93
+00:03:16,226 --> 00:03:18,200
+à la gestion de processus externes.
+
+94
+00:03:20,500 --> 00:03:22,530
+Et puis il y a tout ce qui est lié, en gros,
+
+95
+00:03:22,630 --> 00:03:24,780
+aux vraies entrées/sorties
+
+96
+00:03:24,880 --> 00:03:26,215
+de l'operating system, c'est-à-dire
+
+97
+00:03:26,315 --> 00:03:27,430
+tout ce qui est création de connexion,
+
+98
+00:03:27,530 --> 00:03:29,790
+lecture de fichier, et caetera.
+
+99
+00:03:29,890 --> 00:03:31,675
+Donc c'est important de bien voir
+
+100
+00:03:31,775 --> 00:03:33,465
+la différence entre les deux,
+
+101
+00:03:33,565 --> 00:03:35,690
+on aura l'occasion d'approfondir.
+
+102
+00:03:36,540 --> 00:03:38,780
+Je voudrais dire aussi un mot sur
+
+103
+00:03:40,400 --> 00:03:41,550
+en gros, si vous vous posez la question
+
+104
+00:03:41,650 --> 00:03:43,410
+de savoir si le paradigme
+
+105
+00:03:43,510 --> 00:03:44,475
+est utilisable en production,
+
+106
+00:03:44,575 --> 00:03:46,550
+je vous mets quelques éléments là-dessus.
+
+107
+00:03:47,170 --> 00:03:49,910
+Donc je viens de dire que ça a été déclaré
+
+108
+00:03:50,010 --> 00:03:51,330
+comme étant stable, ce n'est plus
+
+109
+00:03:51,430 --> 00:03:52,643
+une feature expérimentale,
+
+110
+00:03:52,743 --> 00:03:53,690
+ce qui veut donc dire qu'elle sera
+
+111
+00:03:53,790 --> 00:03:54,940
+maintenue pendant longtemps.
+
+112
+00:03:55,440 --> 00:03:56,870
+En terme de performance,
+
+113
+00:03:57,680 --> 00:03:58,470
+c'est correct,
+
+114
+00:03:59,486 --> 00:04:01,420
+il y a un certain nombre
+
+115
+00:04:01,520 --> 00:04:02,730
+d'indicateurs qui disent que
+
+116
+00:04:02,830 --> 00:04:03,660
+c'est certainement améliorable
+
+117
+00:04:03,760 --> 00:04:05,250
+mais c'est très correct,
+
+118
+00:04:05,350 --> 00:04:06,128
+en tout cas, c'est bien meilleur
+
+119
+00:04:06,228 --> 00:04:07,554
+que d'utiliser des threads.
+
+120
+00:04:08,400 --> 00:04:09,990
+Et à l'heure actuelle il y a
+
+121
+00:04:10,090 --> 00:04:12,110
+une offre assez vaste,
+
+122
+00:04:12,210 --> 00:04:13,325
+je pense qu'on peut dire que
+
+123
+00:04:13,425 --> 00:04:15,080
+pratiquement tous les protocoles réseaux,
+
+124
+00:04:16,300 --> 00:04:17,440
+toutes les bases de données également
+
+125
+00:04:17,540 --> 00:04:20,620
+en sont couvertes,
+
+126
+00:04:20,720 --> 00:04:21,550
+puisque les bases de données
+
+127
+00:04:21,650 --> 00:04:24,580
+présentent le même type de mécanisme
+
+128
+00:04:24,680 --> 00:04:27,100
+essentiellement que l'interface réseau.
+
+129
+00:04:29,700 --> 00:04:31,500
+Par contre, on peut dire que
+
+130
+00:04:31,600 --> 00:04:33,050
+ce n'est pas totalement parfait non plus.
+
+131
+00:04:33,600 --> 00:04:34,730
+La première des choses, c'est que
+
+132
+00:04:34,830 --> 00:04:36,270
+c'est un paradigme qui est contagieux,
+
+133
+00:04:36,370 --> 00:04:37,960
+ça veut dire que si vous prenez
+
+134
+00:04:38,060 --> 00:04:40,600
+une application qui a été écrite
+
+135
+00:04:40,700 --> 00:04:42,320
+dans une approche traditionnelle
+
+136
+00:04:42,630 --> 00:04:44,086
+et que vous décidez de la passer
+
+137
+00:04:44,186 --> 00:04:46,280
+à cette approche asyncio,
+
+138
+00:04:46,380 --> 00:04:47,620
+vous allez vous rendre compte que
+
+139
+00:04:47,720 --> 00:04:50,360
+vous allez avoir de plus en plus de code
+
+140
+00:04:50,460 --> 00:04:52,040
+qui va passer d'une fonction traditionnelle
+
+141
+00:04:52,140 --> 00:04:54,936
+à une fonction de type coroutine.
+
+142
+00:04:55,700 --> 00:04:57,580
+C'est lié à la façon dont
+
+143
+00:04:57,680 --> 00:04:59,250
+le paradigme est construit.
+
+144
+00:04:59,350 --> 00:05:01,450
+Alors, ce n'est pas forcément un problème,
+
+145
+00:05:01,550 --> 00:05:03,400
+mais c'est vrai que c'est plus agréable
+
+146
+00:05:04,000 --> 00:05:05,800
+de commencer de scratch
+
+147
+00:05:05,900 --> 00:05:07,920
+et d'écrire une application
+
+148
+00:05:08,020 --> 00:05:11,020
+qui est conforme à tout ça
+
+149
+00:05:11,120 --> 00:05:14,250
+que de tripoter une application
+
+150
+00:05:14,350 --> 00:05:15,400
+qui n'a pas été conçue pour.
+
+151
+00:05:15,500 --> 00:05:16,900
+Ça, c'est quand même un truc.
+
+152
+00:05:17,740 --> 00:05:19,750
+Enfin, je voudrais vous signaler
+
+153
+00:05:21,260 --> 00:05:25,310
+un certain nombre d'autres expériences
+
+154
+00:05:25,410 --> 00:05:26,763
+on va dire ; ce sont
+
+155
+00:05:26,863 --> 00:05:27,640
+- alors, je vous ai signalé
+
+156
+00:05:27,740 --> 00:05:30,860
+les 3 grands joueurs qui étaient avant asyncio
+
+157
+00:05:30,960 --> 00:05:32,600
+là, je vous signale les 3 grands joueurs
+
+158
+00:05:32,700 --> 00:05:34,740
+qui seront peut-être après asyncio.
+
+159
+00:05:36,240 --> 00:05:37,180
+Donc, uvloop,
+
+160
+00:05:37,280 --> 00:05:40,120
+ça va probablement être le remplaçant
+
+161
+00:05:40,220 --> 00:05:41,900
+de la boucle d'événements d'asyncio,
+
+162
+00:05:42,000 --> 00:05:43,850
+c'est quelque chose qui est plus efficace
+
+163
+00:05:44,100 --> 00:05:47,050
+mais la transition, si ça devait être adopté,
+
+164
+00:05:47,150 --> 00:05:48,500
+la transition serait essentiellement
+
+165
+00:05:48,600 --> 00:05:50,685
+transparente pour l'utilisateur.
+
+166
+00:05:50,900 --> 00:05:52,310
+Ça, ce n'est pas un vrai souci.
+
+167
+00:05:52,410 --> 00:05:53,370
+Par contre, les deux autres,
+
+168
+00:05:53,470 --> 00:05:54,680
+elles arrivent avec un paradigme
+
+169
+00:05:54,780 --> 00:05:56,050
+qui est un petit peu différent,
+
+170
+00:05:56,150 --> 00:05:58,100
+c'est-à-dire que au lieu de considérer
+
+171
+00:05:58,200 --> 00:05:59,900
+que c'est la boucle d'événements
+
+172
+00:06:00,700 --> 00:06:03,650
+le principal, le citoyen de premier rang,
+
+173
+00:06:04,300 --> 00:06:06,040
+on renverse les choses et on considère
+
+174
+00:06:06,140 --> 00:06:10,200
+que c'est la coroutine l'objet de base
+
+175
+00:06:10,300 --> 00:06:11,792
+et je pense que c'est vraiment
+
+176
+00:06:11,892 --> 00:06:14,000
+la bonne façon de prendre les choses.
+
+177
+00:06:14,100 --> 00:06:16,940
+Donc ça veut dire que sur la durée,
+
+178
+00:06:17,040 --> 00:06:17,760
+il est possible,
+
+179
+00:06:17,860 --> 00:06:18,863
+comme je l'indiquais tout à l'heure,
+
+180
+00:06:18,963 --> 00:06:22,400
+que la librairie asyncio soit remplacée
+
+181
+00:06:22,500 --> 00:06:25,785
+ou qu'il y ait d'autres alternatives.
+
+182
+00:06:27,420 --> 00:06:28,280
+Ce qui n'est pas grave,
+
+183
+00:06:28,380 --> 00:06:29,774
+parce que c'est arrivé plein de fois
+
+184
+00:06:29,874 --> 00:06:31,084
+dans la librairie standard,
+
+185
+00:06:31,184 --> 00:06:32,700
+que l'on mette un morceau de code
+
+186
+00:06:32,800 --> 00:06:34,275
+puis qu'on en mette une deuxième version,
+
+187
+00:06:34,375 --> 00:06:36,450
+on conserve toujours le précédent.
+
+188
+00:06:37,100 --> 00:06:38,200
+Mais voilà,
+
+189
+00:06:38,300 --> 00:06:39,450
+si vous voulez vous projeter dans l'avenir,
+
+190
+00:06:39,550 --> 00:06:41,000
+c'est important de savoir que ce n'est
+
+191
+00:06:41,100 --> 00:06:42,700
+peut-être pas la tout dernière version
+
+192
+00:06:43,000 --> 00:06:45,200
+de la librairie.
+
+193
+00:06:46,000 --> 00:06:47,300
+Voilà, je vous retrouve dans
+
+194
+00:06:47,400 --> 00:06:49,500
+la prochaine vidéo. À bientôt !
+
