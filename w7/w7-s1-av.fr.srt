@@ -56,7 +56,7 @@ Ce qui nous intéresse aussi, c'est de vous montrer
 
 15
 00:00:57,066 --> 00:01:02,920
-l'apport qu'à le tableau numpy, dans l'ensemble des types qui sont disponibles.
+l'apport qu'a le tableau numpy, dans l'ensemble des types qui sont disponibles.
 
 16
 00:01:03,120 --> 00:01:07,639
@@ -900,7 +900,7 @@ pour tout ce qui est tableaux structurés et récupération de données.
 
 226
 00:12:31,316 --> 00:12:34,785
-Et enfin, de matplotbib pour la visualisation
+Et enfin, de matplotlib pour la visualisation
 
 227
 00:12:34,985 --> 00:12:36,313
