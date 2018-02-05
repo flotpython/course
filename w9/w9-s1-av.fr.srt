@@ -1,0 +1,960 @@
+1
+00:00:10,724 --> 00:00:11,643
+Bonjour
+
+2
+00:00:11,843 --> 00:00:13,873
+Nous abordons la dernière semaine de ce MOOC.
+
+3
+00:00:14,073 --> 00:00:16,668
+Vous avez, maintenant, de profondes connaissances en Python.
+
+4
+00:00:16,868 --> 00:00:19,780
+Mais, il nous reste à aborder quelques sujets avancés.
+
+5
+00:00:19,980 --> 00:00:22,481
+Notre but n'est pas de vous faire une couverture exhaustive
+
+6
+00:00:22,681 --> 00:00:24,940
+de ces sujets, il nous faudrait, pour cela, un nouveau MOOC,
+
+7
+00:00:25,140 --> 00:00:27,196
+mais de vous les faire découvrir, pour que vous puissiez,
+
+8
+00:00:27,396 --> 00:00:28,645
+ainsi, les développer vous-même
+
+9
+00:00:28,845 --> 00:00:32,324
+et, ainsi, améliorer votre panorama de techniques de programmation.
+
+10
+00:00:34,163 --> 00:00:36,308
+Lorsque nous avons introduit la notion de classe,
+
+11
+00:00:36,508 --> 00:00:38,284
+nous avons présenté la notion de méthode.
+
+12
+00:00:38,484 --> 00:00:41,487
+Une méthode est conçue pour travailler sur
+
+13
+00:00:41,687 --> 00:00:43,594
+les attributs des instances.
+
+14
+00:00:43,794 --> 00:00:45,857
+Cependant, nous avons vu qu'il y avait une asymétrie
+
+15
+00:00:46,057 --> 00:00:48,647
+entre la manière d'appeler cette méthode depuis une classe
+
+16
+00:00:48,847 --> 00:00:50,754
+et la manière d'appeler cette méthode depuis une instance.
+
+17
+00:00:50,954 --> 00:00:52,403
+On appelle une méthode depuis une classe
+
+18
+00:00:52,603 --> 00:00:54,422
+il s'agit d'une fonction tout à fait classique.
+
+19
+00:00:54,622 --> 00:00:56,308
+Mais, lorsqu'on appelle depuis une instance,
+
+20
+00:00:56,508 --> 00:00:58,826
+il s'agit de ce qu'on appelle une méthode bound.
+
+21
+00:00:59,026 --> 00:01:01,207
+ça veut dire que l'interpréteur Python va automatiquement
+
+22
+00:01:01,407 --> 00:01:03,354
+passer à cette méthode, comme premier argument,
+
+23
+00:01:03,554 --> 00:01:04,961
+l'instance qui l'appelle.
+
+24
+00:01:05,161 --> 00:01:07,467
+C'est exactement le comportement que l'on veut
+
+25
+00:01:07,667 --> 00:01:09,448
+dans le cas classique, puisque, en fait, en général,
+
+26
+00:01:09,648 --> 00:01:11,708
+on veut travailler sur les attributs des instances.
+
+27
+00:01:11,908 --> 00:01:14,861
+Cependant, on pourrait imaginer vouloir travailler sur
+
+28
+00:01:15,061 --> 00:01:18,341
+autre chose que les attributs des instances, par exemple, des attributs de classe.
+
+29
+00:01:18,541 --> 00:01:21,100
+Et là, on se rend compte qu'on est confronté à un problème.
+
+30
+00:01:21,300 --> 00:01:23,690
+Comme on a une asymétrie entre la manière d'appeler une méthode
+
+31
+00:01:23,890 --> 00:01:25,985
+depuis l'instance et depuis une classe,
+
+32
+00:01:26,185 --> 00:01:28,619
+si on ne travaille plus sur les attributs de l'instance,
+
+33
+00:01:28,819 --> 00:01:32,497
+comme l'interpréteur va automatiquement passer l'instance comme premier argument,
+
+34
+00:01:32,697 --> 00:01:35,286
+on aura un comportement non symétrique,
+
+35
+00:01:35,486 --> 00:01:38,037
+et, par conséquent, on ne pourra pas appeler de manière indifférente cette méthode
+
+36
+00:01:38,237 --> 00:01:39,771
+depuis une classe ou depuis une instance.
+
+37
+00:01:39,971 --> 00:01:43,913
+Dans cette vidéo, on va présenter deux techniques pour résoudre ce problème
+
+38
+00:01:44,113 --> 00:01:47,531
+qu'on appelle les méthodes statiques et les méthodes de classe.
+
+39
+00:01:49,228 --> 00:01:50,966
+Nous allons essayer de résoudre le problème suivant :
+
+40
+00:01:51,166 --> 00:01:53,924
+nous allons essayer de compter le nombre d'instances
+
+41
+00:01:54,124 --> 00:01:55,724
+qui ont été créées par une classe.
+
+42
+00:01:55,924 --> 00:01:58,309
+Donc ça c'est quelque chose qui semble assez facile à faire,
+
+43
+00:01:58,509 --> 00:02:00,461
+puisqu'on peut, tout à fait, rajouter un compteur
+
+44
+00:02:00,661 --> 00:02:03,548
+dans la classe, qui va compter le nombre de fois qu'on fait des instances.
+
+45
+00:02:03,748 --> 00:02:04,753
+Regardons cela.
+
+46
+00:02:04,953 --> 00:02:07,140
+Je vais créer une classe Phrase
+
+47
+00:02:07,340 --> 00:02:09,577
+qui va définir un compteur,
+
+48
+00:02:09,777 --> 00:02:12,249
+un compteur d'instance qu'on initialise à 0.
+
+49
+00:02:12,449 --> 00:02:15,932
+Et, ensuite, dans le constructeur, dans l'initialisateur
+
+50
+00:02:16,132 --> 00:02:18,682
+de mon instance que j'appelle __init__
+
+51
+00:02:18,882 --> 00:02:24,492
+je vais simplement incrémenter mon compteur d'instances.
+
+52
+00:02:24,692 --> 00:02:29,290
+Donc j'ajoute 1 à chaque fois que je crée une instance.
+
+53
+00:02:29,490 --> 00:02:33,877
+Je vous rappelle que pour accéder à un attribut d'une classe,
+
+54
+00:02:34,077 --> 00:02:37,653
+il faut utiliser la notation d'attribut : Phrase.attribut
+
+55
+00:02:37,853 --> 00:02:40,158
+Donc, maintenant, exécutons ce morceau de code
+
+56
+00:02:40,358 --> 00:02:43,051
+J'exécute, j'évalue avec F5, je retourne dans mon interpréteur
+
+57
+00:02:43,251 --> 00:02:44,538
+Maintenant, je vais créer une instance
+
+58
+00:02:44,738 --> 00:02:47,535
+Voilà. Puis une deuxième instance.
+
+59
+00:02:47,735 --> 00:02:51,260
+Et, maintenant, je vais regarder mon compteur d'instances.
+
+60
+00:02:59,732 --> 00:03:01,017
+Et, donc, on voit qu'il est à 2.
+
+61
+00:03:01,217 --> 00:03:03,517
+Pour l'instant, tout fonctionne parfaitement
+
+62
+00:03:04,559 --> 00:03:07,351
+Je n'ai absolument aucun problème pour accéder à mon compteur d'instances.
+
+63
+00:03:07,551 --> 00:03:09,816
+Seulement, on se dit bien, qu'en fait,
+
+64
+00:03:10,016 --> 00:03:11,955
+plutôt que d'y accéder par, directement, l'attribut
+
+65
+00:03:12,155 --> 00:03:13,237
+ça serait mieux d'avoir une méthode.
+
+66
+00:03:13,437 --> 00:03:15,459
+Donc, je vais rajouter une méthode à ma classe
+
+67
+00:03:17,800 --> 00:03:19,904
+qui va simplement me retourner le nombre d'instances.
+
+68
+00:03:20,104 --> 00:03:22,320
+Je vais appeler cette méthode num
+
+69
+00:03:23,847 --> 00:03:31,682
+et cette méthode va faire un return de Phrase.nb_i
+
+70
+00:03:31,882 --> 00:03:37,251
+J'évalue ce code. Je recrée, de nouveau, deux instances.
+
+71
+00:03:39,587 --> 00:03:43,948
+Et, maintenant, je vais appeler Phrase.num()
+
+72
+00:03:44,148 --> 00:03:46,254
+Et là, on voit que ça fonctionne, tout à fait.
+
+73
+00:03:46,454 --> 00:03:47,127
+Pourquoi ça fonctionne?
+
+74
+00:03:47,327 --> 00:03:51,353
+Vous avez remarqué, qu'à num, je n'ai pas passé de paramètre self
+
+75
+00:03:51,553 --> 00:03:54,796
+C'est parce qu'en fait, une méthode appelée sur une classe est une fonction classique
+
+76
+00:03:54,996 --> 00:03:57,424
+Python ne va pas lui passer l'instance comme premier argument.
+
+77
+00:03:57,624 --> 00:03:58,818
+Vérifions ça.
+
+78
+00:03:59,018 --> 00:04:04,417
+Si je regarde le type d'objet, c'est une fonction classique.
+
+79
+00:04:04,617 --> 00:04:07,205
+Mais, si maintenant, je crée une nouvelle instance de Phrase
+
+80
+00:04:07,405 --> 00:04:12,188
+p = Phrase() Je crée une instance
+
+81
+00:04:12,388 --> 00:04:15,670
+Et que maintenant, j'appelle ma méthode sur l'instance
+
+82
+00:04:15,870 --> 00:04:16,874
+Que va-t-il se passer?
+
+83
+00:04:17,074 --> 00:04:18,318
+J'ai une exception.
+
+84
+00:04:18,518 --> 00:04:19,599
+C'est tout à fait normal.
+
+85
+00:04:19,799 --> 00:04:23,760
+Je vous rappelle qu'une méthode appelée sur une instance,
+
+86
+00:04:23,960 --> 00:04:25,084
+c'est une méthode bound,
+
+87
+00:04:25,284 --> 00:04:28,038
+par conséquent, Python va lui passer, automatiquement, le premier argument.
+
+88
+00:04:28,238 --> 00:04:30,987
+Et ici, on est confronté à ce fameux problème, cette asymétrie
+
+89
+00:04:31,187 --> 00:04:34,747
+entre appel d'une méthode sur une classe - c'est une fonction classique -
+
+90
+00:04:34,947 --> 00:04:36,720
+et appel d'une méthode sur une instance
+
+91
+00:04:36,920 --> 00:04:40,531
+- c'est une méthode bound à laquelle on passe obligatoirement le premier argument.
+
+92
+00:04:40,731 --> 00:04:43,407
+Or, on imagine bien, que dans ce cas-là,
+
+93
+00:04:43,607 --> 00:04:46,482
+pour simplement compter le nombre d'instances que l'on a dans notre classe,
+
+94
+00:04:46,682 --> 00:04:47,968
+on aimerait bien pouvoir avoir une méthode
+
+95
+00:04:48,168 --> 00:04:51,897
+qu'on puisse appeler, indifféremment, de la classe ou depuis l'instance.
+
+96
+00:04:52,097 --> 00:04:53,064
+En Python, c'est possible.
+
+97
+00:04:53,264 --> 00:04:56,944
+Il suffit de déclarer cette méthode comme une méthode statique.
+
+98
+00:04:57,144 --> 00:04:58,105
+Comment est-ce qu'on fait ça?
+
+99
+00:04:58,305 --> 00:04:59,756
+Nous allons voir que c'est extrêmement simple.
+
+100
+00:04:59,956 --> 00:05:07,121
+Il suffit de déclarer cette méthode avec un décorateur qui s'appelle @staticmethod
+
+101
+00:05:07,321 --> 00:05:10,649
+Cette notion de décorateur, nous reviendrons dessus dans une prochaine vidéo
+
+102
+00:05:10,849 --> 00:05:12,661
+mais, pour l'instant, sachez simplement que
+
+103
+00:05:12,861 --> 00:05:18,186
+cette notation @staticmethod me permet de transformer une méthode en méthode statique.
+
+104
+00:05:18,386 --> 00:05:20,166
+ça veut dire quoi une méthode statique?
+
+105
+00:05:20,366 --> 00:05:23,005
+ça veut dire que c'est une méthode que je pourrai, maintenant, appeler
+
+106
+00:05:23,205 --> 00:05:26,321
+indifféremment depuis une classe ou depuis une instance.
+
+107
+00:05:26,521 --> 00:05:29,014
+Si j'appelle ma méthode depuis une classe, ça sera une fonction classique.
+
+108
+00:05:29,214 --> 00:05:32,581
+Si je l'appelle depuis une instance, ce sera, de nouveau, une fonction classique
+
+109
+00:05:32,781 --> 00:05:34,637
+et non plus, une méthode bound.
+
+110
+00:05:34,837 --> 00:05:36,473
+Exécutons ce code.
+
+111
+00:05:36,673 --> 00:05:37,991
+Je l'évalue.
+
+112
+00:05:38,191 --> 00:05:42,324
+Je vais, maintenant, recréer une instance
+
+113
+00:05:42,524 --> 00:05:45,803
+et je vais appeler cette méthode num() depuis ma classe.
+
+114
+00:05:46,003 --> 00:05:47,537
+Je vois bien que j'ai une instance.
+
+115
+00:05:47,737 --> 00:05:50,575
+J'appelle cette méthode num() depuis mon instance.
+
+116
+00:05:50,775 --> 00:05:52,187
+Je vois bien que j'ai une instance.
+
+117
+00:05:53,463 --> 00:05:55,778
+Une sous-classe d'une classe qui a une méthode statique
+
+118
+00:05:55,978 --> 00:05:58,771
+hérite, automatiquement, de cette méthode statique.
+
+119
+00:05:58,971 --> 00:06:01,561
+Par contre, si on surcharge cette méthode statique dans la sous-classe,
+
+120
+00:06:01,761 --> 00:06:04,853
+il faudra, évidemment, la redéfinir comme méthode statique.
+
+121
+00:06:05,053 --> 00:06:06,380
+Donc, regardons cela.
+
+122
+00:06:06,580 --> 00:06:12,396
+Je vais définir une sous-classe de ma classe Phrase
+
+123
+00:06:12,596 --> 00:06:18,056
+que je vais appeler class PhraseSansCasse
+
+124
+00:06:18,256 --> 00:06:21,997
+qui hérite de Phrase.
+
+125
+00:06:22,197 --> 00:06:28,035
+Et, ensuite, voilà, je définis une méthode toute simple qui ne fait rien de particulier.
+
+126
+00:06:28,235 --> 00:06:31,681
+Donc, si j'exécute ce code-là,
+
+127
+00:06:31,881 --> 00:06:36,437
+et que je crée une instance de ma classe Phrase,
+
+128
+00:06:36,637 --> 00:06:41,682
+je peux, maintenant, faire un Phrase.num()
+
+129
+00:06:41,882 --> 00:06:45,158
+je vais donc voir, effectivement, que j'ai une instance.
+
+130
+00:06:45,358 --> 00:06:50,547
+Et, je peux faire un PhraseSansCasse.num()
+
+131
+00:06:50,747 --> 00:06:57,291
+et je peux, effectivement, appeler ma méthode statique directement depuis une sous-classe.
+
+132
+00:06:57,491 --> 00:06:59,307
+Maintenant, regardons ce qui se passe si jamais
+
+133
+00:06:59,507 --> 00:07:03,091
+je redéfinis cette méthode statique depuis ma PhraseSansCasse
+
+134
+00:07:03,291 --> 00:07:08,416
+Donc ici, je vais simplement redéfinir une nouvelle méthode num()
+
+135
+00:07:08,616 --> 00:07:12,314
+donc, je surcharge ma méthode num() qui est définie dans ma super classe.
+
+136
+00:07:12,514 --> 00:07:14,246
+Et ici, je vais faire un retour.
+
+137
+00:07:14,446 --> 00:07:16,958
+Alors,un retour un tout petit peu plus sympa avec une f-string.
+
+138
+00:07:17,158 --> 00:07:25,456
+Voilà qui va simplement afficher PhraseSansCasse
+
+139
+00:07:25,656 --> 00:07:32,900
+et ici je vais mettre un {Phrase.nb_i}
+
+140
+00:07:33,019 --> 00:07:33,866
+Voilà, tout simplement
+
+141
+00:07:34,066 --> 00:07:37,309
+Donc j'ai bien rajouté mon argument Phrase.nb_i
+
+142
+00:07:37,509 --> 00:07:39,000
+depuis ma méthode num() dans PhraseSansCasse
+
+143
+00:07:39,062 --> 00:07:45,486
+Comme cette méthode a été redéfinie depuis PhraseSansCasse,
+
+144
+00:07:45,686 --> 00:07:47,538
+il faut que je la redéfinisse comme méthode statique
+
+145
+00:07:47,738 --> 00:07:49,995
+sinon ça redeviendra une méthode normale.
+
+146
+00:07:50,195 --> 00:07:56,497
+@staticmethod Voilà. Donc maintenant, j'exécute ce code.
+
+147
+00:07:56,697 --> 00:08:00,883
+Je vais redéfinir une instance de p
+
+148
+00:08:01,083 --> 00:08:05,058
+Je vais appeler num() depuis Phase, je vois bien afficher 1.
+
+149
+00:08:05,258 --> 00:08:08,133
+Je peux appeler num() depuis PhraseSansCasse,
+
+150
+00:08:08,333 --> 00:08:10,388
+je vois bien afficher ce nouvel affichage.
+
+151
+00:08:10,588 --> 00:08:12,301
+Donc ça fonctionne tout à fait normalement
+
+152
+00:08:12,501 --> 00:08:14,675
+Si j'avais créé une instance de PhraseSansCasse
+
+153
+00:08:14,875 --> 00:08:16,852
+et cette méthode num() de PhraseSansCasse qui aurait été appelée,
+
+154
+00:08:17,052 --> 00:08:19,743
+j'aurais pu l'appeler de manière indifférente sur une instance de PhraseSansCasse
+
+155
+00:08:19,943 --> 00:08:22,407
+et également sur une instance de Phrase, et, dans ce cas-là,
+
+156
+00:08:22,607 --> 00:08:24,627
+ça aurait été la méthode de Phrase qui aurait été appelée.
+
+157
+00:08:24,827 --> 00:08:27,820
+Donc, je suis l'arbre d'héritage, ce que nous connaissons, maintenant, parfaitement.
+
+158
+00:08:28,020 --> 00:08:31,064
+Seulement, ici, on se rend compte d'une limitation
+
+159
+00:08:31,264 --> 00:08:32,753
+ de cette technique de programmation.
+
+160
+00:08:32,953 --> 00:08:36,080
+En fait, j'ai deux classes différentes : j'ai Phrase et PhraseSansCasse
+
+161
+00:08:36,280 --> 00:08:40,844
+et, en fait, je retourne simplement le nombre d'instances que j'ai dans Phrase.
+
+162
+00:08:41,044 --> 00:08:43,192
+Donc, le nombre de fois que la méthode __init__ a été appelée dans Phrase.
+
+163
+00:08:43,392 --> 00:08:45,938
+Comme PhraseSansCasse hérite de Phrase,
+
+164
+00:08:46,138 --> 00:08:50,613
+le compteur dans __init__ est incrémenté à chaque fois que je crée une instance de PhraseSansCasse
+
+165
+00:08:50,813 --> 00:08:55,077
+Mais, je n'ai donc aucune distinction entre les instances de Phrase et les instances de PhraseSansCasse.
+
+166
+00:08:55,277 --> 00:08:59,132
+Toutes les instances correspondent au même et unique compteur.
+
+167
+00:08:59,332 --> 00:09:01,517
+Donc, en fait, si jamais je voulais créer de multiples compteurs,
+
+168
+00:09:01,717 --> 00:09:02,759
+je pourrais tout à fait le faire.
+
+169
+00:09:02,959 --> 00:09:10,373
+Ici, je pourrais rajouter un nouveau compteur, nb_i qui est égal à 0
+
+170
+00:09:10,573 --> 00:09:20,550
+et ici, rajouter une méthode __init__ de self
+
+171
+00:09:20,750 --> 00:09:24,193
+qui va simplement me faire un,
+
+172
+00:09:24,393 --> 00:09:36,320
+dans ce cas-là, je vais rajouter un PhraseSansCasse.nb_i +=1 Voilà
+
+173
+00:09:36,520 --> 00:09:40,589
+Donc là, maintenant, j'ai un compteur PhraseSansCasse.nb_i
+
+174
+00:09:40,789 --> 00:09:42,789
+que j'incrémente à 1.
+
+175
+00:09:42,989 --> 00:09:45,286
+Alors, maintenant, si je regarde ça, en fait,
+
+176
+00:09:45,486 --> 00:09:46,907
+ce n'est toujours pas très satisfaisant.
+
+177
+00:09:47,107 --> 00:09:48,752
+Pourquoi ce n'est pas satisfaisant?
+
+178
+00:09:48,952 --> 00:09:51,099
+Parce que lorsque je vais appeler ma méthode num(),
+
+179
+00:09:51,299 --> 00:09:54,182
+à aucun moment, je vais être capable de lui dire
+
+180
+00:09:54,382 --> 00:09:55,940
+mais de quelque classe je l'appelle.
+
+181
+00:09:56,140 --> 00:09:59,492
+En fait, pour ça, il faudrait que j'ai une manière
+
+182
+00:09:59,692 --> 00:10:03,666
+de passer à ma méthode num()  l'objet classe qui appelle la méthode num().
+
+183
+00:10:03,866 --> 00:10:05,396
+Et ça, je peux le faire
+
+184
+00:10:05,596 --> 00:10:07,406
+grâce à un autre type de méthode
+
+185
+00:10:07,606 --> 00:10:09,228
+qu'on appelle les méthodes de classe.
+
+186
+00:10:09,428 --> 00:10:13,568
+Donc, une méthode de classe, à la différence d'une méthode statique,
+
+187
+00:10:13,768 --> 00:10:15,991
+va créer, en fait, une méthode bound.
+
+188
+00:10:16,191 --> 00:10:19,306
+Sauf que cette fois, cette méthode ne sera pas liée à l'instance
+
+189
+00:10:19,506 --> 00:10:21,246
+mais sera liée à la classe qui l'appelle.
+
+190
+00:10:21,446 --> 00:10:23,658
+Par conséquence, cette méthode de classe,
+
+191
+00:10:23,858 --> 00:10:26,403
+que je l'appelle depuis une instance ou depuis une classe,
+
+192
+00:10:26,603 --> 00:10:30,333
+passera, automatiquement, la classe comme premier argument de la méthode.
+
+193
+00:10:30,533 --> 00:10:31,815
+Regardons cette implémentation.
+
+194
+00:10:32,015 --> 00:10:39,145
+Donc, ici, au lieu de faire @staticmethod, je vais faire @classmethod
+
+195
+00:10:39,345 --> 00:10:42,424
+et à ma méthode num je vais passer un argument classe
+
+196
+00:10:42,624 --> 00:10:44,116
+puisque ma méthode est maintenant définie comme
+
+197
+00:10:44,316 --> 00:10:45,759
+une méthode bound à la classe
+
+198
+00:10:45,959 --> 00:10:50,956
+Et donc, ici, au lieu de lui passer Phrase, je vais directement lui passer la classe.
+
+199
+00:10:51,156 --> 00:10:55,145
+Si c'est une méthode appelée depuis la classe PhraseSansCasse
+
+200
+00:10:55,345 --> 00:10:56,989
+ou depuis une instance de PhraseSansCasse,
+
+201
+00:10:57,189 --> 00:10:59,776
+c'est le compteur de PhraseSansCasse qui sera appelé
+
+202
+00:10:59,976 --> 00:11:03,871
+Si la méthode est appelée depuis une instance de Phrase
+
+203
+00:11:04,071 --> 00:11:05,646
+ou depuis,directement, la classe Phrase
+
+204
+00:11:05,846 --> 00:11:08,606
+ce sera le compteur de Phrase qui sera appelé.
+
+205
+00:11:08,806 --> 00:11:13,002
+Et donc, je vais faire la même chose depuis ma méthode surchargée
+
+206
+00:11:13,202 --> 00:11:14,777
+ici, je vais lui passer cls.
+
+207
+00:11:14,977 --> 00:11:18,255
+Donc, je n'oublie pas de la définir comme @classmethod
+
+208
+00:11:18,455 --> 00:11:21,701
+Et ici, au lieu de passer Phrase, je vais passer cls
+
+209
+00:11:21,901 --> 00:11:25,359
+Encore une fois, de nouveau, je vais, automatiquement, utiliser le bon compteur.
+
+210
+00:11:25,559 --> 00:11:27,247
+Donc regardons cela. J'évalue ce code.
+
+211
+00:11:27,447 --> 00:11:30,331
+Et maintenant, je vais créer différentes instances.
+
+212
+00:11:30,531 --> 00:11:34,104
+Donc je crée p une instance de Phrase. Voilà.
+
+213
+00:11:34,304 --> 00:11:37,552
+Je crée, malgré tout, une deuxième instance de Phrase que je ne référence pas.
+
+214
+00:11:37,752 --> 00:11:43,279
+Et je vais créer une instance de PhraseSansCasse.
+
+215
+00:11:43,479 --> 00:11:50,155
+Donc maintenant, regardons les différents appels de num
+
+216
+00:11:50,355 --> 00:11:55,801
+Je fais p.num() : j'appelle num sur une instance de Phrase
+
+217
+00:11:56,001 --> 00:12:00,310
+par conséquence, ma méthode de classe va prendre la classe Phrase comme argument
+
+218
+00:12:00,510 --> 00:12:03,381
+et va, donc, appeler le compteur Phrase.nb_i
+
+219
+00:12:03,581 --> 00:12:07,270
+nb_i vaut 2, à ce moment-là.
+
+220
+00:12:07,470 --> 00:12:11,694
+Si j'appelle ma méthode de classe directement depuis Phrase (Phrase.num())
+
+221
+00:12:11,894 --> 00:12:12,973
+je vois encore le compteur à 2
+
+222
+00:12:13,173 --> 00:12:19,157
+et donc,là,on peut également vérifier que num() est bien une méthode bound sur la classe
+
+223
+00:12:19,357 --> 00:12:24,061
+et que p.num() est également une méthode bound sur la classe.
+
+224
+00:12:24,261 --> 00:12:29,378
+Maintenant, j'appelle cette méthode depuis mon instance de PhraseSansCasse,
+
+225
+00:12:29,578 --> 00:12:33,067
+je vais voir que mon compteur est bien à 1
+
+226
+00:12:33,267 --> 00:12:36,141
+et que j'appelle bien la méthode que je dois appeler, la méthode de PhraseSansCasse.
+
+227
+00:12:36,341 --> 00:12:38,158
+Encore une fois, c'est une méthode bound à la classe.
+
+228
+00:12:38,358 --> 00:12:40,580
+Je vais donc regarder le compteur de PhraseSansCasse
+
+229
+00:12:40,780 --> 00:12:47,280
+Et si maintenant, je l'appelle directement depuis ma classe PhraseSansCasse
+
+230
+00:12:47,480 --> 00:12:51,171
+(PhraseSansCasse.num()) je vois, de nouveau, que c'est le bon compteur qui est appelé.
+
+231
+00:12:52,167 --> 00:12:54,064
+Dans cette vidéo, nous venons de voir les notions de
+
+232
+00:12:54,264 --> 00:12:56,163
+méthodes statiques et de méthodes de classe.
+
+233
+00:12:56,363 --> 00:12:58,673
+Une méthode statique est une méthode que l'on peut appeler indifféremment
+
+234
+00:12:58,873 --> 00:13:00,241
+depuis une classe ou depuis une instance
+
+235
+00:13:00,441 --> 00:13:04,050
+et ça à créer une méthode qui se comporte comme une fonction tout à fait classique.
+
+236
+00:13:04,250 --> 00:13:08,066
+Et une méthode de classe, c'est une méthode qui s'appelle indifféremment
+
+237
+00:13:08,266 --> 00:13:09,427
+depuis une classe ou depuis une instance
+
+238
+00:13:09,627 --> 00:13:11,170
+mais qui va être bound à la classe
+
+239
+00:13:11,370 --> 00:13:15,434
+par conséquence, l'interpréteur va automatiquement passer la classe comme premier argument.
+
+240
+00:13:15,634 --> 00:13:16,794
+A bientôt.
+
