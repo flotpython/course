@@ -1,0 +1,1100 @@
+1
+00:00:04,045 --> 00:00:09,082
+Dans cette vidéo nous allons parler des
+
+2
+00:00:06,549 --> 00:00:11,590
+listes en python la liste représente un
+
+3
+00:00:09,082 --> 00:00:13,311
+type extrêmement souple et puissant
+
+4
+00:00:11,059 --> 00:00:15,768
+une liste est une séquence d'objets
+
+5
+00:00:14,049 --> 00:00:17,980
+hétérogènes donc une l'iksv absolument
+
+6
+00:00:16,299 --> 00:00:19,320
+stocker n'importe quel type d'objet mais
+
+7
+00:00:17,098 --> 00:00:19,189
+il est important de comprendre que la
+
+8
+00:00:19,509 --> 00:00:22,570
+liste ne stoppe pas les objets mis nos
+
+9
+00:00:20,089 --> 00:00:24,228
+stocks que des références vers ces
+
+10
+00:00:22,057 --> 00:00:26,016
+objets par conséquent l'objet liste la
+
+11
+00:00:25,029 --> 00:00:29,500
+taille de l'objet liste est indépendante
+
+12
+00:00:26,529 --> 00:00:31,000
+du type d'objet qui sont référencés une
+
+13
+00:00:29,005 --> 00:00:31,096
+liste peu augmenté en taille peut
+
+14
+00:00:31,000 --> 00:00:33,076
+réduire on peut l'écarter au mileu
+
+15
+00:00:32,041 --> 00:00:35,059
+rajouter des éléments à l'intérieur on
+
+16
+00:00:33,076 --> 00:00:37,108
+peut vraiment complètement la manipuler
+
+17
+00:00:35,059 --> 00:00:39,073
+c'est très malléable en fait la liste et
+
+18
+00:00:38,008 --> 00:00:41,095
+malia parce que c'est un objet mutable
+
+19
+00:00:39,073 --> 00:00:42,160
+et cette notion de mutabilité importante
+
+20
+00:00:41,095 --> 00:00:45,097
+à comprendre un objet mutable c'est un
+
+21
+00:00:43,006 --> 00:00:47,008
+objet que l'on peut modifier en place ça
+
+22
+00:00:46,015 --> 00:00:49,084
+veut dire que l'on peut modifier là où
+
+23
+00:00:47,062 --> 00:00:51,771
+il est stocké l'avantagent de cette mue
+
+24
+00:00:49,084 --> 00:00:52,177
+tabilité c'est que on n'a pas besoin de
+
+25
+00:00:52,329 --> 00:00:54,220
+faire une copié de l'objet pour le
+
+26
+00:00:53,077 --> 00:00:55,123
+modifier
+
+27
+00:00:54,022 --> 00:00:58,060
+c'est donc extrêmement efficace au
+
+28
+00:00:56,023 --> 00:01:00,037
+niveau mémoire ouvrons maintenant un
+
+29
+00:00:58,006 --> 00:01:02,805
+interpréteur python pour commencer à
+
+30
+00:01:00,037 --> 00:01:04,656
+jouer avec les listes je vous rappelle
+
+31
+00:01:03,399 --> 00:01:06,450
+qu'une liste est une séquence par
+
+32
+00:01:04,989 --> 00:01:08,034
+conséquent toutes les opérations que
+
+33
+00:01:06,909 --> 00:01:09,880
+l'on a vu sur les séquences sont
+
+34
+00:01:08,439 --> 00:01:11,511
+applicables aux listes le test
+
+35
+00:01:09,088 --> 00:01:14,097
+d'appartenance la concaténation la
+
+36
+00:01:12,159 --> 00:01:16,257
+fonction biltine laine quand index
+
+37
+00:01:14,889 --> 00:01:18,100
+toutes ces opérations sont disponibles
+
+38
+00:01:17,139 --> 00:01:19,218
+pour toutes les séquences donc en
+
+39
+00:01:18,001 --> 00:01:21,043
+particulier pour les listes maintenant
+
+40
+00:01:19,929 --> 00:01:23,991
+créons un objet liste vide
+
+41
+00:01:21,052 --> 00:01:25,120
+pour cela on va pour définir une liste
+
+42
+00:01:24,549 --> 00:01:28,638
+on utilise des crochets ouvrant et
+
+43
+00:01:26,002 --> 00:01:30,771
+fermant j'ai donc créé un objet liste
+
+44
+00:01:29,439 --> 00:01:32,523
+qui évite je peux vérifier en utilisant
+
+45
+00:01:30,969 --> 00:01:34,062
+la fonction belting -type et vérifier le
+
+46
+00:01:33,279 --> 00:01:38,304
+type de cet objet c d un objet de type
+
+47
+00:01:34,899 --> 00:01:39,903
+liste dans une liste je peut stocker
+
+48
+00:01:38,529 --> 00:01:41,598
+absolument n'importe quel type d'objet
+
+49
+00:01:39,939 --> 00:01:43,810
+donc prenons un entier qui vaut 4 écrits
+
+50
+00:01:42,219 --> 00:01:47,307
+ont maintenant une nouvelle liste qui va
+
+51
+00:01:43,081 --> 00:01:50,460
+référencer ma variable enfin donc monde
+
+52
+00:01:48,099 --> 00:01:55,125
+entier y référencés par la variable la
+
+53
+00:01:51,189 --> 00:01:57,490
+chaîne de caractères spam un float est
+
+54
+00:01:55,359 --> 00:01:59,590
+un boulet donc on voit que j'ai vraiment
+
+55
+00:01:57,049 --> 00:02:00,088
+quatre objets complètement différent et
+
+56
+00:01:59,059 --> 00:02:02,688
+d'ailleurs même le premier objet et même
+
+57
+00:02:00,088 --> 00:02:03,387
+référencer par une variable et tout cela
+
+58
+00:02:03,219 --> 00:02:05,770
+fonctionne parfaitement
+
+59
+00:02:04,179 --> 00:02:07,810
+je peux afficher ma liste et je vois
+
+60
+00:02:05,077 --> 00:02:09,106
+bien quel référence lanthier 4 la chaîne
+
+61
+00:02:07,081 --> 00:02:11,083
+de caractères spam le flot de 3,1 et shu
+
+62
+00:02:10,006 --> 00:02:13,935
+je vous rappelle que la liste ne stoppe
+
+63
+00:02:12,001 --> 00:02:15,087
+pas ces objets m ne stocke des
+
+64
+00:02:13,989 --> 00:02:17,760
+références vers ces objets c
+
+65
+00:02:15,087 --> 00:02:19,101
+par conséquent extrêmement efficace une
+
+66
+00:02:17,076 --> 00:02:23,145
+liste en particulier ne va jamais copié
+
+67
+00:02:20,001 --> 00:02:26,480
+les objets qu'elle référence comme ma
+
+68
+00:02:24,045 --> 00:02:28,047
+liste est une séquence je peux donc
+
+69
+00:02:26,489 --> 00:02:29,730
+accéder à chaque élément de malice donc
+
+70
+00:02:28,047 --> 00:02:32,126
+par exemple le premier élément de ma
+
+71
+00:02:29,073 --> 00:02:34,172
+liste va être lent tier iv malice
+
+72
+00:02:32,549 --> 00:02:35,549
+traitant mutable je peux modifier ce
+
+73
+00:02:34,829 --> 00:02:37,560
+premier élément
+
+74
+00:02:35,549 --> 00:02:39,750
+donc je peux par exemple dire à 2,0
+
+75
+00:02:37,056 --> 00:02:42,123
+égale 6 maintenant je vois que ma liste
+
+76
+00:02:39,075 --> 00:02:43,140
+contient 6 spam 3,2 et chaud et je peux
+
+77
+00:02:43,023 --> 00:02:46,044
+également faire directement une
+
+78
+00:02:44,004 --> 00:02:49,023
+opération sur un élément d'une liste
+
+79
+00:02:46,044 --> 00:02:51,623
+donc par exemple à 2,0 égale à 2 0 + 10
+
+80
+00:02:49,059 --> 00:02:52,116
+je vais donc ajouter 10 au premier
+
+81
+00:02:52,019 --> 00:02:55,790
+élément de ma liste et je vois que
+
+82
+00:02:53,016 --> 00:03:01,059
+maintenant j'obtiens la liste 16 span
+
+83
+00:02:55,079 --> 00:03:02,168
+3,2 et chou sur ma liste je peux
+
+84
+00:03:01,059 --> 00:03:06,093
+également faire des opérations de
+
+85
+00:03:02,879 --> 00:03:08,400
+slicing donc si je prends à de 12.3 ça
+
+86
+00:03:06,093 --> 00:03:10,119
+va me prendre tous les éléments alors de
+
+87
+00:03:08,004 --> 00:03:13,086
+1 ac inclus à trois exclus à dire un
+
+88
+00:03:11,019 --> 00:03:15,818
+élément 2 ça va me retournais spam 3.2
+
+89
+00:03:14,022 --> 00:03:18,071
+et je peux même faire des opérations
+
+90
+00:03:15,989 --> 00:03:19,950
+d'affectation sur ds lite alors ça c'est
+
+91
+00:03:18,269 --> 00:03:21,278
+quelque chose d'un peu particulier qu'on
+
+92
+00:03:19,095 --> 00:03:25,694
+va prendre le temps d'expliquer donc
+
+93
+00:03:22,169 --> 00:03:29,000
+regarder j'écris à de 12.3 égale la
+
+94
+00:03:26,549 --> 00:03:31,440
+liste 1 2 3 et regardons ce qui se passe
+
+95
+00:03:29,000 --> 00:03:33,389
+lorsque j'exécute ça je vois que ma
+
+96
+00:03:31,044 --> 00:03:35,963
+liste a été modifié d'une manière un peu
+
+97
+00:03:33,389 --> 00:03:38,400
+curieuse l'affectation sur un slice va
+
+98
+00:03:36,359 --> 00:03:40,415
+effectuer deux opérations indépendante
+
+99
+00:03:38,004 --> 00:03:42,923
+la première opération lorsque je fais à
+
+100
+00:03:40,919 --> 00:03:45,935
+de 12.3 c'est d'enlever tous les
+
+101
+00:03:43,319 --> 00:03:47,357
+éléments qui vont de 1 exclu à 3 exclut
+
+102
+00:03:46,079 --> 00:03:50,156
+donc d'enlever tous les éléments sur le
+
+103
+00:03:47,699 --> 00:03:53,310
+slice la deuxième opération va consister
+
+104
+00:03:50,849 --> 00:03:54,863
+à insérer les éléments qui sont dans la
+
+105
+00:03:53,031 --> 00:03:57,069
+séquence de droite donc dans ce cas là 1
+
+106
+00:03:54,989 --> 00:04:00,720
+2 3 à la place des éléments qui ont été
+
+107
+00:03:57,069 --> 00:04:03,728
+effacés dans notre exemple j'ai effacé
+
+108
+00:04:00,072 --> 00:04:06,431
+les éléments spam 3.2 et j'ai ajouté à
+
+109
+00:04:04,349 --> 00:04:08,372
+la place les éléments 1 2 3 donc on va
+
+110
+00:04:07,079 --> 00:04:10,230
+donc une liste est extrêmement flexible
+
+111
+00:04:08,579 --> 00:04:11,910
+puisque on peut effacer des éléments au
+
+112
+00:04:10,023 --> 00:04:14,252
+milieu en rajouter
+
+113
+00:04:11,091 --> 00:04:15,470
+la liste va automatiquement s'étendre ou
+
+114
+00:04:14,459 --> 00:04:18,750
+alors se contracter en fonction de ce
+
+115
+00:04:16,289 --> 00:04:20,327
+qu'on ajoute au milieu donc cette
+
+116
+00:04:18,075 --> 00:04:22,107
+opération d'affectation sur un slice est
+
+117
+00:04:20,669 --> 00:04:24,450
+un moyen très simple dans d'effacer des
+
+118
+00:04:23,007 --> 00:04:26,014
+éléments dans une liste donc si je fais
+
+119
+00:04:24,045 --> 00:04:29,074
+1 à 2 1
+
+120
+00:04:26,077 --> 00:04:30,118
+2.3 je vais effacer et que je l'affect
+
+121
+00:04:29,074 --> 00:04:32,253
+une séquence vide
+
+122
+00:04:31,018 --> 00:04:34,093
+je vais effacer tous les éléments qui
+
+123
+00:04:32,919 --> 00:04:36,430
+sont entre 1 et 3 et comme je remets
+
+124
+00:04:34,093 --> 00:04:37,156
+rien à la place ces éléments vont être
+
+125
+00:04:36,043 --> 00:04:40,108
+simplement effacés je peux également
+
+126
+00:04:38,056 --> 00:04:42,058
+utiliser l'instruction d'elle pour
+
+127
+00:04:41,008 --> 00:04:47,065
+enlever des éléments dans un slice donc
+
+128
+00:04:42,058 --> 00:04:49,087
+regardons cet exemple dell de 12.2 va
+
+129
+00:04:47,065 --> 00:04:50,137
+m'effacer l'élément alain 10,1
+
+130
+00:04:49,087 --> 00:04:53,876
+donc je regarde ma séquence est
+
+131
+00:04:51,037 --> 00:04:56,134
+effectivement l'élément 3 a été effacé
+
+132
+00:04:54,659 --> 00:04:59,700
+il existe un grand nombre d'opérations
+
+133
+00:04:57,034 --> 00:05:00,133
+sur les listes regardant toutes ces
+
+134
+00:05:00,069 --> 00:05:02,680
+opérations qui sont disponibles sur les
+
+135
+00:05:01,033 --> 00:05:04,212
+listes donc pour ça je vous rappelle
+
+136
+00:05:02,068 --> 00:05:06,117
+qu'on put c'est la fonction multi ndir
+
+137
+00:05:04,509 --> 00:05:08,620
+qui me permet de lister toutes les
+
+138
+00:05:06,729 --> 00:05:09,795
+méthodes sur un objet donc dire de lys
+
+139
+00:05:08,062 --> 00:05:11,143
+va me stocker toutes les méthodes sur un
+
+140
+00:05:10,389 --> 00:05:13,690
+objet j'oublie les méthodes avec des
+
+141
+00:05:12,043 --> 00:05:14,077
+doubles underscore et je regarde que
+
+142
+00:05:13,069 --> 00:05:14,418
+celles qui n'ont pas de doubler leur
+
+143
+00:05:14,077 --> 00:05:16,111
+score
+
+144
+00:05:15,039 --> 00:05:18,990
+je vois donc par exemple que j'ai une
+
+145
+00:05:17,011 --> 00:05:21,630
+méthode qui s'appelle a peintes
+
+146
+00:05:18,099 --> 00:05:22,278
+regardons avec led intégré à piton
+
+147
+00:05:21,729 --> 00:05:24,430
+exactement ce que veut dire à peindre
+
+148
+00:05:23,169 --> 00:05:25,218
+donc dans et python je peux juste
+
+149
+00:05:24,043 --> 00:05:27,582
+rajouter un point d'interrogation
+
+150
+00:05:25,659 --> 00:05:32,050
+si vous n'utilisez pas y python s'est
+
+151
+00:05:27,969 --> 00:05:35,620
+totalement équivalent décrire l aps de
+
+152
+00:05:32,005 --> 00:05:37,524
+liste points à pain ça va vous donner la
+
+153
+00:05:35,062 --> 00:05:38,074
+même être mais évidemment qu'on promène
+
+154
+00:05:37,569 --> 00:05:40,780
+dans les piétons c'est plus rapide de
+
+155
+00:05:38,074 --> 00:05:42,873
+taper le point d'interrogation donc fait
+
+156
+00:05:40,078 --> 00:05:44,086
+appel à peindre ajoute un objet à la fin
+
+157
+00:05:43,539 --> 00:05:48,520
+de la liste donc reprenons mal histoire
+
+158
+00:05:45,058 --> 00:05:51,867
+qui est égale à 16 soit si je fais un à
+
+159
+00:05:48,052 --> 00:05:54,093
+deux à peindre de 18 de la chaîne de
+
+160
+00:05:52,389 --> 00:05:58,485
+caractères 18
+
+161
+00:05:54,093 --> 00:06:00,692
+je recommence à points à peindre de la
+
+162
+00:05:59,349 --> 00:06:04,000
+chaîne de caractères 18
+
+163
+00:06:01,529 --> 00:06:06,534
+je vais voir que j'ai rajouté la chaîne
+
+164
+00:06:04,000 --> 00:06:09,009
+de caractères 18 à la fin de ma liste je
+
+165
+00:06:07,029 --> 00:06:12,190
+peux également utiliser l'opération
+
+166
+00:06:09,009 --> 00:06:15,400
+externe qui va prendre une séquence 1 2
+
+167
+00:06:12,019 --> 00:06:17,118
+je vais prendre un deux trois et qui va
+
+168
+00:06:15,004 --> 00:06:19,143
+ajouter chaque élément de cette séquence
+
+169
+00:06:17,289 --> 00:06:21,550
+à la fin de ma liste en fait c'est comme
+
+170
+00:06:19,539 --> 00:06:24,310
+si on faisait un à peindre sur chaque
+
+171
+00:06:21,055 --> 00:06:25,164
+élément de la séquence j'ai mis une
+
+172
+00:06:24,031 --> 00:06:26,790
+parenthèse donc vous pouvez remarquer
+
+173
+00:06:25,659 --> 00:06:28,960
+cette erreur qui s'appelle syntax error
+
+174
+00:06:27,069 --> 00:06:30,430
+qui juste une erreur de syntaxe
+
+175
+00:06:28,096 --> 00:06:31,425
+en général les erreurs de syntaxe et
+
+176
+00:06:30,043 --> 00:06:33,094
+lorsque je et j'écris mal mon code
+
+177
+00:06:32,289 --> 00:06:35,301
+j'oublie de fermer une parenthèse où je
+
+178
+00:06:33,094 --> 00:06:36,106
+remplace une parenthèse comme un crochet
+
+179
+00:06:35,409 --> 00:06:42,220
+par un crochet comme je lé fais ici
+
+180
+00:06:37,006 --> 00:06:44,014
+donc je recommence voilà ma parenthèse
+
+181
+00:06:42,022 --> 00:06:47,038
+et à la fin je regarde ma liste et ma
+
+182
+00:06:44,086 --> 00:06:50,095
+liste a bien été étendue des éléments
+
+183
+00:06:47,038 --> 00:06:52,096
+que j'avais dans ma séquence 1 2 3 j'ai
+
+184
+00:06:51,076 --> 00:06:53,158
+également des opérations qui me
+
+185
+00:06:52,096 --> 00:06:56,152
+permettent de trier de liste donc dans
+
+186
+00:06:54,058 --> 00:07:05,059
+ce cas-là prenons une liste de nombres
+
+187
+00:06:57,052 --> 00:07:07,081
+1,5 3,1 7 8 9 et 2 voilà je peux appeler
+
+188
+00:07:05,068 --> 00:07:09,115
+la méthode sorte sur ma liste et cette
+
+189
+00:07:07,081 --> 00:07:11,125
+méthode sorte va trier les éléments de
+
+190
+00:07:10,015 --> 00:07:14,026
+ma liste attention sorte fonctionne en
+
+191
+00:07:12,025 --> 00:07:15,097
+place ça veut dire que ma liste a été
+
+192
+00:07:14,026 --> 00:07:17,032
+trié en place sans faire de copies
+
+193
+00:07:15,097 --> 00:07:18,112
+temporaire et la méthode sorte de retour
+
+194
+00:07:17,086 --> 00:07:19,183
+de rien puisque l'objet est étrillé en
+
+195
+00:07:19,012 --> 00:07:23,068
+place donc maintenant je vois bien que
+
+196
+00:07:20,083 --> 00:07:25,129
+ma liste à a été modifié ne faites
+
+197
+00:07:23,068 --> 00:07:27,027
+jamais d'opérations d'affectation sur la
+
+198
+00:07:26,029 --> 00:07:29,050
+méthode sorte parce que la méthode forte
+
+199
+00:07:27,639 --> 00:07:31,150
+va vous retour des l'objet nonnes et par
+
+200
+00:07:29,005 --> 00:07:35,014
+conséquent si je fais à 2 à point
+
+201
+00:07:31,015 --> 00:07:37,072
+sortent maintenant ma ma variable havas
+
+202
+00:07:36,004 --> 00:07:39,043
+référence et non plus la liste que j'ai
+
+203
+00:07:37,072 --> 00:07:40,135
+trié mais simplement la valeur de retour
+
+204
+00:07:39,079 --> 00:07:44,137
+de sorte qu'ils ne sert à rien qui est
+
+205
+00:07:41,035 --> 00:07:46,042
+juste l'objet donc l'objet vide une
+
+206
+00:07:45,037 --> 00:07:48,100
+dernière opération très importante à
+
+207
+00:07:47,005 --> 00:07:50,101
+voir sur les listes c'est l'opération
+
+208
+00:07:49,000 --> 00:07:52,075
+qui permet de passer d'une chaîne de
+
+209
+00:07:51,001 --> 00:07:54,037
+caractères à une liste et d'une liste à
+
+210
+00:07:52,075 --> 00:07:55,090
+une chaîne de caractères c'est quelque
+
+211
+00:07:54,037 --> 00:07:57,052
+chose que vous utiliserez très
+
+212
+00:07:55,009 --> 00:07:58,054
+régulièrement si vous accédez à des
+
+213
+00:07:57,052 --> 00:08:00,109
+fichiers et que vous voulez les traiter
+
+214
+00:07:59,035 --> 00:08:02,107
+avec python donc regardons comment cela
+
+215
+00:08:01,009 --> 00:08:05,044
+se passe en python je crée une chaîne de
+
+216
+00:08:03,007 --> 00:08:08,062
+caractères est ce qui va contenir un mot
+
+217
+00:08:05,044 --> 00:08:09,126
+spam et un deuxième boeing et un
+
+218
+00:08:08,062 --> 00:08:12,171
+troisième but
+
+219
+00:08:10,026 --> 00:08:14,041
+ce que j'aimerais faire imaginons que
+
+220
+00:08:12,729 --> 00:08:15,700
+cette chaîne de caractères soit le
+
+221
+00:08:14,041 --> 00:08:16,135
+résultat de la lecture de fichiers
+
+222
+00:08:15,007 --> 00:08:18,010
+j'aimerais séparer cette chaîne de
+
+223
+00:08:17,035 --> 00:08:20,053
+caractères en colonne obtenir la
+
+224
+00:08:19,000 --> 00:08:22,009
+première la deuxième et la troisième
+
+225
+00:08:20,053 --> 00:08:24,162
+colonne en python c'est très simple de
+
+226
+00:08:22,009 --> 00:08:27,097
+faire sens d'utiliser la fonction
+
+227
+00:08:24,639 --> 00:08:30,490
+biltine split qui est une fonction des
+
+228
+00:08:28,078 --> 00:08:31,078
+chaînes de caractères le résultat de
+
+229
+00:08:30,049 --> 00:08:33,130
+cette chaîne de cette fonction biltine
+
+230
+00:08:31,078 --> 00:08:35,176
+c2d couper ma chaîne de caractères en
+
+231
+00:08:34,003 --> 00:08:37,072
+utilisant l'espace comme séparateur donc
+
+232
+00:08:36,076 --> 00:08:39,795
+regardons le résultat j'obtiens une
+
+233
+00:08:37,099 --> 00:08:43,147
+liste qui contient trois éléments spam
+
+234
+00:08:40,479 --> 00:08:46,120
+aide et beats à split je peux lui passer
+
+235
+00:08:44,047 --> 00:08:46,138
+n'importe quel caractère de séparation
+
+236
+00:08:46,012 --> 00:08:49,054
+donc par exemple si ma chaîne de
+
+237
+00:08:47,038 --> 00:08:49,437
+caractère avait été formatée avec des
+
+238
+00:08:49,054 --> 00:08:50,143
+vies
+
+239
+00:08:49,779 --> 00:08:52,833
+gül qui sépare les mots j'aurais pu
+
+240
+00:08:51,043 --> 00:08:55,054
+passer à split la chaîne de caractères
+
+241
+00:08:53,319 --> 00:08:55,395
+virgule pour découper en fonction de
+
+242
+00:08:55,054 --> 00:08:57,079
+cette virgule
+
+243
+00:08:56,079 --> 00:08:59,800
+une fois que j'ai ma chaîne de
+
+244
+00:08:57,079 --> 00:09:00,618
+caractères ma liste étant mutable je
+
+245
+00:08:59,008 --> 00:09:07,347
+peux tout et faire tout à fait faire à
+
+246
+00:09:01,329 --> 00:09:09,378
+2,0 égal à 20.1 hopper c'est à dire que
+
+247
+00:09:08,139 --> 00:09:12,220
+je mets en majuscules le premier élément
+
+248
+00:09:09,819 --> 00:09:14,230
+est ensuite je peux retransformer ma
+
+249
+00:09:12,022 --> 00:09:15,011
+liste en chaîne de caractère avec la
+
+250
+00:09:14,023 --> 00:09:16,932
+syntaxe suivante
+
+251
+00:09:15,209 --> 00:09:18,730
+cette syntaxe un tout petit peu
+
+252
+00:09:17,139 --> 00:09:19,215
+particulière en python je commence par
+
+253
+00:09:18,073 --> 00:09:21,672
+écrire la chaîne de caractères
+
+254
+00:09:19,899 --> 00:09:24,942
+séparateur qui va être mis entre chaque
+
+255
+00:09:22,329 --> 00:09:28,416
+élément de ma liste et ensuite je fais
+
+256
+00:09:25,329 --> 00:09:30,366
+un job de a donc évidemment machette de
+
+257
+00:09:29,199 --> 00:09:32,860
+caractère pour être absolument n'importe
+
+258
+00:09:30,699 --> 00:09:33,774
+quoi comme séparateur donc si je fais
+
+259
+00:09:32,086 --> 00:09:35,235
+espace point john de à
+
+260
+00:09:34,449 --> 00:09:37,990
+j'obtiens une nouvelle chaîne de
+
+261
+00:09:36,009 --> 00:09:42,054
+caractères qui maintenant contient spam
+
+262
+00:09:37,099 --> 00:09:43,698
+en majuscules aide et binz donc en
+
+263
+00:09:42,459 --> 00:09:46,660
+résumé nous avons vu dans cette vidéo le
+
+264
+00:09:44,589 --> 00:09:48,597
+type liste qui un type extrêmement
+
+265
+00:09:46,066 --> 00:09:50,122
+puissant et centrale en python comme je
+
+266
+00:09:49,389 --> 00:09:53,680
+vous l'expliquais d'introduction cet
+
+267
+00:09:51,022 --> 00:09:54,097
+objet et mutable extrêmement flexible on
+
+268
+00:09:53,068 --> 00:09:56,071
+peut ajouter des choses au milieu les
+
+269
+00:09:54,097 --> 00:09:56,173
+quartiers il peut référencer n'importe
+
+270
+00:09:56,098 --> 00:09:59,116
+quel type d'objet
+
+271
+00:09:57,073 --> 00:10:00,792
+il est par conséquent vraiment le type
+
+272
+00:10:00,016 --> 00:10:04,065
+qui est au coeur de tous vos programmes
+
+273
+00:10:01,449 --> 00:10:05,493
+python il est donc important de bien le
+
+274
+00:10:04,209 --> 00:10:10,050
+maîtriser et d'être capable de le
+
+275
+00:10:05,889 --> 00:10:10,050
+manipuler de manière aisée à bientôt
+
