@@ -1,0 +1,1152 @@
+1
+00:00:03,056 --> 00:00:07,074
+lorsque l'on développe des fonctions il
+
+2
+00:00:05,094 --> 00:00:09,120
+arrive que l'on est à même besoin sur
+
+3
+00:00:07,074 --> 00:00:11,127
+plusieurs fonctions par exemple calculer
+
+4
+00:00:10,002 --> 00:00:14,261
+un temps d'exécution valider des
+
+5
+00:00:12,027 --> 00:00:16,083
+arguments ou côté le nombre d'appels que
+
+6
+00:00:14,459 --> 00:00:18,240
+l'on fait de ses fonctions dès
+
+7
+00:00:16,083 --> 00:00:19,092
+maintenant saurez tout à fait
+
+8
+00:00:18,024 --> 00:00:21,803
+implémenter ce type de fonctionnalité le
+
+9
+00:00:20,073 --> 00:00:22,122
+problème que l'on aurait été content du
+
+10
+00:00:22,019 --> 00:00:25,043
+cliqueraient beaucoup de codes puisqu'il
+
+11
+00:00:23,022 --> 00:00:26,055
+faudrait écrire un code spécifique pour
+
+12
+00:00:25,259 --> 00:00:28,740
+chaque fonction alors que ce code fait
+
+13
+00:00:26,055 --> 00:00:29,097
+essentiellement la même chose il existe
+
+14
+00:00:28,074 --> 00:00:31,083
+en pétant une technique que l'on appelle
+
+15
+00:00:29,097 --> 00:00:33,956
+le décorateur un décorateur est une
+
+16
+00:00:32,064 --> 00:00:35,160
+manière de dire explicitement que l'on
+
+17
+00:00:34,829 --> 00:00:38,852
+modifie le comportement d'une fonction
+
+18
+00:00:36,006 --> 00:00:39,875
+ça permet également de factoriser un
+
+19
+00:00:39,059 --> 00:00:43,230
+code que l'on applique à différents
+
+20
+00:00:40,469 --> 00:00:44,474
+types de fonctions essentiellement un
+
+21
+00:00:43,023 --> 00:00:46,080
+décorateur permet d'exécuter du code
+
+22
+00:00:44,969 --> 00:00:48,780
+avant l'appel d'une fonction après
+
+23
+00:00:46,008 --> 00:00:50,010
+l'appel d'une fonction et éventuellement
+
+24
+00:00:48,078 --> 00:00:51,126
+de garder de les informations entre
+
+25
+00:00:50,082 --> 00:00:52,961
+plusieurs appels successifs d'une
+
+26
+00:00:52,026 --> 00:00:54,117
+fonction mais nous allons voir qu un
+
+27
+00:00:53,699 --> 00:00:55,920
+décorateur et plus générale que ça et
+
+28
+00:00:55,017 --> 00:00:57,206
+que l'on peut avoir
+
+29
+00:00:55,092 --> 00:00:58,119
+on peut imaginer bien d'autres
+
+30
+00:00:57,359 --> 00:01:02,940
+applications regardons maintenant le
+
+31
+00:00:59,019 --> 00:01:03,114
+fonctionnement d'un décorateur regardons
+
+32
+00:01:02,094 --> 00:01:05,127
+comment est ce que l'on note un
+
+33
+00:01:04,014 --> 00:01:07,065
+décorateur en python nous en avons déjà
+
+34
+00:01:06,027 --> 00:01:09,033
+parlé lorsque nous avons parlé des
+
+35
+00:01:07,065 --> 00:01:12,108
+fonctions statique et de classe nous
+
+36
+00:01:09,033 --> 00:01:14,064
+avons une notation @ qui permet de dire
+
+37
+00:01:13,008 --> 00:01:15,036
+que l'on applique le décorateur à notre
+
+38
+00:01:14,064 --> 00:01:16,065
+fonction f
+
+39
+00:01:15,036 --> 00:01:18,123
+donc l'intérêt principal de cette
+
+40
+00:01:16,074 --> 00:01:19,161
+notation c'est de rendre explicite le
+
+41
+00:01:19,023 --> 00:01:22,065
+fait que l'on décor cette fonction
+
+42
+00:01:20,061 --> 00:01:22,065
+cependant un décorateur de fait rien de
+
+43
+00:01:22,065 --> 00:01:24,078
+magique
+
+44
+00:01:23,001 --> 00:01:26,079
+c'est simplement un raccourci vers la
+
+45
+00:01:24,078 --> 00:01:28,125
+syntaxe suivante on crée toujours notre
+
+46
+00:01:26,079 --> 00:01:30,120
+fonction et le @ décorateur va
+
+47
+00:01:29,025 --> 00:01:33,120
+simplement dire à l'interpréteur python
+
+48
+00:01:31,002 --> 00:01:36,009
+qu'il faut faire un f égale décorateur
+
+49
+00:01:34,002 --> 00:01:37,059
+de essentiellement ce que fait un
+
+50
+00:01:36,027 --> 00:01:39,102
+décorateur voyons que c'est assez simple
+
+51
+00:01:37,077 --> 00:01:40,140
+donc ça évidemment ça vous rappelle ce
+
+52
+00:01:40,002 --> 00:01:42,081
+que nous avons déjà vu dans le contexte
+
+53
+00:01:41,004 --> 00:01:44,022
+des méthodes statique et des méthodes de
+
+54
+00:01:42,081 --> 00:01:44,175
+classe donc reprenons notre exemple nous
+
+55
+00:01:44,058 --> 00:01:47,130
+avons une classe et qui définit une
+
+56
+00:01:45,075 --> 00:01:49,140
+fonction f que l'on décor comme méthode
+
+57
+00:01:48,003 --> 00:01:51,054
+de classe une fonction j'ai que l'on
+
+58
+00:01:50,004 --> 00:01:53,082
+décor comme méthode statique
+
+59
+00:01:51,081 --> 00:01:55,095
+en fait nous venons de le voir ces
+
+60
+00:01:54,018 --> 00:01:57,023
+notations décoration est tout à fait
+
+61
+00:01:55,095 --> 00:01:58,110
+équivalente à faire la chose suivante
+
+62
+00:01:57,023 --> 00:02:00,120
+déclarèrent de nouveau notre classe et
+
+63
+00:01:59,001 --> 00:02:03,069
+avec notre méthode f est nommé et objets
+
+64
+00:02:01,002 --> 00:02:05,097
+ayant décrit vont plus loin que f et gaz
+
+65
+00:02:03,078 --> 00:02:08,130
+classe méthodes de f et g égale statique
+
+66
+00:02:06,015 --> 00:02:11,744
+méthodes de g nous voyons la supériorité
+
+67
+00:02:09,003 --> 00:02:12,087
+de sa notation de décorateurs dire mais
+
+68
+00:02:11,879 --> 00:02:14,790
+qu'est ce qui est super à puisque c'est
+
+69
+00:02:13,014 --> 00:02:16,089
+un tout petit raccourci à cette syntaxe
+
+70
+00:02:14,079 --> 00:02:18,084
+en fait c'est très important de
+
+71
+00:02:16,089 --> 00:02:20,103
+pouvoir spécifié lorsque l'on déclare
+
+72
+00:02:18,084 --> 00:02:22,137
+une fonction que le comportement de la
+
+73
+00:02:21,003 --> 00:02:24,102
+fonction est modifié en effet déclaré de
+
+74
+00:02:23,037 --> 00:02:25,116
+méthodes comme statiques ou de classe
+
+75
+00:02:25,002 --> 00:02:27,941
+est un mode il est d'une modification
+
+76
+00:02:26,016 --> 00:02:30,048
+fondamentale du comportement de la
+
+77
+00:02:27,959 --> 00:02:32,610
+fonction avec la notation de décorateurs
+
+78
+00:02:30,048 --> 00:02:34,053
+vous pouvez vraiment lié cette
+
+79
+00:02:32,061 --> 00:02:36,099
+modification de comportement au moment
+
+80
+00:02:34,053 --> 00:02:38,067
+de la déclaration de la fonction donc on
+
+81
+00:02:36,099 --> 00:02:39,141
+voit bien que ici j'ai mis des petits
+
+82
+00:02:38,067 --> 00:02:41,067
+pointillés mais la déclaration classe
+
+83
+00:02:40,041 --> 00:02:42,129
+méthode cette méthode aurait pu être
+
+84
+00:02:41,067 --> 00:02:46,095
+fait très loin de la déclaration
+
+85
+00:02:43,029 --> 00:02:48,120
+effective delà des méthodes avec
+
+86
+00:02:46,095 --> 00:02:50,130
+l'annotation décorateur on est obligé de
+
+87
+00:02:49,002 --> 00:02:52,511
+mettre le @ juste avant la déclaration
+
+88
+00:02:51,003 --> 00:02:54,062
+de la fonction donc maintenant c'est
+
+89
+00:02:52,709 --> 00:02:57,180
+tout à fait explicites
+
+90
+00:02:54,089 --> 00:02:59,148
+alors donc revenons sur cette notion de
+
+91
+00:02:57,018 --> 00:03:02,357
+décorateurs at décorateur ceux au dessus
+
+92
+00:03:00,048 --> 00:03:04,140
+d'une fonction consiste à faire f égale
+
+93
+00:03:02,519 --> 00:03:06,780
+décorateur de f le point clé c'est que f
+
+94
+00:03:05,004 --> 00:03:06,012
+maintenant lorsque j'appelle ma fonction
+
+95
+00:03:06,078 --> 00:03:09,090
+f
+
+96
+00:03:07,002 --> 00:03:12,015
+ça n'est plus la fonction f original
+
+97
+00:03:09,009 --> 00:03:13,628
+mais en fait la fonction que je vais
+
+98
+00:03:12,033 --> 00:03:14,120
+appeler c'est le résultat de décorateurs
+
+99
+00:03:14,519 --> 00:03:16,616
+de f
+
+100
+00:03:15,002 --> 00:03:18,791
+donc pour expliquer cette notion de
+
+101
+00:03:17,489 --> 00:03:20,220
+résultat de décorateurs de f
+
+102
+00:03:18,989 --> 00:03:21,998
+il faut que j'ai introduit une notion
+
+103
+00:03:20,022 --> 00:03:23,091
+que l'on appelle un col est bonne qu'est
+
+104
+00:03:22,079 --> 00:03:25,500
+ce qu'un col et veulent un collègue
+
+105
+00:03:23,091 --> 00:03:26,157
+c'est un objet que l'on peut appeler
+
+106
+00:03:25,005 --> 00:03:28,062
+avec l'annotation hausse est entre
+
+107
+00:03:27,057 --> 00:03:31,068
+parenthèses enfin aux étangs le nom de
+
+108
+00:03:29,007 --> 00:03:33,051
+l'objet entre parenthèses et et ensuite
+
+109
+00:03:31,068 --> 00:03:34,095
+on rajoute des parentés juste après donc
+
+110
+00:03:33,051 --> 00:03:35,136
+en fait ça correspond exactement à ce
+
+111
+00:03:34,095 --> 00:03:36,162
+que vous connaissez comme étant une
+
+112
+00:03:36,036 --> 00:03:39,039
+fonction une fonction évidemment
+
+113
+00:03:37,062 --> 00:03:40,107
+incollable mais également une instance
+
+114
+00:03:39,066 --> 00:03:41,142
+dont la classe simple et molle la
+
+115
+00:03:41,007 --> 00:03:43,040
+méthode doublant leur score cole
+
+116
+00:03:42,042 --> 00:03:44,049
+doublant leur score
+
+117
+00:03:43,004 --> 00:03:46,011
+alors maintenant qu'est-ce que c'est un
+
+118
+00:03:45,012 --> 00:03:50,013
+décorateur une fois qu'on a cette notion
+
+119
+00:03:47,001 --> 00:03:52,077
+de coller bâle en tête un décorateur en
+
+120
+00:03:50,013 --> 00:03:55,029
+fait c'est un col et bob qui prend comme
+
+121
+00:03:52,086 --> 00:03:55,125
+argument une fonction et qui retourne de
+
+122
+00:03:55,029 --> 00:03:58,448
+nouveau un collègue
+
+123
+00:03:56,025 --> 00:04:00,090
+donc en fait eve décorateur de f
+
+124
+00:03:58,709 --> 00:04:02,850
+décorateur salle colette-bel on voit
+
+125
+00:04:00,009 --> 00:04:03,048
+bien je peux l'appeler manière avec des
+
+126
+00:04:02,085 --> 00:04:06,087
+parenthèses en lui passant l'objet
+
+127
+00:04:04,029 --> 00:04:08,097
+fonctions en tant qu'argument est le
+
+128
+00:04:06,087 --> 00:04:10,110
+résultat de cet appel de décorateurs du
+
+129
+00:04:08,097 --> 00:04:11,136
+f doit me retourner un col est belle
+
+130
+00:04:11,001 --> 00:04:13,098
+c'est à dire un objet que je peux de
+
+131
+00:04:12,036 --> 00:04:15,057
+nouveau appelé ça n'est pas surprenant
+
+132
+00:04:14,007 --> 00:04:17,022
+puisque après je vais appeler ma
+
+133
+00:04:15,057 --> 00:04:18,135
+fonction est tout à fait normalement
+
+134
+00:04:17,022 --> 00:04:20,411
+donc il faut donc après l'objet retourné
+
+135
+00:04:19,035 --> 00:04:24,057
+par décorateur de f puisse de nouveau
+
+136
+00:04:20,609 --> 00:04:25,120
+être appelés donc f égale décorateur de
+
+137
+00:04:24,057 --> 00:04:26,376
+f
+
+138
+00:04:25,012 --> 00:04:29,086
+décorateur de rêve à me retourner un
+
+139
+00:04:26,889 --> 00:04:31,300
+objet au et cet objet au doit être
+
+140
+00:04:29,086 --> 00:04:32,955
+collée bol est en fait lorsque j'appelle
+
+141
+00:04:31,003 --> 00:04:35,089
+f2 ab et ben en fait ça appellera en
+
+142
+00:04:33,729 --> 00:04:38,800
+réalité l'objet o2 avait donc ça
+
+143
+00:04:36,016 --> 00:04:42,495
+appellera ça passera mes arguments a et
+
+144
+00:04:38,008 --> 00:04:43,066
+b à mon nouvel objet collège donc à quoi
+
+145
+00:04:42,639 --> 00:04:45,220
+sert un décorateur nous l'avons expliqué
+
+146
+00:04:44,038 --> 00:04:46,045
+en introduction
+
+147
+00:04:45,022 --> 00:04:48,079
+ça sert essentiellement à ajouter une
+
+148
+00:04:47,008 --> 00:04:50,907
+couche de logique autour de l'appel
+
+149
+00:04:48,079 --> 00:04:52,101
+d'une fonction éventuellement gardé de
+
+150
+00:04:50,979 --> 00:04:56,260
+l'été entre deux appels d'une fonction
+
+151
+00:04:53,001 --> 00:04:57,630
+avec une notation qui est explicite donc
+
+152
+00:04:56,026 --> 00:04:58,111
+c'est vraiment ça d'intérêt marquant
+
+153
+00:04:57,639 --> 00:05:00,654
+c'est con maintenant va modifier
+
+154
+00:04:59,011 --> 00:05:02,035
+explicitement le comportement d'une
+
+155
+00:05:00,789 --> 00:05:04,794
+fonction avec cette notation @
+
+156
+00:05:02,035 --> 00:05:06,082
+décorateur évidemment lorsqu'on définit
+
+157
+00:05:05,289 --> 00:05:08,364
+un décorateur faut définir un nom de
+
+158
+00:05:06,082 --> 00:05:09,091
+décorateurs qui explique clairement ce
+
+159
+00:05:09,039 --> 00:05:12,880
+qu'on est en train de faire à la
+
+160
+00:05:09,091 --> 00:05:13,159
+fonction donc pour cela regardons un
+
+161
+00:05:12,088 --> 00:05:15,687
+exemple imaginons que je veuille
+
+162
+00:05:14,059 --> 00:05:18,112
+d'écrire un écrire un décorateur qui
+
+163
+00:05:16,479 --> 00:05:20,740
+s'appelle mbe appel dont le but est de
+
+164
+00:05:19,012 --> 00:05:21,341
+compter le nombre d'appels que je fais
+
+165
+00:05:20,074 --> 00:05:24,063
+sur ma fonction
+
+166
+00:05:21,449 --> 00:05:26,020
+donc je vais l'écrire @ nber appel et
+
+167
+00:05:24,729 --> 00:05:27,910
+que va faire ce décorateur
+
+168
+00:05:26,002 --> 00:05:30,043
+on l'a vu c'est totalement équivalent à
+
+169
+00:05:27,091 --> 00:05:32,182
+faire def eve ii avait pris deux avaient
+
+170
+00:05:30,043 --> 00:05:35,044
+ensuite fln des appels de m donc
+
+171
+00:05:33,082 --> 00:05:36,133
+maintenant regardons l'implémentation ce
+
+172
+00:05:35,053 --> 00:05:38,131
+décorateur ici je vais vous montrer
+
+173
+00:05:37,033 --> 00:05:40,126
+l'implémentation d'un décorateur sous
+
+174
+00:05:39,031 --> 00:05:41,820
+forme de classe et nous verrons dans une
+
+175
+00:05:41,026 --> 00:05:43,033
+prochaine vidéo
+
+176
+00:05:42,099 --> 00:05:45,160
+l'implémentation d'un décorateur sous
+
+177
+00:05:43,096 --> 00:05:45,187
+forme de fonction en utilisant le
+
+178
+00:05:45,016 --> 00:05:48,028
+concept de clôture mais pour l'instant
+
+179
+00:05:46,087 --> 00:05:49,159
+regard dans l'implémentation sous forme
+
+180
+00:05:48,028 --> 00:05:54,031
+de classe dont je vais défier dans une
+
+181
+00:05:50,059 --> 00:05:55,155
+classe nb appelle une fonction une
+
+182
+00:05:54,058 --> 00:05:58,126
+méthode inédite qui va simplement
+
+183
+00:05:56,055 --> 00:06:01,096
+définir un conteur appel que génissiat
+
+184
+00:05:59,026 --> 00:06:04,365
+lisa 0 et ensuite on voit qu'à il dit
+
+185
+00:06:01,096 --> 00:06:05,161
+je prends comme argument fff étant la
+
+186
+00:06:04,599 --> 00:06:07,870
+fonction que je veux décoré et dans mon
+
+187
+00:06:06,061 --> 00:06:08,550
+instances de l'ump appelle je vais
+
+188
+00:06:07,087 --> 00:06:10,093
+garder un lien vers la fonction
+
+189
+00:06:09,099 --> 00:06:12,940
+originale ça en général c'est ce qu'on
+
+190
+00:06:11,047 --> 00:06:14,059
+veut faire puisque après lorsqu'on décor
+
+191
+00:06:12,094 --> 00:06:15,177
+une fonction très souvent on veut
+
+192
+00:06:14,059 --> 00:06:18,084
+rappeler cette fonction qui a été décoré
+
+193
+00:06:16,077 --> 00:06:20,116
+ensuite j'ai défini une méthode coll
+
+194
+00:06:18,084 --> 00:06:22,473
+effectivement il faut que mon décorateur
+
+195
+00:06:21,016 --> 00:06:24,091
+sont incollables donc pour une qu'une
+
+196
+00:06:23,229 --> 00:06:25,323
+classe soit pour qu'une instance de
+
+197
+00:06:24,091 --> 00:06:27,097
+classe soit collée bol il faut définir
+
+198
+00:06:26,169 --> 00:06:29,241
+une méthode cole et on voit qu'à mettre
+
+199
+00:06:28,051 --> 00:06:31,078
+à ma méthode col je lui passe deux
+
+200
+00:06:29,889 --> 00:06:34,750
+arguments et walt est double aydoilles
+
+201
+00:06:31,078 --> 00:06:35,176
+double étoiles d en fait nous avons vu
+
+202
+00:06:34,075 --> 00:06:37,126
+précédemment que lorsque l'on avait
+
+203
+00:06:36,076 --> 00:06:39,079
+cette notation étoiles doubles
+
+204
+00:06:38,026 --> 00:06:43,045
+toile ça voulait dire qu'on pouvait
+
+205
+00:06:40,006 --> 00:06:45,058
+appeler notre objet avec n'importe quel
+
+206
+00:06:43,045 --> 00:06:46,099
+type d'argument arguments ordonné
+
+207
+00:06:45,058 --> 00:06:47,125
+arguments nommer n'importe quel type
+
+208
+00:06:46,099 --> 00:06:49,099
+d'argument donc en fait c'est une
+
+209
+00:06:48,025 --> 00:06:52,027
+manière de définir un appel tout à fait
+
+210
+00:06:49,099 --> 00:06:53,125
+générique est donc dans notre méthode
+
+211
+00:06:52,045 --> 00:06:57,049
+cole lorsqu'on va appeler notre instance
+
+212
+00:06:54,025 --> 00:06:59,080
+on va incrémenté le compteur le conteur
+
+213
+00:06:57,049 --> 00:07:01,050
+d'appel on va définir une chaîne de
+
+214
+00:06:59,008 --> 00:07:03,013
+caractères qui va simplement afficher
+
+215
+00:07:01,059 --> 00:07:05,092
+self point f points double under scored
+
+216
+00:07:04,003 --> 00:07:07,072
+in doublant leur score même à contenir
+
+217
+00:07:05,092 --> 00:07:07,186
+le nom de la fonction originale et
+
+218
+00:07:07,099 --> 00:07:08,128
+ensuite on va afficher le nombre
+
+219
+00:07:08,086 --> 00:07:10,087
+d'appels
+
+220
+00:07:09,028 --> 00:07:13,054
+on va dire essentiellement ma fonction
+
+221
+00:07:10,087 --> 00:07:16,132
+af a été appelée tant de fois et pour
+
+222
+00:07:13,054 --> 00:07:19,081
+finir on va retourner self f2 et walt
+
+223
+00:07:17,032 --> 00:07:21,057
+est double étoiles des donc fc la
+
+224
+00:07:19,081 --> 00:07:23,134
+fonction originale et on va lui passer
+
+225
+00:07:21,057 --> 00:07:26,095
+étoiles t double et walt et donc on va
+
+226
+00:07:24,034 --> 00:07:27,130
+faire du packing de top eliane packing
+
+227
+00:07:26,095 --> 00:07:29,110
+de dictionnaires donc c'est à dire que
+
+228
+00:07:28,003 --> 00:07:31,057
+ma fonction va lui passer n'importe quel
+
+229
+00:07:30,001 --> 00:07:32,062
+type d'argument donc cet appel est tout
+
+230
+00:07:31,084 --> 00:07:36,115
+à fait génériques
+
+231
+00:07:32,071 --> 00:07:39,127
+donc pour résumer f égale npa nb appel
+
+232
+00:07:37,015 --> 00:07:42,070
+de rff en fait maintenant n'est plus une
+
+233
+00:07:40,027 --> 00:07:44,095
+fonction mais c'est une instance de mb
+
+234
+00:07:42,007 --> 00:07:46,009
+appel et chaque instant de nba peuvent
+
+235
+00:07:44,095 --> 00:07:47,107
+avoir son propre compteur ce qui veut
+
+236
+00:07:46,072 --> 00:07:48,100
+dire que mon décorateur je peux la pique
+
+237
+00:07:48,007 --> 00:07:50,098
+à n'importe quelle fonction
+
+238
+00:07:49,000 --> 00:07:54,046
+chaque application décorateur de créer
+
+239
+00:07:50,098 --> 00:07:55,153
+une nouvelle instance et f2 nb appel va
+
+240
+00:07:54,046 --> 00:07:59,080
+en fait appeler la méthode colle sur
+
+241
+00:07:56,053 --> 00:08:01,081
+cette instance et ensuite on voit que ma
+
+242
+00:07:59,008 --> 00:08:03,013
+méthode cole va simplement me retourner
+
+243
+00:08:01,081 --> 00:08:06,105
+après avoir incrémenté le compteur un
+
+244
+00:08:04,003 --> 00:08:08,008
+appel de ma fonction originale
+
+245
+00:08:07,005 --> 00:08:09,097
+essentiellement mon décorateur d'un
+
+246
+00:08:08,008 --> 00:08:10,081
+comté le nombre d'appels est ensuite
+
+247
+00:08:09,097 --> 00:08:13,099
+exécuté la fonction tout à fait
+
+248
+00:08:11,053 --> 00:08:16,096
+normalement donc maintenant regardons
+
+249
+00:08:13,099 --> 00:08:19,153
+cela j'appelle ma fonction avec deux
+
+250
+00:08:16,096 --> 00:08:21,184
+arguments 1 et 2 je vois que j'ai f qui
+
+251
+00:08:20,053 --> 00:08:23,104
+a été appelé une fois je rappelle ma
+
+252
+00:08:22,084 --> 00:08:25,102
+fonction avec des arguments différents
+
+253
+00:08:24,004 --> 00:08:28,051
+et je vois que f a été appelé deux fois
+
+254
+00:08:26,002 --> 00:08:29,089
+et je vous le rappelle comme décorateur
+
+255
+00:08:28,051 --> 00:08:31,075
+et une signature qui est généré qu'un
+
+256
+00:08:29,089 --> 00:08:32,092
+j'ai passé étoiles doubles étoiles dont
+
+257
+00:08:31,075 --> 00:08:34,150
+je peux l'appeler sur n'importe quel
+
+258
+00:08:33,019 --> 00:08:36,076
+type de fonction je peux réappliquer mon
+
+259
+00:08:35,005 --> 00:08:38,484
+décorateur et de nouvelles fonctions
+
+260
+00:08:36,076 --> 00:08:39,100
+donc comme je ré applique mon décorateur
+
+261
+00:08:38,979 --> 00:08:42,010
+une nouvelle fonction ça va créer une
+
+262
+00:08:40,000 --> 00:08:44,086
+nouvelle instance avec son propre
+
+263
+00:08:42,001 --> 00:08:46,057
+compteur est donc maintenant je vais
+
+264
+00:08:44,086 --> 00:08:46,150
+pouvoir appeler ma fonction j'ai et je
+
+265
+00:08:46,057 --> 00:08:50,084
+vais avoir un nouveau compteur
+
+266
+00:08:47,005 --> 00:08:52,056
+spécifique à ma fonction
+
+267
+00:08:50,084 --> 00:08:54,123
+nous venons de voir la notion de
+
+268
+00:08:53,001 --> 00:08:57,033
+décorateurs les décorateurs permettent
+
+269
+00:08:55,023 --> 00:08:58,119
+d'ajouter une couche de logique autour
+
+270
+00:08:57,033 --> 00:09:00,132
+de l'appel des fonctions avec et c'est
+
+271
+00:08:59,019 --> 00:09:03,111
+un point clé des décorateurs avec une
+
+272
+00:09:01,032 --> 00:09:05,040
+notation explicites liées à la
+
+273
+00:09:04,011 --> 00:09:07,059
+déclaration de la fonction les
+
+274
+00:09:06,012 --> 00:09:08,094
+décorateurs représente sans doute une
+
+275
+00:09:07,059 --> 00:09:10,092
+des techniques de programmation de
+
+276
+00:09:08,094 --> 00:09:10,155
+python avancer la plus utile est la plus
+
+277
+00:09:10,092 --> 00:09:12,138
+fréquente
+
+278
+00:09:11,055 --> 00:09:14,073
+parce que c'est très courant de devoir
+
+279
+00:09:13,038 --> 00:09:16,062
+modifier le comportement d'une fonction
+
+280
+00:09:14,073 --> 00:09:17,100
+et avec cette concept de décorateurs
+
+281
+00:09:16,062 --> 00:09:18,153
+vous avez ainsi un outil de
+
+282
+00:09:18,000 --> 00:09:20,082
+programmation qui vous permet de
+
+283
+00:09:19,053 --> 00:09:22,089
+factoriser vos modifications
+
+284
+00:09:20,082 --> 00:09:23,115
+les décorations sont devenus tellement
+
+285
+00:09:22,089 --> 00:09:25,095
+populaire en python que ça a était
+
+286
+00:09:24,015 --> 00:09:27,081
+attendue a été étendue au concept de
+
+287
+00:09:26,049 --> 00:09:31,118
+classe d'ailleurs nous aborderons ce
+
+288
+00:09:27,081 --> 00:09:31,118
+sujet dans les compléments à bientôt
+
