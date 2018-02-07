@@ -1,0 +1,1204 @@
+﻿1
+00:00:05,087 --> 00:00:06,471
+Dans cette vidéo, nous allons parler
+
+2
+00:00:06,571 --> 00:00:07,726
+des listes en Python.
+
+3
+00:00:08,964 --> 00:00:10,192
+La liste représente un type
+
+4
+00:00:10,292 --> 00:00:11,852
+extrêmement souple et puissant.
+
+5
+00:00:11,952 --> 00:00:13,675
+Une liste est une séquence
+
+6
+00:00:13,775 --> 00:00:15,130
+d'objets hétérogènes.
+
+7
+00:00:15,230 --> 00:00:16,742
+Une liste peut absolument stocker
+
+8
+00:00:16,842 --> 00:00:18,066
+n'importe quels types d'objets
+
+9
+00:00:18,166 --> 00:00:19,291
+mais il est important de comprendre que
+
+10
+00:00:19,391 --> 00:00:20,871
+la liste ne stocke pas les objets
+
+11
+00:00:20,971 --> 00:00:22,285
+mais ne stocke que des références
+
+12
+00:00:22,385 --> 00:00:23,060
+vers ces objets.
+
+13
+00:00:23,160 --> 00:00:26,061
+Par conséquent, la taille de l'objet liste
+
+14
+00:00:26,161 --> 00:00:27,670
+est indépendante du type d'objets
+
+15
+00:00:27,770 --> 00:00:28,833
+qui sont référencés.
+
+16
+00:00:29,271 --> 00:00:30,936
+Une liste peut augmenter en taille,
+
+17
+00:00:31,036 --> 00:00:32,524
+peut réduire ; on peut l'écarter au milieu,
+
+18
+00:00:32,624 --> 00:00:33,946
+rajouter des éléments à l'intérieur,
+
+19
+00:00:34,046 --> 00:00:35,856
+on peut vraiment complètement la manipuler
+
+20
+00:00:35,956 --> 00:00:36,932
+c'est très malléable.
+
+21
+00:00:37,313 --> 00:00:38,844
+En fait, la liste est malléable parce que
+
+22
+00:00:38,944 --> 00:00:40,104
+c'est un objet mutable.
+
+23
+00:00:40,204 --> 00:00:41,610
+Et cette notion de mutabilité
+
+24
+00:00:41,710 --> 00:00:42,801
+est importante à comprendre.
+
+25
+00:00:42,901 --> 00:00:44,071
+Un objet mutable, c'est un objet
+
+26
+00:00:44,171 --> 00:00:45,773
+que l'on peut modifier en place.
+
+27
+00:00:45,873 --> 00:00:47,629
+Ça veut dire que l'on peut modifier
+
+28
+00:00:47,729 --> 00:00:48,628
+là où il est stocké.
+
+29
+00:00:48,728 --> 00:00:51,549
+L'avantage de cette mutabilité, c'est que
+
+30
+00:00:51,649 --> 00:00:53,615
+on n'a pas besoin de faire une copie de l'objet
+
+31
+00:00:53,715 --> 00:00:54,446
+pour le modifier.
+
+32
+00:00:54,546 --> 00:00:56,012
+C'est donc extrêmement efficace
+
+33
+00:00:56,112 --> 00:00:57,222
+au niveau mémoire.
+
+34
+00:00:57,714 --> 00:00:59,938
+Ouvrons maintenant un interpréteur Python
+
+35
+00:01:00,038 --> 00:01:01,399
+pour commencer à jouer avec les listes.
+
+36
+00:01:02,839 --> 00:01:04,066
+Je vous rappelle qu'une liste
+
+37
+00:01:04,166 --> 00:01:05,001
+est une séquence.
+
+38
+00:01:05,101 --> 00:01:06,977
+Par conséquent, toutes les opérations
+
+39
+00:01:07,077 --> 00:01:08,120
+que l'on a vues sur les séquences
+
+40
+00:01:08,220 --> 00:01:09,532
+sont applicables aux listes:
+
+41
+00:01:09,632 --> 00:01:11,645
+le test d'appartenance, la concaténation,
+
+42
+00:01:11,745 --> 00:01:14,993
+la fonction built-in len, count, index,
+
+43
+00:01:15,093 --> 00:01:17,260
+toutes ces opérations sont disponibles
+
+44
+00:01:17,360 --> 00:01:18,046
+pour toutes les séquences,
+
+45
+00:01:18,146 --> 00:01:19,435
+donc en particulier pour les listes.
+
+46
+00:01:19,535 --> 00:01:21,579
+Maintenant, créons un objet liste vide.
+
+47
+00:01:21,679 --> 00:01:24,770
+Pour cela, pour définir une liste,
+
+48
+00:01:24,870 --> 00:01:26,912
+on utilise les crochets ouvrant et fermant.
+
+49
+00:01:27,012 --> 00:01:30,204
+J'ai donc créé un objet liste qui est vide.
+
+50
+00:01:30,304 --> 00:01:31,215
+Je peux le vérifier en utilisant
+
+51
+00:01:31,315 --> 00:01:32,217
+la fonction built-in type
+
+52
+00:01:32,317 --> 00:01:34,263
+et vérifier le type de cet objet,
+
+53
+00:01:34,363 --> 00:01:35,421
+c'est bien un objet de type liste.
+
+54
+00:01:37,266 --> 00:01:38,638
+Dans une liste, je peux stocker
+
+55
+00:01:38,738 --> 00:01:40,225
+absolument n'importe quel type d'objet.
+
+56
+00:01:40,325 --> 00:01:41,938
+Prenons un entier qui vaut 4,
+
+57
+00:01:42,038 --> 00:01:43,305
+et créons maintenant une nouvelle liste
+
+58
+00:01:43,405 --> 00:01:47,467
+qui va réferencer ma variable,
+
+59
+00:01:47,567 --> 00:01:50,441
+enfin mon entier référencé par la variable i,
+
+60
+00:01:50,976 --> 00:01:52,686
+la chaîne de caractères 'spam',
+
+61
+00:01:53,922 --> 00:01:56,072
+un float et un booléen.
+
+62
+00:01:56,685 --> 00:01:58,254
+Donc on voit que j'ai vraiment 4 objets
+
+63
+00:01:58,354 --> 00:01:59,340
+complètement différents,
+
+64
+00:01:59,440 --> 00:02:00,989
+et d'ailleurs le premier objet est même
+
+65
+00:02:01,089 --> 00:02:02,115
+référencé par une variable.
+
+66
+00:02:02,215 --> 00:02:04,365
+Et tout cela fonctionne parfaitement ;
+
+67
+00:02:04,465 --> 00:02:05,902
+je peux afficher ma liste et je vois bien
+
+68
+00:02:06,002 --> 00:02:07,548
+qu'elle référence l'entier 4,
+
+69
+00:02:07,648 --> 00:02:08,595
+la chaîne de caractères 'spam',
+
+70
+00:02:08,695 --> 00:02:10,394
+le float 3.2 et True.
+
+71
+00:02:10,494 --> 00:02:11,753
+Je vous rappelle que la liste
+
+72
+00:02:11,853 --> 00:02:13,074
+ne stocke pas ces objets,
+
+73
+00:02:13,174 --> 00:02:14,787
+elle ne stocke que des références
+
+74
+00:02:14,887 --> 00:02:15,632
+vers ces objets.
+
+75
+00:02:15,732 --> 00:02:16,322
+C'est par conséquent
+
+76
+00:02:16,422 --> 00:02:17,537
+extrêmement efficace.
+
+77
+00:02:17,637 --> 00:02:19,431
+Une liste en particulier ne va jamais
+
+78
+00:02:19,531 --> 00:02:21,132
+copier les objets qu'elle référence.
+
+79
+00:02:23,910 --> 00:02:26,084
+Comme ma liste est une séquence,
+
+80
+00:02:26,184 --> 00:02:28,112
+je peux donc accéder à chaque élément
+
+81
+00:02:28,212 --> 00:02:28,997
+de ma liste, donc, par exemple,
+
+82
+00:02:29,097 --> 00:02:30,016
+le premier élément de ma liste
+
+83
+00:02:30,116 --> 00:02:31,920
+va être l'entier 4.
+
+84
+00:02:32,020 --> 00:02:33,547
+Ma liste étant mutable,
+
+85
+00:02:33,647 --> 00:02:35,708
+je peux modifier ce premier élément ;
+
+86
+00:02:35,808 --> 00:02:37,139
+donc je peux par exemple dire:
+
+87
+00:02:37,239 --> 00:02:38,456
+a[0] égale 6 ;
+
+88
+00:02:38,556 --> 00:02:39,872
+maintenant, je vois que ma liste
+
+89
+00:02:39,972 --> 00:02:42,847
+contient 6, 'spam', 3.2 et True,
+
+90
+00:02:42,947 --> 00:02:44,345
+et je peux également faire directement
+
+91
+00:02:44,445 --> 00:02:46,628
+une opération sur un élément d'une liste ;
+
+92
+00:02:46,728 --> 00:02:49,723
+par exemple, a[0] égale a[0] plus 10.
+
+93
+00:02:49,823 --> 00:02:51,540
+Je vais donc ajouter 10
+
+94
+00:02:51,640 --> 00:02:52,875
+au premier élément de ma liste
+
+95
+00:02:52,975 --> 00:02:54,107
+et je vois que maintenant, j'obtiens:
+
+96
+00:02:54,207 --> 00:02:57,610
+la liste : 16, 'spam', 3.2 et True.
+
+97
+00:03:00,313 --> 00:03:01,975
+Sur ma liste, je peux également
+
+98
+00:03:02,075 --> 00:03:03,775
+faire des opérations de slicing,
+
+99
+00:03:03,875 --> 00:03:06,525
+donc si je prends a[1 : 3],
+
+100
+00:03:06,625 --> 00:03:08,477
+ça va me prendre tous les éléments allant
+
+101
+00:03:08,577 --> 00:03:11,997
+de 1 inclus à 3 exclu, c'est-à-dire à l'élément 2,
+
+102
+00:03:12,097 --> 00:03:14,531
+ça va me retourner: 'spam', 3.2.
+
+103
+00:03:14,631 --> 00:03:16,396
+Et je peux même faire des opérations
+
+104
+00:03:16,496 --> 00:03:17,724
+d'affectation sur des slices.
+
+105
+00:03:17,824 --> 00:03:18,858
+Alors, ça, c'est quelque chose
+
+106
+00:03:18,958 --> 00:03:19,631
+d'un peu particulier,
+
+107
+00:03:19,731 --> 00:03:21,471
+qu'on va prendre le temps d'expliquer.
+
+108
+00:03:21,571 --> 00:03:27,602
+Regardez, j'écris a[1 : 3] égale la liste 1, 2, 3
+
+109
+00:03:27,702 --> 00:03:28,892
+et regardons ce qu'il se passe.
+
+110
+00:03:29,730 --> 00:03:31,107
+Lorsque j'exécute cela,
+
+111
+00:03:31,207 --> 00:03:32,650
+je vois que ma liste a été modifiée
+
+112
+00:03:32,750 --> 00:03:34,075
+d'une manière un peu curieuse.
+
+113
+00:03:34,672 --> 00:03:36,333
+L'affectation sur un slice
+
+114
+00:03:36,433 --> 00:03:38,566
+va effectuer deux opérations indépendantes.
+
+115
+00:03:38,666 --> 00:03:42,451
+La première opération, lorsque je fais a[1 : 3],
+
+116
+00:03:42,551 --> 00:03:43,937
+c'est d'enlever tous les éléments
+
+117
+00:03:44,037 --> 00:03:46,347
+qui vont de 1 inclus à 3 exclu,
+
+118
+00:03:46,447 --> 00:03:48,269
+donc d'enlever tous les éléments sur le slice.
+
+119
+00:03:48,965 --> 00:03:51,081
+La deuxième opération va consister
+
+120
+00:03:51,181 --> 00:03:53,296
+à insérer les éléments qui sont
+
+121
+00:03:53,396 --> 00:03:54,333
+dans la séquence de droite,
+
+122
+00:03:54,433 --> 00:03:55,900
+donc dans ce cas-là, 1, 2, 3,
+
+123
+00:03:56,000 --> 00:03:58,607
+à la place des éléments qui ont été effacés.
+
+124
+00:03:58,707 --> 00:04:01,476
+Dans notre exemple, j'ai effacé les éléments
+
+125
+00:04:01,576 --> 00:04:03,446
+'spam', 3.2,
+
+126
+00:04:03,546 --> 00:04:06,311
+et j'ai ajouté à la place les éléments 1, 2, 3.
+
+127
+00:04:06,411 --> 00:04:07,937
+On voit donc qu'une liste est
+
+128
+00:04:08,037 --> 00:04:09,120
+extrêmement flexible puisqu'on peut
+
+129
+00:04:09,220 --> 00:04:11,754
+effacer des éléments au milieu, en rajouter,
+
+130
+00:04:11,854 --> 00:04:13,272
+la liste va automatiquement
+
+131
+00:04:13,890 --> 00:04:15,787
+s'étendre ou alors se contracter
+
+132
+00:04:15,887 --> 00:04:17,512
+en fonction de ce qu'on ajoute au milieu.
+
+133
+00:04:18,598 --> 00:04:20,600
+Cette opération d'affectation sur un slice,
+
+134
+00:04:20,700 --> 00:04:21,847
+c'est un moyen très simple
+
+135
+00:04:21,947 --> 00:04:24,230
+d'effacer des éléments dans une liste,
+
+136
+00:04:24,330 --> 00:04:28,001
+si je fais a[1 : 3],
+
+137
+00:04:28,101 --> 00:04:31,454
+et que je lui affecte une liste vide,
+
+138
+00:04:31,554 --> 00:04:32,897
+je vais effacer tous les éléments
+
+139
+00:04:32,997 --> 00:04:34,010
+qui sont entre 1 et 3,
+
+140
+00:04:34,110 --> 00:04:35,722
+et comme je ne remets rien à la place,
+
+141
+00:04:35,822 --> 00:04:37,456
+ces éléments vont être simplement effacés.
+
+142
+00:04:37,556 --> 00:04:40,755
+Je peux également utiliser l'instruction del
+
+143
+00:04:40,855 --> 00:04:42,505
+pour enlever des éléments dans un slice
+
+144
+00:04:42,605 --> 00:04:43,795
+donc regardons cet exemple:
+
+145
+00:04:43,895 --> 00:04:50,071
+del a[1 : 2] va m'effacer l'élément à l'indice 1.
+
+146
+00:04:50,171 --> 00:04:52,066
+Je regarde ma séquence et effectivement,
+
+147
+00:04:52,166 --> 00:04:54,016
+l'élément 3 a été effacé.
+
+148
+00:04:55,383 --> 00:04:57,840
+Il existe un grand nombre d'opérations
+
+149
+00:04:57,940 --> 00:04:58,868
+sur les listes.
+
+150
+00:04:59,482 --> 00:05:00,646
+Regardons toutes ces opérations
+
+151
+00:05:00,746 --> 00:05:01,617
+qui sont disponibles sur les listes.
+
+152
+00:05:01,717 --> 00:05:03,472
+Pour ça, je vous rappelle qu'on peut utiliser
+
+153
+00:05:03,572 --> 00:05:04,894
+la fonction built-in dir
+
+154
+00:05:04,994 --> 00:05:07,127
+qui me permet de lister toutes les méthodes
+
+155
+00:05:07,227 --> 00:05:08,727
+sur un objet.
+
+156
+00:05:08,827 --> 00:05:10,313
+dir(list) va me stocker toutes les méthodes
+
+157
+00:05:10,413 --> 00:05:10,854
+sur un objet liste.
+
+158
+00:05:10,954 --> 00:05:13,269
+J'oublie les méthodes avec des __
+
+159
+00:05:13,369 --> 00:05:15,298
+et je ne regarde que celles qui n'ont pas de __.
+
+160
+00:05:15,398 --> 00:05:17,942
+Je vois par exemple que j'ai une méthode
+
+161
+00:05:18,042 --> 00:05:18,963
+qui s'appelle append.
+
+162
+00:05:19,063 --> 00:05:21,830
+Regardons, avec l'aide intégrée à Python,
+
+163
+00:05:21,930 --> 00:05:23,196
+exactement ce que veut dire append.
+
+164
+00:05:23,296 --> 00:05:25,012
+Dans IPython, je peux juste rajouter
+
+165
+00:05:25,112 --> 00:05:26,001
+un point d'interrogation.
+
+166
+00:05:26,101 --> 00:05:27,870
+Si vous n'utilisez pas IPython,
+
+167
+00:05:27,970 --> 00:05:29,335
+c'est totalement équivalent d'écrire
+
+168
+00:05:29,435 --> 00:05:34,704
+help(list.append).
+
+169
+00:05:34,804 --> 00:05:36,215
+Ça va vous donner la même aide.
+
+170
+00:05:36,315 --> 00:05:37,716
+Mais évidemment, on comprend bien
+
+171
+00:05:37,816 --> 00:05:38,738
+que dans IPython, c'est plus rapide
+
+172
+00:05:38,838 --> 00:05:39,913
+de taper le point d'interrogation.
+
+173
+00:05:40,583 --> 00:05:41,311
+Que fait append ?
+
+174
+00:05:41,411 --> 00:05:44,142
+append rajoute un objet à la fin de la liste.
+
+175
+00:05:44,242 --> 00:05:45,996
+Reprenons ma liste a,
+
+176
+00:05:46,096 --> 00:05:47,750
+qui est égale à 16, True.
+
+177
+00:05:47,850 --> 00:05:51,888
+Si je fais a.append('18'),
+
+178
+00:05:51,988 --> 00:05:53,911
+de la chaîne de caractères '18',
+
+179
+00:05:55,325 --> 00:05:56,759
+- je recommence -
+
+180
+00:06:02,175 --> 00:06:03,652
+je vais voir que j'ai rajouté
+
+181
+00:06:03,752 --> 00:06:05,226
+la chaîne de caractères '18'
+
+182
+00:06:05,326 --> 00:06:06,736
+à la fin de ma liste.
+
+183
+00:06:06,836 --> 00:06:09,905
+Je peux également utiliser l'opération extend
+
+184
+00:06:10,005 --> 00:06:14,487
+qui va prendre une séquence, 1, 2, 3,
+
+185
+00:06:14,587 --> 00:06:16,749
+et qui va ajouter chaque élément
+
+186
+00:06:16,849 --> 00:06:18,741
+de cette séquence à la fin de ma liste.
+
+187
+00:06:18,841 --> 00:06:21,088
+En fait, c'est comme si on faisait un append
+
+188
+00:06:21,188 --> 00:06:22,582
+sur chaque élément de la séquence.
+
+189
+00:06:23,507 --> 00:06:25,015
+J'ai mis une parenthèse,
+
+190
+00:06:25,115 --> 00:06:26,310
+vous pouvez remarquer cette erreur
+
+191
+00:06:26,410 --> 00:06:27,469
+qui s'appelle SyntaxError
+
+192
+00:06:27,569 --> 00:06:29,063
+qui est juste une erreur de syntaxe ;
+
+193
+00:06:29,163 --> 00:06:30,358
+en général, les erreurs de syntaxe
+
+194
+00:06:30,458 --> 00:06:32,428
+c'est lorsque j'écris mal mon code,
+
+195
+00:06:32,528 --> 00:06:33,887
+j'oublie de fermer une parenthèse,
+
+196
+00:06:33,987 --> 00:06:36,303
+ou je remplace une parenthèse par un crochet
+
+197
+00:06:36,403 --> 00:06:37,188
+comme je l'ai fait ici.
+
+198
+00:06:39,073 --> 00:06:39,885
+Je recommence.
+
+199
+00:06:41,773 --> 00:06:43,100
+Voilà, ma parenthèse est à la fin.
+
+200
+00:06:43,200 --> 00:06:45,291
+Je regarde ma liste, et ma liste
+
+201
+00:06:45,391 --> 00:06:47,504
+a bien été étendue des éléments
+
+202
+00:06:47,604 --> 00:06:49,889
+que j'avais dans ma séquence 1, 2, 3.
+
+203
+00:06:51,463 --> 00:06:52,794
+J'ai également des opérations
+
+204
+00:06:52,894 --> 00:06:54,503
+qui me permettent de trier une liste.
+
+205
+00:06:54,603 --> 00:06:56,369
+Dans ce cas-là, prenons une liste
+
+206
+00:06:56,469 --> 00:07:04,733
+de nombres : 1, 5, 3, 1, 7, 8, 9 et 2, voilà ;
+
+207
+00:07:04,833 --> 00:07:07,245
+Je peux appeler la méthode sort sur ma liste
+
+208
+00:07:07,345 --> 00:07:09,287
+et cette méthode sort va trier
+
+209
+00:07:09,387 --> 00:07:10,662
+les éléments de ma liste,
+
+210
+00:07:10,762 --> 00:07:13,012
+attention, sort fonctionne en place,
+
+211
+00:07:13,112 --> 00:07:15,371
+ça veut dire que ma liste a été triée en place
+
+212
+00:07:15,471 --> 00:07:16,853
+sans faire de copie temporaire,
+
+213
+00:07:16,953 --> 00:07:18,331
+et la méthode sort ne retourne rien
+
+214
+00:07:18,431 --> 00:07:19,660
+puisque l'objet a été trié en place.
+
+215
+00:07:19,760 --> 00:07:21,749
+Maintenant, je vois bien que ma liste a
+
+216
+00:07:21,849 --> 00:07:22,906
+a été modifiée.
+
+217
+00:07:23,006 --> 00:07:25,383
+Ne faites jamais d'opération d'affectation
+
+218
+00:07:25,483 --> 00:07:26,983
+sur la méthode sort
+
+219
+00:07:27,083 --> 00:07:28,451
+parce que la méthode sort va vous retourner
+
+220
+00:07:28,551 --> 00:07:30,105
+l'objet None, et par conséquent,
+
+221
+00:07:30,205 --> 00:07:31,733
+si je fais a égale a.sort(),
+
+222
+00:07:33,516 --> 00:07:36,964
+maintenant, ma variable a va référencer
+
+223
+00:07:37,064 --> 00:07:38,378
+non plus la liste que j'ai triée
+
+224
+00:07:38,478 --> 00:07:40,303
+mais simplement la valeur de retour de sort
+
+225
+00:07:40,403 --> 00:07:42,737
+qui ne sert à rien, qui est juste l'objet None,
+
+226
+00:07:42,837 --> 00:07:43,479
+l'objet vide.
+
+227
+00:07:45,121 --> 00:07:47,186
+Une dernière opération très importante
+
+228
+00:07:47,286 --> 00:07:48,039
+à voir sur les listes,
+
+229
+00:07:48,139 --> 00:07:50,403
+c'est l'opération qui permet de passer
+
+230
+00:07:50,503 --> 00:07:52,120
+d'une chaîne de caractères à une liste
+
+231
+00:07:52,220 --> 00:07:53,917
+et d'une liste à une chaîne de caractères.
+
+232
+00:07:54,017 --> 00:07:55,554
+C'est quelque chose que vous utiliserez
+
+233
+00:07:55,654 --> 00:07:56,705
+très régulièrement
+
+234
+00:07:56,805 --> 00:07:58,350
+si vous accédez à des fichiers
+
+235
+00:07:58,450 --> 00:08:00,086
+et que vous voulez les traiter avec Python.
+
+236
+00:08:00,186 --> 00:08:01,951
+Regardons comment cela se passe en Python.
+
+237
+00:08:02,051 --> 00:08:04,098
+Je crée une chaîne de caractères s,
+
+238
+00:08:04,198 --> 00:08:06,204
+qui va contenir un mot, spam,
+
+239
+00:08:06,304 --> 00:08:08,474
+et un deuxième mot, egg
+
+240
+00:08:08,574 --> 00:08:09,780
+et un troisième, beans.
+
+241
+00:08:10,915 --> 00:08:12,191
+Ce que j'aimerais faire,
+
+242
+00:08:12,291 --> 00:08:13,814
+imaginons que cette chaîne de caractères
+
+243
+00:08:13,914 --> 00:08:15,798
+soit le résultat de la lecture d'un fichier,
+
+244
+00:08:15,898 --> 00:08:17,763
+j'aimerais séparer cette chaîne de caractères
+
+245
+00:08:17,863 --> 00:08:19,610
+en colonnes ; obtenir la première,
+
+246
+00:08:19,710 --> 00:08:21,532
+la deuxième et la troisième colonnes.
+
+247
+00:08:21,632 --> 00:08:23,370
+En Python, c'est très simple de faire ça,
+
+248
+00:08:23,470 --> 00:08:25,727
+on utilise la fonction built-in split,
+
+249
+00:08:28,020 --> 00:08:28,840
+qui est une fonction
+
+250
+00:08:28,940 --> 00:08:29,734
+des chaînes de caractères.
+
+251
+00:08:29,834 --> 00:08:32,212
+Le résultat de cette fonction built-in,
+
+252
+00:08:32,312 --> 00:08:34,166
+c'est de découper ma chaîne de caractères
+
+253
+00:08:34,266 --> 00:08:36,318
+en utilisant l'espace comme séparateur.
+
+254
+00:08:36,418 --> 00:08:38,661
+Regardons le résultat, j'obtiens une liste
+
+255
+00:08:38,761 --> 00:08:40,276
+qui contient trois éléments:
+
+256
+00:08:40,376 --> 00:08:42,420
+'spam', 'egg' et 'beans'.
+
+257
+00:08:42,520 --> 00:08:44,556
+À split, je peux lui passer
+
+258
+00:08:44,656 --> 00:08:46,332
+n'importe quel caractère de séparation ;
+
+259
+00:08:46,432 --> 00:08:48,160
+par exemple, si ma chaîne de caractères
+
+260
+00:08:48,260 --> 00:08:50,125
+avait été formattée avec des virgules
+
+261
+00:08:50,225 --> 00:08:50,943
+qui séparent les mots,
+
+262
+00:08:51,043 --> 00:08:52,228
+j'aurais pu passer à split
+
+263
+00:08:52,328 --> 00:08:53,848
+la chaîne de caractères ','
+
+264
+00:08:53,948 --> 00:08:56,144
+pour découper en fonction de cette virgule.
+
+265
+00:08:56,909 --> 00:08:58,557
+Une fois que j'ai ma liste,
+
+266
+00:08:58,657 --> 00:08:59,546
+ma liste étant mutable,
+
+267
+00:08:59,646 --> 00:09:01,533
+je peux tout à fait faire
+
+268
+00:09:01,633 --> 00:09:07,621
+a[0] égale a[0].upper(),
+
+269
+00:09:07,721 --> 00:09:09,235
+c'est-à-dire que je mets en majuscule
+
+270
+00:09:09,335 --> 00:09:10,256
+le premier élément.
+
+271
+00:09:10,356 --> 00:09:12,822
+Et ensuite, je peux retransformer ma liste
+
+272
+00:09:12,922 --> 00:09:14,053
+en chaîne de caractères
+
+273
+00:09:14,153 --> 00:09:15,178
+avec la syntaxe suivante:
+
+274
+00:09:16,002 --> 00:09:17,260
+cette syntaxe est un tout petit peu
+
+275
+00:09:17,360 --> 00:09:18,264
+particulière en Python,
+
+276
+00:09:18,364 --> 00:09:19,217
+je commence par écrire
+
+277
+00:09:19,317 --> 00:09:20,735
+la chaîne de caractères séparateur,
+
+278
+00:09:20,835 --> 00:09:23,088
+qui va être mise entre chaque élément
+
+279
+00:09:23,188 --> 00:09:24,280
+de ma liste,
+
+280
+00:09:24,380 --> 00:09:27,175
+et ensuite je fais un join(a).
+
+281
+00:09:28,373 --> 00:09:29,777
+Évidemment, ma chaîne de caractères
+
+282
+00:09:29,877 --> 00:09:31,137
+peut être absolument n'importe quoi
+
+283
+00:09:31,237 --> 00:09:32,174
+comme séparateur.
+
+284
+00:09:32,274 --> 00:09:34,728
+Si je fais: espace.join(a)
+
+285
+00:09:34,828 --> 00:09:36,556
+j'obtiens une nouvelle chaîne de caractères
+
+286
+00:09:36,656 --> 00:09:38,650
+qui maintenant contient SPAM en majuscule,
+
+287
+00:09:38,750 --> 00:09:40,553
+egg et beans.
+
+288
+00:09:42,402 --> 00:09:44,496
+En résumé, nous avons vu dans cette vidéo
+
+289
+00:09:44,596 --> 00:09:46,506
+le type liste, qui est un type
+
+290
+00:09:46,606 --> 00:09:48,779
+extrêmement puissant et central en Python.
+
+291
+00:09:48,879 --> 00:09:50,828
+Comme je vous l'ai expliqué en introduction,
+
+292
+00:09:50,928 --> 00:09:53,793
+cet objet est mutable, extrêmement flexible,
+
+293
+00:09:53,893 --> 00:09:54,963
+on peut ajouter des choses au milieu,
+
+294
+00:09:55,063 --> 00:09:56,827
+l'écarter, il peut référencer
+
+295
+00:09:56,927 --> 00:09:57,840
+n'importe quels types d'objets,
+
+296
+00:09:57,940 --> 00:10:00,657
+il est par conséquent vraiment le type qui est
+
+297
+00:10:00,757 --> 00:10:02,297
+au coeur de tous vos programmes Python.
+
+298
+00:10:02,397 --> 00:10:04,791
+Il est donc important de bien le maîtriser,
+
+299
+00:10:04,891 --> 00:10:06,589
+et d'être capable de le manipuler
+
+300
+00:10:06,689 --> 00:10:07,509
+de manière aisée.
+
+301
+00:10:07,609 --> 00:10:08,339
+À bientôt !
+
