@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:04,470 --> 00:00:06,479
 Nous avons fini de faire le tour
 

@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:05,436 --> 00:00:07,030
 Dans la vidéo précédente, nous avons vu
 
