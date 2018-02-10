@@ -1,0 +1,564 @@
+﻿1
+00:00:05,616 --> 00:00:06,993
+Dans cette vidéo, nous allons introduire
+
+2
+00:00:07,093 --> 00:00:08,329
+la notion de module.
+
+3
+00:00:08,429 --> 00:00:11,087
+Un module, c'est en fait un fichier Python
+
+4
+00:00:11,187 --> 00:00:13,333
+qui finit en .py, un fichier Python normal,
+
+5
+00:00:13,433 --> 00:00:15,020
+et lorsqu'on importe ce fichier
+
+6
+00:00:15,120 --> 00:00:16,701
+avec l'instruction import,
+
+7
+00:00:16,801 --> 00:00:18,030
+nous allons voir ça dans quelques secondes,
+
+8
+00:00:18,130 --> 00:00:20,239
+ça va créer un objet module.
+
+9
+00:00:20,339 --> 00:00:21,827
+Un module en fait contient
+
+10
+00:00:21,927 --> 00:00:22,967
+un certain nombre de fonctions,
+
+11
+00:00:23,067 --> 00:00:24,415
+d'opérations à effectuer
+
+12
+00:00:24,515 --> 00:00:26,371
+et l'idée des modules, c'est de mettre
+
+13
+00:00:26,471 --> 00:00:27,503
+des opérations similaires
+
+14
+00:00:27,603 --> 00:00:28,461
+dans le même fichier.
+
+15
+00:00:28,561 --> 00:00:29,983
+Donc en fait vous pouvez voir un module
+
+16
+00:00:30,083 --> 00:00:31,577
+comme une sorte de boîte à outils
+
+17
+00:00:31,677 --> 00:00:32,625
+que vous importez
+
+18
+00:00:32,725 --> 00:00:34,545
+lorsque vous avez besoin de l'ouvrir.
+
+19
+00:00:35,374 --> 00:00:36,854
+Ouvrons maintenant un interpréteur Python
+
+20
+00:00:36,954 --> 00:00:38,761
+pour commencer à jouer avec les modules.
+
+21
+00:00:39,138 --> 00:00:40,161
+Nous allons commencer
+
+22
+00:00:40,261 --> 00:00:42,361
+par importer le module random.
+
+23
+00:00:42,461 --> 00:00:43,986
+Pour importer un module,
+
+24
+00:00:44,086 --> 00:00:45,649
+on utilise l'instruction import
+
+25
+00:00:45,749 --> 00:00:47,376
+suivie du nom du module.
+
+26
+00:00:48,390 --> 00:00:50,477
+Maintenant que j'ai importé ce module,
+
+27
+00:00:50,577 --> 00:00:52,365
+je peux faire un print de random
+
+28
+00:00:52,465 --> 00:00:54,460
+et je vais voir qu'effectivement
+
+29
+00:00:54,560 --> 00:00:57,547
+cet objet est un objet de type module.
+
+30
+00:00:58,956 --> 00:01:00,568
+Maintenant, je peux accéder
+
+31
+00:01:00,668 --> 00:01:01,720
+à tous les attributs de ce module
+
+32
+00:01:01,820 --> 00:01:04,163
+avec la fonction built-in dir.
+
+33
+00:01:04,585 --> 00:01:06,554
+Donc, si je fais un dir de random,
+
+34
+00:01:06,654 --> 00:01:08,453
+je vais voir tous les attributs qui existent
+
+35
+00:01:09,229 --> 00:01:10,596
+et vous vous souvenez que
+
+36
+00:01:10,696 --> 00:01:12,762
+si l'attribut commence ou finit
+
+37
+00:01:12,862 --> 00:01:14,449
+par un underscore, c'est un attribut que
+
+38
+00:01:14,549 --> 00:01:15,768
+vous ne devez pas manipuler vous-mêmes,
+
+39
+00:01:15,868 --> 00:01:17,238
+donc tous les attributs
+
+40
+00:01:17,338 --> 00:01:18,315
+qui n'ont pas d'underscore
+
+41
+00:01:18,415 --> 00:01:20,251
+ce sont les attributs que vous pouvez utiliser.
+
+42
+00:01:20,983 --> 00:01:22,368
+Je peux avoir l'aide d'un module
+
+43
+00:01:22,468 --> 00:01:23,976
+en utilisant la fonction built-in help.
+
+44
+00:01:24,076 --> 00:01:25,821
+Si je fais help de random,
+
+45
+00:01:25,921 --> 00:01:27,411
+je vais voir toute l'aide liée à random.
+
+46
+00:01:27,511 --> 00:01:29,319
+On voit qu'il y a énormément d'aide.
+
+47
+00:01:29,987 --> 00:01:31,598
+D'ailleurs, je vous fais remarquer que
+
+48
+00:01:31,698 --> 00:01:33,247
+c'est assez rare en pratique
+
+49
+00:01:34,553 --> 00:01:36,033
+d'utiliser l'instruction help,
+
+50
+00:01:36,133 --> 00:01:37,656
+enfin, la fonction built-in help,
+
+51
+00:01:37,756 --> 00:01:39,232
+directement sur un module,
+
+52
+00:01:39,332 --> 00:01:40,539
+parce que ça fait beaucoup de texte,
+
+53
+00:01:40,639 --> 00:01:42,463
+c'est beaucoup plus pratique de regarder ça
+
+54
+00:01:42,563 --> 00:01:44,196
+directement sur internet,
+
+55
+00:01:44,296 --> 00:01:45,354
+dans l'aide de Python.
+
+56
+00:01:45,454 --> 00:01:47,298
+Mais par contre help est très utile
+
+57
+00:01:47,398 --> 00:01:48,232
+lorsque vous voulez regarder
+
+58
+00:01:48,332 --> 00:01:49,053
+le fonctionnement
+
+59
+00:01:49,153 --> 00:01:51,167
+d'une méthode particulière d'un module.
+
+60
+00:01:51,267 --> 00:01:53,304
+Refaisons un dir de random.
+
+61
+00:01:54,006 --> 00:01:55,090
+On voit qu'on a un certain nombre
+
+62
+00:01:55,190 --> 00:01:56,388
+de méthodes, et maintenant,
+
+63
+00:01:56,488 --> 00:01:57,807
+je vais regarder quel est le fonctionnement
+
+64
+00:01:57,907 --> 00:01:59,217
+de la méthode randint.
+
+65
+00:01:59,317 --> 00:02:02,696
+Je vais faire un random.randint
+
+66
+00:02:02,796 --> 00:02:04,293
+et je veux voir l'aide.
+
+67
+00:02:04,393 --> 00:02:05,511
+Si je suis sur IPython
+
+68
+00:02:05,611 --> 00:02:07,047
+je mets un point d'interrogation,
+
+69
+00:02:07,147 --> 00:02:09,288
+si vous n'utilisez pas IPython ou un notebook,
+
+70
+00:02:09,388 --> 00:02:11,672
+écrivez la fonction built-in help.
+
+71
+00:02:11,772 --> 00:02:13,486
+Et je vais voir l'aide de randint.
+
+72
+00:02:13,586 --> 00:02:14,506
+Que fait randint ?
+
+73
+00:02:14,606 --> 00:02:16,558
+Il me retourne un nombre au hasard
+
+74
+00:02:17,103 --> 00:02:20,287
+choisi entre a et b en incluant a et b.
+
+75
+00:02:20,387 --> 00:02:22,194
+Je vais maintenant appeler
+
+76
+00:02:22,294 --> 00:02:23,731
+cette méthode sur mon module ;
+
+77
+00:02:23,831 --> 00:02:25,791
+la notation, c'est point
+
+78
+00:02:26,261 --> 00:02:28,021
+donc je donne le nom du module
+
+79
+00:02:28,121 --> 00:02:30,504
+point le nom de la méthode à appeler,
+
+80
+00:02:30,604 --> 00:02:32,890
+et je vais choisir un entier entre 1 et 100
+
+81
+00:02:32,990 --> 00:02:35,028
+et ça va effectivement me calculer
+
+82
+00:02:35,128 --> 00:02:35,926
+un entier au hasard ;
+
+83
+00:02:36,026 --> 00:02:37,486
+dans ce cas-là, c'est 45 ;
+
+84
+00:02:37,586 --> 00:02:38,767
+et évidemment, chaque fois que je relance,
+
+85
+00:02:38,867 --> 00:02:40,301
+j'ai un nouvel entier choisi au hasard.
+
+86
+00:02:41,770 --> 00:02:42,879
+Python est livré
+
+87
+00:02:42,979 --> 00:02:44,470
+avec un grand nombre de modules,
+
+88
+00:02:44,570 --> 00:02:45,935
+c'est ce qu'on appelle la librairie standard,
+
+89
+00:02:46,035 --> 00:02:47,276
+il y en a autour d'une centaine.
+
+90
+00:02:47,376 --> 00:02:48,398
+Ces modules vous permettent
+
+91
+00:02:48,498 --> 00:02:49,187
+de faire un grand nombre
+
+92
+00:02:49,287 --> 00:02:50,247
+d'opérations courantes
+
+93
+00:02:50,347 --> 00:02:52,054
+et l'avantage de la librairie standard,
+
+94
+00:02:52,154 --> 00:02:53,475
+c'est qu'à chaque fois que
+
+95
+00:02:53,575 --> 00:02:55,082
+vous installez Python sur une machine,
+
+96
+00:02:55,182 --> 00:02:56,649
+vous avez la certitude
+
+97
+00:02:56,749 --> 00:02:58,248
+que la librairie standard va venir
+
+98
+00:02:58,348 --> 00:02:59,903
+avec cette installation de Python.
+
+99
+00:03:00,003 --> 00:03:01,952
+Regardons quelques opérations
+
+100
+00:03:02,052 --> 00:03:02,539
+que l'on peut effectuer
+
+101
+00:03:02,639 --> 00:03:03,659
+avec la librairie standard.
+
+102
+00:03:03,759 --> 00:03:05,935
+On peut faire de la programmation parallèle
+
+103
+00:03:06,035 --> 00:03:07,526
+ou de la programmation asynchrone,
+
+104
+00:03:08,477 --> 00:03:10,230
+on peut faire de la persistance de données,
+
+105
+00:03:10,330 --> 00:03:12,548
+une opération que l'on appelle sérialisation
+
+106
+00:03:12,648 --> 00:03:14,097
+pour garder une copie des objets
+
+107
+00:03:14,197 --> 00:03:14,938
+sur le disque dur,
+
+108
+00:03:15,038 --> 00:03:16,763
+on peut faire de la communication
+
+109
+00:03:16,863 --> 00:03:17,644
+sur internet,
+
+110
+00:03:17,744 --> 00:03:19,036
+Python supporte quasiment
+
+111
+00:03:19,136 --> 00:03:20,904
+tous les protocoles classiques sur internet,
+
+112
+00:03:21,004 --> 00:03:22,807
+on peut formater les données
+
+113
+00:03:22,907 --> 00:03:24,732
+et lire des formats spécifiques de données
+
+114
+00:03:24,832 --> 00:03:25,980
+sur internet,
+
+115
+00:03:26,080 --> 00:03:28,661
+on peut manipuler des fractions
+
+116
+00:03:28,761 --> 00:03:29,666
+ou des nombres décimaux,
+
+117
+00:03:29,766 --> 00:03:31,584
+on peut écrire des expressions régulières,
+
+118
+00:03:31,684 --> 00:03:33,942
+gérer des dates et des calendriers,
+
+119
+00:03:34,042 --> 00:03:36,261
+interagir avec le système de fichiers,
+
+120
+00:03:36,361 --> 00:03:37,612
+créer des fichiers, des répertoires,
+
+121
+00:03:37,712 --> 00:03:38,858
+parcourir des répertoires,
+
+122
+00:03:38,958 --> 00:03:40,126
+on peut faire également
+
+123
+00:03:40,226 --> 00:03:41,397
+de la compression de fichiers
+
+124
+00:03:41,497 --> 00:03:43,242
+et on peut même écrire
+
+125
+00:03:43,342 --> 00:03:44,384
+des interfaces graphiques.
+
+126
+00:03:44,484 --> 00:03:45,600
+Vous voyez donc que vous avez
+
+127
+00:03:45,700 --> 00:03:46,962
+un grand nombre de modules
+
+128
+00:03:47,062 --> 00:03:48,478
+qu'on appelle la librairie standard
+
+129
+00:03:48,578 --> 00:03:49,613
+livrée avec Python
+
+130
+00:03:49,713 --> 00:03:51,087
+mais Python a également
+
+131
+00:03:51,187 --> 00:03:52,719
+des centaines de milliers de modules
+
+132
+00:03:52,819 --> 00:03:55,030
+écrits par des groupes de développement
+
+133
+00:03:55,130 --> 00:03:56,172
+ou alors par des individus
+
+134
+00:03:56,272 --> 00:03:58,019
+que vous pouvez charger
+
+135
+00:03:58,119 --> 00:03:59,980
+et importer dans votre programme.
+
+136
+00:04:00,540 --> 00:04:03,171
+Nous verrons notamment dans ce MOOC
+
+137
+00:04:03,271 --> 00:04:06,339
+une partie de la librairie utilisée
+
+138
+00:04:06,439 --> 00:04:08,448
+pour la programmation scientifique,
+
+139
+00:04:08,548 --> 00:04:09,768
+ce qu'on appelle le data-science,
+
+140
+00:04:09,868 --> 00:04:12,112
+notamment les modules numpy et pandas.
+
+141
+00:04:12,212 --> 00:04:13,256
+À bientôt !
+
