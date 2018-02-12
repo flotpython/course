@@ -596,7 +596,7 @@ vous pouvez très bien utiliser
 
 150
 00:04:53,515 --> 00:04:54,459
-ls ou cat.
+less ou cat.
 
 151
 00:04:55,353 --> 00:04:56,834
