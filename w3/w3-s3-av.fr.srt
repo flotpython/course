@@ -1,0 +1,1068 @@
+﻿1
+00:00:05,621 --> 00:00:07,058
+Jusqu'à maintenant, nous avons couvert
+
+2
+00:00:07,158 --> 00:00:08,400
+les types séquences, avec notamment
+
+3
+00:00:08,500 --> 00:00:09,882
+les listes, les chaînes de caractères
+
+4
+00:00:09,982 --> 00:00:10,658
+et les tuples.
+
+5
+00:00:11,159 --> 00:00:12,488
+Dans cette vidéo, nous allons parler
+
+6
+00:00:12,588 --> 00:00:13,438
+des tables de hash,
+
+7
+00:00:13,538 --> 00:00:14,518
+une structure de données
+
+8
+00:00:14,618 --> 00:00:15,483
+qui permet de répondre
+
+9
+00:00:15,583 --> 00:00:17,827
+à certaines limitations des types séquences.
+
+10
+00:00:18,812 --> 00:00:20,132
+Ouvrons un interpréteur Python
+
+11
+00:00:20,232 --> 00:00:22,331
+pour commencer à découvrir ces limitations.
+
+12
+00:00:23,164 --> 00:00:25,228
+Les types séquences ont été optimisés
+
+13
+00:00:25,328 --> 00:00:27,767
+pour l'accès, la modification et l'effacement
+
+14
+00:00:27,867 --> 00:00:29,285
+en fonction d'un numéro de séquence.
+
+15
+00:00:29,752 --> 00:00:31,931
+Cependant, ces types n'ont pas été optimisés
+
+16
+00:00:32,031 --> 00:00:33,225
+pour le test d'appartenance.
+
+17
+00:00:33,325 --> 00:00:35,174
+Regardons un exemple pour illustrer cela.
+
+18
+00:00:35,858 --> 00:00:37,862
+Je vais utiliser l'instruction timeit,
+
+19
+00:00:38,422 --> 00:00:39,712
+qui me permet de calculer
+
+20
+00:00:39,812 --> 00:00:42,165
+le temps d'exécution d'une expression,
+
+21
+00:00:42,582 --> 00:00:43,880
+et je vais regarder si
+
+22
+00:00:43,980 --> 00:00:45,342
+la chaîne de caractères 'x'
+
+23
+00:00:46,223 --> 00:00:49,325
+est dans range de 100.
+
+24
+00:00:49,425 --> 00:00:50,997
+En fait, range de 100 va produire
+
+25
+00:00:51,097 --> 00:00:53,228
+des entiers allant de 0 à 99,
+
+26
+00:00:53,328 --> 00:00:55,475
+x n'étant pas dedans, je vais être obligé
+
+27
+00:00:55,575 --> 00:00:57,836
+de parcourir chaque élément pour vérifier
+
+28
+00:00:57,936 --> 00:00:59,348
+que x n'est pas dans cet élément.
+
+29
+00:00:59,438 --> 00:01:00,364
+Faisons le test,
+
+30
+00:01:01,130 --> 00:01:02,932
+et on voit que le temps d'exécution
+
+31
+00:01:03,032 --> 00:01:05,226
+est de l'ordre de 2,33 microsecondes.
+
+32
+00:01:05,326 --> 00:01:06,705
+Évidemment, c'est rapide.
+
+33
+00:01:06,805 --> 00:01:09,612
+Mais maintenant, prenons un range
+
+34
+00:01:09,712 --> 00:01:10,176
+qui est plus grand
+
+35
+00:01:10,276 --> 00:01:11,656
+et multiplions-le par 100.
+
+36
+00:01:11,756 --> 00:01:13,130
+Donc au lieu de prendre 100,
+
+37
+00:01:13,230 --> 00:01:14,070
+je vais prendre 10 000.
+
+38
+00:01:15,106 --> 00:01:17,461
+J'utilise au passage la notation underscore
+
+39
+00:01:17,561 --> 00:01:18,975
+dans les entiers qui me permet
+
+40
+00:01:19,612 --> 00:01:20,704
+de découper mon entier
+
+41
+00:01:20,804 --> 00:01:21,935
+pour faciliter sa lecture.
+
+42
+00:01:22,035 --> 00:01:23,896
+Donc on voit que j'ai dix et mille,
+
+43
+00:01:23,996 --> 00:01:25,823
+j'ai bien un entier qui vaut dix mille.
+
+44
+00:01:26,449 --> 00:01:27,717
+Faisons le test d'appartenance
+
+45
+00:01:27,817 --> 00:01:29,973
+et regardons combien de temps cela prend,
+
+46
+00:01:30,073 --> 00:01:32,658
+cela prend 284 microsecondes.
+
+47
+00:01:32,758 --> 00:01:34,664
+Donc c'est à peu près 100 fois plus lent.
+
+48
+00:01:35,342 --> 00:01:38,594
+Multiplions encore par 100 cette séquence
+
+49
+00:01:38,694 --> 00:01:39,949
+et prenons maintenant un million.
+
+50
+00:01:41,580 --> 00:01:43,034
+Je réexécute mon timeit,
+
+51
+00:01:43,509 --> 00:01:45,041
+et regardons le temps d'exécution:
+
+52
+00:01:45,670 --> 00:01:46,710
+28 millisecondes.
+
+53
+00:01:46,810 --> 00:01:48,301
+C'est de nouveau 100 fois plus lent.
+
+54
+00:01:48,401 --> 00:01:50,239
+On voit clairement que
+
+55
+00:01:50,790 --> 00:01:53,755
+l'opération de test d'appartenance
+
+56
+00:01:53,855 --> 00:01:55,827
+sur une séquence est linéaire
+
+57
+00:01:55,927 --> 00:01:57,242
+en fonction du nombre d'éléments
+
+58
+00:01:57,342 --> 00:01:58,424
+que j'ai dans ma séquence.
+
+59
+00:01:58,524 --> 00:01:59,776
+Là, évidemment, j'ai pris le cas
+
+60
+00:01:59,876 --> 00:02:01,085
+le plus défavorable
+
+61
+00:02:01,185 --> 00:02:02,503
+mais c'est la complexité
+
+62
+00:02:02,603 --> 00:02:03,646
+du test d'appartenance sur la liste
+
+63
+00:02:03,746 --> 00:02:05,581
+qui est linéaire avec le nombre d'éléments.
+
+64
+00:02:06,818 --> 00:02:07,776
+Ça, c'est un problème
+
+65
+00:02:07,876 --> 00:02:08,979
+parce qu'en fait le test d'appartenance
+
+66
+00:02:09,079 --> 00:02:10,651
+est quelque chose de tellement commode
+
+67
+00:02:10,751 --> 00:02:11,917
+qu'on aimerait pouvoir faire
+
+68
+00:02:12,017 --> 00:02:12,789
+un test d'appartenance
+
+69
+00:02:12,889 --> 00:02:14,152
+qui est indépendant du nombre d'éléments.
+
+70
+00:02:15,039 --> 00:02:16,559
+Une deuxième limitation des séquences
+
+71
+00:02:16,659 --> 00:02:17,399
+est la suivante:
+
+72
+00:02:17,926 --> 00:02:19,342
+vous savez que si je prends une séquence
+
+73
+00:02:19,442 --> 00:02:21,823
+t qui est une liste qui contient deux éléments,
+
+74
+00:02:21,923 --> 00:02:22,675
+1 et 2,
+
+75
+00:02:24,755 --> 00:02:26,799
+je peux accéder au premier élément
+
+76
+00:02:26,899 --> 00:02:27,709
+en faisant t de 0.
+
+77
+00:02:28,889 --> 00:02:30,249
+Mais maintenant, supposons que
+
+78
+00:02:30,349 --> 00:02:32,671
+dans ma séquence, dans ma liste,
+
+79
+00:02:32,771 --> 00:02:33,533
+j'ai des âges,
+
+80
+00:02:33,633 --> 00:02:34,783
+et que par exemple j'écrive
+
+81
+00:02:34,883 --> 00:02:38,645
+t égale 18 et 35.
+
+82
+00:02:39,531 --> 00:02:40,636
+Je pourrais très bien vouloir
+
+83
+00:02:40,736 --> 00:02:43,214
+au lieu de faire t de 0 égale 18
+
+84
+00:02:43,314 --> 00:02:44,352
+écrire t de alice
+
+85
+00:02:45,794 --> 00:02:46,794
+je reprends
+
+86
+00:02:48,463 --> 00:02:54,745
+écrire t de alice égale 35
+
+87
+00:02:54,845 --> 00:02:57,968
+pour lier un nom à un âge,
+
+88
+00:02:58,068 --> 00:02:59,481
+donc indicer mes séquences
+
+89
+00:02:59,581 --> 00:03:00,365
+non plus avec des entiers
+
+90
+00:03:00,465 --> 00:03:01,108
+mais avec par exemple
+
+91
+00:03:01,208 --> 00:03:01,857
+des chaînes de caractères.
+
+92
+00:03:02,289 --> 00:03:03,263
+Et bien ça, je ne peux pas le faire ;
+
+93
+00:03:03,363 --> 00:03:04,814
+j'ai donc une erreur qui me dit que
+
+94
+00:03:04,914 --> 00:03:07,189
+les indices des listes doivent être des entiers
+
+95
+00:03:07,289 --> 00:03:08,321
+ou des slices
+
+96
+00:03:08,421 --> 00:03:09,625
+mais pas des chaînes de caractères.
+
+97
+00:03:11,312 --> 00:03:13,999
+La structure de données table de hash
+
+98
+00:03:14,099 --> 00:03:16,350
+permet de répondre à ces deux limitations.
+
+99
+00:03:16,450 --> 00:03:18,752
+Commençons par regarder comment
+
+100
+00:03:18,852 --> 00:03:20,249
+fonctionne une table de hash
+
+101
+00:03:20,349 --> 00:03:21,638
+et dans de prochaines vidéos,
+
+102
+00:03:21,738 --> 00:03:22,542
+nous regarderons comment
+
+103
+00:03:22,642 --> 00:03:24,487
+est-ce qu'elles sont implémentées en Python.
+
+104
+00:03:25,082 --> 00:03:26,108
+Regardons maintenant le fonctionnement
+
+105
+00:03:26,208 --> 00:03:26,934
+de ces tables de hash.
+
+106
+00:03:28,134 --> 00:03:29,781
+Je vais vous présenter ici évidemment
+
+107
+00:03:29,881 --> 00:03:31,087
+une version simplifiée du fonctionnement
+
+108
+00:03:31,187 --> 00:03:31,883
+des tables de hash
+
+109
+00:03:31,983 --> 00:03:33,449
+mais dont le but est de vous faire comprendre
+
+110
+00:03:33,549 --> 00:03:34,257
+le fonctionnement
+
+111
+00:03:34,357 --> 00:03:35,391
+de cette structure de données.
+
+112
+00:03:35,902 --> 00:03:37,580
+Essentiellement, une table de hash
+
+113
+00:03:37,680 --> 00:03:38,831
+est constituée d'un tableau ;
+
+114
+00:03:38,931 --> 00:03:40,911
+nous avons ici un tableau avec 6 éléments,
+
+115
+00:03:41,428 --> 00:03:42,451
+et d'une fonction
+
+116
+00:03:43,592 --> 00:03:45,086
+dont le but est le suivant:
+
+117
+00:03:45,186 --> 00:03:47,374
+lorsque je passe à ma fonction un objet
+
+118
+00:03:47,474 --> 00:03:49,132
+elle va me calculer une valeur
+
+119
+00:03:49,232 --> 00:03:51,385
+qui va être comprise entre 1 et 6.
+
+120
+00:03:51,824 --> 00:03:53,733
+Essentiellement le but de cette fonction
+
+121
+00:03:53,833 --> 00:03:55,575
+est de créer une correspondance entre
+
+122
+00:03:55,675 --> 00:03:56,714
+un objet quelconque
+
+123
+00:03:56,814 --> 00:03:58,366
+et une case dans mon tableau.
+
+124
+00:03:58,845 --> 00:04:00,963
+Regardons maintenant ce fonctionnement,
+
+125
+00:04:01,063 --> 00:04:04,705
+cet ensemble fonction de hash et tableau
+
+126
+00:04:04,805 --> 00:04:06,880
+constitue ce qu'on appelle une table de hash.
+
+127
+00:04:07,917 --> 00:04:09,418
+Maintenant supposons que je veuille
+
+128
+00:04:09,518 --> 00:04:12,273
+ajouter la chaîne de caractères 'eve',
+
+129
+00:04:13,040 --> 00:04:14,442
+que je veuille créer une correspondance
+
+130
+00:04:14,542 --> 00:04:17,142
+entre 'eve' et l'âge 34.
+
+131
+00:04:17,242 --> 00:04:18,663
+Comment ça va fonctionner ?
+
+132
+00:04:18,763 --> 00:04:21,398
+Je vais passer ce qu'on appelle une clé,
+
+133
+00:04:21,498 --> 00:04:24,206
+la clé étant ce que je spécifie entre crochets,
+
+134
+00:04:24,306 --> 00:04:25,798
+et je vais associer cette clé
+
+135
+00:04:25,898 --> 00:04:27,470
+à ce qu'on appelle une valeur.
+
+136
+00:04:28,000 --> 00:04:29,573
+Ce que j'ai entre crochets s'appelle la clé
+
+137
+00:04:29,673 --> 00:04:32,208
+ce que j'ai après le signe = s'appelle la valeur.
+
+138
+00:04:32,951 --> 00:04:35,280
+Je vais passer 'eve' à ma fonction de hash,
+
+139
+00:04:35,380 --> 00:04:36,692
+ma fonction de hash va faire un calcul
+
+140
+00:04:36,792 --> 00:04:37,480
+sur cet objet,
+
+141
+00:04:37,580 --> 00:04:39,193
+et va me retourner une case dans le tableau,
+
+142
+00:04:39,293 --> 00:04:40,082
+ici la case 2.
+
+143
+00:04:40,456 --> 00:04:43,471
+Et je vais écrire ici le couple 'eve', 34.
+
+144
+00:04:44,392 --> 00:04:45,969
+Ensuite, je fais t de 'bob' ;
+
+145
+00:04:46,069 --> 00:04:48,766
+t de 'bob', ça veut dire que la clé est 'bob'
+
+146
+00:04:48,866 --> 00:04:50,741
+et la valeur est 27 ;
+
+147
+00:04:51,198 --> 00:04:52,702
+je passe 'bob' à ma fonction de hash,
+
+148
+00:04:52,802 --> 00:04:54,399
+ça va me retourner une nouvelle case
+
+149
+00:04:54,973 --> 00:04:55,926
+la case 4,
+
+150
+00:04:56,026 --> 00:04:58,433
+et je vais stocker le couple 'bob', 27
+
+151
+00:04:58,533 --> 00:05:00,465
+dans mon tableau.
+
+152
+00:05:01,338 --> 00:05:03,389
+Ensuite, si je veux accéder à 'eve',
+
+153
+00:05:03,489 --> 00:05:04,841
+je vais simplement faire t de 'eve',
+
+154
+00:05:04,941 --> 00:05:06,610
+par exemple, un print t de 'eve' ;
+
+155
+00:05:07,019 --> 00:05:09,017
+je vais repasser 'eve' à ma fonction de hash ;
+
+156
+00:05:09,117 --> 00:05:11,792
+ma fonction de hash va faire le même calcul,
+
+157
+00:05:11,892 --> 00:05:14,022
+elle va donc arriver à la même case,
+
+158
+00:05:14,122 --> 00:05:15,973
+je vais obtenir la case 2 du tableau,
+
+159
+00:05:16,073 --> 00:05:19,557
+et je vais pouvoir afficher 'eve', 34,
+
+160
+00:05:19,657 --> 00:05:20,768
+je vais donc afficher la valeur
+
+161
+00:05:20,868 --> 00:05:21,882
+correspondant à 'eve'
+
+162
+00:05:21,982 --> 00:05:23,000
+qui est la valeur 34.
+
+163
+00:05:23,609 --> 00:05:25,308
+On voit donc que dans une table de hash
+
+164
+00:05:25,408 --> 00:05:26,653
+l'insertion,
+
+165
+00:05:27,790 --> 00:05:28,740
+l'effacement,
+
+166
+00:05:29,621 --> 00:05:30,788
+la recherche d'élément
+
+167
+00:05:30,888 --> 00:05:32,571
+sont indépendants du nombre d'éléments,
+
+168
+00:05:32,671 --> 00:05:33,647
+c'est conditionné
+
+169
+00:05:33,747 --> 00:05:35,252
+par la vitesse de la fonction de hash.
+
+170
+00:05:35,352 --> 00:05:36,507
+Je fais un calcul
+
+171
+00:05:36,607 --> 00:05:38,082
+et j'obtiens directement la case
+
+172
+00:05:38,182 --> 00:05:39,847
+où est stockée la valeur correspondant
+
+173
+00:05:39,947 --> 00:05:40,557
+à la clé.
+
+174
+00:05:42,546 --> 00:05:44,156
+Maintenant, regardons le cas suivant:
+
+175
+00:05:44,256 --> 00:05:46,004
+je fais t de 'jo' égale 46.
+
+176
+00:05:46,535 --> 00:05:47,711
+En fait, vous comprenez bien que
+
+177
+00:05:47,811 --> 00:05:48,248
+dans mon tableau,
+
+178
+00:05:48,448 --> 00:05:50,937
+je n'ai que 6 cases disponibles ;
+
+179
+00:05:51,037 --> 00:05:52,524
+dans une vraie table de hash,
+
+180
+00:05:52,624 --> 00:05:53,525
+j'aurai évidemment plus d'éléments,
+
+181
+00:05:53,625 --> 00:05:54,644
+mais le nombre d'éléments est limité.
+
+182
+00:05:55,467 --> 00:05:56,721
+Au bout d'un moment, je vais
+
+183
+00:05:57,127 --> 00:05:58,446
+avoir ma fonction de hash
+
+184
+00:05:58,546 --> 00:06:00,158
+qui va retourner une case
+
+185
+00:06:00,258 --> 00:06:01,477
+qui est déjà occupée.
+
+186
+00:06:01,677 --> 00:06:02,771
+Regardons ce qu'il se passe.
+
+187
+00:06:02,871 --> 00:06:04,433
+t de 'jo' égale 46,
+
+188
+00:06:04,533 --> 00:06:07,079
+ma fonction de hash me retourne la case 2.
+
+189
+00:06:07,940 --> 00:06:10,965
+Je vais donc stocker 'jo', 46
+
+190
+00:06:11,533 --> 00:06:12,500
+dans cette table de hash
+
+191
+00:06:12,600 --> 00:06:14,849
+à la suite de l'autre clé
+
+192
+00:06:14,949 --> 00:06:16,966
+'eve' associée à sa valeur 34.
+
+193
+00:06:17,613 --> 00:06:19,182
+Si maintenant je fais un t de 'jo',
+
+194
+00:06:19,282 --> 00:06:20,036
+qu'est-ce qu'il va se passer ?
+
+195
+00:06:20,136 --> 00:06:21,188
+Je vais aller chercher 'jo'
+
+196
+00:06:21,288 --> 00:06:22,186
+avec ma fonction de hash
+
+197
+00:06:22,286 --> 00:06:24,162
+qui va toujours me retourner la case n°2,
+
+198
+00:06:24,911 --> 00:06:26,048
+et je vais regarder est-ce que
+
+199
+00:06:26,148 --> 00:06:28,181
+'jo' est la clé correspondant au premier couple
+
+200
+00:06:28,281 --> 00:06:28,945
+non
+
+201
+00:06:29,045 --> 00:06:30,551
+je vais donc passer au deuxième couple ;
+
+202
+00:06:30,651 --> 00:06:31,638
+est-ce que 'jo'
+
+203
+00:06:31,738 --> 00:06:33,335
+est la clé correspondant au deuxième couple ?
+
+204
+00:06:33,435 --> 00:06:33,856
+oui
+
+205
+00:06:33,956 --> 00:06:36,258
+Je retourne donc la valeur 46.
+
+206
+00:06:37,313 --> 00:06:39,130
+Vous voyez donc que l'efficacité
+
+207
+00:06:39,230 --> 00:06:40,129
+d'une table de hash
+
+208
+00:06:40,229 --> 00:06:41,447
+est conditionnée
+
+209
+00:06:41,547 --> 00:06:44,078
+non seulement par la taille du tableau,
+
+210
+00:06:44,178 --> 00:06:45,192
+si j'ai un tableau trop petit
+
+211
+00:06:45,292 --> 00:06:46,333
+je vais avoir beaucoup
+
+212
+00:06:46,433 --> 00:06:47,966
+de ce qu'on appelle des collisions,
+
+213
+00:06:48,066 --> 00:06:50,367
+une collision, c'est lorsque deux clés
+
+214
+00:06:50,467 --> 00:06:52,214
+correspondent à la même entrée
+
+215
+00:06:52,314 --> 00:06:52,868
+dans le tableau,
+
+216
+00:06:53,500 --> 00:06:55,307
+et l'efficacité de ma table de hash
+
+217
+00:06:55,407 --> 00:06:56,581
+est également conditionnée
+
+218
+00:06:56,681 --> 00:06:58,208
+à la capacité de ma fonction de hash
+
+219
+00:06:58,308 --> 00:06:59,810
+à bien répartir les clés
+
+220
+00:06:59,910 --> 00:07:01,438
+dans les différentes cases du tableau.
+
+221
+00:07:03,219 --> 00:07:06,073
+Évidemment, cette efficacité
+
+222
+00:07:06,173 --> 00:07:06,967
+de fonction de hash,
+
+223
+00:07:07,067 --> 00:07:09,284
+cette capacité de la fonction de hash
+
+224
+00:07:09,384 --> 00:07:10,323
+à bien répartir les clés,
+
+225
+00:07:10,423 --> 00:07:11,958
+est une caractéristique majeure
+
+226
+00:07:12,058 --> 00:07:13,068
+d'une table de hash efficace.
+
+227
+00:07:13,873 --> 00:07:15,786
+En Python, il faut savoir
+
+228
+00:07:15,886 --> 00:07:17,261
+que les tables de hash ont été implémentées
+
+229
+00:07:17,361 --> 00:07:18,218
+de manière très efficace ;
+
+230
+00:07:18,318 --> 00:07:19,922
+vous n'avez pas à vous préoccuper
+
+231
+00:07:20,022 --> 00:07:20,696
+de cette fonction de hash,
+
+232
+00:07:20,796 --> 00:07:22,414
+vous n'avez pas à vous préoccuper
+
+233
+00:07:22,514 --> 00:07:23,446
+de la taille du tableau ;
+
+234
+00:07:23,546 --> 00:07:24,971
+Python va automatiquement
+
+235
+00:07:25,071 --> 00:07:25,959
+gérer ça pour vous
+
+236
+00:07:26,059 --> 00:07:27,294
+de manière à ce que vous ayez
+
+237
+00:07:27,394 --> 00:07:29,449
+une efficacité qui soit excellente.
+
+238
+00:07:29,945 --> 00:07:30,852
+Essentiellement,
+
+239
+00:07:30,952 --> 00:07:32,626
+vous pouvez faire l'hypothèse qu'en Python,
+
+240
+00:07:32,726 --> 00:07:34,187
+les tables de hash vous permettent d'avoir
+
+241
+00:07:34,287 --> 00:07:35,845
+un temps d'accès, un temps d'insertion,
+
+242
+00:07:35,945 --> 00:07:36,570
+un temps d'effacement
+
+243
+00:07:36,670 --> 00:07:37,478
+et un temps de recherche
+
+244
+00:07:37,578 --> 00:07:38,872
+qui soient indépendants
+
+245
+00:07:38,972 --> 00:07:40,152
+du nombre d'éléments.
+
+246
+00:07:40,959 --> 00:07:42,331
+Les tables de hash vous permettent
+
+247
+00:07:42,431 --> 00:07:43,302
+d'accéder,
+
+248
+00:07:43,402 --> 00:07:45,367
+d'effacer, de modifier,
+
+249
+00:07:45,467 --> 00:07:46,207
+mais également de faire
+
+250
+00:07:46,307 --> 00:07:47,323
+des tests d'appartenance
+
+251
+00:07:47,423 --> 00:07:50,255
+avec une complexité qu'on appelle O(1)
+
+252
+00:07:50,355 --> 00:07:51,266
+qui veut essentiellement dire que
+
+253
+00:07:51,366 --> 00:07:53,327
+c'est indépendant du nombre d'éléments
+
+254
+00:07:53,427 --> 00:07:54,389
+dans notre table de hash.
+
+255
+00:07:54,818 --> 00:07:55,939
+C'est donc une structure de données
+
+256
+00:07:56,039 --> 00:07:58,167
+très intéressante et qui permet également
+
+257
+00:07:58,267 --> 00:07:59,318
+d'indexer des valeurs
+
+258
+00:07:59,418 --> 00:08:00,146
+non pas avec des entiers
+
+259
+00:08:00,246 --> 00:08:01,087
+comme dans une séquence,
+
+260
+00:08:01,187 --> 00:08:02,205
+mais avec par exemple
+
+261
+00:08:02,305 --> 00:08:03,340
+des chaînes de caractères.
+
+262
+00:08:03,825 --> 00:08:05,552
+En Python, nous avons deux implémentations
+
+263
+00:08:05,652 --> 00:08:06,401
+de tables de hash
+
+264
+00:08:06,501 --> 00:08:08,269
+que sont les sets et les dictionnaires
+
+265
+00:08:08,369 --> 00:08:09,241
+que nous allons voir
+
+266
+00:08:09,341 --> 00:08:10,197
+dans une prochaine vidéo.
+
+267
+00:08:10,297 --> 00:08:11,084
+À bientôt !
+
