@@ -1,0 +1,1268 @@
+﻿1
+00:00:05,446 --> 00:00:06,965
+Dans cette vidéo, nous allons voir
+
+2
+00:00:07,065 --> 00:00:09,027
+l'utilisation des dictionnaires en Python.
+
+3
+00:00:09,127 --> 00:00:10,913
+Les dictionnaires sont des tables de hash,
+
+4
+00:00:11,013 --> 00:00:12,885
+on a donc un temps d'accès, d'insertion
+
+5
+00:00:12,985 --> 00:00:14,514
+d'effacement et un test d'appartenance
+
+6
+00:00:14,614 --> 00:00:16,036
+qui sont indépendants du nombre d'éléments.
+
+7
+00:00:16,531 --> 00:00:17,619
+De plus, les dictionnaires
+
+8
+00:00:17,719 --> 00:00:18,937
+sont des objets mutables, ça veut dire
+
+9
+00:00:19,037 --> 00:00:20,615
+qu'on peut les modifier en place
+
+10
+00:00:20,715 --> 00:00:22,353
+avec donc une excellent efficacité mémoire.
+
+11
+00:00:24,997 --> 00:00:26,169
+Dans un dictionnaire,
+
+12
+00:00:26,269 --> 00:00:27,594
+on peut avoir comme clé
+
+13
+00:00:27,694 --> 00:00:29,721
+n'importe quel objet qui est hashable.
+
+14
+00:00:30,496 --> 00:00:31,783
+Qu'est-ce que c'est, un objet hashable ?
+
+15
+00:00:31,883 --> 00:00:33,508
+C'est un objet sur lequel on peut calculer
+
+16
+00:00:33,608 --> 00:00:35,301
+cette fameuse fonction de hash.
+
+17
+00:00:35,994 --> 00:00:38,025
+Pour l'instant, sachez qu'en Python
+
+18
+00:00:38,125 --> 00:00:39,484
+tous les objets immuables
+
+19
+00:00:39,584 --> 00:00:40,378
+sont hashables ;
+
+20
+00:00:40,478 --> 00:00:42,236
+et que tous les objets mutables
+
+21
+00:00:42,336 --> 00:00:43,913
+ne sont pas hashables.
+
+22
+00:00:44,013 --> 00:00:45,592
+Quelle est l'intuition derrière ça ?
+
+23
+00:00:45,692 --> 00:00:46,845
+C'est que vous vous souvenez que
+
+24
+00:00:46,945 --> 00:00:48,001
+la fonction de hash doit faire
+
+25
+00:00:48,101 --> 00:00:49,351
+un calcul sur la clé.
+
+26
+00:00:49,451 --> 00:00:51,908
+Or, si cette clé change en cours d'exécution,
+
+27
+00:00:52,008 --> 00:00:54,003
+la fonction de hash va faire un calcul
+
+28
+00:00:54,103 --> 00:00:54,772
+qui va être différent
+
+29
+00:00:54,872 --> 00:00:56,422
+et par conséquent, votre table de hash
+
+30
+00:00:56,522 --> 00:00:57,573
+va devenir inconsistante.
+
+31
+00:00:57,673 --> 00:00:59,209
+C'est pourquoi en Python
+
+32
+00:00:59,309 --> 00:01:00,340
+avec les types built-in,
+
+33
+00:01:00,440 --> 00:01:01,982
+seuls les types immuables
+
+34
+00:01:02,082 --> 00:01:03,429
+c'est-à-dire qui ne peuvent plus changer
+
+35
+00:01:03,529 --> 00:01:04,340
+une fois qu'ils ont été créés,
+
+36
+00:01:04,440 --> 00:01:05,771
+peuvent être utilisés
+
+37
+00:01:05,871 --> 00:01:06,781
+comme clés d'un dictionnaire.
+
+38
+00:01:07,438 --> 00:01:09,151
+Ouvrons maintenant un interpréteur Python
+
+39
+00:01:09,251 --> 00:01:10,277
+pour commencer à jouer
+
+40
+00:01:10,377 --> 00:01:11,296
+avec les dictionnaires.
+
+41
+00:01:11,997 --> 00:01:13,319
+Pour créer un dictionnaire,
+
+42
+00:01:13,419 --> 00:01:15,519
+on utilise la notation accolades.
+
+43
+00:01:15,619 --> 00:01:17,060
+Regardons cet exemple.
+
+44
+00:01:17,160 --> 00:01:18,986
+Je vais écrire age égale
+
+45
+00:01:19,086 --> 00:01:21,011
+accolade ouvrante, accolade fermante,
+
+46
+00:01:21,111 --> 00:01:22,902
+et j'ai bien créé un objet
+
+47
+00:01:23,315 --> 00:01:25,244
+qui est de type dict,
+
+48
+00:01:25,344 --> 00:01:26,322
+le type dictionnaire.
+
+49
+00:01:26,953 --> 00:01:28,599
+Ensuite, je peux créer un dictionnaire
+
+50
+00:01:28,699 --> 00:01:31,196
+en écrivant directement à la main
+
+51
+00:01:32,042 --> 00:01:34,282
+des couples clé - valeur séparés par des :
+
+52
+00:01:34,382 --> 00:01:36,508
+donc 'ana' : 35
+
+53
+00:01:36,608 --> 00:01:40,154
+virgule 'eve' : 30
+
+54
+00:01:40,811 --> 00:01:45,202
+virgule 'bob' : 38
+
+55
+00:01:46,228 --> 00:01:47,379
+Donc là, j'ai créé un dictionnaire
+
+56
+00:01:47,479 --> 00:01:48,595
+qui a trois clés
+
+57
+00:01:48,695 --> 00:01:50,420
+'ana', 'eve' et 'bob',
+
+58
+00:01:50,520 --> 00:01:51,262
+et trois valeurs
+
+59
+00:01:51,362 --> 00:01:53,113
+35, 30 et 38.
+
+60
+00:01:53,865 --> 00:01:55,362
+Vous pouvez vraiment voir les dictionnaires
+
+61
+00:01:55,462 --> 00:01:58,032
+comme une collection de couples clé - valeur.
+
+62
+00:01:58,132 --> 00:02:00,926
+Votre dictionnaire va stocker cette collection
+
+63
+00:02:01,026 --> 00:02:01,926
+qui n'est pas ordonnée,
+
+64
+00:02:02,026 --> 00:02:02,996
+il n'y a pas d'ordre dans un dictionnaire,
+
+65
+00:02:03,096 --> 00:02:05,570
+vous allez avoir le couple 'ana' : 35,
+
+66
+00:02:05,670 --> 00:02:07,270
+le couple 'eve' : 30
+
+67
+00:02:07,370 --> 00:02:08,848
+et le couple 'bob' : 38.
+
+68
+00:02:09,490 --> 00:02:11,031
+Ensuite, votre dictionnaire va vous permettre
+
+69
+00:02:11,131 --> 00:02:13,032
+d'accéder aux différents éléments
+
+70
+00:02:13,132 --> 00:02:14,167
+en nommant la clé,
+
+71
+00:02:14,267 --> 00:02:16,639
+par exemple, 'ana' va me permettre
+
+72
+00:02:16,739 --> 00:02:17,890
+d'accéder à la valeur
+
+73
+00:02:17,990 --> 00:02:19,282
+correspondant à la clé 'ana',
+
+74
+00:02:19,382 --> 00:02:20,785
+je vois bien apparaître 35.
+
+75
+00:02:21,433 --> 00:02:22,257
+J'ai une deuxième manière
+
+76
+00:02:22,357 --> 00:02:23,204
+de construire un dictionnaire,
+
+77
+00:02:23,304 --> 00:02:24,415
+c'est la manière suivante:
+
+78
+00:02:25,042 --> 00:02:27,380
+age égale
+
+79
+00:02:28,265 --> 00:02:30,201
+Supposons déjà, supposons qu'au départ
+
+80
+00:02:30,301 --> 00:02:31,412
+vous ayez une liste
+
+81
+00:02:31,512 --> 00:02:33,420
+qui contienne des tuples clé - valeur.
+
+82
+00:02:34,195 --> 00:02:37,003
+('ana', 35),
+
+83
+00:02:37,794 --> 00:02:38,882
+un deuxième tuple:
+
+84
+00:02:42,249 --> 00:02:45,127
+('eve', 30)
+
+85
+00:02:46,210 --> 00:02:47,377
+et un troisième tuple:
+
+86
+00:02:51,211 --> 00:02:52,424
+j'ai été trop vite,
+
+87
+00:02:53,318 --> 00:02:56,413
+('bob', 38).
+
+88
+00:02:56,513 --> 00:02:59,029
+J'ai donc une liste qui contient des tuples.
+
+89
+00:02:59,129 --> 00:03:01,289
+Or, je vous ai expliqué qu'en Python
+
+90
+00:03:01,389 --> 00:03:02,775
+la liste est vraiment
+
+91
+00:03:02,875 --> 00:03:03,918
+au coeur de tous vos programmes
+
+92
+00:03:04,018 --> 00:03:05,414
+donc c'est tout à fait possible
+
+93
+00:03:05,514 --> 00:03:06,999
+de vous retrouver à un moment
+
+94
+00:03:07,099 --> 00:03:08,845
+avec une liste qui contient des couples
+
+95
+00:03:08,945 --> 00:03:09,715
+de clés et valeurs.
+
+96
+00:03:09,815 --> 00:03:11,554
+À ce moment-là, pour créer un dictionnaire
+
+97
+00:03:11,654 --> 00:03:12,716
+à partir de cette liste de tuples,
+
+98
+00:03:12,816 --> 00:03:13,337
+c'est très simple,
+
+99
+00:03:13,437 --> 00:03:15,009
+vous n'avez qu'à écrire la chose suivante:
+
+100
+00:03:15,109 --> 00:03:16,942
+age égale
+
+101
+00:03:17,042 --> 00:03:18,886
+dict de a.
+
+102
+00:03:20,994 --> 00:03:22,125
+La fonction built-in dict
+
+103
+00:03:22,225 --> 00:03:23,089
+va créer un dictionnaire
+
+104
+00:03:23,189 --> 00:03:24,901
+à partir de ces couples clé - valeur
+
+105
+00:03:25,001 --> 00:03:26,039
+où vous aurez:
+
+106
+00:03:26,139 --> 00:03:27,926
+'ana' qui correspond à la valeur 35,
+
+107
+00:03:28,026 --> 00:03:30,132
+'eve' à la valeur 30 et 'bob' à la valeur 38.
+
+108
+00:03:31,069 --> 00:03:33,343
+De nouveau, je peux tout à fait accéder
+
+109
+00:03:33,443 --> 00:03:35,245
+à la valeur correspondant à 'bob',
+
+110
+00:03:36,227 --> 00:03:37,417
+je recommence,
+
+111
+00:03:39,108 --> 00:03:41,362
+a de 'bob'
+
+112
+00:03:42,997 --> 00:03:44,403
+je vois que...
+
+113
+00:03:44,503 --> 00:03:46,845
+alors, ce n'est pas a
+
+114
+00:03:46,945 --> 00:03:48,538
+mon dictionnaire,
+
+115
+00:03:48,638 --> 00:03:49,437
+a, c'était la liste.
+
+116
+00:03:49,537 --> 00:03:51,474
+Je refais age de 'bob',
+
+117
+00:03:52,337 --> 00:03:53,683
+vous remarquez au passage
+
+118
+00:03:53,783 --> 00:03:55,143
+que l'exception est tout à fait explicite,
+
+119
+00:03:55,243 --> 00:03:55,828
+j'ai TypeError:
+
+120
+00:03:55,928 --> 00:03:58,250
+list indices must be integers or slices ;
+
+121
+00:03:58,350 --> 00:04:00,253
+l'objet que je voulais manipuler
+
+122
+00:04:00,353 --> 00:04:01,360
+n'était pas une liste mais un dictionnaire ;
+
+123
+00:04:01,460 --> 00:04:02,772
+c'est ce qui me permet de savoir
+
+124
+00:04:02,872 --> 00:04:03,448
+que j'ai fait une erreur.
+
+125
+00:04:03,999 --> 00:04:05,978
+age de 'bob' me retourne 38 ;
+
+126
+00:04:06,078 --> 00:04:07,673
+je réaffiche mon dictionnaire age ;
+
+127
+00:04:07,773 --> 00:04:09,351
+et comme mon dictionnaire est mutable,
+
+128
+00:04:09,451 --> 00:04:10,870
+je peux tout à fait changer la valeur
+
+129
+00:04:10,970 --> 00:04:11,741
+correspondant à 'bob'.
+
+130
+00:04:11,841 --> 00:04:12,865
+Je peux écrire maintenant
+
+131
+00:04:12,965 --> 00:04:14,433
+'bob' égale 45,
+
+132
+00:04:14,533 --> 00:04:16,272
+et je regarde mon dictionnaire,
+
+133
+00:04:16,372 --> 00:04:18,032
+la valeur correspondant à 'bob'
+
+134
+00:04:18,132 --> 00:04:19,308
+a bien été modifiée.
+
+135
+00:04:19,944 --> 00:04:22,514
+De nouveau, j'insiste bien sur le fait que
+
+136
+00:04:22,614 --> 00:04:23,937
+les dictionnaires ne sont pas ordonnés ;
+
+137
+00:04:24,037 --> 00:04:25,451
+lorsqu'on débute en Python
+
+138
+00:04:25,551 --> 00:04:26,530
+on peut avoir l'impression que l'on a
+
+139
+00:04:26,630 --> 00:04:27,864
+un certain ordre et que cet ordre
+
+140
+00:04:27,964 --> 00:04:29,345
+peut changer par moment,
+
+141
+00:04:29,445 --> 00:04:31,100
+en fait, vous n'avez aucune garantie d'ordre
+
+142
+00:04:31,200 --> 00:04:32,842
+lorsque vous faites print d'un dictionnaire
+
+143
+00:04:32,942 --> 00:04:34,780
+l'ordre affiché sera quelconque.
+
+144
+00:04:37,702 --> 00:04:39,400
+Vous pouvez également effacer
+
+145
+00:04:39,500 --> 00:04:40,823
+un couple clé - valeur,
+
+146
+00:04:40,923 --> 00:04:42,142
+donc une entrée dans un dictionnaire,
+
+147
+00:04:42,242 --> 00:04:44,052
+en utilisant l'instruction del.
+
+148
+00:04:44,152 --> 00:04:47,771
+Si je fais del age de 'bob'
+
+149
+00:04:49,181 --> 00:04:51,317
+je vais effacer la clé 'bob'
+
+150
+00:04:51,417 --> 00:04:52,677
+et la valeur correspondante
+
+151
+00:04:52,777 --> 00:04:53,925
+et j'obtiens donc mon dictionnaire
+
+152
+00:04:54,025 --> 00:04:55,186
+qui maintenant ne contient plus que
+
+153
+00:04:55,286 --> 00:04:57,169
+'ana' : 35, 'eve' : 30.
+
+154
+00:04:59,975 --> 00:05:01,911
+Une caractéristique très importante
+
+155
+00:05:02,011 --> 00:05:02,731
+des dictionnaires, c'est que
+
+156
+00:05:02,831 --> 00:05:04,835
+les dictionnaires ont des opérations
+
+157
+00:05:04,935 --> 00:05:06,132
+qui sont très proches des séquences
+
+158
+00:05:06,232 --> 00:05:07,764
+lorsque cette opération a un sens.
+
+159
+00:05:08,227 --> 00:05:09,109
+Par exemple, combien est-ce que
+
+160
+00:05:09,209 --> 00:05:10,283
+j'ai de clés dans mon dictionnaire ?
+
+161
+00:05:10,383 --> 00:05:11,748
+Combien de couples clé - valeur ?
+
+162
+00:05:11,848 --> 00:05:14,738
+J'utilise la fonction built-in len,
+
+163
+00:05:14,838 --> 00:05:15,832
+qui va me retourner 2.
+
+164
+00:05:16,493 --> 00:05:17,325
+Je peux également faire
+
+165
+00:05:17,425 --> 00:05:18,901
+du test d'appartenance sur un dictionnaire ;
+
+166
+00:05:19,001 --> 00:05:20,482
+encore une fois, je vais utiliser
+
+167
+00:05:20,582 --> 00:05:21,720
+exactement la même instruction
+
+168
+00:05:21,820 --> 00:05:22,413
+que pour les séquences,
+
+169
+00:05:22,513 --> 00:05:23,636
+l'instruction in ;
+
+170
+00:05:23,736 --> 00:05:24,628
+donc je peux faire
+
+171
+00:05:24,728 --> 00:05:28,756
+est-ce que 'ana' in mon dictionnaire age ?
+
+172
+00:05:28,856 --> 00:05:29,882
+La réponse est "vrai".
+
+173
+00:05:29,982 --> 00:05:33,058
+Est-ce que 'bob' in mon dictionnaire age ?
+
+174
+00:05:33,158 --> 00:05:34,298
+La réponse est "faux".
+
+175
+00:05:34,398 --> 00:05:35,550
+Vous voyez vraiment
+
+176
+00:05:35,650 --> 00:05:38,239
+ce souci d'uniformité en Python ;
+
+177
+00:05:38,996 --> 00:05:40,139
+lorsque c'est possible,
+
+178
+00:05:40,239 --> 00:05:42,041
+on utilise quel que soit le type
+
+179
+00:05:42,141 --> 00:05:44,554
+des instructions qui sont les mêmes.
+
+180
+00:05:44,654 --> 00:05:45,196
+Par exemple,
+
+181
+00:05:45,296 --> 00:05:46,581
+le nombre d'éléments dans une liste
+
+182
+00:05:46,681 --> 00:05:47,872
+ou le nombre de clés dans un dictionnaire,
+
+183
+00:05:47,972 --> 00:05:48,518
+c'est len ;
+
+184
+00:05:48,618 --> 00:05:49,659
+le test d'appartenance
+
+185
+00:05:49,759 --> 00:05:50,693
+sur toutes les séquences
+
+186
+00:05:50,793 --> 00:05:51,593
+et sur les dictionnaires,
+
+187
+00:05:51,693 --> 00:05:52,588
+c'est in.
+
+188
+00:05:53,304 --> 00:05:54,832
+Pour finir, j'aimerais vous montrer
+
+189
+00:05:54,932 --> 00:05:56,228
+comment accéder aux clés,
+
+190
+00:05:56,328 --> 00:05:57,443
+aux valeurs,
+
+191
+00:05:57,543 --> 00:05:58,826
+ou aux couples clé - valeur
+
+192
+00:05:58,926 --> 00:06:00,872
+qu'on appelle les items en Python,
+
+193
+00:06:00,972 --> 00:06:01,800
+d'un dictionnaire.
+
+194
+00:06:02,351 --> 00:06:04,172
+J'ai mon dictionnaire qui s'appelle age,
+
+195
+00:06:04,272 --> 00:06:05,570
+je veux accéder aux clés,
+
+196
+00:06:05,670 --> 00:06:08,232
+je vais y accéder avec la méthode keys().
+
+197
+00:06:08,332 --> 00:06:09,710
+Et keys() va me retourner
+
+198
+00:06:09,810 --> 00:06:11,357
+un objet qui contient les clés.
+
+199
+00:06:11,457 --> 00:06:12,517
+Ensuite,
+
+200
+00:06:13,347 --> 00:06:15,305
+je peux accéder aux valeurs avec values()
+
+201
+00:06:15,405 --> 00:06:16,445
+qui va me retourner un objet
+
+202
+00:06:16,545 --> 00:06:17,987
+qui contient les valeurs.
+
+203
+00:06:18,500 --> 00:06:20,497
+Et je peux accéder aux couples clé - valeur
+
+204
+00:06:20,597 --> 00:06:21,503
+qu'on appelle les items
+
+205
+00:06:21,603 --> 00:06:26,188
+avec la méthode sur le dictionnaire items().
+
+206
+00:06:26,822 --> 00:06:27,477
+Et on voit que j'obtiens
+
+207
+00:06:27,577 --> 00:06:29,821
+des couples clé - valeur.
+
+208
+00:06:30,327 --> 00:06:34,106
+Ces méthodes keys, values et items
+
+209
+00:06:34,206 --> 00:06:35,017
+retournent un objet qui est
+
+210
+00:06:35,117 --> 00:06:35,968
+un petit peu particulier ;
+
+211
+00:06:36,068 --> 00:06:37,952
+c'est un objet qu'on appelle une vue.
+
+212
+00:06:38,052 --> 00:06:39,849
+Qu'est-ce que c'est, une vue, en Python ?
+
+213
+00:06:39,949 --> 00:06:42,042
+C'est un objet sur lequel on peut itérer,
+
+214
+00:06:42,142 --> 00:06:42,544
+donc on peut faire
+
+215
+00:06:42,644 --> 00:06:43,875
+une boucle for sur cet objet,
+
+216
+00:06:43,975 --> 00:06:45,171
+et on peut également faire
+
+217
+00:06:45,271 --> 00:06:46,338
+un test d'appartenance,
+
+218
+00:06:46,438 --> 00:06:47,343
+donc faire par exemple
+
+219
+00:06:47,443 --> 00:06:48,836
+in directement sur cette vue ;
+
+220
+00:06:49,547 --> 00:06:51,362
+la caractéristique principale des vues
+
+221
+00:06:51,462 --> 00:06:52,827
+est que la vue est mise à jour
+
+222
+00:06:52,927 --> 00:06:54,274
+en même temps que le dictionnaire.
+
+223
+00:06:54,782 --> 00:06:55,583
+Regardons un exemple.
+
+224
+00:06:56,065 --> 00:07:00,344
+Je vais écrire a égale age.keys(),
+
+225
+00:07:01,383 --> 00:07:02,726
+je vais plutôt l'appeler k
+
+226
+00:07:02,826 --> 00:07:04,319
+pour rendre plus explicite que c'est
+
+227
+00:07:04,419 --> 00:07:06,021
+la vue sur les clés.
+
+228
+00:07:06,121 --> 00:07:07,795
+Regardons k, je vois bien que c'est
+
+229
+00:07:08,564 --> 00:07:10,244
+la vue qui me permet d'accéder aux clés.
+
+230
+00:07:10,344 --> 00:07:11,684
+Et maintenant, je vais modifier
+
+231
+00:07:11,784 --> 00:07:12,532
+mon dictionnaire age ;
+
+232
+00:07:12,632 --> 00:07:13,669
+je vais écrire 'bob',
+
+233
+00:07:14,139 --> 00:07:15,362
+donc je rajoute une clé
+
+234
+00:07:15,462 --> 00:07:16,871
+dans mon dictionnaire,
+
+235
+00:07:16,971 --> 00:07:18,744
+'bob' égale 25.
+
+236
+00:07:19,668 --> 00:07:21,067
+Je rajoute un couple clé - valeur
+
+237
+00:07:21,167 --> 00:07:22,325
+et on rajoute les couples clé - valeur
+
+238
+00:07:22,425 --> 00:07:23,244
+avec cette notation:
+
+239
+00:07:23,344 --> 00:07:24,386
+mon dictionnaire
+
+240
+00:07:24,486 --> 00:07:26,043
+entre crochets la clé qu'on veut rajouter
+
+241
+00:07:26,143 --> 00:07:27,162
+égale la nouvelle valeur.
+
+242
+00:07:27,262 --> 00:07:28,516
+Cette notation vous permet
+
+243
+00:07:28,616 --> 00:07:30,103
+de modifier une valeur existante
+
+244
+00:07:30,203 --> 00:07:31,550
+ou alors de rajouter
+
+245
+00:07:31,650 --> 00:07:32,685
+un nouveau couple clé - valeur.
+
+246
+00:07:32,785 --> 00:07:34,061
+Je rajoute 'bob',
+
+247
+00:07:34,161 --> 00:07:36,014
+et regardons maintenant ma vue.
+
+248
+00:07:36,114 --> 00:07:37,339
+Je n'ai pas recréé ma vue,
+
+249
+00:07:37,439 --> 00:07:38,073
+c'est la vue que j'ai créée
+
+250
+00:07:38,173 --> 00:07:39,511
+avant l'ajout de cette clé,
+
+251
+00:07:40,109 --> 00:07:41,386
+et bien, je vois que ma vue a
+
+252
+00:07:41,486 --> 00:07:43,015
+automatiquement été mise à jour
+
+253
+00:07:43,115 --> 00:07:45,127
+avec cette nouvelle clé.
+
+254
+00:07:45,227 --> 00:07:46,207
+Donc en fait, les vues,
+
+255
+00:07:46,307 --> 00:07:47,915
+vous devez vraiment voir ça comme
+
+256
+00:07:48,015 --> 00:07:49,829
+une vue permanente sur votre objet,
+
+257
+00:07:49,929 --> 00:07:50,998
+si votre objet est modifié,
+
+258
+00:07:51,098 --> 00:07:53,619
+la vue va voir ce nouvel objet
+
+259
+00:07:53,719 --> 00:07:54,652
+qui a été modifié.
+
+260
+00:07:55,300 --> 00:07:55,839
+Je vous montre
+
+261
+00:07:55,939 --> 00:07:57,255
+ce test d'appartenance sur les vues,
+
+262
+00:07:57,355 --> 00:07:58,240
+si je regarde est-ce que
+
+263
+00:07:58,340 --> 00:08:01,104
+'ana' est dans mes clés ?
+
+264
+00:08:01,902 --> 00:08:02,740
+C'est vrai.
+
+265
+00:08:02,840 --> 00:08:05,946
+Est-ce que 'bill' est dans mes clés ?
+
+266
+00:08:06,728 --> 00:08:07,361
+C'est faux.
+
+267
+00:08:07,461 --> 00:08:09,005
+J'ai bien le test d'appartenance
+
+268
+00:08:09,105 --> 00:08:10,222
+qui fonctionne tout à fait
+
+269
+00:08:10,322 --> 00:08:11,486
+directement sur la vue.
+
+270
+00:08:11,911 --> 00:08:13,322
+Pour finir, j'aimerais vous montrer comment
+
+271
+00:08:13,422 --> 00:08:14,566
+est-ce qu'on parcourt les dictionnaires.
+
+272
+00:08:14,666 --> 00:08:16,116
+Une manière tout à fait classique
+
+273
+00:08:16,216 --> 00:08:17,091
+de parcourir les dictionnaires,
+
+274
+00:08:17,191 --> 00:08:18,266
+j'ai mon dictionnaire age,
+
+275
+00:08:18,366 --> 00:08:19,993
+c'est d'écrire la boucle for suivante,
+
+276
+00:08:20,093 --> 00:08:22,592
+en utilisant la notation de tuple unpacking.
+
+277
+00:08:22,996 --> 00:08:27,869
+Je vais faire for k, v in age.items()
+
+278
+00:08:29,371 --> 00:08:30,578
+Que me retourne items ?
+
+279
+00:08:30,678 --> 00:08:32,842
+Une vue sur les couples clé - valeur
+
+280
+00:08:32,942 --> 00:08:33,808
+donc à chaque tour de boucle,
+
+281
+00:08:33,908 --> 00:08:36,932
+la boucle for va retourner
+
+282
+00:08:37,032 --> 00:08:40,192
+un tuple clé - valeur ;
+
+283
+00:08:40,292 --> 00:08:42,484
+en faisant k, v in ce tuple,
+
+284
+00:08:42,584 --> 00:08:43,827
+je fais du unpacking,
+
+285
+00:08:43,927 --> 00:08:45,435
+donc k va correspondre à la clé,
+
+286
+00:08:45,535 --> 00:08:47,035
+v va correspondre à la valeur.
+
+287
+00:08:47,135 --> 00:08:49,493
+Et ensuite je peux faire un print de
+
+288
+00:08:49,593 --> 00:08:51,693
+là, j'écris une f-string
+
+289
+00:08:52,531 --> 00:08:53,708
+clé, valeur,
+
+290
+00:08:53,808 --> 00:08:56,389
+et ici, j'écris directement k, v.
+
+291
+00:08:56,899 --> 00:08:58,787
+J'exécute ce morceau de code
+
+292
+00:08:58,887 --> 00:09:00,578
+et je vois effectivement apparaître
+
+293
+00:09:00,678 --> 00:09:02,528
+mes couples clé - valeur.
+
+294
+00:09:02,877 --> 00:09:04,829
+Pour finir, je veux juste vous montrer
+
+295
+00:09:04,929 --> 00:09:06,478
+que l'itérateur sur les dictionnaires
+
+296
+00:09:06,578 --> 00:09:08,129
+est un itérateur directement
+
+297
+00:09:09,255 --> 00:09:10,711
+sur les clés.
+
+298
+00:09:11,356 --> 00:09:13,325
+Si j'itère directement sur mon dictionnaire,
+
+299
+00:09:13,425 --> 00:09:14,728
+sans spécifier de vue,
+
+300
+00:09:14,828 --> 00:09:16,589
+ce que va me retourner la boucle for,
+
+301
+00:09:16,689 --> 00:09:18,270
+c'est simplement une nouvelle clé.
+
+302
+00:09:18,370 --> 00:09:20,054
+Ici, je fais un print de k
+
+303
+00:09:20,154 --> 00:09:22,477
+et je vois donc que j'itère directement
+
+304
+00:09:22,577 --> 00:09:23,293
+sur les clés.
+
+305
+00:09:24,068 --> 00:09:25,427
+Nous venons donc de voir
+
+306
+00:09:25,527 --> 00:09:27,089
+le nouveau type dictionnaire
+
+307
+00:09:27,189 --> 00:09:27,999
+qui est une implémentation
+
+308
+00:09:28,099 --> 00:09:29,319
+de table de hash qui permet
+
+309
+00:09:29,419 --> 00:09:31,224
+l'accès, l'insertion, la modification,
+
+310
+00:09:31,324 --> 00:09:32,182
+et le test d'appartenance,
+
+311
+00:09:32,282 --> 00:09:34,133
+indépendamment du nombre d'éléments.
+
+312
+00:09:34,233 --> 00:09:36,750
+Le dictionnaire est une structure de données
+
+313
+00:09:36,850 --> 00:09:37,765
+extrêmement souple,
+
+314
+00:09:37,865 --> 00:09:39,168
+qui vous permet par exemple
+
+315
+00:09:39,268 --> 00:09:40,487
+d'implémenter sans aucun effort
+
+316
+00:09:40,587 --> 00:09:42,647
+un agenda ou un annuaire.
+
+317
+00:09:42,747 --> 00:09:43,528
+À bientôt !
+
