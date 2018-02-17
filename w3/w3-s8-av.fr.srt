@@ -1,0 +1,1188 @@
+﻿1
+00:00:05,448 --> 00:00:06,790
+Nous avons vu jusqu'à maintenant
+
+2
+00:00:06,890 --> 00:00:08,466
+les principaux types built-in.
+
+3
+00:00:08,566 --> 00:00:09,881
+Nous avons vu les chaînes de caractères,
+
+4
+00:00:09,981 --> 00:00:13,050
+les séquences avec les listes, les tuples,
+
+5
+00:00:13,150 --> 00:00:14,812
+les dictionnaires, les sets.
+
+6
+00:00:14,912 --> 00:00:16,435
+Et nous avons surtout remarqué
+
+7
+00:00:16,535 --> 00:00:18,482
+que ces différents types built-in,
+
+8
+00:00:18,582 --> 00:00:20,279
+bien qu'étant de nature différente,
+
+9
+00:00:20,379 --> 00:00:22,049
+se manipulaient de manière
+
+10
+00:00:22,149 --> 00:00:23,169
+extrêmement proche,
+
+11
+00:00:23,269 --> 00:00:24,679
+en fait exactement de la même manière.
+
+12
+00:00:24,779 --> 00:00:26,341
+Connaître la longueur d'une séquence,
+
+13
+00:00:26,441 --> 00:00:27,558
+la longueur d'un set ou d'un dictionnaire,
+
+14
+00:00:27,658 --> 00:00:28,461
+c'est fait avec len.
+
+15
+00:00:29,012 --> 00:00:30,539
+Afficher le contenu de ces objets,
+
+16
+00:00:30,639 --> 00:00:31,471
+c'est fait avec print.
+
+17
+00:00:31,571 --> 00:00:33,129
+Faire le test d'appartenance,
+
+18
+00:00:33,229 --> 00:00:34,311
+c'est fait avec in.
+
+19
+00:00:34,958 --> 00:00:35,858
+Cette uniformité
+
+20
+00:00:35,958 --> 00:00:37,073
+dans le comportement des objets
+
+21
+00:00:37,173 --> 00:00:39,282
+est une caractéristique majeure de Python.
+
+22
+00:00:39,382 --> 00:00:40,364
+Ce qui explique
+
+23
+00:00:40,464 --> 00:00:42,676
+la faible courbe d'apprentissage
+
+24
+00:00:42,776 --> 00:00:43,816
+que l'on a en Python ;
+
+25
+00:00:43,916 --> 00:00:45,047
+lorsque vous savez faire quelque chose
+
+26
+00:00:45,147 --> 00:00:45,969
+avec un type d'objet,
+
+27
+00:00:46,069 --> 00:00:46,873
+vous savez le faire
+
+28
+00:00:46,973 --> 00:00:48,729
+avec quasiment tous les autres types.
+
+29
+00:00:49,293 --> 00:00:50,755
+Python va bien au-delà
+
+30
+00:00:50,855 --> 00:00:52,538
+de cette puissance des types built-in.
+
+31
+00:00:52,638 --> 00:00:54,450
+En fait, en Python, vous pouvez
+
+32
+00:00:54,550 --> 00:00:56,019
+écrire vos propres objets,
+
+33
+00:00:56,119 --> 00:00:57,609
+définir vos propres objets,
+
+34
+00:00:57,709 --> 00:00:59,705
+qui vont se comporter exactement
+
+35
+00:00:59,805 --> 00:01:00,911
+comme des types built-in.
+
+36
+00:01:01,549 --> 00:01:02,743
+Donc vous pouvez créer des objets
+
+37
+00:01:02,843 --> 00:01:03,700
+qui vont supporter
+
+38
+00:01:03,800 --> 00:01:05,249
+le test d'appartenance avec in,
+
+39
+00:01:05,349 --> 00:01:07,642
+qui vont supporter la fonction built-in print
+
+40
+00:01:07,742 --> 00:01:08,873
+ou la fonction built-in len,
+
+41
+00:01:08,973 --> 00:01:11,458
+ou qui vont supporter l'affectation
+
+42
+00:01:11,558 --> 00:01:12,729
+avec les crochets.
+
+43
+00:01:14,016 --> 00:01:16,197
+Dans cette vidéo, je vais vous présenter
+
+44
+00:01:16,604 --> 00:01:18,666
+le mécanisme qui permet d'implémenter
+
+45
+00:01:18,766 --> 00:01:19,577
+vos propres objets.
+
+46
+00:01:19,677 --> 00:01:21,229
+C'est ce qu'on appelle des classes.
+
+47
+00:01:21,329 --> 00:01:23,837
+Avec une classe, vous pouvez créer des objets
+
+48
+00:01:23,937 --> 00:01:25,711
+et définir des méthodes pour que
+
+49
+00:01:25,811 --> 00:01:27,645
+vos objets se comportent exactement
+
+50
+00:01:27,745 --> 00:01:28,843
+comme des types built-in.
+
+51
+00:01:29,823 --> 00:01:30,777
+Je vous rappelle que
+
+52
+00:01:30,877 --> 00:01:31,701
+lorsque nous avons introduit
+
+53
+00:01:31,801 --> 00:01:32,557
+ces notions d'objets,
+
+54
+00:01:32,657 --> 00:01:33,835
+nous avons dit qu'il y avait
+
+55
+00:01:33,935 --> 00:01:35,691
+une usine qui construisait les objets,
+
+56
+00:01:35,791 --> 00:01:36,849
+c'était le type.
+
+57
+00:01:36,949 --> 00:01:38,616
+Et bien en fait, le type, c'est la classe,
+
+58
+00:01:38,716 --> 00:01:39,520
+c'est la même chose.
+
+59
+00:01:39,620 --> 00:01:41,458
+Donc la classe, c'est l'usine
+
+60
+00:01:41,558 --> 00:01:43,020
+qui va créer vos instances,
+
+61
+00:01:43,120 --> 00:01:44,565
+et les instances, ce sont les objets
+
+62
+00:01:44,665 --> 00:01:45,643
+qui vont être produits.
+
+63
+00:01:46,057 --> 00:01:48,045
+Si vous voulez prendre une analogie
+
+64
+00:01:48,145 --> 00:01:50,134
+avec les types built-in,
+
+65
+00:01:50,234 --> 00:01:53,920
+list, c'est le type qui va créer les objets listes,
+
+66
+00:01:54,020 --> 00:01:55,443
+et tous les objets listes que l'on produit
+
+67
+00:01:55,543 --> 00:01:58,032
+sont des instances du type list.
+
+68
+00:01:58,932 --> 00:02:01,367
+Ouvrons maintenant un éditeur IDLE
+
+69
+00:02:01,467 --> 00:02:03,453
+pour commencer à jouer avec les classes.
+
+70
+00:02:04,383 --> 00:02:08,173
+On crée une classe avec l'instruction class
+
+71
+00:02:08,273 --> 00:02:10,113
+suivie du nom de la classe,
+
+72
+00:02:11,836 --> 00:02:12,916
+et je vais faire une classe
+
+73
+00:02:13,016 --> 00:02:13,914
+qui ne fait absolument rien.
+
+74
+00:02:14,014 --> 00:02:15,713
+En fait, comme il faut une instruction
+
+75
+00:02:15,813 --> 00:02:17,053
+dans le bloc de code de la classe,
+
+76
+00:02:17,153 --> 00:02:18,250
+je mets simplement pass
+
+77
+00:02:18,350 --> 00:02:19,431
+qui ne fait absolument rien.
+
+78
+00:02:19,916 --> 00:02:22,368
+Ensuite, je sauvegarde et j'exécute avec F5.
+
+79
+00:02:22,468 --> 00:02:24,789
+J'ai maintenant dans mon interpréteur
+
+80
+00:02:24,889 --> 00:02:26,107
+une classe C
+
+81
+00:02:26,207 --> 00:02:28,614
+que je peux appeler avec des parenthèses.
+
+82
+00:02:29,253 --> 00:02:31,021
+Lorsque j'appelle ma classe C
+
+83
+00:02:31,121 --> 00:02:31,768
+avec des parenthèses,
+
+84
+00:02:31,868 --> 00:02:32,913
+je vais créer des instances.
+
+85
+00:02:33,614 --> 00:02:37,296
+Regardons ça, si j'écris c1 égale une classe C,
+
+86
+00:02:37,396 --> 00:02:39,567
+je vais créer une instance de cette classe ;
+
+87
+00:02:39,667 --> 00:02:41,908
+c2 égale une classe C,
+
+88
+00:02:42,008 --> 00:02:43,039
+je vais créer
+
+89
+00:02:43,139 --> 00:02:44,670
+une deuxième instance de cette classe.
+
+90
+00:02:44,770 --> 00:02:46,499
+Nous voyons bien que c1 et c2
+
+91
+00:02:46,599 --> 00:02:48,321
+sont deux objets distincts
+
+92
+00:02:48,421 --> 00:02:49,450
+puisqu'ils sont situés
+
+93
+00:02:49,550 --> 00:02:50,906
+à des adresses mémoire différentes.
+
+94
+00:02:55,220 --> 00:02:57,840
+Évidemment, comme cette classe n'a défini
+
+95
+00:02:57,940 --> 00:02:59,114
+absolument aucune méthode,
+
+96
+00:02:59,214 --> 00:03:01,470
+on n'a aucun comportement spécifique
+
+97
+00:03:01,570 --> 00:03:02,074
+avec notre classe,
+
+98
+00:03:02,174 --> 00:03:03,133
+on a essentiellement une classe
+
+99
+00:03:03,233 --> 00:03:04,445
+qui ne sert à rien, qui ne fait rien.
+
+100
+00:03:04,895 --> 00:03:06,317
+Maintenant, on veut ajouter des méthodes
+
+101
+00:03:06,417 --> 00:03:07,104
+dans cette classe.
+
+102
+00:03:07,297 --> 00:03:08,867
+La première méthode qu'on veut ajouter,
+
+103
+00:03:08,967 --> 00:03:10,554
+c'est ce qu'on appelle l'initialisateur
+
+104
+00:03:10,654 --> 00:03:12,837
+ou le constructeur de nos instances.
+
+105
+00:03:12,937 --> 00:03:14,052
+Regardons cela ;
+
+106
+00:03:14,152 --> 00:03:14,944
+je vais définir une méthode
+
+107
+00:03:16,540 --> 00:03:17,875
+qui s'appelle __init__
+
+108
+00:03:18,953 --> 00:03:20,443
+et qui va prendre deux arguments,
+
+109
+00:03:20,543 --> 00:03:22,592
+self et phrase.
+
+110
+00:03:29,876 --> 00:03:31,963
+Et je vais renommer ma classe
+
+111
+00:03:32,063 --> 00:03:33,047
+en classe Phrase
+
+112
+00:03:33,147 --> 00:03:34,194
+pour avoir un nom de classe
+
+113
+00:03:34,294 --> 00:03:35,672
+qui est un petit peu plus explicite.
+
+114
+00:03:37,978 --> 00:03:40,093
+Ensuite, je vais écrire self point mots
+
+115
+00:03:40,193 --> 00:03:41,483
+et je vais revenir sur la signification
+
+116
+00:03:41,583 --> 00:03:42,759
+de ce que je suis en train d'écrire,
+
+117
+00:03:43,428 --> 00:03:46,600
+phrase point split.
+
+118
+00:03:48,550 --> 00:03:50,058
+Regardons ce que j'ai écrit:
+
+119
+00:03:50,158 --> 00:03:52,651
+j'ai défini une fonction avec def
+
+120
+00:03:52,751 --> 00:03:53,851
+à l'intérieur d'une classe.
+
+121
+00:03:53,951 --> 00:03:55,592
+Les fonctions définies dans les classes
+
+122
+00:03:55,692 --> 00:03:56,568
+s'appellent des méthodes.
+
+123
+00:03:57,824 --> 00:04:00,235
+Et cette méthode prend deux arguments
+
+124
+00:04:00,335 --> 00:04:01,537
+self et phrase.
+
+125
+00:04:02,126 --> 00:04:04,468
+En fait, lorsque je vais appeler
+
+126
+00:04:04,568 --> 00:04:06,892
+la méthode sur la classe,
+
+127
+00:04:06,992 --> 00:04:09,016
+l'instance va automatiquement
+
+128
+00:04:09,116 --> 00:04:10,673
+être passée comme premier argument
+
+129
+00:04:10,773 --> 00:04:13,034
+donc self va correspondre à l'instance
+
+130
+00:04:13,134 --> 00:04:14,593
+qui a été créée par ma classe.
+
+131
+00:04:15,255 --> 00:04:17,127
+Dans la méthode __init__,
+
+132
+00:04:17,227 --> 00:04:18,166
+cette méthode est appelée
+
+133
+00:04:18,266 --> 00:04:19,638
+lorsque je crée mon instance,
+
+134
+00:04:19,738 --> 00:04:21,272
+et l'argument que je passe
+
+135
+00:04:21,372 --> 00:04:22,784
+lors de la création de cette instance
+
+136
+00:04:22,884 --> 00:04:23,792
+est passé à phrase.
+
+137
+00:04:23,892 --> 00:04:25,480
+Regardons comment cela va se passer.
+
+138
+00:04:27,484 --> 00:04:30,138
+Je sauvegarde, j'exécute avec F5
+
+139
+00:04:30,238 --> 00:04:32,105
+pour créer mon objet classe Phrase,
+
+140
+00:04:32,205 --> 00:04:36,470
+et je vais écrire p égale Phrase de
+
+141
+00:04:36,570 --> 00:04:38,013
+et je passe entre parenthèses
+
+142
+00:04:39,946 --> 00:04:44,473
+"je fais un mooc sur python".
+
+143
+00:04:46,039 --> 00:04:47,753
+Lorsque je fais un retour chariot,
+
+144
+00:04:47,853 --> 00:04:49,572
+ma classe Phrase
+
+145
+00:04:49,672 --> 00:04:51,725
+va appeler la méthode __init__.
+
+146
+00:04:53,058 --> 00:04:54,107
+La phrase que j'ai passée
+
+147
+00:04:54,207 --> 00:04:55,211
+entre les parenthèses de Phrase
+
+148
+00:04:55,311 --> 00:04:57,003
+va être passée au deuxième argument
+
+149
+00:04:57,103 --> 00:04:58,066
+de ma méthode __init__
+
+150
+00:04:58,978 --> 00:05:00,827
+Et cette phrase va être découpée par split
+
+151
+00:05:00,927 --> 00:05:01,785
+dans une liste,
+
+152
+00:05:02,495 --> 00:05:03,834
+et vous remarquez que cette liste,
+
+153
+00:05:03,934 --> 00:05:06,544
+je l'ai affectée à self.mots.
+
+154
+00:05:06,644 --> 00:05:08,248
+self, c'est mon instance,
+
+155
+00:05:08,348 --> 00:05:09,244
+c'est donc p,
+
+156
+00:05:09,344 --> 00:05:12,710
+donc self.mots va être un attribut mots
+
+157
+00:05:12,810 --> 00:05:13,717
+dans mon instance.
+
+158
+00:05:14,565 --> 00:05:15,723
+Regardons l'exécution ;
+
+159
+00:05:15,823 --> 00:05:17,186
+j'exécute,
+
+160
+00:05:17,286 --> 00:05:18,399
+j'ai donc mon instance p
+
+161
+00:05:18,499 --> 00:05:19,654
+et mon instance maintenant
+
+162
+00:05:19,754 --> 00:05:20,912
+a un attribut mots
+
+163
+00:05:21,012 --> 00:05:22,383
+qui a été créé par __init__
+
+164
+00:05:22,483 --> 00:05:24,940
+qui contient la liste des mots
+
+165
+00:05:25,040 --> 00:05:25,893
+créés dans ma phrase.
+
+166
+00:05:26,986 --> 00:05:27,980
+On voit que maintenant
+
+167
+00:05:28,080 --> 00:05:29,842
+je suis capable de créer des instances
+
+168
+00:05:29,942 --> 00:05:31,574
+qui héritent d'un comportement
+
+169
+00:05:31,674 --> 00:05:33,371
+de la classe Phrase, donc du type
+
+170
+00:05:34,427 --> 00:05:36,312
+qui a été utilisé pour créer mon instance.
+
+171
+00:05:37,014 --> 00:05:38,660
+Ici, le comportement est basique ;
+
+172
+00:05:38,760 --> 00:05:40,797
+c'est simplement la phrase que je passe
+
+173
+00:05:40,897 --> 00:05:42,237
+lorsque je construis mon instance
+
+174
+00:05:42,337 --> 00:05:44,219
+qui est automatiquement mise dans une liste
+
+175
+00:05:44,319 --> 00:05:46,083
+qui est référencée par l'attribut mots
+
+176
+00:05:46,183 --> 00:05:47,147
+de cette instance.
+
+177
+00:05:50,292 --> 00:05:51,726
+Maintenant, je pourrais vouloir
+
+178
+00:05:51,826 --> 00:05:53,207
+ajouter des méthodes à mon instance,
+
+179
+00:05:53,307 --> 00:05:54,441
+par exemple, je pourrais dire
+
+180
+00:05:54,541 --> 00:05:56,085
+en fait, j'aimerais bien avoir une méthode
+
+181
+00:05:56,185 --> 00:05:57,293
+que je suis capable d'appeler
+
+182
+00:05:57,393 --> 00:05:58,008
+sur mon instance,
+
+183
+00:05:58,108 --> 00:05:59,414
+comme je le fais sur les listes,
+
+184
+00:05:59,514 --> 00:06:00,541
+sur les listes, je peux prendre
+
+185
+00:06:00,641 --> 00:06:01,387
+une liste point append
+
+186
+00:06:01,487 --> 00:06:02,929
+pour rajouter des éléments dans ma liste.
+
+187
+00:06:03,029 --> 00:06:04,612
+Et bien, j'aimerais bien définir une méthode
+
+188
+00:06:04,712 --> 00:06:06,581
+qui va mettre tous les mots en majuscule.
+
+189
+00:06:06,681 --> 00:06:08,485
+Pour faire ça, je vais définir une méthode
+
+190
+00:06:08,585 --> 00:06:09,515
+qui s'appelle upper,
+
+191
+00:06:09,951 --> 00:06:11,949
+qui prend obligatoirement
+
+192
+00:06:12,049 --> 00:06:13,459
+comme premier argument mon instance,
+
+193
+00:06:13,559 --> 00:06:14,920
+c'est comme ça que je peux travailler
+
+194
+00:06:15,020 --> 00:06:16,238
+sur les attributs de mon instance,
+
+195
+00:06:17,312 --> 00:06:18,567
+et qui va simplement
+
+196
+00:06:18,667 --> 00:06:20,423
+transformer la liste mots
+
+197
+00:06:20,523 --> 00:06:22,158
+en liste mise en majuscule.
+
+198
+00:06:25,831 --> 00:06:27,367
+Pour cela, je vais faire
+
+199
+00:06:27,467 --> 00:06:28,894
+une simple compréhension de liste,
+
+200
+00:06:28,994 --> 00:06:31,226
+donc je vais faire self.mots égale
+
+201
+00:06:31,326 --> 00:06:35,125
+une compréhension qui va faire un m.upper()
+
+202
+00:06:36,822 --> 00:06:39,535
+for m in self,
+
+203
+00:06:39,635 --> 00:06:41,578
+et je ferme ma compréhension de liste.
+
+204
+00:06:41,678 --> 00:06:44,093
+Donc en fait, lorsque je vais appeler upper
+
+205
+00:06:44,193 --> 00:06:45,064
+sur mon instance,
+
+206
+00:06:45,164 --> 00:06:47,050
+je vais récupérer l'attribut mots
+
+207
+00:06:47,150 --> 00:06:47,935
+de mon instance,
+
+208
+00:06:48,035 --> 00:06:48,817
+je vous rappelle que l'instance,
+
+209
+00:06:48,917 --> 00:06:50,104
+c'est self dans les méthodes,
+
+210
+00:06:50,726 --> 00:06:52,087
+et je vais dire que cet attribut mots
+
+211
+00:06:52,187 --> 00:06:53,511
+maintenant référence une nouvelle liste
+
+212
+00:06:53,611 --> 00:06:55,862
+qui prend tous les mots en majuscule.
+
+213
+00:06:57,551 --> 00:06:59,492
+Alors évidemment sur self.mots,
+
+214
+00:06:59,592 --> 00:07:02,052
+sur la liste des mots dans mon instance.
+
+215
+00:07:03,439 --> 00:07:03,950
+Voilà.
+
+216
+00:07:04,782 --> 00:07:07,878
+Je sauvegarde et j'exécute, et maintenant,
+
+217
+00:07:08,759 --> 00:07:10,984
+je vais recréer une instance,
+
+218
+00:07:11,084 --> 00:07:12,809
+donc je vais recréer une instance
+
+219
+00:07:12,909 --> 00:07:14,542
+comme je l'ai fait tout à l'heure ici,
+
+220
+00:07:14,642 --> 00:07:16,310
+je vais dire une instance p
+
+221
+00:07:17,068 --> 00:07:18,990
+qui contient la phrase mots
+
+222
+00:07:19,090 --> 00:07:21,424
+donc j'ai toujours mots qui est contenu
+
+223
+00:07:21,524 --> 00:07:22,191
+dans mon instance,
+
+224
+00:07:22,291 --> 00:07:25,926
+et si maintenant, je fais p.upper(),
+
+225
+00:07:26,026 --> 00:07:27,362
+donc j'appelle la méthode upper
+
+226
+00:07:27,462 --> 00:07:28,223
+sur mon instance,
+
+227
+00:07:28,323 --> 00:07:29,629
+et que je regarde maintenant
+
+228
+00:07:29,729 --> 00:07:30,549
+que vaut l'attribut mots,
+
+229
+00:07:31,627 --> 00:07:33,071
+je vois que l'attribut mots
+
+230
+00:07:33,171 --> 00:07:35,122
+contient tous les mots mis en majuscule.
+
+231
+00:07:35,222 --> 00:07:36,662
+Ma méthode sur mon instance
+
+232
+00:07:36,762 --> 00:07:38,291
+a été capable de modifier
+
+233
+00:07:38,391 --> 00:07:39,897
+un attribut de mon instance.
+
+234
+00:07:40,967 --> 00:07:42,204
+Mais vous remarquez qu'en fait
+
+235
+00:07:42,304 --> 00:07:42,924
+comment est-ce que je fais
+
+236
+00:07:43,024 --> 00:07:43,906
+normalement avec les listes
+
+237
+00:07:44,006 --> 00:07:45,155
+pour afficher le contenu d'une liste ?
+
+238
+00:07:45,255 --> 00:07:47,007
+Je ne fais pas p point quelque chose,
+
+239
+00:07:47,107 --> 00:07:48,968
+je fais directement un print de mon instance.
+
+240
+00:07:49,068 --> 00:07:49,973
+Or, qu'est-ce qu'il se passe
+
+241
+00:07:50,073 --> 00:07:51,084
+si je fais un print de p ?
+
+242
+00:07:51,635 --> 00:07:54,333
+Je vois qu'il s'affiche l'adresse de l'objet.
+
+243
+00:07:54,433 --> 00:07:55,177
+Or, ce n'est pas ce que je veux,
+
+244
+00:07:55,277 --> 00:07:57,433
+je voudrais afficher le contenu de ma liste.
+
+245
+00:07:57,533 --> 00:07:59,384
+En fait, c'est très facile de le faire en Python.
+
+246
+00:07:59,998 --> 00:08:00,929
+C'est pour ça que je vous dis que
+
+247
+00:08:01,029 --> 00:08:02,767
+Python vous permet de manipuler vos objets
+
+248
+00:08:02,867 --> 00:08:03,847
+comme des types built-in.
+
+249
+00:08:03,947 --> 00:08:05,493
+Je n'ai qu'à implémenter une méthode
+
+250
+00:08:05,593 --> 00:08:06,694
+qui s'appelle __str__,
+
+251
+00:08:07,557 --> 00:08:09,043
+qui prend comme argument self,
+
+252
+00:08:09,657 --> 00:08:10,971
+et qui va faire un return
+
+253
+00:08:12,847 --> 00:08:14,479
+d'une chaîne de caractères,
+
+254
+00:08:14,579 --> 00:08:15,446
+et là, la chaîne de caractères
+
+255
+00:08:15,546 --> 00:08:17,081
+que je vais afficher, ça va simplement être
+
+256
+00:08:17,181 --> 00:08:19,561
+un retour chariot point join
+
+257
+00:08:21,044 --> 00:08:25,163
+de self.mots.
+
+258
+00:08:25,263 --> 00:08:26,454
+Qu'est-ce que ça va faire ?
+
+259
+00:08:26,554 --> 00:08:28,207
+Ça va regrouper tous mes mots
+
+260
+00:08:28,307 --> 00:08:29,398
+dans une chaîne de caractères
+
+261
+00:08:29,498 --> 00:08:31,189
+et faire un retour chariot à chaque mot ;
+
+262
+00:08:31,289 --> 00:08:33,388
+essentiellement, afficher mes mots
+
+263
+00:08:33,488 --> 00:08:34,233
+sur une colonne.
+
+264
+00:08:35,591 --> 00:08:37,318
+Lorsque maintenant je vais faire,
+
+265
+00:08:37,418 --> 00:08:38,748
+donc j'exécute mon code,
+
+266
+00:08:39,507 --> 00:08:40,956
+lorsque maintenant je vais faire
+
+267
+00:08:41,056 --> 00:08:44,786
+un print sur mon instance,
+
+268
+00:08:45,493 --> 00:08:47,085
+print va automatiquement
+
+269
+00:08:47,185 --> 00:08:49,192
+appeler la méthode __str__ sur cette instance
+
+270
+00:08:49,292 --> 00:08:50,783
+et va donc m'afficher mes mots
+
+271
+00:08:50,883 --> 00:08:51,613
+dans une colonne.
+
+272
+00:08:51,713 --> 00:08:53,019
+J'aurais pu tout à fait
+
+273
+00:08:53,119 --> 00:08:54,313
+implémenter également
+
+274
+00:08:55,114 --> 00:08:56,106
+le test d'appartenance
+
+275
+00:08:56,206 --> 00:08:57,321
+avec la méthode __contains__ ;
+
+276
+00:08:57,421 --> 00:08:59,105
+j'aurais pu implémenter
+
+277
+00:08:59,205 --> 00:09:00,253
+le nombre d'éléments,
+
+278
+00:09:00,353 --> 00:09:01,415
+le nombre de mots dans ma phrase,
+
+279
+00:09:01,515 --> 00:09:02,630
+avec la méthode __len__ ;
+
+280
+00:09:03,302 --> 00:09:04,521
+tous ces comportements
+
+281
+00:09:04,621 --> 00:09:05,471
+que j'ai avec les types built-in,
+
+282
+00:09:05,571 --> 00:09:06,808
+j'aurais pu les implémenter
+
+283
+00:09:06,908 --> 00:09:08,839
+dans ma classe Phrase.
+
+284
+00:09:09,921 --> 00:09:11,442
+Nous avons vu, dans cette vidéo,
+
+285
+00:09:11,542 --> 00:09:13,323
+comment implémenter des classes,
+
+286
+00:09:13,423 --> 00:09:14,640
+c'est-à-dire comment implémenter
+
+287
+00:09:14,740 --> 00:09:17,076
+l'usine qui va construire vos propres instances.
+
+288
+00:09:17,599 --> 00:09:18,437
+Nous avons vu également
+
+289
+00:09:18,537 --> 00:09:19,789
+qu'il était possible d'implémenter
+
+290
+00:09:19,889 --> 00:09:21,060
+dans vos propres objets
+
+291
+00:09:21,160 --> 00:09:22,540
+des comportements qui sont les mêmes
+
+292
+00:09:22,640 --> 00:09:24,132
+que les comportements des types built-in.
+
+293
+00:09:24,878 --> 00:09:25,997
+N'ayez pas d'inquiétude,
+
+294
+00:09:26,097 --> 00:09:27,606
+nous reviendrons largement
+
+295
+00:09:27,706 --> 00:09:29,644
+sur ces notions de classe et d'instance
+
+296
+00:09:29,744 --> 00:09:30,899
+dans les semaines qui viennent.
+
+297
+00:09:30,999 --> 00:09:31,882
+À bientôt !
+
