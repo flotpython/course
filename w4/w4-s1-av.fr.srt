@@ -1,0 +1,1596 @@
+﻿1
+00:00:10,640 --> 00:00:12,022
+Bonjour. Cette semaine,
+
+2
+00:00:12,122 --> 00:00:13,996
+nous allons parler de l'instruction while,
+
+3
+00:00:14,096 --> 00:00:16,187
+nous allons revenir sur l'instruction if,
+
+4
+00:00:16,287 --> 00:00:17,842
+mais le gros morceau de la semaine
+
+5
+00:00:17,942 --> 00:00:19,249
+sera le sujet des fonctions.
+
+6
+00:00:19,798 --> 00:00:21,312
+Nous allons en particulier parler
+
+7
+00:00:21,412 --> 00:00:22,874
+de la notion de portée de variable
+
+8
+00:00:22,974 --> 00:00:23,999
+et nous allons voir comment
+
+9
+00:00:24,099 --> 00:00:25,290
+modifier cette portée.
+
+10
+00:00:25,390 --> 00:00:27,093
+Nous conclurons cette semaine
+
+11
+00:00:27,193 --> 00:00:28,894
+en étudiant comment définir
+
+12
+00:00:28,994 --> 00:00:30,044
+les paramètres d'une fonction
+
+13
+00:00:30,144 --> 00:00:31,308
+et les différentes manières
+
+14
+00:00:31,408 --> 00:00:32,178
+d'appeler une fonction.
+
+15
+00:00:35,475 --> 00:00:36,388
+Nous avons précédemment
+
+16
+00:00:36,488 --> 00:00:37,509
+succinctement introduit
+
+17
+00:00:37,609 --> 00:00:38,748
+le fonctionnement des fonctions.
+
+18
+00:00:39,690 --> 00:00:41,520
+Dans cette vidéo, nous allons revenir
+
+19
+00:00:41,620 --> 00:00:42,495
+sur ce comportement
+
+20
+00:00:42,595 --> 00:00:44,413
+et voir comment définir une fonction.
+
+21
+00:00:44,513 --> 00:00:45,931
+Ouvrons un interpréteur Python
+
+22
+00:00:46,031 --> 00:00:47,777
+pour commencer à jouer avec les fonctions.
+
+23
+00:00:48,902 --> 00:00:50,677
+Regardons comment définir une fonction.
+
+24
+00:00:50,777 --> 00:00:51,897
+Nous l'avons déjà vu,
+
+25
+00:00:51,997 --> 00:00:54,190
+une fonction se définit avec l'instruction def,
+
+26
+00:00:54,934 --> 00:00:56,965
+suivie du nom de la fonction,
+
+27
+00:00:57,065 --> 00:00:58,274
+ici, je l'appelle simplement f,
+
+28
+00:00:58,374 --> 00:00:59,449
+et je vais lui passer des arguments ;
+
+29
+00:00:59,549 --> 00:01:00,569
+à une fonction, on peut lui passer
+
+30
+00:01:00,911 --> 00:01:02,340
+un nombre quelconque d'arguments
+
+31
+00:01:02,440 --> 00:01:03,395
+séparés par des virgules.
+
+32
+00:01:03,921 --> 00:01:05,531
+Ensuite, je n'oublie pas le :
+
+33
+00:01:05,631 --> 00:01:07,611
+qui signifie que je vais avoir un bloc de code,
+
+34
+00:01:07,711 --> 00:01:09,585
+ça va être le bloc de code de la fonction.
+
+35
+00:01:10,207 --> 00:01:11,371
+Je fais un retour chariot,
+
+36
+00:01:11,471 --> 00:01:12,786
+et ensuite, je peux simplement faire
+
+37
+00:01:12,886 --> 00:01:15,929
+un print de a virgule b virgule c.
+
+38
+00:01:16,029 --> 00:01:18,038
+Donc j'ai une fonction f qui va simplement
+
+39
+00:01:18,138 --> 00:01:19,300
+afficher ses trois arguments.
+
+40
+00:01:21,002 --> 00:01:24,183
+Lorsque ce bloc de code est évalué,
+
+41
+00:01:24,956 --> 00:01:27,214
+je vais créer un objet fonction
+
+42
+00:01:27,314 --> 00:01:29,868
+et le nom de la fonction, f,
+
+43
+00:01:29,968 --> 00:01:30,923
+va être une variable
+
+44
+00:01:31,023 --> 00:01:32,969
+qui va référencer cet objet fonction.
+
+45
+00:01:33,069 --> 00:01:34,213
+J'ai donc une variable f
+
+46
+00:01:34,313 --> 00:01:35,899
+qui référence un objet fonction.
+
+47
+00:01:36,414 --> 00:01:37,929
+Comme tous les objets en Python
+
+48
+00:01:38,029 --> 00:01:39,439
+et comme toutes les variables en Python,
+
+49
+00:01:39,539 --> 00:01:41,966
+une variable est simplement un nom
+
+50
+00:01:42,066 --> 00:01:42,880
+qui référence un objet,
+
+51
+00:01:42,980 --> 00:01:45,744
+je peux donc renommer mon objet fonction
+
+52
+00:01:45,844 --> 00:01:47,020
+avec une autre variable
+
+53
+00:01:47,120 --> 00:01:48,330
+en faisant une référence partagée.
+
+54
+00:01:48,430 --> 00:01:51,569
+Je peux tout à fait écrire g égale f.
+
+55
+00:01:51,669 --> 00:01:53,312
+J'ai maintenant une variable g
+
+56
+00:01:53,412 --> 00:01:55,131
+qui référence le même objet fonction,
+
+57
+00:01:55,231 --> 00:01:56,990
+je peux donc appeler ma fonction
+
+58
+00:01:57,090 --> 00:01:58,954
+à partir de la variable f
+
+59
+00:01:59,735 --> 00:02:02,095
+ou alors à partir de la variable g.
+
+60
+00:02:06,344 --> 00:02:08,247
+En Python, tout est un objet,
+
+61
+00:02:08,347 --> 00:02:09,120
+et je vous ai expliqué,
+
+62
+00:02:09,220 --> 00:02:11,006
+lorsqu'on a parlé des références partagées,
+
+63
+00:02:11,106 --> 00:02:13,036
+que cela avait un coût mémoire important
+
+64
+00:02:13,136 --> 00:02:14,283
+mais que le mécanisme
+
+65
+00:02:14,383 --> 00:02:15,560
+de références partagées
+
+66
+00:02:15,660 --> 00:02:18,052
+permettait de minimiser les copies des objets.
+
+67
+00:02:18,152 --> 00:02:20,588
+En particulier, Python ne copie jamais d'objet
+
+68
+00:02:20,688 --> 00:02:23,302
+sauf si cela est demandé de manière explicite.
+
+69
+00:02:23,779 --> 00:02:25,526
+Lorsque vous passez des arguments
+
+70
+00:02:25,626 --> 00:02:26,294
+à une fonction,
+
+71
+00:02:26,394 --> 00:02:27,435
+donc lorsque vous passez des objets
+
+72
+00:02:27,535 --> 00:02:27,962
+à une fonction,
+
+73
+00:02:28,482 --> 00:02:30,020
+ces objets ne sont jamais copiés,
+
+74
+00:02:30,120 --> 00:02:32,427
+ils sont toujours passés par référence.
+
+75
+00:02:32,824 --> 00:02:34,094
+Regardons un exemple.
+
+76
+00:02:35,471 --> 00:02:37,231
+Je vais définir une liste L
+
+77
+00:02:37,331 --> 00:02:38,694
+qui est une liste vide,
+
+78
+00:02:38,794 --> 00:02:42,187
+et je vais définir une fonction add1
+
+79
+00:02:42,287 --> 00:02:44,156
+qui prend un argument a
+
+80
+00:02:45,413 --> 00:02:46,556
+et qui va simplement faire
+
+81
+00:02:46,656 --> 00:02:49,404
+un a point append de 1.
+
+82
+00:02:49,802 --> 00:02:51,450
+Donc en fait, que fait ma fonction ?
+
+83
+00:02:51,550 --> 00:02:53,330
+Ma fonction prend un argument
+
+84
+00:02:54,175 --> 00:02:56,015
+et sur cet argument
+
+85
+00:02:56,115 --> 00:02:58,177
+je vais appeler la méthode append,
+
+86
+00:02:58,277 --> 00:02:58,920
+donc je suppose que
+
+87
+00:02:59,020 --> 00:03:00,032
+cet argument est une liste,
+
+88
+00:03:00,132 --> 00:03:01,776
+et je vais lui ajouter 1.
+
+89
+00:03:02,535 --> 00:03:03,480
+Je fais un retour chariot.
+
+90
+00:03:03,580 --> 00:03:05,421
+J'ai donc défini une nouvelle fonction ;
+
+91
+00:03:05,521 --> 00:03:06,515
+add1, c'est une variable
+
+92
+00:03:06,615 --> 00:03:07,913
+qui référence mon objet fonction.
+
+93
+00:03:08,598 --> 00:03:10,088
+Maintenant, appelons
+
+94
+00:03:10,982 --> 00:03:13,472
+cette fonction sur ma liste L.
+
+95
+00:03:13,572 --> 00:03:15,382
+Je vous remontre ma liste L,
+
+96
+00:03:15,482 --> 00:03:18,980
+j'appelle add1 de ma liste L.
+
+97
+00:03:19,859 --> 00:03:21,115
+Et je fais un retour chariot.
+
+98
+00:03:21,719 --> 00:03:24,534
+Maintenant, regardons la valeur
+
+99
+00:03:24,634 --> 00:03:27,807
+de l'objet référencé par ma variable L.
+
+100
+00:03:27,907 --> 00:03:29,310
+Je vois que maintenant c'est la liste
+
+101
+00:03:29,410 --> 00:03:30,606
+qui contient l'entier 1.
+
+102
+00:03:31,285 --> 00:03:32,080
+Donc on voit que
+
+103
+00:03:32,180 --> 00:03:33,829
+à aucun moment je n'ai réaffecté L,
+
+104
+00:03:33,929 --> 00:03:35,877
+à aucun moment je n'ai fait de retour ;
+
+105
+00:03:36,270 --> 00:03:38,129
+pourtant, ma liste a été modifiée.
+
+106
+00:03:38,229 --> 00:03:40,610
+En fait, elle a été modifiée par effet de bord
+
+107
+00:03:40,710 --> 00:03:42,637
+parce que j'ai une référence partagée
+
+108
+00:03:42,737 --> 00:03:44,363
+vers un objet mutable.
+
+109
+00:03:45,049 --> 00:03:47,002
+Quelles sont mes références partagées ?
+
+110
+00:03:47,102 --> 00:03:49,006
+L référence un objet liste,
+
+111
+00:03:49,106 --> 00:03:51,294
+j'ai passé cet objet liste à ma fonction
+
+112
+00:03:51,394 --> 00:03:53,166
+et ma fonction a une variable locale a,
+
+113
+00:03:53,924 --> 00:03:55,845
+cette variable locale référence
+
+114
+00:03:55,945 --> 00:03:58,284
+le même objet liste que la variable L.
+
+115
+00:03:58,811 --> 00:04:00,887
+Lorsque je modifie l'objet mutable
+
+116
+00:04:01,781 --> 00:04:03,499
+par la méthode append,
+
+117
+00:04:03,599 --> 00:04:05,395
+je modifie l'objet partagé,
+
+118
+00:04:05,495 --> 00:04:07,368
+donc lorsque ma fonction retourne,
+
+119
+00:04:07,468 --> 00:04:10,208
+la variable L référence l'objet
+
+120
+00:04:10,308 --> 00:04:12,025
+qui a été modifié.
+
+121
+00:04:13,494 --> 00:04:15,093
+Alors, ce comportement par effet de bord
+
+122
+00:04:15,193 --> 00:04:16,406
+est un comportement qui peut être
+
+123
+00:04:16,506 --> 00:04:17,407
+tout à fait souhaitable.
+
+124
+00:04:17,507 --> 00:04:18,357
+Quel est son intérêt ?
+
+125
+00:04:18,457 --> 00:04:19,902
+C'est d'être extrêmement économe
+
+126
+00:04:20,002 --> 00:04:20,798
+en terme de mémoire.
+
+127
+00:04:21,357 --> 00:04:22,347
+L'inconvénient,
+
+128
+00:04:22,447 --> 00:04:24,126
+c'est qu'il est fait de manière implicite.
+
+129
+00:04:24,226 --> 00:04:26,075
+Par conséquent, comme on veut qu'en Python
+
+130
+00:04:26,175 --> 00:04:27,802
+tout soit fait de manière explicite,
+
+131
+00:04:27,902 --> 00:04:29,389
+on doit extrêmement bien
+
+132
+00:04:29,489 --> 00:04:30,355
+documenter son code.
+
+133
+00:04:30,842 --> 00:04:32,197
+Pour cela, j'aime bien vous montrer
+
+134
+00:04:32,297 --> 00:04:34,738
+l'exemple de la méthode sort sur les listes.
+
+135
+00:04:34,838 --> 00:04:35,827
+Regardons cela.
+
+136
+00:04:35,927 --> 00:04:38,732
+help de list.sort
+
+137
+00:04:38,832 --> 00:04:40,100
+Je vous rappelle que
+
+138
+00:04:40,200 --> 00:04:41,212
+la méthode sort sur les listes
+
+139
+00:04:41,312 --> 00:04:42,898
+permet de faire un tri en place ;
+
+140
+00:04:42,998 --> 00:04:44,521
+l'intérêt, c'est que c'est très économe
+
+141
+00:04:44,621 --> 00:04:45,303
+au niveau mémoire,
+
+142
+00:04:45,630 --> 00:04:46,668
+l'inconvénient, c'est que c'est fait
+
+143
+00:04:46,768 --> 00:04:47,298
+par effet de bord.
+
+144
+00:04:48,009 --> 00:04:49,234
+Regardons ce que nous donne
+
+145
+00:04:49,334 --> 00:04:51,044
+l'aide de sort sur les listes.
+
+146
+00:04:51,930 --> 00:04:54,308
+On voit que l'aide nous dit que l'on fait un tri
+
+147
+00:04:54,408 --> 00:04:55,915
+mais que ce tri est fait en place.
+
+148
+00:04:56,015 --> 00:04:58,540
+C'est marqué entre étoiles
+
+149
+00:04:58,640 --> 00:04:59,650
+et écrit en majuscule
+
+150
+00:04:59,750 --> 00:05:00,889
+pour vraiment insister sur le fait que
+
+151
+00:05:00,989 --> 00:05:02,248
+ce tri est fait en place.
+
+152
+00:05:02,348 --> 00:05:03,855
+Donc ici, on n'a aucune ambiguïté,
+
+153
+00:05:03,955 --> 00:05:06,144
+on voit bien que le retour de sort c'est None,
+
+154
+00:05:06,244 --> 00:05:07,453
+donc cette méthode nous retourne
+
+155
+00:05:07,553 --> 00:05:08,604
+juste l'objet vide,
+
+156
+00:05:09,233 --> 00:05:11,096
+et la liste est modifiée en place.
+
+157
+00:05:11,196 --> 00:05:12,392
+Donc à chaque fois que vous voulez faire
+
+158
+00:05:12,492 --> 00:05:13,910
+une modification par effet de bord,
+
+159
+00:05:14,010 --> 00:05:15,342
+c'est quelque chose de possible,
+
+160
+00:05:15,442 --> 00:05:16,413
+qui peut être souhaitable
+
+161
+00:05:16,513 --> 00:05:17,788
+si vous voulez être économe en mémoire ;
+
+162
+00:05:17,888 --> 00:05:19,197
+par contre, documentez-le
+
+163
+00:05:19,297 --> 00:05:20,276
+extrêmement bien.
+
+164
+00:05:21,729 --> 00:05:23,376
+Maintenant, je pourrais tout à fait dire:
+
+165
+00:05:24,246 --> 00:05:27,887
+je ne veux pas modifier ma liste L,
+
+166
+00:05:27,987 --> 00:05:29,430
+donc je vous remontre ma liste L
+
+167
+00:05:29,530 --> 00:05:30,406
+qui vaut juste [1],
+
+168
+00:05:30,972 --> 00:05:32,550
+je ne veux pas modifier ma liste L
+
+169
+00:05:32,650 --> 00:05:34,100
+donc je vais lui passer une copie,
+
+170
+00:05:34,200 --> 00:05:35,609
+et vous vous souvenez de cette notation
+
+171
+00:05:35,709 --> 00:05:36,455
+slice vide,
+
+172
+00:05:36,555 --> 00:05:38,102
+qui représente une shallow copy.
+
+173
+00:05:38,584 --> 00:05:40,782
+Donc je passe une shallow copy de ma liste
+
+174
+00:05:40,882 --> 00:05:41,532
+à ma fonction.
+
+175
+00:05:41,632 --> 00:05:43,351
+Ma fonction va donc travailler
+
+176
+00:05:43,451 --> 00:05:44,542
+sur ce nouvel objet liste,
+
+177
+00:05:44,642 --> 00:05:46,290
+qui est copie de ma liste L,
+
+178
+00:05:47,518 --> 00:05:48,741
+mais lors du retour,
+
+179
+00:05:48,841 --> 00:05:49,952
+regardons ma liste L,
+
+180
+00:05:50,052 --> 00:05:51,027
+évidemment elle n'a pas été modifiée
+
+181
+00:05:51,127 --> 00:05:52,184
+puisque j'ai passé une copie.
+
+182
+00:05:52,284 --> 00:05:53,763
+Mais cette shallow copy a été perdue
+
+183
+00:05:53,863 --> 00:05:54,745
+puisqu'à aucun moment,
+
+184
+00:05:54,845 --> 00:05:56,075
+je n'ai récupéré une référence
+
+185
+00:05:56,175 --> 00:05:57,350
+vers ce nouvel objet liste.
+
+186
+00:05:58,172 --> 00:06:00,268
+En fait, si je veux pouvoir récupérer
+
+187
+00:06:00,368 --> 00:06:01,696
+une référence vers cet objet liste,
+
+188
+00:06:01,796 --> 00:06:04,470
+il faut que je fasse une valeur de retour,
+
+189
+00:06:04,570 --> 00:06:05,151
+il faut que ma fonction
+
+190
+00:06:05,251 --> 00:06:06,031
+retourne quelque chose.
+
+191
+00:06:06,131 --> 00:06:07,988
+Regardons comment faire cela.
+
+192
+00:06:08,585 --> 00:06:12,126
+Je redéfinis ma fonction add1,
+
+193
+00:06:12,950 --> 00:06:13,888
+et je lui passe,
+
+194
+00:06:14,751 --> 00:06:17,543
+je définis un argument a.
+
+195
+00:06:18,108 --> 00:06:20,039
+Ensuite, dans ma fonction,
+
+196
+00:06:20,139 --> 00:06:21,235
+je vais faire une shallow copy
+
+197
+00:06:21,335 --> 00:06:24,578
+a égale shallow copy de a
+
+198
+00:06:25,400 --> 00:06:29,255
+et ensuite, je vais faire un a.append de 1.
+
+199
+00:06:29,355 --> 00:06:31,249
+Jusqu'à maintenant, qu'est-ce que j'ai fait ?
+
+200
+00:06:31,349 --> 00:06:33,278
+À l'intérieur de ma fonction, j'ai dit:
+
+201
+00:06:33,378 --> 00:06:34,085
+je fais une shallow copy,
+
+202
+00:06:34,185 --> 00:06:35,604
+parce que je ne veux pas que ma fonction
+
+203
+00:06:35,704 --> 00:06:36,954
+fasse de modification en place,
+
+204
+00:06:37,569 --> 00:06:40,432
+je modifie ma shallow copy
+
+205
+00:06:40,532 --> 00:06:42,648
+mais maintenant, pour pouvoir la récupérer,
+
+206
+00:06:42,748 --> 00:06:43,564
+pour pouvoir la modifier
+
+207
+00:06:43,664 --> 00:06:44,681
+lorsque ma fonction retourne,
+
+208
+00:06:44,781 --> 00:06:45,726
+il faut obligatoirement
+
+209
+00:06:45,826 --> 00:06:46,757
+que je passe une valeur de retour
+
+210
+00:06:46,857 --> 00:06:48,221
+et que je fasse un return de a.
+
+211
+00:06:49,929 --> 00:06:53,009
+Maintenant, regardons ma liste L.
+
+212
+00:06:53,109 --> 00:06:55,080
+Ma liste L contient uniquement l'entier 1.
+
+213
+00:06:55,838 --> 00:06:59,906
+Si je fais maintenant un add1 de L,
+
+214
+00:07:00,006 --> 00:07:03,113
+je passe ma liste L à ma fonction,
+
+215
+00:07:03,213 --> 00:07:04,616
+ma fonction fait une copie,
+
+216
+00:07:04,716 --> 00:07:05,724
+elle modifie la copie
+
+217
+00:07:05,824 --> 00:07:07,894
+et elle me retourne une référence
+
+218
+00:07:07,994 --> 00:07:08,711
+vers cette copie.
+
+219
+00:07:10,380 --> 00:07:11,971
+Je vois bien que maintenant,
+
+220
+00:07:12,071 --> 00:07:13,736
+la valeur de retour, c'est une nouvelle liste
+
+221
+00:07:13,836 --> 00:07:14,637
+qui vaut [1, 1] ;
+
+222
+00:07:15,106 --> 00:07:16,656
+par contre, ma liste L originale
+
+223
+00:07:16,756 --> 00:07:17,549
+n'a pas été modifiée.
+
+224
+00:07:18,147 --> 00:07:19,343
+Si maintenant, je veux modifier
+
+225
+00:07:19,443 --> 00:07:20,390
+ma liste originale,
+
+226
+00:07:20,490 --> 00:07:21,378
+c'est très simple,
+
+227
+00:07:21,478 --> 00:07:22,392
+je le fais de manière explicite,
+
+228
+00:07:22,492 --> 00:07:26,200
+je vais dire L égale add1 de L,
+
+229
+00:07:26,715 --> 00:07:27,504
+et on voit maintenant que
+
+230
+00:07:27,604 --> 00:07:29,788
+j'ai absolument tout qui est explicite,
+
+231
+00:07:29,888 --> 00:07:32,410
+je passe ma liste qui vaut [1] à ma fonction,
+
+232
+00:07:32,510 --> 00:07:34,051
+ma fonction s'appelle add1 donc
+
+233
+00:07:34,151 --> 00:07:35,530
+on suppose qu'elle va lui ajouter 1,
+
+234
+00:07:36,064 --> 00:07:37,497
+et elle donne une valeur de retour
+
+235
+00:07:37,597 --> 00:07:39,286
+que je réaffecte à ma liste L
+
+236
+00:07:39,386 --> 00:07:40,310
+qui est une variable globale,
+
+237
+00:07:40,771 --> 00:07:42,162
+donc maintenant, je vais bien avoir
+
+238
+00:07:42,262 --> 00:07:44,057
+une modification de ma liste L globale.
+
+239
+00:07:44,157 --> 00:07:44,917
+Regardons cela.
+
+240
+00:07:46,312 --> 00:07:47,854
+Maintenant, la valeur de retour
+
+241
+00:07:47,954 --> 00:07:49,894
+est bien la nouvelle liste [1, 1].
+
+242
+00:07:51,075 --> 00:07:52,422
+Il y a un autre point important
+
+243
+00:07:52,522 --> 00:07:53,279
+que je voudrais aborder
+
+244
+00:07:53,379 --> 00:07:55,037
+lors de cette présentation des fonctions,
+
+245
+00:07:55,137 --> 00:07:56,961
+c'est que lorsque vous écrivez
+
+246
+00:07:57,061 --> 00:07:58,361
+le code d'une fonction,
+
+247
+00:07:58,461 --> 00:07:59,661
+par exemple dans un module
+
+248
+00:07:59,761 --> 00:08:00,687
+et que vous importez le module,
+
+249
+00:08:01,197 --> 00:08:02,599
+lors de l'importation du module,
+
+250
+00:08:02,699 --> 00:08:04,183
+l'objet fonction va être créé,
+
+251
+00:08:04,283 --> 00:08:06,165
+et le nom de la fonction va être une variable
+
+252
+00:08:06,265 --> 00:08:08,131
+qui va référencer cet objet fonction.
+
+253
+00:08:08,578 --> 00:08:10,996
+Par contre, le bloc de code de la fonction
+
+254
+00:08:11,096 --> 00:08:12,564
+ne sera évalué que
+
+255
+00:08:12,664 --> 00:08:14,164
+lors de l'appel de la fonction.
+
+256
+00:08:14,264 --> 00:08:15,865
+Regardons ce que cela implique.
+
+257
+00:08:16,350 --> 00:08:18,438
+Je définis une fonction f
+
+258
+00:08:18,538 --> 00:08:20,206
+qui prend un argument a
+
+259
+00:08:20,763 --> 00:08:22,634
+et ma fonction appelle une autre fonction
+
+260
+00:08:22,734 --> 00:08:23,640
+qui s'appelle func.
+
+261
+00:08:26,842 --> 00:08:27,801
+Regardons ce code.
+
+262
+00:08:27,901 --> 00:08:29,231
+J'ai donc
+
+263
+00:08:29,331 --> 00:08:30,540
+une variable f
+
+264
+00:08:30,640 --> 00:08:31,955
+qui référence mon objet fonction ;
+
+265
+00:08:32,402 --> 00:08:34,761
+par contre, la variable func n'existe pas ;
+
+266
+00:08:35,125 --> 00:08:36,716
+je n'ai pas encore d'objet fonction.
+
+267
+00:08:36,816 --> 00:08:39,597
+Nous voyons que lors du retour chariot,
+
+268
+00:08:39,697 --> 00:08:41,090
+la fonction a été correctement créée ;
+
+269
+00:08:41,190 --> 00:08:42,646
+mon objet fonction existe,
+
+270
+00:08:42,746 --> 00:08:44,389
+ma variable f référence bien l'objet fonction,
+
+271
+00:08:44,489 --> 00:08:45,348
+je n'ai aucun problème.
+
+272
+00:08:45,875 --> 00:08:47,252
+Le problème, je le verrai,
+
+273
+00:08:47,352 --> 00:08:48,585
+donc l'absence de la définition
+
+274
+00:08:48,685 --> 00:08:49,264
+de la fonction func,
+
+275
+00:08:49,364 --> 00:08:50,953
+je le verrai uniquement
+
+276
+00:08:51,373 --> 00:08:53,845
+lors de l'appel de ma fonction f.
+
+277
+00:08:53,945 --> 00:08:55,501
+Appelons maintenant la fonction f.
+
+278
+00:08:55,737 --> 00:08:57,297
+Je vois qu'ici j'ai une exception
+
+279
+00:08:57,397 --> 00:08:58,327
+qui me dit clairement
+
+280
+00:08:58,427 --> 00:09:00,742
+que le nom func n'a pas été défini.
+
+281
+00:09:01,211 --> 00:09:02,283
+Donc on voit que je peux définir
+
+282
+00:09:02,383 --> 00:09:03,585
+une fonction qui appelle du code
+
+283
+00:09:03,685 --> 00:09:04,559
+qui n'est pas encore défini,
+
+284
+00:09:04,659 --> 00:09:06,618
+et que c'est possible jusqu'au moment
+
+285
+00:09:06,718 --> 00:09:09,026
+où j'appelle effectivement ma fonction.
+
+286
+00:09:09,126 --> 00:09:11,275
+Si maintenant, je définis ma fonction func
+
+287
+00:09:11,375 --> 00:09:13,137
+qui prend un argument a
+
+288
+00:09:13,237 --> 00:09:17,831
+et qui fait simplement un return de a ;
+
+289
+00:09:18,774 --> 00:09:21,524
+maintenant, j'ai bien une fonction f,
+
+290
+00:09:21,624 --> 00:09:22,844
+une fonction func
+
+291
+00:09:22,944 --> 00:09:24,414
+et je peux donc appeler ma fonction f,
+
+292
+00:09:24,514 --> 00:09:26,979
+f de 1, qui va appeler func
+
+293
+00:09:27,079 --> 00:09:28,021
+en lui passant 1,
+
+294
+00:09:28,121 --> 00:09:30,571
+et qui va faire un retour, voilà, de 1.
+
+295
+00:09:33,742 --> 00:09:35,404
+Pour finir, j'aimerais vous parler
+
+296
+00:09:35,504 --> 00:09:36,346
+de polymorphisme.
+
+297
+00:09:36,824 --> 00:09:37,815
+Polymorphisme, c'est un nom
+
+298
+00:09:37,915 --> 00:09:38,678
+un petit peu étrange
+
+299
+00:09:38,778 --> 00:09:40,039
+pour un concept très simple.
+
+300
+00:09:40,341 --> 00:09:41,687
+Regardons ce que cela veut dire.
+
+301
+00:09:41,787 --> 00:09:43,548
+Je vais définir une fonction
+
+302
+00:09:43,648 --> 00:09:45,075
+qui s'appelle my_add
+
+303
+00:09:45,722 --> 00:09:47,044
+et qui va prendre deux arguments
+
+304
+00:09:47,144 --> 00:09:48,844
+a et b.
+
+305
+00:09:50,283 --> 00:09:51,960
+Et cette fonction va simplement faire
+
+306
+00:09:52,060 --> 00:09:53,069
+un print
+
+307
+00:09:57,710 --> 00:10:03,155
+d'une f-string qui contient a et b,
+
+308
+00:10:04,624 --> 00:10:06,680
+et ensuite ma fonction va faire un return
+
+309
+00:10:09,667 --> 00:10:12,120
+de a plus b.
+
+310
+00:10:13,827 --> 00:10:15,506
+Donc j'écris une fonction my_add
+
+311
+00:10:15,606 --> 00:10:17,577
+qui prend deux arguments a et b,
+
+312
+00:10:17,677 --> 00:10:20,303
+qui va les afficher et qui va faire un return
+
+313
+00:10:20,403 --> 00:10:21,591
+de la somme de ces arguments.
+
+314
+00:10:22,397 --> 00:10:23,316
+Vous remarquez que,
+
+315
+00:10:23,416 --> 00:10:24,048
+vous savez qu'en Python
+
+316
+00:10:24,148 --> 00:10:25,119
+on a du typage dynamique,
+
+317
+00:10:25,219 --> 00:10:25,868
+donc à aucun moment,
+
+318
+00:10:25,968 --> 00:10:26,924
+je n'ai spécifié le type.
+
+319
+00:10:27,024 --> 00:10:28,274
+Ça veut dire que je peux donc
+
+320
+00:10:28,374 --> 00:10:29,454
+appeler ma fonction my_add
+
+321
+00:10:29,554 --> 00:10:31,567
+avec deux entiers 1 et 2 ;
+
+322
+00:10:31,667 --> 00:10:33,299
+regardons le résultat, c'est 3.
+
+323
+00:10:33,399 --> 00:10:34,591
+J'ai bien fait la somme.
+
+324
+00:10:35,164 --> 00:10:36,580
+Je peux appeler my_add
+
+325
+00:10:36,680 --> 00:10:42,236
+avec des floats 4.3 et 2.3,
+
+326
+00:10:42,336 --> 00:10:44,572
+et je vais faire l'addition de ces floats.
+
+327
+00:10:44,911 --> 00:10:48,165
+Et je peux même appeler ma fonction my_add
+
+328
+00:10:48,265 --> 00:10:50,803
+avec une chaîne de caractères
+
+329
+00:10:52,129 --> 00:10:54,126
+et une autre chaîne de caractères.
+
+330
+00:10:54,686 --> 00:10:56,077
+Quelle va être la valeur de retour ?
+
+331
+00:10:56,508 --> 00:10:58,637
+La concaténation des chaînes de caractères.
+
+332
+00:10:58,995 --> 00:11:00,576
+Donc la caractéristique de
+
+333
+00:11:00,676 --> 00:11:02,005
+cette notion de polymorphisme,
+
+334
+00:11:02,105 --> 00:11:03,138
+c'est qu'une fois que
+
+335
+00:11:03,238 --> 00:11:04,266
+vous avez défini une fonction,
+
+336
+00:11:04,366 --> 00:11:07,553
+cette fonction va pouvoir s'exécuter
+
+337
+00:11:07,653 --> 00:11:08,895
+sur n'importe quels types
+
+338
+00:11:08,995 --> 00:11:10,938
+qui sont compatibles avec les opérations
+
+339
+00:11:11,038 --> 00:11:13,136
+contenues dans le bloc de code de la fonction.
+
+340
+00:11:13,236 --> 00:11:15,030
+L'intérêt de ce polymorphisme,
+
+341
+00:11:15,130 --> 00:11:17,198
+c'est que vous réduisez énormément
+
+342
+00:11:17,298 --> 00:11:18,356
+le code que vous avez à écrire
+
+343
+00:11:18,456 --> 00:11:19,191
+puisque vous n'avez pas besoin
+
+344
+00:11:19,291 --> 00:11:20,549
+d'écrire une fonction pour les entiers,
+
+345
+00:11:20,649 --> 00:11:21,932
+une fonction pour les floats,
+
+346
+00:11:22,032 --> 00:11:23,764
+une fonction pour les chaînes de caractères ;
+
+347
+00:11:23,864 --> 00:11:25,858
+votre fonction va être unique
+
+348
+00:11:25,958 --> 00:11:27,713
+et va pouvoir se comporter correctement
+
+349
+00:11:27,813 --> 00:11:28,847
+avec n'importe quels types
+
+350
+00:11:28,947 --> 00:11:29,685
+que vous lui passez,
+
+351
+00:11:29,785 --> 00:11:31,474
+du moment que les opérations
+
+352
+00:11:31,574 --> 00:11:32,400
+définies dans la fonction
+
+353
+00:11:32,500 --> 00:11:33,907
+sont définies pour les types
+
+354
+00:11:34,007 --> 00:11:35,155
+qui sont passés à cette fonction.
+
+355
+00:11:36,271 --> 00:11:38,170
+Dans cette vidéo, nous avons présenté
+
+356
+00:11:38,270 --> 00:11:39,808
+le fonctionnement des fonctions.
+
+357
+00:11:39,908 --> 00:11:42,170
+En fait, les fonctions sont des objets
+
+358
+00:11:42,270 --> 00:11:43,748
+qui sont référencés par une variable
+
+359
+00:11:43,848 --> 00:11:44,921
+qui est le nom de la fonction.
+
+360
+00:11:45,423 --> 00:11:46,973
+Tous les arguments de la fonction
+
+361
+00:11:47,073 --> 00:11:48,432
+sont passés par référence ;
+
+362
+00:11:48,532 --> 00:11:49,402
+ça veut donc dire qu'on a
+
+363
+00:11:49,502 --> 00:11:50,523
+des risques d'effets de bord
+
+364
+00:11:50,623 --> 00:11:51,498
+qu'il faut contrôler,
+
+365
+00:11:51,598 --> 00:11:53,577
+et nous avons vu qu'il est toujours mieux
+
+366
+00:11:53,677 --> 00:11:55,616
+de faire des retours de fonction
+
+367
+00:11:55,716 --> 00:11:56,953
+sauf lorsqu'on a besoin
+
+368
+00:11:57,053 --> 00:11:58,663
+d'une grande efficacité mémoire,
+
+369
+00:11:58,763 --> 00:11:59,491
+c'est-à-dire lorsqu'on ne veut pas
+
+370
+00:11:59,591 --> 00:12:00,585
+dupliquer les objets.
+
+371
+00:12:02,368 --> 00:12:03,384
+Nous avons également vu
+
+372
+00:12:03,484 --> 00:12:04,767
+que les fonctions étaient polymorphes ;
+
+373
+00:12:04,867 --> 00:12:06,148
+l'intérêt de ce polymorphisme
+
+374
+00:12:06,248 --> 00:12:07,603
+c'est de simplifier l'écriture de votre code,
+
+375
+00:12:07,703 --> 00:12:09,146
+vous écrivez une seule fois la fonction
+
+376
+00:12:09,246 --> 00:12:11,316
+et cette fonction va pouvoir s'exécuter
+
+377
+00:12:11,416 --> 00:12:12,523
+avec n'importe quels types
+
+378
+00:12:12,623 --> 00:12:13,985
+du moment que les opérations
+
+379
+00:12:14,085 --> 00:12:14,716
+définies dans la fonction
+
+380
+00:12:14,816 --> 00:12:15,917
+sont compatibles avec ces types.
+
+381
+00:12:16,822 --> 00:12:18,903
+Python utilise le typage dynamique,
+
+382
+00:12:19,003 --> 00:12:20,797
+ce qui veut dire que nous n'avons jamais
+
+383
+00:12:20,897 --> 00:12:22,905
+à définir le type des objets
+
+384
+00:12:23,005 --> 00:12:23,984
+que nous passons aux fonctions.
+
+385
+00:12:24,084 --> 00:12:26,288
+Cependant, Python permet de donner
+
+386
+00:12:26,388 --> 00:12:27,406
+des indications de type,
+
+387
+00:12:27,506 --> 00:12:28,717
+c'est ce qu'on appelle les type hints.
+
+388
+00:12:29,325 --> 00:12:30,650
+Les type hints sont uniquement
+
+389
+00:12:30,750 --> 00:12:32,346
+des indications qui peuvent être utilisées
+
+390
+00:12:32,446 --> 00:12:33,382
+par exemple pour améliorer
+
+391
+00:12:33,482 --> 00:12:34,558
+la documentation du code
+
+392
+00:12:34,963 --> 00:12:35,698
+ou alors pour faire
+
+393
+00:12:35,798 --> 00:12:37,052
+une validation statique du code.
+
+394
+00:12:37,152 --> 00:12:39,277
+Cependant, l'auteur de Python
+
+395
+00:12:39,377 --> 00:12:41,886
+a été très clair sur cette notion-là,
+
+396
+00:12:41,986 --> 00:12:44,196
+les type hints resteront toujours optionnels
+
+397
+00:12:44,296 --> 00:12:47,161
+et ne vous obligeront jamais à définir
+
+398
+00:12:47,261 --> 00:12:49,470
+du typage statique dans votre code.
+
+399
+00:12:49,993 --> 00:12:50,734
+À bientôt !
+
