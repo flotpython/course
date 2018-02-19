@@ -1,0 +1,1332 @@
+﻿1
+00:00:04,014 --> 00:00:05,074
+Nous avons déjà parlé
+
+2
+00:00:05,174 --> 00:00:06,206
+de la notion de bloc de code
+
+3
+00:00:06,306 --> 00:00:07,595
+lorsque nous avons parlé par exemple
+
+4
+00:00:07,695 --> 00:00:10,123
+de l'instruction for ou de l'instruction if.
+
+5
+00:00:10,687 --> 00:00:12,447
+Un bloc de code est
+
+6
+00:00:12,547 --> 00:00:14,929
+un ensemble d'instructions contiguës
+
+7
+00:00:15,029 --> 00:00:17,084
+indentées du même nombre de caractères
+
+8
+00:00:17,184 --> 00:00:17,961
+vers la droite.
+
+9
+00:00:19,910 --> 00:00:20,931
+Lorsque vous faites
+
+10
+00:00:21,031 --> 00:00:22,472
+une opération d'affectation,
+
+11
+00:00:22,572 --> 00:00:24,289
+par exemple x égale 1,
+
+12
+00:00:24,389 --> 00:00:27,435
+on dit que vous définissez votre variable x,
+
+13
+00:00:27,535 --> 00:00:28,943
+donc cette notion de définition, ça veut dire
+
+14
+00:00:29,043 --> 00:00:31,183
+qu'une variable référence un objet.
+
+15
+00:00:31,283 --> 00:00:33,198
+Nous avons plusieurs synonymes, que sont
+
+16
+00:00:33,298 --> 00:00:35,747
+définition, affectation, assignation
+
+17
+00:00:35,847 --> 00:00:36,633
+ou binding.
+
+18
+00:00:36,733 --> 00:00:38,105
+Nous utilisons ces termes
+
+19
+00:00:38,205 --> 00:00:39,416
+de manière interchangeable.
+
+20
+00:00:42,179 --> 00:00:43,229
+La portée d'une variable
+
+21
+00:00:43,329 --> 00:00:45,477
+détermine de quel endroit du code
+
+22
+00:00:45,577 --> 00:00:47,363
+on peut accéder à cette variable.
+
+23
+00:00:47,463 --> 00:00:49,050
+Python utilise ce qu'on appelle
+
+24
+00:00:49,150 --> 00:00:49,992
+la portée lexicale,
+
+25
+00:00:50,092 --> 00:00:51,527
+ça veut dire que la portée d'une variable
+
+26
+00:00:51,627 --> 00:00:52,933
+est déterminée en fonction
+
+27
+00:00:53,033 --> 00:00:55,014
+de l'endroit dans le code où
+
+28
+00:00:55,114 --> 00:00:56,673
+cette variable est définie.
+
+29
+00:00:58,742 --> 00:00:59,546
+Une variable
+
+30
+00:00:59,646 --> 00:01:01,617
+locale au bloc de code d'une fonction
+
+31
+00:01:02,150 --> 00:01:03,678
+est ce qu'on appelle une variable locale,
+
+32
+00:01:03,778 --> 00:01:04,605
+donc une variable qu'on définit
+
+33
+00:01:04,705 --> 00:01:05,764
+dans le bloc de code de la fonction
+
+34
+00:01:05,864 --> 00:01:06,507
+sera locale.
+
+35
+00:01:06,896 --> 00:01:08,435
+Lorsque la fonction retourne,
+
+36
+00:01:08,535 --> 00:01:10,088
+toutes les variables locales de la fonction
+
+37
+00:01:10,188 --> 00:01:10,766
+sont détruites.
+
+38
+00:01:11,245 --> 00:01:12,573
+Une variable définie
+
+39
+00:01:12,673 --> 00:01:14,029
+en dehors de toute fonction
+
+40
+00:01:14,129 --> 00:01:16,740
+est ce que l'on appelle une variable globale.
+
+41
+00:01:16,840 --> 00:01:18,272
+Nous avons donc principalement
+
+42
+00:01:18,372 --> 00:01:19,720
+deux catégories de variables,
+
+43
+00:01:19,820 --> 00:01:21,622
+les variables locales qui sont définies
+
+44
+00:01:21,722 --> 00:01:22,822
+dans le bloc de code des fonctions,
+
+45
+00:01:22,922 --> 00:01:24,806
+et les variables globales qui sont définies
+
+46
+00:01:24,906 --> 00:01:26,019
+en dehors de toute fonction.
+
+47
+00:01:26,863 --> 00:01:27,865
+Nous allons voir dans cette vidéo
+
+48
+00:01:27,965 --> 00:01:29,486
+la notion de portée de variable
+
+49
+00:01:29,586 --> 00:01:30,544
+et en particulier les notions
+
+50
+00:01:30,644 --> 00:01:32,238
+de variables locales et globales.
+
+51
+00:01:33,771 --> 00:01:35,345
+Commençons par regarder la règle
+
+52
+00:01:35,445 --> 00:01:37,236
+pour savoir comment trouver
+
+53
+00:01:37,336 --> 00:01:38,079
+les bonnes variables
+
+54
+00:01:38,179 --> 00:01:39,823
+lorsque l'on veut les référencer.
+
+55
+00:01:39,923 --> 00:01:42,958
+Il y a une règle qui s'appelle la règle LEGB.
+
+56
+00:01:44,949 --> 00:01:46,197
+Que veut dire cette règle ?
+
+57
+00:01:46,297 --> 00:01:47,323
+Elle veut dire que
+
+58
+00:01:47,423 --> 00:01:49,434
+lorsque l'on référence une variable,
+
+59
+00:01:49,534 --> 00:01:51,360
+on va d'abord chercher
+
+60
+00:01:51,460 --> 00:01:53,069
+si elle a été définie localement
+
+61
+00:01:53,169 --> 00:01:54,909
+à l'endroit où elle est référencée.
+
+62
+00:01:55,009 --> 00:01:56,993
+Donc typiquement, lorsque je référence
+
+63
+00:01:57,093 --> 00:01:58,054
+une variable dans une fonction,
+
+64
+00:01:58,154 --> 00:01:59,564
+je regarde est-ce que cette variable
+
+65
+00:01:59,664 --> 00:02:01,386
+a été définie localement à la fonction.
+
+66
+00:02:02,104 --> 00:02:03,209
+Si elle n'a pas été définie
+
+67
+00:02:03,309 --> 00:02:04,022
+localement à cette fonction,
+
+68
+00:02:04,396 --> 00:02:05,449
+je vais aller la chercher
+
+69
+00:02:05,549 --> 00:02:07,778
+dans les fonctions englobantes.
+
+70
+00:02:07,878 --> 00:02:10,801
+Je vais remonter, de la fonction la plus proche
+
+71
+00:02:10,901 --> 00:02:12,600
+de là où je référence ma variable,
+
+72
+00:02:12,700 --> 00:02:15,138
+jusqu'à la fonction la plus externe.
+
+73
+00:02:16,019 --> 00:02:17,479
+Si je ne trouve pas cette variable
+
+74
+00:02:17,579 --> 00:02:18,725
+définie dans les fonctions englobantes,
+
+75
+00:02:18,825 --> 00:02:21,011
+je vais la chercher globalement,
+
+76
+00:02:21,111 --> 00:02:23,347
+c'est-à-dire au niveau des variables globales,
+
+77
+00:02:23,447 --> 00:02:25,906
+et pour finir, si je ne la trouve toujours pas,
+
+78
+00:02:26,006 --> 00:02:27,971
+je la chercherai dans le module builtins.
+
+79
+00:02:28,330 --> 00:02:30,829
+Nous allons revenir sur chacun de ces critères.
+
+80
+00:02:30,929 --> 00:02:33,408
+Ouvrons maintenant un éditeur IDLE
+
+81
+00:02:33,508 --> 00:02:34,190
+pour commencer à jouer
+
+82
+00:02:34,290 --> 00:02:35,974
+avec cette notion de portée de variable.
+
+83
+00:02:37,594 --> 00:02:38,642
+Définissons une fonction
+
+84
+00:02:38,742 --> 00:02:39,545
+pour commencer à jouer
+
+85
+00:02:39,645 --> 00:02:41,170
+avec cette notion de portée de variable.
+
+86
+00:02:41,614 --> 00:02:45,224
+Je vais définir trois variables a, b, c,
+
+87
+00:02:45,324 --> 00:02:46,726
+qui valent toutes 1.
+
+88
+00:02:47,138 --> 00:02:48,755
+Donc j'utilise à cette occasion
+
+89
+00:02:49,248 --> 00:02:50,752
+la notion de tuple unpacking.
+
+90
+00:02:51,254 --> 00:02:52,802
+Vous remarquerez que dans cet exemple
+
+91
+00:02:52,902 --> 00:02:54,437
+j'utilise des noms de variable
+
+92
+00:02:54,537 --> 00:02:56,555
+un petit peu simplifiés ;
+
+93
+00:02:56,655 --> 00:02:58,936
+c'est exactement l'intérêt de cet exemple,
+
+94
+00:02:59,036 --> 00:03:00,849
+c'est de produire de la confusion
+
+95
+00:03:00,949 --> 00:03:02,199
+pour être sûr que vous avez parfaitement
+
+96
+00:03:02,299 --> 00:03:03,806
+compris cette notion de portée de variable.
+
+97
+00:03:04,349 --> 00:03:05,356
+Dans du code réel,
+
+98
+00:03:05,456 --> 00:03:06,521
+on cherchera évidemment
+
+99
+00:03:06,621 --> 00:03:07,681
+à différencier les noms de variable
+
+100
+00:03:07,781 --> 00:03:09,260
+pour éviter toute confusion.
+
+101
+00:03:09,360 --> 00:03:10,318
+Cependant, c'est important
+
+102
+00:03:10,418 --> 00:03:11,117
+de comprendre cette règle,
+
+103
+00:03:11,217 --> 00:03:12,205
+parce qu'on ne tombe pas toujours
+
+104
+00:03:12,305 --> 00:03:13,659
+sur du code écrit proprement.
+
+105
+00:03:14,095 --> 00:03:16,507
+Donc je définis ma fonction g
+
+106
+00:03:17,980 --> 00:03:19,099
+et dans ma fonction g,
+
+107
+00:03:19,199 --> 00:03:21,157
+je vais définir deux variables b et c
+
+108
+00:03:21,879 --> 00:03:24,331
+qui sont égales à 2 virgule 4.
+
+109
+00:03:24,769 --> 00:03:28,634
+Et ensuite je vais faire b égale b plus 10.
+
+110
+00:03:29,248 --> 00:03:31,256
+Ensuite, je définis une fonction h
+
+111
+00:03:33,040 --> 00:03:34,790
+qui va définir une variable c
+
+112
+00:03:34,890 --> 00:03:35,675
+qui est égale à 5,
+
+113
+00:03:36,456 --> 00:03:38,504
+et je vais faire, dans ma fonction h,
+
+114
+00:03:38,604 --> 00:03:43,356
+un print de a virgule b virgule c.
+
+115
+00:03:44,982 --> 00:03:47,392
+Ensuite, je vais appeler ma fonction h
+
+116
+00:03:49,048 --> 00:03:51,262
+et pour finir, au niveau du module,
+
+117
+00:03:51,362 --> 00:03:53,118
+je vais appeler ma fonction g.
+
+118
+00:03:53,731 --> 00:03:54,997
+Voici le code qu'on vient de taper,
+
+119
+00:03:55,097 --> 00:03:55,955
+maintenant, essayons de comprendre
+
+120
+00:03:56,055 --> 00:03:56,722
+ce qu'il va se passer
+
+121
+00:03:56,822 --> 00:03:58,319
+lorsque l'on va exécuter ce code.
+
+122
+00:03:58,877 --> 00:04:00,794
+La question principale que l'on a à se poser,
+
+123
+00:04:00,894 --> 00:04:02,620
+c'est: qu'est-ce qu'il va se passer
+
+124
+00:04:02,720 --> 00:04:05,182
+lorsqu'on va faire un print de a, b, c.
+
+125
+00:04:05,282 --> 00:04:06,931
+Quelle variable a va être affichée ?
+
+126
+00:04:07,031 --> 00:04:08,681
+Quelle variable b va être affichée ?
+
+127
+00:04:08,781 --> 00:04:10,460
+Quelle variable c va être affichée ?
+
+128
+00:04:10,560 --> 00:04:11,947
+Commençons par le a.
+
+129
+00:04:12,047 --> 00:04:15,195
+Je vous rappelle qu'on utilise la règle LEGB:
+
+130
+00:04:15,295 --> 00:04:17,450
+locales, fonctions englobantes,
+
+131
+00:04:17,550 --> 00:04:18,986
+globales et ensuite builtins.
+
+132
+00:04:20,183 --> 00:04:21,747
+Lorsque je fais print de a, je regarde
+
+133
+00:04:21,847 --> 00:04:23,032
+est-ce que a est définie localement
+
+134
+00:04:23,132 --> 00:04:24,188
+à ma fonction h ?
+
+135
+00:04:24,288 --> 00:04:26,532
+Non, je n'ai pas défini a localement.
+
+136
+00:04:26,632 --> 00:04:27,995
+Est-ce que a est définie
+
+137
+00:04:28,095 --> 00:04:29,118
+dans le fonctions englobantes ?
+
+138
+00:04:29,218 --> 00:04:32,308
+g est une fonction qui englobe h,
+
+139
+00:04:32,408 --> 00:04:33,702
+donc g est une fonction englobante ;
+
+140
+00:04:33,802 --> 00:04:35,351
+non, a n'est pas définie
+
+141
+00:04:35,451 --> 00:04:36,407
+dans la fonction englobante.
+
+142
+00:04:36,507 --> 00:04:38,474
+Est-ce que a est définie globalement ?
+
+143
+00:04:38,574 --> 00:04:41,201
+Oui, je trouve ma variable globale a
+
+144
+00:04:41,301 --> 00:04:42,323
+et il se trouve qu'au moment
+
+145
+00:04:42,423 --> 00:04:43,314
+de l'exécution de ce code,
+
+146
+00:04:43,414 --> 00:04:46,009
+ma variable globale a référence l'entier 1.
+
+147
+00:04:46,109 --> 00:04:48,158
+Donc mon print de a va afficher 1.
+
+148
+00:04:48,867 --> 00:04:50,305
+Ensuite, je prends la variable b.
+
+149
+00:04:50,405 --> 00:04:52,446
+Est-ce que b est définie
+
+150
+00:04:52,546 --> 00:04:54,121
+localement à ma fonction h ?
+
+151
+00:04:54,221 --> 00:04:55,038
+Non.
+
+152
+00:04:55,138 --> 00:04:56,452
+Est-ce que b est définie
+
+153
+00:04:56,552 --> 00:04:57,538
+dans les fonctions englobantes ?
+
+154
+00:04:57,638 --> 00:05:01,870
+Oui, j'ai une fonction englobante g
+
+155
+00:05:01,970 --> 00:05:03,117
+qui définit la variable b.
+
+156
+00:05:03,217 --> 00:05:07,525
+b vaut 2, et ensuite je fais b égale b plus 10
+
+157
+00:05:07,625 --> 00:05:09,062
+donc au moment où je recherche
+
+158
+00:05:09,162 --> 00:05:09,982
+ma variable b,
+
+159
+00:05:10,082 --> 00:05:13,181
+ma variable b référence l'entier 12.
+
+160
+00:05:13,281 --> 00:05:15,669
+Mon print de b va donc afficher 12.
+
+161
+00:05:16,386 --> 00:05:18,289
+Et ensuite, je cherche ma variable c.
+
+162
+00:05:18,389 --> 00:05:20,399
+Est-ce que c est définie localement ?
+
+163
+00:05:20,499 --> 00:05:21,208
+Oui.
+
+164
+00:05:21,308 --> 00:05:23,944
+c est une variable définie dans h
+
+165
+00:05:24,044 --> 00:05:25,797
+et c référence l'entier 5.
+
+166
+00:05:25,897 --> 00:05:27,750
+Maintenant, sauvegardons ce code,
+
+167
+00:05:27,850 --> 00:05:28,701
+exécutons-le
+
+168
+00:05:28,801 --> 00:05:31,303
+et vérifions l'évaluation de ce code ;
+
+169
+00:05:31,403 --> 00:05:34,725
+on voit bien qu'il s'affiche 1, 12 et 5.
+
+170
+00:05:35,564 --> 00:05:37,473
+En résumé, nous pouvons voir
+
+171
+00:05:37,573 --> 00:05:39,985
+qu'une variable définie dans une fonction
+
+172
+00:05:40,085 --> 00:05:42,100
+devient locale à cette fonction ;
+
+173
+00:05:42,200 --> 00:05:43,761
+ça veut dire qu'elle peut être vue
+
+174
+00:05:43,861 --> 00:05:46,167
+dans les fonctions qui sont englobées,
+
+175
+00:05:46,267 --> 00:05:48,090
+par contre une variable locale à une fonction
+
+176
+00:05:48,190 --> 00:05:48,773
+ne peut pas être vue
+
+177
+00:05:48,873 --> 00:05:49,713
+à l'extérieur de cette fonction.
+
+178
+00:05:50,360 --> 00:05:52,669
+Une variable globale, au contraire,
+
+179
+00:05:52,769 --> 00:05:53,907
+définie au niveau du module,
+
+180
+00:05:54,007 --> 00:05:55,955
+peut être vue par toutes les fonctions
+
+181
+00:05:56,055 --> 00:05:58,061
+qui sont définies dans ce module.
+
+182
+00:05:59,414 --> 00:06:01,314
+Évidemment, si maintenant je tape
+
+183
+00:06:01,414 --> 00:06:04,400
+print de 1 virgule 1 virgule 1,
+
+184
+00:06:04,500 --> 00:06:06,844
+je vois bien s'afficher 1, 1, 1.
+
+185
+00:06:06,944 --> 00:06:08,629
+Pardon, si je fais un print de
+
+186
+00:06:08,729 --> 00:06:09,924
+a virgule b virgule c,
+
+187
+00:06:10,024 --> 00:06:12,870
+je vois bien s'afficher 1, 1 et 1,
+
+188
+00:06:12,970 --> 00:06:14,652
+puisque mes variables a, b, c
+
+189
+00:06:14,752 --> 00:06:15,762
+sont définies globalement
+
+190
+00:06:15,862 --> 00:06:17,616
+et que le print est demandé
+
+191
+00:06:17,716 --> 00:06:19,788
+depuis le contexte global de mon module.
+
+192
+00:06:21,082 --> 00:06:21,934
+Seulement vous vous souvenez que
+
+193
+00:06:22,034 --> 00:06:23,631
+dans la règle LEGB,
+
+194
+00:06:24,437 --> 00:06:26,964
+j'ai locales, fonctions englobantes,
+
+195
+00:06:27,064 --> 00:06:28,602
+globales et builtins.
+
+196
+00:06:28,702 --> 00:06:31,154
+À quoi sert cette recherche builtins ?
+
+197
+00:06:31,808 --> 00:06:33,584
+En fait, lorsque je fais un print
+
+198
+00:06:33,684 --> 00:06:35,353
+de a virgule b virgule c,
+
+199
+00:06:35,453 --> 00:06:36,309
+j'ai quatre variables.
+
+200
+00:06:37,077 --> 00:06:38,596
+J'ai bien sûr la variable a,
+
+201
+00:06:38,696 --> 00:06:41,024
+la variable b et la variable c,
+
+202
+00:06:41,124 --> 00:06:42,829
+mais j'ai une quatrième variable.
+
+203
+00:06:43,267 --> 00:06:43,860
+Est-ce que vous voyez
+
+204
+00:06:43,960 --> 00:06:44,809
+de quelle variable je parle ?
+
+205
+00:06:45,605 --> 00:06:47,515
+Il s'agit de la variable print.
+
+206
+00:06:47,615 --> 00:06:49,340
+print est une variable
+
+207
+00:06:49,440 --> 00:06:51,434
+qui référence un objet fonction.
+
+208
+00:06:51,534 --> 00:06:53,142
+En fait, vous avez remarqué
+
+209
+00:06:53,242 --> 00:06:54,406
+que je peux tout à fait faire
+
+210
+00:06:54,506 --> 00:06:55,998
+un len d'une liste,
+
+211
+00:06:56,098 --> 00:06:59,262
+que je peux appeler la fonction built-in str,
+
+212
+00:06:59,362 --> 00:07:01,036
+je peux appeler la fonction built-in dict, set,
+
+213
+00:07:01,136 --> 00:07:03,067
+et je peux appeler la fonction built-in print.
+
+214
+00:07:03,167 --> 00:07:05,777
+À aucun moment, je n'importe un module.
+
+215
+00:07:05,877 --> 00:07:08,191
+En fait, toutes les fonctions
+
+216
+00:07:08,291 --> 00:07:09,767
+qui sont définies dans le module builtins
+
+217
+00:07:09,867 --> 00:07:11,303
+sont directement accessibles
+
+218
+00:07:11,403 --> 00:07:13,365
+sans avoir à importer le module builtins
+
+219
+00:07:13,465 --> 00:07:15,888
+grâce à cette règle LEGB.
+
+220
+00:07:15,988 --> 00:07:17,564
+En dernier ressort,
+
+221
+00:07:17,664 --> 00:07:18,859
+si on ne trouve pas un nom de variable,
+
+222
+00:07:18,959 --> 00:07:20,714
+on le cherche dans le module builtins
+
+223
+00:07:20,814 --> 00:07:21,170
+pour pouvoir,
+
+224
+00:07:21,270 --> 00:07:22,924
+si cette variable est définie dans builtins,
+
+225
+00:07:23,024 --> 00:07:25,281
+appeler la fonction correspondante.
+
+226
+00:07:25,807 --> 00:07:26,801
+Évidemment, on peut importer
+
+227
+00:07:26,901 --> 00:07:28,247
+le module builtins à la main,
+
+228
+00:07:28,347 --> 00:07:29,600
+donc je vous montre ça,
+
+229
+00:07:29,700 --> 00:07:33,624
+je peux faire un import de builtins,
+
+230
+00:07:33,724 --> 00:07:35,224
+et ensuite on peut regarder
+
+231
+00:07:35,324 --> 00:07:37,176
+tout ce qui est défini dans le module builtins.
+
+232
+00:07:38,433 --> 00:07:40,424
+Nous voyons des exceptions,
+
+233
+00:07:40,524 --> 00:07:42,285
+nous en parlerons dans de prochaines vidéos,
+
+234
+00:07:42,385 --> 00:07:43,362
+et nous voyons
+
+235
+00:07:43,462 --> 00:07:44,565
+un certain nombre de fonctions
+
+236
+00:07:44,665 --> 00:07:45,811
+que nous avons déjà utilisées,
+
+237
+00:07:45,911 --> 00:07:47,643
+par exemple, la fonction min,
+
+238
+00:07:47,743 --> 00:07:52,243
+la fonction tuple, la fonction type,
+
+239
+00:07:52,343 --> 00:07:53,147
+qui sont des fonctions
+
+240
+00:07:53,247 --> 00:07:54,960
+définies dans le module builtins.
+
+241
+00:07:55,060 --> 00:07:55,947
+Donc à chaque fois que j'utilise
+
+242
+00:07:56,047 --> 00:07:57,306
+le terme fonction builtins,
+
+243
+00:07:57,406 --> 00:07:58,367
+c'est une fonction qui est définie
+
+244
+00:07:58,467 --> 00:07:59,159
+dans ce module.
+
+245
+00:08:00,324 --> 00:08:01,756
+Seulement, c'est important de comprendre
+
+246
+00:08:01,856 --> 00:08:04,333
+que ces fonctions builtins
+
+247
+00:08:04,433 --> 00:08:06,003
+sont référencées par des variables
+
+248
+00:08:06,103 --> 00:08:07,240
+et qu'une fonction, c'est un objet,
+
+249
+00:08:07,340 --> 00:08:08,454
+et qu'une variable, c'est un nom
+
+250
+00:08:08,554 --> 00:08:09,410
+qui référence un objet,
+
+251
+00:08:09,510 --> 00:08:11,410
+et que par conséquent, je peux redéfinir
+
+252
+00:08:11,510 --> 00:08:13,158
+des fonctions builtins.
+
+253
+00:08:13,258 --> 00:08:14,106
+Regardons cela.
+
+254
+00:08:14,206 --> 00:08:16,512
+Si je fais un print de 1,
+
+255
+00:08:16,612 --> 00:08:18,712
+je vais chercher print dans le module builtins
+
+256
+00:08:18,812 --> 00:08:20,255
+parce que print n'est définie ni localement,
+
+257
+00:08:20,355 --> 00:08:22,350
+ni dans les fonctions englobantes,
+
+258
+00:08:22,450 --> 00:08:22,989
+ni globalement.
+
+259
+00:08:23,585 --> 00:08:26,481
+Par contre, si je fais un print égale 10,
+
+260
+00:08:26,970 --> 00:08:28,368
+je définis une variable print
+
+261
+00:08:28,468 --> 00:08:29,756
+qui référence l'entier 10.
+
+262
+00:08:30,299 --> 00:08:31,723
+Maintenant, print est une variable
+
+263
+00:08:31,823 --> 00:08:32,790
+qui référence un entier,
+
+264
+00:08:32,890 --> 00:08:34,331
+si je fais un print de 1,
+
+265
+00:08:34,431 --> 00:08:35,218
+je vais avoir une exception
+
+266
+00:08:35,318 --> 00:08:36,509
+parce que je ne peux pas
+
+267
+00:08:36,609 --> 00:08:38,144
+appeler un entier 10
+
+268
+00:08:38,244 --> 00:08:39,391
+pour afficher quelque chose.
+
+269
+00:08:39,916 --> 00:08:40,676
+Alors, vous pouvez vous dire:
+
+270
+00:08:40,776 --> 00:08:42,740
+mais c'est très risqué ce type de mécanisme,
+
+271
+00:08:42,840 --> 00:08:44,722
+parce que je peux redéfinir tous mes builtins.
+
+272
+00:08:44,822 --> 00:08:47,055
+En fait, en pratique, ça ne se produit jamais.
+
+273
+00:08:47,155 --> 00:08:47,941
+Regardez pourquoi.
+
+274
+00:08:48,465 --> 00:08:50,242
+Si je tape x égale 1,
+
+275
+00:08:50,342 --> 00:08:51,465
+quelle est la couleur de mon x ?
+
+276
+00:08:51,565 --> 00:08:53,617
+On voit que mon x est écrit en noir,
+
+277
+00:08:53,717 --> 00:08:55,089
+c'est un nom de variable classique.
+
+278
+00:08:55,189 --> 00:08:58,297
+Par contre, si je fais print égale 1,
+
+279
+00:08:58,397 --> 00:08:59,428
+je remarque que mon print
+
+280
+00:08:59,528 --> 00:09:00,744
+est affiché dans une couleur différente,
+
+281
+00:09:00,844 --> 00:09:02,993
+ici, c'est une sorte de mauve violet,
+
+282
+00:09:03,093 --> 00:09:04,594
+et donc ça me permet de voir
+
+283
+00:09:04,694 --> 00:09:07,243
+que ce nom de variable
+
+284
+00:09:07,343 --> 00:09:09,104
+est déjà défini dans le module builtins.
+
+285
+00:09:09,204 --> 00:09:10,156
+Dès que je vois une variable
+
+286
+00:09:10,256 --> 00:09:11,244
+qui est d'une couleur différente,
+
+287
+00:09:11,344 --> 00:09:12,757
+je sais qu'il ne faut pas l'utiliser.
+
+288
+00:09:13,231 --> 00:09:15,723
+Et puis évidemment, comme ma fonction print
+
+289
+00:09:15,823 --> 00:09:17,348
+est toujours définie dans le module builtins,
+
+290
+00:09:17,448 --> 00:09:18,526
+je peux toujours écrire
+
+291
+00:09:18,626 --> 00:09:21,126
+print égale builtins point print
+
+292
+00:09:21,226 --> 00:09:23,652
+et ainsi récupérer la référence
+
+293
+00:09:23,752 --> 00:09:25,212
+vers le bon objet fonction,
+
+294
+00:09:25,312 --> 00:09:27,118
+et maintenant, je peux de nouveau
+
+295
+00:09:27,218 --> 00:09:28,189
+faire un print de 1,
+
+296
+00:09:28,289 --> 00:09:29,898
+ça va fonctionner normalement.
+
+297
+00:09:30,885 --> 00:09:32,229
+Nous venons de voir la notion
+
+298
+00:09:32,329 --> 00:09:33,178
+de portée de variable
+
+299
+00:09:33,278 --> 00:09:35,429
+mais il y a ici une subtilité importante.
+
+300
+00:09:36,025 --> 00:09:37,696
+Vous avez remarqué qu'il n'y a rien
+
+301
+00:09:37,796 --> 00:09:39,856
+de supérieur à une variable globale,
+
+302
+00:09:39,956 --> 00:09:41,915
+une variable est définie comme globale
+
+303
+00:09:42,015 --> 00:09:42,851
+au niveau d'un module,
+
+304
+00:09:42,951 --> 00:09:43,626
+donc chaque module
+
+305
+00:09:43,726 --> 00:09:45,954
+va définir ses propres variables globales.
+
+306
+00:09:47,190 --> 00:09:48,196
+Cela est rendu possible
+
+307
+00:09:48,296 --> 00:09:49,676
+grâce à un mécanisme d'isolation
+
+308
+00:09:49,776 --> 00:09:51,411
+qui s'appelle espace de nommage.
+
+309
+00:09:51,511 --> 00:09:52,700
+Chaque module va définir
+
+310
+00:09:52,800 --> 00:09:53,962
+son propre espace de nommage,
+
+311
+00:09:54,062 --> 00:09:55,253
+et les variables définies
+
+312
+00:09:55,353 --> 00:09:56,554
+dans l'espace de nommage du module
+
+313
+00:09:56,654 --> 00:09:57,501
+sont ce que l'on appelle
+
+314
+00:09:57,601 --> 00:09:58,571
+des variables globales.
+
+315
+00:09:58,671 --> 00:10:00,667
+Nous verrons dans une prochaine vidéo
+
+316
+00:10:00,767 --> 00:10:01,987
+comment communiquer
+
+317
+00:10:02,087 --> 00:10:03,026
+entre les espaces de nommage
+
+318
+00:10:03,126 --> 00:10:04,097
+et notamment comment accéder
+
+319
+00:10:04,197 --> 00:10:04,858
+à des attributs
+
+320
+00:10:04,958 --> 00:10:07,138
+définis dans d'autres espaces de nommage.
+
+321
+00:10:07,967 --> 00:10:11,695
+En résumé, nous avons vu la règle LEGB,
+
+322
+00:10:11,795 --> 00:10:13,842
+la règle de portée des variables en Python.
+
+323
+00:10:13,942 --> 00:10:14,704
+Je vous rappelle que
+
+324
+00:10:14,804 --> 00:10:16,211
+Python utilise la portée lexicale,
+
+325
+00:10:16,311 --> 00:10:17,882
+ça veut dire que la portée d'une variable
+
+326
+00:10:17,982 --> 00:10:20,679
+est définie en fonction de l'endroit
+
+327
+00:10:20,779 --> 00:10:22,663
+où la variable est définie dans le code source.
+
+328
+00:10:22,763 --> 00:10:24,380
+Une variable définie dans une fonction
+
+329
+00:10:24,480 --> 00:10:25,444
+est locale à la fonction ;
+
+330
+00:10:25,544 --> 00:10:26,658
+une variable définie
+
+331
+00:10:26,758 --> 00:10:27,687
+en dehors de toute fonction
+
+332
+00:10:27,787 --> 00:10:29,505
+est une variable globale.
+
+333
+00:10:29,896 --> 00:10:30,558
+À bientôt !
+
