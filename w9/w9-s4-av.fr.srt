@@ -1,0 +1,1705 @@
+1
+00:00:04,100 --> 00:00:05,415
+Dans cette vidéo,nous allons parler
+
+2
+00:00:05,615 --> 00:00:06,821
+du sujet des métaclasses.
+
+3
+00:00:07,021 --> 00:00:09,447
+La métaclasse est l'objet qui va créer
+
+4
+00:00:09,647 --> 00:00:10,889
+toutes les classes en Python.
+
+5
+00:00:11,089 --> 00:00:12,543
+C'est, par conséquent, très important
+
+6
+00:00:12,743 --> 00:00:13,581
+de comprendre ce mécanisme
+
+7
+00:00:13,781 --> 00:00:14,827
+pour améliorer votre compréhension
+
+8
+00:00:15,027 --> 00:00:15,705
+du langage.
+
+9
+00:00:15,905 --> 00:00:17,600
+En pratique, à quoi peuvent servir
+
+10
+00:00:17,800 --> 00:00:18,356
+les métaclasses?
+
+11
+00:00:18,556 --> 00:00:19,191
+En fait, elles permettent de
+
+12
+00:00:19,391 --> 00:00:20,391
+modifier les objets classe
+
+13
+00:00:20,591 --> 00:00:21,716
+au moment de leur création.
+
+14
+00:00:21,916 --> 00:00:23,321
+Donc, vous pouvez, par exemple, valider
+
+15
+00:00:23,521 --> 00:00:25,012
+des noms de méthodes, dynamiquement.
+
+16
+00:00:25,212 --> 00:00:26,469
+Vous pouvez, également,
+
+17
+00:00:26,669 --> 00:00:27,865
+générer automatiquement des méthodes,
+
+18
+00:00:28,065 --> 00:00:29,310
+créer des propriétés ou des descripteurs,
+
+19
+00:00:29,510 --> 00:00:30,470
+de manière automatique.
+
+20
+00:00:30,670 --> 00:00:32,526
+En fait, dès que vous utilisez
+
+21
+00:00:32,726 --> 00:00:34,255
+des grosses librairies, il est probable que les
+
+22
+00:00:34,455 --> 00:00:35,739
+métaclasses soient à la manœuvre.
+
+23
+00:00:35,939 --> 00:00:37,288
+Par conséquent, c'est important de
+
+24
+00:00:37,488 --> 00:00:38,041
+comprendre cette notion.
+
+25
+00:00:38,241 --> 00:00:39,445
+Et même, si vous n’implémentez pas
+
+26
+00:00:39,645 --> 00:00:40,645
+vous-même des métaclasses,
+
+27
+00:00:40,845 --> 00:00:42,663
+la compréhension de ce mécanisme
+
+28
+00:00:42,863 --> 00:00:44,722
+de création des objets permettra d'améliorer,
+
+29
+00:00:44,922 --> 00:00:45,474
+de manière importante,
+
+30
+00:00:45,674 --> 00:00:46,917
+votre compréhension du langage.
+
+31
+00:00:47,117 --> 00:00:49,663
+Regardons maintenant cette notion de métaclasse.
+
+32
+00:00:51,017 --> 00:00:53,200
+Dans cette vidéo, nous allons aborder
+
+33
+00:00:53,400 --> 00:00:54,688
+trois notions importantes.
+
+34
+00:00:54,888 --> 00:00:55,725
+Et ces notions sont importantes
+
+35
+00:00:55,925 --> 00:00:57,375
+parce qu'en Python, tout est un objet,
+
+36
+00:00:57,575 --> 00:00:59,190
+mais tous les objets n'ont pas exactement
+
+37
+00:00:59,390 --> 00:01:00,227
+les mêmes propriétés.
+
+38
+00:01:00,427 --> 00:01:03,102
+En fait, dans cette vidéo,nous allons détailler
+
+39
+00:01:03,302 --> 00:01:05,485
+les propriétés de trois objets particuliers :
+
+40
+00:01:05,685 --> 00:01:08,929
+les métaclasses, les classes, et les instances.
+
+41
+00:01:09,129 --> 00:01:10,825
+Commençons par nous poser
+
+42
+00:01:11,025 --> 00:01:11,783
+une première question :
+
+43
+00:01:11,983 --> 00:01:13,880
+quelle est la super-classe de toutes les classes
+
+44
+00:01:14,080 --> 00:01:14,877
+en Python ?
+
+45
+00:01:15,077 --> 00:01:17,877
+Nous avons déjà vu, lorsqu'on a parlé des classes,
+
+46
+00:01:18,077 --> 00:01:19,689
+que object était la super-classe
+
+47
+00:01:19,889 --> 00:01:21,341
+dont on héritait, automatiquement,
+
+48
+00:01:21,541 --> 00:01:23,441
+lorsqu'on définissait une classe.
+
+49
+00:01:23,641 --> 00:01:25,219
+Alors, regardons cela.
+
+50
+00:01:25,419 --> 00:01:27,970
+Je définis une classe C et je regarde
+
+51
+00:01:28,170 --> 00:01:30,518
+quelle est la super-classe de cette classe.
+
+52
+00:01:30,718 --> 00:01:32,214
+Je vois que c'est object.
+
+53
+00:01:32,414 --> 00:01:33,578
+ça, ce n'est pas une surprise,
+
+54
+00:01:33,778 --> 00:01:35,101
+c'est quelque chose que nous avons déjà vu.
+
+55
+00:01:35,301 --> 00:01:37,243
+Et regardons quelle est la super-classe de object.
+
+56
+00:01:37,443 --> 00:01:39,825
+Je vois que la super-classe de object, c'est rien
+
+57
+00:01:40,025 --> 00:01:42,041
+donc, ce qui nous confirme bien qu'il n'y a rien
+
+58
+00:01:42,241 --> 00:01:44,378
+ au dessus d'object, dans l'arbre d'héritage.
+
+59
+00:01:44,578 --> 00:01:46,387
+object est la super-classe de toutes les classes.
+
+60
+00:01:46,587 --> 00:01:49,918
+Donc, je vais classer object dans la catégorie classe
+
+61
+00:01:50,118 --> 00:01:51,570
+mais, avec une propriété un peu particulière,
+
+62
+00:01:51,770 --> 00:01:53,187
+c'est la super-classe de toutes les classes.
+
+63
+00:01:55,238 --> 00:01:57,993
+Confirmons cela en regardant les types builtins.
+
+64
+00:01:58,193 --> 00:02:00,582
+Quelle est la super-classe de int ? C'est object.
+
+65
+00:02:00,782 --> 00:02:03,126
+Quelle est la super-classe de dict ? C'est object.
+
+66
+00:02:03,326 --> 00:02:04,653
+Et, quelle est la super-classe de str?
+
+67
+00:02:04,853 --> 00:02:06,017
+C'est également object.
+
+68
+00:02:06,217 --> 00:02:08,643
+Donc, on voit que je définisse une classe moi-même
+
+69
+00:02:08,843 --> 00:02:10,418
+avec l'instruction class ou que je prenne
+
+70
+00:02:10,618 --> 00:02:13,708
+un type builtins, ils ont tous pour super-classe
+
+71
+00:02:13,908 --> 00:02:15,276
+la classe object.
+
+72
+00:02:15,476 --> 00:02:19,015
+Alors, quelle différence, maintenant, j'ai
+
+73
+00:02:19,215 --> 00:02:20,662
+entre une classe et une instance?
+
+74
+00:02:20,862 --> 00:02:25,736
+Une classe a pour type l'objet type,
+
+75
+00:02:25,936 --> 00:02:27,913
+et une instance a pour type sa classe.
+
+76
+00:02:28,113 --> 00:02:29,694
+J'ai également deux autres différences
+
+77
+00:02:29,894 --> 00:02:31,719
+avec les classes que je vous présente rapidement :
+
+78
+00:02:31,919 --> 00:02:32,856
+c'est que les classes peuvent avoir
+
+79
+00:02:33,056 --> 00:02:34,351
+des sous-classes, pas les instances,
+
+80
+00:02:34,551 --> 00:02:36,328
+et que les classes peuvent avoir des instances,
+
+81
+00:02:36,528 --> 00:02:37,613
+pas les instances.
+
+82
+00:02:37,813 --> 00:02:40,688
+Donc, revenons sur cette notion de type.
+
+83
+00:02:40,888 --> 00:02:43,795
+Le type d'une classe est l'objet type.
+
+84
+00:02:43,995 --> 00:02:46,951
+Donc, je définis une classe C et je regarde
+
+85
+00:02:47,151 --> 00:02:49,861
+quel est le type de l'instance de C.
+
+86
+00:02:50,061 --> 00:02:53,303
+Le type de l'instance de C, c'est sa classe C.
+
+87
+00:02:53,503 --> 00:02:56,088
+Donc i, je le classe dans la catégorie instance.
+
+88
+00:02:56,288 --> 00:02:59,368
+Quel est le type de la classe C? C'est type.
+
+89
+00:02:59,568 --> 00:03:01,017
+Donc, C est clairement une classe.
+
+90
+00:03:01,217 --> 00:03:03,119
+Je le classe dans la catégorie des classes.
+
+91
+00:03:03,319 --> 00:03:05,868
+Ensuite, je vais regarder avec les types builtins.
+
+92
+00:03:06,068 --> 00:03:07,516
+Quel est le type de 1 ? c'est int.
+
+93
+00:03:07,716 --> 00:03:08,928
+Donc 1, c'est une instance.
+
+94
+00:03:09,128 --> 00:03:11,394
+Quel est le type de int ? C'est type.
+
+95
+00:03:11,594 --> 00:03:14,116
+Donc int, je le classe dans la catégorie classe.
+
+96
+00:03:14,316 --> 00:03:16,788
+Quel est le type de la chaîne de caractères 'a'?
+
+97
+00:03:16,988 --> 00:03:17,866
+C'est str.
+
+98
+00:03:18,066 --> 00:03:19,757
+Donc 'a', la chaîne de caractères 'a',
+
+99
+00:03:19,957 --> 00:03:20,875
+c'est une instance.
+
+100
+00:03:21,075 --> 00:03:25,177
+Et quel est le type de str ? c'est type.
+
+101
+00:03:25,377 --> 00:03:27,727
+Donc str, je le classe dans la catégorie type/classe.
+
+102
+00:03:27,927 --> 00:03:30,069
+De nouveau, vous voyez que Python ne fait
+
+103
+00:03:30,269 --> 00:03:33,673
+aucune différence entre les types builtins et
+
+104
+00:03:33,873 --> 00:03:36,339
+les classes que vous avez définies vous-même.
+
+105
+00:03:36,539 --> 00:03:38,729
+Toutes les classes ou tous les types builtins
+
+106
+00:03:38,929 --> 00:03:39,565
+héritent de type.
+
+107
+00:03:39,765 --> 00:03:41,659
+En fait, vous n'avez pas de différence, en Python,
+
+108
+00:03:41,859 --> 00:03:42,994
+entre un type builtins et
+
+109
+00:03:43,194 --> 00:03:44,240
+une classe que vous implémentez.
+
+110
+00:03:44,440 --> 00:03:46,055
+Ce sont des objets qui se comportent,
+
+111
+00:03:46,255 --> 00:03:47,712
+exactement, de la même manière.
+
+112
+00:03:47,912 --> 00:03:49,767
+Alors, on peut se demander
+
+113
+00:03:49,967 --> 00:03:52,928
+mais pourquoi est-ce que type est le type
+
+114
+00:03:53,128 --> 00:03:54,373
+de toutes les classes, en Python ?
+
+115
+00:03:54,573 --> 00:03:58,555
+En fait, ça veut dire quoi être le type d'une classe ?
+
+116
+00:03:58,755 --> 00:04:00,369
+Le type d'une classe est l'objet
+
+117
+00:04:00,569 --> 00:04:01,650
+qui instancie cette classe,
+
+118
+00:04:01,850 --> 00:04:03,384
+donc qui va créer l'objet classe.
+
+119
+00:04:03,584 --> 00:04:07,595
+type est l'objet qui instancie toutes les classes,
+
+120
+00:04:07,795 --> 00:04:08,470
+en Python.
+
+121
+00:04:08,670 --> 00:04:11,506
+Et, par définition, un objet qui instancie toutes les
+
+122
+00:04:11,706 --> 00:04:13,189
+classes, c'est ce qu'on appelle une métaclasse.
+
+123
+00:04:13,389 --> 00:04:15,572
+Donc une métaclasse, ça n'est rien d'autre que ça.
+
+124
+00:04:15,772 --> 00:04:18,361
+C'est un objet qui va instancier les classes.
+
+125
+00:04:18,561 --> 00:04:21,884
+Et, en Python, on a une seule métaclasse,
+
+126
+00:04:22,084 --> 00:04:23,372
+c'est l'objet type.
+
+127
+00:04:23,572 --> 00:04:26,079
+Donc,maintenant,si je reprends mon affichage,
+
+128
+00:04:26,279 --> 00:04:28,339
+je vois que j'ai une seule métaclasse, en Python,
+
+129
+00:04:28,539 --> 00:04:29,352
+c'est type.
+
+130
+00:04:29,552 --> 00:04:30,925
+J'ai un certain nombre de classes :
+
+131
+00:04:31,125 --> 00:04:31,963
+j'ai toutes les classes builtins,
+
+132
+00:04:32,163 --> 00:04:33,490
+plus toutes les classes que je vais créer moi,
+
+133
+00:04:33,690 --> 00:04:35,717
+et object qui un objet un peu particulier
+
+134
+00:04:35,917 --> 00:04:38,098
+mais qui est la super-classe de toutes les classes
+
+135
+00:04:38,298 --> 00:04:39,341
+Et ensuite, j'ai mes instances.
+
+136
+00:04:39,541 --> 00:04:43,355
+Une propriété importante du type de la métaclasse,
+
+137
+00:04:43,555 --> 00:04:47,765
+c'est qu'en fait le type d'une classe,
+
+138
+00:04:47,965 --> 00:04:49,253
+c'est également le type de sa sous-classe.
+
+139
+00:04:49,453 --> 00:04:51,070
+Donc regardons ça.
+
+140
+00:04:51,270 --> 00:04:52,644
+Je crée ma classe C,
+
+141
+00:04:52,844 --> 00:04:54,870
+et je crée une classe D, qui hérite de C.
+
+142
+00:04:55,070 --> 00:04:58,637
+Quel est le type de object, la super-classe de C ?
+
+143
+00:04:58,837 --> 00:04:59,676
+C'est type.
+
+144
+00:04:59,876 --> 00:05:03,036
+Quel est le type de C ? C'est encore type.
+
+145
+00:05:03,236 --> 00:05:05,459
+Et quel est le type de D, la sous-classe de C ?
+
+146
+00:05:05,659 --> 00:05:06,453
+C'est encore type.
+
+147
+00:05:06,653 --> 00:05:08,832
+Comme je vous l'expliquais, le type d'une classe
+
+148
+00:05:09,032 --> 00:05:10,608
+c'est le type de sa sous-classe.
+
+149
+00:05:10,808 --> 00:05:13,400
+Pardon, le type d'une classe
+
+150
+00:05:13,600 --> 00:05:15,212
+c'est le type de sa super-classe.
+
+151
+00:05:15,412 --> 00:05:17,972
+Alors maintenant, vous avez bien compris
+
+152
+00:05:18,172 --> 00:05:20,105
+qu'on avait deux primitives un peu particulières :
+
+153
+00:05:20,305 --> 00:05:22,568
+on a type, et on a object.
+
+154
+00:05:22,768 --> 00:05:24,787
+Il faut comprendre que ces objets sont créés,
+
+155
+00:05:24,987 --> 00:05:26,712
+automatiquement, lorsqu'on démarre l'interpréteur.
+
+156
+00:05:26,912 --> 00:05:28,038
+Ce sont les premiers objets créés.
+
+157
+00:05:28,238 --> 00:05:30,226
+Et qu'après, tout le reste hérite
+
+158
+00:05:30,426 --> 00:05:32,322
+ou est créé par ces deux primitives.
+
+159
+00:05:32,522 --> 00:05:34,261
+Donc regardons
+
+160
+00:05:34,461 --> 00:05:35,989
+mais quel est le lien entre type et object?
+
+161
+00:05:36,189 --> 00:05:38,454
+En fait, si on regarde quel est le type d'objet,
+
+162
+00:05:38,654 --> 00:05:40,023
+c'est type. Ça n'est pas une surprise.
+
+163
+00:05:40,223 --> 00:05:42,407
+type, c'est la super-classe de toutes les classes.
+
+164
+00:05:42,607 --> 00:05:43,569
+object est une classe.
+
+165
+00:05:43,769 --> 00:05:45,592
+Donc, type a créé object.
+
+166
+00:05:45,792 --> 00:05:48,823
+Quelle est la super-classe de type?
+
+167
+00:05:49,023 --> 00:05:50,227
+Là encore, ça n'est pas une surprise.
+
+168
+00:05:50,427 --> 00:05:52,488
+object est la super-classe de toutes les classes.
+
+169
+00:05:52,688 --> 00:05:54,256
+type est une classe, une métaclasse,
+
+170
+00:05:54,456 --> 00:05:56,936
+mais c'est une classe. type hérite de object.
+
+171
+00:05:57,136 --> 00:05:59,561
+Et pour finir, quel est le type de type?
+
+172
+00:05:59,761 --> 00:06:00,399
+ça c'est quelque chose qui peut être
+
+173
+00:06:00,599 --> 00:06:02,134
+un peu perturbant. On voit que c'est type.
+
+174
+00:06:02,334 --> 00:06:04,604
+Donc ça veut dire que type est son propre type.
+
+175
+00:06:04,804 --> 00:06:05,726
+En fait, c'est une convention
+
+176
+00:06:05,926 --> 00:06:06,969
+qui a été prise en Python.
+
+177
+00:06:07,169 --> 00:06:08,656
+type, c'est le premier objet
+
+178
+00:06:08,856 --> 00:06:09,693
+qui est créé par l'interpréteur.
+
+179
+00:06:09,893 --> 00:06:12,364
+Mais, comme on dit que, type est la super-classe
+
+180
+00:06:12,564 --> 00:06:13,856
+de toutes les classes et ben, en fait, c'est
+
+181
+00:06:14,056 --> 00:06:14,966
+même la super-classe d'elle-même.
+
+182
+00:06:15,166 --> 00:06:16,733
+C'est une notation conventionnelle.
+
+183
+00:06:16,933 --> 00:06:19,606
+Donc, pour résumer ce que nous avons vu :
+
+184
+00:06:19,806 --> 00:06:23,101
+nous avons deux primitifs : type et object.
+
+185
+00:06:23,301 --> 00:06:24,586
+Ce sont les deux objets qui sont créés
+
+186
+00:06:24,786 --> 00:06:25,867
+au démarrage de l'interpréteur.
+
+187
+00:06:26,067 --> 00:06:30,620
+Maintenant, type hérite de quoi ?
+
+188
+00:06:30,820 --> 00:06:31,659
+type hérite d'object.
+
+189
+00:06:31,859 --> 00:06:33,841
+Donc, en rouge, on a la relation d'héritage,
+
+190
+00:06:34,041 --> 00:06:35,985
+et, en vert, on a la notion d'instanciation.
+
+191
+00:06:36,185 --> 00:06:38,975
+object a été instanciés par type,
+
+192
+00:06:39,175 --> 00:06:40,420
+donc type est la super-classe,
+
+193
+00:06:40,620 --> 00:06:41,336
+une autre manière de le dire,
+
+194
+00:06:41,536 --> 00:06:42,866
+ou le type d'object, c'est type.
+
+195
+00:06:43,066 --> 00:06:47,800
+Et type est également sa propre métaclasse
+
+196
+00:06:47,890 --> 00:06:49,713
+C'est type qui instancie type.
+
+197
+00:06:49,913 --> 00:06:51,567
+Maintenant, je crée une classe B.
+
+198
+00:06:51,767 --> 00:06:53,670
+Ma classe b va hériter d'object
+
+199
+00:06:53,870 --> 00:06:55,771
+et va être instanciée par type.
+
+200
+00:06:55,971 --> 00:07:00,162
+Si je crée une classe C, qui hérite de B,
+
+201
+00:07:00,362 --> 00:07:03,776
+C hérite de B, et est instanciée par type.
+
+202
+00:07:03,976 --> 00:07:07,539
+Et ensuite, si je crée une instance de C,
+
+203
+00:07:07,739 --> 00:07:11,268
+mon instance de C est instanciée par la classe C.
+
+204
+00:07:12,225 --> 00:07:14,938
+La question qu'on peut se poser maintenant c'est :
+
+205
+00:07:15,138 --> 00:07:16,669
+est-ce qu'on peut créer nos propres métaclasses,
+
+206
+00:07:16,869 --> 00:07:17,545
+en Python ?
+
+207
+00:07:17,745 --> 00:07:18,987
+Et la réponse est clairement oui.
+
+208
+00:07:19,187 --> 00:07:20,443
+Seulement, il y a deux manières
+
+209
+00:07:20,643 --> 00:07:22,211
+de créer des métaclasses, en Python.
+
+210
+00:07:22,411 --> 00:07:25,206
+La première manière d'écrire une métaclasse
+
+211
+00:07:25,406 --> 00:07:26,618
+est de l'écrire en C.
+
+212
+00:07:26,818 --> 00:07:28,555
+L'avantage d'écrire votre métaclasse en C,
+
+213
+00:07:28,755 --> 00:07:30,088
+c'est que vous avez un contrôle total
+
+214
+00:07:30,288 --> 00:07:31,168
+sur l'allocation de la mémoire.
+
+215
+00:07:31,368 --> 00:07:32,202
+Vous pouvez donc faire absolument
+
+216
+00:07:32,402 --> 00:07:33,161
+ce que vous voulez.
+
+217
+00:07:33,361 --> 00:07:35,302
+Seulement, c'est un sujet extrêmement complexe,
+
+218
+00:07:35,502 --> 00:07:37,239
+qui dépasse, de loin, le cadre de ce MOOC;
+
+219
+00:07:37,439 --> 00:07:38,562
+nous n'en parlerons pas plus.
+
+220
+00:07:38,762 --> 00:07:41,309
+Une deuxième manière d'implémenter des
+
+221
+00:07:41,509 --> 00:07:43,286
+métaclasses, qui est une manière plus courante,
+
+222
+00:07:43,486 --> 00:07:44,323
+c'est d'écrire vos métaclasses
+
+223
+00:07:44,523 --> 00:07:45,770
+directement en Python.
+
+224
+00:07:45,970 --> 00:07:48,353
+Vous n'aurez pas accès au mécanisme
+
+225
+00:07:48,553 --> 00:07:49,192
+d'allocation de mémoire,
+
+226
+00:07:49,392 --> 00:07:50,882
+mais, par contre, vous pourrez toujours modifier
+
+227
+00:07:51,082 --> 00:07:53,260
+votre objet classe, au moment de sa création.
+
+228
+00:07:53,460 --> 00:07:55,311
+Comment est-ce qu'on fait pour écrire une
+
+229
+00:07:55,511 --> 00:07:56,510
+métaclasse en Python?
+
+230
+00:07:56,710 --> 00:08:00,854
+Il suffit de créer une classe qui hérite de l'objet type.
+
+231
+00:08:01,054 --> 00:08:04,129
+Encore une fois, en faisant ça, vous aurez contrôle
+
+232
+00:08:04,329 --> 00:08:05,897
+sur la pré-instanciation de la classe,
+
+233
+00:08:06,097 --> 00:08:08,237
+et sur l'initialisation de l'objet classe.
+
+234
+00:08:08,437 --> 00:08:09,886
+Regardons ça un peu plus en détail.
+
+235
+00:08:10,086 --> 00:08:13,489
+Comment est-ce que la métaclasse crée l'objet?
+
+236
+00:08:13,689 --> 00:08:16,025
+Donc, on va revenir sur ce processus de création
+
+237
+00:08:16,225 --> 00:08:18,119
+de l'objet classe dans l'interpréteur Python.
+
+238
+00:08:18,319 --> 00:08:20,704
+À gauche, je vais vous montrer le code
+
+239
+00:08:20,904 --> 00:08:22,635
+que l'on écrit dans du code Python classique,
+
+240
+00:08:22,835 --> 00:08:23,881
+et, à droite, ce que fait l'interpréteur.
+
+241
+00:08:24,081 --> 00:08:26,307
+Donc vous créez une classe C qui contient
+
+242
+00:08:26,507 --> 00:08:29,217
+une liste et deux méthodes : __init__ et reset_x
+
+243
+00:08:29,417 --> 00:08:31,436
+Que va faire l'interpréteur, au moment de
+
+244
+00:08:31,636 --> 00:08:34,349
+l'importation de ce code et au moment de la
+
+245
+00:08:34,549 --> 00:08:35,546
+création de l'objet classe?
+
+246
+00:08:35,746 --> 00:08:37,603
+Donc l'interpréteur, lorsque vous définissez
+
+247
+00:08:37,803 --> 00:08:40,308
+une classe, va déjà garder le nom de la classe C
+
+248
+00:08:40,508 --> 00:08:41,996
+il va s'en souvenir, et ensuite,
+
+249
+00:08:42,196 --> 00:08:44,413
+il va exécuter le bloc de code de la classe.
+
+250
+00:08:44,613 --> 00:08:49,044
+Donc il va créer la variable lst et l'objet liste,
+
+251
+00:08:49,244 --> 00:08:53,060
+les fonctions ou les méthodes __init__ et reset_x,
+
+252
+00:08:53,260 --> 00:08:54,424
+et créer les objets correspondants,
+
+253
+00:08:54,624 --> 00:08:56,685
+et les noms correspondant à ces objets.
+
+254
+00:08:56,885 --> 00:08:59,272
+Et ensuite, il va créer un espace de nommage
+
+255
+00:08:59,472 --> 00:09:01,483
+qui va être un dictionnaire qui va avoir,
+
+256
+00:09:01,683 --> 00:09:03,330
+comme nom, chaque objet défini dans la classe,
+
+257
+00:09:03,530 --> 00:09:05,308
+et, comme valeur, chaque objet qui a été créé.
+
+258
+00:09:05,508 --> 00:09:08,459
+Et pour finir, l'interpréteur va appeler
+
+259
+00:09:08,659 --> 00:09:10,890
+la fonction builtins type.
+
+260
+00:09:11,090 --> 00:09:13,147
+Donc il va dire C (le nom de la classe) égal à
+
+261
+00:09:13,347 --> 00:09:15,650
+type(le nom de la classe,
+
+262
+00:09:15,850 --> 00:09:19,047
+la super-classe ou les super-classes dans un tuple,
+
+263
+00:09:19,247 --> 00:09:20,696
+et ensuite, l'espace de nommage).
+
+264
+00:09:20,896 --> 00:09:22,630
+Voilà. Donc, c'est essentiellement les différentes
+
+265
+00:09:22,830 --> 00:09:24,767
+étapes, que va parcourir l'interpréteur.
+
+266
+00:09:24,967 --> 00:09:26,862
+En pratique, c'est un tout petit peu plus compliqué
+
+267
+00:09:27,062 --> 00:09:28,387
+que ça. Mais ici, je vous présente ce que
+
+268
+00:09:28,587 --> 00:09:30,036
+nous avons besoin de savoir,
+
+269
+00:09:30,236 --> 00:09:31,725
+dans le cadre de cette vidéo.
+
+270
+00:09:31,925 --> 00:09:35,363
+Donc que va faire l'appel de type?
+
+271
+00:09:35,563 --> 00:09:37,542
+En fait, l'appel de type va appeler la méthode
+
+272
+00:09:37,742 --> 00:09:40,208
+__call__ sur la super-classe type.
+
+273
+00:09:40,408 --> 00:09:42,105
+Et, en fait, cet appel __call__
+
+274
+00:09:42,305 --> 00:09:42,776
+qu'est-ce qu'il va faire?
+
+275
+00:09:42,976 --> 00:09:44,101
+Il va appeler une méthode new
+
+276
+00:09:44,301 --> 00:09:47,704
+qui va créer, à proprement dit, l'objet classe
+
+277
+00:09:47,904 --> 00:09:50,902
+et une méthode __init__ qui va instancier
+
+278
+00:09:51,102 --> 00:09:53,119
+cet objet classe une fois qu'il a été créé.
+
+279
+00:09:53,319 --> 00:09:57,829
+Donc new, c'est la méthode qui est responsable
+
+280
+00:09:58,029 --> 00:09:59,522
+de la création de cet objet classe,
+
+281
+00:09:59,722 --> 00:10:01,741
+et __init__ c'est la méthode qui est responsable
+
+282
+00:10:01,941 --> 00:10:03,470
+de l'instanciation de cet objet classe.
+
+283
+00:10:03,670 --> 00:10:04,795
+Donc, on voit qu'on peut avoir un petit peu de
+
+284
+00:10:04,995 --> 00:10:06,278
+confusion entre le rôle respectif
+
+285
+00:10:06,478 --> 00:10:07,722
+de new et de __init__.
+
+286
+00:10:07,922 --> 00:10:09,492
+Et on peut même se demander, mais en pratique,
+
+287
+00:10:09,692 --> 00:10:10,366
+qu'est-ce qu'il faut que j'implémente?
+
+288
+00:10:10,566 --> 00:10:11,443
+Est-ce qu'il faut que j'implémente new?
+
+289
+00:10:11,643 --> 00:10:12,974
+Est-ce qu'il faut que j'implémente __init__?
+
+290
+00:10:13,174 --> 00:10:14,742
+En pratique, on implémente très souvent new
+
+291
+00:10:14,942 --> 00:10:16,028
+parce que c'est la méthode qui donne le plus
+
+292
+00:10:16,228 --> 00:10:18,374
+de flexibilité, même si elle est un tout petit peu
+
+293
+00:10:18,574 --> 00:10:19,823
+plus compliquée à mettre en œuvre.
+
+294
+00:10:20,023 --> 00:10:21,672
+Donc regardons maintenant un exemple
+
+295
+00:10:21,872 --> 00:10:24,372
+d'implémentation de métaclasse.
+
+296
+00:10:24,572 --> 00:10:25,858
+Je vais créer une métaclasse
+
+297
+00:10:26,058 --> 00:10:29,630
+que j'appelle LowerAttrMetaclass qui hérite de type.
+
+298
+00:10:29,830 --> 00:10:31,601
+Pour créer une métaclasse, il faut obligatoirement
+
+299
+00:10:31,801 --> 00:10:32,677
+hériter est de type.
+
+300
+00:10:32,877 --> 00:10:34,485
+Et quel va être le rôle de cette métaclasse?
+
+301
+00:10:34,685 --> 00:10:37,034
+Cette métaclasse va avoir deux rôles.
+
+302
+00:10:37,234 --> 00:10:39,859
+Le premier rôle, ça va être de dire que
+
+303
+00:10:40,059 --> 00:10:42,362
+toutes les classes qui sont instanciées
+
+304
+00:10:42,562 --> 00:10:44,052
+par cette métaclasse vont automatiquement
+
+305
+00:10:44,252 --> 00:10:45,173
+hériter d'une autre classe.
+
+306
+00:10:45,373 --> 00:10:48,127
+Le deuxième rôle, c'est que cette métaclasse
+
+307
+00:10:48,327 --> 00:10:49,936
+va valider la syntaxe des méthodes.
+
+308
+00:10:50,136 --> 00:10:51,662
+Et donc, si j'ai des méthodes qui ont une mauvaise
+
+309
+00:10:51,862 --> 00:10:53,523
+capitalisation, elle va automatiquement les mettre
+
+310
+00:10:53,723 --> 00:10:54,320
+en minuscule.
+
+311
+00:10:54,520 --> 00:10:56,376
+En pratique, ce n'est pas forcément quelque chose
+
+312
+00:10:56,576 --> 00:10:57,087
+qu'on ferait.
+
+313
+00:10:57,287 --> 00:10:58,820
+Mais, en pratique, on pourrait tout à fait valider
+
+314
+00:10:59,020 --> 00:11:00,550
+la correct syntaxe des méthodes,
+
+315
+00:11:00,750 --> 00:11:02,079
+en fonction d'une certaine convention
+
+316
+00:11:02,279 --> 00:11:04,464
+de nommage, établie par une librairie
+
+317
+00:11:04,664 --> 00:11:05,499
+ou par un framework.
+
+318
+00:11:05,699 --> 00:11:06,659
+Donc regardons maintenant
+
+319
+00:11:06,859 --> 00:11:08,019
+l'écriture de cette métaclasse.
+
+320
+00:11:08,219 --> 00:11:10,724
+Je crée une méthode new
+
+321
+00:11:10,924 --> 00:11:13,515
+donc c'est la méthode qui va créer ma classe,
+
+322
+00:11:13,715 --> 00:11:15,698
+qui prend comme arguments : la classe,
+
+323
+00:11:15,898 --> 00:11:18,889
+le nom de la classe, les super-classes,
+
+324
+00:11:19,089 --> 00:11:21,395
+et le dictionnaire/l'espace de nommage.
+
+325
+00:11:21,595 --> 00:11:23,448
+Donc on voit que lorsque je crée une classe,
+
+326
+00:11:23,648 --> 00:11:24,326
+j'ai accès à tout.
+
+327
+00:11:24,526 --> 00:11:26,550
+J'ai accès au nom de la classe que je peux modifier.
+
+328
+00:11:26,750 --> 00:11:28,322
+J'ai accès aux super-classes, bases,
+
+329
+00:11:28,522 --> 00:11:29,277
+que je peux modifier.
+
+330
+00:11:29,477 --> 00:11:31,009
+Et j'ai accès à l'espace de nommage de ma classe
+
+331
+00:11:31,209 --> 00:11:32,249
+que je peux également modifier.
+
+332
+00:11:32,449 --> 00:11:34,184
+Avant que l'objet classe soit créé.
+
+333
+00:11:34,384 --> 00:11:36,323
+Et maintenant, je crée un dictionnaire
+
+334
+00:11:36,523 --> 00:11:37,405
+lowercase_attr.
+
+335
+00:11:37,605 --> 00:11:40,396
+Je vais parcourir mon espace de nommage
+
+336
+00:11:40,596 --> 00:11:41,718
+avec items().
+
+337
+00:11:41,918 --> 00:11:43,241
+Et qu'est-ce que je vais faire?
+
+338
+00:11:43,441 --> 00:11:46,358
+Je vais regarder si mon nom de méthode
+
+339
+00:11:46,558 --> 00:11:47,966
+ne commence pas par un double underscore.
+
+340
+00:11:48,166 --> 00:11:49,624
+Je vous rappelle que les méthodes qui commencent
+
+341
+00:11:49,824 --> 00:11:51,032
+par un double underscore sont, en général,
+
+342
+00:11:51,232 --> 00:11:52,316
+réservées par le langage.
+
+343
+00:11:52,516 --> 00:11:56,241
+Je vais mettre, dans lowercase_attr,
+
+344
+00:11:56,441 --> 00:11:57,929
+le nom de ma méthode, en minuscules.
+
+345
+00:11:58,129 --> 00:12:00,881
+Voilà donc c'est essentiellement ce que je fais.
+
+346
+00:12:01,081 --> 00:12:01,081
+Je parcours tous les noms de méthodes
+
+347
+00:12:01,281 --> 00:12:02,447
+qui ne sont pas des méthodes spéciales.
+
+348
+00:12:02,647 --> 00:12:05,770
+Et si mon nom de méthode a des capitalisations
+
+349
+00:12:05,970 --> 00:12:07,341
+un peu hasardeuses, je vais tout mettre en
+
+350
+00:12:07,541 --> 00:12:10,378
+minuscules et je vais mettre ça dans un dictionnaire.
+
+351
+00:12:13,626 --> 00:12:15,814
+Sinon, d'ailleurs si c'est une méthode spéciale,
+
+352
+00:12:16,014 --> 00:12:17,623
+je récupère mon nom tel quel.
+
+353
+00:12:17,823 --> 00:12:21,105
+Et ensuite, comme super-classe, je vais mettre,
+
+354
+00:12:21,305 --> 00:12:24,470
+par défaut, une super-classe qui s'appelle BaseOfAll
+
+355
+00:12:24,670 --> 00:12:26,408
+Donc, c'est mon framework qui va dire,
+
+356
+00:12:26,608 --> 00:12:28,666
+lorsque j'utilise ma métaclasse, j'utilise
+
+357
+00:12:28,866 --> 00:12:30,478
+une super-classe qui est BaseOfAll.
+
+358
+00:12:30,678 --> 00:12:34,001
+Et ensuite, je retourne type.__new__
+
+359
+00:12:34,201 --> 00:12:35,570
+donc, comme vous créez une métaclasse
+
+360
+00:12:35,770 --> 00:12:38,477
+pour que le processus de création de l'objet soit
+
+361
+00:12:38,677 --> 00:12:41,586
+effectif, il faut obligatoirement appeler __new__
+
+362
+00:12:41,786 --> 00:12:43,032
+sur la métaclasse type
+
+363
+00:12:43,232 --> 00:12:44,439
+Sinon, l'objet n'est pas créé.
+
+364
+00:12:44,639 --> 00:12:46,171
+Mais, on voit qu'à __new__, je lui passe :
+
+365
+00:12:46,371 --> 00:12:50,476
+un nouveau bases qui est BaseofAll,
+
+366
+00:12:50,676 --> 00:12:51,879
+et je lui passe un nouveau dictionnaire
+
+367
+00:12:52,079 --> 00:12:53,038
+un nouvel espace de nommage
+
+368
+00:12:53,238 --> 00:12:54,562
+qui est le lowercase_attr.
+
+369
+00:12:54,762 --> 00:12:57,390
+Donc j'ai été capable de modifier l'arbre d'héritage.
+
+370
+00:12:57,590 --> 00:12:59,525
+Mais également, l'espace de nommage de ma classe
+
+371
+00:12:59,725 --> 00:13:01,053
+avant la création de cet objet.
+
+372
+00:13:01,253 --> 00:13:03,763
+Ensuite, j'ai défini ma classe BaseOfAll
+
+373
+00:13:03,963 --> 00:13:05,531
+qui définit une méthode common_func
+
+374
+00:13:05,731 --> 00:13:09,008
+qui sera utilisable par toutes classes qui
+
+375
+00:13:09,208 --> 00:13:10,979
+utilisent la métaclasse LowerCaseAttrMetaclass.
+
+376
+00:13:11,179 --> 00:13:13,361
+Et ensuite, je définis ma classe C,
+
+377
+00:13:13,561 --> 00:13:15,789
+et pour dire que ma classe C a pour métaclasse
+
+378
+00:13:15,989 --> 00:13:18,587
+cette fameuse métaclasse, il faut que j'utilise
+
+379
+00:13:18,787 --> 00:13:21,871
+le keyword particulier, metaclass =
+
+380
+00:13:22,071 --> 00:13:23,066
+le nom de ma métaclasse.
+
+381
+00:13:23,266 --> 00:13:26,142
+C'est la syntaxe que j'utilise, pour utiliser
+
+382
+00:13:26,342 --> 00:13:27,914
+une métaclasse différente de type,
+
+383
+00:13:28,114 --> 00:13:30,420
+dans une classe que j'écris moi-même.
+
+384
+00:13:30,620 --> 00:13:32,888
+Et ensuite, ma classe va définir une fonction
+
+385
+00:13:33,088 --> 00:13:34,782
+avec une capitalisation très hasardeuse,
+
+386
+00:13:34,982 --> 00:13:36,355
+avec des majuscules placées de manière un
+
+387
+00:13:36,555 --> 00:13:39,272
+peu bizarre, et ma fonction retourne simplement
+
+388
+00:13:39,472 --> 00:13:40,441
+une chaîne de caractères.
+
+389
+00:13:40,641 --> 00:13:42,008
+Donc, regardons maintenant ce qui se passe,
+
+390
+00:13:42,208 --> 00:13:43,733
+lorsque j'exécute ce code-là.
+
+391
+00:13:43,933 --> 00:13:46,892
+Je vais créer une instance de C,
+
+392
+00:13:47,092 --> 00:13:48,580
+et je vois que maintenant, sur mon instance,
+
+393
+00:13:48,780 --> 00:13:51,327
+je peux appeler une méthode qui a un nom avec
+
+394
+00:13:51,527 --> 00:13:54,767
+une capitalisation correcte et que mon instance
+
+395
+00:13:54,967 --> 00:13:57,350
+de C a également accès à common_func
+
+396
+00:13:57,550 --> 00:13:59,489
+qui est une méthode qui a été définie dans la
+
+397
+00:13:59,689 --> 00:14:01,554
+super-classe de toutes les classes
+
+398
+00:14:01,754 --> 00:14:03,126
+qui utilisent cette méta classe.
+
+399
+00:14:03,326 --> 00:14:06,446
+Donc pour résumer, refaisons un petit diagramme.
+
+400
+00:14:06,646 --> 00:14:09,963
+J'ai mes deux primitives de base : type et object
+
+401
+00:14:10,163 --> 00:14:14,012
+type hérite de object et object est instancié par type
+
+402
+00:14:14,212 --> 00:14:16,637
+et type est instancié par lui-même.
+
+403
+00:14:16,837 --> 00:14:18,404
+Je crée une métaclasse M.
+
+404
+00:14:18,604 --> 00:14:20,621
+Ma métaclasse va hériter de type,
+
+405
+00:14:20,821 --> 00:14:23,247
+mais va également être instanciée par type.
+
+406
+00:14:23,447 --> 00:14:26,083
+Et ensuite, je définis une classe C
+
+407
+00:14:26,283 --> 00:14:27,450
+qui hérite de object
+
+408
+00:14:27,650 --> 00:14:29,421
+et qui est instanciée par ma métaclasse.
+
+409
+00:14:29,621 --> 00:14:32,827
+Et pour finir, mon instance de C est instanciée
+
+410
+00:14:33,027 --> 00:14:34,107
+par ma classe C.
+
+411
+00:14:34,941 --> 00:14:37,205
+Dans cette vidéo, nous avons vu la notion de
+
+412
+00:14:37,405 --> 00:14:37,958
+métaclasse.
+
+413
+00:14:38,158 --> 00:14:39,164
+C'est clairement un sujet avancé, mais
+
+414
+00:14:39,364 --> 00:14:40,932
+qui est très intéressant pour comprendre
+
+415
+00:14:41,132 --> 00:14:44,048
+les mécanismes de création d'objets, en Python.
+
+416
+00:14:44,248 --> 00:14:45,898
+De plus, nous avons vu qu'en créant vos
+
+417
+00:14:46,098 --> 00:14:47,385
+propres métaclasses, vous pouvez ajouter
+
+418
+00:14:47,585 --> 00:14:48,627
+toute une couche de logique,
+
+419
+00:14:48,827 --> 00:14:51,174
+au processus de création des autres classes.
+
+420
+00:14:51,374 --> 00:14:52,700
+Donc, vous pouvez créer des librairies
+
+421
+00:14:52,900 --> 00:14:54,838
+qui peuvent effectuer tout un tas d'opérations
+
+422
+00:14:55,038 --> 00:14:56,855
+comme, par exemple, la validation d'arguments
+
+423
+00:14:57,055 --> 00:14:59,277
+ou alors la création de propriétés ou
+
+424
+00:14:59,477 --> 00:15:01,210
+de descripteurs automatiques.
+
+425
+00:15:01,410 --> 00:15:02,451
+À bientôt !
+
+426
+00:15:02,651 --> 00:15:04,651
+
+
+
