@@ -1,0 +1,1132 @@
+﻿1
+00:00:04,434 --> 00:00:06,052
+Python est un langage multiparadigme
+
+2
+00:00:06,152 --> 00:00:07,069
+qui supporte évidemment
+
+3
+00:00:07,169 --> 00:00:08,309
+la programmation objet,
+
+4
+00:00:08,409 --> 00:00:09,398
+mais qui supporte également
+
+5
+00:00:09,498 --> 00:00:10,167
+certains concepts
+
+6
+00:00:10,267 --> 00:00:11,526
+de programmation fonctionnelle.
+
+7
+00:00:11,940 --> 00:00:12,984
+Pourquoi est-ce que Python
+
+8
+00:00:13,084 --> 00:00:14,487
+supporte ces différents paradigmes ?
+
+9
+00:00:14,587 --> 00:00:15,782
+C'est simplement pour en faire
+
+10
+00:00:15,882 --> 00:00:17,135
+un langage simple et puissant
+
+11
+00:00:17,235 --> 00:00:18,351
+et facile à utiliser.
+
+12
+00:00:18,451 --> 00:00:19,220
+Donc Python n'est pas
+
+13
+00:00:19,320 --> 00:00:20,054
+un langage dogmatique,
+
+14
+00:00:20,154 --> 00:00:20,908
+c'est un langage qui utilise
+
+15
+00:00:21,008 --> 00:00:21,770
+ce dont on a besoin
+
+16
+00:00:21,870 --> 00:00:23,264
+là où on en a besoin.
+
+17
+00:00:23,662 --> 00:00:25,753
+Dans cette vidéo, nous allons parler
+
+18
+00:00:25,853 --> 00:00:27,312
+des fonctions lambda,
+
+19
+00:00:27,412 --> 00:00:28,717
+nous allons expliquer que
+
+20
+00:00:28,817 --> 00:00:29,907
+les fonctions étant des objets,
+
+21
+00:00:30,007 --> 00:00:31,362
+on peut les passer comme argument
+
+22
+00:00:31,462 --> 00:00:32,569
+à d'autres fonctions,
+
+23
+00:00:32,669 --> 00:00:33,562
+et nous allons parler
+
+24
+00:00:33,662 --> 00:00:35,582
+des fonctions built-in map et filter.
+
+25
+00:00:36,204 --> 00:00:37,237
+Commençons par parler
+
+26
+00:00:37,337 --> 00:00:38,381
+des fonctions lambda.
+
+27
+00:00:38,906 --> 00:00:40,196
+Les fonctions lambda
+
+28
+00:00:40,704 --> 00:00:42,038
+sont en fait des fonctions
+
+29
+00:00:42,138 --> 00:00:43,411
+qui sont anonymes.
+
+30
+00:00:43,511 --> 00:00:44,337
+Alors on peut se demander
+
+31
+00:00:44,437 --> 00:00:45,624
+mais à quoi sert une fonction lambda ?
+
+32
+00:00:46,029 --> 00:00:47,965
+En fait, en introduction, il faut savoir que
+
+33
+00:00:48,065 --> 00:00:48,643
+tout ce qu'on peut faire
+
+34
+00:00:48,743 --> 00:00:49,561
+avec une fonction lambda,
+
+35
+00:00:49,661 --> 00:00:50,490
+on peut le faire
+
+36
+00:00:50,590 --> 00:00:51,841
+avec une fonction traditionnelle.
+
+37
+00:00:51,941 --> 00:00:53,496
+Par conséquent, les fonctions lambda
+
+38
+00:00:53,596 --> 00:00:54,710
+ne sont en rien nécessaires.
+
+39
+00:00:55,405 --> 00:00:56,742
+Elles constituent simplement
+
+40
+00:00:56,842 --> 00:00:58,333
+une facilité d'utilisation
+
+41
+00:00:58,433 --> 00:01:00,500
+pour écrire du code, parfois,
+
+42
+00:01:00,600 --> 00:01:02,395
+qui est plus simple et expressif.
+
+43
+00:01:02,786 --> 00:01:04,192
+En fait, une fonction lambda,
+
+44
+00:01:04,292 --> 00:01:05,260
+la principale différence entre
+
+45
+00:01:05,360 --> 00:01:06,045
+une fonction lambda
+
+46
+00:01:06,145 --> 00:01:06,926
+et une fonction traditionnelle
+
+47
+00:01:07,026 --> 00:01:08,146
+est qu'une fonction lambda
+
+48
+00:01:08,246 --> 00:01:08,849
+est une expression.
+
+49
+00:01:09,188 --> 00:01:10,602
+Par conséquent, on peut définir
+
+50
+00:01:10,702 --> 00:01:11,471
+une fonction lambda
+
+51
+00:01:11,571 --> 00:01:13,630
+partout où on peut avoir une expression,
+
+52
+00:01:13,730 --> 00:01:15,300
+par exemple, lorsque l'on écrit
+
+53
+00:01:15,400 --> 00:01:17,024
+une liste, un dictionnaire,
+
+54
+00:01:17,124 --> 00:01:18,648
+ou alors lorsque l'on veut passer
+
+55
+00:01:18,748 --> 00:01:20,596
+directement un argument à une fonction.
+
+56
+00:01:21,511 --> 00:01:23,155
+Maintenant, ouvrons un éditeur IDLE
+
+57
+00:01:23,255 --> 00:01:24,931
+pour commencer à jouer avec ces concepts.
+
+58
+00:01:26,867 --> 00:01:28,049
+Regardons comment écrire
+
+59
+00:01:28,149 --> 00:01:28,993
+une fonction lambda.
+
+60
+00:01:29,093 --> 00:01:29,968
+C'est très simple,
+
+61
+00:01:30,068 --> 00:01:31,654
+on va commencer avec le mot-clé lambda,
+
+62
+00:01:36,304 --> 00:01:40,313
+suivi d'un paramètre,
+
+63
+00:01:40,413 --> 00:01:41,648
+on pourrait avoir plusieurs paramètres,
+
+64
+00:01:41,748 --> 00:01:43,321
+et ensuite je vais mettre une expression
+
+65
+00:01:43,421 --> 00:01:45,240
+que je calcule à partir de ces paramètres.
+
+66
+00:01:45,340 --> 00:01:46,772
+Donc là, je vais simplement prendre
+
+67
+00:01:46,872 --> 00:01:49,545
+x au carré moins 1.
+
+68
+00:01:50,043 --> 00:01:51,622
+Voilà, j'ai défini une fonction lambda,
+
+69
+00:01:51,722 --> 00:01:53,292
+je fais un retour chariot,
+
+70
+00:01:53,392 --> 00:01:55,123
+et je vois que ma fonction lambda
+
+71
+00:01:55,223 --> 00:01:55,850
+a été créée.
+
+72
+00:01:56,410 --> 00:01:56,894
+Évidemment,
+
+73
+00:01:56,994 --> 00:01:58,219
+comme cette fonction n'a pas de nom,
+
+74
+00:01:58,319 --> 00:01:59,852
+je n'ai pas de référence vers cette fonction,
+
+75
+00:01:59,952 --> 00:02:01,409
+je ne peux donc pas l'utiliser directement.
+
+76
+00:02:01,952 --> 00:02:02,943
+Donc ma fonction lambda,
+
+77
+00:02:03,043 --> 00:02:03,902
+je peux lui donner un nom,
+
+78
+00:02:04,002 --> 00:02:06,924
+je vais rappeler mon expression précédente,
+
+79
+00:02:07,024 --> 00:02:08,578
+et je vais lui donner un nom,
+
+80
+00:02:08,678 --> 00:02:09,607
+voilà, le nom carré.
+
+81
+00:02:10,029 --> 00:02:11,191
+Donc maintenant, j'ai une variable
+
+82
+00:02:11,291 --> 00:02:13,133
+qui va référencer cet objet fonction,
+
+83
+00:02:13,626 --> 00:02:15,216
+je peux donc maintenant
+
+84
+00:02:15,316 --> 00:02:16,362
+appeler ma fonction lambda
+
+85
+00:02:17,630 --> 00:02:19,064
+comme une fonction traditionnelle.
+
+86
+00:02:19,527 --> 00:02:20,132
+Évidemment,
+
+87
+00:02:20,232 --> 00:02:21,121
+maintenant que je lui ai donné un nom,
+
+88
+00:02:21,221 --> 00:02:22,321
+ça perd un petit peu de son intérêt
+
+89
+00:02:22,421 --> 00:02:23,724
+puisque ça devient une fonction nommée
+
+90
+00:02:23,824 --> 00:02:25,026
+un peu comme une fonction classique.
+
+91
+00:02:26,104 --> 00:02:27,871
+Regardons un usage pratique
+
+92
+00:02:27,971 --> 00:02:28,805
+d'une fonction lambda.
+
+93
+00:02:29,340 --> 00:02:31,459
+Je vais définir une fonction,
+
+94
+00:02:31,559 --> 00:02:33,727
+que je vais appeler image de f.
+
+95
+00:02:35,627 --> 00:02:36,912
+Et maintenant, je vais faire
+
+96
+00:02:37,012 --> 00:02:37,713
+une boucle for:
+
+97
+00:02:37,813 --> 00:02:41,593
+for x in range de 10
+
+98
+00:02:42,328 --> 00:02:45,587
+et ici, je vais simplement faire un print de,
+
+99
+00:02:45,687 --> 00:02:47,501
+alors je vais prendre une f-string
+
+100
+00:02:47,601 --> 00:02:48,955
+qui va m'afficher
+
+101
+00:02:53,558 --> 00:02:54,589
+f de x
+
+102
+00:03:00,509 --> 00:03:01,050
+deux points
+
+103
+00:03:03,666 --> 00:03:04,870
+x
+
+104
+00:03:05,733 --> 00:03:07,785
+Je vais donc calculer ma fonction
+
+105
+00:03:08,775 --> 00:03:10,302
+f sur x
+
+106
+00:03:10,402 --> 00:03:11,501
+et ensuite, je vais montrer
+
+107
+00:03:11,601 --> 00:03:12,909
+quelle était la valeur que j'ai passée
+
+108
+00:03:13,009 --> 00:03:13,548
+à ma fonction.
+
+109
+00:03:14,956 --> 00:03:16,083
+Donc ici, évidemment,
+
+110
+00:03:16,183 --> 00:03:18,905
+quand je vais appeler f entre parenthèses x,
+
+111
+00:03:19,005 --> 00:03:21,032
+je suppose que je passe bien une fonction
+
+112
+00:03:21,132 --> 00:03:22,168
+à ma fonction image.
+
+113
+00:03:22,712 --> 00:03:23,931
+Exécutons ce code.
+
+114
+00:03:25,066 --> 00:03:26,530
+Et je l'évalue avec F5.
+
+115
+00:03:26,630 --> 00:03:28,474
+J'ai maintenant une fonction image
+
+116
+00:03:29,888 --> 00:03:30,926
+voilà, tout à fait normale,
+
+117
+00:03:31,026 --> 00:03:32,063
+et qui accepte comme argument
+
+118
+00:03:32,163 --> 00:03:33,504
+un objet qui doit être une fonction.
+
+119
+00:03:33,963 --> 00:03:35,732
+Je vais donc maintenant lui passer
+
+120
+00:03:35,832 --> 00:03:38,241
+directement une fonction lambda.
+
+121
+00:03:38,341 --> 00:03:39,495
+Regardons cela.
+
+122
+00:03:40,479 --> 00:03:44,970
+lambda de x deux points x au carré moins 1
+
+123
+00:03:46,145 --> 00:03:48,614
+En fait, on voit que j'ai directement passé
+
+124
+00:03:48,714 --> 00:03:51,025
+un objet fonction à ma fonction image ;
+
+125
+00:03:51,125 --> 00:03:52,730
+ça m'évite d'avoir à définir
+
+126
+00:03:52,830 --> 00:03:53,596
+une seconde fonction
+
+127
+00:03:53,696 --> 00:03:54,956
+avec une instruction def.
+
+128
+00:03:55,056 --> 00:03:56,886
+J'exécute ma fonction
+
+129
+00:03:56,986 --> 00:03:58,499
+et je vois bien s'afficher
+
+130
+00:03:58,599 --> 00:03:59,382
+les différentes valeurs,
+
+131
+00:03:59,482 --> 00:04:01,214
+donc je vois le résultat de f de x
+
+132
+00:04:01,314 --> 00:04:03,006
+et je vois la valeur de x.
+
+133
+00:04:03,648 --> 00:04:05,231
+Évidemment, il faut bien comprendre
+
+134
+00:04:05,331 --> 00:04:06,270
+que, à aucun moment,
+
+135
+00:04:06,370 --> 00:04:07,281
+je n'ai absolument besoin
+
+136
+00:04:07,381 --> 00:04:08,264
+d'avoir cette fonction lambda ;
+
+137
+00:04:08,608 --> 00:04:11,422
+je peux tout à fait définir ici
+
+138
+00:04:11,522 --> 00:04:13,575
+une fonction que je vais appeler carré
+
+139
+00:04:15,612 --> 00:04:16,763
+carré de x,
+
+140
+00:04:16,863 --> 00:04:18,601
+et qui en fait va juste retourner
+
+141
+00:04:19,108 --> 00:04:20,570
+ce que me ferait ma fonction lambda,
+
+142
+00:04:20,670 --> 00:04:22,272
+x au carré moins un.
+
+143
+00:04:23,804 --> 00:04:25,167
+J'évalue ce code,
+
+144
+00:04:25,267 --> 00:04:26,838
+je retourne dans mon interpréteur,
+
+145
+00:04:26,938 --> 00:04:28,093
+et maintenant, je peux tout à fait faire
+
+146
+00:04:28,193 --> 00:04:29,650
+un image de carré.
+
+147
+00:04:30,221 --> 00:04:31,576
+Alors, je vous montre ça ;
+
+148
+00:04:31,676 --> 00:04:32,770
+image est une fonction,
+
+149
+00:04:33,206 --> 00:04:35,060
+carré est une autre fonction,
+
+150
+00:04:35,160 --> 00:04:36,419
+et je peux donc passer
+
+151
+00:04:37,268 --> 00:04:37,915
+carré
+
+152
+00:04:39,779 --> 00:04:41,053
+en argument de image,
+
+153
+00:04:41,153 --> 00:04:42,318
+et je vais donc avoir exactement
+
+154
+00:04:42,418 --> 00:04:42,943
+le même résultat
+
+155
+00:04:43,043 --> 00:04:44,454
+qu'avec ma fonction lambda.
+
+156
+00:04:44,554 --> 00:04:46,385
+Donc il faut vraiment voir la fonction lambda
+
+157
+00:04:46,786 --> 00:04:48,514
+comme quelque chose qui permet d'écrire
+
+158
+00:04:48,614 --> 00:04:51,010
+du code parfois plus simple et expressif
+
+159
+00:04:51,110 --> 00:04:53,198
+qu'avec une autre fonction classique.
+
+160
+00:04:54,749 --> 00:04:56,395
+J'aimerais maintenant finir en vous parlant
+
+161
+00:04:56,495 --> 00:04:58,473
+des fonctions map et filter.
+
+162
+00:04:58,927 --> 00:05:00,502
+map et filter sont deux primitives
+
+163
+00:05:00,602 --> 00:05:01,756
+de programmation fonctionnelle.
+
+164
+00:05:02,154 --> 00:05:04,210
+map permet d'appliquer une fonction
+
+165
+00:05:04,310 --> 00:05:06,098
+à chaque élément d'un itérable.
+
+166
+00:05:06,198 --> 00:05:07,691
+Regardons comment map fonctionne.
+
+167
+00:05:07,791 --> 00:05:11,515
+Je vais écrire m égale map
+
+168
+00:05:12,194 --> 00:05:13,553
+je vais passer une fonction,
+
+169
+00:05:13,653 --> 00:05:15,633
+donc la fonction carré que j'ai déjà utilisée,
+
+170
+00:05:15,733 --> 00:05:19,126
+qui va calculer x au carré moins 1
+
+171
+00:05:19,226 --> 00:05:20,780
+sur chaque élément de mon itérable,
+
+172
+00:05:20,880 --> 00:05:22,395
+et comme itérable, je vais passer
+
+173
+00:05:22,495 --> 00:05:23,121
+un range de 10.
+
+174
+00:05:23,624 --> 00:05:26,158
+Je vais donc appliquer ma fonction carré
+
+175
+00:05:26,258 --> 00:05:28,510
+à chaque élément de range de 10.
+
+176
+00:05:28,610 --> 00:05:30,535
+Exécutons ça et regardons m.
+
+177
+00:05:30,635 --> 00:05:32,701
+m est un objet map.
+
+178
+00:05:32,801 --> 00:05:33,818
+Comment est-ce que je peux
+
+179
+00:05:33,918 --> 00:05:35,656
+voir les différents éléments de mon objet ?
+
+180
+00:05:35,756 --> 00:05:37,682
+Je vais simplement faire une liste de m
+
+181
+00:05:37,782 --> 00:05:38,742
+si j'ai besoin d'accéder
+
+182
+00:05:38,842 --> 00:05:39,688
+aux éléments de mon objet,
+
+183
+00:05:39,937 --> 00:05:41,982
+ou alors, j'aurais tout à fait pu prendre
+
+184
+00:05:42,082 --> 00:05:43,140
+la somme de ses éléments
+
+185
+00:05:43,240 --> 00:05:44,109
+pour calculer la somme
+
+186
+00:05:44,209 --> 00:05:45,685
+sans avoir créé de liste temporaire.
+
+187
+00:05:46,717 --> 00:05:49,091
+Maintenant, regardons la fonction filter.
+
+188
+00:05:49,191 --> 00:05:51,347
+La fonction filter permet de filtrer
+
+189
+00:05:51,447 --> 00:05:52,469
+les éléments d'un itérable
+
+190
+00:05:52,569 --> 00:05:53,635
+en fonction d'un test.
+
+191
+00:05:53,735 --> 00:05:55,346
+Regardons comment cela fonctionne.
+
+192
+00:05:55,817 --> 00:06:01,756
+Je vais définir un filter de
+
+193
+00:06:01,856 --> 00:06:03,310
+et là, je vais prendre comme fonction
+
+194
+00:06:03,410 --> 00:06:04,068
+une fonction lambda,
+
+195
+00:06:04,168 --> 00:06:05,236
+pour avoir à écrire un petit peu moins,
+
+196
+00:06:05,336 --> 00:06:09,428
+lambda de x deux points
+
+197
+00:06:10,141 --> 00:06:12,030
+le reste de la division entière de x par 2
+
+198
+00:06:12,130 --> 00:06:14,045
+égale 0.
+
+199
+00:06:14,192 --> 00:06:15,897
+Donc ça veut dire que ce test est vrai
+
+200
+00:06:15,997 --> 00:06:17,160
+que pour les éléments pairs,
+
+201
+00:06:17,780 --> 00:06:20,167
+et je vais passer un range de 10.
+
+202
+00:06:20,267 --> 00:06:21,622
+Donc je vais appliquer filter
+
+203
+00:06:21,722 --> 00:06:24,090
+à chaque élément d'un range de 10.
+
+204
+00:06:24,190 --> 00:06:26,914
+Je vois que j'obtiens un objet filter ;
+
+205
+00:06:27,014 --> 00:06:28,905
+cet objet, je peux maintenant l'affecter
+
+206
+00:06:29,005 --> 00:06:29,696
+à une variable,
+
+207
+00:06:32,173 --> 00:06:34,196
+et après, comme cet objet est itérable,
+
+208
+00:06:34,296 --> 00:06:35,727
+je peux le parcourir
+
+209
+00:06:35,827 --> 00:06:38,327
+ou afficher la liste correspondant à cet objet
+
+210
+00:06:38,427 --> 00:06:40,166
+pour voir les objets qui ont été filtrés.
+
+211
+00:06:40,668 --> 00:06:41,482
+Donc vous pouvez voir que
+
+212
+00:06:41,582 --> 00:06:42,933
+ces fonctions map et filter
+
+213
+00:06:43,033 --> 00:06:44,812
+vous permettent d'appliquer une fonction
+
+214
+00:06:44,912 --> 00:06:46,420
+à chaque élément d'un itérable,
+
+215
+00:06:46,520 --> 00:06:47,406
+et vous permettent de filtrer
+
+216
+00:06:47,506 --> 00:06:48,501
+les éléments d'un itérable.
+
+217
+00:06:48,906 --> 00:06:50,011
+Cela devrait vous faire penser
+
+218
+00:06:50,111 --> 00:06:50,753
+à quelque chose.
+
+219
+00:06:51,328 --> 00:06:52,624
+En fait, ça devrait vous faire penser
+
+220
+00:06:52,724 --> 00:06:53,991
+à la compréhension de liste.
+
+221
+00:06:54,349 --> 00:06:55,883
+En fait, la compréhension de liste
+
+222
+00:06:55,983 --> 00:06:57,484
+permet de faire exactement
+
+223
+00:06:57,584 --> 00:06:59,403
+ce que font les fonctions map et filter.
+
+224
+00:06:59,806 --> 00:07:01,544
+map et filter sont dans un paradigme
+
+225
+00:07:01,644 --> 00:07:02,955
+de programmation fonctionnelle
+
+226
+00:07:03,055 --> 00:07:04,316
+et les compréhensions de liste
+
+227
+00:07:04,416 --> 00:07:05,395
+correspondent plus
+
+228
+00:07:05,495 --> 00:07:06,587
+à une manière pythonique
+
+229
+00:07:06,687 --> 00:07:08,318
+d'écrire l'application d'une expression
+
+230
+00:07:08,418 --> 00:07:09,749
+à chaque élément d'un itérable
+
+231
+00:07:09,849 --> 00:07:10,861
+et un critère de test.
+
+232
+00:07:10,961 --> 00:07:13,427
+En Python moderne, on préfère utiliser
+
+233
+00:07:13,527 --> 00:07:14,482
+les compréhensions de liste
+
+234
+00:07:14,582 --> 00:07:16,323
+aux fonctions map et filter.
+
+235
+00:07:18,575 --> 00:07:20,011
+Dans cette vidéo, nous avons vu
+
+236
+00:07:20,111 --> 00:07:22,273
+la notion de fonction lambda,
+
+237
+00:07:22,694 --> 00:07:24,089
+nous avons également vu le fait que
+
+238
+00:07:24,189 --> 00:07:25,937
+les fonctions peuvent se passer
+
+239
+00:07:26,037 --> 00:07:27,672
+comme argument d'autres fonctions
+
+240
+00:07:27,772 --> 00:07:28,914
+puisque les fonctions sont des objets
+
+241
+00:07:29,014 --> 00:07:29,810
+tout à fait normaux,
+
+242
+00:07:29,910 --> 00:07:31,118
+et nous avons également vu
+
+243
+00:07:31,218 --> 00:07:32,965
+les fonctions built-in map et filter.
+
+244
+00:07:33,748 --> 00:07:35,733
+map permet d'appliquer une expression
+
+245
+00:07:35,833 --> 00:07:36,944
+à chaque élément d'un itérable,
+
+246
+00:07:37,044 --> 00:07:38,921
+et filter permet de trier cet itérable.
+
+247
+00:07:39,414 --> 00:07:40,828
+Un point important sur map et filter,
+
+248
+00:07:40,928 --> 00:07:41,884
+c'est que map et filter
+
+249
+00:07:41,984 --> 00:07:43,324
+produisent des itérateurs.
+
+250
+00:07:43,424 --> 00:07:44,858
+Ça veut dire qu'on ne peut les parcourir
+
+251
+00:07:44,958 --> 00:07:45,472
+qu'une seule fois.
+
+252
+00:07:45,983 --> 00:07:48,201
+Si vous voulez parcourir de multiples fois
+
+253
+00:07:48,301 --> 00:07:50,329
+le résultat d'un map,
+
+254
+00:07:50,429 --> 00:07:51,262
+il faut simplement produire
+
+255
+00:07:51,362 --> 00:07:52,357
+un nouvel objet map.
+
+256
+00:07:52,827 --> 00:07:54,030
+Je vous ai également dit que,
+
+257
+00:07:54,130 --> 00:07:55,690
+en Python moderne, on préférait utiliser
+
+258
+00:07:55,790 --> 00:07:56,754
+les compréhensions de liste.
+
+259
+00:07:57,152 --> 00:07:59,442
+Cependant, les fonctions map et filter
+
+260
+00:07:59,542 --> 00:08:00,465
+ont un avantage majeur
+
+261
+00:08:00,565 --> 00:08:01,763
+par rapport aux compréhensions de liste.
+
+262
+00:08:01,863 --> 00:08:03,850
+Lorsque vous faites une compréhension,
+
+263
+00:08:03,950 --> 00:08:05,760
+vous créez un nouvel objet liste,
+
+264
+00:08:05,860 --> 00:08:07,519
+même si vous n'avez pas forcément
+
+265
+00:08:07,619 --> 00:08:08,493
+besoin de cet objet.
+
+266
+00:08:08,593 --> 00:08:10,093
+Imaginez par exemple que vous vouliez faire
+
+267
+00:08:10,193 --> 00:08:12,144
+la somme des éléments de cette liste,
+
+268
+00:08:12,244 --> 00:08:12,864
+vous n'avez pas besoin
+
+269
+00:08:12,964 --> 00:08:13,981
+de cette liste temporaire.
+
+270
+00:08:14,444 --> 00:08:16,737
+Les fonctions map et filter, au contraire,
+
+271
+00:08:16,837 --> 00:08:18,761
+produisent un objet extrêmement compact.
+
+272
+00:08:19,072 --> 00:08:20,488
+Nous verrons dans une prochaine vidéo
+
+273
+00:08:20,588 --> 00:08:21,586
+que nous pouvons étendre
+
+274
+00:08:21,686 --> 00:08:22,494
+les compréhensions de liste
+
+275
+00:08:22,594 --> 00:08:23,486
+à une notion qui s'appelle
+
+276
+00:08:23,586 --> 00:08:25,167
+expression génératrice
+
+277
+00:08:25,267 --> 00:08:27,092
+qui a l'avantage
+
+278
+00:08:27,192 --> 00:08:28,130
+des compréhensions de liste
+
+279
+00:08:28,230 --> 00:08:30,496
+avec une syntaxe simple et expressive,
+
+280
+00:08:30,596 --> 00:08:32,447
+et l'avantage des fonctions map et filter
+
+281
+00:08:32,547 --> 00:08:34,780
+en produisant directement des itérateurs.
+
+282
+00:08:35,291 --> 00:08:35,842
+À bientôt !
+
+283
+00:08:35,942 --> 00:08:37,442
+
+
