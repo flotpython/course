@@ -1,0 +1,712 @@
+﻿1
+00:00:04,070 --> 00:00:05,836
+Dans une précédente vidéo, nous avons vu
+
+2
+00:00:05,936 --> 00:00:07,382
+les notions de compréhensions,
+
+3
+00:00:07,482 --> 00:00:08,642
+compréhensions de liste, de set
+
+4
+00:00:08,742 --> 00:00:09,423
+et de dictionnaire.
+
+5
+00:00:09,804 --> 00:00:11,290
+Et nous savons que les compréhensions
+
+6
+00:00:11,390 --> 00:00:12,026
+constituent un moyen
+
+7
+00:00:12,126 --> 00:00:13,545
+extrêmement simple et expressif
+
+8
+00:00:13,645 --> 00:00:14,996
+de parcourir des itérables
+
+9
+00:00:15,096 --> 00:00:15,942
+et d'appliquer des traitements
+
+10
+00:00:16,042 --> 00:00:16,853
+sur ces itérables.
+
+11
+00:00:17,742 --> 00:00:19,415
+Ces compréhensions cependant
+
+12
+00:00:19,515 --> 00:00:20,435
+ont un inconvénient majeur,
+
+13
+00:00:20,535 --> 00:00:21,160
+c'est qu'elles créent
+
+14
+00:00:21,260 --> 00:00:22,673
+des structures de données temporaires ;
+
+15
+00:00:22,773 --> 00:00:23,686
+une compréhension de liste
+
+16
+00:00:23,786 --> 00:00:25,302
+va créer une liste temporaire.
+
+17
+00:00:25,612 --> 00:00:26,977
+Or, si par exemple, on veut juste
+
+18
+00:00:27,077 --> 00:00:29,102
+calculer, au final, uniquement
+
+19
+00:00:29,202 --> 00:00:30,988
+la somme des éléments calculés
+
+20
+00:00:31,088 --> 00:00:32,122
+par cette compréhension,
+
+21
+00:00:32,656 --> 00:00:34,306
+on a créé une liste pour rien.
+
+22
+00:00:35,006 --> 00:00:36,406
+Nous allons voir dans cette vidéo
+
+23
+00:00:36,506 --> 00:00:38,482
+la notion d'expression génératrice.
+
+24
+00:00:38,582 --> 00:00:39,575
+Une expression génératrice
+
+25
+00:00:39,675 --> 00:00:40,631
+s'écrit exactement
+
+26
+00:00:40,731 --> 00:00:42,014
+comme une compréhension de liste,
+
+27
+00:00:42,280 --> 00:00:43,607
+mais la différence, c'est que
+
+28
+00:00:43,707 --> 00:00:44,593
+ce qui sera retourné
+
+29
+00:00:44,693 --> 00:00:45,935
+sera un itérateur
+
+30
+00:00:46,035 --> 00:00:47,976
+et non pas une liste temporaire.
+
+31
+00:00:48,076 --> 00:00:49,291
+C'est donc quelque chose qui permet
+
+32
+00:00:49,391 --> 00:00:51,014
+d'économiser énormément de mémoire
+
+33
+00:00:51,114 --> 00:00:52,923
+tout en gardant toute la fonctionnalité
+
+34
+00:00:53,023 --> 00:00:54,025
+d'une compréhension.
+
+35
+00:00:54,432 --> 00:00:56,024
+Nous verrons également dans cette vidéo
+
+36
+00:00:56,124 --> 00:00:58,730
+la généralisation des expressions génératrices
+
+37
+00:00:58,830 --> 00:01:00,687
+que l'on appelle fonctions génératrices.
+
+38
+00:01:01,019 --> 00:01:02,947
+Ouvrons maintenant un interpréteur Python
+
+39
+00:01:03,047 --> 00:01:04,357
+pour jouer avec les expressions
+
+40
+00:01:04,457 --> 00:01:05,964
+et les fonctions génératrices.
+
+41
+00:01:07,503 --> 00:01:08,751
+Commençons par prendre un exemple
+
+42
+00:01:08,851 --> 00:01:09,903
+de compréhension de liste.
+
+43
+00:01:10,003 --> 00:01:13,095
+Je vais créer une liste carré
+
+44
+00:01:13,195 --> 00:01:14,719
+qui va prendre les carrés
+
+45
+00:01:15,444 --> 00:01:19,191
+pour x in range de 1000.
+
+46
+00:01:20,181 --> 00:01:21,951
+Donc j'ai créé une compréhension de liste,
+
+47
+00:01:22,051 --> 00:01:22,625
+donc maintenant,
+
+48
+00:01:22,725 --> 00:01:23,868
+lorsque je fais un retour chariot,
+
+49
+00:01:23,968 --> 00:01:25,899
+j'ai une liste qui est créée en mémoire
+
+50
+00:01:25,999 --> 00:01:27,125
+et qui contient les carrés
+
+51
+00:01:27,225 --> 00:01:30,574
+de tous les entiers allant de 0 à 999.
+
+52
+00:01:30,987 --> 00:01:31,762
+Mais supposons maintenant
+
+53
+00:01:31,862 --> 00:01:32,935
+que je veuille simplement calculer
+
+54
+00:01:33,035 --> 00:01:34,988
+la somme de ces carrés.
+
+55
+00:01:35,595 --> 00:01:36,537
+Pour calculer la somme
+
+56
+00:01:36,637 --> 00:01:37,570
+des éléments d'un itérable,
+
+57
+00:01:37,670 --> 00:01:39,704
+on peut utiliser la fonction built-in sum.
+
+58
+00:01:40,101 --> 00:01:41,996
+Et le résultat est le résultat suivant.
+
+59
+00:01:42,659 --> 00:01:44,194
+Sauf que pour calculer la somme
+
+60
+00:01:44,294 --> 00:01:44,869
+de ces éléments,
+
+61
+00:01:44,969 --> 00:01:46,160
+je n'ai absolument pas besoin
+
+62
+00:01:46,260 --> 00:01:47,390
+de créer une liste temporaire
+
+63
+00:01:47,490 --> 00:01:48,596
+qui contient tous ces éléments.
+
+64
+00:01:49,373 --> 00:01:50,701
+C'est pour cela que je peux utiliser
+
+65
+00:01:50,801 --> 00:01:52,366
+une expression génératrice.
+
+66
+00:01:52,466 --> 00:01:53,264
+Alors, vous pouvez vous demander
+
+67
+00:01:53,364 --> 00:01:54,855
+est-ce que l'expression génératrice,
+
+68
+00:01:54,955 --> 00:01:55,912
+c'est compliqué à écrire ?
+
+69
+00:01:56,012 --> 00:01:56,527
+Non, on va voir que c'est
+
+70
+00:01:56,627 --> 00:01:57,564
+extrêmement simple.
+
+71
+00:01:57,807 --> 00:01:59,230
+Je reprends ma compréhension
+
+72
+00:01:59,620 --> 00:02:01,749
+et je vais remplacer les crochets
+
+73
+00:02:01,849 --> 00:02:03,271
+par simplement des parenthèses.
+
+74
+00:02:05,234 --> 00:02:06,638
+Je ne fais rien d'autre,
+
+75
+00:02:06,738 --> 00:02:07,771
+je fais un retour chariot.
+
+76
+00:02:08,335 --> 00:02:10,900
+Maintenant, lorsque j'ai fait le retour chariot,
+
+77
+00:02:11,000 --> 00:02:12,391
+aucune liste n'a été créée.
+
+78
+00:02:12,776 --> 00:02:14,995
+À la place, j'obtiens un objet carré
+
+79
+00:02:15,095 --> 00:02:16,753
+qui s'appelle generator_object.
+
+80
+00:02:17,093 --> 00:02:18,252
+C'est en fait un itérateur
+
+81
+00:02:18,352 --> 00:02:20,321
+qui va calculer à la volée
+
+82
+00:02:20,954 --> 00:02:22,223
+le carré de chaque élément
+
+83
+00:02:22,323 --> 00:02:23,551
+retourné par range de 1000.
+
+84
+00:02:23,932 --> 00:02:25,801
+Comme range est également un objet
+
+85
+00:02:25,901 --> 00:02:27,410
+qui ne crée pas de liste temporaire
+
+86
+00:02:27,510 --> 00:02:28,228
+mais qui retourne,
+
+87
+00:02:28,328 --> 00:02:29,440
+à chaque fois qu'on l'appelle,
+
+88
+00:02:29,540 --> 00:02:30,774
+l'entier suivant,
+
+89
+00:02:30,972 --> 00:02:33,412
+en fait, je peux parcourir tous les éléments
+
+90
+00:02:33,978 --> 00:02:35,854
+de cette expression génératrice
+
+91
+00:02:35,954 --> 00:02:37,999
+sans jamais créer de structure temporaire.
+
+92
+00:02:38,685 --> 00:02:40,108
+Maintenant, je peux calculer
+
+93
+00:02:40,208 --> 00:02:41,107
+la somme de carré ;
+
+94
+00:02:41,802 --> 00:02:42,927
+on va voir que je vais obtenir
+
+95
+00:02:43,027 --> 00:02:44,336
+le même résultat qu'avec la liste
+
+96
+00:02:44,436 --> 00:02:45,305
+mais la grande différence,
+
+97
+00:02:45,405 --> 00:02:47,345
+c'est que je n'ai pas créé de liste temporaire.
+
+98
+00:02:48,062 --> 00:02:48,957
+J'insiste sur le fait que
+
+99
+00:02:49,057 --> 00:02:50,260
+cette expression génératrice
+
+100
+00:02:50,360 --> 00:02:51,763
+est un itérateur ;
+
+101
+00:02:51,863 --> 00:02:53,616
+par conséquent, si je calcule de nouveau
+
+102
+00:02:53,716 --> 00:02:54,733
+somme de carré,
+
+103
+00:02:56,019 --> 00:02:57,404
+je vais obtenir 0
+
+104
+00:02:57,504 --> 00:02:59,279
+puisque cet itérateur a été consommé
+
+105
+00:02:59,379 --> 00:03:00,111
+une première fois,
+
+106
+00:03:00,211 --> 00:03:01,567
+il ne génère plus aucun élément.
+
+107
+00:03:01,667 --> 00:03:04,406
+Je peux m'en assurer en faisant
+
+108
+00:03:04,506 --> 00:03:05,795
+un next de carré, je vois bien que
+
+109
+00:03:05,895 --> 00:03:07,633
+j'ai la fameuse exception StopIteration,
+
+110
+00:03:07,733 --> 00:03:09,233
+qui veut dire que mon itérateur
+
+111
+00:03:09,333 --> 00:03:10,088
+a été consommé.
+
+112
+00:03:10,494 --> 00:03:12,485
+Mais comme la création d'un générateur
+
+113
+00:03:12,585 --> 00:03:14,091
+est une opération extrêmement peu coûteuse
+
+114
+00:03:14,191 --> 00:03:16,066
+puisque, lorsque je crée mon générateur,
+
+115
+00:03:16,166 --> 00:03:18,002
+je ne fais absolument aucun calcul,
+
+116
+00:03:18,400 --> 00:03:20,151
+et que les calculs seront faits à la volée,
+
+117
+00:03:20,251 --> 00:03:21,101
+lorsque j'en ai besoin,
+
+118
+00:03:21,201 --> 00:03:23,606
+je peux très facilement recréer un générateur
+
+119
+00:03:23,706 --> 00:03:25,874
+et de nouveau calculer la somme des carrés.
+
+120
+00:03:27,389 --> 00:03:29,131
+Un intérêt des expressions génératrices,
+
+121
+00:03:29,231 --> 00:03:30,306
+c'est qu'on peut les chaîner.
+
+122
+00:03:30,406 --> 00:03:31,505
+Ça nous permet donc d'avoir
+
+123
+00:03:31,605 --> 00:03:33,069
+une succession de traitements
+
+124
+00:03:33,169 --> 00:03:35,693
+qui peut s'exécuter sans jamais avoir besoin
+
+125
+00:03:35,793 --> 00:03:37,532
+de créer des objets temporaires.
+
+126
+00:03:37,632 --> 00:03:38,691
+Regardons un exemple.
+
+127
+00:03:39,209 --> 00:03:41,971
+Je vais créer un générateur de carrés
+
+128
+00:03:42,071 --> 00:03:45,807
+qui est égal à l'expression génératrice
+
+129
+00:03:45,907 --> 00:03:46,815
+qu'on a déjà utilisée
+
+130
+00:03:46,915 --> 00:03:52,770
+x au carré for x in range de 1000
+
+131
+00:03:54,495 --> 00:03:56,490
+Là, j'ai mon générateur qui génère les carrés.
+
+132
+00:03:56,897 --> 00:03:57,725
+Et ensuite, je vais créer
+
+133
+00:03:57,825 --> 00:03:58,467
+un deuxième générateur
+
+134
+00:03:58,567 --> 00:03:59,550
+que je vais appeler palindrome.
+
+135
+00:03:59,650 --> 00:04:00,835
+Alors, qu'est-ce qu'un palindrome ?
+
+136
+00:04:00,935 --> 00:04:03,114
+Un palindrome, pour un nombre,
+
+137
+00:04:03,214 --> 00:04:04,505
+c'est un nombre qu'on peut lire
+
+138
+00:04:04,605 --> 00:04:05,446
+de gauche à droite
+
+139
+00:04:05,546 --> 00:04:06,359
+ou de droite à gauche.
+
+140
+00:04:06,459 --> 00:04:08,889
+Par exemple, 121 est un palindrome,
+
+141
+00:04:08,989 --> 00:04:10,028
+qu'on le lise de gauche à droite
+
+142
+00:04:10,128 --> 00:04:10,662
+ou de droite à gauche,
+
+143
+00:04:10,762 --> 00:04:12,093
+ça fait toujours 121.
+
+144
+00:04:12,193 --> 00:04:13,801
+Et donc, j'aimerais faire un générateur
+
+145
+00:04:13,901 --> 00:04:15,670
+qui soit capable de détecter les palindromes
+
+146
+00:04:16,163 --> 00:04:17,661
+dans, par exemple, les carrés
+
+147
+00:04:17,761 --> 00:04:20,687
+des entiers allant de 0 à 999.
+
+148
+00:04:20,787 --> 00:04:21,521
+Regardons cela.
+
+149
+00:04:21,621 --> 00:04:23,263
+Je mets des parenthèses pour dire que
+
+150
+00:04:23,363 --> 00:04:24,727
+c'est une expression génératrice
+
+151
+00:04:25,269 --> 00:04:35,514
+et je fais x for x in gen de carré,
+
+152
+00:04:35,614 --> 00:04:37,154
+donc c'est ici que je chaîne
+
+153
+00:04:37,254 --> 00:04:39,042
+mon générateur gen de carré
+
+154
+00:04:39,142 --> 00:04:41,626
+avec mon générateur palindrome,
+
+155
+00:04:42,382 --> 00:04:43,583
+if, et maintenant,
+
+156
+00:04:43,683 --> 00:04:45,063
+je fais mon test pour le palindrome,
+
+157
+00:04:45,163 --> 00:04:45,824
+c'est très simple,
+
+158
+00:04:45,924 --> 00:04:47,150
+je convertis mon entier
+
+159
+00:04:47,250 --> 00:04:47,995
+en chaîne de caractères
+
+160
+00:04:48,095 --> 00:04:49,915
+et je regarde si c'est égal
+
+161
+00:04:50,609 --> 00:04:52,633
+à cet entier converti en chaîne de caractères
+
+162
+00:04:52,733 --> 00:04:54,145
+lorsque je le renverse,
+
+163
+00:04:54,245 --> 00:04:57,760
+et je le renverse avec un slice de pas -1.
+
+164
+00:04:58,866 --> 00:05:00,617
+Donc j'ai créé mon expression génératrice
+
+165
+00:05:00,717 --> 00:05:01,569
+sur les palindromes,
+
+166
+00:05:03,182 --> 00:05:04,042
+je l'exécute
+
+167
+00:05:04,407 --> 00:05:06,268
+et maintenant, si je regarde palin,
+
+168
+00:05:06,368 --> 00:05:07,946
+j'ai bien un objet générateur.
+
+169
+00:05:08,480 --> 00:05:10,653
+Maintenant, si je veux obtenir
+
+170
+00:05:10,753 --> 00:05:12,038
+ces palindromes dans une liste,
+
+171
+00:05:12,138 --> 00:05:14,331
+je peux forcer la création de la liste
+
+172
+00:05:14,431 --> 00:05:15,370
+mais maintenant, je le fais
+
+173
+00:05:15,470 --> 00:05:16,346
+de manière explicite,
+
+174
+00:05:16,446 --> 00:05:17,850
+donc je dis list de palin
+
+175
+00:05:17,950 --> 00:05:19,526
+et j'obtiens bien la liste
+
+176
+00:05:19,626 --> 00:05:20,509
+de tous les palindromes
+
+177
+00:05:20,609 --> 00:05:21,328
+des carrés des nombres
+
+178
+00:05:21,428 --> 00:05:24,223
+qui vont de 0 à 999.
+
