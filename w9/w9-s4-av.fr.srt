@@ -400,7 +400,7 @@ Et quel est le type de str ? c'est type.
 
 101
 00:03:25,377 --> 00:03:27,727
-Donc str, je le classe dans la catégorie type/classe.
+Donc str, je le classe dans la catégorie classe (NDLR pas type).
 
 102
 00:03:27,927 --> 00:03:30,069
@@ -548,7 +548,7 @@ c'est qu'en fait le type d'une classe,
 
 138
 00:04:47,965 --> 00:04:49,253
-c'est également le type de sa sous-classe.
+c'est également le type de sa super-classe (NDLR pas sous-classe).
 
 139
 00:04:49,453 --> 00:04:51,070
@@ -732,7 +732,7 @@ Donc, pour résumer ce que nous avons vu :
 
 184
 00:06:19,806 --> 00:06:23,101
-nous avons deux primitifs : type et object.
+nous avons deux primitives : type et object.
 
 185
 00:06:23,301 --> 00:06:24,586
@@ -1700,6 +1700,5 @@ de descripteurs automatiques.
 
 426
 00:15:02,651 --> 00:15:04,651
-
 
 
