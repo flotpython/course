@@ -1,0 +1,1256 @@
+﻿1
+00:00:05,761 --> 00:00:07,267
+Nous avons vu dans la précédente vidéo
+
+2
+00:00:07,367 --> 00:00:08,218
+que nous pouvions définir
+
+3
+00:00:08,318 --> 00:00:09,274
+des méthodes sur les classes.
+
+4
+00:00:09,374 --> 00:00:10,627
+C'est quelque chose de tout à fait classique,
+
+5
+00:00:10,727 --> 00:00:12,121
+les classes définissent en général
+
+6
+00:00:12,221 --> 00:00:13,594
+un certain nombre de méthodes
+
+7
+00:00:13,694 --> 00:00:15,105
+que l'on utilise pour manipuler
+
+8
+00:00:15,205 --> 00:00:16,747
+les attributs des instances.
+
+9
+00:00:17,510 --> 00:00:19,154
+Cependant, je vous avais également expliqué
+
+10
+00:00:19,254 --> 00:00:20,671
+que, en Python,
+
+11
+00:00:20,771 --> 00:00:21,902
+une caractéristique des classes,
+
+12
+00:00:22,002 --> 00:00:22,991
+c'est qu'on peut créer nos objets
+
+13
+00:00:23,091 --> 00:00:24,511
+qui se manipulent exactement
+
+14
+00:00:24,611 --> 00:00:25,677
+comme des types built-in.
+
+15
+00:00:26,081 --> 00:00:27,580
+Regardons une illustration de ça.
+
+16
+00:00:27,680 --> 00:00:29,022
+Vous pouvez tout à fait créer
+
+17
+00:00:29,122 --> 00:00:29,893
+une classe Phrase
+
+18
+00:00:29,993 --> 00:00:31,577
+que vous allez initialiser
+
+19
+00:00:31,677 --> 00:00:32,935
+comme vous initialiseriez,
+
+20
+00:00:33,035 --> 00:00:34,229
+par exemple, une liste,
+
+21
+00:00:34,692 --> 00:00:36,438
+directement à la construction de l'instance.
+
+22
+00:00:36,819 --> 00:00:37,755
+Vous pourriez également
+
+23
+00:00:37,855 --> 00:00:39,316
+obtenir le nombre de mots
+
+24
+00:00:39,416 --> 00:00:42,964
+directement avec la fonction built-in len,
+
+25
+00:00:43,273 --> 00:00:44,651
+faire un test d'appartenance
+
+26
+00:00:44,751 --> 00:00:46,574
+directement avec l'instruction in,
+
+27
+00:00:46,674 --> 00:00:48,893
+accéder par exemple au troisième mot
+
+28
+00:00:48,993 --> 00:00:50,158
+avec la notation crochets
+
+29
+00:00:50,258 --> 00:00:51,584
+comme on le ferait avec une liste,
+
+30
+00:00:51,684 --> 00:00:54,230
+faire un print directement sur votre instance
+
+31
+00:00:54,330 --> 00:00:55,810
+pour afficher par exemple la liste des mots
+
+32
+00:00:55,910 --> 00:00:56,882
+affichés en colonne,
+
+33
+00:00:57,222 --> 00:01:00,546
+ou alors, si vous avez deux objets Phrase,
+
+34
+00:01:00,646 --> 00:01:01,542
+pouvoir les concaténer
+
+35
+00:01:01,642 --> 00:01:02,668
+simplement avec une addition.
+
+36
+00:01:03,807 --> 00:01:04,993
+Toutes ces opérations
+
+37
+00:01:05,093 --> 00:01:06,241
+peuvent être implémentées
+
+38
+00:01:06,341 --> 00:01:10,055
+sur votre propre classe Phrase.
+
+39
+00:01:10,656 --> 00:01:12,164
+La manière d'implémenter cela en Python
+
+40
+00:01:12,264 --> 00:01:13,623
+est par l'intermédiaire de ce que l'on appelle
+
+41
+00:01:13,723 --> 00:01:14,710
+des méthodes spéciales.
+
+42
+00:01:15,415 --> 00:01:16,290
+Les méthodes spéciales
+
+43
+00:01:16,390 --> 00:01:16,973
+commencent toutes
+
+44
+00:01:17,073 --> 00:01:18,012
+par un double underscore
+
+45
+00:01:18,112 --> 00:01:18,521
+et finissent toutes
+
+46
+00:01:18,621 --> 00:01:19,490
+par un double underscore,
+
+47
+00:01:19,856 --> 00:01:21,404
+et sont appelées automatiquement
+
+48
+00:01:21,504 --> 00:01:22,777
+lorsque l'on utilise par exemple
+
+49
+00:01:22,877 --> 00:01:23,876
+une fonction built-in,
+
+50
+00:01:23,976 --> 00:01:25,785
+un opérateur comme une addition
+
+51
+00:01:25,885 --> 00:01:26,816
+ou alors une instruction comme
+
+52
+00:01:26,916 --> 00:01:28,407
+le test d'appartenance avec in.
+
+53
+00:01:28,507 --> 00:01:30,167
+Notamment, le test d'appartenance
+
+54
+00:01:30,267 --> 00:01:31,748
+correspond à la méthode qui s'écrit
+
+55
+00:01:31,848 --> 00:01:33,327
+double underscore contains
+
+56
+00:01:33,427 --> 00:01:34,407
+double underscore.
+
+57
+00:01:34,750 --> 00:01:36,326
+Dans cette vidéo, nous allons vous montrer
+
+58
+00:01:36,426 --> 00:01:38,239
+comment vous pouvez exploiter
+
+59
+00:01:38,339 --> 00:01:40,238
+ces méthodes spéciales pour implémenter,
+
+60
+00:01:40,338 --> 00:01:41,669
+pour votre propre objet Phrase,
+
+61
+00:01:41,769 --> 00:01:42,669
+des comportements qui soient
+
+62
+00:01:42,769 --> 00:01:44,666
+des comportements exactement les mêmes
+
+63
+00:01:44,766 --> 00:01:46,672
+qu'avec les objets built-in.
+
+64
+00:01:48,339 --> 00:01:50,014
+Reprenons la classe Phrase
+
+65
+00:01:50,114 --> 00:01:50,788
+que nous avons définie
+
+66
+00:01:50,888 --> 00:01:51,850
+dans la précédente vidéo.
+
+67
+00:01:52,216 --> 00:01:53,432
+Vous pouvez mettre la vidéo en pause
+
+68
+00:01:53,532 --> 00:01:54,062
+quelques instants
+
+69
+00:01:54,162 --> 00:01:55,410
+pour avoir le temps de la taper
+
+70
+00:01:55,510 --> 00:01:56,504
+dans votre éditeur IDLE.
+
+71
+00:01:57,476 --> 00:01:58,485
+Maintenant que nous avons
+
+72
+00:01:58,585 --> 00:02:00,710
+notre classe Phrase avec la méthode initia,
+
+73
+00:02:01,361 --> 00:02:03,123
+définissons une deuxième méthode,
+
+74
+00:02:03,223 --> 00:02:04,956
+une méthode que je vais appeler nb_lettres
+
+75
+00:02:08,178 --> 00:02:09,499
+qui va prendre self ;
+
+76
+00:02:10,270 --> 00:02:11,234
+je vous rappelle que ma méthode
+
+77
+00:02:11,334 --> 00:02:12,399
+prend obligatoirement
+
+78
+00:02:12,499 --> 00:02:13,552
+comme premier argument
+
+79
+00:02:13,652 --> 00:02:15,605
+un argument qui va référencer mon instance
+
+80
+00:02:15,705 --> 00:02:17,532
+qu'on nomme conventionnellement self ;
+
+81
+00:02:17,931 --> 00:02:19,835
+et qui va simplement faire un return
+
+82
+00:02:20,067 --> 00:02:21,760
+de self
+
+83
+00:02:22,199 --> 00:02:23,223
+point
+
+84
+00:02:23,661 --> 00:02:24,378
+ma_phrase
+
+85
+00:02:27,106 --> 00:02:28,496
+évidemment, un len
+
+86
+00:02:29,807 --> 00:02:31,237
+de self point ma_phrase ;
+
+87
+00:02:31,337 --> 00:02:32,090
+donc ça va juste retourner
+
+88
+00:02:32,190 --> 00:02:33,693
+le nombre de caractères que j'ai
+
+89
+00:02:33,793 --> 00:02:36,191
+dans ma chaîne de caractères ma_phrase.
+
+90
+00:02:39,322 --> 00:02:40,460
+Donc maintenant que j'ai fait ça,
+
+91
+00:02:40,560 --> 00:02:42,081
+j'aimerais commencer à implémenter
+
+92
+00:02:42,181 --> 00:02:43,585
+le premier comportement
+
+93
+00:02:43,685 --> 00:02:45,608
+que l'on implémente pour toutes nos classes
+
+94
+00:02:45,708 --> 00:02:47,879
+qui est l'initialisation de notre instance.
+
+95
+00:02:48,223 --> 00:02:49,591
+Donc regardons comment cela fonctionne.
+
+96
+00:02:49,691 --> 00:02:50,317
+Jusqu'à maintenant,
+
+97
+00:02:50,997 --> 00:02:52,314
+lorsque j'évaluais ma Phrase
+
+98
+00:02:52,414 --> 00:02:54,026
+et que je voulais initialiser mon instance,
+
+99
+00:02:54,126 --> 00:02:56,008
+j'avais créé une instance de Phrase
+
+100
+00:02:57,359 --> 00:03:00,651
+et ensuite, je devais appeler la méthode initia
+
+101
+00:03:00,751 --> 00:03:02,226
+et lui passer une chaîne de caractères.
+
+102
+00:03:02,326 --> 00:03:03,391
+On voit bien que c'est un comportement
+
+103
+00:03:03,491 --> 00:03:04,190
+qui est très peu commode
+
+104
+00:03:04,290 --> 00:03:05,821
+puisque c'est tout à fait naturel
+
+105
+00:03:05,921 --> 00:03:06,922
+lorsque l'on crée une instance,
+
+106
+00:03:07,350 --> 00:03:08,957
+que mon instance puisse être initialisée
+
+107
+00:03:09,057 --> 00:03:10,211
+avec un certain nombre d'attributs
+
+108
+00:03:11,080 --> 00:03:12,087
+déjà prédéfinis.
+
+109
+00:03:12,438 --> 00:03:14,595
+Donc la manière de le faire, en Python,
+
+110
+00:03:14,695 --> 00:03:16,285
+c'est de définir une méthode spéciale
+
+111
+00:03:16,385 --> 00:03:17,095
+qui s'appelle
+
+112
+00:03:17,195 --> 00:03:19,864
+double underscore init double underscore.
+
+113
+00:03:19,964 --> 00:03:20,848
+Tout simplement.
+
+114
+00:03:20,948 --> 00:03:22,834
+Je n'ai rien à changer à ma méthode initia,
+
+115
+00:03:22,934 --> 00:03:23,868
+et cette méthode
+
+116
+00:03:23,968 --> 00:03:25,690
+double underscore init double underscore
+
+117
+00:03:25,790 --> 00:03:27,356
+va être appelée automatiquement
+
+118
+00:03:27,456 --> 00:03:29,177
+lorsque je crée mon instance.
+
+119
+00:03:29,663 --> 00:03:30,616
+Regardons cela.
+
+120
+00:03:30,716 --> 00:03:31,876
+Je le sauvegarde avec Ctrl-S,
+
+121
+00:03:31,976 --> 00:03:32,946
+je l'évalue avec F5.
+
+122
+00:03:33,046 --> 00:03:33,988
+Et maintenant, je vais faire un
+
+123
+00:03:34,088 --> 00:03:35,122
+p égale Phrase
+
+124
+00:03:35,689 --> 00:03:41,168
+de "je fais un mooc sur python".
+
+125
+00:03:43,029 --> 00:03:44,428
+J'évalue ce code
+
+126
+00:03:44,528 --> 00:03:45,498
+et je vois que maintenant
+
+127
+00:03:45,598 --> 00:03:49,097
+ma phrase p contient dès maintenant
+
+128
+00:03:49,197 --> 00:03:51,088
+un attribut ma_phrase qui est initialisé à
+
+129
+00:03:51,188 --> 00:03:52,248
+"je fais un mooc sur python".
+
+130
+00:03:52,348 --> 00:03:53,890
+Donc mon initialisateur,
+
+131
+00:03:53,990 --> 00:03:55,528
+qu'on appelle parfois par abus de langage
+
+132
+00:03:55,628 --> 00:03:56,140
+un constructeur
+
+133
+00:03:56,240 --> 00:03:57,494
+mais qui n'est pas vraiment un constructeur,
+
+134
+00:03:57,594 --> 00:03:58,717
+qui est juste quelque chose qui
+
+135
+00:03:58,817 --> 00:04:01,655
+initialise mon instance
+
+136
+00:04:01,755 --> 00:04:02,639
+une fois qu'elle a été créée,
+
+137
+00:04:03,404 --> 00:04:04,862
+me permet de créer des attributs
+
+138
+00:04:05,204 --> 00:04:06,106
+automatiquement
+
+139
+00:04:06,206 --> 00:04:07,562
+avec une certaine valeur par défaut
+
+140
+00:04:08,242 --> 00:04:09,657
+lorsque je crée mon instance.
+
+141
+00:04:10,324 --> 00:04:11,597
+Donc ça, c'est le premier comportement
+
+142
+00:04:11,697 --> 00:04:12,190
+que j'ai implémenté
+
+143
+00:04:12,290 --> 00:04:13,261
+avec cette méthode spéciale
+
+144
+00:04:13,361 --> 00:04:14,837
+double underscore init double underscore.
+
+145
+00:04:16,060 --> 00:04:17,579
+Maintenant, je me dis que j'aimerais bien
+
+146
+00:04:17,679 --> 00:04:20,548
+par exemple afficher le nombre de mots
+
+147
+00:04:20,648 --> 00:04:21,496
+que j'ai dans ma phrase.
+
+148
+00:04:21,972 --> 00:04:23,789
+Pour faire ça, il faudrait d'abord
+
+149
+00:04:23,889 --> 00:04:27,130
+que j'implémente dans mon initialiseur
+
+150
+00:04:28,105 --> 00:04:29,831
+un attribut qui va par exemple
+
+151
+00:04:29,931 --> 00:04:31,247
+contenir la liste des mots.
+
+152
+00:04:31,741 --> 00:04:33,304
+Je vais appeler ça self point mots
+
+153
+00:04:33,959 --> 00:04:35,245
+qui est égal à
+
+154
+00:04:36,122 --> 00:04:41,106
+ma_phrase point split.
+
+155
+00:04:41,582 --> 00:04:44,015
+En fait, lorsque je vais créer mon instance,
+
+156
+00:04:44,115 --> 00:04:45,301
+je vais avoir un attribut ma_phrase
+
+157
+00:04:45,401 --> 00:04:46,363
+dans mon instance qui référence
+
+158
+00:04:46,463 --> 00:04:47,272
+la chaîne de caractères,
+
+159
+00:04:47,702 --> 00:04:49,239
+et je vais avoir un attribut mots
+
+160
+00:04:49,339 --> 00:04:50,544
+qui va référencer une liste
+
+161
+00:04:50,644 --> 00:04:51,624
+qui contient chaque mot.
+
+162
+00:04:53,438 --> 00:04:55,749
+Ensuite, si je veux obtenir le nombre de mots
+
+163
+00:04:56,762 --> 00:04:58,321
+avec la fonction built-in len
+
+164
+00:04:58,421 --> 00:04:59,742
+exactement comme je le ferais
+
+165
+00:05:00,259 --> 00:05:01,243
+avec un type built-in,
+
+166
+00:05:01,343 --> 00:05:02,514
+donc en faisant un len de p,
+
+167
+00:05:02,864 --> 00:05:04,058
+je peux implémenter cela
+
+168
+00:05:04,656 --> 00:05:06,743
+en définissant une méthode spéciale
+
+169
+00:05:06,843 --> 00:05:07,669
+qui va s'appeler
+
+170
+00:05:08,234 --> 00:05:13,042
+double underscore len double underscore,
+
+171
+00:05:13,390 --> 00:05:14,724
+et je lui passe évidemment self
+
+172
+00:05:14,824 --> 00:05:16,045
+puisque toutes mes méthodes
+
+173
+00:05:16,145 --> 00:05:17,002
+doivent prendre obligatoirement
+
+174
+00:05:17,102 --> 00:05:18,098
+self comme premier argument.
+
+175
+00:05:18,502 --> 00:05:19,927
+Et que va faire ma méthode __len__ ?
+
+176
+00:05:20,155 --> 00:05:22,044
+Ma méthode __len__, elle est supposée
+
+177
+00:05:22,377 --> 00:05:24,219
+retourner un entier qui va correspondre
+
+178
+00:05:24,319 --> 00:05:24,938
+au nombre de mots.
+
+179
+00:05:25,038 --> 00:05:25,956
+Donc je vais simplement faire
+
+180
+00:05:26,056 --> 00:05:28,838
+un len de self point mots.
+
+181
+00:05:30,313 --> 00:05:31,033
+Regardons maintenant
+
+182
+00:05:31,133 --> 00:05:32,191
+l'exécution de ce code.
+
+183
+00:05:33,331 --> 00:05:35,727
+Je l'évalue avec F5.
+
+184
+00:05:36,179 --> 00:05:39,151
+Je retourne dans mon interpréteur.
+
+185
+00:05:39,251 --> 00:05:41,391
+J'initialise mon instance avec p.
+
+186
+00:05:41,491 --> 00:05:42,680
+Et maintenant, je peux directement
+
+187
+00:05:42,780 --> 00:05:43,565
+faire un len de p
+
+188
+00:05:43,665 --> 00:05:45,247
+et je vois que j'ai 6 mots dans ma phrase.
+
+189
+00:05:45,347 --> 00:05:46,984
+Donc je vois que je commence à construire,
+
+190
+00:05:47,525 --> 00:05:48,789
+avec les méthodes spéciales,
+
+191
+00:05:48,889 --> 00:05:51,028
+une classe qui produit des instances
+
+192
+00:05:51,128 --> 00:05:52,995
+qui se comportent comme des types built-in.
+
+193
+00:05:54,205 --> 00:05:55,418
+Maintenant, un autre comportement
+
+194
+00:05:55,518 --> 00:05:57,489
+que je pourrais vouloir implémenter,
+
+195
+00:05:57,589 --> 00:05:59,200
+c'est par exemple le test d'appartenance.
+
+196
+00:05:59,517 --> 00:06:00,521
+Ça serait extrêmement pratique
+
+197
+00:06:00,621 --> 00:06:01,333
+de pouvoir dire
+
+198
+00:06:01,433 --> 00:06:03,156
+est-ce que, par exemple, le mot 'mooc'
+
+199
+00:06:06,353 --> 00:06:08,265
+est dans mon instance.
+
+200
+00:06:08,365 --> 00:06:09,837
+Donc essayons de faire ça directement ;
+
+201
+00:06:09,937 --> 00:06:10,793
+qu'est-ce qu'il va se passer ?
+
+202
+00:06:10,893 --> 00:06:11,936
+Évidemment, j'ai une exception
+
+203
+00:06:12,036 --> 00:06:14,263
+puisqu'on va me dire que ma phrase
+
+204
+00:06:14,363 --> 00:06:15,764
+ne peut pas être itérée,
+
+205
+00:06:15,864 --> 00:06:16,683
+donc c'est le message d'erreur
+
+206
+00:06:16,783 --> 00:06:17,245
+qui est dans ce cas-là
+
+207
+00:06:17,345 --> 00:06:18,305
+pas tout à fait explicite,
+
+208
+00:06:18,405 --> 00:06:19,226
+qui veut simplement dire
+
+209
+00:06:19,326 --> 00:06:21,292
+que je ne peux pas parcourir ma phrase
+
+210
+00:06:21,392 --> 00:06:23,260
+pour être capable de trouver si
+
+211
+00:06:23,356 --> 00:06:25,724
+'mooc', dans ce cas-là, j'avais écrit 'moon',
+
+212
+00:06:25,824 --> 00:06:27,370
+est dans mon instance.
+
+213
+00:06:27,792 --> 00:06:30,081
+Implémentons ce test d'appartenance.
+
+214
+00:06:30,807 --> 00:06:31,339
+Là encore,
+
+215
+00:06:31,439 --> 00:06:32,509
+comme je l'ai expliqué en introduction,
+
+216
+00:06:32,609 --> 00:06:33,961
+j'ai une méthode spéciale dédiée à ça
+
+217
+00:06:34,061 --> 00:06:35,432
+qui s'appelle __contains__.
+
+218
+00:06:36,793 --> 00:06:37,752
+Donc je vais définir
+
+219
+00:06:37,852 --> 00:06:39,399
+double underscore contains
+
+220
+00:06:39,499 --> 00:06:40,856
+double underscore
+
+221
+00:06:40,956 --> 00:06:43,949
+qui prend comme premier argument self,
+
+222
+00:06:44,196 --> 00:06:45,190
+toujours mon instance,
+
+223
+00:06:45,290 --> 00:06:46,196
+et comme deuxième argument
+
+224
+00:06:46,296 --> 00:06:47,992
+le mot sur lequel je veux faire le test.
+
+225
+00:06:48,734 --> 00:06:49,939
+Et que va faire __contains__ ?
+
+226
+00:06:50,039 --> 00:06:51,530
+__contains__ doit me retourner un booléen
+
+227
+00:06:51,630 --> 00:06:52,429
+qui vaut Vrai
+
+228
+00:06:52,529 --> 00:06:55,787
+si mot est dans ma phrase,
+
+229
+00:06:55,887 --> 00:06:57,107
+ou Faux s'il n'est pas dedans.
+
+230
+00:06:57,207 --> 00:06:58,916
+Et donc pour ça, je vais simplement faire
+
+231
+00:06:59,016 --> 00:06:59,953
+un test d'appartenance
+
+232
+00:07:00,264 --> 00:07:03,297
+de mot dans self point mots.
+
+233
+00:07:05,028 --> 00:07:06,371
+J'exécute ce code.
+
+234
+00:07:06,769 --> 00:07:08,008
+Je le sauvegarde avec Ctrl-S,
+
+235
+00:07:08,108 --> 00:07:09,062
+je l'évalue avec F5.
+
+236
+00:07:09,162 --> 00:07:11,254
+Et maintenant, je vais me recréer une phrase.
+
+237
+00:07:11,795 --> 00:07:13,625
+Regardons quel est le nombre de mots
+
+238
+00:07:13,725 --> 00:07:14,247
+dans ma phrase.
+
+239
+00:07:14,347 --> 00:07:15,172
+C'est 6.
+
+240
+00:07:15,489 --> 00:07:18,984
+Et est-ce que 'moon' est dans p ?
+
+241
+00:07:19,253 --> 00:07:20,213
+Non.
+
+242
+00:07:20,916 --> 00:07:23,518
+Est-ce que 'mooc' est dans p ?
+
+243
+00:07:23,618 --> 00:07:24,423
+Oui.
+
+244
+00:07:24,523 --> 00:07:25,964
+Donc on voit que je viens d'implémenter
+
+245
+00:07:26,064 --> 00:07:27,020
+le test d'appartenance
+
+246
+00:07:27,120 --> 00:07:28,908
+exactement comme je le ferais
+
+247
+00:07:29,008 --> 00:07:30,355
+avec un type built-in
+
+248
+00:07:30,791 --> 00:07:32,081
+directement sur ma classe.
+
+249
+00:07:33,172 --> 00:07:35,114
+Maintenant, la dernière méthode
+
+250
+00:07:35,214 --> 00:07:35,895
+que je voudrais vous montrer,
+
+251
+00:07:35,995 --> 00:07:36,981
+qui est une méthode très courante,
+
+252
+00:07:37,081 --> 00:07:37,838
+qu'on implémente très souvent
+
+253
+00:07:37,938 --> 00:07:38,453
+pour les classes,
+
+254
+00:07:38,733 --> 00:07:40,391
+c'est la méthode qui permet de supporter
+
+255
+00:07:40,491 --> 00:07:41,541
+la fonction built-in print.
+
+256
+00:07:41,803 --> 00:07:44,164
+Que se passe-t-il si je fais un print de p ?
+
+257
+00:07:44,466 --> 00:07:46,149
+Je vois que je vais voir l'objet,
+
+258
+00:07:46,249 --> 00:07:47,063
+l'adresse de l'objet,
+
+259
+00:07:47,163 --> 00:07:48,118
+ce qui a assez peu d'intérêt.
+
+260
+00:07:48,900 --> 00:07:50,664
+Or, si je veux avoir une manière d'afficher
+
+261
+00:07:50,764 --> 00:07:51,806
+ce que contient mon instance,
+
+262
+00:07:51,906 --> 00:07:53,008
+qui peut être utile
+
+263
+00:07:53,108 --> 00:07:54,465
+en cours d'exécution de mon programme
+
+264
+00:07:54,565 --> 00:07:55,393
+mais également si je veux
+
+265
+00:07:55,493 --> 00:07:56,391
+débugger mon programme,
+
+266
+00:07:56,733 --> 00:07:57,874
+je dois implémenter une méthode
+
+267
+00:07:57,974 --> 00:07:58,393
+qui s'appelle
+
+268
+00:07:58,493 --> 00:08:01,497
+double underscore str double underscore,
+
+269
+00:08:01,597 --> 00:08:02,286
+qui va prendre,
+
+270
+00:08:02,386 --> 00:08:04,286
+ça ne vous surprend plus maintenant,
+
+271
+00:08:04,386 --> 00:08:05,484
+comme premier argument self
+
+272
+00:08:06,384 --> 00:08:07,286
+et qui doit retourner
+
+273
+00:08:07,386 --> 00:08:08,125
+une chaîne de caractères.
+
+274
+00:08:08,218 --> 00:08:09,382
+Donc je vais faire un return
+
+275
+00:08:10,029 --> 00:08:12,229
+de, et ici je vais mettre
+
+276
+00:08:12,329 --> 00:08:13,954
+un retour chariot point join
+
+277
+00:08:14,909 --> 00:08:16,157
+de self point mots.
+
+278
+00:08:16,810 --> 00:08:18,765
+Donc en fait, que va me retourner
+
+279
+00:08:19,233 --> 00:08:21,289
+ma méthode __str__ ?
+
+280
+00:08:21,509 --> 00:08:22,348
+Simplement les mots
+
+281
+00:08:22,448 --> 00:08:23,826
+affichés sur une colonne.
+
+282
+00:08:25,648 --> 00:08:27,834
+J'évalue cela avec F5.
+
+283
+00:08:28,198 --> 00:08:29,673
+Je recrée ma phrase.
+
+284
+00:08:29,773 --> 00:08:30,736
+Et maintenant regardons
+
+285
+00:08:30,836 --> 00:08:32,232
+est-ce que j'ai bien toujours
+
+286
+00:08:32,766 --> 00:08:34,016
+le nombre de mots ? Oui.
+
+287
+00:08:34,624 --> 00:08:38,744
+Est-ce que 'mooc' est dans ma phrase ?
+
+288
+00:08:38,844 --> 00:08:39,541
+Oui.
+
+289
+00:08:39,641 --> 00:08:41,251
+Et que contient ma phrase ?
+
+290
+00:08:41,351 --> 00:08:42,464
+Je fais un print de p
+
+291
+00:08:42,564 --> 00:08:43,795
+et je vois les mots s'afficher
+
+292
+00:08:43,895 --> 00:08:44,480
+sur une colonne.
+
+293
+00:08:45,912 --> 00:08:47,979
+Nous venons de voir les méthodes spéciales
+
+294
+00:08:48,079 --> 00:08:49,713
+et nous avons vu que ces méthodes spéciales
+
+295
+00:08:49,813 --> 00:08:52,084
+permettent de créer vos propres classes
+
+296
+00:08:52,184 --> 00:08:54,695
+qui se comportent comme des types built-in.
+
+297
+00:08:54,795 --> 00:08:55,709
+C'est donc extrêmement souple,
+
+298
+00:08:55,809 --> 00:08:56,756
+extrêmement puissant.
+
+299
+00:08:56,984 --> 00:08:58,081
+Nous avons vu dans cette vidéo
+
+300
+00:08:58,181 --> 00:09:00,178
+juste un petit sous-ensemble
+
+301
+00:09:00,278 --> 00:09:01,519
+des méthodes spéciales qui existent,
+
+302
+00:09:01,619 --> 00:09:02,033
+mais il existe
+
+303
+00:09:02,133 --> 00:09:03,602
+autour d'une centaine de méthodes spéciales
+
+304
+00:09:03,702 --> 00:09:05,603
+et vous en verrez un grand nombre
+
+305
+00:09:05,703 --> 00:09:06,722
+dans les compléments.
+
+306
+00:09:07,532 --> 00:09:08,779
+Il faut savoir également que
+
+307
+00:09:08,879 --> 00:09:09,891
+ces méthodes spéciales
+
+308
+00:09:09,991 --> 00:09:11,772
+peuvent constituer ce que l'on appelle
+
+309
+00:09:11,872 --> 00:09:12,677
+un protocole,
+
+310
+00:09:13,092 --> 00:09:14,858
+notamment le protocole d'itération,
+
+311
+00:09:14,958 --> 00:09:16,554
+ou le protocole de context manager
+
+312
+00:09:16,654 --> 00:09:17,403
+que nous aborderons
+
+313
+00:09:17,503 --> 00:09:18,715
+dans une prochaine vidéo.
+
+314
+00:09:19,250 --> 00:09:19,930
+À bientôt !
+
