@@ -1,0 +1,1288 @@
+﻿1
+00:00:05,426 --> 00:00:07,375
+Dans une précédente vidéo, nous avons vu
+
+2
+00:00:07,475 --> 00:00:09,162
+que nous avions une relation d'héritage
+
+3
+00:00:09,262 --> 00:00:10,480
+entre l'instance
+
+4
+00:00:10,580 --> 00:00:12,773
+et la classe qui crée cette instance.
+
+5
+00:00:13,043 --> 00:00:14,353
+C'est-à-dire que lorsque l'on cherche
+
+6
+00:00:14,453 --> 00:00:15,576
+un attribut dans une instance,
+
+7
+00:00:15,676 --> 00:00:16,089
+si on ne le trouve pas
+
+8
+00:00:16,189 --> 00:00:17,441
+dans l'espace de nommage de l'instance,
+
+9
+00:00:17,541 --> 00:00:19,000
+on remonte l'arbre d'héritage
+
+10
+00:00:19,100 --> 00:00:19,988
+et on arrive dans la classe.
+
+11
+00:00:20,585 --> 00:00:21,945
+Cette notion d'arbre d'héritage
+
+12
+00:00:22,045 --> 00:00:23,504
+s'étend également aux classes.
+
+13
+00:00:24,109 --> 00:00:26,212
+Les classes peuvent hériter d'autres classes
+
+14
+00:00:26,312 --> 00:00:27,912
+et on peut donc avoir un arbre d'héritage
+
+15
+00:00:28,012 --> 00:00:29,837
+qui va partir des instances,
+
+16
+00:00:29,937 --> 00:00:30,706
+remonter aux classes,
+
+17
+00:00:30,806 --> 00:00:31,669
+et remonter aux classes
+
+18
+00:00:31,769 --> 00:00:32,665
+dont héritent ces classes.
+
+19
+00:00:32,895 --> 00:00:34,032
+Regardons un exemple.
+
+20
+00:00:34,686 --> 00:00:36,652
+Ici, à gauche, je vous représente les objets
+
+21
+00:00:36,752 --> 00:00:37,451
+qui sont crées,
+
+22
+00:00:37,551 --> 00:00:38,875
+et à droite, du pseudo-code.
+
+23
+00:00:39,718 --> 00:00:41,382
+Imaginons que l'on crée deux classes
+
+24
+00:00:41,482 --> 00:00:42,596
+C1 et C2.
+
+25
+00:00:43,382 --> 00:00:43,881
+Et que maintenant,
+
+26
+00:00:43,981 --> 00:00:45,759
+on crée une troisième classe C,
+
+27
+00:00:45,859 --> 00:00:47,677
+qui hérite de C1 et C2.
+
+28
+00:00:48,059 --> 00:00:49,007
+Cette notion d'héritage
+
+29
+00:00:49,107 --> 00:00:50,999
+est représentée par des parenthèses
+
+30
+00:00:51,099 --> 00:00:52,291
+mises après le nom de la classe,
+
+31
+00:00:52,689 --> 00:00:54,033
+et dans ces parenthèses, on va mettre
+
+32
+00:00:54,133 --> 00:00:55,589
+la liste des classes dont on hérite.
+
+33
+00:00:56,755 --> 00:00:58,243
+En fait, on va appeler
+
+34
+00:00:58,343 --> 00:00:59,792
+la classe C une classe,
+
+35
+00:01:00,063 --> 00:01:03,301
+et les classes C1 et C2 les super-classes de C.
+
+36
+00:01:03,530 --> 00:01:04,557
+On peut également dire
+
+37
+00:01:04,657 --> 00:01:06,262
+en regardant le problème dans l'autre sens,
+
+38
+00:01:06,660 --> 00:01:08,571
+que C1 et C2 sont des classes,
+
+39
+00:01:08,671 --> 00:01:12,635
+et que C est une sous-classe de C1 et C2.
+
+40
+00:01:13,600 --> 00:01:15,305
+Ensuite, si on crée des instances,
+
+41
+00:01:15,405 --> 00:01:16,551
+I1 et I2,
+
+42
+00:01:16,795 --> 00:01:19,537
+ces instances I1 et I2 sont des objets
+
+43
+00:01:19,637 --> 00:01:20,689
+qui vont hériter de la classe.
+
+44
+00:01:21,431 --> 00:01:23,038
+Et en fait, on remarque maintenant
+
+45
+00:01:23,138 --> 00:01:25,086
+que les instances, la classe et les super-classes
+
+46
+00:01:25,186 --> 00:01:25,997
+forment ce que l'on appelle
+
+47
+00:01:26,097 --> 00:01:26,947
+un arbre d'héritage.
+
+48
+00:01:27,337 --> 00:01:28,301
+Donc, lorsque je cherche
+
+49
+00:01:28,401 --> 00:01:29,550
+un attribut dans l'instance,
+
+50
+00:01:29,650 --> 00:01:30,240
+si je ne le trouve pas
+
+51
+00:01:30,340 --> 00:01:31,640
+dans l'espace de nommage de l'instance,
+
+52
+00:01:31,740 --> 00:01:33,054
+je remonte dans sa classe ;
+
+53
+00:01:33,309 --> 00:01:34,846
+si je ne le trouve pas dans la classe,
+
+54
+00:01:34,946 --> 00:01:36,212
+je remonte dans les super-classes.
+
+55
+00:01:36,642 --> 00:01:37,830
+Les super-classes étant des classes
+
+56
+00:01:37,930 --> 00:01:38,756
+tout à fait comme les autres,
+
+57
+00:01:38,856 --> 00:01:39,501
+elles peuvent elles-mêmes
+
+58
+00:01:39,601 --> 00:01:40,497
+hériter d'autres classes
+
+59
+00:01:40,597 --> 00:01:42,273
+et je peux donc avoir un arbre d'héritage
+
+60
+00:01:42,373 --> 00:01:43,178
+qui est très grand.
+
+61
+00:01:44,540 --> 00:01:46,138
+Ouvrons maintenant un éditeur IDLE
+
+62
+00:01:46,238 --> 00:01:47,064
+pour commencer à jouer
+
+63
+00:01:47,164 --> 00:01:48,254
+avec cette notion d'héritage.
+
+64
+00:01:48,508 --> 00:01:50,360
+Je vous propose de reprendre l'exemple
+
+65
+00:01:50,460 --> 00:01:52,031
+que nous avions dans la précédente vidéo,
+
+66
+00:01:52,267 --> 00:01:54,983
+la vidéo sur les méthodes spéciales,
+
+67
+00:01:55,083 --> 00:01:56,686
+et de commencer à partir de là.
+
+68
+00:01:56,786 --> 00:01:58,086
+Mettez la vidéo en pause
+
+69
+00:01:58,186 --> 00:01:59,076
+pour recopier ce code
+
+70
+00:01:59,176 --> 00:01:59,772
+et nous nous retrouvons
+
+71
+00:01:59,872 --> 00:02:00,418
+dans quelques instants.
+
+72
+00:02:01,713 --> 00:02:02,868
+Vous remarquez que
+
+73
+00:02:02,968 --> 00:02:05,019
+par rapport à l'exemple précédent,
+
+74
+00:02:05,119 --> 00:02:07,605
+j'ai rajouté une chaîne de caractères s
+
+75
+00:02:08,019 --> 00:02:11,179
+qui écrit: "Je fais un MOOC sur Python"
+
+76
+00:02:11,534 --> 00:02:13,064
+avec quelques lettres majuscules,
+
+77
+00:02:13,164 --> 00:02:14,502
+nous allons voir dans quelques instants
+
+78
+00:02:14,602 --> 00:02:15,668
+pourquoi cela est important.
+
+79
+00:02:17,036 --> 00:02:19,856
+Maintenant, j'aimerais bien créer une classe
+
+80
+00:02:20,454 --> 00:02:22,821
+qui ait les mêmes caractéristiques que Phrase,
+
+81
+00:02:23,274 --> 00:02:24,512
+mais qui me permette de faire
+
+82
+00:02:24,612 --> 00:02:25,391
+un test d'appartenance
+
+83
+00:02:25,491 --> 00:02:26,799
+qui ne prend pas en compte la casse,
+
+84
+00:02:26,899 --> 00:02:27,906
+c'est-à-dire qui ne prend pas en compte
+
+85
+00:02:28,006 --> 00:02:28,329
+le fait que j'ai
+
+86
+00:02:28,429 --> 00:02:29,704
+des lettres majuscules ou minuscules.
+
+87
+00:02:31,171 --> 00:02:32,948
+Lorsque l'on dit que j'aimerais avoir une classe
+
+88
+00:02:33,048 --> 00:02:35,012
+qui se comporte comme une autre classe,
+
+89
+00:02:35,112 --> 00:02:36,881
+c'est exactement ce que l'on appelle
+
+90
+00:02:36,981 --> 00:02:38,049
+une relation d'héritage.
+
+91
+00:02:38,499 --> 00:02:39,543
+Donc en fait, la bonne manière
+
+92
+00:02:39,643 --> 00:02:41,135
+de définir une nouvelle classe
+
+93
+00:02:41,235 --> 00:02:42,464
+qui se comporte comme ma Phrase
+
+94
+00:02:42,564 --> 00:02:44,565
+mais qui modifie un peu son comportement,
+
+95
+00:02:44,795 --> 00:02:46,738
+c'est d'hériter de Phrase.
+
+96
+00:02:47,288 --> 00:02:48,313
+Regardons cela.
+
+97
+00:02:48,413 --> 00:02:50,143
+Je vais créer une nouvelle classe
+
+98
+00:02:50,677 --> 00:02:51,565
+que je vais appeler
+
+99
+00:02:52,449 --> 00:02:58,220
+PhraseSansCasse,
+
+100
+00:02:59,956 --> 00:03:01,738
+et qui va hériter de Phrase.
+
+101
+00:03:01,838 --> 00:03:03,020
+Comment est-ce que je montre
+
+102
+00:03:03,120 --> 00:03:04,115
+qu'une classe hérite d'une autre classe ?
+
+103
+00:03:04,215 --> 00:03:05,841
+Simplement, je le mets entre parenthèses
+
+104
+00:03:05,941 --> 00:03:08,100
+au moment de la déclaration de ma classe.
+
+105
+00:03:08,481 --> 00:03:10,255
+Donc là, je définis une classe toute simple ;
+
+106
+00:03:11,004 --> 00:03:12,471
+je ne lui définis pas encore de comportement,
+
+107
+00:03:12,571 --> 00:03:13,755
+je vais le faire dans quelques instants.
+
+108
+00:03:14,145 --> 00:03:16,218
+Et je peux maintenant exécuter ce code.
+
+109
+00:03:17,725 --> 00:03:19,888
+Maintenant, définissons une instance
+
+110
+00:03:19,988 --> 00:03:22,257
+de ma classe PhraseSansCasse,
+
+111
+00:03:22,357 --> 00:03:23,211
+donc je vais l'appeler
+
+112
+00:03:24,430 --> 00:03:27,134
+p underscore no,
+
+113
+00:03:27,484 --> 00:03:28,578
+et je vais écrire
+
+114
+00:03:30,708 --> 00:03:33,655
+PhraseSansCasse de s,
+
+115
+00:03:33,755 --> 00:03:35,247
+s étant ma chaîne de caractères
+
+116
+00:03:35,347 --> 00:03:37,543
+qui représente "Je fais un MOOC sur Python".
+
+117
+00:03:38,523 --> 00:03:39,554
+Exécutons cela.
+
+118
+00:03:40,461 --> 00:03:41,676
+Et donc maintenant, vérifions
+
+119
+00:03:41,776 --> 00:03:43,402
+est-ce que p_no
+
+120
+00:03:43,502 --> 00:03:46,772
+est bien une instance de PhraseSansCasse ?
+
+121
+00:03:46,872 --> 00:03:48,439
+Je peux le vérifier avec la fonction built-in
+
+122
+00:03:48,539 --> 00:03:50,253
+isinstance.
+
+123
+00:03:51,236 --> 00:03:52,101
+Donc je vais vérifier
+
+124
+00:03:52,201 --> 00:03:53,268
+est-ce que p_no est bien
+
+125
+00:03:53,368 --> 00:03:55,538
+une instance de Phrase ?
+
+126
+00:03:58,164 --> 00:04:00,574
+Je remarque que c'est une instance de Phrase
+
+127
+00:04:00,674 --> 00:04:02,061
+et est-ce que p_no est également
+
+128
+00:04:02,161 --> 00:04:06,382
+une instance de PhraseSansCasse ?
+
+129
+00:04:06,963 --> 00:04:08,518
+Je remarque que c'est également
+
+130
+00:04:08,618 --> 00:04:09,883
+une instance de PhraseSansCasse.
+
+131
+00:04:09,983 --> 00:04:11,391
+En fait, la méthode isinstance
+
+132
+00:04:11,491 --> 00:04:12,566
+vous permet de trouver
+
+133
+00:04:12,666 --> 00:04:14,607
+si votre objet est une instance
+
+134
+00:04:14,707 --> 00:04:15,912
+directement d'une classe
+
+135
+00:04:16,222 --> 00:04:17,521
+ou une instance
+
+136
+00:04:17,621 --> 00:04:18,687
+le long de l'arbre d'héritage,
+
+137
+00:04:18,787 --> 00:04:19,276
+c'est-à-dire que
+
+138
+00:04:19,376 --> 00:04:20,771
+je suis une instance d'une classe
+
+139
+00:04:21,685 --> 00:04:23,185
+ou des super-classes de la classe
+
+140
+00:04:23,285 --> 00:04:24,040
+qui m'a instanciée.
+
+141
+00:04:25,614 --> 00:04:26,810
+Donc maintenant, regardons
+
+142
+00:04:26,910 --> 00:04:28,353
+exactement cet objet p_no ;
+
+143
+00:04:28,453 --> 00:04:32,001
+on voit que cet objet a été créé directement
+
+144
+00:04:32,101 --> 00:04:34,215
+par la classe PhraseSansCasse.
+
+145
+00:04:35,994 --> 00:04:37,275
+Évidemment, cettre PhraseSansCasse
+
+146
+00:04:37,375 --> 00:04:38,713
+ne définissant aucune méthode,
+
+147
+00:04:38,813 --> 00:04:40,322
+pour l'instant, elle ne sert absolument à rien.
+
+148
+00:04:40,422 --> 00:04:41,587
+Donc maintenant, je vais commencer
+
+149
+00:04:41,687 --> 00:04:43,911
+à définir des méthodes sur cette classe.
+
+150
+00:04:44,229 --> 00:04:45,150
+Regardons cela.
+
+151
+00:04:47,925 --> 00:04:50,106
+Je vais ajouter dans PhraseSansCasse
+
+152
+00:04:50,206 --> 00:04:52,329
+une nouvelle méthode __init__
+
+153
+00:04:55,564 --> 00:04:58,836
+qui va prendre évidemment self
+
+154
+00:04:58,936 --> 00:05:02,202
+et l'attribut qu'on va utiliser pour initialiser,
+
+155
+00:05:02,302 --> 00:05:03,057
+donc ma_phrase ;
+
+156
+00:05:03,862 --> 00:05:07,043
+et qui va définir self point mots
+
+157
+00:05:09,519 --> 00:05:11,804
+underscore lower égale,
+
+158
+00:05:11,904 --> 00:05:13,245
+et là, je vais prendre
+
+159
+00:05:13,345 --> 00:05:15,626
+un ensemble de tous les mots
+
+160
+00:05:16,072 --> 00:05:16,963
+en minuscule
+
+161
+00:05:18,565 --> 00:05:24,108
+pour les mots dans self point mots.
+
+162
+00:05:24,470 --> 00:05:26,013
+Donc en fait, je crée un ensemble qui contient
+
+163
+00:05:26,113 --> 00:05:27,198
+tous les mots en minuscule
+
+164
+00:05:28,151 --> 00:05:29,500
+pour tous les mots qui sont pris
+
+165
+00:05:29,600 --> 00:05:31,410
+dans la liste des mots qui a été calculée.
+
+166
+00:05:31,759 --> 00:05:33,438
+Seulement, vous remarquez ici que
+
+167
+00:05:33,538 --> 00:05:34,549
+j'ai une méthode __init__
+
+168
+00:05:34,649 --> 00:05:35,506
+qui est définie dans Phrase,
+
+169
+00:05:35,897 --> 00:05:36,906
+et j'ai une méthode __init__
+
+170
+00:05:37,006 --> 00:05:39,000
+qui est définie dans PhraseSansCasse.
+
+171
+00:05:39,100 --> 00:05:40,661
+Lorsque vous héritez d'une classe,
+
+172
+00:05:40,761 --> 00:05:42,277
+vous héritez de toutes ses méthodes
+
+173
+00:05:42,377 --> 00:05:44,312
+mais si vous redéfinissez les méthodes,
+
+174
+00:05:44,412 --> 00:05:46,039
+on appelle ça surcharger une méthode ;
+
+175
+00:05:46,139 --> 00:05:47,366
+donc ici, dans PhraseSansCasse,
+
+176
+00:05:47,466 --> 00:05:48,394
+j'ai surchargé la méthode
+
+177
+00:05:48,494 --> 00:05:50,305
+double underscore init double underscore ;
+
+178
+00:05:50,591 --> 00:05:52,053
+la méthode __init__ de Phrase
+
+179
+00:05:52,153 --> 00:05:53,658
+ne sera pas appelée automatiquement.
+
+180
+00:05:53,905 --> 00:05:55,482
+Le seul moyen de l'appeler automatiquement,
+
+181
+00:05:55,582 --> 00:05:56,833
+c'est de le faire de manière explicite ;
+
+182
+00:05:57,231 --> 00:05:58,959
+et lorsque j'ai un initialisateur,
+
+183
+00:05:59,059 --> 00:05:59,777
+une méthode __init__,
+
+184
+00:05:59,877 --> 00:06:01,318
+en général, c'est ce que je veux faire.
+
+185
+00:06:01,636 --> 00:06:02,641
+Regardons cela.
+
+186
+00:06:03,729 --> 00:06:05,883
+Je vais dire: dans la classe Phrase,
+
+187
+00:06:05,983 --> 00:06:07,724
+je vais appeler explicitement
+
+188
+00:06:07,824 --> 00:06:08,680
+la méthode __init__
+
+189
+00:06:09,120 --> 00:06:13,744
+en lui passant les arguments self, ma_phrase.
+
+190
+00:06:14,102 --> 00:06:18,004
+J'ai donc forcé l'appel
+
+191
+00:06:18,104 --> 00:06:19,274
+de la méthode __init__ de Phrase
+
+192
+00:06:19,374 --> 00:06:21,569
+avant de faire mon initialisation
+
+193
+00:06:21,669 --> 00:06:22,647
+qui est spécifique
+
+194
+00:06:22,747 --> 00:06:25,903
+à ma classe PhraseSansCasse.
+
+195
+00:06:27,378 --> 00:06:29,267
+Maintenant, évaluons ce code ;
+
+196
+00:06:29,367 --> 00:06:30,722
+je le sauvegarde avec Ctrl-S,
+
+197
+00:06:31,452 --> 00:06:32,804
+je l'évalue avec F5.
+
+198
+00:06:33,849 --> 00:06:36,983
+Et maintenant, regardons l'initialisation
+
+199
+00:06:37,083 --> 00:06:38,247
+de mon instance.
+
+200
+00:06:38,571 --> 00:06:40,708
+Je vais reprendre une instance
+
+201
+00:06:42,166 --> 00:06:43,443
+p_no égale PhraseSansCasse
+
+202
+00:06:43,543 --> 00:06:45,226
+et si je regarde mon instance,
+
+203
+00:06:45,589 --> 00:06:46,749
+est-ce que maintenant mon instance
+
+204
+00:06:46,849 --> 00:06:48,897
+a bien un attribut mots_lower ?
+
+205
+00:06:48,997 --> 00:06:49,420
+Regardons cela.
+
+206
+00:06:49,520 --> 00:06:50,022
+Oui.
+
+207
+00:06:50,122 --> 00:06:52,086
+Et j'ai bien la liste des mots mis en minuscule.
+
+208
+00:06:52,546 --> 00:06:54,596
+Je vous rappelle que le but de ma classe
+
+209
+00:06:54,696 --> 00:06:55,465
+PhraseSansCasse,
+
+210
+00:06:55,565 --> 00:06:56,886
+c'est de faire un test d'appartenance
+
+211
+00:06:56,986 --> 00:06:58,496
+sans prendre en compte la casse
+
+212
+00:06:58,596 --> 00:06:59,526
+dans le test d'appartenance ;
+
+213
+00:06:59,803 --> 00:07:00,733
+je vais le faire maintenant
+
+214
+00:07:00,833 --> 00:07:01,715
+de la manière suivante.
+
+215
+00:07:02,042 --> 00:07:03,787
+Je vais définir une deuxième méthode
+
+216
+00:07:04,014 --> 00:07:04,855
+__contains__ ;
+
+217
+00:07:06,174 --> 00:07:07,242
+donc je vais surcharger
+
+218
+00:07:07,748 --> 00:07:08,893
+ma méthode __contains__
+
+219
+00:07:08,993 --> 00:07:11,586
+que j'avais définie dans ma super-classe ;
+
+220
+00:07:12,846 --> 00:07:15,622
+je vais donc définir __contains__ de self, mot
+
+221
+00:07:15,916 --> 00:07:16,829
+deux points
+
+222
+00:07:17,250 --> 00:07:19,359
+et ici, je vais simplement faire un return
+
+223
+00:07:19,607 --> 00:07:21,080
+de mot.lower()
+
+224
+00:07:22,895 --> 00:07:23,900
+in
+
+225
+00:07:24,535 --> 00:07:29,301
+self point mots_lower
+
+226
+00:07:29,401 --> 00:07:30,893
+qui est donc ma fameuse liste
+
+227
+00:07:30,993 --> 00:07:32,947
+que j'ai créée dans ma méthode __init__
+
+228
+00:07:33,047 --> 00:07:33,839
+de PhraseSansCasse.
+
+229
+00:07:36,628 --> 00:07:37,675
+J'évalue ce code.
+
+230
+00:07:38,253 --> 00:07:39,243
+Donc remontons un petit peu
+
+231
+00:07:39,343 --> 00:07:41,254
+pour n'avoir plus que PhraseSansCasse.
+
+232
+00:07:41,354 --> 00:07:42,498
+J'évalue ce code.
+
+233
+00:07:43,989 --> 00:07:45,430
+Je vais recréer une instance.
+
+234
+00:07:46,842 --> 00:07:48,991
+Et maintenant, est-ce que je peux tester si
+
+235
+00:07:49,091 --> 00:07:53,585
+est-ce que "Mooc" est
+
+236
+00:07:54,053 --> 00:07:56,893
+dans mon instance p_no ?
+
+237
+00:07:56,993 --> 00:07:58,305
+Je remarque qu'il est bien dedans ;
+
+238
+00:07:58,405 --> 00:08:01,172
+pourtant, la capitalisation était différente
+
+239
+00:08:01,272 --> 00:08:03,638
+entre le "Mooc" écrit M majuscule
+
+240
+00:08:03,738 --> 00:08:04,877
+et le "MOOC" écrit en majuscule ;
+
+241
+00:08:05,105 --> 00:08:06,382
+mais là, ça a bien fonctionné.
+
+242
+00:08:06,482 --> 00:08:07,327
+Vous remarquez également
+
+243
+00:08:07,427 --> 00:08:08,486
+que dans ma méthode __contains__,
+
+244
+00:08:08,677 --> 00:08:09,635
+je n'ai pas rappelé
+
+245
+00:08:09,735 --> 00:08:11,573
+la méthode __contains__ de Phrase,
+
+246
+00:08:11,673 --> 00:08:13,123
+simplement parce que dans ce contexte,
+
+247
+00:08:13,377 --> 00:08:14,739
+ça n'avait pas de sens d'appeler
+
+248
+00:08:14,887 --> 00:08:16,333
+la méthode de la super-classe.
+
+249
+00:08:18,047 --> 00:08:19,855
+Pour finir, j'aimerais vous montrer maintenant
+
+250
+00:08:19,955 --> 00:08:21,062
+le comportement final
+
+251
+00:08:21,162 --> 00:08:22,766
+de Phrase et de PhraseSansCasse.
+
+252
+00:08:23,489 --> 00:08:26,360
+Je peux définir une instance de Phrase
+
+253
+00:08:26,460 --> 00:08:27,159
+que je vais appeler p,
+
+254
+00:08:29,177 --> 00:08:31,524
+qui va prendre la chaîne de caractères s
+
+255
+00:08:33,001 --> 00:08:35,603
+et je vais définir mon instance,
+
+256
+00:08:35,703 --> 00:08:37,793
+qui a déjà été définie, p_no,
+
+257
+00:08:37,893 --> 00:08:39,355
+qui prend la même phrase.
+
+258
+00:08:39,577 --> 00:08:40,880
+Donc maintenant, je peux tester
+
+259
+00:08:40,980 --> 00:08:41,814
+est-ce que "mooc"
+
+260
+00:08:44,806 --> 00:08:46,196
+est dans p ?
+
+261
+00:08:46,652 --> 00:08:47,915
+p est une instance de Phrase,
+
+262
+00:08:48,015 --> 00:08:48,916
+on prend en compte la casse,
+
+263
+00:08:49,016 --> 00:08:49,867
+la réponse est non.
+
+264
+00:08:50,692 --> 00:08:51,824
+Est-ce que "mooc"
+
+265
+00:08:52,709 --> 00:08:55,861
+est dans p_no ?
+
+266
+00:08:58,246 --> 00:09:00,222
+Je ne prends pas en compte la capitalisation.
+
+267
+00:09:00,322 --> 00:09:00,956
+Alors, j'ai écrit "moon",
+
+268
+00:09:01,056 --> 00:09:01,875
+je vais reprendre.
+
+269
+00:09:02,412 --> 00:09:03,742
+"moon" évidemment n'est pas dedans.
+
+270
+00:09:03,842 --> 00:09:05,689
+Est-ce que "mooc" écrit en minuscule
+
+271
+00:09:05,789 --> 00:09:07,601
+est dans ma phrase sans capitalisation ?
+
+272
+00:09:07,855 --> 00:09:08,399
+Oui.
+
+273
+00:09:09,300 --> 00:09:10,652
+J'ai évidemment des méthodes spéciales
+
+274
+00:09:10,752 --> 00:09:12,202
+mais j'ai également des méthodes normales,
+
+275
+00:09:12,302 --> 00:09:13,365
+donc je peux tout à fait appeler
+
+276
+00:09:13,465 --> 00:09:16,001
+p.nb_lettres()
+
+277
+00:09:16,215 --> 00:09:18,114
+et vérifier combien j'ai de lettres
+
+278
+00:09:18,214 --> 00:09:18,897
+dans ma phrase.
+
+279
+00:09:19,150 --> 00:09:20,313
+Et je peux également faire
+
+280
+00:09:20,413 --> 00:09:22,879
+p_no.nb_lettres()
+
+281
+00:09:23,453 --> 00:09:25,337
+Je peux également appeler cette méthode,
+
+282
+00:09:25,437 --> 00:09:26,357
+cette méthode n'est pas définie
+
+283
+00:09:26,457 --> 00:09:27,020
+dans PhraseSansCasse
+
+284
+00:09:27,120 --> 00:09:28,363
+mais elle est définie dans la super-classe
+
+285
+00:09:28,463 --> 00:09:29,945
+donc mon instance peut accéder
+
+286
+00:09:30,045 --> 00:09:31,528
+à cette méthode traditionnelle,
+
+287
+00:09:31,628 --> 00:09:32,397
+cette méthode normale,
+
+288
+00:09:32,802 --> 00:09:34,357
+directement depuis l'instance
+
+289
+00:09:34,457 --> 00:09:35,338
+de PhraseSansCasse.
+
+290
+00:09:36,720 --> 00:09:38,014
+Nous avons vu dans cette vidéo
+
+291
+00:09:38,114 --> 00:09:39,693
+la notion d'héritage
+
+292
+00:09:40,578 --> 00:09:42,105
+et d'arbre d'héritage.
+
+293
+00:09:42,205 --> 00:09:43,731
+En fait, nous savons que l'instance
+
+294
+00:09:43,831 --> 00:09:44,673
+va hériter de sa classe,
+
+295
+00:09:44,773 --> 00:09:46,572
+et que la classe va hériter de ses super-classes
+
+296
+00:09:46,672 --> 00:09:48,189
+et que les super-classes peuvent elles-mêmes
+
+297
+00:09:48,289 --> 00:09:50,179
+hériter de leurs propres super-classes.
+
+298
+00:09:51,008 --> 00:09:52,207
+Cette notion d'arbre d'héritage
+
+299
+00:09:52,307 --> 00:09:53,142
+signifie simplement que,
+
+300
+00:09:53,242 --> 00:09:54,376
+lorsque je cherche un attribut
+
+301
+00:09:54,476 --> 00:09:56,114
+n'importe où le long de l'arbre d'héritage,
+
+302
+00:09:56,326 --> 00:09:58,354
+si je ne le trouve pas dans l'objet
+
+303
+00:09:58,454 --> 00:09:59,247
+dans lequel je le cherche,
+
+304
+00:09:59,347 --> 00:10:00,576
+dans l'espace de nommage de l'objet
+
+305
+00:10:00,676 --> 00:10:01,312
+dans lequel je le cherche,
+
+306
+00:10:01,412 --> 00:10:02,949
+je vais remonter l'arbre d'héritage
+
+307
+00:10:03,049 --> 00:10:03,690
+jusqu'à le trouver.
+
+308
+00:10:04,719 --> 00:10:06,241
+Seulement nous avons vu en introduction
+
+309
+00:10:06,341 --> 00:10:06,989
+que nous pouvions avoir
+
+310
+00:10:07,089 --> 00:10:08,020
+de l'héritage multiple,
+
+311
+00:10:08,120 --> 00:10:09,372
+c'est-à-dire qu'une classe pouvait hériter
+
+312
+00:10:09,472 --> 00:10:10,305
+de plusieurs classes.
+
+313
+00:10:10,405 --> 00:10:11,992
+Et dans ce cas-là, se pose la question
+
+314
+00:10:12,092 --> 00:10:13,600
+de savoir dans quel ordre
+
+315
+00:10:13,700 --> 00:10:15,523
+je vais faire la recherche de mes attributs
+
+316
+00:10:15,623 --> 00:10:16,369
+dans mes super-classes.
+
+317
+00:10:16,752 --> 00:10:17,946
+C'est ce qu'on appelle la technique
+
+318
+00:10:18,046 --> 00:10:19,906
+de la Method Resolution Order
+
+319
+00:10:20,006 --> 00:10:21,616
+ou l'ordre de résolution des attributs.
+
+320
+00:10:22,111 --> 00:10:23,470
+C'est un sujet que nous aborderons
+
+321
+00:10:23,570 --> 00:10:24,581
+dans une prochaine vidéo.
+
+322
+00:10:25,063 --> 00:10:25,715
+À bientôt !
+
