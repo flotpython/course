@@ -1,0 +1,1156 @@
+﻿1
+00:00:05,415 --> 00:00:07,522
+Après la vidéo sur l'organisation du cours,
+
+2
+00:00:07,964 --> 00:00:09,079
+et avant que l'on rentre
+
+3
+00:00:09,179 --> 00:00:10,564
+à proprement parler dans la technique,
+
+4
+00:00:10,994 --> 00:00:12,075
+je vais vous expliquer pourquoi
+
+5
+00:00:12,175 --> 00:00:13,056
+Python est un langage
+
+6
+00:00:13,156 --> 00:00:14,448
+qui est très agréable à utiliser
+
+7
+00:00:14,548 --> 00:00:17,589
+et qui peut servir à tout un tas d'applications.
+
+8
+00:00:18,403 --> 00:00:19,256
+Python est un langage qui a
+
+9
+00:00:19,356 --> 00:00:20,718
+énormément de bonnes propriétés,
+
+10
+00:00:21,476 --> 00:00:23,822
+parmi lesquelles la principale, il me semble,
+
+11
+00:00:23,922 --> 00:00:24,651
+c'est le fait que c'est un langage
+
+12
+00:00:24,751 --> 00:00:26,000
+qui est très lisible.
+
+13
+00:00:26,100 --> 00:00:27,640
+Je vais essayer de vous en convaincre ;
+
+14
+00:00:27,740 --> 00:00:30,201
+on va regarder la comparaison
+
+15
+00:00:30,301 --> 00:00:30,695
+avec un certain nombre
+
+16
+00:00:30,795 --> 00:00:31,991
+d'autres langages généralistes,
+
+17
+00:00:32,258 --> 00:00:34,123
+et je vais commencer par C++,
+
+18
+00:00:34,437 --> 00:00:36,165
+à titre strictement indicatif,
+
+19
+00:00:36,265 --> 00:00:37,874
+j'essaie juste de faire un point.
+
+20
+00:00:38,249 --> 00:00:40,121
+Si je compare la façon de faire
+
+21
+00:00:40,767 --> 00:00:45,182
+une boucle sur une liste en C++,
+
+22
+00:00:45,282 --> 00:00:46,231
+ça pourrait ressembler à ça.
+
+23
+00:00:46,674 --> 00:00:48,058
+En Python, vous allez voir que
+
+24
+00:00:49,432 --> 00:00:51,535
+le code est déjà beaucoup plus court,
+
+25
+00:00:51,635 --> 00:00:52,726
+il est beaucoup moins touffu.
+
+26
+00:00:53,114 --> 00:00:54,346
+Vous remarquez qu'il n'y a
+
+27
+00:00:54,446 --> 00:00:56,407
+pratiquement aucun sucre syntaxique ;
+
+28
+00:00:56,507 --> 00:00:58,290
+il n'y a pas de begin, de end, d'accolades,
+
+29
+00:00:58,390 --> 00:00:59,293
+de choses comme ça.
+
+30
+00:01:00,188 --> 00:01:03,680
+En fait, le langage a fait le parti pris
+
+31
+00:01:03,780 --> 00:01:05,274
+d'avoir une syntaxe qui est orientée
+
+32
+00:01:05,374 --> 00:01:06,329
+sur la présentation.
+
+33
+00:01:06,429 --> 00:01:09,954
+Donc là, les deux phrases print et manage
+
+34
+00:01:10,054 --> 00:01:11,548
+font partie du même bloc ;
+
+35
+00:01:11,648 --> 00:01:13,345
+l'œil humain le capte tout de suite ;
+
+36
+00:01:13,445 --> 00:01:14,794
+on n'a pas besoin de rajouter
+
+37
+00:01:14,894 --> 00:01:18,211
+des accolades ou des choses de ce genre.
+
+38
+00:01:18,311 --> 00:01:19,351
+Ça, c'est la première chose
+
+39
+00:01:19,451 --> 00:01:20,686
+qui est importante à noter ;
+
+40
+00:01:21,077 --> 00:01:22,448
+Python a une syntaxe qui est
+
+41
+00:01:23,436 --> 00:01:25,442
+articulée sur la présentation.
+
+42
+00:01:26,316 --> 00:01:27,657
+Je fais une deuxième comparaison ;
+
+43
+00:01:27,757 --> 00:01:28,841
+cette fois-ci, c'est avec Java.
+
+44
+00:01:29,376 --> 00:01:31,128
+Alors, j'avoue que j'ai pris un exemple
+
+45
+00:01:31,228 --> 00:01:32,318
+qui est totalement pathologique,
+
+46
+00:01:33,323 --> 00:01:35,381
+un programme simple qui fait 'Hello, world!"
+
+47
+00:01:35,481 --> 00:01:36,350
+que vous trouvez
+
+48
+00:01:36,450 --> 00:01:37,637
+dans tous les livres de programmation.
+
+49
+00:01:38,222 --> 00:01:40,722
+En Java, ça ressemble à ce que vous voyez ici ;
+
+50
+00:01:40,822 --> 00:01:42,610
+c'est assez long,
+
+51
+00:01:42,710 --> 00:01:43,677
+comme vous pouvez le remarquer ;
+
+52
+00:01:43,777 --> 00:01:44,616
+il y a beaucoup de bavardage,
+
+53
+00:01:44,716 --> 00:01:45,702
+beaucoup de boilerplate.
+
+54
+00:01:45,802 --> 00:01:46,557
+En Python,
+
+55
+00:01:46,657 --> 00:01:48,435
+on se retrouve avec un programme
+
+56
+00:01:48,535 --> 00:01:49,527
+qui fait une seule ligne.
+
+57
+00:01:50,091 --> 00:01:52,156
+Évidemment, à nouveau,
+
+58
+00:01:52,256 --> 00:01:53,589
+c'est un exemple qui est pathologique,
+
+59
+00:01:54,918 --> 00:01:56,590
+mais il est très important parce qu'il illustre
+
+60
+00:01:57,052 --> 00:02:00,099
+le fait que certains langages comme Java
+
+61
+00:02:00,199 --> 00:02:01,386
+ont une approche qui est dogmatique ;
+
+62
+00:02:01,486 --> 00:02:03,129
+en Java, on a décidé qu'il fallait absolument
+
+63
+00:02:03,229 --> 00:02:04,262
+que tout soit dans une classe,
+
+64
+00:02:04,362 --> 00:02:04,932
+très bien ;
+
+65
+00:02:05,307 --> 00:02:05,928
+du coup,
+
+66
+00:02:06,028 --> 00:02:07,144
+dans un certain nombre de situations,
+
+67
+00:02:07,244 --> 00:02:08,777
+on se retrouve à devoir faire des choses
+
+68
+00:02:08,877 --> 00:02:10,416
+qui sont de cet ordre.
+
+69
+00:02:11,717 --> 00:02:13,514
+Python, à l'inverse de ça, est un langage
+
+70
+00:02:13,614 --> 00:02:15,040
+qui est totalement pragmatique ;
+
+71
+00:02:15,140 --> 00:02:16,935
+on aura l'occasion de revenir là-dessus.
+
+72
+00:02:17,500 --> 00:02:18,869
+Je fais une troisième comparaison
+
+73
+00:02:18,969 --> 00:02:20,994
+avec JavaScript.
+
+74
+00:02:22,359 --> 00:02:25,224
+Cette fois-ci, j'ai pris le code qui calcule
+
+75
+00:02:25,829 --> 00:02:26,744
+la liste des carrés
+
+76
+00:02:27,343 --> 00:02:28,747
+d'un certain ensemble de choses.
+
+77
+00:02:29,226 --> 00:02:30,884
+Donc vous voyez, de nouveau, en Python,
+
+78
+00:02:30,984 --> 00:02:33,316
+un code qui est plus petit, plus ramassé,
+
+79
+00:02:33,416 --> 00:02:35,290
+qui est simplement plus lisible.
+
+80
+00:02:37,736 --> 00:02:40,644
+J'en resterai là sur la comparaison
+
+81
+00:02:40,744 --> 00:02:41,835
+avec les autres langages.
+
+82
+00:02:43,279 --> 00:02:44,307
+Bon, j'admets volontiers
+
+83
+00:02:44,407 --> 00:02:45,193
+que le choix des exemples
+
+84
+00:02:45,293 --> 00:02:46,552
+est tout à fait arbitraire
+
+85
+00:02:46,919 --> 00:02:48,897
+mais je voulais faire principalement
+
+86
+00:02:48,997 --> 00:02:51,020
+deux points qui me semblent très importants.
+
+87
+00:02:51,539 --> 00:02:53,991
+Dans un premier temps, la facilité d'accès
+
+88
+00:02:54,091 --> 00:02:55,644
+a été considérée comme un but.
+
+89
+00:02:55,985 --> 00:02:57,922
+Python, c'est un langage qui est très lisible ;
+
+90
+00:02:58,337 --> 00:03:01,339
+il est apparu au concepteur très important
+
+91
+00:03:01,439 --> 00:03:03,165
+de faire un langage avec lequel
+
+92
+00:03:03,265 --> 00:03:04,420
+on pouvait facilement échanger
+
+93
+00:03:04,793 --> 00:03:06,965
+soit pour lire le code de quelqu'un d'autre,
+
+94
+00:03:07,065 --> 00:03:09,501
+soit pour travailler avec quelqu'un d'autre.
+
+95
+00:03:09,872 --> 00:03:11,569
+Donc ce n'est pas arrivé par hasard
+
+96
+00:03:11,669 --> 00:03:14,269
+si le langage est aussi lisible ;
+
+97
+00:03:14,369 --> 00:03:15,338
+c'est vraiment un choix qui a été
+
+98
+00:03:15,640 --> 00:03:16,840
+délibéré dès le départ.
+
+99
+00:03:17,230 --> 00:03:18,924
+Et le deuxième point, c'est que
+
+100
+00:03:19,555 --> 00:03:22,538
+les choix de conception sont vraiment guidés
+
+101
+00:03:22,638 --> 00:03:24,284
+totalement par le pragmatisme ;
+
+102
+00:03:24,681 --> 00:03:25,880
+par opposition à ce qu'on a pu voir
+
+103
+00:03:25,980 --> 00:03:27,339
+tout à l'heure avec Java,
+
+104
+00:03:27,504 --> 00:03:29,123
+il n'y a, à aucun moment,
+
+105
+00:03:29,223 --> 00:03:31,188
+dans la conception de Python,
+
+106
+00:03:32,773 --> 00:03:34,056
+des choix qui auraient été faits
+
+107
+00:03:34,156 --> 00:03:35,807
+en disant: il faut que
+
+108
+00:03:35,907 --> 00:03:37,315
+telle ou telle propriété soit vraie.
+
+109
+00:03:37,415 --> 00:03:38,594
+Non, ce n'est pas comme ça que ça fonctionne
+
+110
+00:03:38,694 --> 00:03:40,663
+on se dit: on rencontre un problème,
+
+111
+00:03:40,763 --> 00:03:41,611
+quelle est la meilleure façon
+
+112
+00:03:41,711 --> 00:03:42,696
+de régler ce problème ?
+
+113
+00:03:43,108 --> 00:03:44,068
+Donnons-nous les moyens
+
+114
+00:03:44,168 --> 00:03:46,249
+de trouver la solution la plus élégante
+
+115
+00:03:46,349 --> 00:03:48,224
+pour que l'utilisateur ait
+
+116
+00:03:48,638 --> 00:03:49,786
+le langage le plus agréable
+
+117
+00:03:49,886 --> 00:03:52,239
+et le plus à même de résoudre ses problèmes.
+
+118
+00:03:53,299 --> 00:03:54,321
+Sans transition,
+
+119
+00:03:54,421 --> 00:03:56,076
+voici un rapide historique
+
+120
+00:03:56,176 --> 00:03:57,084
+des versions du langage.
+
+121
+00:03:57,991 --> 00:03:59,247
+Ça vous étonnera peut-être
+
+122
+00:03:59,347 --> 00:04:00,291
+mais Python est un langage
+
+123
+00:04:00,391 --> 00:04:01,025
+qui est assez ancien,
+
+124
+00:04:01,125 --> 00:04:02,647
+qui a déjà maintenant 25 ans.
+
+125
+00:04:03,055 --> 00:04:04,926
+Inutile de dire que, il y a 25 ans,
+
+126
+00:04:05,026 --> 00:04:06,493
+le langage ne ressemblait pas exactement
+
+127
+00:04:06,593 --> 00:04:07,891
+à ce qu'on peut utiliser aujourd'hui
+
+128
+00:04:08,375 --> 00:04:11,206
+mais, voilà, c'est un langage qui a
+
+129
+00:04:11,708 --> 00:04:13,589
+pas mal d'heures de vol derrière lui.
+
+130
+00:04:13,689 --> 00:04:15,898
+Il y a eu une grosse rupture de compatibilité
+
+131
+00:04:15,998 --> 00:04:17,560
+entre la version 2 et la version 3,
+
+132
+00:04:17,877 --> 00:04:18,398
+évidemment.
+
+133
+00:04:19,301 --> 00:04:20,311
+Tout le monde est d'accord pour dire
+
+134
+00:04:20,411 --> 00:04:21,830
+que ça a été assez douloureux
+
+135
+00:04:21,930 --> 00:04:22,735
+mais c'était quelque chose
+
+136
+00:04:22,835 --> 00:04:23,507
+qui était nécessaire
+
+137
+00:04:23,607 --> 00:04:26,293
+compte tenu de, principalement,
+
+138
+00:04:26,393 --> 00:04:27,584
+la façon dont étaient gérées
+
+139
+00:04:27,684 --> 00:04:29,628
+les chaînes de caractères, les encodages ;
+
+140
+00:04:29,728 --> 00:04:30,625
+on aura beaucoup l'occasion
+
+141
+00:04:30,725 --> 00:04:31,620
+de parler de ça pendant le cours.
+
+142
+00:04:33,208 --> 00:04:36,299
+Depuis la version 3, évidemment,
+
+143
+00:04:36,399 --> 00:04:38,330
+les choses sont redevenues
+
+144
+00:04:38,430 --> 00:04:39,304
+totalement compatibles.
+
+145
+00:04:39,734 --> 00:04:40,787
+Et donc, vous avez un langage
+
+146
+00:04:40,887 --> 00:04:42,596
+qui a une grosse histoire,
+
+147
+00:04:43,320 --> 00:04:44,138
+qui n'a eu qu'une seule
+
+148
+00:04:44,238 --> 00:04:46,241
+rupture de compatibilité en 25 ans, ce qui,
+
+149
+00:04:46,342 --> 00:04:47,939
+si vous le comparez à d'autres langages,
+
+150
+00:04:48,039 --> 00:04:49,698
+est tout à fait raisonnable.
+
+151
+00:04:50,551 --> 00:04:53,105
+Et donc, ça me donne l'occasion de parler
+
+152
+00:04:53,510 --> 00:04:54,983
+d'une autre bonne propriété de Python
+
+153
+00:04:55,083 --> 00:04:56,525
+qui est sa stabilité.
+
+154
+00:04:57,662 --> 00:05:00,527
+Stabilité du langage parce que
+
+155
+00:05:01,028 --> 00:05:02,464
+la version 2.7,
+
+156
+00:05:02,564 --> 00:05:04,883
+qui donc est la dernière version 2
+
+157
+00:05:04,983 --> 00:05:06,025
+qui a été réalisée,
+
+158
+00:05:07,248 --> 00:05:07,941
+est maintenue,
+
+159
+00:05:08,041 --> 00:05:09,865
+alors qu'elle était censée être
+
+160
+00:05:10,949 --> 00:05:12,346
+devenue obsolète en 2010,
+
+161
+00:05:12,446 --> 00:05:14,010
+puisque c'est quand on a sorti la version 3,
+
+162
+00:05:14,110 --> 00:05:15,470
+mais elle a quand même été maintenue
+
+163
+00:05:15,570 --> 00:05:16,318
+jusqu'en 2020.
+
+164
+00:05:16,418 --> 00:05:18,052
+Donc c'est un langage,
+
+165
+00:05:18,152 --> 00:05:19,947
+comme tous les langages évidemment
+
+166
+00:05:20,047 --> 00:05:20,719
+mainstream,
+
+167
+00:05:22,106 --> 00:05:23,945
+qui tient à cœur de rester compatible
+
+168
+00:05:24,045 --> 00:05:25,015
+pendant une très longue durée.
+
+169
+00:05:25,405 --> 00:05:27,326
+C'est ce qui a été fait.
+
+170
+00:05:28,953 --> 00:05:30,769
+Je prends cette occasion
+
+171
+00:05:30,869 --> 00:05:32,128
+pour vous parler de la librairie standard.
+
+172
+00:05:32,228 --> 00:05:33,087
+La librairie standard,
+
+173
+00:05:33,187 --> 00:05:34,625
+c'est l'ensemble des utilitaires
+
+174
+00:05:34,725 --> 00:05:36,837
+qui sont packagés avec Python ;
+
+175
+00:05:36,937 --> 00:05:38,590
+ça fait partie du langage
+
+176
+00:05:38,690 --> 00:05:39,489
+au sens où ça fait partie
+
+177
+00:05:39,589 --> 00:05:41,112
+de l'installation du langage ;
+
+178
+00:05:41,404 --> 00:05:43,083
+et surtout, c'est maintenu
+
+179
+00:05:43,183 --> 00:05:44,162
+au même titre que le langage.
+
+180
+00:05:44,262 --> 00:05:45,406
+Donc, si vous utilisez
+
+181
+00:05:45,923 --> 00:05:47,175
+un morceau de la librairie standard,
+
+182
+00:05:47,275 --> 00:05:49,468
+vous êtes tout à fait certains
+
+183
+00:05:49,568 --> 00:05:51,163
+que, sur la longue durée,
+
+184
+00:05:51,263 --> 00:05:52,537
+si c'est un sujet qui vous intéresse,
+
+185
+00:05:53,805 --> 00:05:55,042
+votre librairie, elle sera maintenue
+
+186
+00:05:55,142 --> 00:05:57,032
+et vous pourrez l'utiliser de manière pérenne.
+
+187
+00:05:58,286 --> 00:05:59,744
+Je signale aussi rapidement que
+
+188
+00:05:59,844 --> 00:06:01,441
+Python est un langage portable,
+
+189
+00:06:01,541 --> 00:06:02,076
+ce qui signifie
+
+190
+00:06:02,176 --> 00:06:03,562
+qu'il va fonctionner à l'identique
+
+191
+00:06:03,662 --> 00:06:05,640
+sur Windows, Mac, Linux.
+
+192
+00:06:06,086 --> 00:06:07,503
+On le trouve même sur des devices comme
+
+193
+00:06:07,737 --> 00:06:08,790
+Raspberry Pi.
+
+194
+00:06:08,890 --> 00:06:10,956
+Donc c'est un atout assez intéressant.
+
+195
+00:06:12,483 --> 00:06:13,306
+Il y a naturellement
+
+196
+00:06:13,406 --> 00:06:15,008
+une très grosse base de code
+
+197
+00:06:15,108 --> 00:06:16,345
+qui est disponible en Python ;
+
+198
+00:06:16,969 --> 00:06:18,287
+outre les grands domaines
+
+199
+00:06:18,387 --> 00:06:19,658
+que j'ai déjà signalés,
+
+200
+00:06:19,758 --> 00:06:22,386
+vous pouvez écrire un site web,
+
+201
+00:06:22,486 --> 00:06:24,024
+c'est extrêmement pratique.
+
+202
+00:06:24,124 --> 00:06:25,456
+Mais, au delà de ça,
+
+203
+00:06:25,556 --> 00:06:27,284
+vous pouvez trouver une librairie
+
+204
+00:06:27,384 --> 00:06:28,245
+pour faire n'importe quoi ;
+
+205
+00:06:28,345 --> 00:06:29,369
+si vous avez besoin de causer
+
+206
+00:06:29,469 --> 00:06:31,047
+à votre porte de garage,
+
+207
+00:06:31,147 --> 00:06:32,343
+il y a certainement quelque chose
+
+208
+00:06:32,443 --> 00:06:34,821
+qui a été écrit quelque part pour le faire.
+
+209
+00:06:37,245 --> 00:06:38,209
+Une autre critique
+
+210
+00:06:38,309 --> 00:06:39,400
+que j'entends assez fréquemment
+
+211
+00:06:39,500 --> 00:06:40,029
+au sujet de Python,
+
+212
+00:06:40,129 --> 00:06:42,301
+c'est le fait que ça n'est pas performant ;
+
+213
+00:06:42,401 --> 00:06:44,164
+en fait, la plupart du temps,
+
+214
+00:06:44,264 --> 00:06:45,299
+les problèmes qui ont besoin
+
+215
+00:06:45,817 --> 00:06:47,193
+de grosses quantités de cycles
+
+216
+00:06:47,293 --> 00:06:50,767
+ont été réglés en wrappant du code compilé,
+
+217
+00:06:51,194 --> 00:06:52,832
+typiquement écrit en C/C++,
+
+218
+00:06:53,414 --> 00:06:55,253
+avec une interface Python ;
+
+219
+00:06:56,002 --> 00:06:57,186
+c'est le cas par exemple de NumPy.
+
+220
+00:06:59,785 --> 00:07:02,321
+Ce qui fait qu'à la fin du compte,
+
+221
+00:07:02,421 --> 00:07:03,953
+avec Python, vous retrouvez un langage
+
+222
+00:07:04,053 --> 00:07:06,784
+où vous avez des types de base très puissants,
+
+223
+00:07:06,884 --> 00:07:08,727
+donc les dictionnaires, dont on va parler,
+
+224
+00:07:08,827 --> 00:07:09,509
+les ensembles,
+
+225
+00:07:10,498 --> 00:07:12,390
+y compris les tableaux numpy.
+
+226
+00:07:13,193 --> 00:07:13,814
+Vous avez
+
+227
+00:07:13,914 --> 00:07:15,671
+la gestion automatique de la mémoire,
+
+228
+00:07:15,771 --> 00:07:18,300
+ce qui vous permet de ne pas avoir à libérer,
+
+229
+00:07:18,400 --> 00:07:19,656
+vous avez un Garbage Collector
+
+230
+00:07:19,756 --> 00:07:20,878
+qui va faire le travail pour vous.
+
+231
+00:07:22,140 --> 00:07:23,887
+Vous avez un langage interprété
+
+232
+00:07:23,987 --> 00:07:25,959
+et avec l'addition des notebooks Jupyter
+
+233
+00:07:26,059 --> 00:07:26,756
+dont on va parler,
+
+234
+00:07:27,226 --> 00:07:28,430
+vous vous retrouvez avec
+
+235
+00:07:28,530 --> 00:07:30,090
+un système de développement
+
+236
+00:07:30,190 --> 00:07:31,928
+qui vous permet d'atteindre
+
+237
+00:07:32,028 --> 00:07:33,533
+une vitesse de développement
+
+238
+00:07:33,633 --> 00:07:34,236
+extrêmement rapide.
+
+239
+00:07:35,791 --> 00:07:37,421
+Je finirai en vous disant un mot
+
+240
+00:07:37,521 --> 00:07:39,124
+de la licence et de la gouvernance.
+
+241
+00:07:39,657 --> 00:07:41,959
+Les droits sont détenus par la PSF,
+
+242
+00:07:42,059 --> 00:07:43,710
+la Python Software Foundation,
+
+243
+00:07:44,132 --> 00:07:46,861
+qui est une organisation à but non lucratif.
+
+244
+00:07:49,549 --> 00:07:50,629
+L'avantage de ça, c'est que
+
+245
+00:07:50,729 --> 00:07:51,684
+la licence vous permet
+
+246
+00:07:51,784 --> 00:07:53,202
+de faire de Python
+
+247
+00:07:53,302 --> 00:07:54,063
+à peu près ce que vous voulez,
+
+248
+00:07:54,163 --> 00:07:56,150
+y compris à des fins commerciales.
+
+249
+00:07:56,897 --> 00:07:58,505
+En terme d'évolutions,
+
+250
+00:07:58,605 --> 00:07:59,669
+parce qu'il y a encore
+
+251
+00:07:59,769 --> 00:08:00,604
+des évolutions aujourd'hui,
+
+252
+00:08:00,704 --> 00:08:01,633
+vous verrez par exemple
+
+253
+00:08:02,600 --> 00:08:03,432
+lorsqu'on parlera
+
+254
+00:08:03,532 --> 00:08:04,434
+de programmation asynchrone,
+
+255
+00:08:04,534 --> 00:08:05,610
+qu'il y a vraiment des choses encore
+
+256
+00:08:05,710 --> 00:08:06,960
+très innovantes qui sont ajoutées ;
+
+257
+00:08:07,060 --> 00:08:08,142
+c'est un langage qui est très vivant.
+
+258
+00:08:09,475 --> 00:08:10,402
+La façon dont ça se passe,
+
+259
+00:08:10,502 --> 00:08:12,064
+c'est qu'il y a un débat
+
+260
+00:08:12,509 --> 00:08:14,415
+de nature démocratique qui se passe
+
+261
+00:08:14,515 --> 00:08:16,488
+autour des différentes propositions
+
+262
+00:08:16,588 --> 00:08:17,062
+qui sont faites ;
+
+263
+00:08:17,411 --> 00:08:19,756
+et la décision, en dernier recours,
+
+264
+00:08:19,856 --> 00:08:21,369
+revient au créateur du langage,
+
+265
+00:08:21,469 --> 00:08:23,024
+qui s'appelle Guido van Rossum,
+
+266
+00:08:23,510 --> 00:08:24,627
+qui s'est intitulé lui-même
+
+267
+00:08:25,686 --> 00:08:28,961
+le dictateur à vie bénévole du langage.
+
+268
+00:08:30,477 --> 00:08:33,931
+C'est la façon dont les évolutions sont faites
+
+269
+00:08:34,031 --> 00:08:35,459
+et c'est certainement pour cette raison
+
+270
+00:08:35,559 --> 00:08:37,584
+que la cohérence du langage
+
+271
+00:08:37,684 --> 00:08:39,018
+a pu être préservée
+
+272
+00:08:39,118 --> 00:08:40,876
+pendant une durée aussi longue.
+
+273
+00:08:42,391 --> 00:08:44,202
+Donc j'espère vous avoir convaincus
+
+274
+00:08:44,302 --> 00:08:45,329
+que vous avez fait le bon choix
+
+275
+00:08:45,429 --> 00:08:46,474
+en vous inscrivant à ce mooc.
+
+276
+00:08:47,829 --> 00:08:48,756
+Dans la prochaine vidéo,
+
+277
+00:08:48,856 --> 00:08:51,500
+je vous montrerai comment on utilise
+
+278
+00:08:51,868 --> 00:08:53,321
+les outils Python et les notebooks,
+
+279
+00:08:53,421 --> 00:08:54,822
+et c'est pour cette raison que
+
+280
+00:08:54,922 --> 00:08:56,341
+je vous conseille d'installer
+
+281
+00:08:56,963 --> 00:08:58,379
+les outils Python.
+
+282
+00:08:58,479 --> 00:09:00,371
+Ils ne sont pas totalement indispensables
+
+283
+00:09:00,471 --> 00:09:01,239
+pour suivre le mooc,
+
+284
+00:09:01,604 --> 00:09:03,033
+mais si vous voulez pouvoir
+
+285
+00:09:03,133 --> 00:09:04,425
+manipuler sur votre ordinateur,
+
+286
+00:09:04,525 --> 00:09:05,962
+c'est bien que vous installiez
+
+287
+00:09:06,062 --> 00:09:07,812
+Python et IPython.
+
+288
+00:09:07,912 --> 00:09:09,562
+Il y aura des compléments à ce sujet.
+
+289
+00:09:09,662 --> 00:09:10,609
+À bientôt !
+
