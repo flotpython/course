@@ -1,0 +1,664 @@
+1
+00:00:05,300 --> 00:00:07,530
+Dans cette vidéo, nous allons faire un focus
+
+2
+00:00:07,630 --> 00:00:09,520
+sur les extensions asynchrones du langage.
+
+3
+00:00:09,620 --> 00:00:11,700
+Et nous allons prendre comme prétexte
+
+4
+00:00:11,800 --> 00:00:14,150
+d'aller chercher quatre URL,
+
+5
+00:00:14,250 --> 00:00:15,510
+d'abord en séquence,
+
+6
+00:00:15,610 --> 00:00:17,100
+donc je me définis mes quatre URL,
+
+7
+00:00:17,200 --> 00:00:18,940
+et dans la version séquentielle, que je lance
+
+8
+00:00:19,040 --> 00:00:20,440
+puisque ça prend un petit peu de temps,
+
+9
+00:00:20,540 --> 00:00:22,980
+je vous montre que, évidemment
+
+10
+00:00:23,080 --> 00:00:23,960
+comme on s'y attendait
+
+11
+00:00:24,060 --> 00:00:24,860
+et comme on l'a bien compris,
+
+12
+00:00:24,960 --> 00:00:27,280
+on est allé chercher les requêtes une par une
+
+13
+00:00:27,380 --> 00:00:29,130
+et que par conséquent, je vais avoir
+
+14
+00:00:29,230 --> 00:00:31,570
+un temps total de l'ordre de
+
+15
+00:00:31,580 --> 00:00:33,450
+en l'occurrence onze secondes.
+
+16
+00:00:33,550 --> 00:00:34,130
+Bon, très bien,
+
+17
+00:00:34,230 --> 00:00:36,350
+c'était ce qu'on avait escompté.
+
+18
+00:00:36,715 --> 00:00:38,650
+Dans une version asynchrone, je vais utiliser
+
+19
+00:00:38,750 --> 00:00:40,630
+une librairie qui s'appelle aiohttp.
+
+20
+00:00:40,730 --> 00:00:42,180
+Donc c'est l'équivalent, en gros,
+
+21
+00:00:42,280 --> 00:00:43,670
+d'une stack http
+
+22
+00:00:43,770 --> 00:00:44,800
+mais qui aurait été écrite
+
+23
+00:00:44,900 --> 00:00:46,560
+dans la version asyncio.
+
+24
+00:00:47,120 --> 00:00:49,600
+Et je me définis une coroutine
+
+25
+00:00:49,700 --> 00:00:50,860
+que j'ai appelée fetch,
+
+26
+00:00:52,050 --> 00:00:54,400
+qui va matérialiser la logique qui consiste
+
+27
+00:00:54,500 --> 00:00:56,630
+à d'abord créer une connexion http,
+
+28
+00:00:56,730 --> 00:00:58,600
+puis à l'intérieur de cette session http
+
+29
+00:00:58,700 --> 00:00:59,920
+je vais envoyer un get,
+
+30
+00:01:00,020 --> 00:01:01,840
+et puis, à partir de ce get,
+
+31
+00:01:01,940 --> 00:01:03,370
+je vais pouvoir lire la réponse qui va au get.
+
+32
+00:01:03,800 --> 00:01:06,380
+L'intérêt pour moi de découper en morceaux
+
+33
+00:01:06,480 --> 00:01:08,010
+par rapport à la première version séquentielle
+
+34
+00:01:08,110 --> 00:01:09,170
+qui était vraiment macroscopique,
+
+35
+00:01:09,270 --> 00:01:10,300
+c'est de bien vous montrer que
+
+36
+00:01:10,400 --> 00:01:11,980
+je vais pouvoir faire les choses
+
+37
+00:01:12,080 --> 00:01:13,420
+essentiellement en parallèle.
+
+38
+00:01:13,520 --> 00:01:15,390
+Donc je me définis ma coroutine.
+
+39
+00:01:17,000 --> 00:01:18,760
+Vous pouvez remarquer l'utilisation
+
+40
+00:01:18,860 --> 00:01:22,100
+d'un context manager asynchrone,
+
+41
+00:01:22,200 --> 00:01:24,640
+que j'utilise avec async with.
+
+42
+00:01:24,740 --> 00:01:25,640
+Alors, qu'est-ce que c'est qu'un
+
+43
+00:01:25,740 --> 00:01:27,540
+context manager asynchrone,
+
+44
+00:01:27,640 --> 00:01:29,800
+c'est tout simplement comme
+
+45
+00:01:29,900 --> 00:01:31,490
+un context manager, sauf qu'au lieu
+
+46
+00:01:31,590 --> 00:01:32,980
+de définir les méthodes spéciales
+
+47
+00:01:33,080 --> 00:01:34,440
+__enter__ et __exit__, c'est
+
+48
+00:01:34,540 --> 00:01:36,250
+__aenter__ et __aexit__
+
+49
+00:01:36,350 --> 00:01:38,520
+qui doivent renvoyer des awaitables,
+
+50
+00:01:38,620 --> 00:01:39,860
+on aura l'occasion d'en reparler
+
+51
+00:01:39,960 --> 00:01:40,830
+dans la prochaine vidéo.
+
+52
+00:01:42,730 --> 00:01:44,900
+C'est défini dans la PEP492
+
+53
+00:01:45,000 --> 00:01:47,260
+mais nous, ce qui nous intéresse en particulier
+
+54
+00:01:47,360 --> 00:01:48,800
+c'est tout simplement que le code
+
+55
+00:01:48,900 --> 00:01:51,290
+qui est dans enter/exit,
+
+56
+00:01:51,390 --> 00:01:52,540
+au lieu que ce soit du code synchrone,
+
+57
+00:01:52,640 --> 00:01:53,880
+c'est du code asynchrone.
+
+58
+00:01:53,980 --> 00:01:55,280
+C'est la seule différence
+
+59
+00:01:55,380 --> 00:01:58,100
+ce qui fait que la boucle, au moment où
+
+60
+00:01:58,200 --> 00:02:00,000
+elle va exécuter le async with,
+
+61
+00:02:00,100 --> 00:02:02,620
+au lieu d'appeler de manière bloquante
+
+62
+00:02:02,720 --> 00:02:04,970
+le code de enter/exit,
+
+63
+00:02:05,070 --> 00:02:06,600
+elle va le faire de manière asynchrone.
+
+64
+00:02:06,700 --> 00:02:08,220
+C'est la seule différence, c'est très simple.
+
+65
+00:02:08,320 --> 00:02:10,110
+Donc pour vous montrer ce que ça donne
+
+66
+00:02:10,210 --> 00:02:12,030
+je me définis maintenant,
+
+67
+00:02:12,560 --> 00:02:16,020
+pour pouvoir passer ça à ma boucle,
+
+68
+00:02:16,120 --> 00:02:17,850
+je vais définir une coroutine,
+
+69
+00:02:17,950 --> 00:02:19,540
+dont je n'aurais pas strictement besoin
+
+70
+00:02:19,640 --> 00:02:21,526
+mais c'est pour les besoins
+
+71
+00:02:21,626 --> 00:02:23,790
+de faire quelque chose d'assez simple.
+
+72
+00:02:23,890 --> 00:02:26,720
+Donc vous voyez ici que je vais prendre
+
+73
+00:02:26,820 --> 00:02:29,180
+les quatre coroutines fetch(url),
+
+74
+00:02:30,000 --> 00:02:30,970
+je vais les passer à gather,
+
+75
+00:02:31,070 --> 00:02:33,090
+alors j'utilise une * arg
+
+76
+00:02:33,190 --> 00:02:34,950
+puisque gather s'attend à avoir
+
+77
+00:02:35,050 --> 00:02:36,900
+des arguments qui sont passés
+
+78
+00:02:37,000 --> 00:02:38,340
+individuellement,
+
+79
+00:02:38,440 --> 00:02:39,715
+- oups, encore une fois -
+
+80
+00:02:39,815 --> 00:02:41,820
+et maintenant je lance ma boucle
+
+81
+00:02:41,920 --> 00:02:44,300
+et vous allez voir que les quatre URL
+
+82
+00:02:44,400 --> 00:02:46,190
+vont se déclencher en même temps
+
+83
+00:02:46,290 --> 00:02:47,900
+et que je vais avoir, en gros,
+
+84
+00:02:48,000 --> 00:02:49,970
+comme temps total,
+
+85
+00:02:50,070 --> 00:02:51,870
+le temps de la plus longue
+
+86
+00:02:51,970 --> 00:02:53,680
+au lieu d'avoir à attendre la somme
+
+87
+00:02:55,740 --> 00:02:58,700
+de toutes les requêtes.
+
+88
+00:03:00,200 --> 00:03:01,700
+Dans la continuité de ce qu'on vient de voir
+
+89
+00:03:01,800 --> 00:03:03,350
+sur les context managers asynchrones,
+
+90
+00:03:03,450 --> 00:03:06,750
+il y a aussi la notion d'itérations asynchrones.
+
+91
+00:03:06,850 --> 00:03:09,950
+De la même façon que vous avez async with
+
+92
+00:03:10,050 --> 00:03:12,175
+on va faire maintenant async for.
+
+93
+00:03:12,375 --> 00:03:13,980
+On aura aussi la possibilité de faire
+
+94
+00:03:14,080 --> 00:03:15,570
+des compréhensions asynchrones,
+
+95
+00:03:15,670 --> 00:03:17,110
+qui est un feature qui est arrivé
+
+96
+00:03:17,210 --> 00:03:18,100
+un petit peu plus tard, mais qui est
+
+97
+00:03:18,200 --> 00:03:19,400
+disponible dans la 3.6 également.
+
+98
+00:03:19,900 --> 00:03:20,930
+Donc je vous montre une version
+
+99
+00:03:21,030 --> 00:03:23,540
+légèrement améliorée de fetch2().
+
+100
+00:03:23,640 --> 00:03:26,050
+Donc après avoir utilisé le context manager
+
+101
+00:03:26,150 --> 00:03:27,660
+pour gérer une session
+
+102
+00:03:27,760 --> 00:03:30,380
+puis pour gérer la requête,
+
+103
+00:03:30,480 --> 00:03:32,620
+je vais maintenant utiliser un async for
+
+104
+00:03:32,720 --> 00:03:36,770
+sur les lignes qui reviennent en réponse,
+
+105
+00:03:36,870 --> 00:03:40,100
+ce qui va me permettre de vraiment
+
+106
+00:03:40,200 --> 00:03:43,160
+intercepter chaque ligne individuellement,
+
+107
+00:03:43,260 --> 00:03:45,150
+et tout ça, dans un mode asynchrone.
+
+108
+00:03:45,600 --> 00:03:46,570
+Donc ce que ça donnerait
+
+109
+00:03:46,670 --> 00:03:49,190
+si je le faisais de cette façon-là,
+
+110
+00:03:50,290 --> 00:03:53,180
+c'est exactement le même boilerplate avant.
+
+111
+00:03:53,280 --> 00:03:54,490
+Le détail n'a pas vraiment
+
+112
+00:03:54,590 --> 00:03:55,000
+beaucoup d'importance,
+
+113
+00:03:55,100 --> 00:03:56,090
+c'est vraiment pour vous montrer que
+
+114
+00:03:56,190 --> 00:03:59,050
+je reçois les lignes,
+
+115
+00:03:59,150 --> 00:04:00,700
+je suis capable d'intercepter l'événement
+
+116
+00:04:00,800 --> 00:04:02,200
+qui consiste à "je retourne une ligne".
+
+117
+00:04:02,300 --> 00:04:04,000
+Évidemment, ça vient par gros blocs
+
+118
+00:04:04,100 --> 00:04:05,670
+parce que la requête revient
+
+119
+00:04:05,770 --> 00:04:06,900
+en gros paquet de lignes,
+
+120
+00:04:07,000 --> 00:04:09,570
+mais je suis capable vraiment d'intercepter
+
+121
+00:04:09,670 --> 00:04:12,800
+à des niveaux extrêmement fins le protocole,
+
+122
+00:04:12,900 --> 00:04:14,100
+je vais descendre très profond.
+
+123
+00:04:14,200 --> 00:04:16,070
+Tout ça en n'ayant pratiquement
+
+124
+00:04:16,170 --> 00:04:17,120
+pas défiguré mon code,
+
+125
+00:04:17,220 --> 00:04:18,300
+j'ai vraiment fait presque
+
+126
+00:04:18,400 --> 00:04:20,300
+comme si c'était du code synchrone ;
+
+127
+00:04:20,400 --> 00:04:22,300
+au lieu de faire for line in reponse
+
+128
+00:04:22,400 --> 00:04:23,740
+je fais un async for line.
+
+129
+00:04:25,720 --> 00:04:26,460
+Donc pour résumer
+
+130
+00:04:26,560 --> 00:04:27,770
+tout ce qu'on a vu jusqu'à maintenant,
+
+131
+00:04:28,380 --> 00:04:29,880
+on a vu qu'on pouvait créer
+
+132
+00:04:29,980 --> 00:04:32,200
+des fonctions coroutines avec async def ;
+
+133
+00:04:32,300 --> 00:04:34,530
+on a vu que ces fonctions coroutines
+
+134
+00:04:34,630 --> 00:04:36,270
+retournaient un objet coroutine,
+
+135
+00:04:36,370 --> 00:04:37,200
+qu'on pouvait utiliser
+
+136
+00:04:37,300 --> 00:04:39,400
+essentiellement avec await.
+
+137
+00:04:41,700 --> 00:04:44,100
+On a vu également que depuis une coroutine
+
+138
+00:04:44,200 --> 00:04:46,120
+on pouvait appeler une autre coroutine
+
+139
+00:04:46,220 --> 00:04:47,270
+en faisant un await.
+
+140
+00:04:47,370 --> 00:04:51,470
+Par contre, il n'est pas possible,
+
+141
+00:04:51,570 --> 00:04:52,600
+et le langage le sanctionne
+
+142
+00:04:52,700 --> 00:04:53,730
+par une erreur de syntaxe,
+
+143
+00:04:53,830 --> 00:04:55,530
+il n'est pas possible de faire await
+
+144
+00:04:55,630 --> 00:04:57,050
+dans une fonction synchrone,
+
+145
+00:04:57,150 --> 00:04:58,480
+pour la raison que ça n'aurait pas de sens
+
+146
+00:04:58,580 --> 00:05:00,100
+et on cherche à éviter des erreurs,
+
+147
+00:05:00,200 --> 00:05:02,000
+disons, les plus grossières.
+
+148
+00:05:02,100 --> 00:05:05,480
+Ça n'était pas le cas à une époque lointaine,
+
+149
+00:05:05,580 --> 00:05:06,650
+on a décidé maintenant que c'était
+
+150
+00:05:06,750 --> 00:05:08,150
+carrément strictement interdit.
+
+151
+00:05:09,720 --> 00:05:11,680
+Nous avons vu à l'instant la notion
+
+152
+00:05:11,780 --> 00:05:13,780
+de context manager asynchrone,
+
+153
+00:05:13,880 --> 00:05:15,970
+de boucle asynchrone ;
+
+154
+00:05:16,070 --> 00:05:18,000
+bon, les compréhensions asynchrones
+
+155
+00:05:18,100 --> 00:05:19,000
+se présentent à peu près
+
+156
+00:05:19,100 --> 00:05:19,880
+exactement de la même façon:
+
+157
+00:05:19,980 --> 00:05:21,860
+des crochets avec async for,
+
+158
+00:05:21,960 --> 00:05:23,320
+c'est exactement le même principe.
+
+159
+00:05:24,700 --> 00:05:26,730
+Et nous avons vu très brièvement
+
+160
+00:05:26,830 --> 00:05:27,700
+la boucle d'événements,
+
+161
+00:05:27,800 --> 00:05:29,500
+ça, on va le creuser un petit peu plus tard.
+
+162
+00:05:29,600 --> 00:05:30,700
+Donc je vous donne rendez-vous
+
+163
+00:05:30,800 --> 00:05:32,780
+dans la prochaine vidéo où on va expliciter
+
+164
+00:05:32,880 --> 00:05:35,150
+la notion de awaitable,
+
+165
+00:05:35,250 --> 00:05:37,590
+qui est assez centrale dans le paysage.
+
+166
+00:05:37,690 --> 00:05:38,750
+À bientôt !
+

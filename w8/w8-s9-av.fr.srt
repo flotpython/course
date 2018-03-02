@@ -1,0 +1,1072 @@
+1
+00:00:04,470 --> 00:00:06,479
+Nous avons fini de faire le tour
+
+2
+00:00:06,579 --> 00:00:09,213
+de la librairie asyncio, de ces mécanismes
+
+3
+00:00:09,313 --> 00:00:10,395
+de programmation asynchrone
+
+4
+00:00:10,495 --> 00:00:11,627
+qui sont offerts par Python,
+
+5
+00:00:12,074 --> 00:00:13,700
+et dans cette dernière vidéo,
+
+6
+00:00:13,800 --> 00:00:15,507
+je vais simplement refaire le tour
+
+7
+00:00:15,607 --> 00:00:17,073
+de toutes les petites choses
+
+8
+00:00:17,173 --> 00:00:18,318
+que j'ai signalées comme étant
+
+9
+00:00:18,418 --> 00:00:20,225
+des sources possibles d'erreur
+
+10
+00:00:20,325 --> 00:00:21,511
+et de frustration.
+
+11
+00:00:21,887 --> 00:00:25,343
+On va commencer par redire,
+
+12
+00:00:25,443 --> 00:00:28,103
+pour une énième fois,
+
+13
+00:00:28,203 --> 00:00:30,551
+qu'il faut être très attentif
+
+14
+00:00:30,651 --> 00:00:31,607
+à faire la différence entre
+
+15
+00:00:31,707 --> 00:00:33,909
+la fonction coroutine,
+
+16
+00:00:34,009 --> 00:00:35,675
+qui lorsqu'on l'appelle,
+
+17
+00:00:35,775 --> 00:00:37,652
+retourne un objet coroutine,
+
+18
+00:00:37,752 --> 00:00:39,210
+qui ne fait rien,
+
+19
+00:00:40,005 --> 00:00:42,185
+c'est exactement, pour vous souvenir de
+
+20
+00:00:42,285 --> 00:00:43,426
+ce qu'on a dit dans les semaines précédentes,
+
+21
+00:00:43,526 --> 00:00:45,083
+c'est exactement la même chose que si
+
+22
+00:00:45,183 --> 00:00:47,309
+je crée une fonction génératrice
+
+23
+00:00:47,409 --> 00:00:48,793
+et que je l'appelle,
+
+24
+00:00:48,893 --> 00:00:50,497
+et bien, j'obtiens un objet générateur
+
+25
+00:00:50,597 --> 00:00:52,527
+qui peut être utilisé dans une itération
+
+26
+00:00:52,627 --> 00:00:54,824
+mais qui, en soi, n'a rien fait ;
+
+27
+00:00:54,924 --> 00:00:56,792
+le fait d'appeler la fonction, ça ne fait rien.
+
+28
+00:00:56,892 --> 00:00:59,375
+Donc, je vais refaire un petit peu le tour
+
+29
+00:00:59,475 --> 00:01:00,732
+pour que ce soit bien clair pour tout le monde
+
+30
+00:01:01,872 --> 00:01:03,737
+des différentes combinaisons possibles
+
+31
+00:01:03,837 --> 00:01:07,401
+donc je me définis deux objets,
+
+32
+00:01:07,501 --> 00:01:09,394
+une fonction normale, traditionnelle,
+
+33
+00:01:09,494 --> 00:01:10,220
+qui s'appelle synchro(),
+
+34
+00:01:10,320 --> 00:01:12,899
+et une coroutine, une fonction coroutine,
+
+35
+00:01:12,999 --> 00:01:13,813
+qui s'appelle asynchro().
+
+36
+00:01:15,821 --> 00:01:16,914
+Et maintenant, je regarde
+
+37
+00:01:17,014 --> 00:01:18,677
+toutes les combinaisons.
+
+38
+00:01:18,777 --> 00:01:20,764
+Je peux depuis une fonction traditionnelle
+
+39
+00:01:20,864 --> 00:01:22,218
+appeler une fonction traditionnelle,
+
+40
+00:01:22,318 --> 00:01:23,406
+donc le cas numéro un ;
+
+41
+00:01:23,506 --> 00:01:25,284
+c'est ce qu'on a fait
+
+42
+00:01:25,384 --> 00:01:26,599
+pendant toutes les semaines de Python,
+
+43
+00:01:26,699 --> 00:01:27,884
+ça, c'est tout à fait normal.
+
+44
+00:01:27,984 --> 00:01:31,117
+On peut imaginer qu'une fonction synchrone
+
+45
+00:01:31,217 --> 00:01:34,176
+appelle une coroutine
+
+46
+00:01:34,276 --> 00:01:35,792
+mais en général ça n'a pas de sens,
+
+47
+00:01:35,892 --> 00:01:37,166
+donc là je vous dis : faites attention,
+
+48
+00:01:37,266 --> 00:01:39,295
+et là par contre, vous n'avez simplement pas
+
+49
+00:01:39,056 --> 00:01:40,894
+le droit d'un point de vue d'erreur de syntaxe
+
+50
+00:01:40,994 --> 00:01:45,121
+de faire un await à partir du code synchrone.
+
+51
+00:01:45,221 --> 00:01:46,151
+Ça, c'est la première chose.
+
+52
+00:01:47,747 --> 00:01:49,779
+Donc j'évalue ça pour montrer que
+
+53
+00:01:49,879 --> 00:01:51,363
+ça fait effectivement une erreur de syntaxe.
+
+54
+00:01:51,463 --> 00:01:54,125
+Vous avez aussi, dans l'autre sens,
+
+55
+00:01:54,225 --> 00:01:55,618
+en partant d'un code asynchrone,
+
+56
+00:01:55,718 --> 00:01:56,924
+vous avez tout à fait le droit
+
+57
+00:01:57,024 --> 00:01:57,835
+d'appeler une fonction synchrone ;
+
+58
+00:01:57,935 --> 00:01:59,111
+faites attention simplement à ce que
+
+59
+00:01:59,211 --> 00:01:59,991
+ça ne soit pas bloquant.
+
+60
+00:02:00,734 --> 00:02:01,949
+Vous avez bien entendu le droit
+
+61
+00:02:02,049 --> 00:02:04,008
+d'appeler une coroutine avec un await.
+
+62
+00:02:04,803 --> 00:02:07,465
+Vous avez, au sens du langage, le droit
+
+63
+00:02:07,565 --> 00:02:09,734
+d'appeler directement
+
+64
+00:02:09,834 --> 00:02:11,334
+une fonction asynchrone, ou
+
+65
+00:02:11,434 --> 00:02:12,720
+de faire un await sur une fonction synchrone
+
+66
+00:02:12,820 --> 00:02:14,320
+donc les utiliser de manière
+
+67
+00:02:15,968 --> 00:02:16,930
+à l'envers, on va dire,
+
+68
+00:02:17,030 --> 00:02:21,364
+mais la plupart du temps, c'est suspect,
+
+69
+00:02:21,464 --> 00:02:23,123
+on va regarder ces cas-là
+
+70
+00:02:23,223 --> 00:02:24,058
+un petit peu plus en détail.
+
+71
+00:02:24,258 --> 00:02:25,340
+Le cas numéro deux,
+
+72
+00:02:25,440 --> 00:02:27,619
+c'est le cas où une fonction normale
+
+73
+00:02:27,719 --> 00:02:30,515
+appelle une coroutine sans faire de await ;
+
+74
+00:02:30,615 --> 00:02:31,720
+je vous donne un exemple,
+
+75
+00:02:31,820 --> 00:02:34,663
+que je vais exécuter dans un process externe
+
+76
+00:02:35,523 --> 00:02:37,299
+parce que lorsque je suis dans un notebook
+
+77
+00:02:37,399 --> 00:02:38,391
+c'est un petit peu confusant,
+
+78
+00:02:38,491 --> 00:02:39,309
+on n'a pas forcément toujours
+
+79
+00:02:39,409 --> 00:02:41,605
+le même sentiment et même retour
+
+80
+00:02:41,705 --> 00:02:43,235
+que lorsqu'on envoie un vrai programme
+
+81
+00:02:43,335 --> 00:02:43,914
+à Python.
+
+82
+00:02:44,351 --> 00:02:48,649
+Si j'invoque ce petit programme à Python,
+
+83
+00:02:48,749 --> 00:02:50,348
+je vais avoir un avertissement
+
+84
+00:02:50,448 --> 00:02:53,082
+qui me dit que ma coroutine,
+
+85
+00:02:53,182 --> 00:02:54,911
+je l'ai créée mais je ne l'ai jamais awaitée.
+
+86
+00:02:55,011 --> 00:02:56,681
+C'est ce qu'on veut ; simplement
+
+87
+00:02:56,781 --> 00:02:57,673
+comme je l'ai déjà dit
+
+88
+00:02:57,773 --> 00:02:59,676
+dans une vidéo précédente,
+
+89
+00:02:59,776 --> 00:03:02,114
+ce message, il arrivera probablement
+
+90
+00:03:02,214 --> 00:03:04,039
+très tard, puisqu'en fait, il n'y a aucun moment
+
+91
+00:03:04,139 --> 00:03:06,992
+où on peut être sûr que vous ne ferez pas
+
+92
+00:03:07,092 --> 00:03:11,781
+un await avec cet objet un moment plus tard.
+
+93
+00:03:12,702 --> 00:03:14,467
+J'attire votre attention là-dessus ;
+
+94
+00:03:14,567 --> 00:03:16,620
+le système s'efforce de vous donner
+
+95
+00:03:16,720 --> 00:03:17,673
+un avertissement,
+
+96
+00:03:17,773 --> 00:03:19,252
+simplement, la plupart du temps,
+
+97
+00:03:19,352 --> 00:03:21,131
+ça peut arriver un petit peu à contretemps.
+
+98
+00:03:21,425 --> 00:03:23,328
+Je fais très rapidement le cas n°7
+
+99
+00:03:23,428 --> 00:03:24,410
+qui était exactement la même chose
+
+100
+00:03:24,510 --> 00:03:28,644
+mais à partir de code asynchrone,
+
+101
+00:03:28,800 --> 00:03:30,643
+on a exactement le même message ;
+
+102
+00:03:30,743 --> 00:03:32,548
+c'est pour vous montrer,
+
+103
+00:03:32,648 --> 00:03:33,721
+puisque ça n'a pas toujours été le cas
+
+104
+00:03:33,821 --> 00:03:35,125
+en réalité, que,
+
+105
+00:03:35,225 --> 00:03:37,183
+qu'on soit dans une boucle ou non,
+
+106
+00:03:37,283 --> 00:03:38,190
+ça n'a pas d'importance,
+
+107
+00:03:39,664 --> 00:03:41,549
+cette situation-là est notifiée
+
+108
+00:03:41,649 --> 00:03:44,655
+de la même façon au programmeur.
+
+109
+00:03:45,249 --> 00:03:47,957
+Je vois enfin le cas numéro huit,
+
+110
+00:03:49,668 --> 00:03:52,979
+j'ai une coroutine qui fait un await
+
+111
+00:03:53,079 --> 00:03:54,959
+sur une fonction synchrone traditionnelle.
+
+112
+00:03:55,059 --> 00:03:59,342
+Là à nouveau, on a tous les concepts
+
+113
+00:03:59,442 --> 00:04:00,742
+pour comprendre que ça peut être
+
+114
+00:04:00,842 --> 00:04:01,675
+une phrase légale ;
+
+115
+00:04:01,775 --> 00:04:04,535
+si ma fonction synchrone renvoie un objet
+
+116
+00:04:04,635 --> 00:04:06,730
+qui est un awaitable, c'est tout à fait légal ;
+
+117
+00:04:06,830 --> 00:04:08,784
+on en a déjà fait
+
+118
+00:04:08,884 --> 00:04:10,809
+lorsque je vous ai montré les awaitables.
+
+119
+00:04:11,767 --> 00:04:14,206
+Simplement, dans la plupart des cas,
+
+120
+00:04:14,306 --> 00:04:16,629
+si vous êtes un utilisateur normal, lambda,
+
+121
+00:04:16,729 --> 00:04:18,172
+et que vous commencez à faire du asyncio
+
+122
+00:04:18,272 --> 00:04:19,335
+pour faire une application,
+
+123
+00:04:19,435 --> 00:04:20,440
+il y a de très fortes chances
+
+124
+00:04:20,540 --> 00:04:22,847
+pour que vous ne fassiez pas ça.
+
+125
+00:04:25,689 --> 00:04:27,583
+C'est un cas suspect, je vous signale
+
+126
+00:04:28,654 --> 00:04:29,756
+dans le module inspect,
+
+127
+00:04:29,856 --> 00:04:31,194
+que vous avez tout un tas de
+
+128
+00:04:31,294 --> 00:04:33,460
+fonctionnalités pour calculer
+
+129
+00:04:33,560 --> 00:04:35,035
+si un objet est une coroutine,
+
+130
+00:04:35,135 --> 00:04:36,658
+un objet coroutine, un générateur,
+
+131
+00:04:36,758 --> 00:04:39,166
+en particulier, vous avez, dans ce cas précis,
+
+132
+00:04:40,807 --> 00:04:43,088
+une fonctionnalité qui s'appelle is_awaitable
+
+133
+00:04:43,188 --> 00:04:44,992
+parce que ce que vous voulez vérifier,
+
+134
+00:04:45,092 --> 00:04:46,567
+c'est que l'objet renvoyé par synchro
+
+135
+00:04:46,667 --> 00:04:48,141
+est bien un awaitable.
+
+136
+00:04:49,291 --> 00:04:50,937
+Le deuxième écueil le plus fréquent,
+
+137
+00:04:51,037 --> 00:04:53,320
+c'est d'écrire du code qui est trop bloquant.
+
+138
+00:04:53,420 --> 00:04:54,547
+Alors, quand je dis trop bloquant,
+
+139
+00:04:54,647 --> 00:04:56,065
+ça veut dire que dans une coroutine
+
+140
+00:04:56,165 --> 00:04:58,034
+vous ne rendez pas suffisamment la main,
+
+141
+00:04:58,134 --> 00:04:59,902
+donc je vous refais un exemple
+
+142
+00:05:00,002 --> 00:05:01,638
+pour être bien clair là-dessus.
+
+143
+00:05:02,083 --> 00:05:04,651
+Je vais mettre en parallèle deux coroutines,
+
+144
+00:05:04,751 --> 00:05:06,918
+une qui est, on va dire, un bon citoyen
+
+145
+00:05:07,018 --> 00:05:08,428
+parce qu'elle va rendre la main régulièrement
+
+146
+00:05:08,528 --> 00:05:09,390
+c'est celle qui s'appelle countdown,
+
+147
+00:05:09,490 --> 00:05:11,521
+elle va nous écrire un point
+
+148
+00:05:11,621 --> 00:05:12,481
+de temps en temps ;
+
+149
+00:05:12,581 --> 00:05:14,275
+et puis une deuxième qui est,
+
+150
+00:05:14,375 --> 00:05:16,189
+je l'ai appelée compute pour simuler le fait
+
+151
+00:05:16,289 --> 00:05:17,745
+que c'est un calcul bloquant.
+
+152
+00:05:19,223 --> 00:05:21,267
+Cette fonction-là utilise uniquement
+
+153
+00:05:21,367 --> 00:05:22,560
+time.sleep donc elle ne rend pas la main.
+
+154
+00:05:22,660 --> 00:05:24,499
+Si j'exécute le scénario,
+
+155
+00:05:25,284 --> 00:05:27,514
+vous allez avoir à un moment donné
+
+156
+00:05:27,614 --> 00:05:29,413
+lorsque je rentre dans la fonction compute
+
+157
+00:05:29,513 --> 00:05:30,715
+je n'ai plus que des x ;
+
+158
+00:05:30,815 --> 00:05:32,763
+on n'a pas du tout réparti le temps
+
+159
+00:05:32,863 --> 00:05:35,305
+de manière homogène entre les deux.
+
+160
+00:05:37,952 --> 00:05:39,795
+Pour adresser ce type de problème,
+
+161
+00:05:40,818 --> 00:05:41,978
+vous pouvez par exemple,
+
+162
+00:05:42,078 --> 00:05:44,457
+bien sûr vous pouvez reconcevoir
+
+163
+00:05:44,557 --> 00:05:46,611
+votre code de manière à être plus...
+
+164
+00:05:46,711 --> 00:05:49,812
+il y a une astuce qui peut rendre service,
+
+165
+00:05:49,912 --> 00:05:51,049
+c'est que vous pouvez faire quelque chose
+
+166
+00:05:51,149 --> 00:05:54,563
+du style await asyncio.sleep(0) ;
+
+167
+00:05:54,663 --> 00:05:55,684
+ça veut dire en gros que
+
+168
+00:05:55,784 --> 00:05:58,115
+vous ne perdez pas de temps,
+
+169
+00:05:58,215 --> 00:06:00,135
+simplement vous rendez la main à la boucle
+
+170
+00:06:00,235 --> 00:06:01,977
+dans l'hypothèse où quelqu'un d'autre
+
+171
+00:06:02,077 --> 00:06:03,853
+aurait besoin du processeur.
+
+172
+00:06:03,953 --> 00:06:07,081
+Si je fais cette fois-ci tourner le code,
+
+173
+00:06:07,181 --> 00:06:10,296
+vous voyez que les deux tâches
+
+174
+00:06:10,396 --> 00:06:12,082
+se mélangent bien comme on voudrait le faire
+
+175
+00:06:13,270 --> 00:06:14,720
+Enfin, il y a cette difficulté
+
+176
+00:06:14,820 --> 00:06:15,958
+que nous avons déjà évoquée
+
+177
+00:06:16,058 --> 00:06:17,816
+et qui est liée aux exceptions.
+
+178
+00:06:17,916 --> 00:06:19,575
+Je vais vous redonner un exemple.
+
+179
+00:06:19,675 --> 00:06:22,000
+De nouveau, je vais exécuter ce code
+
+180
+00:06:22,100 --> 00:06:23,379
+dans un python séparé
+
+181
+00:06:23,479 --> 00:06:24,631
+pour vous montrer un petit peu le type
+
+182
+00:06:24,731 --> 00:06:27,632
+de retour que vous pouvez imaginer avoir,
+
+183
+00:06:27,732 --> 00:06:33,112
+donc je fais un scénario dans lequel
+
+184
+00:06:33,212 --> 00:06:35,174
+une de mes coroutines
+
+185
+00:06:35,992 --> 00:06:36,754
+lève une exception,
+
+186
+00:06:36,854 --> 00:06:38,157
+là, ça va être un zero divide.
+
+187
+00:06:39,606 --> 00:06:40,909
+Si je lance ce programme,
+
+188
+00:06:41,907 --> 00:06:43,307
+là, je vous montre le code, pardon,
+
+189
+00:06:43,407 --> 00:06:45,015
+si je lance le programme,
+
+190
+00:06:45,115 --> 00:06:46,922
+vous allez obtenir un message qui est
+
+191
+00:06:47,022 --> 00:06:49,036
+Task exception was never retrieved.
+
+192
+00:06:49,136 --> 00:06:53,482
+Ça, c'est vraiment le type de symptôme
+
+193
+00:06:53,582 --> 00:06:56,068
+qui est susceptible d'amener
+
+194
+00:06:56,168 --> 00:06:57,050
+le plus de frustration
+
+195
+00:06:57,150 --> 00:06:58,573
+quand on commence avec asyncio.
+
+196
+00:06:59,600 --> 00:07:02,038
+Pour adresser ce genre de problèmes,
+
+197
+00:07:04,022 --> 00:07:05,673
+l'environnement développement asyncio
+
+198
+00:07:05,773 --> 00:07:08,615
+vous offre un certain nombre d'assistances ;
+
+199
+00:07:08,715 --> 00:07:10,718
+notamment, il y a un mode debug.
+
+200
+00:07:10,818 --> 00:07:14,878
+Le mode debug se propose de vous donner
+
+201
+00:07:14,978 --> 00:07:16,497
+plus de renseignements bien entendu
+
+202
+00:07:16,597 --> 00:07:17,352
+puisque c'est un mode debug ;
+
+203
+00:07:17,452 --> 00:07:19,208
+il se propose aussi de vous donner
+
+204
+00:07:19,308 --> 00:07:20,823
+des informations un petit peu plus tôt
+
+205
+00:07:20,923 --> 00:07:22,415
+dans le cycle.
+
+206
+00:07:22,931 --> 00:07:23,759
+Bon, très clairement,
+
+207
+00:07:23,859 --> 00:07:25,925
+ça vient avec l'habitude tout de même ;
+
+208
+00:07:26,875 --> 00:07:27,571
+au bout d'un moment,
+
+209
+00:07:27,671 --> 00:07:29,267
+il n'y a évidemment plus de problème,
+
+210
+00:07:29,367 --> 00:07:30,887
+mais je pense que pour les gens qui
+
+211
+00:07:30,987 --> 00:07:33,278
+développent du code asyncio
+
+212
+00:07:33,378 --> 00:07:34,392
+pour la première fois,
+
+213
+00:07:34,492 --> 00:07:38,461
+ce sont les trois erreurs les plus fréquentes
+
+214
+00:07:38,561 --> 00:07:40,238
+je voulais attirer votre attention là-dessus
+
+215
+00:07:40,338 --> 00:07:42,863
+pour vos premiers pas en asyncio.
+
+216
+00:07:44,133 --> 00:07:45,174
+Donc voilà qui conclut
+
+217
+00:07:45,274 --> 00:07:46,012
+ce que je voulais vous dire
+
+218
+00:07:46,112 --> 00:07:47,890
+sur la programmation asynchrone en Python.
+
+219
+00:07:48,383 --> 00:07:50,288
+J'espère vous avoir convaincus que c'est
+
+220
+00:07:50,388 --> 00:07:52,642
+une technologie qui est d'abord intéressante
+
+221
+00:07:54,024 --> 00:07:55,216
+mais aussi utile parce que
+
+222
+00:07:56,087 --> 00:07:57,345
+on a de plus en plus affaire à
+
+223
+00:07:57,445 --> 00:07:59,475
+des programmations de ce type
+
+224
+00:07:59,575 --> 00:08:02,214
+avec beaucoup de sources d'informations
+
+225
+00:08:02,314 --> 00:08:03,395
+de toutes sortes à mélanger.
+
+226
+00:08:05,735 --> 00:08:07,374
+J'espère vous avoir donné les bases
+
+227
+00:08:07,474 --> 00:08:09,949
+pour appréhender ce sujet
+
+228
+00:08:10,049 --> 00:08:11,663
+surtout si vous ne connaissiez pas du tout.
+
+229
+00:08:11,763 --> 00:08:13,972
+Mon objectif, ça n'a pas été forcément
+
+230
+00:08:14,072 --> 00:08:16,498
+de vous donner une connaissance fine
+
+231
+00:08:16,598 --> 00:08:17,616
+de tous les mécanismes,
+
+232
+00:08:17,716 --> 00:08:19,712
+d'autant qu'il y a très probablement
+
+233
+00:08:19,812 --> 00:08:21,594
+des évolutions qui vont arriver
+
+234
+00:08:21,694 --> 00:08:22,122
+dans ce domaine.
+
+235
+00:08:22,222 --> 00:08:25,237
+J'ai vraiment essayé de vous donner
+
+236
+00:08:25,337 --> 00:08:29,568
+le paradigme dans sa généralité
+
+237
+00:08:31,100 --> 00:08:33,618
+notamment parce qu'il est vraisemblable
+
+238
+00:08:33,718 --> 00:08:36,295
+que c'est un sujet qui va pas mal évoluer
+
+239
+00:08:36,395 --> 00:08:37,365
+dans les années qui viennent
+
+240
+00:08:37,465 --> 00:08:38,987
+parce qu'il faut se souvenir que ça n'a
+
+241
+00:08:39,087 --> 00:08:41,100
+commencé que finalement il y a deux ans.
+
+242
+00:08:41,901 --> 00:08:42,998
+On ne peut pas vraiment dire qu'on ait
+
+243
+00:08:43,098 --> 00:08:46,031
+une maturité avérée comme on peut l'avoir
+
+244
+00:08:46,131 --> 00:08:47,229
+dans des tas d'autres domaines.
+
+245
+00:08:49,099 --> 00:08:50,678
+Concernant les évolutions,
+
+246
+00:08:50,778 --> 00:08:52,572
+je voulais vous signaler que
+
+247
+00:08:52,672 --> 00:08:54,021
+rien que sur asyncio,
+
+248
+00:08:54,121 --> 00:08:55,125
+il y a un certain nombre de choses
+
+249
+00:08:55,225 --> 00:08:57,262
+qui ont déjà été évoquées ;
+
+250
+00:08:57,362 --> 00:08:58,887
+notamment la possibilité de faire
+
+251
+00:08:58,987 --> 00:09:01,422
+un nettoyage, vous avez peut-être remarqué
+
+252
+00:09:01,522 --> 00:09:02,636
+qu'il y a des méthodes sur les tâches,
+
+253
+00:09:02,736 --> 00:09:04,751
+des méthodes sur les boucles...
+
+254
+00:09:04,851 --> 00:09:05,961
+Bon tout ça a besoin,
+
+255
+00:09:06,061 --> 00:09:07,104
+avec des noms qui ne sont quand même
+
+256
+00:09:07,204 --> 00:09:08,070
+pas non plus très parlants,
+
+257
+00:09:08,684 --> 00:09:09,633
+donc, ça, ça a besoin
+
+258
+00:09:09,733 --> 00:09:10,591
+d'être un petit peu nettoyé.
+
+259
+00:09:10,849 --> 00:09:12,736
+La doc a beaucoup besoin d'être améliorée.
+
+260
+00:09:13,373 --> 00:09:14,707
+Mais, au delà de ça,
+
+261
+00:09:14,807 --> 00:09:16,841
+il est important d'avoir en tête
+
+262
+00:09:16,941 --> 00:09:18,708
+la différence entre le langage et la librairie
+
+263
+00:09:18,808 --> 00:09:23,002
+parce que moi, je ne serai pas surpris si
+
+264
+00:09:23,102 --> 00:09:24,602
+d'autres librairies venaient à concurrencer
+
+265
+00:09:24,702 --> 00:09:26,945
+asyncio dans le futur.
+
+266
+00:09:27,045 --> 00:09:28,084
+Enfin, dans tous les cas,
+
+267
+00:09:28,184 --> 00:09:30,162
+je vous remercie d'avoir suivi cette semaine
+
+268
+00:09:30,975 --> 00:09:32,341
+et je vous dis au revoir.
+

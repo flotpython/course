@@ -1,0 +1,1340 @@
+﻿1
+00:00:00,559 --> 00:00:01,477
+On voit que cette notion
+
+2
+00:00:01,577 --> 00:00:02,685
+d'expression génératrice
+
+3
+00:00:02,785 --> 00:00:04,619
+est très puissante et extrêmement souple.
+
+4
+00:00:04,925 --> 00:00:07,021
+Vraiment, la tendance en Python, c'est de dire
+
+5
+00:00:07,121 --> 00:00:08,918
+je manipule toujours des itérateurs
+
+6
+00:00:09,018 --> 00:00:10,774
+le plus loin possible sans créer
+
+7
+00:00:10,874 --> 00:00:11,989
+de structure de données temporaire
+
+8
+00:00:12,089 --> 00:00:13,789
+et je ne créerai ma structure de données
+
+9
+00:00:13,889 --> 00:00:15,389
+qu'uniquement à la fin
+
+10
+00:00:15,489 --> 00:00:16,328
+par exemple, pour stocker mes résultats.
+
+11
+00:00:16,942 --> 00:00:18,956
+Évidemment, cette logique est de dire
+
+12
+00:00:19,056 --> 00:00:20,062
+qu'en Python, tout est un objet
+
+13
+00:00:20,162 --> 00:00:21,138
+donc tout prend de la place
+
+14
+00:00:21,238 --> 00:00:22,873
+donc c'est inutile de créer des objets
+
+15
+00:00:22,973 --> 00:00:23,646
+si on n'en a pas besoin ;
+
+16
+00:00:23,746 --> 00:00:24,984
+on ne les crée que quand
+
+17
+00:00:25,084 --> 00:00:26,281
+c'est strictement nécessaire.
+
+18
+00:00:26,736 --> 00:00:28,417
+Cependant, l'expression génératrice
+
+19
+00:00:28,517 --> 00:00:29,311
+a une limitation,
+
+20
+00:00:29,411 --> 00:00:30,959
+c'est que dans une expression génératrice
+
+21
+00:00:31,341 --> 00:00:32,237
+exactement comme
+
+22
+00:00:32,337 --> 00:00:34,093
+dans une compréhension de liste,
+
+23
+00:00:34,193 --> 00:00:35,588
+je ne peux mettre qu'une expression.
+
+24
+00:00:35,950 --> 00:00:37,016
+Or, si je voulais faire
+
+25
+00:00:37,116 --> 00:00:38,935
+un traitement plus sophistiqué
+
+26
+00:00:39,035 --> 00:00:40,094
+qu'une compréhension de liste,
+
+27
+00:00:40,982 --> 00:00:41,544
+je me dis
+
+28
+00:00:41,644 --> 00:00:42,581
+mais comment est-ce que je pourrais faire ça
+
+29
+00:00:42,681 --> 00:00:43,343
+puisque je ne peux pas le mettre
+
+30
+00:00:43,443 --> 00:00:44,205
+dans une expression ?
+
+31
+00:00:44,305 --> 00:00:46,331
+Et bien, en fait, les expressions génératrices
+
+32
+00:00:46,431 --> 00:00:47,786
+ont été généralisées
+
+33
+00:00:47,886 --> 00:00:49,173
+dans un concept qu'on appelle
+
+34
+00:00:49,273 --> 00:00:50,497
+fonctions génératrices.
+
+35
+00:00:50,928 --> 00:00:52,428
+Vous pouvez créer des fonctions
+
+36
+00:00:52,528 --> 00:00:53,806
+qui vont se comporter
+
+37
+00:00:53,906 --> 00:00:56,002
+comme des expressions génératrices.
+
+38
+00:00:56,102 --> 00:00:57,425
+Mais comme ce sera défini
+
+39
+00:00:57,525 --> 00:00:58,494
+à l'intérieur d'une fonction,
+
+40
+00:00:58,594 --> 00:01:00,093
+vous aurez toute la souplesse
+
+41
+00:01:00,193 --> 00:01:01,405
+de ce que vous pouvez définir
+
+42
+00:01:01,505 --> 00:01:02,193
+dans une fonction.
+
+43
+00:01:02,293 --> 00:01:04,252
+Ouvrons maintenant un éditeur IDLE
+
+44
+00:01:04,352 --> 00:01:06,095
+pour explorer ce concept
+
+45
+00:01:06,195 --> 00:01:07,669
+de fonction génératrice.
+
+46
+00:01:09,000 --> 00:01:10,775
+Revenons sur la notion de fonction.
+
+47
+00:01:10,875 --> 00:01:12,348
+Lorsque vous définissez une fonction,
+
+48
+00:01:12,448 --> 00:01:13,659
+votre fonction retourne
+
+49
+00:01:13,759 --> 00:01:14,938
+forcément une valeur.
+
+50
+00:01:15,038 --> 00:01:16,874
+Si vous ne mettez pas d'instruction return,
+
+51
+00:01:16,974 --> 00:01:18,080
+elle va retourner l'objet None ;
+
+52
+00:01:18,180 --> 00:01:19,753
+si vous mettez une instruction return,
+
+53
+00:01:19,853 --> 00:01:21,234
+elle va retourner le résultat de l'expression
+
+54
+00:01:21,334 --> 00:01:22,209
+qui est après le return.
+
+55
+00:01:22,752 --> 00:01:24,713
+Une fonction, lorsqu'elle a retourné,
+
+56
+00:01:24,813 --> 00:01:26,343
+détruit toutes ses variables locales
+
+57
+00:01:26,443 --> 00:01:28,182
+et par conséquent, ne garde aucun état
+
+58
+00:01:28,282 --> 00:01:28,972
+entre deux appels.
+
+59
+00:01:29,771 --> 00:01:31,065
+Une fonction génératrice
+
+60
+00:01:31,165 --> 00:01:32,526
+a un comportement qui est différent.
+
+61
+00:01:32,626 --> 00:01:33,518
+Regardons cela.
+
+62
+00:01:34,155 --> 00:01:35,732
+Pour définir une fonction génératrice,
+
+63
+00:01:35,832 --> 00:01:37,251
+je vais définir une fonction normale
+
+64
+00:01:37,888 --> 00:01:39,098
+que je vais appeler gen
+
+65
+00:01:40,296 --> 00:01:41,642
+mais au lieu d'écrire un return,
+
+66
+00:01:41,742 --> 00:01:43,201
+je vais écrire l'instruction yield.
+
+67
+00:01:43,951 --> 00:01:45,712
+Et je vais mettre un yield de 10.
+
+68
+00:01:46,723 --> 00:01:47,621
+Je sauvegarde ce code,
+
+69
+00:01:47,721 --> 00:01:48,795
+je l'évalue avec F5,
+
+70
+00:01:48,895 --> 00:01:50,385
+et maintenant, je vais dans mon interpréteur.
+
+71
+00:01:51,014 --> 00:01:53,842
+Regardons ce qu'est cet objet gen.
+
+72
+00:01:54,262 --> 00:01:55,719
+gen est une fonction
+
+73
+00:01:55,819 --> 00:01:57,486
+et lorsque j'appelle ma fonction,
+
+74
+00:01:58,140 --> 00:01:58,956
+que se passe-t-il ?
+
+75
+00:01:59,579 --> 00:02:01,229
+J'obtiens un nouvel objet
+
+76
+00:02:01,329 --> 00:02:02,805
+qui s'appelle un objet générateur.
+
+77
+00:02:03,324 --> 00:02:04,177
+Alors on voit qu'en fait,
+
+78
+00:02:04,277 --> 00:02:05,194
+je n'ai pas eu de valeur de retour,
+
+79
+00:02:05,294 --> 00:02:06,569
+je ne vois pas le 10 apparaître.
+
+80
+00:02:06,927 --> 00:02:08,149
+En fait, l'appel de ma fonction
+
+81
+00:02:08,249 --> 00:02:09,397
+crée un objet.
+
+82
+00:02:10,018 --> 00:02:11,859
+Cet objet, qu'est-ce que je peux en faire ?
+
+83
+00:02:11,959 --> 00:02:13,989
+Cet objet est un itérateur
+
+84
+00:02:14,089 --> 00:02:16,662
+que je manipule comme un itérateur.
+
+85
+00:02:16,762 --> 00:02:17,773
+Regardons cela.
+
+86
+00:02:17,873 --> 00:02:20,311
+Je vais appeler g égale gen,
+
+87
+00:02:20,411 --> 00:02:21,231
+donc je mets une variable
+
+88
+00:02:21,331 --> 00:02:22,725
+qui référence maintenant ce générateur,
+
+89
+00:02:23,102 --> 00:02:24,613
+et maintenant, comme c'est un itérateur,
+
+90
+00:02:24,713 --> 00:02:26,795
+je peux directement le parcourir avec next.
+
+91
+00:02:27,126 --> 00:02:28,387
+Je fais next de g,
+
+92
+00:02:28,790 --> 00:02:30,021
+qu'est-ce que je vois apparaître ?
+
+93
+00:02:30,121 --> 00:02:31,882
+La valeur qui est après le yield.
+
+94
+00:02:31,982 --> 00:02:33,964
+Donc en fait, lorsque j'appelle le générateur,
+
+95
+00:02:34,064 --> 00:02:35,924
+ça crée un objet générateur qui attend.
+
+96
+00:02:36,532 --> 00:02:38,173
+Au premier appel de next,
+
+97
+00:02:38,273 --> 00:02:39,684
+je vais aller jusqu'au premier yield
+
+98
+00:02:39,784 --> 00:02:41,345
+et je vais retourner la valeur, l'expression
+
+99
+00:02:41,445 --> 00:02:43,259
+qui est à côté du yield, puis j'attends.
+
+100
+00:02:43,658 --> 00:02:45,702
+Donc on voit que mon objet g existe toujours,
+
+101
+00:02:45,802 --> 00:02:46,826
+c'est toujours un générateur.
+
+102
+00:02:47,719 --> 00:02:49,120
+Je rappelle next dessus ;
+
+103
+00:02:49,220 --> 00:02:50,937
+maintenant, je reprends
+
+104
+00:02:51,037 --> 00:02:51,816
+là où je me suis arrêté,
+
+105
+00:02:51,916 --> 00:02:52,908
+c'est-à-dire au yield de 10,
+
+106
+00:02:53,008 --> 00:02:53,986
+et je continue le code.
+
+107
+00:02:54,496 --> 00:02:55,688
+Je vais jusqu'au deuxième yield,
+
+108
+00:02:55,788 --> 00:02:57,160
+sauf qu'ici, je n'ai pas d'autre yield.
+
+109
+00:02:57,260 --> 00:02:58,370
+Qu'est-ce qu'il va se passer ?
+
+110
+00:02:58,860 --> 00:03:00,058
+En fait, dès que j'arrive à la fin
+
+111
+00:03:00,158 --> 00:03:02,522
+du bloc de code de ma fonction,
+
+112
+00:03:02,928 --> 00:03:05,242
+je vais avoir une exception StopIteration
+
+113
+00:03:05,342 --> 00:03:07,187
+exactement comme un itérateur normal.
+
+114
+00:03:07,689 --> 00:03:08,563
+Faisons un générateur
+
+115
+00:03:08,663 --> 00:03:09,952
+un tout petit peu plus sophistiqué.
+
+116
+00:03:10,589 --> 00:03:11,739
+Je vais faire un générateur
+
+117
+00:03:11,839 --> 00:03:13,066
+qui prend un argument x ;
+
+118
+00:03:13,608 --> 00:03:15,459
+je vais faire un yield de x
+
+119
+00:03:15,559 --> 00:03:16,736
+et ensuite, je vais faire un
+
+120
+00:03:16,836 --> 00:03:19,356
+x égale x plus 1,
+
+121
+00:03:19,456 --> 00:03:20,931
+et ensuite, je fais de nouveau
+
+122
+00:03:21,031 --> 00:03:22,729
+un yield de x.
+
+123
+00:03:24,409 --> 00:03:25,544
+Exécutons ce code
+
+124
+00:03:26,805 --> 00:03:28,155
+et retournons dans l'interpréteur.
+
+125
+00:03:29,000 --> 00:03:30,468
+Maintenant, je vais faire un
+
+126
+00:03:30,568 --> 00:03:33,702
+g égale gen de 10.
+
+127
+00:03:33,902 --> 00:03:35,298
+Donc je crée un générateur
+
+128
+00:03:35,398 --> 00:03:38,489
+et j'ai passé 10 à mon objet générateur,
+
+129
+00:03:38,589 --> 00:03:39,175
+à ma fonction.
+
+130
+00:03:39,604 --> 00:03:41,894
+Maintenant, g est bien mon générateur
+
+131
+00:03:41,994 --> 00:03:44,012
+et je vais le parcourir comme un itérateur
+
+132
+00:03:44,112 --> 00:03:45,899
+puisque mon générateur produit un itérateur.
+
+133
+00:03:49,026 --> 00:03:50,472
+Mon générateur, lorsque je l'ai créé, attend.
+
+134
+00:03:51,395 --> 00:03:53,560
+J'appelle next, ça déclenche son exécution,
+
+135
+00:03:53,660 --> 00:03:55,040
+je vais jusqu'au premier yield ;
+
+136
+00:03:55,140 --> 00:03:56,988
+le premier yield me retourne x.
+
+137
+00:03:57,088 --> 00:03:58,807
+x vaut 10, je vois donc apparaître 10.
+
+138
+00:03:59,195 --> 00:04:01,403
+Ensuite, mon générateur se stoppe ;
+
+139
+00:04:01,503 --> 00:04:04,558
+il attend avec tout son état qui est préservé,
+
+140
+00:04:04,658 --> 00:04:06,012
+ses variables locales qui sont préservées.
+
+141
+00:04:06,546 --> 00:04:08,314
+Je rappelle next dessus ;
+
+142
+00:04:08,414 --> 00:04:09,309
+que va-t-il se passer ?
+
+143
+00:04:09,409 --> 00:04:10,630
+Je reprends l'exécution juste là
+
+144
+00:04:10,730 --> 00:04:11,519
+où je me suis arrêté,
+
+145
+00:04:11,619 --> 00:04:13,332
+c'est-à-dire après le yield de x ;
+
+146
+00:04:13,432 --> 00:04:15,372
+je calcule x égale x  plus 1,
+
+147
+00:04:15,472 --> 00:04:16,675
+maintenant, x vaut 11 ;
+
+148
+00:04:16,775 --> 00:04:18,370
+et je yielde ce nouveau x.
+
+149
+00:04:18,470 --> 00:04:19,728
+Regardons la valeur.
+
+150
+00:04:19,828 --> 00:04:20,935
+Maintenant, j'obtiens 11.
+
+151
+00:04:21,883 --> 00:04:23,587
+Je rappelle next sur ce générateur ;
+
+152
+00:04:23,687 --> 00:04:25,290
+je reprends là où je me suis arrêté
+
+153
+00:04:25,390 --> 00:04:26,639
+au deuxième yield de x,
+
+154
+00:04:27,181 --> 00:04:29,119
+je reprends l'exécution à ce moment-là,
+
+155
+00:04:29,219 --> 00:04:30,713
+je sors du bloc de code ;
+
+156
+00:04:30,813 --> 00:04:32,214
+lorsque je sors du bloc de code,
+
+157
+00:04:32,314 --> 00:04:33,484
+j'ai StopIteration.
+
+158
+00:04:37,637 --> 00:04:38,511
+Évidemment, en pratique,
+
+159
+00:04:38,611 --> 00:04:39,252
+vous n'allez pas mettre
+
+160
+00:04:39,352 --> 00:04:40,859
+une multitude de yield ;
+
+161
+00:04:40,959 --> 00:04:44,147
+ça serait absolument peu pratique.
+
+162
+00:04:44,460 --> 00:04:46,505
+En pratique, vous allez faire plutôt une boucle
+
+163
+00:04:46,605 --> 00:04:48,350
+par exemple, une boucle for ou un while.
+
+164
+00:04:48,450 --> 00:04:50,597
+Regardons un exemple un peu plus réaliste.
+
+165
+00:04:51,910 --> 00:04:53,476
+Je vais définir un générateur
+
+166
+00:04:54,097 --> 00:04:56,274
+que je vais appeler carré,
+
+167
+00:04:56,759 --> 00:04:59,646
+et qui prend deux arguments a et b.
+
+168
+00:05:01,589 --> 00:05:03,131
+Et mon générateur carré
+
+169
+00:05:04,082 --> 00:05:04,790
+va faire une boucle
+
+170
+00:05:04,890 --> 00:05:09,327
+for i  in range de a virgule b,
+
+171
+00:05:13,064 --> 00:05:14,439
+et dedans, je vais faire un yield
+
+172
+00:05:15,723 --> 00:05:18,100
+de i au carré.
+
+173
+00:05:20,329 --> 00:05:21,895
+Évaluons ce morceau de code,
+
+174
+00:05:21,995 --> 00:05:23,326
+retournons dans l'interpréteur
+
+175
+00:05:23,426 --> 00:05:24,558
+et maintenant, regardons
+
+176
+00:05:24,658 --> 00:05:27,220
+quel est le résultat de carré de 1, 10.
+
+177
+00:05:28,418 --> 00:05:30,378
+J'obtiens évidemment un générateur,
+
+178
+00:05:30,897 --> 00:05:34,235
+je récupère ce générateur avec une variable,
+
+179
+00:05:34,335 --> 00:05:35,759
+je le nomme avec une variable c,
+
+180
+00:05:36,056 --> 00:05:37,470
+et maintenant, je peux tout à fait
+
+181
+00:05:37,570 --> 00:05:38,731
+mettre ce générateur
+
+182
+00:05:38,831 --> 00:05:39,833
+par exemple dans une liste,
+
+183
+00:05:39,933 --> 00:05:40,888
+parce que j'ai fini mon calcul
+
+184
+00:05:40,988 --> 00:05:42,599
+et je veux récupérer le résultat dans une liste.
+
+185
+00:05:42,699 --> 00:05:43,975
+J'aurais pu faire une boucle for,
+
+186
+00:05:44,075 --> 00:05:45,517
+une compréhension sur ce générateur,
+
+187
+00:05:45,617 --> 00:05:46,646
+de manière équivalente ;
+
+188
+00:05:46,746 --> 00:05:47,767
+et j'obtiens bien ici
+
+189
+00:05:47,867 --> 00:05:50,183
+mes carrés allant de 1 jusqu'à 10.
+
+190
+00:05:50,973 --> 00:05:52,065
+On voit bien que dans ce cas
+
+191
+00:05:52,165 --> 00:05:52,925
+extrêmement simple
+
+192
+00:05:53,025 --> 00:05:54,540
+d'un générateur qui produit juste les carrés,
+
+193
+00:05:54,640 --> 00:05:55,202
+on aurait pu mettre ça
+
+194
+00:05:55,302 --> 00:05:56,496
+dans une expression génératrice.
+
+195
+00:05:56,596 --> 00:05:57,843
+Regardons un cas
+
+196
+00:05:57,943 --> 00:05:59,303
+encore un peu plus sophistiqué
+
+197
+00:05:59,675 --> 00:06:01,157
+où ça serait moins commode
+
+198
+00:06:01,257 --> 00:06:02,472
+d'écrire ce fonctionnement
+
+199
+00:06:02,572 --> 00:06:03,989
+dans une expression génératrice.
+
+200
+00:06:04,329 --> 00:06:06,053
+Pour cela, je vais créer un générateur
+
+201
+00:06:06,153 --> 00:06:08,228
+que je vais appeler palindrome.
+
+202
+00:06:09,264 --> 00:06:10,408
+Et je vais lui passer
+
+203
+00:06:11,633 --> 00:06:12,969
+directement un itérateur,
+
+204
+00:06:13,390 --> 00:06:14,686
+enfin, un objet itérable.
+
+205
+00:06:15,133 --> 00:06:16,359
+Et puis ensuite, je vais faire un
+
+206
+00:06:16,459 --> 00:06:19,246
+for i in cet objet itérable
+
+207
+00:06:21,314 --> 00:06:23,183
+et dedans, je vais regarder si
+
+208
+00:06:24,292 --> 00:06:26,242
+isinstance.
+
+209
+00:06:26,342 --> 00:06:27,435
+Ça veut dire quoi ?
+
+210
+00:06:27,535 --> 00:06:30,024
+Ça veut dire si i est une instance
+
+211
+00:06:30,124 --> 00:06:31,127
+soit d'une chaîne de caractères
+
+212
+00:06:31,227 --> 00:06:31,887
+soit d'un entier,
+
+213
+00:06:32,712 --> 00:06:33,910
+deux possibilités.
+
+214
+00:06:35,059 --> 00:06:35,922
+and
+
+215
+00:06:37,767 --> 00:06:40,426
+alors, je vais mettre tout ça entre parenthèses
+
+216
+00:06:40,526 --> 00:06:41,355
+parce que je vous rappelle que,
+
+217
+00:06:41,455 --> 00:06:42,973
+lorsqu'on écrit une expression
+
+218
+00:06:43,073 --> 00:06:43,549
+entre parenthèses,
+
+219
+00:06:43,649 --> 00:06:44,923
+on peut la mettre sur plusieurs lignes.
+
+220
+00:06:45,844 --> 00:06:50,319
+et str de i égal égal
+
+221
+00:06:50,419 --> 00:06:53,685
+à str de i en le renversant
+
+222
+00:06:54,684 --> 00:06:55,417
+moins un
+
+223
+00:06:57,436 --> 00:06:57,017
+alors,
+
+224
+00:06:59,824 --> 00:07:01,228
+il ne faut pas que j'oublie mon deux points
+
+225
+00:07:01,328 --> 00:07:02,842
+de début de bloc de code,
+
+226
+00:07:02,942 --> 00:07:04,060
+alors, je vais simplement faire
+
+227
+00:07:04,160 --> 00:07:06,193
+un yield de i.
+
+228
+00:07:06,725 --> 00:07:08,040
+Regardons de nouveau
+
+229
+00:07:08,524 --> 00:07:10,231
+cette expression génératrice.
+
+230
+00:07:11,266 --> 00:07:13,408
+Mon palindrome, ma fonction palindrome,
+
+231
+00:07:13,508 --> 00:07:14,147
+va prendre un itérable ;
+
+232
+00:07:14,657 --> 00:07:16,143
+il va parcourir cet itérable
+
+233
+00:07:16,243 --> 00:07:17,281
+et il va regarder chaque élément:
+
+234
+00:07:17,381 --> 00:07:18,610
+est-ce que c'est un entier
+
+235
+00:07:18,710 --> 00:07:19,551
+ou une chaîne de caractères ?
+
+236
+00:07:19,651 --> 00:07:21,017
+Si c'est  un entier ou une chaîne de caractères,
+
+237
+00:07:21,117 --> 00:07:22,263
+il va dire: je sais travailler dessus,
+
+238
+00:07:22,586 --> 00:07:24,125
+je vais le convertir en chaîne de caractères
+
+239
+00:07:24,225 --> 00:07:25,323
+donc si c'est un entier, ça devient une chaîne,
+
+240
+00:07:25,423 --> 00:07:26,608
+si c'est une chaîne, ça reste une chaîne,
+
+241
+00:07:26,708 --> 00:07:28,884
+et je regarde si cette chaîne
+
+242
+00:07:28,984 --> 00:07:30,558
+est égale à la chaîne prise dans l'autre sens,
+
+243
+00:07:30,656 --> 00:07:31,202
+donc effectivement,
+
+244
+00:07:31,302 --> 00:07:32,047
+si c'est un palindrome.
+
+245
+00:07:33,036 --> 00:07:34,166
+J'exécute cela.
+
+246
+00:07:35,476 --> 00:07:36,538
+Et maintenant, je retourne
+
+247
+00:07:36,638 --> 00:07:37,457
+dans mon interpréteur,
+
+248
+00:07:38,001 --> 00:07:39,149
+et je vais évaluer ça.
+
+249
+00:07:39,422 --> 00:07:41,915
+Donc ici, pour commencer comme exemple,
+
+250
+00:07:42,015 --> 00:07:44,016
+je vais simplement lui passer une liste.
+
+251
+00:07:45,381 --> 00:07:50,163
+Donc je vais dire: p égale la liste
+
+252
+00:07:50,647 --> 00:07:53,677
+qui comprend 121, 10,
+
+253
+00:07:55,089 --> 00:07:56,472
+1, 2, 3, 2, 1,
+
+254
+00:07:56,572 --> 00:07:58,025
+donc on voit que j'ai quelques palindromes,
+
+255
+00:07:58,125 --> 00:07:59,077
+et puis des chaînes de caractères
+
+256
+00:07:59,177 --> 00:07:59,835
+'abc',
+
+257
+00:08:00,515 --> 00:08:02,602
+et puis 'abba'.
+
+258
+00:08:03,055 --> 00:08:03,647
+Voilà.
+
+259
+00:08:04,727 --> 00:08:07,037
+J'exécute mon générateur
+
+260
+00:08:07,137 --> 00:08:08,233
+et maintenant, je récupère tout cela
+
+261
+00:08:08,333 --> 00:08:09,057
+dans une liste,
+
+262
+00:08:09,343 --> 00:08:11,823
+et je vais pouvoir extraire les palindromes,
+
+263
+00:08:11,923 --> 00:08:12,719
+que ce soient des entiers
+
+264
+00:08:12,819 --> 00:08:14,198
+ou des chaînes de caractères.
+
+265
+00:08:14,676 --> 00:08:16,592
+Évidemment, l'intérêt principal
+
+266
+00:08:16,692 --> 00:08:17,776
+de ma fonction génératrice
+
+267
+00:08:17,876 --> 00:08:19,384
+n'est pas de prendre une liste temporaire
+
+268
+00:08:19,484 --> 00:08:20,589
+mais de travailler directement
+
+269
+00:08:20,689 --> 00:08:21,860
+sur un itérateur.
+
+270
+00:08:22,155 --> 00:08:24,410
+Donc, par exemple, j'aurais tout à fait pu
+
+271
+00:08:24,759 --> 00:08:27,380
+lire, ouvrir un fichier qui contient,
+
+272
+00:08:27,977 --> 00:08:28,864
+sur chaque ligne,
+
+273
+00:08:28,964 --> 00:08:30,643
+un nombre ou une chaîne de caractères
+
+274
+00:08:30,743 --> 00:08:32,912
+et passer directement cet objet fichier
+
+275
+00:08:33,012 --> 00:08:34,522
+à mon générateur palindrome.
+
+276
+00:08:34,622 --> 00:08:35,920
+Dans ce cas, je n'aurais créé
+
+277
+00:08:36,020 --> 00:08:37,262
+aucune structure temporaire,
+
+278
+00:08:37,612 --> 00:08:39,687
+mon générateur palindrome
+
+279
+00:08:39,787 --> 00:08:41,273
+aurait extrait les palindromes
+
+280
+00:08:41,373 --> 00:08:42,295
+contenus dans ce fichier
+
+281
+00:08:42,564 --> 00:08:43,631
+et après, j'aurais pu les mettre
+
+282
+00:08:43,731 --> 00:08:45,020
+dans une liste, dans un ensemble,
+
+283
+00:08:45,120 --> 00:08:46,901
+ou j'aurais pu les traiter d'une autre manière.
+
+284
+00:08:47,251 --> 00:08:49,326
+Je vais vous montrer une dernière possibilité
+
+285
+00:08:49,426 --> 00:08:50,565
+d'exécuter ce palindrome.
+
+286
+00:08:50,744 --> 00:08:52,759
+Donc on va faire list de palin
+
+287
+00:08:52,859 --> 00:08:54,524
+pour voir le résultat affiché ;
+
+288
+00:08:54,911 --> 00:08:55,925
+et à mon palindrome,
+
+289
+00:08:56,025 --> 00:08:56,955
+je vais simplement lui passer
+
+290
+00:08:57,055 --> 00:08:58,277
+une expression génératrice,
+
+291
+00:08:58,731 --> 00:09:00,673
+qui va être les carrés
+
+292
+00:09:01,207 --> 00:09:04,469
+de x pour x in range de 1000.
+
+293
+00:09:04,754 --> 00:09:05,359
+Et donc là,
+
+294
+00:09:05,958 --> 00:09:08,102
+ici, j'ai passé une expression génératrice
+
+295
+00:09:08,622 --> 00:09:10,476
+à ma fonction génératrice palindrome,
+
+296
+00:09:10,678 --> 00:09:11,640
+donc je n'ai aucune
+
+297
+00:09:11,740 --> 00:09:13,017
+structure de données temporaire
+
+298
+00:09:13,117 --> 00:09:13,576
+qui est créée ;
+
+299
+00:09:13,676 --> 00:09:14,731
+mon expression génératrice
+
+300
+00:09:14,831 --> 00:09:16,369
+va générer les carrés un à un,
+
+301
+00:09:16,469 --> 00:09:17,929
+elle va les passer un à un
+
+302
+00:09:18,029 --> 00:09:19,591
+à mon générateur palindrome,
+
+303
+00:09:19,691 --> 00:09:21,037
+et mon générateur palindrome
+
+304
+00:09:21,137 --> 00:09:23,222
+va ensuite produire les palindromes
+
+305
+00:09:23,322 --> 00:09:24,269
+qui sont contenus dedans.
+
+306
+00:09:24,563 --> 00:09:25,807
+Vous noterez d'ailleurs que
+
+307
+00:09:25,907 --> 00:09:27,737
+lorsque je passe une expression génératrice
+
+308
+00:09:27,837 --> 00:09:28,512
+à une fonction,
+
+309
+00:09:28,612 --> 00:09:30,025
+les parenthèses sont facultatives
+
+310
+00:09:30,125 --> 00:09:31,199
+et dans ce cas-là, je ne les ai pas mises.
+
+311
+00:09:31,499 --> 00:09:32,508
+Regardons le résultat.
+
+312
+00:09:32,608 --> 00:09:34,459
+Et on voit maintenant que j'ai obtenu
+
+313
+00:09:34,559 --> 00:09:36,173
+la liste de tous les palindromes
+
+314
+00:09:36,273 --> 00:09:39,496
+des carrés allant de 0 à 999
+
+315
+00:09:39,596 --> 00:09:40,540
+sans avoir créé
+
+316
+00:09:40,640 --> 00:09:42,219
+aucune structure de données temporaire.
+
+317
+00:09:44,041 --> 00:09:45,255
+Je vous rappelle qu'en Python
+
+318
+00:09:45,355 --> 00:09:46,117
+tout est un objet,
+
+319
+00:09:46,217 --> 00:09:47,502
+donc tout a un surcoût mémoire.
+
+320
+00:09:47,796 --> 00:09:50,545
+Python vous encourage à ne jamais créer
+
+321
+00:09:50,645 --> 00:09:51,984
+de structure de données temporaire.
+
+322
+00:09:52,261 --> 00:09:53,557
+C'est pourquoi nous avons les notions
+
+323
+00:09:53,657 --> 00:09:54,741
+d'expression génératrice
+
+324
+00:09:54,841 --> 00:09:56,398
+ou de fonction génératrice.
+
+325
+00:09:57,210 --> 00:09:58,752
+Et comme ces objets
+
+326
+00:09:58,852 --> 00:09:59,781
+produisent des itérateurs
+
+327
+00:09:59,881 --> 00:10:01,235
+et que le protocole d'itération
+
+328
+00:10:01,335 --> 00:10:02,356
+est universel en Python,
+
+329
+00:10:02,456 --> 00:10:04,075
+vous pouvez utiliser ces expressions
+
+330
+00:10:04,175 --> 00:10:05,236
+ou ces fonctions génératrices
+
+331
+00:10:05,336 --> 00:10:06,416
+absolument dans tous
+
+332
+00:10:06,516 --> 00:10:08,118
+les mécanismes d'itération en Python,
+
+333
+00:10:08,218 --> 00:10:09,126
+les boucles for
+
+334
+00:10:09,226 --> 00:10:10,624
+ou d'autres mécanismes d'itération.
+
+335
+00:10:10,904 --> 00:10:11,649
+À bientôt !
+

@@ -1,0 +1,684 @@
+﻿1
+00:00:05,219 --> 00:00:06,390
+Nous avons vu que les listes étaient
+
+2
+00:00:06,490 --> 00:00:08,194
+au coeur de tous les programmes en Python.
+
+3
+00:00:08,294 --> 00:00:09,987
+La liste est un objet extrêmement flexible,
+
+4
+00:00:10,087 --> 00:00:10,732
+qui peut référencer
+
+5
+00:00:10,832 --> 00:00:11,781
+n'importe quels types d'objets.
+
+6
+00:00:11,881 --> 00:00:13,861
+Et une manière simple de parcourir les listes
+
+7
+00:00:13,961 --> 00:00:15,166
+c'est d'implémenter une boucle for.
+
+8
+00:00:15,554 --> 00:00:17,377
+Ainsi vous pouvez appliquer une opération
+
+9
+00:00:17,477 --> 00:00:18,930
+à chaque élément de votre liste.
+
+10
+00:00:19,966 --> 00:00:22,401
+Cette opération est tellement commune
+
+11
+00:00:22,501 --> 00:00:23,638
+que Python a inventé
+
+12
+00:00:23,738 --> 00:00:25,010
+une nouvelle expression qu'on appelle
+
+13
+00:00:25,110 --> 00:00:26,810
+compréhension de liste, qui permet
+
+14
+00:00:26,910 --> 00:00:29,242
+de manière extrêmement simple et intuitive
+
+15
+00:00:29,342 --> 00:00:30,606
+d'appliquer une opération
+
+16
+00:00:30,706 --> 00:00:32,035
+à chaque élément d'une liste
+
+17
+00:00:32,135 --> 00:00:33,473
+et éventuellement d'ajouter
+
+18
+00:00:33,573 --> 00:00:34,796
+une condition de filtre.
+
+19
+00:00:35,596 --> 00:00:37,304
+Ouvrons maintenant un interpréteur Python
+
+20
+00:00:37,404 --> 00:00:38,123
+pour commencer à jouer
+
+21
+00:00:38,223 --> 00:00:39,582
+avec les compréhensions de listes.
+
+22
+00:00:40,643 --> 00:00:42,298
+Supposons que l'on souhaite prendre
+
+23
+00:00:42,398 --> 00:00:44,852
+les logarithmes d'une liste d'entiers.
+
+24
+00:00:45,247 --> 00:00:46,493
+Créons une liste d'entiers,
+
+25
+00:00:46,593 --> 00:00:53,045
+j'écris a égale les entiers 1, 4, 18, 29 et 13.
+
+26
+00:00:53,755 --> 00:00:55,774
+J'ai une liste de quelques entiers
+
+27
+00:00:57,440 --> 00:00:59,685
+sur lesquels je veux calculer le logarithme.
+
+28
+00:00:59,851 --> 00:01:01,763
+Commençons par importer le module math
+
+29
+00:01:01,863 --> 00:01:02,999
+qui est le module qui contient
+
+30
+00:01:03,099 --> 00:01:03,994
+la fonction logarithme.
+
+31
+00:01:04,736 --> 00:01:06,994
+Et ensuite, essayons de mettre
+
+32
+00:01:07,094 --> 00:01:08,580
+tous ces résultats à l'intérieur
+
+33
+00:01:08,680 --> 00:01:10,028
+d'une nouvelle liste qui va contenir
+
+34
+00:01:10,128 --> 00:01:11,064
+le logarithme des entiers.
+
+35
+00:01:11,640 --> 00:01:13,412
+Je vais créer une nouvelle liste b
+
+36
+00:01:13,512 --> 00:01:15,215
+qui est une liste vide
+
+37
+00:01:15,315 --> 00:01:19,207
+et je vais faire un for i in a :
+
+38
+00:01:19,307 --> 00:01:28,421
+b.append de math.log de i
+
+39
+00:01:28,521 --> 00:01:30,502
+J'ai donc créé une boucle for
+
+40
+00:01:30,602 --> 00:01:32,178
+qui va parcourir les éléments de a
+
+41
+00:01:32,278 --> 00:01:34,661
+et qui va ajouter à la liste b
+
+42
+00:01:34,761 --> 00:01:36,671
+le résultat de mon logarithme
+
+43
+00:01:36,771 --> 00:01:38,564
+sur chaque élément de la liste.
+
+44
+00:01:39,947 --> 00:01:41,744
+Maintenant, si je regarde ma liste b,
+
+45
+00:01:41,844 --> 00:01:43,535
+je vois bien que ma liste b contient
+
+46
+00:01:43,635 --> 00:01:44,773
+le logarithme de chaque élément.
+
+47
+00:01:45,360 --> 00:01:46,568
+En fait, cette opération est
+
+48
+00:01:46,668 --> 00:01:47,770
+extrêmement courante en Python,
+
+49
+00:01:47,870 --> 00:01:48,497
+c'est pour ça qu'on a
+
+50
+00:01:48,597 --> 00:01:49,571
+la compréhension de liste.
+
+51
+00:01:49,671 --> 00:01:51,133
+Cette compréhension vous permet donc
+
+52
+00:01:51,233 --> 00:01:52,196
+d'appliquer une opération
+
+53
+00:01:52,296 --> 00:01:53,469
+à chaque élément d'une liste
+
+54
+00:01:53,569 --> 00:01:55,132
+et de grouper ces résultats
+
+55
+00:01:55,232 --> 00:01:57,223
+dans un nouvel objet liste.
+
+56
+00:01:57,855 --> 00:01:59,592
+Regardons comment écrire la compréhension
+
+57
+00:01:59,692 --> 00:02:00,852
+On va voir que c'est quelque chose
+
+58
+00:02:00,952 --> 00:02:02,331
+d'extrêmement intuitif qui est quasiment
+
+59
+00:02:02,431 --> 00:02:03,923
+du langage naturel.
+
+60
+00:02:04,627 --> 00:02:05,910
+Pour dire que j'ai une compréhension,
+
+61
+00:02:06,010 --> 00:02:08,911
+je vais dire b égale, et je commence par
+
+62
+00:02:09,011 --> 00:02:10,734
+écrire crochet ouvrant crochet fermant
+
+63
+00:02:10,834 --> 00:02:12,774
+pour bien symboliser le fait que j'ai une liste.
+
+64
+00:02:13,355 --> 00:02:15,018
+Et puis ensuite, je vais écrire l'expression
+
+65
+00:02:15,118 --> 00:02:16,076
+que je veux appliquer
+
+66
+00:02:16,176 --> 00:02:17,908
+à chaque élément de ma liste.
+
+67
+00:02:18,008 --> 00:02:19,358
+L'expression que je veux calculer,
+
+68
+00:02:19,458 --> 00:02:21,457
+c'est math.log de i
+
+69
+00:02:23,211 --> 00:02:25,732
+Et ensuite, je vais dire que parcourt i :
+
+70
+00:02:26,810 --> 00:02:29,774
+je prends i pour i dans a :
+
+71
+00:02:29,874 --> 00:02:31,187
+for i in a.
+
+72
+00:02:31,657 --> 00:02:33,435
+Ça veut dire que je vais calculer le logarithme
+
+73
+00:02:33,535 --> 00:02:35,805
+de chaque élément de la liste a.
+
+74
+00:02:35,905 --> 00:02:36,949
+Exécutons cela
+
+75
+00:02:37,049 --> 00:02:38,829
+et regardons le résultat de ma liste b ;
+
+76
+00:02:38,929 --> 00:02:40,620
+évidemment ma liste b contient
+
+77
+00:02:40,720 --> 00:02:42,715
+ce nouvel objet liste qui contient
+
+78
+00:02:42,815 --> 00:02:44,512
+le logarithme de chaque élément de a.
+
+79
+00:02:45,072 --> 00:02:47,261
+Maintenant, supposons que dans ma liste a,
+
+80
+00:02:47,361 --> 00:02:49,742
+j'ai un nombre négatif.
+
+81
+00:02:50,687 --> 00:02:52,295
+Ce qui est quelque chose qui en pratique peut
+
+82
+00:02:52,395 --> 00:02:54,107
+arriver lorsqu'on récupère de vraies données,
+
+83
+00:02:54,207 --> 00:02:55,561
+soit des erreurs de mesure,
+
+84
+00:02:55,661 --> 00:02:57,141
+ou alors des données un peu corrompues.
+
+85
+00:02:57,241 --> 00:02:58,392
+Ma liste maintenant contient
+
+86
+00:02:58,492 --> 00:02:59,306
+un nombre négatif.
+
+87
+00:02:59,406 --> 00:03:00,739
+Alors, comme j'ai un nombre négatif,
+
+88
+00:03:00,839 --> 00:03:02,681
+je ne peux plus calculer le logarithme de -100
+
+89
+00:03:02,781 --> 00:03:04,073
+Comment est-ce que je peux m'en sortir
+
+90
+00:03:04,173 --> 00:03:05,069
+avec une compréhension ?
+
+91
+00:03:05,424 --> 00:03:07,437
+En fait, dans une compréhension de liste,
+
+92
+00:03:07,537 --> 00:03:09,506
+je peux tout à fait rajouter un test.
+
+93
+00:03:09,606 --> 00:03:10,500
+Regardons ce cas.
+
+94
+00:03:11,389 --> 00:03:13,457
+Je reprends ma compréhension précédente
+
+95
+00:03:13,557 --> 00:03:16,123
+donc je calcule le logarithme de i
+
+96
+00:03:16,223 --> 00:03:17,385
+pour i qui parcourt a
+
+97
+00:03:17,485 --> 00:03:19,187
+mais je vais rajouter un test
+
+98
+00:03:19,287 --> 00:03:23,760
+uniquement if i supérieur à 0.
+
+99
+00:03:24,485 --> 00:03:25,851
+Donc en fait, qu'est-ce que ça va faire ?
+
+100
+00:03:25,951 --> 00:03:27,791
+Ça va créer un nouvel objet liste
+
+101
+00:03:27,891 --> 00:03:29,679
+qui va être le résultat du logarithme
+
+102
+00:03:29,779 --> 00:03:31,705
+appliqué à chaque élément de a
+
+103
+00:03:31,805 --> 00:03:35,600
+uniquement si i est strictement positif.
+
+104
+00:03:36,133 --> 00:03:38,504
+Exécutons cela, et je vois bien que
+
+105
+00:03:41,871 --> 00:03:43,502
+ma compréhension de liste a fonctionné
+
+106
+00:03:43,602 --> 00:03:45,477
+et a créé une liste qui contient le logarithme
+
+107
+00:03:45,577 --> 00:03:48,335
+de tous les entiers qui sont contenus
+
+108
+00:03:48,435 --> 00:03:49,715
+dans ma liste a du moment qu'ils sont
+
+109
+00:03:49,815 --> 00:03:51,040
+strictement positifs.
+
+110
+00:03:52,293 --> 00:03:53,950
+Alors on pourrait croire avec ces exemples
+
+111
+00:03:54,050 --> 00:03:54,979
+que les compréhensions de listes
+
+112
+00:03:55,079 --> 00:03:57,140
+sont limitées au cas des calculs sur les entiers.
+
+113
+00:03:57,240 --> 00:03:58,202
+En fait, pas du tout,
+
+114
+00:03:58,302 --> 00:03:59,807
+une compréhension de liste vous permet
+
+115
+00:03:59,907 --> 00:04:01,635
+d'appliquer n'importe quelle opération,
+
+116
+00:04:01,735 --> 00:04:03,037
+n'importe quelle expression,
+
+117
+00:04:03,137 --> 00:04:04,014
+n'importe quelle fonction,
+
+118
+00:04:04,114 --> 00:04:06,326
+à n'importe quel type de séquence.
+
+119
+00:04:06,939 --> 00:04:08,377
+Regardons un exemple avec par exemple
+
+120
+00:04:08,477 --> 00:04:09,317
+des chaînes de caractères.
+
+121
+00:04:10,007 --> 00:04:11,920
+Supposons que j'ai une liste de prénoms
+
+122
+00:04:14,125 --> 00:04:15,098
+qui contienne des prénoms
+
+123
+00:04:15,198 --> 00:04:16,525
+avec une mauvaise capitalisation.
+
+124
+00:04:16,625 --> 00:04:18,532
+Je vais prendre 'Alice', 'eVE',
+
+125
+00:04:19,837 --> 00:04:23,594
+'sonia' et 'BOB'.
+
+126
+00:04:26,862 --> 00:04:29,638
+C'est quelque chose de possible en pratique
+
+127
+00:04:29,738 --> 00:04:31,085
+une liste qui contient des prénoms
+
+128
+00:04:31,185 --> 00:04:32,392
+qui ont mal été entrés.
+
+129
+00:04:32,492 --> 00:04:34,095
+Mon objectif, maintenant,
+
+130
+00:04:34,195 --> 00:04:36,247
+est d'obtenir une liste qui contient
+
+131
+00:04:36,347 --> 00:04:38,330
+les prénoms avec tous la même capitalisation,
+
+132
+00:04:38,430 --> 00:04:40,718
+typiquement, les mettre tous en minuscule.
+
+133
+00:04:41,311 --> 00:04:41,956
+Je peux faire ça
+
+134
+00:04:42,056 --> 00:04:42,914
+avec une compréhension de liste
+
+135
+00:04:43,014 --> 00:04:43,821
+de manière très simple.
+
+136
+00:04:44,240 --> 00:04:46,092
+Je vais réécrire prenom parce je veux que
+
+137
+00:04:46,192 --> 00:04:47,768
+ma variable prenom référence maintenant
+
+138
+00:04:47,868 --> 00:04:49,273
+ce nouvel objet liste.
+
+139
+00:04:49,373 --> 00:04:50,681
+Je mets mes crochets.
+
+140
+00:04:51,396 --> 00:04:52,746
+Quelle opération je vais appliquer ?
+
+141
+00:04:52,846 --> 00:04:54,429
+je vais donc avoir un prénom p
+
+142
+00:04:55,201 --> 00:04:56,616
+qui est une chaîne de caractères
+
+143
+00:04:56,716 --> 00:04:58,823
+et je vais lui appliquer la fonction lower
+
+144
+00:04:58,923 --> 00:04:59,997
+qui permet de mettre
+
+145
+00:05:00,097 --> 00:05:01,463
+une chaîne de caractères en minuscule,
+
+146
+00:05:02,381 --> 00:05:07,200
+pour p dans ma liste de prénoms.
+
+147
+00:05:07,300 --> 00:05:09,087
+Encore une fois, je lis:
+
+148
+00:05:09,187 --> 00:05:10,403
+je vais obtenir une liste
+
+149
+00:05:10,503 --> 00:05:12,555
+qui prend p en minuscule
+
+150
+00:05:12,655 --> 00:05:14,282
+pour p qui parcourt ma liste de prénoms.
+
+151
+00:05:14,907 --> 00:05:16,907
+J'exécute, je vois le résultat
+
+152
+00:05:17,007 --> 00:05:19,135
+et j'ai bien obtenu ma liste de prénoms.
+
+153
+00:05:20,706 --> 00:05:22,109
+Nous venons de voir dans cette vidéo
+
+154
+00:05:22,209 --> 00:05:23,815
+la notion de compréhension de liste.
+
+155
+00:05:23,915 --> 00:05:25,846
+Il s'agit d'une structure
+
+156
+00:05:25,946 --> 00:05:27,446
+qui permet d'implémenter
+
+157
+00:05:27,546 --> 00:05:29,384
+des boucles avec des tests
+
+158
+00:05:29,484 --> 00:05:31,517
+de manière extrêmement expressive
+
+159
+00:05:31,617 --> 00:05:32,225
+et intuitive.
+
+160
+00:05:32,325 --> 00:05:33,951
+Vous vous rendrez compte qu'à l'usage
+
+161
+00:05:34,051 --> 00:05:35,489
+il est extrêmement facile d'écrire
+
+162
+00:05:35,589 --> 00:05:36,569
+des compréhensions de listes
+
+163
+00:05:36,669 --> 00:05:37,863
+et que les compréhensions de listes
+
+164
+00:05:37,963 --> 00:05:39,702
+sont plus faciles à maintenir et à lire
+
+165
+00:05:39,802 --> 00:05:41,291
+que les boucles for et les if.
+
+166
+00:05:41,391 --> 00:05:42,621
+Évidemment, il va vous falloir
+
+167
+00:05:42,721 --> 00:05:43,718
+un petit peu de pratique,
+
+168
+00:05:43,818 --> 00:05:44,931
+c'est pourquoi je vous encourage
+
+169
+00:05:45,031 --> 00:05:46,672
+dès maintenant à vous entraîner
+
+170
+00:05:46,772 --> 00:05:48,517
+à écrire des compréhensions de listes.
+
+171
+00:05:48,617 --> 00:05:49,352
+À bientôt !
+

@@ -1,0 +1,1060 @@
+﻿1
+00:00:05,412 --> 00:00:07,842
+Dans cette vidéo, nous allons parler des sets.
+
+2
+00:00:08,273 --> 00:00:10,271
+Les sets sont très proches des dictionnaires,
+
+3
+00:00:10,371 --> 00:00:12,004
+comme les dictionnaires, ils permettent
+
+4
+00:00:12,104 --> 00:00:14,932
+de faire des tests d'appartenance,
+
+5
+00:00:15,032 --> 00:00:17,000
+d'accéder, modifier, effacer des éléments
+
+6
+00:00:17,100 --> 00:00:18,601
+indépendamment du nombre d'éléments.
+
+7
+00:00:18,701 --> 00:00:20,614
+Les sets sont également des objets mutables
+
+8
+00:00:20,714 --> 00:00:22,988
+mais à la différence des dictionnaires,
+
+9
+00:00:23,591 --> 00:00:25,778
+les sets ne stockent qu'une clé,
+
+10
+00:00:25,878 --> 00:00:27,342
+il n'y a pas de valeur correspondante.
+
+11
+00:00:27,442 --> 00:00:28,946
+Alors on peut se demander à quoi ça sert
+
+12
+00:00:29,046 --> 00:00:30,796
+d'avoir une sorte de sous-dictionnaire
+
+13
+00:00:30,896 --> 00:00:33,266
+qui ne stocke que des clés et pas de valeurs.
+
+14
+00:00:33,366 --> 00:00:36,355
+En fait, la raison, c'est que le set est optimisé
+
+15
+00:00:36,455 --> 00:00:38,569
+et a été créé pour des opérations spécifiques.
+
+16
+00:00:38,669 --> 00:00:39,977
+Une première opération dans laquelle
+
+17
+00:00:40,077 --> 00:00:40,998
+le set est très utilisé,
+
+18
+00:00:41,098 --> 00:00:43,182
+c'est par exemple pour garder uniquement
+
+19
+00:00:43,282 --> 00:00:44,685
+les éléments uniques d'une séquence ;
+
+20
+00:00:44,785 --> 00:00:46,414
+si on calcule le set
+
+21
+00:00:46,514 --> 00:00:47,526
+des éléments d'une séquence,
+
+22
+00:00:47,626 --> 00:00:49,470
+on ne va avoir que les éléments uniques.
+
+23
+00:00:49,861 --> 00:00:51,191
+Une deuxième opération pour laquelle
+
+24
+00:00:51,291 --> 00:00:53,119
+le set est également très utilisé,
+
+25
+00:00:53,219 --> 00:00:54,974
+c'est pour faire des tests d'appartenance
+
+26
+00:00:55,074 --> 00:00:56,380
+sur les éléments d'une séquence.
+
+27
+00:00:57,067 --> 00:00:59,003
+Ouvrons maintenant un interpréteur Python
+
+28
+00:00:59,103 --> 00:01:00,498
+pour commencer à jouer avec les sets.
+
+29
+00:01:01,654 --> 00:01:02,807
+Les sets comme les dictionnaires
+
+30
+00:01:02,907 --> 00:01:03,713
+sont des objets mutables,
+
+31
+00:01:03,813 --> 00:01:05,278
+on peut donc les modifier en place.
+
+32
+00:01:05,378 --> 00:01:06,895
+Commençons par créer un set,
+
+33
+00:01:06,995 --> 00:01:07,894
+un set vide.
+
+34
+00:01:07,994 --> 00:01:10,909
+Je vais le créer avec la fonction built-in set.
+
+35
+00:01:11,009 --> 00:01:13,795
+J'ai bien un objet de type set
+
+36
+00:01:13,895 --> 00:01:14,913
+qui est vide.
+
+37
+00:01:16,175 --> 00:01:18,363
+Ensuite, je peux créer un objet
+
+38
+00:01:18,463 --> 00:01:20,290
+avec la notation accolades ;
+
+39
+00:01:21,014 --> 00:01:26,139
+on va faire 1, 2, 3, 'a' et 18,
+
+40
+00:01:27,210 --> 00:01:28,474
+je peux même stocker un booléen
+
+41
+00:01:28,574 --> 00:01:29,479
+puisque je peux stocker
+
+42
+00:01:29,579 --> 00:01:31,935
+n'importe quel objet hashable dans un set.
+
+43
+00:01:32,035 --> 00:01:33,557
+Je vous rappelle qu'en Python
+
+44
+00:01:33,657 --> 00:01:35,414
+tous les immuables sont hashables
+
+45
+00:01:35,514 --> 00:01:37,332
+et que les mutables ne sont pas hashables.
+
+46
+00:01:37,890 --> 00:01:38,965
+Donc je peux stocker des entiers,
+
+47
+00:01:39,065 --> 00:01:40,091
+des chaînes de caractères
+
+48
+00:01:40,191 --> 00:01:41,019
+et des tuples
+
+49
+00:01:41,119 --> 00:01:43,117
+d'entiers ou de chaînes de caractères.
+
+50
+00:01:44,299 --> 00:01:46,039
+Je crée mon set.
+
+51
+00:01:46,139 --> 00:01:47,759
+Quelle est la différence ici entre
+
+52
+00:01:47,859 --> 00:01:49,376
+les accolades qui représentent un set
+
+53
+00:01:49,476 --> 00:01:50,573
+et les accolades qui représentent
+
+54
+00:01:50,673 --> 00:01:51,195
+un dictionnaire ?
+
+55
+00:01:51,295 --> 00:01:52,658
+Dans un set simplement,
+
+56
+00:01:52,758 --> 00:01:53,946
+je n'ai pas la notation :
+
+57
+00:01:54,046 --> 00:01:56,063
+qui sépare la clé et la valeur.
+
+58
+00:01:56,163 --> 00:01:57,231
+C'est ça qui fait la différence
+
+59
+00:01:57,331 --> 00:01:58,309
+pour l'interpréteur Python.
+
+60
+00:01:59,568 --> 00:02:00,758
+Ensuite, je peux créer un set
+
+61
+00:02:00,858 --> 00:02:02,020
+à partir d'une séquence,
+
+62
+00:02:02,120 --> 00:02:04,058
+par exemple, je peux avoir une liste a
+
+63
+00:02:05,487 --> 00:02:06,506
+qui contient des éléments
+
+64
+00:02:06,606 --> 00:02:12,355
+1, 2, 3, 1, 18, 20, 4  et 1,
+
+65
+00:02:12,455 --> 00:02:15,369
+je vois que j'ai une séquence d'entiers
+
+66
+00:02:15,469 --> 00:02:17,211
+avec des éléments qui sont dupliqués ;
+
+67
+00:02:17,311 --> 00:02:19,623
+si je fais un set de a,
+
+68
+00:02:19,723 --> 00:02:22,851
+je vais garder uniquement
+
+69
+00:02:22,951 --> 00:02:23,596
+les éléments uniques,
+
+70
+00:02:23,696 --> 00:02:25,180
+et créer un set à partir de ces éléments-là.
+
+71
+00:02:25,280 --> 00:02:26,822
+On voit que j'ai un ensemble
+
+72
+00:02:26,922 --> 00:02:28,532
+d'éléments uniques maintenant.
+
+73
+00:02:30,582 --> 00:02:32,668
+Ensuite, je peux manipuler un set
+
+74
+00:02:33,539 --> 00:02:34,796
+avec les fonctions built-in
+
+75
+00:02:34,896 --> 00:02:37,572
+len pour obtenir le nombre d'éléments ;
+
+76
+00:02:37,672 --> 00:02:38,867
+là encore, on remarque
+
+77
+00:02:38,967 --> 00:02:40,152
+la grande uniformité en Python,
+
+78
+00:02:40,252 --> 00:02:41,954
+len est utilisée pour les séquences,
+
+79
+00:02:42,054 --> 00:02:43,236
+pour les dictionnaires et pour les sets ;
+
+80
+00:02:43,336 --> 00:02:44,812
+le test d'appartenance,
+
+81
+00:02:44,912 --> 00:02:46,411
+comme vous devez vous en douter,
+
+82
+00:02:46,511 --> 00:02:48,160
+est fait avec l'instruction in.
+
+83
+00:02:48,260 --> 00:02:51,853
+Est-ce que 1 in s ?
+
+84
+00:02:53,468 --> 00:02:54,443
+Je vois que c'est vrai.
+
+85
+00:02:54,930 --> 00:02:57,563
+Je regarde de nouveau mon ensemble s.
+
+86
+00:02:57,663 --> 00:03:00,351
+Est-ce que 'b' in s ?
+
+87
+00:03:01,246 --> 00:03:02,453
+Je vois que c'est faux.
+
+88
+00:03:02,987 --> 00:03:04,290
+Là encore, test d'appartenance
+
+89
+00:03:04,390 --> 00:03:05,240
+tout à fait uniforme
+
+90
+00:03:05,340 --> 00:03:07,742
+entre tous les types built-in en Python.
+
+91
+00:03:07,842 --> 00:03:09,515
+Ensuite dans mon ensemble s,
+
+92
+00:03:09,615 --> 00:03:10,930
+je peux ajouter des éléments
+
+93
+00:03:11,030 --> 00:03:12,450
+avec la méthode add().
+
+94
+00:03:12,550 --> 00:03:14,911
+Je peux ajouter ici par exemple
+
+95
+00:03:15,011 --> 00:03:17,047
+la chaîne de caractères '18'
+
+96
+00:03:17,147 --> 00:03:19,179
+alors je vais plutôt mettre 'alice'
+
+97
+00:03:20,025 --> 00:03:21,612
+voilà, et donc j'ai ajouté dans mon ensemble
+
+98
+00:03:21,712 --> 00:03:23,131
+dans mon ensemble s,
+
+99
+00:03:23,231 --> 00:03:24,381
+j'ai ajouté
+
+100
+00:03:24,481 --> 00:03:26,371
+la chaîne de caractères 'alice'
+
+101
+00:03:26,471 --> 00:03:29,398
+et je peux ajouter une séquence d'éléments
+
+102
+00:03:29,498 --> 00:03:31,302
+donc faire une opération répétitive
+
+103
+00:03:31,402 --> 00:03:34,543
+d'ajout d'élément dans un set,
+
+104
+00:03:34,643 --> 00:03:40,720
+avec la fonction update().
+
+105
+00:03:41,735 --> 00:03:44,309
+Donc je prends update d'une séquence
+
+106
+00:03:44,409 --> 00:03:50,348
+1, 2, 3, 4, 5, 6 et 7 ;
+
+107
+00:03:50,448 --> 00:03:52,612
+et évidemment, lorsque je fais un update
+
+108
+00:03:52,712 --> 00:03:53,940
+je ne rajoute que les éléments
+
+109
+00:03:54,040 --> 00:03:56,522
+qui ne sont pas déjà dans mon ensemble s.
+
+110
+00:03:56,622 --> 00:03:57,932
+Donc je fais un update sur s
+
+111
+00:03:58,032 --> 00:03:59,466
+et je vois que dans s, j'ai rajouté
+
+112
+00:03:59,566 --> 00:04:00,935
+les éléments qui n'y étaient pas,
+
+113
+00:04:01,035 --> 00:04:02,493
+notamment les 4, 5, 6, 7
+
+114
+00:04:02,593 --> 00:04:04,383
+mais par contre, les éléments 1, 2, 3
+
+115
+00:04:04,483 --> 00:04:05,277
+qui étaient déjà présents
+
+116
+00:04:05,377 --> 00:04:06,203
+n'ont pas été rajoutés.
+
+117
+00:04:09,000 --> 00:04:10,336
+Ensuite, sur un set, je peux faire
+
+118
+00:04:10,436 --> 00:04:12,279
+des opérations d'ensembles classiques ;
+
+119
+00:04:12,379 --> 00:04:13,989
+je vais prendre un set s1
+
+120
+00:04:14,089 --> 00:04:16,062
+qui contient 1, 2, 3,
+
+121
+00:04:16,739 --> 00:04:18,729
+et je vais prendre un ensemble s2
+
+122
+00:04:19,511 --> 00:04:22,864
+qui contient 3, 4, 5.
+
+123
+00:04:24,176 --> 00:04:25,440
+Je peux maintenant calculer
+
+124
+00:04:25,540 --> 00:04:27,016
+une différence entre deux ensembles,
+
+125
+00:04:27,116 --> 00:04:28,181
+s1 moins s2,
+
+126
+00:04:28,281 --> 00:04:29,585
+qui va en fait enlever
+
+127
+00:04:29,685 --> 00:04:32,225
+tous les éléments de s2 dans s1,
+
+128
+00:04:32,830 --> 00:04:33,858
+on voit le résultat ;
+
+129
+00:04:33,958 --> 00:04:35,363
+et puis ensuite, on peut prendre
+
+130
+00:04:35,463 --> 00:04:36,922
+l'union et l'intersection des ensembles.
+
+131
+00:04:37,721 --> 00:04:38,657
+Là, j'ai pris l'union
+
+132
+00:04:39,191 --> 00:04:40,207
+et l'intersection
+
+133
+00:04:41,023 --> 00:04:42,902
+qui est notée de la manière suivante.
+
+134
+00:04:43,002 --> 00:04:45,075
+Voilà, donc des opérations classiques
+
+135
+00:04:45,175 --> 00:04:46,066
+sur des ensembles.
+
+136
+00:04:47,046 --> 00:04:48,688
+Regardons maintenant l'efficacité
+
+137
+00:04:48,788 --> 00:04:49,738
+du test d'appartenance.
+
+138
+00:04:49,838 --> 00:04:50,294
+Vous pouvez peut-être
+
+139
+00:04:50,394 --> 00:04:51,081
+vous poser une question,
+
+140
+00:04:51,181 --> 00:04:52,664
+lorsque je fais un test d'appartenance,
+
+141
+00:04:53,430 --> 00:04:54,700
+est-ce que c'est rentable
+
+142
+00:04:54,800 --> 00:04:56,741
+de convertir ma séquence en set
+
+143
+00:04:56,841 --> 00:04:57,833
+ou est-ce qu'il vaut mieux que
+
+144
+00:04:57,933 --> 00:04:59,535
+je fasse directement le test d'appartenance
+
+145
+00:04:59,635 --> 00:05:00,381
+sur une séquence ?
+
+146
+00:05:00,875 --> 00:05:02,224
+Il faut comprendre ce que veut dire
+
+147
+00:05:02,324 --> 00:05:03,726
+ce test d'appartenance sur les ensembles.
+
+148
+00:05:04,244 --> 00:05:05,796
+Lorsque vous faites un test d'appartenance
+
+149
+00:05:05,896 --> 00:05:06,850
+sur une séquence,
+
+150
+00:05:06,950 --> 00:05:08,974
+vous devez parcourir tous les éléments
+
+151
+00:05:09,074 --> 00:05:10,926
+de la séquence jusqu'à trouver
+
+152
+00:05:11,026 --> 00:05:12,015
+l'élément que vous cherchez.
+
+153
+00:05:12,115 --> 00:05:13,541
+Si l'élément n'est pas présent,
+
+154
+00:05:13,641 --> 00:05:14,557
+vous devez parcourir
+
+155
+00:05:14,657 --> 00:05:16,147
+tous les éléments de la séquence.
+
+156
+00:05:17,226 --> 00:05:17,982
+Essentiellement,
+
+157
+00:05:18,082 --> 00:05:19,444
+parcourir tous les éléments d'une séquence
+
+158
+00:05:19,544 --> 00:05:20,767
+ça correspond à regarder
+
+159
+00:05:20,867 --> 00:05:22,383
+une case mémoire dans votre ordinateur
+
+160
+00:05:22,483 --> 00:05:23,500
+et faire une comparaison
+
+161
+00:05:23,600 --> 00:05:25,938
+entre l'objet stocké dans cette case mémoire
+
+162
+00:05:26,038 --> 00:05:27,643
+et l'objet que vous voulez comparer.
+
+163
+00:05:28,526 --> 00:05:30,383
+Faire un test d'appartenance sur un set,
+
+164
+00:05:30,483 --> 00:05:31,102
+c'est très différent ;
+
+165
+00:05:31,202 --> 00:05:31,977
+comme on l'a vu,
+
+166
+00:05:32,077 --> 00:05:33,385
+un set, c'est une table de hash ;
+
+167
+00:05:33,485 --> 00:05:34,502
+ça veut donc dire que
+
+168
+00:05:34,602 --> 00:05:35,558
+faire un test d'appartenance,
+
+169
+00:05:35,658 --> 00:05:37,345
+ça représente essentiellement
+
+170
+00:05:37,445 --> 00:05:39,320
+un calcul d'une fonction de hash
+
+171
+00:05:39,420 --> 00:05:40,718
+sur l'objet que vous voulez chercher.
+
+172
+00:05:41,827 --> 00:05:42,704
+Cette fonction de hash
+
+173
+00:05:42,804 --> 00:05:43,445
+va vous donner une case
+
+174
+00:05:43,545 --> 00:05:44,611
+et ensuite vous allez comparer
+
+175
+00:05:44,711 --> 00:05:46,463
+si cet objet est le bon.
+
+176
+00:05:48,255 --> 00:05:49,476
+La question qu'on peut se poser
+
+177
+00:05:49,576 --> 00:05:50,806
+c'est combien de temps
+
+178
+00:05:50,906 --> 00:05:52,550
+prend le calcul de cette fonction de hash
+
+179
+00:05:52,650 --> 00:05:53,445
+sur votre objet.
+
+180
+00:05:53,545 --> 00:05:54,657
+En fait, nous allons voir que
+
+181
+00:05:54,757 --> 00:05:55,886
+c'est extrêmement rapide
+
+182
+00:05:55,986 --> 00:05:57,622
+et que c'est essentiellement,
+
+183
+00:05:58,193 --> 00:05:59,884
+le temps de calcul de cette fonction de hash,
+
+184
+00:05:59,984 --> 00:06:01,320
+de l'ordre de grandeur
+
+185
+00:06:01,420 --> 00:06:03,785
+de l'accès à un élément dans une séquence.
+
+186
+00:06:03,885 --> 00:06:04,938
+Regardons cela.
+
+187
+00:06:05,672 --> 00:06:07,272
+Je vais créer une liste
+
+188
+00:06:07,865 --> 00:06:09,614
+qui contient un seul élément 0.
+
+189
+00:06:09,714 --> 00:06:11,485
+Et je vais créer un set
+
+190
+00:06:13,753 --> 00:06:15,607
+à partir de cette liste.
+
+191
+00:06:15,707 --> 00:06:17,106
+Donc j'ai ma liste a
+
+192
+00:06:17,742 --> 00:06:18,878
+qui contient uniquement 0,
+
+193
+00:06:18,978 --> 00:06:19,813
+et j'ai mon set s
+
+194
+00:06:19,913 --> 00:06:21,159
+qui contient uniquement 0.
+
+195
+00:06:21,733 --> 00:06:22,383
+Et maintenant je vais faire
+
+196
+00:06:22,483 --> 00:06:23,716
+un test d'appartenance avec timeit.
+
+197
+00:06:24,264 --> 00:06:25,319
+Je vais faire un timeit,
+
+198
+00:06:25,419 --> 00:06:26,978
+je lui donne un argument
+
+199
+00:06:27,078 --> 00:06:28,198
+moins n 50
+
+200
+00:06:28,298 --> 00:06:29,903
+pour lui dire qu'il ne fasse que 50 boucles
+
+201
+00:06:30,003 --> 00:06:31,351
+pour que mon timeit soit plus rapide,
+
+202
+00:06:32,112 --> 00:06:36,319
+est-ce que 0 in a ?
+
+203
+00:06:36,862 --> 00:06:38,308
+Et regardons le temps d'exécution.
+
+204
+00:06:38,927 --> 00:06:40,326
+Sur ma machine, cela prend
+
+205
+00:06:40,426 --> 00:06:42,029
+autour de 40 nanosecondes.
+
+206
+00:06:42,611 --> 00:06:44,278
+Maintenant, je vais faire le même test
+
+207
+00:06:44,378 --> 00:06:45,817
+mais sur le set.
+
+208
+00:06:45,917 --> 00:06:46,761
+Je vous rappelle que
+
+209
+00:06:46,861 --> 00:06:47,886
+le processus est différent ;
+
+210
+00:06:47,986 --> 00:06:48,802
+sur la liste,
+
+211
+00:06:48,902 --> 00:06:51,026
+je vais accéder à la première case mémoire,
+
+212
+00:06:51,126 --> 00:06:53,421
+je vais comparer l'objet stocké dans ma liste
+
+213
+00:06:53,521 --> 00:06:54,128
+avec 0,
+
+214
+00:06:54,228 --> 00:06:55,254
+il se trouve que c'est le même objet,
+
+215
+00:06:55,354 --> 00:06:56,107
+je retourne vrai.
+
+216
+00:06:56,207 --> 00:06:57,146
+Pour le set,
+
+217
+00:06:57,246 --> 00:06:58,472
+je vais faire un calcul
+
+218
+00:06:58,572 --> 00:07:00,233
+avec la fonction de hash sur 0,
+
+219
+00:07:00,333 --> 00:07:01,759
+je vais accéder à une case
+
+220
+00:07:01,859 --> 00:07:03,044
+et ensuite je fais faire la comparaison.
+
+221
+00:07:03,144 --> 00:07:03,949
+Regardons cela.
+
+222
+00:07:05,052 --> 00:07:08,439
+Je regarde sur un set
+
+223
+00:07:08,539 --> 00:07:10,138
+et je vois que le test d'appartenance
+
+224
+00:07:10,238 --> 00:07:11,266
+est de l'ordre encore
+
+225
+00:07:11,366 --> 00:07:12,389
+de 40 nanosecondes.
+
+226
+00:07:13,263 --> 00:07:14,157
+Qu'est-ce que ça veut dire ?
+
+227
+00:07:14,257 --> 00:07:15,596
+Ça veut dire qu'en fait,
+
+228
+00:07:15,696 --> 00:07:16,855
+dès que vous avez à faire
+
+229
+00:07:16,955 --> 00:07:17,852
+un test d'appartenance,
+
+230
+00:07:17,952 --> 00:07:20,355
+convertissez toujours votre séquence en set,
+
+231
+00:07:20,455 --> 00:07:23,398
+ce sera dans la quasi intégralité des cas
+
+232
+00:07:23,498 --> 00:07:25,231
+une opération rentable.
+
+233
+00:07:25,741 --> 00:07:26,862
+En fait, vous pouvez demander
+
+234
+00:07:26,962 --> 00:07:28,054
+combien de temps cela va prendre
+
+235
+00:07:28,154 --> 00:07:30,549
+de convertir une séquence en set.
+
+236
+00:07:31,097 --> 00:07:32,614
+En fait, convertir une séquence en set,
+
+237
+00:07:32,714 --> 00:07:34,043
+ça va prendre le temps
+
+238
+00:07:34,143 --> 00:07:35,170
+de calculer la fonction de hash
+
+239
+00:07:35,270 --> 00:07:36,482
+sur chaque élément.
+
+240
+00:07:36,928 --> 00:07:38,241
+C'est essentiellement
+
+241
+00:07:38,341 --> 00:07:39,628
+le temps qu'il vous faudrait
+
+242
+00:07:39,728 --> 00:07:41,602
+pour parcourir une seule fois cette séquence
+
+243
+00:07:41,702 --> 00:07:44,500
+si vous faisiez un test sur un objet
+
+244
+00:07:44,600 --> 00:07:46,699
+qui n'appartient pas à la séquence.
+
+245
+00:07:46,799 --> 00:07:47,882
+Donc on voit qu'en fait,
+
+246
+00:07:48,388 --> 00:07:50,090
+quasiment tout le temps,
+
+247
+00:07:50,865 --> 00:07:52,025
+c'est beaucoup plus rentable
+
+248
+00:07:52,125 --> 00:07:53,481
+de convertir votre séquence en set,
+
+249
+00:07:53,581 --> 00:07:54,666
+donc c'est notre recommandation:
+
+250
+00:07:54,766 --> 00:07:56,746
+dès que vous faites un test d'appartenance
+
+251
+00:07:56,846 --> 00:07:57,944
+sur une séquence,
+
+252
+00:07:58,044 --> 00:07:59,696
+convertissez cette séquence en set
+
+253
+00:07:59,796 --> 00:08:00,891
+et faites le test d'appartenance
+
+254
+00:08:00,991 --> 00:08:01,929
+sur ce nouveau set.
+
+255
+00:08:02,668 --> 00:08:05,093
+Dans cette vidéo, nous avons vu le type set
+
+256
+00:08:05,193 --> 00:08:06,851
+qui est une implémentation
+
+257
+00:08:06,951 --> 00:08:07,969
+de table de hash,
+
+258
+00:08:08,069 --> 00:08:09,146
+très proche du dictionnaire.
+
+259
+00:08:09,246 --> 00:08:10,649
+La principale différence, c'est que
+
+260
+00:08:10,749 --> 00:08:12,335
+le set ne stocke pas de valeurs,
+
+261
+00:08:12,435 --> 00:08:13,423
+il ne stocke que des clés ;
+
+262
+00:08:13,523 --> 00:08:14,626
+et nous avons vu notamment
+
+263
+00:08:14,726 --> 00:08:16,295
+que le set était extrêmement efficace
+
+264
+00:08:16,395 --> 00:08:18,071
+pour faire des tests d'appartenance.
+
+265
+00:08:18,171 --> 00:08:19,399
+À bientôt !
+

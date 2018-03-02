@@ -1158,3 +1158,5 @@ Et enfin, de matplotlib pour la visualisation
 00:12:34,985 --> 00:12:36,313
 À bientôt !
 
+
+

@@ -1,0 +1,1016 @@
+﻿1
+00:00:04,227 --> 00:00:06,058
+Nous avons vu dans une précédente vidéo
+
+2
+00:00:06,158 --> 00:00:07,618
+que lorsque vous importiez un module,
+
+3
+00:00:07,718 --> 00:00:09,386
+le module n'était importé qu'une seule fois,
+
+4
+00:00:09,486 --> 00:00:11,025
+donc de multiples import vont simplement
+
+5
+00:00:11,125 --> 00:00:12,521
+créer des références partagées
+
+6
+00:00:12,621 --> 00:00:13,999
+vers cet objet module.
+
+7
+00:00:14,099 --> 00:00:14,826
+Mais l'objet module n'existe
+
+8
+00:00:14,926 --> 00:00:16,089
+qu'en un seul exemplaire.
+
+9
+00:00:16,623 --> 00:00:18,104
+L'objet module étant mutable,
+
+10
+00:00:18,204 --> 00:00:19,527
+il est possible de le modifier.
+
+11
+00:00:19,932 --> 00:00:21,360
+Il est par conséquent très important
+
+12
+00:00:21,460 --> 00:00:22,494
+de comprendre l'interaction
+
+13
+00:00:22,594 --> 00:00:24,201
+des différents mécanismes d'importation
+
+14
+00:00:24,588 --> 00:00:26,371
+avec l'espace de nommage des modules.
+
+15
+00:00:26,471 --> 00:00:27,761
+C'est ce que nous allons couvrir
+
+16
+00:00:27,861 --> 00:00:28,600
+dans cette vidéo.
+
+17
+00:00:30,508 --> 00:00:33,498
+Commençons par créer un fichier spam.py
+
+18
+00:00:33,598 --> 00:00:35,946
+qui va uniquement contenir x égale 1.
+
+19
+00:00:36,400 --> 00:00:39,114
+Et je vais créer un deuxième fichier, egg.py,
+
+20
+00:00:39,214 --> 00:00:40,712
+qui contient uniquement
+
+21
+00:00:40,812 --> 00:00:42,778
+import spam et x égale 2.
+
+22
+00:00:42,878 --> 00:00:44,571
+Je vous laisse quelques instants
+
+23
+00:00:44,671 --> 00:00:46,638
+pour créer ces fichiers
+
+24
+00:00:46,738 --> 00:00:47,308
+et nous nous retrouvons
+
+25
+00:00:47,408 --> 00:00:48,100
+dans quelques secondes.
+
+26
+00:00:49,738 --> 00:00:51,805
+Une fois que ces fichiers sont créés,
+
+27
+00:00:51,905 --> 00:00:53,396
+vous pouvez exécuter
+
+28
+00:00:53,966 --> 00:00:56,506
+le fichier egg.py en ligne de commande
+
+29
+00:00:56,606 --> 00:00:58,747
+depuis votre commande Windows cmd
+
+30
+00:00:58,847 --> 00:01:00,249
+ou depuis un bash sous Linux,
+
+31
+00:01:00,349 --> 00:01:02,827
+avec python de egg.py.
+
+32
+00:01:04,605 --> 00:01:05,500
+Si vous voulez voir
+
+33
+00:01:05,600 --> 00:01:07,079
+les espaces de nommage de ces modules,
+
+34
+00:01:07,179 --> 00:01:08,967
+vous pouvez utiliser l'instruction vars
+
+35
+00:01:09,715 --> 00:01:11,630
+qui est équivalente à l'instruction globals
+
+36
+00:01:11,730 --> 00:01:12,769
+dans ce contexte ;
+
+37
+00:01:13,200 --> 00:01:14,000
+et si vous voulez voir
+
+38
+00:01:14,100 --> 00:01:15,617
+l'espace de nommage d'un module importé,
+
+39
+00:01:15,717 --> 00:01:17,188
+vous pouvez utiliser vars
+
+40
+00:01:17,288 --> 00:01:18,435
+de ce nom de module.
+
+41
+00:01:18,858 --> 00:01:20,251
+Vous pouvez également simplement
+
+42
+00:01:20,351 --> 00:01:21,408
+voir les attributs d'un module
+
+43
+00:01:21,508 --> 00:01:22,183
+en utilisant dir ;
+
+44
+00:01:22,283 --> 00:01:23,455
+c'est ce que nous utilisons
+
+45
+00:01:23,555 --> 00:01:24,703
+depuis le début de ce mooc
+
+46
+00:01:24,803 --> 00:01:26,462
+pour voir les attributs des différents objets
+
+47
+00:01:26,562 --> 00:01:27,317
+que nous manipulons.
+
+48
+00:01:28,853 --> 00:01:30,462
+Maintenant, regardons l'impact
+
+49
+00:01:30,562 --> 00:01:32,458
+de l'importation sur les espaces de nommage.
+
+50
+00:01:33,278 --> 00:01:36,453
+Lorsque j'exécute egg.py,
+
+51
+00:01:36,553 --> 00:01:38,091
+lorsque je fais python de egg.py,
+
+52
+00:01:38,191 --> 00:01:39,478
+je vais commencer par
+
+53
+00:01:39,578 --> 00:01:41,077
+importer mon module spam ;
+
+54
+00:01:41,177 --> 00:01:42,618
+je vais donc aller dans le code de spam,
+
+55
+00:01:43,127 --> 00:01:44,173
+créer l'entier 1,
+
+56
+00:01:44,273 --> 00:01:45,508
+créer la variable x
+
+57
+00:01:45,608 --> 00:01:47,097
+dans l'espace de nommage de spam
+
+58
+00:01:47,197 --> 00:01:48,945
+et x va référencer cet entier 1.
+
+59
+00:01:49,344 --> 00:01:52,466
+Maintenant, l'objet module spam a été créé ;
+
+60
+00:01:52,566 --> 00:01:54,279
+je crée donc une référence
+
+61
+00:01:54,379 --> 00:01:57,233
+de la variable spam dans egg.py
+
+62
+00:01:57,333 --> 00:01:58,648
+vers cet objet module.
+
+63
+00:01:59,092 --> 00:02:01,439
+Pour finir, dans le module egg,
+
+64
+00:02:01,539 --> 00:02:03,225
+je crée un entier 2 et une variable x
+
+65
+00:02:03,325 --> 00:02:04,432
+qui référence cet entier 2.
+
+66
+00:02:04,532 --> 00:02:05,596
+On voit que c'est un mécanisme
+
+67
+00:02:05,696 --> 00:02:06,443
+extrêmement simple
+
+68
+00:02:06,543 --> 00:02:07,754
+avec deux modules tout bêtes.
+
+69
+00:02:08,641 --> 00:02:09,865
+Maintenant, que se passe-t-il
+
+70
+00:02:09,965 --> 00:02:11,079
+si on fait print de x ?
+
+71
+00:02:11,323 --> 00:02:15,099
+x est une variable définie dans le module egg,
+
+72
+00:02:15,199 --> 00:02:16,827
+je la cherche avec la règle LEGB ;
+
+73
+00:02:16,927 --> 00:02:18,386
+x est définie globalement
+
+74
+00:02:18,889 --> 00:02:20,336
+dans l'espace de nommage de egg ;
+
+75
+00:02:20,436 --> 00:02:20,985
+je regarde x
+
+76
+00:02:21,085 --> 00:02:22,137
+dans l'espace de nommage de egg
+
+77
+00:02:22,237 --> 00:02:23,882
+et je vois qu'elle référence l'entier 2.
+
+78
+00:02:24,571 --> 00:02:26,475
+Que fait print spam.x ?
+
+79
+00:02:26,833 --> 00:02:27,969
+Il va accéder à x
+
+80
+00:02:28,069 --> 00:02:29,594
+dans l'espace de nommage de spam.
+
+81
+00:02:29,966 --> 00:02:30,542
+Que vaut x
+
+82
+00:02:30,642 --> 00:02:31,798
+dans l'espace de nommage de spam ?
+
+83
+00:02:31,898 --> 00:02:32,772
+Il vaut 1.
+
+84
+00:02:33,613 --> 00:02:35,117
+Maintenant, regardons un deuxième cas.
+
+85
+00:02:35,217 --> 00:02:37,555
+Je fais spam.x égale 3.
+
+86
+00:02:37,655 --> 00:02:38,678
+Je vous rappelle que
+
+87
+00:02:38,778 --> 00:02:40,032
+les modules sont des objets mutables,
+
+88
+00:02:40,132 --> 00:02:41,422
+je peux donc modifier leurs attributs.
+
+89
+00:02:42,307 --> 00:02:44,547
+Lorsque je fais un spam.x égale 3,
+
+90
+00:02:44,647 --> 00:02:46,546
+je vais créer un nouvel entier 3
+
+91
+00:02:47,075 --> 00:02:48,801
+et je vais dire: la variable x
+
+92
+00:02:48,901 --> 00:02:50,137
+dans l'espace de nommage de spam
+
+93
+00:02:50,237 --> 00:02:52,025
+maintenant référence cet entier 3.
+
+94
+00:02:53,206 --> 00:02:55,085
+Donc, lorsque je vais faire print de x,
+
+95
+00:02:55,185 --> 00:02:57,251
+print de x va afficher le x
+
+96
+00:02:57,351 --> 00:02:59,747
+de l'espace de nommage de egg ;
+
+97
+00:02:59,847 --> 00:03:00,964
+je vois donc qu'il vaut 2.
+
+98
+00:03:01,578 --> 00:03:03,884
+print de spam.x va m'afficher le x
+
+99
+00:03:03,984 --> 00:03:05,374
+de l'espace de nommage de spam ;
+
+100
+00:03:05,884 --> 00:03:07,429
+je vais donc voir 3.
+
+101
+00:03:07,529 --> 00:03:08,599
+On remarque bien que
+
+102
+00:03:08,699 --> 00:03:09,978
+dès que j'accède à un attribut
+
+103
+00:03:10,078 --> 00:03:11,153
+dans un autre module,
+
+104
+00:03:11,253 --> 00:03:12,801
+j'ai la notation explicite
+
+105
+00:03:12,901 --> 00:03:15,184
+nom du module point nom de l'attribut.
+
+106
+00:03:16,212 --> 00:03:19,314
+Maintenant, si je fais spam.y égale 4,
+
+107
+00:03:19,414 --> 00:03:20,821
+comme mon objet spam est mutable,
+
+108
+00:03:20,921 --> 00:03:22,339
+je vais créer un entier 4
+
+109
+00:03:22,439 --> 00:03:24,281
+et une nouvelle variable y
+
+110
+00:03:24,381 --> 00:03:26,293
+dans l'espace de nommage de spam.
+
+111
+00:03:26,393 --> 00:03:28,555
+Et maintenant, y va référencer cet entier 4.
+
+112
+00:03:29,538 --> 00:03:31,496
+Donc, si je fais print de spam.x,
+
+113
+00:03:31,596 --> 00:03:32,744
+je vais voir le x qui est
+
+114
+00:03:32,844 --> 00:03:34,720
+dans l'espace de nommage de spam, 3 ;
+
+115
+00:03:34,820 --> 00:03:37,744
+et si je fais print spam.y, je vais voir le y
+
+116
+00:03:37,844 --> 00:03:39,393
+qui est dans l'espace de nommage de spam
+
+117
+00:03:39,493 --> 00:03:40,449
+4.
+
+118
+00:03:42,006 --> 00:03:43,260
+Nous allons voir maintenant
+
+119
+00:03:43,360 --> 00:03:44,353
+une autre manière d'importer.
+
+120
+00:03:44,453 --> 00:03:45,402
+Mais avant de présenter cette manière,
+
+121
+00:03:45,502 --> 00:03:46,735
+il faut bien comprendre l'importance
+
+122
+00:03:46,835 --> 00:03:48,110
+de ce import spam ;
+
+123
+00:03:48,210 --> 00:03:49,724
+lorsque vous faites import spam,
+
+124
+00:03:49,824 --> 00:03:51,045
+vous avez une parfaite isolation
+
+125
+00:03:51,145 --> 00:03:52,107
+des espaces de nommage ;
+
+126
+00:03:52,417 --> 00:03:54,362
+le seul moyen d'accéder à un attribut
+
+127
+00:03:54,763 --> 00:03:56,338
+dans l'espace de nommage de spam,
+
+128
+00:03:56,438 --> 00:03:58,265
+c'est d'utiliser la notation explicite
+
+129
+00:03:58,365 --> 00:03:59,927
+spam point cet attribut.
+
+130
+00:04:00,768 --> 00:04:02,358
+Maintenant, regardons la différence avec
+
+131
+00:04:02,458 --> 00:04:04,446
+l'importation qui consiste à écrire
+
+132
+00:04:04,546 --> 00:04:06,519
+from spam import x.
+
+133
+00:04:07,413 --> 00:04:10,107
+Maintenant, je vais toujours créer un entier 1
+
+134
+00:04:10,207 --> 00:04:11,164
+dans mon espace des objets,
+
+135
+00:04:11,264 --> 00:04:13,133
+et une variable x dans spam
+
+136
+00:04:13,233 --> 00:04:14,236
+qui référence 1.
+
+137
+00:04:15,010 --> 00:04:18,200
+Par contre, l'exécution de from spam import x
+
+138
+00:04:18,300 --> 00:04:20,102
+va créer mon objet module
+
+139
+00:04:20,468 --> 00:04:22,330
+et une variable x
+
+140
+00:04:22,430 --> 00:04:24,098
+dans l'espace de nommage de egg
+
+141
+00:04:24,198 --> 00:04:26,609
+qui va référencer le même entier
+
+142
+00:04:26,709 --> 00:04:27,460
+que le x qui est
+
+143
+00:04:27,560 --> 00:04:28,681
+dans l'espace de nommage de spam.
+
+144
+00:04:28,935 --> 00:04:30,762
+Donc on voit la différence fondamentale
+
+145
+00:04:30,862 --> 00:04:31,553
+avec tout à l'heure,
+
+146
+00:04:31,828 --> 00:04:32,453
+c'est que maintenant,
+
+147
+00:04:32,553 --> 00:04:35,249
+j'ai une variable locale dans egg, x,
+
+148
+00:04:35,349 --> 00:04:37,657
+qui référence l'objet
+
+149
+00:04:37,757 --> 00:04:39,436
+référencé par la variable x
+
+150
+00:04:39,536 --> 00:04:40,971
+qui est dans le module spam.
+
+151
+00:04:41,599 --> 00:04:43,147
+Et je n'ai plus de variable spam
+
+152
+00:04:43,247 --> 00:04:44,538
+qui me permet d'accéder à mon module.
+
+153
+00:04:46,675 --> 00:04:48,472
+Lorsque je fais print de x,
+
+154
+00:04:48,572 --> 00:04:50,820
+je vais donc accéder à mon x local ;
+
+155
+00:04:50,920 --> 00:04:52,555
+ce x local référence l'entier 1.
+
+156
+00:04:53,063 --> 00:04:54,832
+Si je fais x égale 3,
+
+157
+00:04:55,059 --> 00:04:56,898
+je crée un nouvel objet 3,
+
+158
+00:04:57,144 --> 00:04:58,544
+et ma variable x locale
+
+159
+00:04:58,644 --> 00:05:01,297
+va maintenant référencer ce nouvel objet 3.
+
+160
+00:05:01,603 --> 00:05:03,854
+Cette notation a donc permis d'importer,
+
+161
+00:05:03,954 --> 00:05:05,390
+dans mon espace de nommage,
+
+162
+00:05:05,643 --> 00:05:07,133
+un attribut du module.
+
+163
+00:05:09,065 --> 00:05:10,521
+Lorsque je fais print de x,
+
+164
+00:05:10,621 --> 00:05:12,291
+je vais donc bien voir 3.
+
+165
+00:05:13,906 --> 00:05:15,546
+Donc ici, j'aimerais faire un petit résumé.
+
+166
+00:05:15,646 --> 00:05:16,836
+La manière de vous présenter
+
+167
+00:05:16,936 --> 00:05:17,923
+les espaces de nommage
+
+168
+00:05:18,023 --> 00:05:18,737
+séparés des modules
+
+169
+00:05:18,837 --> 00:05:19,912
+est une vue abstraite.
+
+170
+00:05:20,012 --> 00:05:21,321
+En fait, il faut bien comprendre que
+
+171
+00:05:21,421 --> 00:05:22,519
+l'espace de nommage,
+
+172
+00:05:22,619 --> 00:05:23,349
+c'est un dictionnaire,
+
+173
+00:05:23,449 --> 00:05:24,075
+c'est donc un objet,
+
+174
+00:05:24,516 --> 00:05:26,073
+qui est un attribut du module.
+
+175
+00:05:26,287 --> 00:05:28,202
+Donc chaque module a un attribut
+
+176
+00:05:28,302 --> 00:05:29,585
+qui est son espace de nommage.
+
+177
+00:05:29,887 --> 00:05:31,749
+Je l'ai représenté de manière séparée
+
+178
+00:05:31,849 --> 00:05:33,692
+pour pouvoir isoler plus facilement
+
+179
+00:05:33,792 --> 00:05:35,348
+le mécanisme de référencement,
+
+180
+00:05:35,448 --> 00:05:36,451
+mais gardez bien en tête que
+
+181
+00:05:36,551 --> 00:05:37,520
+les espaces de nommage
+
+182
+00:05:37,620 --> 00:05:38,687
+sont des attributs des modules.
+
+183
+00:05:39,301 --> 00:05:40,922
+Maintenant, regardons la différence entre
+
+184
+00:05:41,022 --> 00:05:42,473
+faire un import de spam
+
+185
+00:05:42,573 --> 00:05:44,637
+et faire un from spam import x.
+
+186
+00:05:44,737 --> 00:05:46,868
+Résumons ces différences de comportement.
+
+187
+00:05:47,185 --> 00:05:49,042
+Lorsque vous faites import de spam,
+
+188
+00:05:49,342 --> 00:05:50,898
+vous avez une isolation parfaite
+
+189
+00:05:50,998 --> 00:05:51,871
+des espaces de nommage.
+
+190
+00:05:52,270 --> 00:05:53,251
+Vous pouvez accéder
+
+191
+00:05:53,351 --> 00:05:54,723
+à tous les attributs de spam
+
+192
+00:05:54,823 --> 00:05:56,377
+mais avec la notation explicite
+
+193
+00:05:56,477 --> 00:05:58,095
+spam point l'attribut
+
+194
+00:05:58,195 --> 00:05:58,946
+donc vous n'avez absolument
+
+195
+00:05:59,046 --> 00:05:59,943
+aucun risque d'erreur.
+
+196
+00:06:00,636 --> 00:06:02,931
+Lorsque vous faites un from spam import x,
+
+197
+00:06:03,166 --> 00:06:04,269
+vous allez importer
+
+198
+00:06:04,369 --> 00:06:05,712
+dans votre espace de nommage
+
+199
+00:06:05,812 --> 00:06:07,096
+un nom x
+
+200
+00:06:07,196 --> 00:06:08,970
+qui va référencer un objet
+
+201
+00:06:09,070 --> 00:06:11,423
+qui est défini dans le module spam.
+
+202
+00:06:11,655 --> 00:06:13,808
+Vous avez donc un risque de collision,
+
+203
+00:06:13,908 --> 00:06:15,352
+puisque x va importer une variable
+
+204
+00:06:15,452 --> 00:06:16,446
+dans votre espace de nommage ;
+
+205
+00:06:16,546 --> 00:06:18,313
+si vous avez déjà la variable x
+
+206
+00:06:18,413 --> 00:06:19,599
+définie dans votre espace de nommage,
+
+207
+00:06:19,699 --> 00:06:20,737
+vous allez donc avoir
+
+208
+00:06:20,837 --> 00:06:21,623
+une collision de variables.
+
+209
+00:06:21,997 --> 00:06:23,511
+Et vous n'avez pas accès
+
+210
+00:06:23,611 --> 00:06:24,911
+aux autres attributs de spam
+
+211
+00:06:25,011 --> 00:06:27,069
+puisque cet import ne permet que
+
+212
+00:06:27,169 --> 00:06:29,377
+d'accéder à l'objet référencé par x
+
+213
+00:06:29,687 --> 00:06:30,938
+dans le module spam.
+
+214
+00:06:32,400 --> 00:06:33,541
+Nous avons donc vu que nous avons
+
+215
+00:06:33,641 --> 00:06:35,697
+deux mécanismes d'importation des modules,
+
+216
+00:06:35,797 --> 00:06:37,936
+import module, qui va importer le module
+
+217
+00:06:38,036 --> 00:06:39,055
+avec une parfaite isolation
+
+218
+00:06:39,155 --> 00:06:39,852
+des espaces de nommage,
+
+219
+00:06:39,952 --> 00:06:40,793
+donc c'est totalement sûr.
+
+220
+00:06:40,893 --> 00:06:42,784
+Et from module import attribut
+
+221
+00:06:42,884 --> 00:06:44,536
+qui va importer uniquement l'attribut
+
+222
+00:06:44,636 --> 00:06:46,299
+dans notre espace de nommage local
+
+223
+00:06:46,399 --> 00:06:47,860
+avec un risque de collision.
+
+224
+00:06:48,114 --> 00:06:50,016
+Le principal intérêt d'utiliser la notation
+
+225
+00:06:50,116 --> 00:06:51,581
+from module import attribut
+
+226
+00:06:51,681 --> 00:06:52,714
+est juste d'avoir une notation
+
+227
+00:06:52,814 --> 00:06:53,697
+un petit peu plus courte
+
+228
+00:06:53,797 --> 00:06:55,133
+pour éviter d'avoir en permanence
+
+229
+00:06:55,233 --> 00:06:58,083
+à manipuler spam point par exemple x.
+
+230
+00:06:59,360 --> 00:07:01,616
+En pratique, c'est quelque chose d'utile
+
+231
+00:07:01,716 --> 00:07:03,013
+mais on ne l'utilise que
+
+232
+00:07:03,113 --> 00:07:04,781
+lorsqu'on utilise systématiquement
+
+233
+00:07:04,881 --> 00:07:07,416
+une fonction définie dans un autre module.
+
+234
+00:07:07,700 --> 00:07:08,586
+D'une manière générale,
+
+235
+00:07:08,686 --> 00:07:10,099
+il est préférable d'utiliser simplement
+
+236
+00:07:10,199 --> 00:07:12,372
+la notation import le module.
+
+237
+00:07:12,930 --> 00:07:14,664
+Je tiens également à vous faire remarquer
+
+238
+00:07:14,764 --> 00:07:15,482
+que lorsque vous faites
+
+239
+00:07:15,582 --> 00:07:16,693
+from module import attribut,
+
+240
+00:07:16,793 --> 00:07:17,799
+vous n'avez pas de référence
+
+241
+00:07:17,899 --> 00:07:18,597
+vers l'objet module.
+
+242
+00:07:18,819 --> 00:07:20,788
+Donc vous pourriez croire que cet import
+
+243
+00:07:20,888 --> 00:07:22,147
+va vous coûter moins de mémoire.
+
+244
+00:07:22,247 --> 00:07:24,011
+En fait, ça ne change absolument rien,
+
+245
+00:07:24,225 --> 00:07:25,110
+puisque l'objet module
+
+246
+00:07:25,210 --> 00:07:26,250
+va quand même être créé,
+
+247
+00:07:26,350 --> 00:07:27,915
+et va quand même être maintenu en mémoire
+
+248
+00:07:28,015 --> 00:07:29,793
+tant que votre programme
+
+249
+00:07:29,893 --> 00:07:30,678
+est en cours d'exécution.
+
+250
+00:07:30,948 --> 00:07:32,302
+Donc ces deux méthodes d'importation
+
+251
+00:07:32,402 --> 00:07:33,268
+n'ont aucun impact
+
+252
+00:07:33,368 --> 00:07:34,555
+ou n'ont aucune différence
+
+253
+00:07:34,655 --> 00:07:35,866
+en terme d'occupation de mémoire.
+
+254
+00:07:36,500 --> 00:07:37,287
+À bientôt !
+

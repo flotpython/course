@@ -1,0 +1,976 @@
+﻿1
+00:00:05,350 --> 00:00:07,028
+Nous avons vu dans une précédente vidéo
+
+2
+00:00:07,128 --> 00:00:07,938
+la relation d'héritage
+
+3
+00:00:08,038 --> 00:00:09,977
+entre les classes et les super-classes.
+
+4
+00:00:11,333 --> 00:00:13,028
+D'ailleurs, lorsque vous cherchez un attribut,
+
+5
+00:00:13,128 --> 00:00:14,598
+on appelle ça la recherche d'attribut
+
+6
+00:00:14,698 --> 00:00:16,299
+mais également la résolution d'attribut,
+
+7
+00:00:16,521 --> 00:00:17,936
+votre mécanisme de recherche
+
+8
+00:00:18,036 --> 00:00:19,533
+va remonter l'arbre d'héritage.
+
+9
+00:00:20,157 --> 00:00:21,144
+Nous savons également que
+
+10
+00:00:21,244 --> 00:00:22,424
+Python supporte ce que l'on appelle
+
+11
+00:00:22,524 --> 00:00:23,461
+l'héritage multiple.
+
+12
+00:00:23,769 --> 00:00:24,759
+Ça veut dire qu'une classe
+
+13
+00:00:24,859 --> 00:00:26,390
+peut hériter de plusieurs classes.
+
+14
+00:00:26,612 --> 00:00:28,208
+Lorsque l'héritage est simple,
+
+15
+00:00:26,912 --> 00:00:30,124
+la recherche ou la résolution des attributs
+
+16
+00:00:30,224 --> 00:00:30,620
+est simple,
+
+17
+00:00:30,720 --> 00:00:32,094
+on remonte simplement l'arbre d'héritage
+
+18
+00:00:32,194 --> 00:00:33,711
+qui est juste constitué d'une seule ligne.
+
+19
+00:00:34,371 --> 00:00:35,825
+Lorsque l'héritage est multiple,
+
+20
+00:00:36,045 --> 00:00:37,313
+dans ce cas-là, l'arbre d'héritage
+
+21
+00:00:37,413 --> 00:00:38,222
+va être plus complexe ;
+
+22
+00:00:38,322 --> 00:00:39,758
+ça va être un graphe acyclique.
+
+23
+00:00:39,858 --> 00:00:41,549
+Il faut donc, dans ce cas, définir
+
+24
+00:00:41,649 --> 00:00:43,781
+une méthode de résolution des attributs
+
+25
+00:00:43,881 --> 00:00:45,697
+qui va définir un parcours spécifique
+
+26
+00:00:45,797 --> 00:00:47,300
+dans notre graphe d'héritage.
+
+27
+00:00:47,825 --> 00:00:49,168
+C'est le sujet de cette vidéo ;
+
+28
+00:00:49,268 --> 00:00:50,271
+nous allons expliquer
+
+29
+00:00:50,371 --> 00:00:51,983
+les méthodes de résolution d'attribut
+
+30
+00:00:52,083 --> 00:00:53,861
+qu'on appelle également MRO,
+
+31
+00:00:53,961 --> 00:00:56,035
+pour Method Resolution Order en anglais.
+
+32
+00:00:56,570 --> 00:00:58,368
+Ouvrons maintenant un interpréteur Python
+
+33
+00:00:58,468 --> 00:00:59,812
+pour regarder cette notion
+
+34
+00:00:59,912 --> 00:01:01,179
+de résolution d'attribut.
+
+35
+00:01:02,812 --> 00:01:04,704
+Commençons par créer une classe C
+
+36
+00:01:04,804 --> 00:01:05,253
+toute simple.
+
+37
+00:01:05,353 --> 00:01:06,918
+Donc je vais définir une classe C
+
+38
+00:01:08,317 --> 00:01:09,217
+qui ne fait rien.
+
+39
+00:01:10,536 --> 00:01:12,490
+Ici, mon objectif est uniquement d'illustrer
+
+40
+00:01:12,590 --> 00:01:14,127
+le mécanisme de résolution d'attribut
+
+41
+00:01:14,227 --> 00:01:15,526
+et non pas le comportement des classes.
+
+42
+00:01:15,892 --> 00:01:17,320
+Ensuite, je vais définir une instance
+
+43
+00:01:17,420 --> 00:01:18,233
+de ma classe C,
+
+44
+00:01:18,686 --> 00:01:19,503
+petit c.
+
+45
+00:01:20,582 --> 00:01:21,814
+Alors, comment est-ce que Python fait
+
+46
+00:01:21,914 --> 00:01:23,435
+pour savoir quelle est la classe
+
+47
+00:01:23,535 --> 00:01:24,411
+qui a créé mon instance,
+
+48
+00:01:24,511 --> 00:01:25,350
+et quelles sont les super-classes
+
+49
+00:01:25,450 --> 00:01:26,021
+de ma classe ?
+
+50
+00:01:26,329 --> 00:01:27,780
+En fait, j'ai des attributs spéciaux.
+
+51
+00:01:28,114 --> 00:01:29,792
+Sur une instance, j'ai un attribut
+
+52
+00:01:29,892 --> 00:01:30,754
+qui s'appelle __class__
+
+53
+00:01:31,177 --> 00:01:33,397
+qui retourne une référence
+
+54
+00:01:33,497 --> 00:01:35,436
+vers l'objet classe qui a créé cette instance.
+
+55
+00:01:35,536 --> 00:01:37,483
+Lorsque l'on parcourt l'arbre d'héritage,
+
+56
+00:01:37,583 --> 00:01:40,029
+Python va en premier accéder à cet attribut
+
+57
+00:01:40,129 --> 00:01:41,096
+__class__ de l'instance
+
+58
+00:01:41,196 --> 00:01:42,975
+pour arriver jusqu'à la classe
+
+59
+00:01:43,075 --> 00:01:43,911
+qui a créé cette instance.
+
+60
+00:01:44,455 --> 00:01:47,873
+Et ensuite, les classes ont un attribut
+
+61
+00:01:47,973 --> 00:01:49,352
+qui s'appelle __bases__
+
+62
+00:01:49,741 --> 00:01:51,796
+qui est un tuple qui contient
+
+63
+00:01:51,896 --> 00:01:53,394
+toutes les super-classes de la classe.
+
+64
+00:01:53,494 --> 00:01:56,227
+Regardons quelle est la super-classe de C.
+
+65
+00:01:56,488 --> 00:01:58,136
+On voit que l'on a un objet,
+
+66
+00:01:58,236 --> 00:01:58,682
+on a quelque chose,
+
+67
+00:01:58,782 --> 00:01:59,620
+on a une super-classe de C,
+
+68
+00:01:59,720 --> 00:02:00,492
+ça s'appelle object.
+
+69
+00:02:00,787 --> 00:02:01,579
+Alors, ça, c'est curieux
+
+70
+00:02:01,679 --> 00:02:02,828
+parce qu'on a défini notre classe C
+
+71
+00:02:02,928 --> 00:02:04,166
+sans aucune super-classe.
+
+72
+00:02:04,451 --> 00:02:05,668
+En fait, en Python,
+
+73
+00:02:05,768 --> 00:02:07,073
+lorsque vous créez une classe
+
+74
+00:02:07,173 --> 00:02:08,213
+sans aucune super-classe,
+
+75
+00:02:08,313 --> 00:02:09,045
+par défaut,
+
+76
+00:02:09,801 --> 00:02:12,406
+votre classe héritera d'une classe particulière
+
+77
+00:02:12,506 --> 00:02:13,341
+qui s'appelle object.
+
+78
+00:02:13,778 --> 00:02:15,461
+object est la super-classe
+
+79
+00:02:15,561 --> 00:02:16,740
+de toutes les classes en Python.
+
+80
+00:02:17,483 --> 00:02:18,251
+Alors, pourquoi est-ce qu'on a besoin
+
+81
+00:02:18,351 --> 00:02:19,615
+d'avoir cette super-classe
+
+82
+00:02:19,715 --> 00:02:20,924
+qui est au-dessus de toutes les classes
+
+83
+00:02:21,024 --> 00:02:21,379
+en Python ?
+
+84
+00:02:21,787 --> 00:02:23,210
+C'est parce qu'en fait, vous avez remarqué
+
+85
+00:02:23,310 --> 00:02:24,326
+que, quand vous avez une classe
+
+86
+00:02:24,426 --> 00:02:25,012
+ou une instance,
+
+87
+00:02:25,331 --> 00:02:26,112
+vous pouvez tout à fait faire
+
+88
+00:02:26,212 --> 00:02:27,048
+un print de c.
+
+89
+00:02:27,745 --> 00:02:28,873
+Quelque chose s'affiche.
+
+90
+00:02:29,127 --> 00:02:30,473
+Je peux faire un print de ma classe ;
+
+91
+00:02:30,573 --> 00:02:31,662
+quelque chose va s'afficher également.
+
+92
+00:02:31,972 --> 00:02:33,595
+Ça veut donc dire que la méthode print
+
+93
+00:02:33,695 --> 00:02:34,802
+est supportée par ma classe
+
+94
+00:02:34,902 --> 00:02:36,071
+pourtant, je n'ai défini aucune méthode
+
+95
+00:02:36,171 --> 00:02:36,829
+à l'intérieur.
+
+96
+00:02:36,929 --> 00:02:38,319
+Et bien, en fait, dans object,
+
+97
+00:02:38,419 --> 00:02:39,201
+vous avez un certain nombre
+
+98
+00:02:39,301 --> 00:02:40,416
+de comportements par défaut
+
+99
+00:02:40,516 --> 00:02:41,342
+qui sont implémentés
+
+100
+00:02:41,931 --> 00:02:45,607
+et donc, lorsque ces comportements
+
+101
+00:02:45,707 --> 00:02:47,547
+ne sont pas surchargés dans vos classes,
+
+102
+00:02:48,656 --> 00:02:49,799
+l'implémentation de object
+
+103
+00:02:49,899 --> 00:02:51,167
+va être celle qui va être utilisée.
+
+104
+00:02:52,700 --> 00:02:53,908
+Donc maintenant, regardons
+
+105
+00:02:54,427 --> 00:02:55,918
+un attribut sur ma classe
+
+106
+00:02:56,018 --> 00:02:57,136
+qui s'appelle mro().
+
+107
+00:02:58,591 --> 00:02:59,762
+Enfin pardon, pas un attribut,
+
+108
+00:02:59,862 --> 00:03:00,977
+une méthode sur ma classe
+
+109
+00:03:01,077 --> 00:03:01,705
+qui s'appelle mro().
+
+110
+00:03:01,805 --> 00:03:03,461
+Là encore, je n'ai pas défini
+
+111
+00:03:03,561 --> 00:03:05,030
+de méthode mro sur ma classe ;
+
+112
+00:03:05,130 --> 00:03:06,200
+on se doute que cette méthode
+
+113
+00:03:06,300 --> 00:03:07,143
+est définie quelque part
+
+114
+00:03:07,243 --> 00:03:08,134
+le long de l'arbre d'héritage
+
+115
+00:03:08,234 --> 00:03:09,117
+donc dans object.
+
+116
+00:03:09,500 --> 00:03:10,739
+J'exécute et je vois que
+
+117
+00:03:10,839 --> 00:03:12,339
+mro me retourne
+
+118
+00:03:12,553 --> 00:03:14,016
+__main__.C et object.
+
+119
+00:03:14,326 --> 00:03:17,081
+mro va me retourner une liste
+
+120
+00:03:17,181 --> 00:03:18,553
+qui va m'indiquer dans quel ordre
+
+121
+00:03:18,653 --> 00:03:19,824
+je dois résoudre mes attributs
+
+122
+00:03:19,924 --> 00:03:21,100
+lorsque j'arrive dans ma classe.
+
+123
+00:03:21,523 --> 00:03:22,574
+Je vais d'abord le chercher
+
+124
+00:03:22,940 --> 00:03:24,162
+dans l'espace de nommage de C ;
+
+125
+00:03:24,596 --> 00:03:25,428
+si je ne le trouve pas,
+
+126
+00:03:25,528 --> 00:03:26,988
+je vais chercher mon attribut
+
+127
+00:03:27,227 --> 00:03:28,986
+dans l'espace de nommage de object,
+
+128
+00:03:29,086 --> 00:03:31,921
+donc c'est le chemin que je vais suivre
+
+129
+00:03:32,021 --> 00:03:33,608
+lors de la résolution de mes attributs.
+
+130
+00:03:34,300 --> 00:03:35,372
+Maintenant, regardons un cas
+
+131
+00:03:35,472 --> 00:03:36,082
+un peu plus compliqué.
+
+132
+00:03:36,329 --> 00:03:37,438
+Je vais créer une classe
+
+133
+00:03:39,711 --> 00:03:40,961
+SuperA
+
+134
+00:03:41,678 --> 00:03:42,478
+qui ne fait rien,
+
+135
+00:03:43,026 --> 00:03:44,011
+et une classe
+
+136
+00:03:45,350 --> 00:03:46,974
+SuperB
+
+137
+00:03:47,964 --> 00:03:49,300
+qui ne fait rien également,
+
+138
+00:03:49,695 --> 00:03:51,747
+et je vais définir une classe C
+
+139
+00:03:51,847 --> 00:03:57,438
+qui hérite de SuperA et de SuperB.
+
+140
+00:03:58,035 --> 00:04:00,204
+Et ma classe C ne fait rien également.
+
+141
+00:04:00,778 --> 00:04:02,115
+Maintenant, regardons l'ordre
+
+142
+00:04:02,215 --> 00:04:03,250
+de résolution des attributs.
+
+143
+00:04:03,528 --> 00:04:04,928
+Donc je vais prendre ma classe C
+
+144
+00:04:05,028 --> 00:04:06,653
+et je vais appeler la méthode mro.
+
+145
+00:04:07,295 --> 00:04:08,163
+Regardons cela.
+
+146
+00:04:08,263 --> 00:04:09,987
+Je vois que l'ordre de résolution des attributs
+
+147
+00:04:10,087 --> 00:04:10,816
+c'est ma classe C,
+
+148
+00:04:11,310 --> 00:04:12,991
+ensuite ma super-classe A,
+
+149
+00:04:13,478 --> 00:04:14,829
+ensuite ma super-classe B
+
+150
+00:04:14,929 --> 00:04:16,282
+et ensuite object.
+
+151
+00:04:17,024 --> 00:04:18,946
+Mais maintenant, modifions un tout petit peu
+
+152
+00:04:19,305 --> 00:04:20,079
+ma classe C,
+
+153
+00:04:20,179 --> 00:04:22,508
+et au lieu de faire SuperA, SuperB,
+
+154
+00:04:22,608 --> 00:04:25,227
+je vais faire un SuperB, SuperA.
+
+155
+00:04:29,082 --> 00:04:30,775
+Exécutons cette classe
+
+156
+00:04:30,875 --> 00:04:33,549
+et maintenant, regardons la mro.
+
+157
+00:04:34,212 --> 00:04:35,182
+Je vois que maintenant,
+
+158
+00:04:35,282 --> 00:04:36,232
+c'est classe C,
+
+159
+00:04:36,735 --> 00:04:37,985
+ensuite, c'est SuperB,
+
+160
+00:04:38,085 --> 00:04:39,357
+ensuite, c'est SuperA
+
+161
+00:04:39,457 --> 00:04:40,388
+et ensuite, c'est object.
+
+162
+00:04:40,488 --> 00:04:42,168
+Ça veut donc dire que l'ordre
+
+163
+00:04:42,268 --> 00:04:43,382
+de résolution des attributs
+
+164
+00:04:43,765 --> 00:04:45,141
+va dépendre de la manière,
+
+165
+00:04:45,241 --> 00:04:46,134
+de l'ordre dans lequel
+
+166
+00:04:46,234 --> 00:04:48,002
+vous définissez les super-classes d'une classe.
+
+167
+00:04:48,224 --> 00:04:49,155
+C'est donc très important,
+
+168
+00:04:49,255 --> 00:04:51,152
+lorsque l'on fait de l'héritage multiple,
+
+169
+00:04:51,252 --> 00:04:53,765
+de prendre conscience de ce phénomène
+
+170
+00:04:53,865 --> 00:04:55,338
+et de prendre en compte cela
+
+171
+00:04:55,438 --> 00:04:57,741
+lorsque l'on définit les super-classes
+
+172
+00:04:57,841 --> 00:04:58,387
+d'une classe.
+
+173
+00:05:00,243 --> 00:05:01,616
+Regardons maintenant l'algorithme
+
+174
+00:05:01,716 --> 00:05:02,583
+utilisé par Python
+
+175
+00:05:02,683 --> 00:05:06,791
+pour trouver ce parcours de recherche
+
+176
+00:05:06,891 --> 00:05:07,438
+des attributs.
+
+177
+00:05:07,909 --> 00:05:08,987
+Prenons un exemple.
+
+178
+00:05:09,295 --> 00:05:11,017
+Je vais définir une classe A
+
+179
+00:05:11,781 --> 00:05:13,067
+qui hérite de object,
+
+180
+00:05:13,167 --> 00:05:13,841
+vous savez qu'une classe
+
+181
+00:05:13,941 --> 00:05:15,376
+qui ne définit aucune super-classe
+
+182
+00:05:15,476 --> 00:05:16,834
+hérite automatiquement de object,
+
+183
+00:05:17,112 --> 00:05:18,944
+puis une classe B qui hérite de A,
+
+184
+00:05:19,915 --> 00:05:21,931
+et puis ensuite, une classe C qui hérite de A.
+
+185
+00:05:22,271 --> 00:05:25,145
+Pour finir, je vais définir une classe D
+
+186
+00:05:25,245 --> 00:05:26,776
+qui hérite de B et de C.
+
+187
+00:05:27,012 --> 00:05:28,696
+Ici, on a typiquement ce qu'on appelle
+
+188
+00:05:28,796 --> 00:05:30,558
+un diagramme en diamant,
+
+189
+00:05:30,658 --> 00:05:33,053
+qui est un diagramme particulier.
+
+190
+00:05:33,775 --> 00:05:34,668
+Et donc regardons maintenant
+
+191
+00:05:34,768 --> 00:05:36,042
+comment Python va définir
+
+192
+00:05:36,289 --> 00:05:38,096
+la recherche des attributs.
+
+193
+00:05:38,413 --> 00:05:40,444
+Donc en fait, on utilise l'algorithme suivant.
+
+194
+00:05:40,992 --> 00:05:45,275
+On va parcourir les classes
+
+195
+00:05:45,703 --> 00:05:46,876
+de bas en haut
+
+196
+00:05:46,976 --> 00:05:48,973
+et ensuite de gauche à droite.
+
+197
+00:05:49,323 --> 00:05:50,693
+Donc dans ce cas-là, on va parcourir
+
+198
+00:05:50,793 --> 00:05:53,275
+D, B, A, object,
+
+199
+00:05:53,553 --> 00:05:55,250
+puis ensuite on redescend au branchement
+
+200
+00:05:55,350 --> 00:05:57,833
+et on va parcourir C, A, object.
+
+201
+00:05:58,392 --> 00:06:00,029
+Et ensuite, si jamais on a des classes
+
+202
+00:06:00,129 --> 00:06:00,884
+qui sont dupliquées,
+
+203
+00:06:01,163 --> 00:06:02,628
+on enlève toutes les classes dupliquées
+
+204
+00:06:02,728 --> 00:06:03,379
+sauf la dernière.
+
+205
+00:06:03,626 --> 00:06:07,192
+Donc j'enlève A qui est présente deux fois,
+
+206
+00:06:07,292 --> 00:06:08,493
+donc je l'enlève, sauf la dernière,
+
+207
+00:06:08,593 --> 00:06:09,847
+et j'ai object qui est également
+
+208
+00:06:09,947 --> 00:06:10,488
+présent deux fois,
+
+209
+00:06:10,750 --> 00:06:12,369
+et j'enlève object sauf le dernier.
+
+210
+00:06:12,776 --> 00:06:14,246
+Et donc si on regarde effectivement
+
+211
+00:06:14,346 --> 00:06:16,899
+quelle est la mro calculée automatiquement
+
+212
+00:06:16,999 --> 00:06:17,425
+par Python,
+
+213
+00:06:17,525 --> 00:06:18,377
+c'est ce que je viens d'écrire,
+
+214
+00:06:18,477 --> 00:06:21,160
+c'est la classe D, la classe B, la classe C,
+
+215
+00:06:21,260 --> 00:06:23,473
+la classe A et finalement object.
+
+216
+00:06:24,142 --> 00:06:26,126
+En fait, l'algorithme réel utilisé par Python
+
+217
+00:06:26,226 --> 00:06:27,335
+est un tout petit peu plus compliqué
+
+218
+00:06:27,435 --> 00:06:28,172
+que ce que j'ai montré,
+
+219
+00:06:28,272 --> 00:06:29,899
+mais ça vous donne une bonne approximation
+
+220
+00:06:29,999 --> 00:06:31,545
+du fonctionnement de cet algorithme
+
+221
+00:06:31,645 --> 00:06:33,488
+de recherche des attributs en Python.
+
+222
+00:06:34,756 --> 00:06:36,109
+Nous venons de voir la technique
+
+223
+00:06:36,209 --> 00:06:37,982
+de résolution des attributs en Python
+
+224
+00:06:38,082 --> 00:06:39,376
+et notamment, la méthode mro
+
+225
+00:06:39,476 --> 00:06:40,855
+qui permet de définir la liste
+
+226
+00:06:41,172 --> 00:06:42,050
+que l'on va parcourir
+
+227
+00:06:42,150 --> 00:06:43,291
+lorsque l'on recherche des attributs.
+
+228
+00:06:43,553 --> 00:06:45,397
+C'est très important de prendre conscience
+
+229
+00:06:45,497 --> 00:06:47,512
+qu'on a une technique particulière
+
+230
+00:06:47,612 --> 00:06:48,454
+de recherche des attributs
+
+231
+00:06:48,554 --> 00:06:49,589
+en cas d'héritage multiple.
+
+232
+00:06:49,865 --> 00:06:51,340
+Imaginez que vous ayez une classe
+
+233
+00:06:51,440 --> 00:06:52,746
+qui hérite de deux super-classes,
+
+234
+00:06:53,078 --> 00:06:54,247
+et que vous appeliez une méthode
+
+235
+00:06:54,347 --> 00:06:55,925
+qui soit définie dans vos deux super-classes,
+
+236
+00:06:56,145 --> 00:06:57,892
+si vous ne savez pas l'ordre
+
+237
+00:06:57,992 --> 00:06:59,098
+de résolution des attributs,
+
+238
+00:06:59,198 --> 00:07:00,675
+vous ne connaîtrez pas la méthode
+
+239
+00:07:00,775 --> 00:07:01,593
+qui sera appelée
+
+240
+00:07:01,693 --> 00:07:03,530
+dans l'une ou l'autre de vos super-classes.
+
+241
+00:07:03,746 --> 00:07:04,831
+C'est donc important de comprendre
+
+242
+00:07:04,931 --> 00:07:06,206
+cet algorithme de résolution.
+
+243
+00:07:06,741 --> 00:07:07,725
+À bientôt !
+
+244
+00:07:07,825 --> 00:07:09,325
+
+

@@ -1,0 +1,1088 @@
+1
+00:00:05,070 --> 00:00:06,600
+J'ai déjà eu l'occasion de mentionner
+
+2
+00:00:06,700 --> 00:00:08,000
+la notion de awaitable,
+
+3
+00:00:08,100 --> 00:00:09,880
+donc je vais dans cette vidéo
+
+4
+00:00:09,980 --> 00:00:12,530
+expliciter ce qu'est un awaitable ;
+
+5
+00:00:12,630 --> 00:00:14,830
+et je vais me placer dans un contexte
+
+6
+00:00:14,930 --> 00:00:16,180
+qui est légèrement différent.
+
+7
+00:00:16,280 --> 00:00:18,380
+Jusqu'ici je vous ai fait un exposé
+
+8
+00:00:18,480 --> 00:00:20,650
+qui était orienté utilisateur de la librairie:
+
+9
+00:00:20,750 --> 00:00:22,970
+on crée des boucles, on crée des coroutines ;
+
+10
+00:00:23,070 --> 00:00:24,980
+maintenant, je vais me mettre dans la position
+
+11
+00:00:25,390 --> 00:00:27,720
+de quelqu'un qui a envie d'écrire une boucle.
+
+12
+00:00:27,820 --> 00:00:29,330
+Pas pour vous apprendre à faire une boucle
+
+13
+00:00:29,430 --> 00:00:30,300
+mais pour vous expliquer
+
+14
+00:00:30,400 --> 00:00:31,900
+les mécanismes de base qui sont
+
+15
+00:00:31,800 --> 00:00:33,350
+à l'oeuvre là derrière.
+
+16
+00:00:33,850 --> 00:00:36,200
+Donc dans toute la vidéo
+
+17
+00:00:36,300 --> 00:00:37,900
+je vais bien faire attention
+
+18
+00:00:38,000 --> 00:00:39,480
+de ne jamais importer asyncio ;
+
+19
+00:00:39,580 --> 00:00:40,640
+je reste avec des mécanismes
+
+20
+00:00:40,740 --> 00:00:42,370
+qui sont uniquement dans le langage
+
+21
+00:00:42,470 --> 00:00:44,600
+et je fais un petit peu comme si
+
+22
+00:00:44,700 --> 00:00:47,000
+j'avais envie d'expérimenter
+
+23
+00:00:47,100 --> 00:00:48,220
+avec ma propre boucle.
+
+24
+00:00:50,000 --> 00:00:52,330
+Pour commencer, le protocole awaitable
+
+25
+00:00:52,430 --> 00:00:53,930
+c'est un protocole parmi d'autres ;
+
+26
+00:00:54,030 --> 00:00:56,500
+on a déjà eu l'occasion de rencontrer
+
+27
+00:00:56,600 --> 00:00:57,600
+le protocole itérable,
+
+28
+00:00:57,700 --> 00:00:59,100
+le protocole context manager,
+
+29
+00:00:59,200 --> 00:01:00,230
+et d'autres.
+
+30
+00:01:00,330 --> 00:01:02,800
+Le protocole awaitable, c'est le protocole
+
+31
+00:01:02,900 --> 00:01:04,330
+qui décrit sur quels objets
+
+32
+00:01:04,430 --> 00:01:05,630
+on a le droit de faire await,
+
+33
+00:01:05,730 --> 00:01:06,630
+naturellement.
+
+34
+00:01:06,730 --> 00:01:09,370
+Il repose sur la méthode spéciale __await__
+
+35
+00:01:09,470 --> 00:01:10,700
+sans surprise.
+
+36
+00:01:10,800 --> 00:01:12,850
+Et on en a déjà vu un exemple,
+
+37
+00:01:12,950 --> 00:01:14,680
+c'est l'objet coroutine.
+
+38
+00:01:14,780 --> 00:01:16,480
+Je vais vous montrer tout de suite
+
+39
+00:01:16,580 --> 00:01:17,600
+comment on peut se créer
+
+40
+00:01:17,700 --> 00:01:19,560
+son propre awaitable.
+
+41
+00:01:19,660 --> 00:01:22,100
+Donc ce que me spécifie le protocole
+
+42
+00:01:22,200 --> 00:01:23,750
+c'est que la méthode spéciale __await__
+
+43
+00:01:23,850 --> 00:01:25,290
+doit renvoyer un itérateur.
+
+44
+00:01:25,390 --> 00:01:27,610
+Un itérateur, c'est - pensez dans votre tête -
+
+45
+00:01:27,710 --> 00:01:28,430
+un générateur.
+
+46
+00:01:28,530 --> 00:01:30,830
+Donc ça va être une fonction
+
+47
+00:01:30,930 --> 00:01:32,350
+qui va renvoyer des yield
+
+48
+00:01:32,450 --> 00:01:33,760
+principalement,
+
+49
+00:01:33,860 --> 00:01:35,530
+et on va voir que c'est ce yield
+
+50
+00:01:35,630 --> 00:01:38,210
+qui va servir de point clé
+
+51
+00:01:38,310 --> 00:01:39,420
+dans le séquencement
+
+52
+00:01:39,520 --> 00:01:40,840
+de nos coroutines entre elles.
+
+53
+00:01:42,200 --> 00:01:44,450
+Je me définis une classe awaitable,
+
+54
+00:01:44,550 --> 00:01:47,940
+je fournis la méthode spéciale __await__
+
+55
+00:01:48,040 --> 00:01:50,470
+qui ressemble à un générateur
+
+56
+00:01:50,570 --> 00:01:52,400
+et qui va faire une fois yield.
+
+57
+00:01:52,500 --> 00:01:53,750
+Ce que ça veut dire, c'est que
+
+58
+00:01:53,850 --> 00:01:57,000
+ce awaitable va faire en gros son travail
+
+59
+00:01:57,100 --> 00:01:58,530
+en deux fois.
+
+60
+00:02:00,360 --> 00:02:02,250
+Je définis la classe awaitable,
+
+61
+00:02:02,350 --> 00:02:05,490
+je me définis une coroutine
+
+62
+00:02:05,590 --> 00:02:07,230
+qui await le awaitable,
+
+63
+00:02:07,330 --> 00:02:08,130
+naturellement,
+
+64
+00:02:08,230 --> 00:02:10,650
+je calcule l'objet coroutine
+
+65
+00:02:10,750 --> 00:02:11,910
+que me retourne la coroutine,
+
+66
+00:02:12,010 --> 00:02:14,800
+et maintenant, encore une fois je me mets
+
+67
+00:02:14,900 --> 00:02:15,800
+dans la position de la boucle,
+
+68
+00:02:15,900 --> 00:02:18,800
+je vais envoyer à cet objet coroutine
+
+69
+00:02:18,900 --> 00:02:20,200
+la méthode send,
+
+70
+00:02:20,300 --> 00:02:23,620
+(je vais lui envoyer... une méthode send)
+
+71
+00:02:23,720 --> 00:02:24,740
+et par cette méthode send
+
+72
+00:02:24,840 --> 00:02:25,860
+je vais lui envoyer l'objet None.
+
+73
+00:02:25,960 --> 00:02:26,430
+Alors, pourquoi None,
+
+74
+00:02:26,530 --> 00:02:27,900
+on aura le temps d'en reparler.
+
+75
+00:02:28,000 --> 00:02:28,720
+Donc ce qui se passe,
+
+76
+00:02:28,800 --> 00:02:31,750
+c'est que je reçois en retour
+
+77
+00:02:31,950 --> 00:02:37,580
+ce qu'a yieldé le générateur.
+
+78
+00:02:37,680 --> 00:02:39,790
+Donc, ça, c'est la mécanique de base
+
+79
+00:02:39,890 --> 00:02:41,400
+la plus simple
+
+80
+00:02:41,900 --> 00:02:45,260
+sur un awaitable qui ne fait presque rien.
+
+81
+00:02:46,700 --> 00:02:48,050
+Alors maintenant, je vais prendre
+
+82
+00:02:48,150 --> 00:02:49,860
+un awaitable un tout petit peu
+
+83
+00:02:49,960 --> 00:02:51,090
+plus compliqué, qui au lieu de
+
+84
+00:02:51,190 --> 00:02:53,080
+faire son travail avec un yield
+
+85
+00:02:53,180 --> 00:02:55,090
+va faire son travail avec deux yield.
+
+86
+00:02:55,190 --> 00:02:56,700
+Donc j'évalue la classe,
+
+87
+00:02:56,800 --> 00:02:59,380
+je refais le même boilerplate
+
+88
+00:02:59,480 --> 00:03:00,980
+qui consiste à calculer un objet coroutine
+
+89
+00:03:01,080 --> 00:03:04,640
+pour pouvoir lui envoyer la méthode send.
+
+90
+00:03:04,740 --> 00:03:07,900
+Si je lui envoie la méthode send une fois,
+
+91
+00:03:08,000 --> 00:03:10,050
+je récupère yield 1.
+
+92
+00:03:10,150 --> 00:03:12,570
+Si j'envoie la méthode send deux fois,
+
+93
+00:03:12,670 --> 00:03:14,230
+je récupère yield 2.
+
+94
+00:03:14,330 --> 00:03:16,620
+Et si j'essaie de lui envoyer une troisième fois,
+
+95
+00:03:16,720 --> 00:03:18,460
+ce qui va se passer, je vais récupérer
+
+96
+00:03:18,560 --> 00:03:19,920
+l'exception StopIteration,
+
+97
+00:03:20,020 --> 00:03:21,300
+donc exactement comme si j'étais
+
+98
+00:03:21,400 --> 00:03:22,580
+en train de faire une boucle for,
+
+99
+00:03:22,680 --> 00:03:25,930
+et la valeur qui est associée
+
+100
+00:03:26,030 --> 00:03:28,030
+à l'exception StopIteration,
+
+101
+00:03:28,130 --> 00:03:30,600
+c'est la valeur de retour d'awaitable.
+
+102
+00:03:30,700 --> 00:03:31,600
+Donc l'awaitable qui fait son travail
+
+103
+00:03:31,700 --> 00:03:32,700
+essentiellement en trois fois,
+
+104
+00:03:33,500 --> 00:03:34,320
+si on veut,
+
+105
+00:03:35,250 --> 00:03:38,530
+je vais pouvoir séquencer
+
+106
+00:03:38,630 --> 00:03:41,000
+ces trois différentes séquences
+
+107
+00:03:41,100 --> 00:03:42,640
+en lui envoyant trois fois send.
+
+108
+00:03:44,000 --> 00:03:45,500
+Donc maintenant vous avez compris,
+
+109
+00:03:45,600 --> 00:03:47,760
+si j'ai une boucle et je veux faire avancer
+
+110
+00:03:47,860 --> 00:03:48,850
+deux tâches en parallèle,
+
+111
+00:03:48,950 --> 00:03:51,860
+je vais créer deux objets coroutines
+
+112
+00:03:51,960 --> 00:03:52,760
+comme tout à l'heure,
+
+113
+00:03:52,860 --> 00:03:54,900
+et je vais pouvoir choisir
+
+114
+00:03:55,000 --> 00:03:56,000
+- là, je choisis arbitrairement -
+
+115
+00:03:56,100 --> 00:03:58,490
+de faire avancer une fois l'une une fois l'autre
+
+116
+00:03:58,590 --> 00:04:00,590
+donc si j'envoie la méthode send
+
+117
+00:04:00,690 --> 00:04:02,300
+d'abord à coro1 et à coro2,
+
+118
+00:04:02,400 --> 00:04:03,980
+j'ai les premières étapes de chacune
+
+119
+00:04:04,080 --> 00:04:04,800
+qui sont faites,
+
+120
+00:04:04,900 --> 00:04:06,450
+pareil si je fais ça,
+
+121
+00:04:06,550 --> 00:04:08,890
+et de la même façon que tout à l'heure,
+
+122
+00:04:08,990 --> 00:04:11,580
+si je leur envoie une troisième fois
+
+123
+00:04:11,680 --> 00:04:13,140
+la méthode send,
+
+124
+00:04:13,240 --> 00:04:14,540
+je vais récupérer tout simplement
+
+125
+00:04:14,640 --> 00:04:16,300
+la valeur de retour.
+
+126
+00:04:16,400 --> 00:04:17,800
+Donc maintenant vous voyez que j'ai
+
+127
+00:04:17,900 --> 00:04:19,360
+en tant que boucle la possibilité
+
+128
+00:04:19,460 --> 00:04:21,270
+de choisir quelle est la coroutine
+
+129
+00:04:21,370 --> 00:04:22,300
+que je veux faire avancer
+
+130
+00:04:22,400 --> 00:04:25,450
+et de séquencer absolument
+
+131
+00:04:25,550 --> 00:04:26,810
+tout ce que je veux dans l'ordre que je veux.
+
+132
+00:04:26,910 --> 00:04:29,260
+Vous avez la mécanique de base, presque,
+
+133
+00:04:29,360 --> 00:04:30,750
+pour écrire une boucle.
+
+134
+00:04:32,140 --> 00:04:33,600
+Je vais maintenant vous montrer un exemple
+
+135
+00:04:33,700 --> 00:04:35,050
+un tout petit peu plus compliqué,
+
+136
+00:04:35,150 --> 00:04:36,840
+où on va voir les mécaniques
+
+137
+00:04:36,940 --> 00:04:38,320
+qui sont à l'oeuvre lorsque les coroutines
+
+138
+00:04:38,420 --> 00:04:40,120
+s'appellent les unes les autres,
+
+139
+00:04:40,220 --> 00:04:40,770
+qui était quelque chose
+
+140
+00:04:40,670 --> 00:04:41,920
+qu'on n'a encore pas bien vu
+
+141
+00:04:42,020 --> 00:04:43,760
+avec les exemples que je vous ai montrés.
+
+142
+00:04:43,860 --> 00:04:46,760
+Je commence par me définir une classe w1
+
+143
+00:04:46,860 --> 00:04:47,560
+qui est un waitable,
+
+144
+00:04:47,660 --> 00:04:49,060
+qui me renvoie 1.
+
+145
+00:04:50,090 --> 00:04:51,250
+Lorsque je vais faire await
+
+146
+00:04:51,350 --> 00:04:52,270
+d'un objet de ce type,
+
+147
+00:04:52,370 --> 00:04:53,530
+je vais recevoir 1.
+
+148
+00:04:56,200 --> 00:04:57,730
+Et je vais l'utiliser de la façon suivante:
+
+149
+00:04:57,830 --> 00:05:01,510
+j'appelle un scénario qui, principalement,
+
+150
+00:05:01,610 --> 00:05:03,700
+appelle une fonction coroutine w4 ;
+
+151
+00:05:03,800 --> 00:05:06,000
+w4 appelle w3 et lui ajoute 1,
+
+152
+00:05:06,100 --> 00:05:07,900
+qui appelle w2 qui ajoute 1,
+
+153
+00:05:08,000 --> 00:05:11,400
+et w2 va essentiellement me faire await
+
+154
+00:05:11,500 --> 00:05:14,220
+sur deux instances successives de w1.
+
+155
+00:05:14,830 --> 00:05:16,240
+La raison d'être des marqueurs,
+
+156
+00:05:16,340 --> 00:05:17,540
+c'est uniquement pour qu'on comprenne bien
+
+157
+00:05:17,640 --> 00:05:18,330
+ce qui se passe.
+
+158
+00:05:19,000 --> 00:05:20,970
+Alors, avec ceci en place,
+
+159
+00:05:21,070 --> 00:05:25,400
+je vais pouvoir envoyer mon message une fois
+
+160
+00:05:26,540 --> 00:05:28,290
+à la coroutine.
+
+161
+00:05:29,000 --> 00:05:30,380
+Je vais pouvoir l'envoyer une troisième fois,
+
+162
+00:05:30,480 --> 00:05:31,550
+une deuxième fois pardon,
+
+163
+00:05:31,650 --> 00:05:32,870
+et c'est à la troisième fois que je vais
+
+164
+00:05:32,970 --> 00:05:33,780
+récupérer mon résultat.
+
+165
+00:05:33,880 --> 00:05:36,350
+Donc mon point, c'est de vous montrer que
+
+166
+00:05:37,360 --> 00:05:40,430
+le vrai moment où l'exécution s'arrête,
+
+167
+00:05:40,530 --> 00:05:42,180
+ce n'est pas le moment où je fais un await
+
+168
+00:05:42,280 --> 00:05:43,030
+à proprement parler,
+
+169
+00:05:43,130 --> 00:05:44,350
+c'est le moment où je fais un yield.
+
+170
+00:05:44,450 --> 00:05:45,800
+Donc ceci, c'est pour préciser ce que
+
+171
+00:05:45,900 --> 00:05:47,800
+j'avais pu dire en première approximation
+
+172
+00:05:47,900 --> 00:05:49,000
+dans les vidéos d'introduction.
+
+173
+00:05:50,630 --> 00:05:52,440
+Je vais vous montrer ce que ça donne
+
+174
+00:05:52,540 --> 00:05:54,000
+sur une animation.
+
+175
+00:05:55,080 --> 00:05:57,380
+Dans ce scénario, comment ça se passe ?
+
+176
+00:05:57,480 --> 00:06:01,000
+Je commence avec une boucle vide
+
+177
+00:06:01,100 --> 00:06:04,450
+avec une pile vide, je veux dire, pardon.
+
+178
+00:06:04,550 --> 00:06:08,020
+Donc au moment où j'envoie le premier send
+
+179
+00:06:08,120 --> 00:06:11,270
+je vais démarrer à proprement parler
+
+180
+00:06:11,370 --> 00:06:12,000
+l'exécution,
+
+181
+00:06:12,100 --> 00:06:14,560
+je vais invoquer w4,
+
+182
+00:06:14,660 --> 00:06:16,510
+je vais mettre dans ma pile w3
+
+183
+00:06:16,610 --> 00:06:18,330
+puisque w4 appelle w3
+
+184
+00:06:18,430 --> 00:06:20,040
+qui va empiler w2,
+
+185
+00:06:20,140 --> 00:06:22,870
+qui va empiler w1, et là,
+
+186
+00:06:22,970 --> 00:06:24,670
+à ce stade-là, j'arrive au yield.
+
+187
+00:06:24,770 --> 00:06:26,080
+Donc c'est à ce moment-là
+
+188
+00:06:26,180 --> 00:06:27,770
+et à ce moment-là seulement
+
+189
+00:06:28,660 --> 00:06:32,260
+qu'on redonne le contrôle à la pile,
+
+190
+00:06:33,800 --> 00:06:35,950
+le résultat du yield est passé à la boucle,
+
+191
+00:06:36,050 --> 00:06:37,820
+qui peut faire absolument ce qu'elle veut,
+
+192
+00:06:37,920 --> 00:06:40,100
+puis, un moment plus tard,
+
+193
+00:06:40,200 --> 00:06:41,460
+elle va nous envoyer le deuxième send
+
+194
+00:06:41,560 --> 00:06:43,370
+donc on va continuer l'exécution,
+
+195
+00:06:45,000 --> 00:06:47,430
+on va finir l'exécution de w1,
+
+196
+00:06:47,530 --> 00:06:49,350
+on va retourner à w2,
+
+197
+00:06:49,450 --> 00:06:50,350
+puis, à ce moment-là,
+
+198
+00:06:50,450 --> 00:06:54,320
+w2 crée une deuxième instance de w1,
+
+199
+00:06:54,420 --> 00:06:55,600
+donc on empile w1,
+
+200
+00:06:55,700 --> 00:06:57,780
+on arrive au yield,
+
+201
+00:06:57,880 --> 00:06:59,690
+et, au moment où on arrive au yield,
+
+202
+00:06:59,790 --> 00:07:01,850
+de nouveau, on rend la main à la boucle,
+
+203
+00:07:01,950 --> 00:07:04,550
+et c'est seulement quand on fait le 3° send
+
+204
+00:07:04,650 --> 00:07:07,370
+qu'on va s'amuser à tout dépiler
+
+205
+00:07:08,500 --> 00:07:11,760
+entièrement la pile, et ce résultat 4
+
+206
+00:07:11,860 --> 00:07:14,000
+sera transmis à la boucle sous la forme
+
+207
+00:07:14,100 --> 00:07:15,870
+de StopIteration(4).
+
+208
+00:07:16,980 --> 00:07:18,480
+Jusqu'à maintenant, nous avons vu
+
+209
+00:07:18,580 --> 00:07:19,780
+des scénarios dans lesquels on arrivait
+
+210
+00:07:19,880 --> 00:07:21,020
+à faire passer de l'information
+
+211
+00:07:21,120 --> 00:07:23,030
+de la coroutine à la boucle,
+
+212
+00:07:23,130 --> 00:07:25,800
+puisque, lorsque la coroutine fait yield x,
+
+213
+00:07:25,900 --> 00:07:28,650
+ce x est propagé à la boucle
+
+214
+00:07:28,750 --> 00:07:30,250
+comme résultat du send.
+
+215
+00:07:30,350 --> 00:07:32,340
+Maintenant, en fait, cette communication,
+
+216
+00:07:32,440 --> 00:07:33,450
+elle fonctionne dans les deux sens
+
+217
+00:07:33,550 --> 00:07:35,100
+donc on va voir ça ensemble.
+
+218
+00:07:35,200 --> 00:07:37,160
+Je me définis un awaitable
+
+219
+00:07:37,260 --> 00:07:39,140
+qui est presque exactement le même
+
+220
+00:07:39,240 --> 00:07:40,640
+que celui qu'on a vu tout à l'heure
+
+221
+00:07:40,740 --> 00:07:43,400
+sauf que je récupère le résultat
+
+222
+00:07:43,500 --> 00:07:45,550
+de l'instruction yield, je l'imprime.
+
+223
+00:07:47,000 --> 00:07:48,240
+Comme vous vous en doutez sans doute,
+
+224
+00:07:48,920 --> 00:07:51,010
+ce que je vais arriver à récupérer comme ça,
+
+225
+00:07:51,110 --> 00:07:52,970
+c'est ce qui est envoyé par send.
+
+226
+00:07:53,070 --> 00:07:55,100
+Donc on voit ça maintenant ensemble.
+
+227
+00:07:55,200 --> 00:07:58,100
+La première fois, je ne peux pas
+
+228
+00:07:58,200 --> 00:07:59,530
+faire autrement que d'envoyer None,
+
+229
+00:07:59,630 --> 00:08:01,300
+alors, pourquoi je ne peux pas faire autrement
+
+230
+00:08:01,400 --> 00:08:02,130
+que d'envoyer None ?
+
+231
+00:08:02,230 --> 00:08:05,280
+C'est qu'en fait je m'adresse à un yield
+
+232
+00:08:05,380 --> 00:08:07,400
+lorsque je fais send de quelque chose,
+
+233
+00:08:07,500 --> 00:08:09,310
+ça va être le résultat d'un yield,
+
+234
+00:08:09,410 --> 00:08:11,300
+sauf que là, cette coroutine n'a pas
+
+235
+00:08:11,400 --> 00:08:12,680
+encore démarré, je n'ai pas encore de pile,
+
+236
+00:08:12,780 --> 00:08:13,750
+il n'y a pas de yield,
+
+237
+00:08:13,850 --> 00:08:15,210
+donc je ne peux pas faire autre chose
+
+238
+00:08:15,310 --> 00:08:16,840
+que send(None).
+
+239
+00:08:17,500 --> 00:08:18,590
+La deuxième fois par contre,
+
+240
+00:08:18,690 --> 00:08:22,240
+j'envoie "message" qui va se faire
+
+241
+00:08:22,340 --> 00:08:25,900
+récupérer comme résultat de yield,
+
+242
+00:08:26,000 --> 00:08:28,650
+et donc, nous avons ici la coroutine
+
+243
+00:08:28,750 --> 00:08:30,030
+qui affiche "message".
+
+244
+00:08:30,660 --> 00:08:32,660
+Et si je regarde maintenant
+
+245
+00:08:32,760 --> 00:08:34,500
+d'un point de vue plus abstrait
+
+246
+00:08:34,600 --> 00:08:36,370
+en faisant une représentation de la pile,
+
+247
+00:08:36,470 --> 00:08:39,710
+je vois que j'ai établi une communication
+
+248
+00:08:39,810 --> 00:08:40,610
+dans les deux sens
+
+249
+00:08:40,710 --> 00:08:43,060
+entre la boucle et la coroutine,
+
+250
+00:08:43,160 --> 00:08:44,930
+et que quand, en gros,
+
+251
+00:08:45,030 --> 00:08:46,850
+pour faire une image très abstraite,
+
+252
+00:08:48,000 --> 00:08:49,700
+si je fais y = send(x), ça veut dire
+
+253
+00:08:49,800 --> 00:08:54,080
+que x sera le résultat du y
+
+254
+00:08:54,180 --> 00:08:56,030
+et en fait, au coup suivant,
+
+255
+00:08:56,130 --> 00:08:59,430
+le y sera le résultat du send.
+
+256
+00:09:00,300 --> 00:09:01,950
+Donc, en conclusion de cette vidéo,
+
+257
+00:09:02,050 --> 00:09:03,660
+nous avons vu ce qu'était
+
+258
+00:09:03,760 --> 00:09:04,800
+le protocole awaitable
+
+259
+00:09:04,900 --> 00:09:06,860
+et nous nous en sommes servis
+
+260
+00:09:06,960 --> 00:09:08,440
+pour illustrer la communication
+
+261
+00:09:08,540 --> 00:09:09,770
+qui marche dans les deux sens
+
+262
+00:09:09,870 --> 00:09:12,180
+entre la boucle d'un côté,
+
+263
+00:09:12,280 --> 00:09:13,510
+la coroutine de l'autre,
+
+264
+00:09:13,610 --> 00:09:16,840
+ce qui d'un côté correspond au send
+
+265
+00:09:16,940 --> 00:09:18,770
+va correspondre de l'autre au yield,
+
+266
+00:09:18,870 --> 00:09:21,150
+et qu'on a réussi à faire tout ça
+
+267
+00:09:21,250 --> 00:09:22,580
+sans utiliser à aucun moment
+
+268
+00:09:22,680 --> 00:09:24,090
+la librairie asyncio.
+
+269
+00:09:24,190 --> 00:09:25,770
+On n'a utilisé que des mécanismes
+
+270
+00:09:25,870 --> 00:09:27,880
+propres au langage, et c'est ça
+
+271
+00:09:27,980 --> 00:09:29,990
+qui sert à développer des boucles
+
+272
+00:09:30,090 --> 00:09:31,850
+comme la librairie asyncio.
+

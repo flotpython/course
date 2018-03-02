@@ -1,0 +1,768 @@
+﻿1
+00:00:03,718 --> 00:00:04,769
+Nous avons vu précédemment
+
+2
+00:00:04,869 --> 00:00:07,468
+l'instruction if qui permet d'évaluer des tests
+
+3
+00:00:07,568 --> 00:00:09,128
+et nous avons vu également la boucle for
+
+4
+00:00:09,228 --> 00:00:11,280
+qui permet de répéter un bloc d'instructions
+
+5
+00:00:11,380 --> 00:00:12,223
+un certain nombre de fois.
+
+6
+00:00:12,974 --> 00:00:14,279
+Nous allons voir, dans cette vidéo,
+
+7
+00:00:14,379 --> 00:00:15,554
+l'instruction while, qui permet
+
+8
+00:00:15,654 --> 00:00:17,412
+de combiner ces deux possibilités.
+
+9
+00:00:17,866 --> 00:00:19,616
+Ouvrons maintenant un éditeur IDLE
+
+10
+00:00:19,716 --> 00:00:20,570
+pour commencer à jouer
+
+11
+00:00:20,670 --> 00:00:22,152
+avec les boucles while.
+
+12
+00:00:22,887 --> 00:00:24,121
+Regardons comment est-ce que
+
+13
+00:00:24,221 --> 00:00:25,529
+je peux écrire une boucle while.
+
+14
+00:00:25,871 --> 00:00:28,336
+Je vais commencer par définir une liste
+
+15
+00:00:29,166 --> 00:00:32,789
+qui contient des entiers allant de 0 à 10.
+
+16
+00:00:35,431 --> 00:00:37,302
+Je vais prendre une liste qui va de 1 à 10.
+
+17
+00:00:37,402 --> 00:00:38,085
+Voilà.
+
+18
+00:00:38,185 --> 00:00:42,078
+Et ensuite, je vais faire un while a :
+
+19
+00:00:42,178 --> 00:00:43,734
+donc while, c'est l'instruction,
+
+20
+00:00:43,834 --> 00:00:45,903
+à côté de l'instruction, je mets un test
+
+21
+00:00:46,003 --> 00:00:48,534
+et ce test est exactement de même nature
+
+22
+00:00:48,634 --> 00:00:50,195
+que le test que je mets avec un if,
+
+23
+00:00:50,744 --> 00:00:51,346
+que nous avons vu
+
+24
+00:00:51,446 --> 00:00:52,503
+dans une précédente vidéo.
+
+25
+00:00:53,607 --> 00:00:55,560
+Tant que ce test est vrai,
+
+26
+00:00:55,660 --> 00:00:56,938
+je continue,
+
+27
+00:00:57,038 --> 00:00:58,136
+while veut dire tant que,
+
+28
+00:00:58,236 --> 00:00:59,440
+tant que c'est vrai,
+
+29
+00:00:59,540 --> 00:01:00,889
+je continue à boucler
+
+30
+00:01:00,989 --> 00:01:02,658
+et lorsque le test devient faux,
+
+31
+00:01:02,758 --> 00:01:05,489
+je sors du bloc de code du while.
+
+32
+00:01:06,143 --> 00:01:07,455
+Regardons quelque chose
+
+33
+00:01:07,555 --> 00:01:08,332
+que je peux mettre dans un while,
+
+34
+00:01:08,432 --> 00:01:10,268
+je vais mettre un a.pop()
+
+35
+00:01:11,097 --> 00:01:14,962
+et ensuite je vais faire un print de a.
+
+36
+00:01:15,062 --> 00:01:16,458
+Que va faire ce code ?
+
+37
+00:01:17,049 --> 00:01:19,723
+Il va boucler tant que a est vrai,
+
+38
+00:01:19,823 --> 00:01:20,849
+a est une liste
+
+39
+00:01:20,949 --> 00:01:22,499
+et nous savons qu'une liste est vraie
+
+40
+00:01:22,599 --> 00:01:24,059
+tant qu'il y a des éléments dans la liste,
+
+41
+00:01:24,159 --> 00:01:25,969
+et qu'elle devient fausse dès qu'elle est vide.
+
+42
+00:01:26,495 --> 00:01:28,728
+a.pop() va enlever
+
+43
+00:01:28,828 --> 00:01:30,161
+le dernier élément de la liste,
+
+44
+00:01:30,734 --> 00:01:32,355
+et lorsqu'il n'y aura plus d'élément
+
+45
+00:01:32,455 --> 00:01:33,001
+dans la liste,
+
+46
+00:01:33,101 --> 00:01:34,850
+mon test va naturellement s'arrêter.
+
+47
+00:01:35,154 --> 00:01:38,330
+Regardons ça, je le sauvegarde avec Ctrl-S,
+
+48
+00:01:38,430 --> 00:01:39,527
+je l'évalue avec F5,
+
+49
+00:01:39,627 --> 00:01:41,037
+et regardons l'exécution,
+
+50
+00:01:41,137 --> 00:01:42,823
+je vois bien ma liste qui apparaît
+
+51
+00:01:42,923 --> 00:01:44,073
+et qui diminue d'un élément
+
+52
+00:01:44,173 --> 00:01:44,950
+à chaque tour du while,
+
+53
+00:01:45,050 --> 00:01:46,517
+et lorsque ma liste est vide,
+
+54
+00:01:46,617 --> 00:01:48,613
+simplement le while s'arrête.
+
+55
+00:01:51,267 --> 00:01:52,291
+Dans un while,
+
+56
+00:01:52,391 --> 00:01:53,359
+je peux également mettre
+
+57
+00:01:53,459 --> 00:01:55,590
+des instructions break et continue,
+
+58
+00:01:55,690 --> 00:01:57,125
+qui me permettent d'interrompre
+
+59
+00:01:57,225 --> 00:01:58,093
+l'exécution d'un while
+
+60
+00:01:58,193 --> 00:01:59,955
+ou alors de remonter au début.
+
+61
+00:02:00,286 --> 00:02:01,151
+Regardons cela.
+
+62
+00:02:02,084 --> 00:02:04,835
+Donc ici, je fais mon if a.pop()
+
+63
+00:02:04,935 --> 00:02:11,439
+et je vais rajouter un if len de a égale 5 :
+
+64
+00:02:12,896 --> 00:02:14,112
+continue
+
+65
+00:02:14,816 --> 00:02:16,097
+Qu'est-ce qu'il va se passer ?
+
+66
+00:02:16,455 --> 00:02:19,515
+Lorsque ma liste aura exactement 5 éléments
+
+67
+00:02:19,615 --> 00:02:23,167
+je vais arriver à l'instruction continue,
+
+68
+00:02:23,267 --> 00:02:24,861
+donc l'instruction continue va être évaluée,
+
+69
+00:02:24,961 --> 00:02:28,125
+et je vais remonter au début du while.
+
+70
+00:02:28,225 --> 00:02:29,702
+Ça veut donc dire que je vais sauter
+
+71
+00:02:29,802 --> 00:02:31,437
+un print de la liste.
+
+72
+00:02:31,883 --> 00:02:33,585
+Regardons cette évaluation,
+
+73
+00:02:33,685 --> 00:02:36,104
+je le sauvegarde avec Ctrl-S
+
+74
+00:02:36,204 --> 00:02:37,071
+et je l'évalue avec F5,
+
+75
+00:02:37,530 --> 00:02:41,397
+et je vois que j'ai la liste 1, 2, 3, 4, 5, 6, 7, 8
+
+76
+00:02:41,497 --> 00:02:42,596
+1, 2, 3, 4, 5, 6, 7
+
+77
+00:02:42,696 --> 00:02:44,173
+1, 2, 3, 4, 5, 6
+
+78
+00:02:44,273 --> 00:02:46,808
+mais je n'ai pas la liste 1, 2, 3, 4, 5.
+
+79
+00:02:46,908 --> 00:02:48,094
+En effet, lorsque la liste
+
+80
+00:02:48,194 --> 00:02:49,935
+a exactement cinq éléments,
+
+81
+00:02:50,035 --> 00:02:51,174
+je fais un continue
+
+82
+00:02:51,274 --> 00:02:52,773
+ce qui me permet de remonter
+
+83
+00:02:52,873 --> 00:02:54,034
+en haut de mon while.
+
+84
+00:02:55,216 --> 00:02:56,299
+Dans mon while, je peux également
+
+85
+00:02:56,399 --> 00:02:57,118
+avoir un break,
+
+86
+00:02:57,787 --> 00:02:59,340
+et le break va faire quoi ?
+
+87
+00:02:59,440 --> 00:03:02,028
+Il va simplement sortir
+
+88
+00:03:02,128 --> 00:03:03,890
+de mon bloc d'instructions donc du while,
+
+89
+00:03:03,990 --> 00:03:06,152
+dès que cette instruction est rencontrée.
+
+90
+00:03:06,579 --> 00:03:08,698
+Regardons ça, je vais l'exécuter.
+
+91
+00:03:09,327 --> 00:03:10,442
+Ce que me dit mon code, c'est que
+
+92
+00:03:10,542 --> 00:03:11,614
+lorsque la longueur de ma liste
+
+93
+00:03:11,714 --> 00:03:13,076
+sera exactement de cinq éléments,
+
+94
+00:03:13,176 --> 00:03:13,755
+je ferai un break
+
+95
+00:03:13,855 --> 00:03:14,901
+donc j'arrêterai mon while.
+
+96
+00:03:15,183 --> 00:03:18,023
+Évaluons cela et regardons ce qu'il se passe.
+
+97
+00:03:18,123 --> 00:03:19,926
+Je vois effectivement que je vois apparaître
+
+98
+00:03:20,026 --> 00:03:21,366
+1, 2, 3, 4, 5, 6, 7, 8
+
+99
+00:03:21,466 --> 00:03:22,829
+1, 2, 3, 4, 5, 6, 7
+
+100
+00:03:22,929 --> 00:03:25,246
+1, 2, 3, 4, 5, 6
+
+101
+00:03:25,346 --> 00:03:27,570
+et lorsque j'ai exactement cinq éléments,
+
+102
+00:03:27,670 --> 00:03:29,210
+et bien je sors de mon while,
+
+103
+00:03:29,310 --> 00:03:30,780
+j'interromps la boucle.
+
+104
+00:03:32,007 --> 00:03:33,580
+Il y a un usage fréquent du while
+
+105
+00:03:33,680 --> 00:03:34,620
+que je voudrais vous montrer,
+
+106
+00:03:34,720 --> 00:03:36,541
+c'est lorsque l'on fait un while True.
+
+107
+00:03:36,641 --> 00:03:37,818
+Quel est l'intérêt de faire un while True ?
+
+108
+00:03:37,918 --> 00:03:38,994
+C'est qu'on fait une boucle infinie,
+
+109
+00:03:39,094 --> 00:03:40,665
+et on sortira de cette boucle
+
+110
+00:03:40,765 --> 00:03:42,796
+en fonction d'un certain critère de test
+
+111
+00:03:42,896 --> 00:03:44,390
+avec un break.
+
+112
+00:03:44,490 --> 00:03:45,420
+Regardons cela.
+
+113
+00:03:46,102 --> 00:03:50,123
+Je vais faire un while True :
+
+114
+00:03:50,800 --> 00:03:52,225
+et dedans, je vais simplement faire
+
+115
+00:03:52,325 --> 00:03:53,145
+un s = input()
+
+116
+00:03:53,245 --> 00:03:54,260
+qui me permet de taper
+
+117
+00:03:54,360 --> 00:03:55,173
+une chaîne de caractères
+
+118
+00:03:55,273 --> 00:03:56,821
+au niveau de l'interpréteur,
+
+119
+00:03:57,498 --> 00:03:58,724
+lorsque je fais un retour chariot,
+
+120
+00:03:58,824 --> 00:04:00,377
+cette chaîne de caractères sera capturée
+
+121
+00:04:00,477 --> 00:04:03,106
+et je la récupèrerai grâce à la variable s.
+
+122
+00:04:03,929 --> 00:04:10,255
+Je vais faire : Quelle est votre question ?
+
+123
+00:04:14,061 --> 00:04:20,853
+et ensuite, je fais if 'aucune' in s :
+
+124
+00:04:20,953 --> 00:04:21,828
+break
+
+125
+00:04:23,001 --> 00:04:26,714
+Que va faire ce while ?
+
+126
+00:04:26,814 --> 00:04:28,344
+Il va faire une boucle infinie,
+
+127
+00:04:28,444 --> 00:04:29,293
+il va en permanence me demander
+
+128
+00:04:29,393 --> 00:04:30,060
+quelle est votre question,
+
+129
+00:04:30,160 --> 00:04:33,003
+et lorsque ma réponse contiendra 'aucune'
+
+130
+00:04:33,103 --> 00:04:35,866
+alors je pourrai sortir du while.
+
+131
+00:04:35,966 --> 00:04:37,911
+Regardons l'évaluation de ce code,
+
+132
+00:04:38,011 --> 00:04:39,604
+je le sauvegarde avec Ctrl-S,
+
+133
+00:04:39,704 --> 00:04:41,579
+je l'évalue avec F5 et je vois:
+
+134
+00:04:41,679 --> 00:04:42,522
+Quelle est votre question ?
+
+135
+00:04:43,106 --> 00:04:45,302
+Ici, je vais taper 'bonjour',
+
+136
+00:04:45,402 --> 00:04:46,710
+ce n'est pas une question
+
+137
+00:04:46,810 --> 00:04:47,736
+et il continue à parler,
+
+138
+00:04:47,836 --> 00:04:49,639
+je peux taper 'rien' et il continue,
+
+139
+00:04:49,739 --> 00:04:51,030
+et si jamais j'écris 'aucune',
+
+140
+00:04:51,130 --> 00:04:53,280
+à ce moment-là, 'aucune' est dans ma chaîne,
+
+141
+00:04:53,380 --> 00:04:55,631
+j'évalue mon break, je sors de mon while.
+
+142
+00:04:56,545 --> 00:04:57,724
+Reprenons l'exemple
+
+143
+00:04:57,824 --> 00:04:59,158
+que nous avions eu précédemment
+
+144
+00:04:59,258 --> 00:05:01,375
+avec le if, du petit jeu
+
+145
+00:05:01,475 --> 00:05:03,182
+où je pose un certain nombre de questions.
+
+146
+00:05:03,282 --> 00:05:06,061
+Je l'ai repris ici
+
+147
+00:05:06,161 --> 00:05:08,091
+et je vous laisse le temps de le taper,
+
+148
+00:05:08,191 --> 00:05:09,679
+n'hésitez pas à mettre cette vidéo en pause
+
+149
+00:05:09,779 --> 00:05:10,511
+pour le retaper.
+
+150
+00:05:11,981 --> 00:05:14,926
+Alors, nous allons inclure ce petit test
+
+151
+00:05:15,026 --> 00:05:16,084
+dans un while.
+
+152
+00:05:21,343 --> 00:05:24,254
+Je vais écrire un while True
+
+153
+00:05:24,354 --> 00:05:26,227
+exactement comme précédemment
+
+154
+00:05:26,327 --> 00:05:27,426
+pour faire une boucle infinie,
+
+155
+00:05:27,526 --> 00:05:29,395
+je vais prendre tout ce code
+
+156
+00:05:29,495 --> 00:05:30,549
+et je vais l'indenter
+
+157
+00:05:30,649 --> 00:05:32,049
+de 4 caractères vers la droite
+
+158
+00:05:32,149 --> 00:05:34,307
+je peux aller dans Format, Indent Region
+
+159
+00:05:34,407 --> 00:05:37,379
+ou faire directement un Ctrl-crochet fermant,
+
+160
+00:05:38,543 --> 00:05:40,591
+et ensuite, alors, lorsque j'ai 'bye',
+
+161
+00:05:40,691 --> 00:05:41,812
+je vais écrire "au revoir"
+
+162
+00:05:41,912 --> 00:05:43,672
+mais à ce moment-là,
+
+163
+00:05:43,772 --> 00:05:44,928
+je veux sortir de mon while
+
+164
+00:05:45,028 --> 00:05:46,251
+donc je vais rajouter un break.
+
+165
+00:05:48,896 --> 00:05:49,901
+Et pour finir,
+
+166
+00:05:50,001 --> 00:05:52,094
+comme la question n'est posée qu'au début,
+
+167
+00:05:52,612 --> 00:05:53,525
+juste avant le while,
+
+168
+00:05:53,625 --> 00:05:57,712
+je vais rajouter ici un s égale input
+
+169
+00:05:57,812 --> 00:06:00,669
+pour attendre une réponse
+
+170
+00:06:00,769 --> 00:06:01,989
+de l'utilisateur,
+
+171
+00:06:02,089 --> 00:06:04,092
+à chaque tour de la boucle while.
+
+172
+00:06:06,586 --> 00:06:08,585
+Exécutons ce petit morceau de code,
+
+173
+00:06:08,685 --> 00:06:10,288
+je fais Ctrl-S pour le sauver,
+
+174
+00:06:10,388 --> 00:06:12,097
+et F5 pour l'évaluer,
+
+175
+00:06:12,606 --> 00:06:13,655
+Quelle est votre question ?
+
+176
+00:06:13,755 --> 00:06:14,700
+donc je vais écrire bonjour ;
+
+177
+00:06:14,800 --> 00:06:16,560
+bonjour, comment allez-vous ?
+
+178
+00:06:17,101 --> 00:06:18,047
+donc j'écris bien ;
+
+179
+00:06:19,197 --> 00:06:19,988
+c'est super ! ;
+
+180
+00:06:20,619 --> 00:06:22,088
+je peux demander
+
+181
+00:06:23,499 --> 00:06:24,410
+ça va ?
+
+182
+00:06:25,241 --> 00:06:26,832
+et là, il me dit: mais encore...
+
+183
+00:06:26,932 --> 00:06:28,768
+et finalement, je peux quitter
+
+184
+00:06:28,868 --> 00:06:30,638
+en tapant simplement bye.
+
+185
+00:06:31,635 --> 00:06:33,186
+Dans cette vidéo, nous venons de voir
+
+186
+00:06:33,286 --> 00:06:34,111
+l'instruction while
+
+187
+00:06:34,211 --> 00:06:35,997
+qui ne présente pas de difficulté particulière
+
+188
+00:06:36,097 --> 00:06:38,205
+mais qui se révèle extrêmement utile
+
+189
+00:06:38,305 --> 00:06:40,569
+lorsqu'on a un traitement systématique à faire
+
+190
+00:06:40,669 --> 00:06:42,256
+qui ne doit s'arrêter qu'en fonction
+
+191
+00:06:42,356 --> 00:06:43,289
+d'un certain critère.
+
+192
+00:06:43,784 --> 00:06:44,654
+À bientôt !
+

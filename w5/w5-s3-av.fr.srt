@@ -1,0 +1,860 @@
+﻿1
+00:00:04,203 --> 00:00:05,317
+Dans une précédente vidéo,
+
+2
+00:00:05,417 --> 00:00:06,722
+nous avons introduit la notion
+
+3
+00:00:06,822 --> 00:00:07,916
+de compréhension de liste.
+
+4
+00:00:08,315 --> 00:00:09,510
+Les compréhensions de liste,
+
+5
+00:00:09,610 --> 00:00:11,179
+lorsqu'elles ont été introduites en Python,
+
+6
+00:00:11,279 --> 00:00:13,169
+ont très vite rencontré un énorme succès.
+
+7
+00:00:13,269 --> 00:00:14,715
+Et ce succès a été tel
+
+8
+00:00:14,815 --> 00:00:15,842
+qu'elles ont été étendues
+
+9
+00:00:15,942 --> 00:00:18,432
+aux notions de set et de dictionnaire.
+
+10
+00:00:18,822 --> 00:00:20,483
+Dans cette vidéo, nous allons vous présenter
+
+11
+00:00:20,583 --> 00:00:22,655
+ces différents mécanismes d'itération.
+
+12
+00:00:23,036 --> 00:00:24,916
+Ouvrons maintenant un interpréteur Python
+
+13
+00:00:25,016 --> 00:00:26,842
+pour jouer avec les compréhensions de liste,
+
+14
+00:00:26,942 --> 00:00:28,263
+de set et de dictionnaire.
+
+15
+00:00:29,822 --> 00:00:31,350
+La syntaxe des compréhensions
+
+16
+00:00:31,450 --> 00:00:32,420
+est simple et intuitive,
+
+17
+00:00:32,520 --> 00:00:33,328
+c'est pour ça qu'elle rencontre
+
+18
+00:00:33,428 --> 00:00:34,013
+un grand succès,
+
+19
+00:00:34,113 --> 00:00:35,997
+elle est d'ailleurs proche du langage naturel.
+
+20
+00:00:36,396 --> 00:00:37,852
+Regardons maintenant un exemple.
+
+21
+00:00:37,952 --> 00:00:39,044
+Je vous rappelle comment fonctionne
+
+22
+00:00:39,144 --> 00:00:39,891
+une compréhension de liste ;
+
+23
+00:00:39,991 --> 00:00:41,873
+je vais prendre une liste de prénoms.
+
+24
+00:00:58,724 --> 00:00:59,744
+Et vous remarquez que
+
+25
+00:00:59,844 --> 00:01:00,912
+lorsque je rentre mes prénoms,
+
+26
+00:01:01,012 --> 00:01:03,356
+je n'ai pas de capitalisation consistante,
+
+27
+00:01:03,456 --> 00:01:05,266
+et ce sera d'ailleurs la base du traitement
+
+28
+00:01:05,366 --> 00:01:06,201
+que je vais vous montrer.
+
+29
+00:01:08,881 --> 00:01:10,536
+J'ai donc créé une liste
+
+30
+00:01:10,636 --> 00:01:12,135
+avec quelques prénoms
+
+31
+00:01:12,235 --> 00:01:13,565
+et les prénoms n'ont pas
+
+32
+00:01:13,665 --> 00:01:15,125
+de capitalisation consistante.
+
+33
+00:01:15,225 --> 00:01:16,179
+Regardons cela.
+
+34
+00:01:16,279 --> 00:01:16,912
+Voilà.
+
+35
+00:01:17,634 --> 00:01:19,254
+Maintenant, imaginons que je veuille créer
+
+36
+00:01:19,354 --> 00:01:20,343
+une liste de tous les prénoms
+
+37
+00:01:20,443 --> 00:01:21,665
+qui commencent par a
+
+38
+00:01:21,765 --> 00:01:24,519
+et mettre ces prénoms en minuscule.
+
+39
+00:01:24,619 --> 00:01:25,493
+Donc, je peux faire ça
+
+40
+00:01:25,593 --> 00:01:26,652
+avec une compréhension de liste,
+
+41
+00:01:26,752 --> 00:01:28,314
+je vais créer a underscore prénom
+
+42
+00:01:28,414 --> 00:01:30,042
+qui va représenter la liste
+
+43
+00:01:30,142 --> 00:01:32,248
+de tous les prénoms mis en minuscule
+
+44
+00:01:32,348 --> 00:01:33,847
+et qui commencent par a,
+
+45
+00:01:33,947 --> 00:01:36,580
+et je vais faire un p point lower
+
+46
+00:01:37,132 --> 00:01:39,245
+pour dire: je mets mes prénoms en minuscule
+
+47
+00:01:39,345 --> 00:01:41,735
+for p in prenom
+
+48
+00:01:42,357 --> 00:01:49,899
+if p point lower point startswith
+
+49
+00:01:49,999 --> 00:01:50,978
+la lettre a.
+
+50
+00:01:53,385 --> 00:01:55,024
+Exécutons cette compréhension,
+
+51
+00:01:55,124 --> 00:01:56,521
+regardons le résultat maintenant ;
+
+52
+00:01:58,506 --> 00:02:00,522
+j'obtiens bien la liste de tous les prénoms
+
+53
+00:02:00,622 --> 00:02:01,529
+mis en minuscule.
+
+54
+00:02:02,086 --> 00:02:03,363
+Maintenant, j'aimerais reprendre
+
+55
+00:02:03,463 --> 00:02:04,386
+ma liste de prénoms
+
+56
+00:02:06,441 --> 00:02:07,992
+et l'étendre.
+
+57
+00:02:08,760 --> 00:02:12,745
+Donc je vais faire un extend de prenom.
+
+58
+00:02:13,458 --> 00:02:14,520
+Donc, qu'est-ce que j'ai fait ?
+
+59
+00:02:14,620 --> 00:02:15,780
+J'ai pris ma liste de prénoms
+
+60
+00:02:15,880 --> 00:02:17,421
+et j'ai dupliqué tous les prénoms,
+
+61
+00:02:17,521 --> 00:02:18,759
+donc maintenant, ma liste de prénoms
+
+62
+00:02:18,859 --> 00:02:19,589
+est la suivante.
+
+63
+00:02:20,480 --> 00:02:22,061
+Je reprends ma compréhension de liste
+
+64
+00:02:22,161 --> 00:02:22,778
+précédente ;
+
+65
+00:02:24,257 --> 00:02:26,337
+je calcule la liste des prénoms
+
+66
+00:02:26,437 --> 00:02:28,542
+en minuscule qui commencent par a
+
+67
+00:02:28,642 --> 00:02:29,901
+et regardons maintenant cette liste.
+
+68
+00:02:30,955 --> 00:02:32,020
+J'ai bien ma liste de prénoms
+
+69
+00:02:32,120 --> 00:02:33,423
+mais avec des prénoms dupliqués.
+
+70
+00:02:33,931 --> 00:02:35,417
+Donc je pourrais tout à fait vouloir
+
+71
+00:02:37,075 --> 00:02:38,986
+calculer uniquement les prénoms uniques.
+
+72
+00:02:39,086 --> 00:02:39,882
+Comment est-ce que je fais ça
+
+73
+00:02:39,982 --> 00:02:41,156
+traditionnellement en Python ?
+
+74
+00:02:41,256 --> 00:02:42,979
+Je vais simplement transformer
+
+75
+00:02:43,079 --> 00:02:44,120
+ma liste en set.
+
+76
+00:02:44,220 --> 00:02:47,048
+Donc je vais calculer un set de prenom,
+
+77
+00:02:49,236 --> 00:02:52,220
+et je vais obtenir la liste unique,
+
+78
+00:02:52,320 --> 00:02:56,155
+alors set de a underscore prenom,
+
+79
+00:02:57,268 --> 00:02:59,038
+et j'obtiens l'ensemble unique
+
+80
+00:02:59,138 --> 00:03:00,801
+des prénoms mis en minuscule
+
+81
+00:03:00,901 --> 00:03:02,118
+qui commencent par la lettre a.
+
+82
+00:03:02,218 --> 00:03:03,130
+Seulement vous voyez ici
+
+83
+00:03:03,230 --> 00:03:03,883
+que vous avez un problème,
+
+84
+00:03:03,983 --> 00:03:05,627
+vous avez créé une liste temporaire
+
+85
+00:03:06,248 --> 00:03:08,008
+qui en fait, ne vous sert essentiellement à rien
+
+86
+00:03:08,108 --> 00:03:08,940
+puisqu'après, vous voulez uniquement
+
+87
+00:03:09,040 --> 00:03:09,699
+les prénoms uniques.
+
+88
+00:03:10,153 --> 00:03:11,817
+Donc on se dit que ça serait vraiment pratique
+
+89
+00:03:11,917 --> 00:03:13,057
+de pouvoir directement
+
+90
+00:03:13,157 --> 00:03:14,746
+obtenir la liste des prénoms uniques
+
+91
+00:03:14,846 --> 00:03:16,208
+à partir d'une compréhension.
+
+92
+00:03:16,308 --> 00:03:17,206
+Et bien, en fait, en Python,
+
+93
+00:03:17,306 --> 00:03:18,011
+c'est extrêmement simple.
+
+94
+00:03:18,111 --> 00:03:19,257
+Regardons cela.
+
+95
+00:03:19,808 --> 00:03:20,912
+Je reprends ma liste de prénoms
+
+96
+00:03:21,012 --> 00:03:21,896
+qui est la liste suivante,
+
+97
+00:03:22,446 --> 00:03:24,562
+et je vais reprendre la compréhension de liste
+
+98
+00:03:24,662 --> 00:03:25,233
+que j'ai écrite.
+
+99
+00:03:25,680 --> 00:03:27,464
+Ma compréhension de liste dit simplement
+
+100
+00:03:27,564 --> 00:03:29,142
+je prends les prénoms en minuscule
+
+101
+00:03:30,218 --> 00:03:31,151
+pour les prénoms
+
+102
+00:03:31,251 --> 00:03:32,581
+qui sont dans ma liste de prénoms,
+
+103
+00:03:33,139 --> 00:03:34,428
+et uniquement s'ils commencent
+
+104
+00:03:34,528 --> 00:03:35,201
+par la lettre a.
+
+105
+00:03:35,638 --> 00:03:36,825
+Comment transformer ça
+
+106
+00:03:36,925 --> 00:03:39,334
+en compréhension de set ?
+
+107
+00:03:39,434 --> 00:03:40,717
+Je n'ai qu'à remplacer
+
+108
+00:03:40,817 --> 00:03:42,383
+les crochets par des accolades.
+
+109
+00:03:43,844 --> 00:03:45,587
+Donc on voit que c'est extrêmement simple ;
+
+110
+00:03:45,687 --> 00:03:47,311
+il suffit simplement de changer
+
+111
+00:03:47,411 --> 00:03:49,183
+les crochets qui entourent ma compréhension
+
+112
+00:03:49,283 --> 00:03:49,996
+par des accolades.
+
+113
+00:03:50,471 --> 00:03:51,494
+Je calcule cela,
+
+114
+00:03:51,594 --> 00:03:52,750
+et maintenant, regardons
+
+115
+00:03:52,850 --> 00:03:53,766
+ce que contient a_prenom ;
+
+116
+00:03:53,866 --> 00:03:55,760
+il contient bien l'ensemble
+
+117
+00:03:55,860 --> 00:03:58,152
+des prénoms uniques mis en minuscule
+
+118
+00:03:58,252 --> 00:04:00,054
+qui commencent par la lettre a.
+
+119
+00:04:00,154 --> 00:04:02,135
+Donc on voit qu'en une seule expression
+
+120
+00:04:02,235 --> 00:04:04,672
+simple, expressive, intuitive
+
+121
+00:04:04,772 --> 00:04:06,072
+et facile à lire et à écrire,
+
+122
+00:04:06,172 --> 00:04:07,287
+j'ai pu faire un traitement
+
+123
+00:04:07,387 --> 00:04:08,428
+extrêmement sophistiqué.
+
+124
+00:04:08,931 --> 00:04:10,549
+J'insiste d'ailleurs sur le point suivant,
+
+125
+00:04:10,649 --> 00:04:10,953
+c'est que,
+
+126
+00:04:11,053 --> 00:04:12,880
+lorsque je crée une compréhension de set,
+
+127
+00:04:12,980 --> 00:04:14,239
+à aucun moment,
+
+128
+00:04:14,249 --> 00:04:15,544
+je ne crée une liste temporaire ;
+
+129
+00:04:15,644 --> 00:04:17,346
+ce set est créé à la volée
+
+130
+00:04:17,446 --> 00:04:18,288
+en parcourant les éléments
+
+131
+00:04:18,388 --> 00:04:19,398
+de ma liste de prénoms
+
+132
+00:04:19,498 --> 00:04:21,366
+et en faisant les calculs au fur et à mesure.
+
+133
+00:04:21,466 --> 00:04:22,235
+C'est donc quelque chose
+
+134
+00:04:22,335 --> 00:04:23,553
+d'extrêmement compact,
+
+135
+00:04:23,653 --> 00:04:25,041
+simple et intuitif à utiliser.
+
+136
+00:04:25,775 --> 00:04:27,282
+Regardons maintenant le fonctionnement
+
+137
+00:04:27,382 --> 00:04:29,276
+de la compréhension de dictionnaire.
+
+138
+00:04:29,796 --> 00:04:31,974
+Donc pour cela, je vais créer un dictionnaire
+
+139
+00:04:32,510 --> 00:04:33,990
+tout simple, que je vais appeler ages,
+
+140
+00:04:35,245 --> 00:04:37,106
+et qui est égal à
+
+141
+00:04:47,947 --> 00:04:49,105
+'ana' virgule 20,
+
+142
+00:04:53,770 --> 00:04:56,362
+'EVE' virgule 30,
+
+143
+00:04:58,461 --> 00:05:06,810
+et 'bob' virgule 40.
+
+144
+00:05:11,489 --> 00:05:13,311
+Donc ici, j'ai créé une liste de tuples
+
+145
+00:05:13,411 --> 00:05:14,442
+et je vais créer mon dictionnaire
+
+146
+00:05:14,542 --> 00:05:15,385
+de la manière suivante:
+
+147
+00:05:15,485 --> 00:05:18,864
+ages égale dict de ages.
+
+148
+00:05:19,558 --> 00:05:20,221
+Donc maintenant,
+
+149
+00:05:20,321 --> 00:05:21,486
+ages contient bien un dictionnaire
+
+150
+00:05:21,586 --> 00:05:23,660
+qui a pour clé 'EVE', pour valeur 30,
+
+151
+00:05:23,760 --> 00:05:25,018
+clé 'ana', valeur 20,
+
+152
+00:05:25,536 --> 00:05:27,198
+clé 'bob', valeur 40.
+
+153
+00:05:27,868 --> 00:05:29,456
+Maintenant, supposons que je veuille
+
+154
+00:05:29,556 --> 00:05:30,861
+obtenir le même dictionnaire
+
+155
+00:05:30,961 --> 00:05:32,090
+mais dans lequel
+
+156
+00:05:32,190 --> 00:05:33,811
+toutes les clés sont mises en minuscule,
+
+157
+00:05:33,911 --> 00:05:34,678
+donc je corrige
+
+158
+00:05:34,778 --> 00:05:36,135
+les problèmes de capitalisation.
+
+159
+00:05:36,235 --> 00:05:37,324
+Donc là, on pourrait très bien
+
+160
+00:05:37,424 --> 00:05:39,309
+faire une boucle for et itérer dessus,
+
+161
+00:05:39,409 --> 00:05:40,726
+mais je vais faire ça directement
+
+162
+00:05:40,826 --> 00:05:42,094
+avec une compréhension de dictionnaire.
+
+163
+00:05:42,194 --> 00:05:43,893
+Regardons comment je fais ça.
+
+164
+00:05:43,993 --> 00:05:47,089
+Je vais appeler ça ages_fix,
+
+165
+00:05:47,189 --> 00:05:49,214
+donc c'est ages dans lequel j'ai fixé
+
+166
+00:05:49,314 --> 00:05:50,517
+les problèmes de capitalisation,
+
+167
+00:05:50,617 --> 00:05:51,636
+est égal à,
+
+168
+00:05:52,339 --> 00:05:53,691
+je mets des accolades
+
+169
+00:05:53,791 --> 00:05:55,322
+comme une compréhension de set,
+
+170
+00:05:55,716 --> 00:05:58,044
+mais maintenant, je vais séparer mes clés
+
+171
+00:05:58,144 --> 00:06:00,468
+p point lower
+
+172
+00:06:02,976 --> 00:06:04,024
+deux points
+
+173
+00:06:04,124 --> 00:06:05,026
+de mon age,
+
+174
+00:06:05,321 --> 00:06:06,397
+et je vais écrire
+
+175
+00:06:06,497 --> 00:06:14,390
+for p virgule a in ages point items.
+
+176
+00:06:14,965 --> 00:06:16,447
+Donc en fait, qu'est-ce que j'ai fait ?
+
+177
+00:06:16,922 --> 00:06:19,193
+Je parcours les items
+
+178
+00:06:19,744 --> 00:06:22,264
+de mon dictionnaire ages ;
+
+179
+00:06:22,364 --> 00:06:25,005
+le premier élément, la clé, c'est un prénom,
+
+180
+00:06:25,105 --> 00:06:26,280
+le deuxième élément, c'est un âge,
+
+181
+00:06:26,380 --> 00:06:28,078
+c'est pour ça que je les appelle p, a ;
+
+182
+00:06:28,178 --> 00:06:29,266
+et dans mon dictionnaire,
+
+183
+00:06:29,366 --> 00:06:32,932
+je vais construire les prénoms en minuscule
+
+184
+00:06:33,032 --> 00:06:34,324
+deux points les âges.
+
+185
+00:06:35,041 --> 00:06:37,591
+Regardons le résultat de ce dictionnaire
+
+186
+00:06:38,215 --> 00:06:39,682
+ages underscore fix ;
+
+187
+00:06:39,782 --> 00:06:41,128
+je vois bien que maintenant
+
+188
+00:06:41,228 --> 00:06:42,393
+j'ai fixé ce problème,
+
+189
+00:06:42,493 --> 00:06:43,770
+j'ai maintenant tous mes prénoms
+
+190
+00:06:43,870 --> 00:06:44,768
+mis en minuscule.
+
+191
+00:06:45,301 --> 00:06:47,027
+De même, j'aurais très bien pu rajouter
+
+192
+00:06:47,127 --> 00:06:48,175
+un test pour dire par exemple
+
+193
+00:06:48,275 --> 00:06:49,471
+je veux simplement
+
+194
+00:06:49,571 --> 00:06:52,360
+les prénoms : les âges mis en minuscule
+
+195
+00:06:52,460 --> 00:06:56,459
+si l'âge est inférieur à, par exemple, 40.
+
+196
+00:06:56,559 --> 00:06:59,343
+Et donc là, j'exécute de nouveau
+
+197
+00:06:59,972 --> 00:07:01,499
+ma compréhension de dictionnaire,
+
+198
+00:07:02,257 --> 00:07:03,656
+et je regarde le résultat ;
+
+199
+00:07:05,128 --> 00:07:06,288
+maintenant, j'ai bien un dictionnaire
+
+200
+00:07:06,388 --> 00:07:07,407
+qui contient uniquement
+
+201
+00:07:07,507 --> 00:07:09,544
+les prénoms mis en minuscule
+
+202
+00:07:10,276 --> 00:07:11,299
+et les entrées pour lesquelles
+
+203
+00:07:11,399 --> 00:07:13,515
+les âges sont strictement inférieurs à 40 ans.
+
+204
+00:07:14,961 --> 00:07:15,954
+Les compréhensions en Python
+
+205
+00:07:16,054 --> 00:07:17,771
+représentent un outil extrêmement puissant
+
+206
+00:07:17,871 --> 00:07:20,014
+puisqu'avec exactement la même syntaxe,
+
+207
+00:07:20,114 --> 00:07:22,258
+la syntaxe des compréhensions de liste,
+
+208
+00:07:22,358 --> 00:07:24,716
+on peut créer des sets et des dictionnaires.
+
+209
+00:07:24,816 --> 00:07:26,538
+Nous verrons dans une prochaine vidéo
+
+210
+00:07:26,638 --> 00:07:28,163
+qu'on peut étendre ce concept
+
+211
+00:07:28,263 --> 00:07:30,066
+à la notion d'expression génératrice
+
+212
+00:07:30,166 --> 00:07:31,683
+qui nous permet de nous passer
+
+213
+00:07:31,783 --> 00:07:33,514
+de la création de liste temporaire
+
+214
+00:07:33,614 --> 00:07:35,864
+pour directement obtenir un itérateur.
+
+215
+00:07:36,422 --> 00:07:37,289
+À bientôt !
+

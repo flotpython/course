@@ -1,0 +1,1164 @@
+﻿1
+00:00:10,541 --> 00:00:11,268
+Bonjour !
+
+2
+00:00:11,368 --> 00:00:12,722
+Cette semaine, nous allons découvrir
+
+3
+00:00:12,822 --> 00:00:36,790
+les fichiers et de nouveaux types built-in
+
+4
+00:00:14,859 --> 00:00:15,740
+que sont les tuples,
+
+5
+00:00:15,840 --> 00:00:17,197
+les dictionnaires et les sets.
+
+6
+00:00:17,297 --> 00:00:18,478
+Nous parlerons également
+
+7
+00:00:18,578 --> 00:00:20,393
+de la gestion des erreurs avec les exceptions
+
+8
+00:00:20,493 --> 00:00:22,559
+et nous parlerons d'un concept central
+
+9
+00:00:22,659 --> 00:00:23,378
+en Python,
+
+10
+00:00:23,478 --> 00:00:25,603
+le concept de références partagées.
+
+11
+00:00:25,703 --> 00:00:27,482
+Pour finir, nous vous ferons
+
+12
+00:00:27,582 --> 00:00:29,071
+une rapide introduction des classes
+
+13
+00:00:29,171 --> 00:00:31,577
+pour vous montrer la puissance de Python
+
+14
+00:00:31,677 --> 00:00:32,921
+et surtout que vous pouvez créer
+
+15
+00:00:33,021 --> 00:00:34,604
+vos propres objets qui se manipulent
+
+16
+00:00:34,704 --> 00:00:36,754
+exactement comme les types built-in.
+
+17
+00:00:38,394 --> 00:00:40,233
+Les fichiers sont, comme souvent en Python,
+
+18
+00:00:40,333 --> 00:00:41,962
+simples et intuitifs à utiliser ;
+
+19
+00:00:42,062 --> 00:00:44,026
+cependant il faut maîtriser trois notions
+
+20
+00:00:44,126 --> 00:00:46,957
+que sont l'encodage, l'itération
+
+21
+00:00:47,057 --> 00:00:49,068
+et la notion de context manager.
+
+22
+00:00:49,168 --> 00:00:51,071
+Ouvrons maintenant un interpréteur Python
+
+23
+00:00:51,171 --> 00:00:51,959
+pour commencer à jouer
+
+24
+00:00:52,059 --> 00:00:52,969
+avec ces différentes notions.
+
+25
+00:00:53,675 --> 00:00:55,013
+Je vous rappelle que lorsque
+
+26
+00:00:55,113 --> 00:00:57,420
+nous avons parlé des chaînes de caractères,
+
+27
+00:00:57,520 --> 00:00:59,084
+je vous avais dit qu'il était très important
+
+28
+00:00:59,184 --> 00:01:00,414
+de maîtriser votre encodage,
+
+29
+00:01:00,514 --> 00:01:01,654
+ce qui veut dire que vous devez
+
+30
+00:01:01,754 --> 00:01:03,325
+maîtriser l'encodage pour
+
+31
+00:01:03,425 --> 00:01:04,540
+écrire les chaînes de caractères
+
+32
+00:01:04,640 --> 00:01:05,819
+mais également pour les lire.
+
+33
+00:01:06,626 --> 00:01:08,627
+Nous allons voir qu'avec les fichiers,
+
+34
+00:01:08,727 --> 00:01:09,950
+cette gestion de l'encodage
+
+35
+00:01:10,050 --> 00:01:10,876
+est extrêmement simple
+
+36
+00:01:10,976 --> 00:01:12,297
+puisque c'est l'objet fichier qui va
+
+37
+00:01:12,397 --> 00:01:14,456
+se charger d'encoder et de décoder
+
+38
+00:01:14,556 --> 00:01:15,770
+les chaînes de caractères pour nous.
+
+39
+00:01:16,641 --> 00:01:18,049
+Regardons ça avec un exemple.
+
+40
+00:01:18,149 --> 00:01:19,606
+Nous allons créer un fichier
+
+41
+00:01:19,706 --> 00:01:21,975
+avec l'instruction built-in open,
+
+42
+00:01:22,075 --> 00:01:23,334
+avec la fonction built-in open.
+
+43
+00:01:24,235 --> 00:01:25,880
+Créons un fichier donc je fais
+
+44
+00:01:25,980 --> 00:01:28,140
+une variable f qui est égale à open
+
+45
+00:01:28,870 --> 00:01:30,735
+et je vais ouvrir un fichier,
+
+46
+00:01:30,835 --> 00:01:31,878
+alors je vais dire que mon fichier
+
+47
+00:01:31,978 --> 00:01:39,177
+est dans le répertoire c:\temp\spam.txt
+
+48
+00:01:39,277 --> 00:01:41,637
+Il y a un point très important à respecter
+
+49
+00:01:41,737 --> 00:01:43,311
+que vous avez dû voir dans les compléments
+
+50
+00:01:43,411 --> 00:01:44,450
+c'est que les chaînes de caractères
+
+51
+00:01:44,550 --> 00:01:45,401
+avec des backslashes
+
+52
+00:01:45,501 --> 00:01:47,099
+vont interpréter les backslashes
+
+53
+00:01:47,199 --> 00:01:48,308
+notamment \t
+
+54
+00:01:48,408 --> 00:01:49,820
+est un caractère de tabulation.
+
+55
+00:01:49,920 --> 00:01:51,683
+Donc si je ne veux pas avoir d'interprétation
+
+56
+00:01:51,783 --> 00:01:53,880
+soit je dois doubler tous les backslashes
+
+57
+00:01:53,980 --> 00:01:55,314
+ou alors la manière recommandée,
+
+58
+00:01:55,414 --> 00:01:56,593
+c'est de transformer votre chaîne
+
+59
+00:01:56,693 --> 00:01:58,390
+en rawstring en mettant un petit r
+
+60
+00:01:58,490 --> 00:02:02,120
+ce qui va désactiver tous les caractères \.
+
+61
+00:02:02,220 --> 00:02:04,632
+Maintenant que j'ai défini mon nom de fichier
+
+62
+00:02:04,732 --> 00:02:06,270
+je vais donner un mode d'ouverture.
+
+63
+00:02:06,370 --> 00:02:08,893
+Les modes d'ouverture les plus courants
+
+64
+00:02:08,993 --> 00:02:09,805
+sont le mode w
+
+65
+00:02:09,905 --> 00:02:11,742
+pour ouvrir le fichier en écriture
+
+66
+00:02:11,842 --> 00:02:12,876
+ou le mode r
+
+67
+00:02:12,976 --> 00:02:14,894
+pour ouvrir le fichier en lecture.
+
+68
+00:02:15,477 --> 00:02:17,855
+Et ensuite, comme j'ai ouvert mon fichier
+
+69
+00:02:17,955 --> 00:02:18,732
+en mode texte,
+
+70
+00:02:18,832 --> 00:02:20,283
+nous verrons dans la deuxième partie
+
+71
+00:02:20,383 --> 00:02:21,779
+de cette vidéo l'ouverture des fichiers
+
+72
+00:02:21,879 --> 00:02:22,417
+en mode binaire,
+
+73
+00:02:22,517 --> 00:02:24,121
+je vais spécifier un encodage.
+
+74
+00:02:24,221 --> 00:02:26,712
+Je vais donc mettre un paramètre encoding
+
+75
+00:02:28,548 --> 00:02:30,046
+et quel encoding je vais mettre ?
+
+76
+00:02:30,146 --> 00:02:31,155
+je vous l'ai déjà expliqué,
+
+77
+00:02:31,255 --> 00:02:32,856
+lorsque je ne sais pas quoi mettre,
+
+78
+00:02:32,956 --> 00:02:35,529
+par défaut, je mets toujours de l'utf8.
+
+79
+00:02:38,654 --> 00:02:40,276
+Je fais un retour chariot,
+
+80
+00:02:40,376 --> 00:02:42,144
+j'ai donc ouvert un fichier
+
+81
+00:02:42,244 --> 00:02:43,302
+en mode écriture ;
+
+82
+00:02:43,402 --> 00:02:44,721
+si le fichier n'existe pas
+
+83
+00:02:44,821 --> 00:02:46,319
+il vient d'être créé sur mon disque dur,
+
+84
+00:02:46,419 --> 00:02:48,690
+avec un encodage utf8.
+
+85
+00:02:49,268 --> 00:02:50,293
+Maintenant, je vais pouvoir
+
+86
+00:02:50,393 --> 00:02:51,227
+manipuler le fichier
+
+87
+00:02:51,327 --> 00:02:52,282
+de manière extrêmement simple,
+
+88
+00:02:52,382 --> 00:02:53,850
+je n'ai plus à me préoccuper de l'encodage,
+
+89
+00:02:53,950 --> 00:02:55,683
+je vais écrire dans mon fichier
+
+90
+00:02:55,783 --> 00:02:57,274
+des chaînes de caractères Python
+
+91
+00:02:57,374 --> 00:02:58,665
+de type str,
+
+92
+00:02:59,058 --> 00:03:00,119
+et après, je pourrai
+
+93
+00:03:00,219 --> 00:03:02,151
+lire des chaînes de caractères de mon fichier.
+
+94
+00:03:02,251 --> 00:03:04,174
+L'objet fichier va se charger pour nous
+
+95
+00:03:04,274 --> 00:03:06,319
+de faire l'encodage et le décodage.
+
+96
+00:03:07,854 --> 00:03:09,376
+Maintenant, regardons comment
+
+97
+00:03:09,476 --> 00:03:10,606
+écrire dans un fichier.
+
+98
+00:03:10,706 --> 00:03:12,399
+Je vais simplement faire une boucle
+
+99
+00:03:12,499 --> 00:03:21,005
+for i in range de 100 :
+
+100
+00:03:21,105 --> 00:03:28,145
+et je vais faire un f.write de ligne
+
+101
+00:03:28,755 --> 00:03:30,153
+alors, je vais mettre une f-string
+
+102
+00:03:30,253 --> 00:03:31,244
+que nous avons déjà vue
+
+103
+00:03:31,344 --> 00:03:33,419
+pour manipuler cette notion
+
+104
+00:03:33,519 --> 00:03:34,809
+extrêmement pratique,
+
+105
+00:03:37,034 --> 00:03:40,612
+i plus 1 backslash n.
+
+106
+00:03:40,712 --> 00:03:42,854
+Donc ici, nous voyons que
+
+107
+00:03:42,954 --> 00:03:44,733
+je fais une boucle for
+
+108
+00:03:44,833 --> 00:03:46,307
+qui va parcourir tous les entiers
+
+109
+00:03:46,407 --> 00:03:47,902
+allant de 0 à 99,
+
+110
+00:03:48,002 --> 00:03:50,579
+et je vais, avec l'instruction write,
+
+111
+00:03:50,679 --> 00:03:52,201
+écrire dans mon fichier
+
+112
+00:03:52,301 --> 00:03:53,540
+une chaîne de caractères.
+
+113
+00:03:53,640 --> 00:03:54,982
+Donc ici ma chaîne de caractères
+
+114
+00:03:55,082 --> 00:03:56,166
+est une f-string, mais c'est
+
+115
+00:03:56,266 --> 00:03:57,701
+une chaîne de caractères de type str,
+
+116
+00:03:57,801 --> 00:03:59,147
+une chaîne de caractères normale.
+
+117
+00:03:59,247 --> 00:04:01,510
+Il est très important de ne pas oublier
+
+118
+00:04:01,610 --> 00:04:03,011
+le backslash n, qui permet
+
+119
+00:04:03,111 --> 00:04:04,093
+de faire le retour chariot.
+
+120
+00:04:04,193 --> 00:04:05,772
+Si vous ne faites pas de retour chariot,
+
+121
+00:04:05,872 --> 00:04:07,588
+tous vos write vont écrire
+
+122
+00:04:07,688 --> 00:04:09,298
+à la suite de la ligne.
+
+123
+00:04:09,398 --> 00:04:10,479
+Donc pour faire écrire
+
+124
+00:04:10,579 --> 00:04:12,126
+sur une ligne différente à chaque fois,
+
+125
+00:04:12,226 --> 00:04:13,842
+il faut obligatoirement
+
+126
+00:04:13,942 --> 00:04:15,945
+mettre de manière explicite un \n.
+
+127
+00:04:16,045 --> 00:04:17,905
+Donc je fais un retour chariot
+
+128
+00:04:18,005 --> 00:04:19,317
+et maintenant, j'ai écrit
+
+129
+00:04:19,417 --> 00:04:20,274
+dans mon objet fichier.
+
+130
+00:04:20,374 --> 00:04:22,899
+Pour finir, il ne faut pas oublier
+
+131
+00:04:22,999 --> 00:04:23,736
+de fermer le fichier
+
+132
+00:04:23,836 --> 00:04:26,329
+avec un f.close
+
+133
+00:04:26,429 --> 00:04:27,990
+Nous allons revenir dans quelques instants
+
+134
+00:04:28,090 --> 00:04:29,772
+sur l'importance de cette manière
+
+135
+00:04:29,872 --> 00:04:30,818
+de fermer les fichiers,
+
+136
+00:04:30,918 --> 00:04:32,836
+et surtout sur la manière moderne
+
+137
+00:04:32,936 --> 00:04:33,787
+de manipuler les fichiers
+
+138
+00:04:33,887 --> 00:04:35,403
+que l'on appelle les context managers.
+
+139
+00:04:36,400 --> 00:04:37,513
+Regardons maintenant le fichier
+
+140
+00:04:37,613 --> 00:04:38,262
+qui a été créé.
+
+141
+00:04:38,362 --> 00:04:41,423
+Si vous êtes dans un interpréteur IPython,
+
+142
+00:04:41,523 --> 00:04:42,368
+vous pouvez très facilement
+
+143
+00:04:42,468 --> 00:04:43,456
+lancer des commandes shell
+
+144
+00:04:43,556 --> 00:04:46,138
+avec la commande point d'exclamation.
+
+145
+00:04:46,238 --> 00:04:47,666
+Comme je suis sous Windows
+
+146
+00:04:47,766 --> 00:04:49,994
+je vais taper type pour voir mon fichier
+
+147
+00:04:50,094 --> 00:04:51,594
+mais si vous êtes sous Linux
+
+148
+00:04:51,694 --> 00:04:52,561
+ou sous macOS,
+
+149
+00:04:52,661 --> 00:04:53,415
+vous pouvez très bien utiliser
+
+150
+00:04:53,515 --> 00:04:54,459
+less ou cat.
+
+151
+00:04:55,353 --> 00:04:56,834
+Je vais maintenant regarder mon fichier.
+
+152
+00:05:04,791 --> 00:05:06,391
+Je regarde avec type,
+
+153
+00:05:06,491 --> 00:05:07,338
+type, c'est juste pour regarder
+
+154
+00:05:07,438 --> 00:05:08,105
+le contenu du fichier,
+
+155
+00:05:08,205 --> 00:05:10,890
+mon fichier temp/spam.txt
+
+156
+00:05:10,990 --> 00:05:12,490
+et je vois mon fichier apparaître
+
+157
+00:05:12,590 --> 00:05:14,978
+avec le mot ligne et le numéro
+
+158
+00:05:15,078 --> 00:05:17,295
+qui va de 1 à 100.
+
+159
+00:05:18,190 --> 00:05:19,606
+Vous avez remarqué qu'une fois
+
+160
+00:05:19,706 --> 00:05:20,480
+que mon fichier a été ouvert,
+
+161
+00:05:20,580 --> 00:05:22,316
+je n'ai plus à me préoccuper de l'encodage,
+
+162
+00:05:22,416 --> 00:05:25,005
+mon fichier a bien été écrit correctement
+
+163
+00:05:25,105 --> 00:05:26,865
+et a bien été décodé correctement.
+
+164
+00:05:26,965 --> 00:05:28,764
+Donc maintenant regardons comment
+
+165
+00:05:28,864 --> 00:05:30,581
+lire un fichier
+
+166
+00:05:30,681 --> 00:05:32,485
+et réécrire dans un nouveau fichier.
+
+167
+00:05:32,585 --> 00:05:33,687
+Nous allons voir qu'en Python
+
+168
+00:05:33,787 --> 00:05:35,270
+le parcours des fichiers est également
+
+169
+00:05:35,370 --> 00:05:36,231
+extrêmement simple
+
+170
+00:05:36,331 --> 00:05:37,220
+puisqu'en Python,
+
+171
+00:05:37,320 --> 00:05:38,618
+les fichiers sont des itérateurs.
+
+172
+00:05:38,718 --> 00:05:40,213
+Ça veut dire qu'on peut directement
+
+173
+00:05:40,313 --> 00:05:41,331
+les mettre dans une boucle for.
+
+174
+00:05:41,431 --> 00:05:42,458
+Regardons cela.
+
+175
+00:05:44,316 --> 00:05:47,314
+Je vais ouvrir un fichier f,
+
+176
+00:05:51,647 --> 00:05:53,990
+je vais réouvrir le fichier que je viens de créer
+
+177
+00:05:54,090 --> 00:05:57,653
+c:\temp\spam.txt ;
+
+178
+00:05:57,753 --> 00:06:00,280
+je vérifie que c'est bien le fichier que j'ai créé
+
+179
+00:06:01,584 --> 00:06:02,272
+voilà.
+
+180
+00:06:03,904 --> 00:06:05,236
+Je n'oublie pas
+
+181
+00:06:05,336 --> 00:06:07,737
+de spécifier le mode d'ouverture
+
+182
+00:06:07,837 --> 00:06:09,208
+donc ici, je vais ouvrir mon fichier
+
+183
+00:06:09,308 --> 00:06:10,843
+en mode lecture simple,
+
+184
+00:06:11,860 --> 00:06:13,535
+c'est spécifié avec un petit r,
+
+185
+00:06:15,816 --> 00:06:18,503
+et je n'oublie pas de spécifier l'encodage
+
+186
+00:06:19,215 --> 00:06:22,066
+encoding égale utf8
+
+187
+00:06:22,166 --> 00:06:23,769
+puisque j'ai créé mon fichier en utf8,
+
+188
+00:06:23,869 --> 00:06:26,152
+il faut que je le lise et que je l'écrive
+
+189
+00:06:26,252 --> 00:06:27,806
+évidemment avec le même encodage.
+
+190
+00:06:29,888 --> 00:06:31,643
+Je vais ensuite créer un deuxième fichier
+
+191
+00:06:31,743 --> 00:06:33,729
+f2 avec open,
+
+192
+00:06:36,243 --> 00:06:37,588
+je vais reprendre, ça va être plus simple,
+
+193
+00:06:37,688 --> 00:06:38,994
+je vais reprendre ma ligne du dessus.
+
+194
+00:06:42,237 --> 00:06:45,714
+Je vais ouvrir un fichier spam2,
+
+195
+00:06:48,570 --> 00:06:50,117
+qui est le fichier sur lequel je vais écrire,
+
+196
+00:06:50,217 --> 00:06:53,518
+j'ouvre ce fichier en mode écriture
+
+197
+00:06:53,618 --> 00:06:55,936
+avec le mode d'ouverture w
+
+198
+00:06:56,036 --> 00:06:58,642
+et je gère encore mon encodage utf8.
+
+199
+00:07:00,558 --> 00:07:02,057
+Maintenant, je vais parcourir
+
+200
+00:07:02,157 --> 00:07:03,671
+mon premier fichier f,
+
+201
+00:07:03,771 --> 00:07:05,784
+je vais faire une petite manipulation
+
+202
+00:07:05,884 --> 00:07:06,513
+des lignes,
+
+203
+00:07:06,613 --> 00:07:08,518
+et je vais écrire dans mon fichier f2.
+
+204
+00:07:08,618 --> 00:07:09,478
+Regardons cela.
+
+205
+00:07:09,933 --> 00:07:11,557
+Pour cela, je vais faire une boucle for
+
+206
+00:07:11,657 --> 00:07:15,293
+et je vais faire un for line in f
+
+207
+00:07:15,393 --> 00:07:18,850
+que va faire la boucle for sur un fichier ?
+
+208
+00:07:18,950 --> 00:07:20,458
+Lorsque le fichier est ouvert,
+
+209
+00:07:20,558 --> 00:07:22,466
+il va être parcouru ligne par ligne
+
+210
+00:07:22,566 --> 00:07:23,826
+donc Python va être capable
+
+211
+00:07:23,926 --> 00:07:25,202
+de détecter automatiquement
+
+212
+00:07:25,302 --> 00:07:26,297
+les sauts de ligne,
+
+213
+00:07:26,397 --> 00:07:27,269
+et il va me retourner
+
+214
+00:07:27,369 --> 00:07:28,777
+à chaque tour de la boucle for,
+
+215
+00:07:28,877 --> 00:07:29,813
+une nouvelle ligne.
+
+216
+00:07:29,913 --> 00:07:30,802
+C'est donc une manière simple
+
+217
+00:07:30,902 --> 00:07:32,242
+et extrêmement intuitive
+
+218
+00:07:32,342 --> 00:07:35,427
+de parcourir les lignes d'un fichier.
+
+219
+00:07:35,527 --> 00:07:37,384
+Donc je fais for line in f
+
+220
+00:07:38,700 --> 00:07:40,120
+et ensuite, supposons que je veuille
+
+221
+00:07:40,220 --> 00:07:41,736
+simplement changer le formatage
+
+222
+00:07:41,836 --> 00:07:42,573
+de mon fichier,
+
+223
+00:07:42,673 --> 00:07:43,562
+c'est-à-dire, qu'en fait,
+
+224
+00:07:43,662 --> 00:07:45,013
+au lieu d'avoir des espaces
+
+225
+00:07:45,113 --> 00:07:46,246
+qui séparent mes deux colonnes,
+
+226
+00:07:46,346 --> 00:07:47,562
+je souhaite avoir une virgule.
+
+227
+00:07:48,537 --> 00:07:49,469
+Regardons comment faire ça.
+
+228
+00:07:49,569 --> 00:07:51,110
+La première chose à faire
+
+229
+00:07:51,210 --> 00:07:53,301
+lorsqu'on parcourt les lignes d'un fichier,
+
+230
+00:07:53,401 --> 00:07:55,244
+très souvent, c'est de transformer
+
+231
+00:07:55,344 --> 00:07:57,562
+cette chaîne de caractères en liste.
+
+232
+00:07:57,662 --> 00:07:59,096
+Nous avons déjà vu qu'on pouvait
+
+233
+00:07:59,196 --> 00:08:00,213
+transformer une chaîne de caractères
+
+234
+00:08:00,313 --> 00:08:04,220
+en liste avec la méthode split
+
+235
+00:08:04,320 --> 00:08:05,157
+sur les chaînes de caractères.
+
+236
+00:08:05,257 --> 00:08:08,461
+Donc je fais un line.split,
+
+237
+00:08:10,596 --> 00:08:14,022
+je transforme ma ligne en objet liste,
+
+238
+00:08:14,122 --> 00:08:16,326
+où le premier élément va être le mot ligne,
+
+239
+00:08:16,426 --> 00:08:17,934
+le deuxième élément va être
+
+240
+00:08:18,034 --> 00:08:20,198
+le numéro de la ligne.
+
+241
+00:08:20,407 --> 00:08:23,374
+Et ensuite, je vais faire,
+
+242
+00:08:23,474 --> 00:08:26,482
+alors, je peux tout à fait transformer,
+
+243
+00:08:26,582 --> 00:08:29,081
+pour vous montrer cette possibilité,
+
+244
+00:08:29,181 --> 00:08:31,888
+ma première colonne ligne
+
+245
+00:08:31,988 --> 00:08:33,137
+en mot majuscule.
+
+246
+00:08:33,722 --> 00:08:35,280
+Je le mets en majuscule,
+
+247
+00:08:35,981 --> 00:08:39,633
+mon objet line étant une liste,
+
+248
+00:08:39,733 --> 00:08:40,186
+il est mutable,
+
+249
+00:08:40,286 --> 00:08:41,556
+je peux donc le modifier en place,
+
+250
+00:08:42,350 --> 00:08:45,144
+et ensuite, je vais écrire dans mon fichier f2
+
+251
+00:08:45,851 --> 00:08:47,689
+avec l'instruction write,
+
+252
+00:08:49,433 --> 00:08:51,763
+je vais faire un join pour transformer
+
+253
+00:08:51,863 --> 00:08:53,699
+ma liste en chaîne de caractères,
+
+254
+00:08:53,799 --> 00:08:55,336
+je mets une virgule pour maintenant
+
+255
+00:08:55,436 --> 00:08:57,630
+avoir une virgule qui sépare mes colonnes,
+
+256
+00:08:57,730 --> 00:09:00,142
+.join de line
+
+257
+00:09:04,600 --> 00:09:09,271
+Et je n'oublie pas de rajouter un \n
+
+258
+00:09:09,371 --> 00:09:11,691
+pour avoir mon retour chariot à chaque ligne.
+
+259
+00:09:11,791 --> 00:09:13,201
+Donc j'ai écrit simplement,
+
+260
+00:09:13,301 --> 00:09:15,255
+j'ai fait un join de ma liste
+
+261
+00:09:15,355 --> 00:09:16,589
+en la séparant par une virgule,
+
+262
+00:09:16,689 --> 00:09:18,349
+et j'ai rajouté un \n
+
+263
+00:09:18,449 --> 00:09:19,435
+à la fin de ma ligne.
+
+264
+00:09:19,535 --> 00:09:21,179
+J'exécute cela.
+
+265
+00:09:21,279 --> 00:09:23,208
+Je n'oublie pas de fermer mes fichiers
+
+266
+00:09:23,308 --> 00:09:25,927
+f et f2,
+
+267
+00:09:27,787 --> 00:09:29,468
+et maintenant, je peux regarder mes fichiers,
+
+268
+00:09:29,568 --> 00:09:30,448
+comme tout à l'heure
+
+269
+00:09:30,548 --> 00:09:32,203
+avec mon point d'exclamation
+
+270
+00:09:32,303 --> 00:09:33,516
+parce que je suis sur IPython ;
+
+271
+00:09:33,616 --> 00:09:35,401
+évidemment, si vous n'utilisez pas IPython
+
+272
+00:09:35,501 --> 00:09:36,841
+vous regardez directement les fichiers
+
+273
+00:09:36,941 --> 00:09:38,262
+avec votre éditeur de texte préféré
+
+274
+00:09:38,362 --> 00:09:39,591
+sur votre disque dur.
+
+275
+00:09:39,691 --> 00:09:41,426
+Je vais regarder mon fichier
+
+276
+00:09:46,148 --> 00:09:47,766
+qui est dans le répertoire temp
+
+277
+00:09:47,866 --> 00:09:49,045
+et qui s'appelle spam.txt,
+
+278
+00:09:49,145 --> 00:09:49,805
+regardons ce fichier
+
+279
+00:09:49,905 --> 00:09:51,251
+qui est le même fichier que tout à l'heure
+
+280
+00:09:51,351 --> 00:09:52,528
+et je regarde mon fichier spam2
+
+281
+00:09:52,628 --> 00:09:54,178
+et je remarque que mon fichier
+
+282
+00:09:54,278 --> 00:09:55,564
+a bien été modifié comme attendu,
+
+283
+00:09:55,664 --> 00:09:57,268
+la première colonne est en majuscule
+
+284
+00:09:57,368 --> 00:09:58,529
+et mes deux colonnes sont maintenant
+
+285
+00:09:58,629 --> 00:09:59,704
+séparées par une virgule.
+
+286
+00:09:59,804 --> 00:10:00,621
+Vous voyez donc qu'il est
+
+287
+00:10:00,721 --> 00:10:02,376
+extrêmement simple d'ouvrir,
+
+288
+00:10:02,476 --> 00:10:04,063
+de manipuler un fichier,
+
+289
+00:10:04,163 --> 00:10:05,109
+de parcourir ses lignes,
+
+290
+00:10:05,209 --> 00:10:05,820
+de modifier les lignes,
+
+291
+00:10:05,920 --> 00:10:07,420
+et d'écrire dans un nouveau fichier.
+

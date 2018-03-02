@@ -1,0 +1,517 @@
+1
+00:00:00,000 --> 00:00:00,000
+
+
+2
+00:00:05,032 --> 00:00:08,186
+Dans la vidéo précédente,
+je vous ai introduit asyncio
+
+3
+00:00:08,306 --> 00:00:10,907
+je vous ai expliqué
+dans quel contexte cela se passait
+
+4
+00:00:11,150 --> 00:00:14,049
+Comme c'était très abstrait, je vais
+maintenant être un peu plus concret
+
+5
+00:00:14,169 --> 00:00:16,463
+et on va voir sur de tout petits exemples
+
+6
+00:00:16,583 --> 00:00:18,049
+à quoi cela ressemble
+
+7
+00:00:18,317 --> 00:00:20,941
+juste histoire d'introduire
+les concepts de base
+
+8
+00:00:21,194 --> 00:00:23,898
+Donc ça se présente  sous la forme
+d'une librairie qui s'appelle
+
+9
+00:00:24,018 --> 00:00:25,684
+asyncio sans grande surprise
+
+10
+00:00:25,889 --> 00:00:28,556
+Le concept de base, c'est la coroutine
+
+11
+00:00:30,746 --> 00:00:33,244
+Je vais vous montrer comment on définit une coroutine
+
+12
+00:00:33,364 --> 00:00:35,176
+alors ça se présente sous la forme
+
+13
+00:00:35,460 --> 00:00:38,658
+ça ressemble un petit peu à une
+fonction sauf qu'il y a "async"
+
+14
+00:00:38,894 --> 00:00:41,966
+au préalable,
+ça veut dire "ceci est une coroutine"
+
+15
+00:00:42,992 --> 00:00:46,266
+On écrit un code qui ressemble assez
+
+16
+00:00:46,992 --> 00:00:50,274
+à une fonction traditionnelle
+sauf que, à certains endroits,
+
+17
+00:00:50,490 --> 00:00:53,418
+j'utilise une instruction qui
+s'appelle "await"
+
+18
+00:00:53,820 --> 00:00:57,432
+Donc cette instruction,
+à ce stade de l'exposé on va dire
+
+19
+00:00:57,552 --> 00:01:01,509
+C'est une instruction qui dit:
+"Attention,
+
+20
+00:01:01,629 --> 00:01:05,569
+Je suis en train d'invoquer quelque chose
+qui est susceptible de s'interrompre"
+
+21
+00:01:06,013 --> 00:01:11,027
+donc, je signifie de cette façon
+que je suis disposé à rendre la main
+
+22
+00:01:11,147 --> 00:01:14,124
+au scheduler
+dont j'ai parlé la fois précédente
+
+23
+00:01:14,399 --> 00:01:18,432
+et donc que la coroutine
+que vous avez sous les yeux
+
+24
+00:01:18,552 --> 00:01:20,926
+elle fait pas grand chose:
+elle écrit un message au début,
+
+25
+00:01:21,046 --> 00:01:24,003
+elle attend une demie-seconde
+en rendant la main
+
+26
+00:01:24,123 --> 00:01:27,349
+elle affiche un 2me message
+qui s'intègre au milieu
+
+27
+00:01:27,469 --> 00:01:30,969
+elle attend une seconde et puis à la fin
+elle affiche un message de fin
+
+28
+00:01:31,089 --> 00:01:34,159
+Alors j'évalue ce bout de code
+
+29
+00:01:34,279 --> 00:01:37,489
+ça ne fait rien, c'est la même chose
+que si j'avais défini une fonction
+
+30
+00:01:39,327 --> 00:01:43,958
+Alors, c'est pas tout à fait quand même
+la même chose parce que si je l'évalue
+
+31
+00:01:44,078 --> 00:01:48,036
+je me rend compte que c'est une
+fonction, d'accord, mais par contre
+
+32
+00:01:48,226 --> 00:01:50,327
+si j'essaie de l'appeler
+
+33
+00:01:50,447 --> 00:01:54,432
+en gros il ne se passe rien,
+cela me renvoie un objet
+
+34
+00:01:54,954 --> 00:01:56,701
+C'est une coroutine
+
+35
+00:01:57,101 --> 00:02:00,033
+et donc ça me donne l'occasion
+de commencer à introduire
+
+36
+00:02:00,153 --> 00:02:02,905
+la différence entre ce qui est
+une fonction coroutine
+
+37
+00:02:03,025 --> 00:02:06,305
+et l'objet coroutine
+qui est rendu par la fonction
+
+38
+00:02:06,998 --> 00:02:10,869
+C'est un mécanisme qui est
+assez proche des générateurs
+
+39
+00:02:10,989 --> 00:02:12,747
+on aura l'occasion d'en reparler
+
+40
+00:02:12,867 --> 00:02:16,170
+et pour l'instant, ce que je veux vous
+montrer c'est comment on s'en sert
+
+41
+00:02:16,290 --> 00:02:20,410
+La façon la plus simple d'éxecuter
+ce code, pour moi
+
+42
+00:02:20,530 --> 00:02:23,472
+c'est de l'exécuter au travers
+d'une boucle d'évènements
+
+43
+00:02:23,683 --> 00:02:27,098
+En fait ça tombe bien: dans asyncio il
+y a la notion de boucle d'évènements
+
+44
+00:02:28,345 --> 00:02:31,295
+donc je vais appeler la fonction
+get_event_loop
+
+45
+00:02:31,415 --> 00:02:33,382
+qui me renvoie une boucle d'évènements
+
+46
+00:02:33,593 --> 00:02:38,344
+et sur cette boucle, je vais envoyer une
+méthode qui s'appele run_until_complete
+
+47
+00:02:38,631 --> 00:02:41,024
+je vais lui passer une coroutine
+
+48
+00:02:41,918 --> 00:02:45,749
+plus précisément un objet coroutine
+et le travail de cette méthode va être
+
+49
+00:02:45,869 --> 00:02:49,426
+de faire avancer la coroutine
+jusqu'à ce qu'elle soit terminée
+
+50
+00:02:49,546 --> 00:02:52,132
+Voilà, on va voir ce que cela donne
+
+51
+00:02:52,149 --> 00:02:55,637
+Jusque là, pas de surprise, je voulais
+juste vous montrer qu'avec la boucle
+
+52
+00:02:55,757 --> 00:02:58,818
+je peux enfin exécuter le code que j'ai écrit
+
+53
+00:02:59,105 --> 00:03:02,192
+Alors, là où c'est plus intéressant,
+c'est si j'en fais plusieurs à la fois
+
+54
+00:03:02,605 --> 00:03:05,483
+ça se présenterait de cette façon-là
+
+55
+00:03:05,698 --> 00:03:09,831
+au lieu d'en passer une à
+run_until_complete, je vais en passer deux
+
+56
+00:03:09,951 --> 00:03:13,625
+En fait, je triche: techniquement  je
+vais lui envoyer un seul objet coroutine
+
+57
+00:03:13,745 --> 00:03:16,010
+que j'ai construit en utilisant gather
+
+58
+00:03:16,130 --> 00:03:18,025
+on aura l'occasion de reparler de tout ça
+
+59
+00:03:18,145 --> 00:03:21,511
+Dans ce tout premier exemple, je veux
+vous montrer la façon la plus simple
+
+60
+00:03:21,832 --> 00:03:24,511
+d'avoir deux choses
+qui se déroulent en parallèle
+
+61
+00:03:24,631 --> 00:03:26,832
+Dans ce contexte là ce que vous voyez
+c'est que
+
+62
+00:03:27,178 --> 00:03:29,911
+je vais effectivement faire
+les deux débuts en même temps
+
+63
+00:03:31,684 --> 00:03:34,148
+C'est à peu près ce que je voulais faire
+
+64
+00:03:36,631 --> 00:03:40,260
+Vous avez dans cette figure
+quelque chose qui illustre bien
+
+65
+00:03:40,932 --> 00:03:44,032
+l'utilisation que je fais du tamps
+
+66
+00:03:46,358 --> 00:03:49,442
+le scheduler, ma boucle en l'occurence
+
+67
+00:03:49,562 --> 00:03:52,415
+va choisir une des deux coroutines
+
+68
+00:03:52,535 --> 00:03:54,819
+je n'ai pas de contrôle sur celle
+qui va commencer
+
+69
+00:03:54,939 --> 00:03:56,959
+puisque j'ai dit
+qu'elles commençaient en même temps
+
+70
+00:03:57,238 --> 00:03:59,373
+j'imagine que c'est run1
+
+71
+00:03:59,493 --> 00:04:04,010
+On va d'abord exécuter le petit bout
+de code qui est avant le await du run1
+
+72
+00:04:04,257 --> 00:04:05,844
+On voit le await
+
+73
+00:04:06,375 --> 00:04:10,729
+on va changer de contexte, la boucle
+sait qu'elle peut changer de contexte
+
+74
+00:04:10,923 --> 00:04:14,222
+Elle va faire le début de run2
+etc.. etc..
+
+75
+00:04:14,623 --> 00:04:17,074
+J'attire votre attention:
+
+76
+00:04:17,194 --> 00:04:20,179
+là j'ai mis await, on verra dans la
+suite que j'aurais du mettre yield
+
+77
+00:04:20,299 --> 00:04:23,791
+mais pour l'instant, à ce stade
+de l'exposé, je préfère être simple
+
+78
+00:04:25,088 --> 00:04:29,738
+C'est le modèle mental,
+c'est l'idée que la boucle
+
+79
+00:04:29,966 --> 00:04:34,624
+et le scheduler qui vont passer
+la main d'une coroutine à l'autre
+
+80
+00:04:36,734 --> 00:04:40,079
+Je vous montre tout de suite
+un exemple de ce qu'il ne faut pas faire
+
+81
+00:04:40,686 --> 00:04:43,591
+Si au lieu d'écrire morceau comme je l'avais fait tout à l'heure
+
+82
+00:04:43,711 --> 00:04:46,037
+je l'écris de cette façon là,
+je l'ai écrit famine
+
+83
+00:04:46,157 --> 00:04:48,859
+parce que entre les deux messges
+de milieu et de fin
+
+84
+00:04:48,979 --> 00:04:52,631
+au lieu de faire un asyncio.sleep,
+je fais un time.sleep
+
+85
+00:04:52,751 --> 00:04:56,926
+donc une fonction qui n'est pas
+averti du paradigme du tout
+
+86
+00:04:57,167 --> 00:05:00,197
+alors cela veut dire que je ne vais pas
+rendre la main à la boucle
+
+87
+00:05:00,387 --> 00:05:03,720
+alors du coup si je l'évalue
+de la même façon que tout à l'heure
+
+88
+00:05:04,450 --> 00:05:08,065
+je vais avoir les 2 débuts qui arrivent en même temps mais
+
+89
+00:05:08,185 --> 00:05:11,527
+mais une fois qu'une de mes 2 corourines
+prendra la main elle va la garder
+
+90
+00:05:11,647 --> 00:05:16,176
+elle va faire milieu puis fin, évidemment et
+
+91
+00:05:16,708 --> 00:05:19,113
+on peut voir ce qui se passe
+dans le temps
+
+92
+00:05:19,233 --> 00:05:23,670
+La grosse période verte c'est celle pendant
+laquelle, je n'ai pas rendu le temps
+
+93
+00:05:23,790 --> 00:05:26,177
+Bien entendu dans le vraie vie
+ce sont des calculs,
+
+94
+00:05:26,297 --> 00:05:29,017
+je fais beaucoup de sleep dans
+ces présentations
+
+95
+00:05:29,137 --> 00:05:31,936
+mais imaginez que à la place
+ce sont des calculs
+
+96
+00:05:32,156 --> 00:05:34,802
+Cette façon de ne pas rendre la main
+, il ne faut pas le faire
+
+97
+00:05:34,998 --> 00:05:38,176
+il faut vraiment être obsédé par le fait
+
+98
+00:05:38,420 --> 00:05:42,665
+de ne pas garder la main disons
+plus que 10, 20 ms au grand maximum
+
+99
+00:05:43,723 --> 00:05:45,791
+Donc en termes de conclusion,
+
+100
+00:05:46,023 --> 00:05:52,227
+je vous ai montré comment on pouvait
+créer des coroutines avec async def
+
+101
+00:05:53,292 --> 00:05:57,208
+Je vous ai montré également comment on
+pouvait créer une boucle d'évéènements
+
+102
+00:05:57,328 --> 00:05:59,554
+ pour orchestrer plusieurs coroutines
+
+103
+00:05:59,918 --> 00:06:02,667
+et je vous ai également montré 
+qu'une coroutine pouvait appeler 
+
+104
+00:06:02,787 --> 00:06:05,901
+d'autres coroutines 
+en faisant simpleemnt await
+
+105
+00:06:07,390 --> 00:06:11,702
+et on également vu quand on a appelé time.sleep
+
+106
+00:06:11,822 --> 00:06:15,265
+qu'une coroutine peut tout à fait 
+appeler une fonction traditionnelle
+
+107
+00:06:15,385 --> 00:06:18,223
+appeler une fonction synchrone  
+ simplement il faut faire attention
+
+108
+00:06:18,343 --> 00:06:21,003
+ de ne pas se lancer 
+dans un calcul qui soit trop long
+
+109
+00:06:22,095 --> 00:06:27,681
+Donc voilà une toute première 
+introduction pour défricher le sujet
+
+110
+00:06:27,801 --> 00:06:31,020
+On va creuser tout ça dans les vidéos
+suivantes. A bientôt
+

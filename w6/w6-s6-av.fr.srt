@@ -1,0 +1,1384 @@
+﻿1
+00:00:05,580 --> 00:00:06,865
+Nous avons vu précédemment
+
+2
+00:00:06,965 --> 00:00:08,838
+les notions d'itérable et d'itérateur.
+
+3
+00:00:08,938 --> 00:00:10,648
+Je vous rappelle que les itérateurs
+
+4
+00:00:10,748 --> 00:00:12,099
+permettent de parcourir les objets
+
+5
+00:00:12,199 --> 00:00:14,084
+de manière simple et intuitive.
+
+6
+00:00:15,191 --> 00:00:17,423
+Rappelez-vous exactement ces différences
+
+7
+00:00:17,523 --> 00:00:18,395
+entre itérable et itérateur,
+
+8
+00:00:18,495 --> 00:00:19,527
+donc c'est un rappel très rapide,
+
+9
+00:00:19,627 --> 00:00:20,191
+c'est pourquoi je vais passer
+
+10
+00:00:20,291 --> 00:00:21,148
+rapidement dessus ;
+
+11
+00:00:21,433 --> 00:00:22,696
+si vous avez le moindre doute,
+
+12
+00:00:22,796 --> 00:00:24,141
+n'hésitez pas à revenir à la vidéo
+
+13
+00:00:24,241 --> 00:00:25,295
+qui introduisait ces notions
+
+14
+00:00:25,395 --> 00:00:26,508
+d'itérable et d'itérateur.
+
+15
+00:00:27,120 --> 00:00:28,486
+Un itérable, c'est un objet
+
+16
+00:00:28,586 --> 00:00:29,595
+qui a une méthode __iter__
+
+17
+00:00:29,695 --> 00:00:31,033
+qui retourne un itérateur ;
+
+18
+00:00:32,046 --> 00:00:33,940
+et un itérateur, c'est un objet
+
+19
+00:00:34,040 --> 00:00:35,052
+qui a une méthode __iter__
+
+20
+00:00:35,152 --> 00:00:36,245
+qui retourne lui-même,
+
+21
+00:00:36,345 --> 00:00:37,780
+et une méthode __next__
+
+22
+00:00:37,880 --> 00:00:39,012
+qui, à chaque fois qu'on l'appelle,
+
+23
+00:00:39,112 --> 00:00:40,682
+va retourner un nouvel élément
+
+24
+00:00:40,782 --> 00:00:42,519
+jusqu'à ce qu'il n'y ait plus d'élément,
+
+25
+00:00:42,619 --> 00:00:43,426
+et quand il n'y a plus d'élément,
+
+26
+00:00:43,526 --> 00:00:46,123
+j'ai une exception qui s'appelle StopIteration.
+
+27
+00:00:47,251 --> 00:00:48,717
+Ce mécanisme est extrêmement puissant
+
+28
+00:00:48,817 --> 00:00:49,890
+et peut être exploité
+
+29
+00:00:49,990 --> 00:00:51,471
+par n'importe quel mécanisme d'itération
+
+30
+00:00:51,500 --> 00:00:51,860
+en Python,
+
+31
+00:00:51,914 --> 00:00:53,472
+les boucles for et les compréhensions,
+
+32
+00:00:53,572 --> 00:00:55,156
+les fonctions map et filter.
+
+33
+00:00:55,791 --> 00:00:56,985
+Nous allons voir dans cette vidéo
+
+34
+00:00:57,085 --> 00:00:58,203
+comment implémenter
+
+35
+00:00:58,303 --> 00:01:00,260
+des itérateurs et des itérables
+
+36
+00:01:00,360 --> 00:01:01,540
+pour vos propres objets.
+
+37
+00:01:03,111 --> 00:01:04,553
+Ouvrons maintenant un éditeur IDLE
+
+38
+00:01:04,653 --> 00:01:05,581
+pour commencer à jouer
+
+39
+00:01:05,681 --> 00:01:07,472
+avec ces conceptions d'itérateurs.
+
+40
+00:01:07,875 --> 00:01:08,672
+Je vais vous montrer
+
+41
+00:01:08,772 --> 00:01:10,070
+trois manières différentes
+
+42
+00:01:10,170 --> 00:01:11,637
+de concevoir un objet qui est
+
+43
+00:01:11,737 --> 00:01:13,513
+soit un itérateur, soit un itérable.
+
+44
+00:01:14,390 --> 00:01:16,019
+Reprenons un exemple
+
+45
+00:01:16,119 --> 00:01:17,203
+de notre classe Phrase ;
+
+46
+00:01:17,303 --> 00:01:18,332
+je vous laisse quelques instants
+
+47
+00:01:18,432 --> 00:01:19,749
+pour avoir le temps de le taper ;
+
+48
+00:01:19,849 --> 00:01:20,409
+nous nous retrouvons
+
+49
+00:01:20,509 --> 00:01:21,207
+dans quelques secondes.
+
+50
+00:01:22,043 --> 00:01:23,691
+Donc maintenant que vous avez tapé
+
+51
+00:01:23,791 --> 00:01:24,833
+votre classe Phrase,
+
+52
+00:01:24,933 --> 00:01:26,531
+avec une méthode __init__
+
+53
+00:01:27,084 --> 00:01:29,469
+qui permet d'ajouter un attribut ma_phrase
+
+54
+00:01:29,569 --> 00:01:30,526
+à votre instance,
+
+55
+00:01:30,626 --> 00:01:31,653
+et également un attribut mots
+
+56
+00:01:31,753 --> 00:01:32,598
+qui est la liste des mots,
+
+57
+00:01:33,220 --> 00:01:34,507
+nous allons voir maintenant comment
+
+58
+00:01:34,607 --> 00:01:36,426
+est-ce qu'on peut définir cet objet
+
+59
+00:01:36,526 --> 00:01:37,961
+pour qu'il devienne un itérateur.
+
+60
+00:01:38,618 --> 00:01:40,680
+Nous avons vu, dans l'introduction,
+
+61
+00:01:40,780 --> 00:01:41,738
+qu'un itérateur est un objet
+
+62
+00:01:41,838 --> 00:01:42,554
+qui a deux méthodes.
+
+63
+00:01:42,937 --> 00:01:44,593
+Commençons par faire de Phrase
+
+64
+00:01:44,693 --> 00:01:45,639
+un itérateur,
+
+65
+00:01:45,739 --> 00:01:47,908
+donc qui doit avoir une méthode __iter__
+
+66
+00:01:50,215 --> 00:01:52,393
+qui va prendre comme argument self,
+
+67
+00:01:52,493 --> 00:01:53,115
+évidemment,
+
+68
+00:01:53,215 --> 00:01:53,905
+toutes mes méthodes
+
+69
+00:01:54,005 --> 00:01:55,257
+prennent comme premier argument
+
+70
+00:01:55,357 --> 00:01:55,772
+mon instance,
+
+71
+00:01:56,072 --> 00:01:57,744
+et qui va se retourner soi-même.
+
+72
+00:01:58,494 --> 00:01:59,960
+Voilà, donc j'ai ma méthode __iter__
+
+73
+00:02:00,254 --> 00:02:01,715
+qui retourne mon objet lui-même.
+
+74
+00:02:02,370 --> 00:02:03,457
+Mais mon itérateur doit avoir
+
+75
+00:02:03,557 --> 00:02:04,132
+une deuxième méthode,
+
+76
+00:02:04,232 --> 00:02:05,954
+une méthode que je vais appeler __next__
+
+77
+00:02:07,911 --> 00:02:09,258
+et qui prend également
+
+78
+00:02:09,358 --> 00:02:10,680
+comme premier argument self.
+
+79
+00:02:11,440 --> 00:02:12,639
+Ma méthode __next__
+
+80
+00:02:12,998 --> 00:02:15,197
+doit retourner, à chaque appel,
+
+81
+00:02:15,679 --> 00:02:16,859
+un élément suivant,
+
+82
+00:02:17,112 --> 00:02:18,205
+donc dans ce cas-là, je veux
+
+83
+00:02:18,305 --> 00:02:20,499
+que mon itérateur itère naturellement
+
+84
+00:02:20,599 --> 00:02:21,672
+sur les mots de ma phrase,
+
+85
+00:02:21,973 --> 00:02:23,864
+donc je veux qu'à chaque tour de boucle,
+
+86
+00:02:24,150 --> 00:02:25,302
+j'obtienne un nouveau mot.
+
+87
+00:02:25,842 --> 00:02:27,516
+Donc je veux obtenir un mot suivant
+
+88
+00:02:27,616 --> 00:02:28,628
+et puis, quand je n'ai plus de mot,
+
+89
+00:02:28,953 --> 00:02:30,537
+je veux avoir une exception StopIteration.
+
+90
+00:02:30,637 --> 00:02:32,882
+C'est la définition du protocole d'itération.
+
+91
+00:02:33,706 --> 00:02:34,734
+Regardons comment faire ça.
+
+92
+00:02:34,834 --> 00:02:38,531
+Je vais faire if not self point mots
+
+93
+00:02:39,121 --> 00:02:40,237
+donc ça veut dire que
+
+94
+00:02:40,337 --> 00:02:42,444
+tant que j'ai des mots dans ma liste de mots,
+
+95
+00:02:42,696 --> 00:02:43,727
+qui a été initialisée
+
+96
+00:02:43,827 --> 00:02:45,574
+dans la méthode __init__ de ma classe,
+
+97
+00:02:46,272 --> 00:02:47,604
+je vais faire
+
+98
+00:02:48,757 --> 00:02:51,010
+alors non, là, si j'ai fait if not self.mots,
+
+99
+00:02:51,110 --> 00:02:52,080
+ça veut dire: si je n'ai plus de mots,
+
+100
+00:02:52,365 --> 00:02:53,663
+je vais faire un raise
+
+101
+00:02:54,187 --> 00:02:56,818
+de l'exception StopIteration.
+
+102
+00:03:00,159 --> 00:03:02,639
+Si jamais j'ai des mots encore dans ma liste,
+
+103
+00:03:02,739 --> 00:03:03,868
+je vais juste faire un return
+
+104
+00:03:03,968 --> 00:03:05,897
+de self point mots
+
+105
+00:03:05,997 --> 00:03:07,965
+et je vais utiliser la méthode pop
+
+106
+00:03:08,475 --> 00:03:10,240
+de 0, qui me permet de retourner
+
+107
+00:03:10,511 --> 00:03:11,817
+le premier mot de ma liste.
+
+108
+00:03:11,917 --> 00:03:13,366
+Donc la méthode pop va me retourner
+
+109
+00:03:13,466 --> 00:03:14,316
+le premier mot de la liste
+
+110
+00:03:14,546 --> 00:03:15,772
+et l'enlever de la liste.
+
+111
+00:03:16,111 --> 00:03:17,126
+Donc, à chaque tour,
+
+112
+00:03:17,226 --> 00:03:18,839
+ma liste va se raccourcir ;
+
+113
+00:03:18,939 --> 00:03:19,966
+je prends le premier mot, je l'enlève,
+
+114
+00:03:20,066 --> 00:03:20,820
+je raccourcis ma liste.
+
+115
+00:03:20,920 --> 00:03:22,020
+Je prends le premier mot, je l'enlève,
+
+116
+00:03:22,120 --> 00:03:22,755
+je raccourcis ma liste
+
+117
+00:03:23,046 --> 00:03:24,359
+jusqu'à ce que je n'aie plus de mot
+
+118
+00:03:24,459 --> 00:03:26,594
+et que j'ai l'exception StopIteration.
+
+119
+00:03:27,966 --> 00:03:29,278
+Et voilà, j'ai terminé,
+
+120
+00:03:29,378 --> 00:03:30,612
+j'ai implémenté ma méthode __iter__
+
+121
+00:03:30,712 --> 00:03:32,101
+qui retourne l'itérateur lui-même,
+
+122
+00:03:32,427 --> 00:03:34,612
+et ma méthode __next__, qui retourne
+
+123
+00:03:35,048 --> 00:03:37,649
+un mot suivant à chaque appel de __next__
+
+124
+00:03:37,749 --> 00:03:38,881
+jusqu'à ce que je n'aie plus de mot
+
+125
+00:03:39,478 --> 00:03:41,007
+et que j'aie StopIteration.
+
+126
+00:03:42,616 --> 00:03:44,239
+Donc maintenant, évaluons ce code
+
+127
+00:03:45,373 --> 00:03:46,835
+et regardons son exécution.
+
+128
+00:03:48,041 --> 00:03:49,696
+Donc je vais définir une instance p
+
+129
+00:03:50,013 --> 00:03:53,620
+qui est égale à Phrase de s.
+
+130
+00:03:53,720 --> 00:03:54,951
+Je vous rappelle que s
+
+131
+00:03:55,051 --> 00:03:55,871
+est la chaîne de caractères
+
+132
+00:03:55,971 --> 00:03:58,097
+que j'ai définie, au début dans mon module.
+
+133
+00:03:58,881 --> 00:04:01,073
+Donc j'exécute cela
+
+134
+00:04:01,637 --> 00:04:02,261
+et maintenant,
+
+135
+00:04:02,361 --> 00:04:03,252
+je vais faire une compréhension
+
+136
+00:04:03,528 --> 00:04:06,576
+m for m in p.
+
+137
+00:04:06,966 --> 00:04:08,900
+Je vous rappelle que les compréhensions
+
+138
+00:04:09,000 --> 00:04:11,270
+vont exploiter le protocole d'itération
+
+139
+00:04:11,548 --> 00:04:13,946
+et vont donc appeler la méthode __iter__
+
+140
+00:04:14,046 --> 00:04:15,024
+pour obtenir l'itérateur,
+
+141
+00:04:15,124 --> 00:04:16,948
+appeler __next__ pour parcourir chaque mot,
+
+142
+00:04:17,210 --> 00:04:18,868
+jusqu'à ce que j'aie StopIteration.
+
+143
+00:04:19,982 --> 00:04:21,254
+Sauf que ma classe Phrase,
+
+144
+00:04:21,354 --> 00:04:22,201
+je vous rappelle,
+
+145
+00:04:22,301 --> 00:04:23,680
+est un itérateur.
+
+146
+00:04:23,780 --> 00:04:24,858
+Or, vous vous souvenez que
+
+147
+00:04:24,958 --> 00:04:26,239
+la caractéristique d'un itérateur,
+
+148
+00:04:26,339 --> 00:04:27,091
+c'est qu'on ne peut le parcourir
+
+149
+00:04:27,191 --> 00:04:27,785
+qu'une seule fois.
+
+150
+00:04:28,048 --> 00:04:28,857
+Si maintenant,
+
+151
+00:04:28,259 --> 00:04:30,597
+je fais une deuxième compréhension
+
+152
+00:04:30,697 --> 00:04:31,662
+sur ma classe Phrase,
+
+153
+00:04:31,762 --> 00:04:33,149
+je vois que j'obtiens une liste vide
+
+154
+00:04:33,249 --> 00:04:34,165
+et je peux le confirmer
+
+155
+00:04:34,265 --> 00:04:35,421
+en faisant un __next__ de p ;
+
+156
+00:04:35,521 --> 00:04:37,972
+__next__ de p me retourne StopIteration.
+
+157
+00:04:38,231 --> 00:04:39,097
+Un itérateur ne se consomme
+
+158
+00:04:39,197 --> 00:04:39,727
+qu'une seule fois.
+
+159
+00:04:40,560 --> 00:04:43,098
+Donc maintenant, essayons de définir
+
+160
+00:04:43,198 --> 00:04:44,337
+notre classe Phrase
+
+161
+00:04:44,437 --> 00:04:45,629
+non pas comme itérateur
+
+162
+00:04:45,729 --> 00:04:46,661
+mais comme itérable,
+
+163
+00:04:46,761 --> 00:04:47,829
+c'est-à-dire comme objet
+
+164
+00:04:47,929 --> 00:04:49,246
+que je suis capable de parcourir
+
+165
+00:04:49,346 --> 00:04:50,228
+de multiples fois.
+
+166
+00:04:51,034 --> 00:04:52,553
+Regardons une manière de l'implémenter.
+
+167
+00:04:53,708 --> 00:04:55,241
+Maintenant, ma méthode __iter__,
+
+168
+00:04:55,479 --> 00:04:57,328
+au lieu de retourner l'objet lui-même,
+
+169
+00:04:57,614 --> 00:04:58,760
+ce qui définit un itérateur,
+
+170
+00:04:58,860 --> 00:04:59,841
+va retourner un nouvel objet
+
+171
+00:04:59,941 --> 00:05:01,930
+qui est un objet itérateur sur Phrase.
+
+172
+00:05:02,166 --> 00:05:05,855
+Je vais l'appeler IterPhrase.
+
+173
+00:05:06,269 --> 00:05:07,976
+Et à cet objet, je vais lui passer
+
+174
+00:05:08,076 --> 00:05:08,927
+ma liste de mots,
+
+175
+00:05:09,027 --> 00:05:10,682
+uniquement ce dont j'ai besoin
+
+176
+00:05:10,782 --> 00:05:12,485
+pour définir ces différents mots.
+
+177
+00:05:12,748 --> 00:05:15,485
+Et maintenant, je vais définir mon objet
+
+178
+00:05:16,278 --> 00:05:17,162
+IterPhrase.
+
+179
+00:05:17,262 --> 00:05:18,323
+Donc c'est une nouvelle classe
+
+180
+00:05:19,487 --> 00:05:20,421
+puisque je vous rappelle que
+
+181
+00:05:20,521 --> 00:05:22,075
+les itérateurs sont des objets,
+
+182
+00:05:22,175 --> 00:05:23,118
+il faut donc définir une classe
+
+183
+00:05:23,218 --> 00:05:25,391
+pour définir ce nouvel objet itérateur,
+
+184
+00:05:25,660 --> 00:05:27,722
+qui s'appelle IterPhrase
+
+185
+00:05:29,309 --> 00:05:33,290
+et qui va définir une méthode __init__
+
+186
+00:05:33,632 --> 00:05:37,820
+qui prend self et mots
+
+187
+00:05:38,746 --> 00:05:39,801
+et qui va dire
+
+188
+00:05:39,901 --> 00:05:43,893
+self point mots égale
+
+189
+00:05:43,993 --> 00:05:46,731
+une shallow copy de mots,
+
+190
+00:05:46,831 --> 00:05:48,235
+je vais revenir dans quelques instants
+
+191
+00:05:48,335 --> 00:05:49,635
+sur la raison de cette shallow copy.
+
+192
+00:05:50,331 --> 00:05:52,181
+Ensuite, je définis une méthode __iter__
+
+193
+00:05:52,281 --> 00:05:53,298
+puisque tous les itérateurs
+
+194
+00:05:53,398 --> 00:05:54,850
+doivent avoir une méthode __iter__,
+
+195
+00:05:55,811 --> 00:05:57,281
+voilà, qui prend self
+
+196
+00:05:57,381 --> 00:05:59,695
+et qui va retourner l'itérateur lui-même ;
+
+197
+00:06:01,188 --> 00:06:02,620
+et ensuite, j'ai une méthode __next__
+
+198
+00:06:02,720 --> 00:06:04,177
+qui est exactement la méthode __next__
+
+199
+00:06:04,277 --> 00:06:05,448
+que j'avais précédemment.
+
+200
+00:06:05,835 --> 00:06:06,488
+Donc on voit que
+
+201
+00:06:06,588 --> 00:06:07,598
+le mécanisme est très proche
+
+202
+00:06:07,698 --> 00:06:09,275
+entre un itérateur et un itérable,
+
+203
+00:06:09,375 --> 00:06:10,418
+c'est très, très proche
+
+204
+00:06:10,518 --> 00:06:11,279
+sauf que l'itérateur,
+
+205
+00:06:11,379 --> 00:06:12,373
+lorsque mon objet est itérable
+
+206
+00:06:12,473 --> 00:06:13,796
+et que j'ai besoin d'avoir plusieurs itérateurs,
+
+207
+00:06:14,218 --> 00:06:15,684
+il faut que je crée une nouvelle classe,
+
+208
+00:06:15,784 --> 00:06:16,407
+un nouvel objet,
+
+209
+00:06:17,527 --> 00:06:18,287
+qui va implémenter
+
+210
+00:06:18,387 --> 00:06:19,789
+cette fameuse méthode __next__.
+
+211
+00:06:20,034 --> 00:06:21,216
+Alors, pourquoi est-ce que
+
+212
+00:06:21,316 --> 00:06:23,599
+dans ma méthode __init__,
+
+213
+00:06:23,699 --> 00:06:26,005
+j'ai défini une shallow copy ?
+
+214
+00:06:26,556 --> 00:06:27,919
+En fait, vous remarquez que
+
+215
+00:06:28,019 --> 00:06:28,894
+ma méthode __next__
+
+216
+00:06:28,994 --> 00:06:30,844
+va faire un pop sur mots.
+
+217
+00:06:31,426 --> 00:06:33,210
+Ça veut dire qu'elle va modifier
+
+218
+00:06:33,310 --> 00:06:35,064
+l'objet référencé par mots.
+
+219
+00:06:35,627 --> 00:06:37,402
+Si je référençais l'objet
+
+220
+00:06:37,502 --> 00:06:39,792
+qui est contenu dans ma classe Phrase,
+
+221
+00:06:40,024 --> 00:06:41,329
+ça voudrait dire qu'une fois que
+
+222
+00:06:41,429 --> 00:06:42,566
+mon itérateur a parcouru
+
+223
+00:06:42,666 --> 00:06:43,660
+une fois la liste des mots,
+
+224
+00:06:44,610 --> 00:06:46,377
+mon attribut mots
+
+225
+00:06:46,477 --> 00:06:47,521
+référencerait une liste vide.
+
+226
+00:06:48,296 --> 00:06:49,816
+Pour être sûr de pouvoir itérer
+
+227
+00:06:49,916 --> 00:06:51,073
+de multiples fois
+
+228
+00:06:51,574 --> 00:06:52,685
+sur ma liste de mots,
+
+229
+00:06:53,034 --> 00:06:54,559
+il faut donc que je fasse une copie
+
+230
+00:06:54,659 --> 00:06:56,309
+et c'est cette copie que je vais,
+
+231
+00:06:56,409 --> 00:06:57,804
+petit à petit, réduire
+
+232
+00:06:57,904 --> 00:06:59,010
+jusqu'à ce que je n'aie plus d'élément.
+
+233
+00:07:00,396 --> 00:07:02,110
+Maintenant, sauvegardons ce code,
+
+234
+00:07:02,210 --> 00:07:04,261
+exécutons-le avec F5,
+
+235
+00:07:05,011 --> 00:07:06,179
+et créons une instance.
+
+236
+00:07:06,279 --> 00:07:07,265
+Donc je vais reprendre,
+
+237
+00:07:07,365 --> 00:07:08,718
+ici, ce que j'avais écrit
+
+238
+00:07:08,818 --> 00:07:10,237
+donc je crée une instance de Phrase
+
+239
+00:07:10,505 --> 00:07:11,206
+et maintenant, je vais faire
+
+240
+00:07:11,306 --> 00:07:11,910
+une compréhension
+
+241
+00:07:12,653 --> 00:07:15,786
+m for m in p
+
+242
+00:07:16,464 --> 00:07:17,512
+Et regardons ce qu'il se passe ;
+
+243
+00:07:17,612 --> 00:07:19,341
+j'obtiens bien ma liste de mots.
+
+244
+00:07:19,441 --> 00:07:22,267
+Rappelons de nouveau une compréhension
+
+245
+00:07:22,367 --> 00:07:24,224
+et j'obtiens bien de nouveau ma liste de mots,
+
+246
+00:07:24,324 --> 00:07:24,946
+donc on voit qu'à chaque fois
+
+247
+00:07:25,046 --> 00:07:29,099
+que j'appelle __iter__ sur ma classe Phrase,
+
+248
+00:07:29,199 --> 00:07:30,329
+j'obtiens un nouvel objet itérateur ;
+
+249
+00:07:30,429 --> 00:07:31,664
+je peux le vérifier de la manière suivante
+
+250
+00:07:32,099 --> 00:07:33,135
+__iter__ de p
+
+251
+00:07:33,235 --> 00:07:34,651
+j'obtiens un objet itérateur ;
+
+252
+00:07:34,751 --> 00:07:35,601
+je rappelle __iter__ de p,
+
+253
+00:07:35,815 --> 00:07:37,654
+j'obtiens un nouvel objet itérateur
+
+254
+00:07:37,754 --> 00:07:38,492
+et je peux m'en convaincre
+
+255
+00:07:38,592 --> 00:07:39,828
+parce que les adresses sont différentes.
+
+256
+00:07:40,130 --> 00:07:41,516
+J'aurais également pu
+
+257
+00:07:41,616 --> 00:07:43,231
+vérifier avec l'instruction is
+
+258
+00:07:43,331 --> 00:07:44,651
+que les deux objets sont différents.
+
+259
+00:07:46,259 --> 00:07:47,461
+Seulement ici, on se rend compte
+
+260
+00:07:47,561 --> 00:07:49,195
+qu'en fait, écrire un itérateur,
+
+261
+00:07:49,295 --> 00:07:50,949
+enfin, écrire un objet qui est itérable,
+
+262
+00:07:51,049 --> 00:07:52,596
+ça demande d'écrire une deuxième classe,
+
+263
+00:07:52,696 --> 00:07:54,872
+un deuxième objet spécifiquement itérateur.
+
+264
+00:07:55,693 --> 00:07:56,790
+Or, vous vous souvenez peut-être
+
+265
+00:07:56,890 --> 00:07:58,812
+qu'on a déjà vu une notion qui s'appelle
+
+266
+00:07:58,912 --> 00:08:00,636
+les fonctions génératrices.
+
+267
+00:08:01,279 --> 00:08:02,613
+Et le but des fonctions génératrices
+
+268
+00:08:02,713 --> 00:08:04,317
+est de produire des itérateurs.
+
+269
+00:08:05,136 --> 00:08:06,551
+Regardons alors comment
+
+270
+00:08:06,651 --> 00:08:07,525
+est-ce qu'on peut exploiter
+
+271
+00:08:07,625 --> 00:08:09,219
+la puissance des fonctions génératrices
+
+272
+00:08:09,585 --> 00:08:11,791
+pour écrire un objet qui est itérable
+
+273
+00:08:11,891 --> 00:08:12,838
+à moindre coût.
+
+274
+00:08:13,116 --> 00:08:14,957
+Donc revenons sur notre classe Phrase.
+
+275
+00:08:16,076 --> 00:08:18,324
+Et maintenant, dans notre classe Phrase,
+
+276
+00:08:18,939 --> 00:08:24,504
+au lieu de définir une classe IterPhrase,
+
+277
+00:08:24,846 --> 00:08:26,310
+je vais simplement modifier
+
+278
+00:08:26,410 --> 00:08:27,436
+ma méthode __iter__
+
+279
+00:08:27,536 --> 00:08:29,473
+pour être une fonction génératrice.
+
+280
+00:08:29,864 --> 00:08:30,704
+Regardons comment
+
+281
+00:08:30,804 --> 00:08:31,861
+cela pourrait fonctionner.
+
+282
+00:08:33,408 --> 00:08:35,553
+Ma méthode __iter__ va être une boucle for
+
+283
+00:08:35,653 --> 00:08:39,558
+for m in self point mots
+
+284
+00:08:41,345 --> 00:08:42,306
+deux points
+
+285
+00:08:42,952 --> 00:08:44,567
+yield de m
+
+286
+00:08:44,989 --> 00:08:45,790
+Et c'est tout.
+
+287
+00:08:45,890 --> 00:08:46,772
+Je ne fais rien d'autre.
+
+288
+00:08:46,872 --> 00:08:50,716
+Donc j'efface ma classe IterPhrase
+
+289
+00:08:50,816 --> 00:08:52,226
+et maintenant, j'ai défini
+
+290
+00:08:52,889 --> 00:08:55,210
+une classe Phrase qui est itérable.
+
+291
+00:08:55,918 --> 00:08:57,533
+Qui est-ce qui va produire des itérateurs ?
+
+292
+00:08:57,633 --> 00:08:58,722
+C'est ma méthode __iter__
+
+293
+00:08:59,230 --> 00:09:00,638
+Je vous rappelle qu'à chaque fois
+
+294
+00:09:00,738 --> 00:09:02,282
+qu'on appelle une fonction génératrice,
+
+295
+00:09:02,586 --> 00:09:04,082
+ça crée un nouvel objet itérateur,
+
+296
+00:09:04,182 --> 00:09:05,083
+donc, gratuitement,
+
+297
+00:09:05,183 --> 00:09:07,364
+ma fonction génératrice va automatiquement
+
+298
+00:09:07,464 --> 00:09:08,830
+produire des itérateurs pour moi.
+
+299
+00:09:09,559 --> 00:09:10,750
+Et quelle est la caractéristique
+
+300
+00:09:10,850 --> 00:09:11,469
+de cette fonction ?
+
+301
+00:09:11,569 --> 00:09:13,032
+C'est qu'elle va parcourir la liste des mots
+
+302
+00:09:13,436 --> 00:09:15,677
+donc j'ai un for m in self point mots,
+
+303
+00:09:15,777 --> 00:09:16,957
+et à chaque tour,
+
+304
+00:09:17,057 --> 00:09:18,679
+à chaque appel de la méthode __next__,
+
+305
+00:09:19,082 --> 00:09:21,922
+je retourne un nouvel élément de mots.
+
+306
+00:09:22,191 --> 00:09:23,123
+Cette méthode également
+
+307
+00:09:23,223 --> 00:09:24,512
+ne détruit pas ma liste de mots,
+
+308
+00:09:24,612 --> 00:09:25,408
+elle ne la modifie pas,
+
+309
+00:09:25,508 --> 00:09:26,508
+elle ne fait que la parcourir
+
+310
+00:09:26,608 --> 00:09:27,593
+donc je n'ai absolument
+
+311
+00:09:27,693 --> 00:09:28,342
+rien d'autre à faire.
+
+312
+00:09:29,555 --> 00:09:31,342
+Exécutons maintenant ce code ;
+
+313
+00:09:31,442 --> 00:09:32,381
+je le sauvegarde avec Ctrl-S ;
+
+314
+00:09:32,481 --> 00:09:33,521
+je l'évalue avec F5.
+
+315
+00:09:34,136 --> 00:09:36,233
+Recréons une instance de Phrase
+
+316
+00:09:36,333 --> 00:09:37,724
+et maintenant, parcourons
+
+317
+00:09:37,824 --> 00:09:39,443
+avec une compréhension de liste, l'instance,
+
+318
+00:09:39,543 --> 00:09:41,243
+je vois que je peux parcourir la liste de mots
+
+319
+00:09:41,567 --> 00:09:43,315
+et je peux la parcourir une deuxième fois,
+
+320
+00:09:43,879 --> 00:09:45,004
+autant de fois que je veux.
+
+321
+00:09:45,412 --> 00:09:47,741
+Chaque appel à __iter__ sur ma classe
+
+322
+00:09:47,841 --> 00:09:49,866
+va créer un nouvel objet itérateur ;
+
+323
+00:09:50,285 --> 00:09:51,664
+on voit que c'est un générateur,
+
+324
+00:09:51,764 --> 00:09:52,911
+c'est une nouvelle fonction génératrice,
+
+325
+00:09:53,240 --> 00:09:54,559
+qui est produite automatiquement.
+
+326
+00:09:56,091 --> 00:09:56,928
+Vous savez qu'en Python,
+
+327
+00:09:57,028 --> 00:09:59,685
+cette notion d'itération, d'itérateur, d'itérable
+
+328
+00:09:59,785 --> 00:10:00,401
+est centrale,
+
+329
+00:10:00,771 --> 00:10:01,989
+et que Python favorise
+
+330
+00:10:02,089 --> 00:10:03,399
+l'utilisation des itérateurs
+
+331
+00:10:03,499 --> 00:10:05,218
+pour éviter
+
+332
+00:10:05,318 --> 00:10:06,630
+de dupliquer des structures de données
+
+333
+00:10:06,730 --> 00:10:07,742
+lorsqu'on veut les parcourir.
+
+334
+00:10:08,196 --> 00:10:09,450
+De plus, cette notion d'itérateur
+
+335
+00:10:09,550 --> 00:10:10,151
+vous permet d'écrire
+
+336
+00:10:10,251 --> 00:10:11,286
+des mécanismes d'itération
+
+337
+00:10:11,386 --> 00:10:12,020
+comme des boucles for
+
+338
+00:10:12,120 --> 00:10:12,838
+ou des compréhensions,
+
+339
+00:10:13,092 --> 00:10:14,799
+qui soient simples et intuitives
+
+340
+00:10:14,899 --> 00:10:15,541
+à manipuler.
+
+341
+00:10:15,827 --> 00:10:17,494
+Nous avons vu, qu'avec la puissance
+
+342
+00:10:17,594 --> 00:10:19,227
+des fonctions génératrices, on pouvait
+
+343
+00:10:19,327 --> 00:10:20,832
+en simplement quelques lignes de code,
+
+344
+00:10:21,086 --> 00:10:22,582
+permettre à nos objets
+
+345
+00:10:22,682 --> 00:10:23,765
+de devenir itérables.
+
+346
+00:10:24,400 --> 00:10:25,065
+À bientôt !
+

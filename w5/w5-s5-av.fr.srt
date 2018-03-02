@@ -1,0 +1,1164 @@
+﻿1
+00:00:04,367 --> 00:00:05,299
+Lorsque nous avons parlé
+
+2
+00:00:05,399 --> 00:00:06,811
+de la notion de portée de variable,
+
+3
+00:00:06,911 --> 00:00:08,056
+nous avons expliqué que nous pouvions
+
+4
+00:00:08,156 --> 00:00:09,583
+avoir une variable d'un nom donné,
+
+5
+00:00:09,683 --> 00:00:10,716
+par exemple une variable x,
+
+6
+00:00:11,202 --> 00:00:13,606
+qui coexiste dans le même fichier
+
+7
+00:00:13,706 --> 00:00:14,561
+à l'intérieur d'une fonction
+
+8
+00:00:14,661 --> 00:00:15,638
+et à l'intérieur d'un module.
+
+9
+00:00:15,941 --> 00:00:17,747
+Nous avons également expliqué que
+
+10
+00:00:17,847 --> 00:00:20,232
+les modules isolaient complètement
+
+11
+00:00:20,332 --> 00:00:21,188
+leurs variables.
+
+12
+00:00:21,563 --> 00:00:22,416
+Comment est-ce que
+
+13
+00:00:22,516 --> 00:00:24,012
+ce mécanisme d'isolation des variables
+
+14
+00:00:24,112 --> 00:00:24,566
+fonctionne ?
+
+15
+00:00:24,853 --> 00:00:26,130
+Il fonctionne avec ce qu'on appelle
+
+16
+00:00:26,230 --> 00:00:27,399
+des espaces de nommage.
+
+17
+00:00:27,700 --> 00:00:28,928
+Un espace de nommage
+
+18
+00:00:29,028 --> 00:00:30,698
+regroupe un ensemble de variables
+
+19
+00:00:30,798 --> 00:00:32,145
+appartenant à un objet.
+
+20
+00:00:32,760 --> 00:00:35,619
+En Python, les modules, les fonctions
+
+21
+00:00:35,719 --> 00:00:36,776
+et nous verrons également
+
+22
+00:00:36,876 --> 00:00:37,927
+les classes et les instances,
+
+23
+00:00:38,027 --> 00:00:39,815
+définissent des espaces de nommage.
+
+24
+00:00:40,133 --> 00:00:41,679
+Dans des langages comme le C,
+
+25
+00:00:41,779 --> 00:00:42,726
+où vous n'avez pas cette notion
+
+26
+00:00:42,826 --> 00:00:43,661
+d'espace de nommage,
+
+27
+00:00:43,925 --> 00:00:45,669
+il faut faire extrêmement attention
+
+28
+00:00:45,769 --> 00:00:46,915
+de ne pas définir des variables
+
+29
+00:00:47,015 --> 00:00:48,515
+qui se surchargent l'une l'autre,
+
+30
+00:00:48,615 --> 00:00:49,668
+qui s'écrasent l'une l'autre.
+
+31
+00:00:50,023 --> 00:00:51,832
+Et en Java, qui est un langage orienté objet,
+
+32
+00:00:51,932 --> 00:00:52,838
+qui a également une notion
+
+33
+00:00:52,938 --> 00:00:53,556
+d'espace de nommage,
+
+34
+00:00:53,817 --> 00:00:55,500
+vous devez créer des classes
+
+35
+00:00:55,600 --> 00:00:56,217
+à chaque fois que vous voulez
+
+36
+00:00:56,317 --> 00:00:57,616
+isoler les espaces de nommage.
+
+37
+00:00:57,982 --> 00:00:59,959
+En Python, comme les modules
+
+38
+00:01:00,059 --> 00:01:01,335
+définissent des espaces de nommage,
+
+39
+00:01:01,435 --> 00:01:03,692
+vous avez quasiment gratuitement
+
+40
+00:01:03,792 --> 00:01:05,425
+cette notion d'isolation des variables
+
+41
+00:01:05,525 --> 00:01:06,704
+dès que vous commencez à écrire
+
+42
+00:01:06,804 --> 00:01:08,442
+votre première ligne de code.
+
+43
+00:01:11,772 --> 00:01:12,807
+Nous allons voir dans la suite
+
+44
+00:01:12,907 --> 00:01:13,874
+comment est-ce que les modules
+
+45
+00:01:13,974 --> 00:01:16,049
+isolent les variables
+
+46
+00:01:16,149 --> 00:01:17,464
+à travers les espaces de nommage.
+
+47
+00:01:19,194 --> 00:01:20,219
+Regardons cette notion
+
+48
+00:01:20,319 --> 00:01:22,068
+d'isolation des variables
+
+49
+00:01:22,168 --> 00:01:23,052
+par les espaces de nommage
+
+50
+00:01:23,152 --> 00:01:23,744
+dans les modules.
+
+51
+00:01:24,046 --> 00:01:25,684
+Je vais commencer par créer
+
+52
+00:01:25,784 --> 00:01:27,505
+un module spam.py,
+
+53
+00:01:27,605 --> 00:01:29,873
+donc un fichier python qui s'appelle spam.py.
+
+54
+00:01:30,368 --> 00:01:32,295
+Dedans, je définis une variable x égale 1
+
+55
+00:01:32,555 --> 00:01:34,143
+puis ensuite une fonction f
+
+56
+00:01:34,243 --> 00:01:35,454
+qui va faire print de x,
+
+57
+00:01:36,131 --> 00:01:37,986
+et je définis un deuxième fichier python,
+
+58
+00:01:38,086 --> 00:01:39,245
+egg.py,
+
+59
+00:01:40,428 --> 00:01:42,227
+qui va importer spam,
+
+60
+00:01:42,729 --> 00:01:44,363
+qui va faire x égale 2,
+
+61
+00:01:45,246 --> 00:01:46,388
+def de f,
+
+62
+00:01:46,488 --> 00:01:47,672
+donc on va définir une fonction f,
+
+63
+00:01:47,772 --> 00:01:48,736
+qui fait print de x,
+
+64
+00:01:49,313 --> 00:01:50,944
+ensuite, j'appelle la fonction f,
+
+65
+00:01:51,486 --> 00:01:54,053
+j'appelle spam point f
+
+66
+00:01:54,508 --> 00:01:57,120
+et ensuite je fais un print de spam point x.
+
+67
+00:01:58,500 --> 00:01:59,112
+Maintenant,
+
+68
+00:01:59,212 --> 00:02:00,776
+vous pouvez prendre quelques instants
+
+69
+00:02:00,876 --> 00:02:01,870
+pour avoir le temps de taper
+
+70
+00:02:02,500 --> 00:02:03,604
+ces différents morceaux de code,
+
+71
+00:02:03,704 --> 00:02:04,286
+et nous nous retrouvons
+
+72
+00:02:04,386 --> 00:02:05,141
+dans quelques instants.
+
+73
+00:02:06,513 --> 00:02:10,676
+Vous pouvez ouvrir une ligne de commande,
+
+74
+00:02:10,776 --> 00:02:12,316
+par exemple cmd sous Windows,
+
+75
+00:02:12,416 --> 00:02:13,651
+ou alors bash sous Linux,
+
+76
+00:02:13,897 --> 00:02:14,921
+et vous allez taper
+
+77
+00:02:15,021 --> 00:02:16,225
+à votre ligne de commande
+
+78
+00:02:16,325 --> 00:02:18,510
+python egg.py,
+
+79
+00:02:18,610 --> 00:02:20,257
+ce qui veut dire que vous allez lancer
+
+80
+00:02:20,357 --> 00:02:23,750
+le programme à partir de egg.py.
+
+81
+00:02:24,227 --> 00:02:26,151
+Regardons maintenant ce qu'il va se passer.
+
+82
+00:02:27,011 --> 00:02:29,051
+Je vais définir l'espace des objets,
+
+83
+00:02:29,151 --> 00:02:30,579
+donc c'est la mémoire de mon ordinateur
+
+84
+00:02:30,679 --> 00:02:32,234
+qui va contenir tous les objets créés,
+
+85
+00:02:32,745 --> 00:02:34,474
+et je vais définir les espaces de nommage.
+
+86
+00:02:34,911 --> 00:02:36,030
+Ici, on se focalise sur
+
+87
+00:02:36,130 --> 00:02:37,166
+l'espace de nommage des modules
+
+88
+00:02:37,266 --> 00:02:37,851
+donc je ne vais pas montrer
+
+89
+00:02:37,951 --> 00:02:38,858
+les espaces des fonctions ;
+
+90
+00:02:39,294 --> 00:02:41,724
+on va avoir un espace de nommage pour spam
+
+91
+00:02:42,282 --> 00:02:44,177
+et un espace de nommage pour egg.
+
+92
+00:02:44,277 --> 00:02:45,993
+Je vous rappelle cependant que les fonctions
+
+93
+00:02:46,093 --> 00:02:47,335
+ont leur propre espace de nommage
+
+94
+00:02:47,868 --> 00:02:49,685
+qui est créé à l'appel de la fonction
+
+95
+00:02:49,785 --> 00:02:51,487
+et détruit dès que la fonction retourne.
+
+96
+00:02:52,908 --> 00:02:54,251
+Maintenant, commençons par
+
+97
+00:02:54,351 --> 00:02:55,108
+la première ligne de code ;
+
+98
+00:02:55,208 --> 00:02:56,388
+la flèche rouge vous montre
+
+99
+00:02:56,488 --> 00:02:57,964
+le fonctionnement de l'interpréteur,
+
+100
+00:02:58,064 --> 00:02:58,900
+comment est-ce que l'interpréteur
+
+101
+00:02:59,000 --> 00:03:00,539
+va évaluer chaque ligne de code.
+
+102
+00:03:00,815 --> 00:03:01,664
+Ma première ligne de code,
+
+103
+00:03:01,764 --> 00:03:03,813
+lorsque j'appelle python de egg.py,
+
+104
+00:03:03,913 --> 00:03:06,111
+consiste à évaluer import spam.
+
+105
+00:03:06,571 --> 00:03:09,329
+Je vais donc aller chercher le fichier spam.py,
+
+106
+00:03:09,681 --> 00:03:11,073
+nous verrons dans une prochaine vidéo
+
+107
+00:03:11,173 --> 00:03:12,409
+le mécanisme exact
+
+108
+00:03:12,509 --> 00:03:13,969
+de recherche de ce fichier,
+
+109
+00:03:14,919 --> 00:03:16,062
+et nous allons maintenant,
+
+110
+00:03:16,370 --> 00:03:18,549
+pour créer l'objet spam, l'objet module spam,
+
+111
+00:03:18,649 --> 00:03:21,132
+commencer à évaluer le code de spam.py.
+
+112
+00:03:21,499 --> 00:03:23,561
+La première ligne de code, dans spam.py,
+
+113
+00:03:23,661 --> 00:03:24,601
+est x égale 1.
+
+114
+00:03:24,887 --> 00:03:27,240
+Je vais donc créer un objet entier 1
+
+115
+00:03:27,340 --> 00:03:28,054
+dans l'espace des objets,
+
+116
+00:03:28,154 --> 00:03:29,543
+et une variable x
+
+117
+00:03:29,643 --> 00:03:32,143
+qui est dans l'espace de nommage de spam.
+
+118
+00:03:32,243 --> 00:03:33,462
+Maintenant, cette variable x
+
+119
+00:03:33,562 --> 00:03:34,782
+va référencer l'entier 1.
+
+120
+00:03:36,065 --> 00:03:38,451
+Puis j'arrive à la ligne: def f ;
+
+121
+00:03:38,697 --> 00:03:40,432
+je vais donc créer un objet fonction
+
+122
+00:03:40,532 --> 00:03:43,321
+puis je vais créer une variable f
+
+123
+00:03:43,885 --> 00:03:45,254
+dans l'espace de nommage de spam
+
+124
+00:03:45,354 --> 00:03:47,366
+qui va référencer cet objet fonction.
+
+125
+00:03:47,764 --> 00:03:49,183
+Je vous rappelle que
+
+126
+00:03:49,283 --> 00:03:50,313
+le bloc de code d'une fonction
+
+127
+00:03:50,413 --> 00:03:52,035
+n'est évalué que lors de l'appel
+
+128
+00:03:52,135 --> 00:03:53,664
+pas lors de l'importation.
+
+129
+00:03:55,188 --> 00:03:59,362
+Maintenant que j'ai évalué le code de spam.py
+
+130
+00:03:59,462 --> 00:04:04,533
+je retourne dans le code de egg.py,
+
+131
+00:04:04,633 --> 00:04:05,948
+donc dans le code de mon module egg ;
+
+132
+00:04:06,690 --> 00:04:07,412
+et maintenant,
+
+133
+00:04:08,042 --> 00:04:09,602
+j'ai fini d'importer mon module spam,
+
+134
+00:04:09,702 --> 00:04:10,976
+je vais donc créer l'objet module
+
+135
+00:04:11,254 --> 00:04:12,820
+et je vais créer une variable spam
+
+136
+00:04:12,920 --> 00:04:14,331
+dans l'espace de egg
+
+137
+00:04:14,431 --> 00:04:15,985
+qui va référencer cet objet module.
+
+138
+00:04:16,375 --> 00:04:17,937
+Évidemment, l'objet module
+
+139
+00:04:18,037 --> 00:04:19,165
+va lui-même référencer
+
+140
+00:04:19,265 --> 00:04:20,684
+l'objet fonction et l'entier 1,
+
+141
+00:04:20,784 --> 00:04:21,846
+mais je passe sur ce détail,
+
+142
+00:04:21,946 --> 00:04:23,427
+je vous présente juste, pour l'instant,
+
+143
+00:04:24,005 --> 00:04:25,475
+le découpage des espaces de nommage
+
+144
+00:04:25,575 --> 00:04:26,280
+par module.
+
+145
+00:04:27,351 --> 00:04:28,895
+Maintenant, je fais x égale 2 ;
+
+146
+00:04:28,995 --> 00:04:30,525
+je vais créer l'entier 2
+
+147
+00:04:30,625 --> 00:04:31,555
+puis une variable x
+
+148
+00:04:31,655 --> 00:04:32,744
+dans l'espace de nommage de egg
+
+149
+00:04:32,844 --> 00:04:33,727
+qui référence 2.
+
+150
+00:04:34,150 --> 00:04:36,309
+Puis je définis ma fonction f
+
+151
+00:04:36,409 --> 00:04:37,474
+dans le module egg,
+
+152
+00:04:37,574 --> 00:04:39,768
+donc je définis un objet fonction
+
+153
+00:04:39,868 --> 00:04:41,134
+et une variable f
+
+154
+00:04:41,234 --> 00:04:42,446
+qui référence cet objet fonction.
+
+155
+00:04:42,976 --> 00:04:44,431
+Et maintenant, je vais commencer à
+
+156
+00:04:44,531 --> 00:04:45,911
+appeler mes différentes fonctions.
+
+157
+00:04:46,400 --> 00:04:47,320
+Que va-t-il se passer
+
+158
+00:04:47,420 --> 00:04:49,746
+lorsque je vais appeler f ?
+
+159
+00:04:50,572 --> 00:04:52,313
+f est une variable ;
+
+160
+00:04:52,413 --> 00:04:54,317
+je vais la chercher avec la règle LEGB.
+
+161
+00:04:54,578 --> 00:04:56,279
+f est définie en dehors de toute fonction
+
+162
+00:04:56,379 --> 00:04:57,605
+et de toute fonction englobante,
+
+163
+00:04:57,705 --> 00:04:58,843
+donc je vais chercher f
+
+164
+00:04:58,943 --> 00:05:01,084
+dans l'espace de nommage du module,
+
+165
+00:05:01,184 --> 00:05:02,103
+comme variable globale.
+
+166
+00:05:02,510 --> 00:05:04,591
+f est définie et fait un print de x.
+
+167
+00:05:05,533 --> 00:05:07,499
+x, dans ma fonction f, est une variable ;
+
+168
+00:05:07,599 --> 00:05:10,051
+je cherche x avec la règle LEGB ;
+
+169
+00:05:10,151 --> 00:05:11,834
+x n'est pas définie dans la fonction ;
+
+170
+00:05:11,934 --> 00:05:13,394
+il n'y a pas de fonction englobante ;
+
+171
+00:05:13,494 --> 00:05:14,551
+elle est définie globalement,
+
+172
+00:05:14,651 --> 00:05:15,773
+c'est la variable globale
+
+173
+00:05:15,873 --> 00:05:18,243
+définie dans l'espace de nommage de egg.
+
+174
+00:05:18,343 --> 00:05:20,096
+Regardons ce que vaut x
+
+175
+00:05:20,196 --> 00:05:21,303
+dans l'espace de nommage de egg ;
+
+176
+00:05:21,403 --> 00:05:22,512
+elle vaut l'entier 2,
+
+177
+00:05:22,612 --> 00:05:24,959
+ça va donc m'afficher l'entier 2.
+
+178
+00:05:25,907 --> 00:05:28,402
+Maintenant, je fais un spam point f.
+
+179
+00:05:28,502 --> 00:05:29,932
+Qu'est-ce que ça veut dire exactement ?
+
+180
+00:05:30,032 --> 00:05:31,633
+J'ai la notation point,
+
+181
+00:05:31,733 --> 00:05:34,103
+ça veut donc dire que je vais accéder à f
+
+182
+00:05:34,917 --> 00:05:36,886
+dans l'espace de nommage de spam.
+
+183
+00:05:37,785 --> 00:05:40,795
+Je vais donc appeler ma fonction f
+
+184
+00:05:40,895 --> 00:05:42,465
+dans l'espace de nommage de spam ;
+
+185
+00:05:43,538 --> 00:05:45,292
+ma fonction f fait un print de x ;
+
+186
+00:05:45,392 --> 00:05:46,893
+x est une variable dans spam ;
+
+187
+00:05:46,993 --> 00:05:49,183
+je cherche x avec la règle LEGB ;
+
+188
+00:05:49,458 --> 00:05:51,013
+x est définie localement: non ;
+
+189
+00:05:51,113 --> 00:05:52,515
+il n'y a pas de fonction englobante ;
+
+190
+00:05:52,615 --> 00:05:53,987
+elle est définie globalement,
+
+191
+00:05:54,087 --> 00:05:55,071
+c'est la variable définie
+
+192
+00:05:55,171 --> 00:05:56,318
+dans l'espace de nommage de spam.
+
+193
+00:05:56,725 --> 00:05:57,753
+Que vaut cette variable
+
+194
+00:05:57,853 --> 00:05:59,135
+au moment de l'évaluation de f ?
+
+195
+00:05:59,397 --> 00:06:00,119
+On regarde,
+
+196
+00:06:00,219 --> 00:06:01,799
+x dans l'espace de nommage de spam
+
+197
+00:06:01,899 --> 00:06:03,037
+vaut actuellement 1 ;
+
+198
+00:06:03,137 --> 00:06:04,989
+ça va donc afficher l'entier 1.
+
+199
+00:06:05,956 --> 00:06:09,132
+Puis pour finir, je fais un print de spam point x,
+
+200
+00:06:09,410 --> 00:06:10,252
+ça veut donc dire:
+
+201
+00:06:10,352 --> 00:06:12,546
+accède à l'attribut x qui est défini
+
+202
+00:06:12,646 --> 00:06:13,898
+dans l'espace de nommage de spam.
+
+203
+00:06:14,166 --> 00:06:15,576
+Que vaut x à ce moment-là
+
+204
+00:06:15,676 --> 00:06:16,789
+dans l'espace de nommage de spam ?
+
+205
+00:06:16,889 --> 00:06:18,120
+Il vaut toujours 1,
+
+206
+00:06:18,459 --> 00:06:19,795
+donc print de spam.x
+
+207
+00:06:19,895 --> 00:06:21,760
+va donc m'afficher l'entier 1.
+
+208
+00:06:22,494 --> 00:06:24,279
+Donc, en résumé, vous avez cette notation
+
+209
+00:06:24,379 --> 00:06:25,213
+qui est très importante
+
+210
+00:06:25,313 --> 00:06:27,284
+qui est objet point attribut
+
+211
+00:06:27,384 --> 00:06:28,436
+qui veut dire:
+
+212
+00:06:28,536 --> 00:06:30,260
+accède à l'attribut
+
+213
+00:06:30,360 --> 00:06:32,490
+dans l'espace de nommage de mon objet.
+
+214
+00:06:32,838 --> 00:06:34,727
+Lorsque cet objet est un module,
+
+215
+00:06:34,997 --> 00:06:37,279
+ça veut dire: accède à l'attribut
+
+216
+00:06:37,379 --> 00:06:39,302
+dans l'espace des variables globales
+
+217
+00:06:39,402 --> 00:06:40,565
+de mon module.
+
+218
+00:06:40,665 --> 00:06:41,565
+Nous verrons que,
+
+219
+00:06:41,665 --> 00:06:43,518
+dans le cas des instances et des classes,
+
+220
+00:06:43,764 --> 00:06:44,608
+nous avons un mécanisme
+
+221
+00:06:44,708 --> 00:06:45,335
+de recherche d'attribut
+
+222
+00:06:45,435 --> 00:06:46,535
+qui est un petit peu différent
+
+223
+00:06:46,635 --> 00:06:47,329
+mais nous en parlerons
+
+224
+00:06:47,429 --> 00:06:48,352
+dans une prochaine vidéo.
+
+225
+00:06:50,139 --> 00:06:51,976
+Les espaces de nommage en Python
+
+226
+00:06:52,076 --> 00:06:53,033
+isolent les variables,
+
+227
+00:06:53,133 --> 00:06:54,207
+mais ils n'isolent pas les objets.
+
+228
+00:06:54,307 --> 00:06:55,180
+Par conséquent,
+
+229
+00:06:55,280 --> 00:06:57,822
+avec des mécanismes d'espace de nommage,
+
+230
+00:06:57,922 --> 00:06:58,596
+vous pouvez tout de même
+
+231
+00:06:58,696 --> 00:06:59,757
+avoir des références partagées
+
+232
+00:06:59,857 --> 00:07:00,925
+vers des objets mutables.
+
+233
+00:07:01,147 --> 00:07:02,569
+Donc, vous avez deux variables
+
+234
+00:07:02,669 --> 00:07:03,705
+dans deux espaces de nommage
+
+235
+00:07:03,805 --> 00:07:05,184
+qui peuvent référencer le même objet.
+
+236
+00:07:05,435 --> 00:07:06,741
+Cet objet étant mutable,
+
+237
+00:07:06,841 --> 00:07:07,887
+si vous le modifiez,
+
+238
+00:07:07,987 --> 00:07:09,673
+il sera modifié par effet de bord
+
+239
+00:07:09,773 --> 00:07:10,723
+donc les deux variables
+
+240
+00:07:10,823 --> 00:07:12,420
+dans les deux espaces de nommage différents
+
+241
+00:07:12,520 --> 00:07:13,735
+verront cet objet modifié.
+
+242
+00:07:13,835 --> 00:07:15,491
+On peut également se demander
+
+243
+00:07:15,591 --> 00:07:17,011
+comment est-ce que les espaces de nommage
+
+244
+00:07:17,111 --> 00:07:18,045
+sont implémentés en Python.
+
+245
+00:07:18,145 --> 00:07:19,602
+En Python, rien n'est caché
+
+246
+00:07:20,109 --> 00:07:21,355
+donc on peut très facilement expliquer
+
+247
+00:07:21,455 --> 00:07:23,290
+comment sont implémentés
+
+248
+00:07:23,390 --> 00:07:24,135
+les espaces de nommage.
+
+249
+00:07:24,404 --> 00:07:25,336
+En fait, ils sont implémentés
+
+250
+00:07:25,436 --> 00:07:26,728
+en général sous forme de dictionnaires.
+
+251
+00:07:27,607 --> 00:07:28,454
+Comment fonctionne
+
+252
+00:07:28,554 --> 00:07:29,459
+cet espace de nommage ?
+
+253
+00:07:29,559 --> 00:07:30,949
+La clé du dictionnaire correspond
+
+254
+00:07:31,049 --> 00:07:31,993
+au nom de la variable ;
+
+255
+00:07:32,270 --> 00:07:34,194
+la valeur correspondant à cette clé
+
+256
+00:07:34,294 --> 00:07:36,094
+va être la référence vers l'objet
+
+257
+00:07:36,194 --> 00:07:37,799
+qui est référencé par la variable.
+
+258
+00:07:37,899 --> 00:07:39,508
+Donc lorsque vous ajoutez une variable
+
+259
+00:07:39,608 --> 00:07:40,429
+dans un module,
+
+260
+00:07:40,529 --> 00:07:41,607
+ça va créer une entrée
+
+261
+00:07:41,707 --> 00:07:43,895
+dans l'espace de nommage de ce module,
+
+262
+00:07:44,139 --> 00:07:45,097
+donc une clé correspondant
+
+263
+00:07:45,197 --> 00:07:45,919
+au nom de la variable
+
+264
+00:07:46,019 --> 00:07:47,397
+et une valeur qui est une référence
+
+265
+00:07:47,497 --> 00:07:50,087
+vers l'objet associé à cette variable.
+
+266
+00:07:51,291 --> 00:07:52,338
+Les espaces de nommage
+
+267
+00:07:52,438 --> 00:07:54,018
+permettent une parfaite isolation
+
+268
+00:07:54,118 --> 00:07:54,806
+de vos variables,
+
+269
+00:07:55,101 --> 00:07:56,708
+et leur grande force est que
+
+270
+00:07:56,808 --> 00:07:58,240
+pour accéder à l'attribut
+
+271
+00:07:58,340 --> 00:07:59,544
+dans un autre module,
+
+272
+00:07:59,644 --> 00:08:00,478
+dans un autre objet,
+
+273
+00:08:00,578 --> 00:08:02,728
+vous devez utiliser une notation explicite
+
+274
+00:08:02,828 --> 00:08:05,696
+qui est votre objet point l'attribut.
+
+275
+00:08:06,013 --> 00:08:07,739
+Donc en rendant ce mécanisme explicite,
+
+276
+00:08:07,839 --> 00:08:09,227
+vous n'avez plus aucun risque d'erreur
+
+277
+00:08:09,327 --> 00:08:11,623
+ou de collision de variables par erreur.
+
+278
+00:08:12,463 --> 00:08:13,613
+Je voudrais également rajouter
+
+279
+00:08:13,713 --> 00:08:15,363
+que la règle LEGB que nous avons vue
+
+280
+00:08:15,463 --> 00:08:17,311
+permet en fait de savoir
+
+281
+00:08:17,665 --> 00:08:19,711
+où la variable que vous référencez
+
+282
+00:08:19,811 --> 00:08:20,812
+a été définie, c'est-à-dire
+
+283
+00:08:20,912 --> 00:08:21,954
+dans quel espace de nommage
+
+284
+00:08:22,054 --> 00:08:23,721
+cette variable a été définie.
+
+285
+00:08:24,406 --> 00:08:26,681
+En fait, Python est vraiment construit
+
+286
+00:08:26,781 --> 00:08:28,342
+autour de cette notion d'espace de nommage
+
+287
+00:08:28,442 --> 00:08:29,900
+et cette notion d'espace de nommage
+
+288
+00:08:30,000 --> 00:08:31,994
+rendant l'accès aux attributs explicites
+
+289
+00:08:32,094 --> 00:08:33,698
+facilite extrêmement
+
+290
+00:08:33,798 --> 00:08:35,668
+le développement et la maintenance du code.
+
+291
+00:08:35,900 --> 00:08:36,576
+À bientôt !
+

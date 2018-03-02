@@ -1,0 +1,1184 @@
+1
+00:00:05,885 --> 00:00:07,471
+Dans cette vidéo, nous allons parler
+
+2
+00:00:07,571 --> 00:00:08,808
+d'un ensemble de types
+
+3
+00:00:08,908 --> 00:00:10,664
+qu'on appelle les séquences.
+
+4
+00:00:10,764 --> 00:00:12,473
+Les séquences en Python regroupent
+
+5
+00:00:12,573 --> 00:00:14,879
+notamment les listes, les tuples,
+
+6
+00:00:14,979 --> 00:00:17,108
+les chaînes de caractères et les bytes.
+
+7
+00:00:17,208 --> 00:00:18,323
+Nous verrons qu'elles regroupent également
+
+8
+00:00:18,423 --> 00:00:20,690
+encore plus de types que cela.
+
+9
+00:00:21,441 --> 00:00:23,695
+Ouvrons maintenant un interpréteur Python
+
+10
+00:00:23,795 --> 00:00:25,924
+pour commencer à jouer avec les séquences.
+
+11
+00:00:27,180 --> 00:00:28,467
+Une séquence en Python est
+
+12
+00:00:28,567 --> 00:00:31,246
+un ensemble fini et ordonné d'éléments,
+
+13
+00:00:31,346 --> 00:00:35,687
+indicés de 0 à n - 1 si j'ai n éléments.
+
+14
+00:00:35,787 --> 00:00:37,069
+Prenons un exemple de séquence et
+
+15
+00:00:37,169 --> 00:00:38,675
+commençons avec une chaîne de caractères.
+
+16
+00:00:45,062 --> 00:00:46,629
+Voici une chaîne de caractères.
+
+17
+00:00:47,561 --> 00:00:48,707
+Sur les séquences,
+
+18
+00:00:48,807 --> 00:00:49,888
+je vous rappelle que la chaîne de caractères
+
+19
+00:00:49,988 --> 00:00:51,175
+est juste un exemple de séquence
+
+20
+00:00:51,275 --> 00:00:53,359
+mais que les listes par exemple, ou les tuples,
+
+21
+00:00:53,459 --> 00:00:56,879
+sont également des objets séquences.
+
+22
+00:00:56,979 --> 00:00:58,395
+Regardons un exemple d'opération
+
+23
+00:00:58,495 --> 00:00:58,947
+que je peux faire,
+
+24
+00:00:59,047 --> 00:01:00,186
+commune à toutes les séquences.
+
+25
+00:01:00,286 --> 00:01:02,045
+Je peux déjà commencer par
+
+26
+00:01:02,145 --> 00:01:04,516
+accéder à chaque élément de la séquence,
+
+27
+00:01:04,616 --> 00:01:05,730
+avec la notation crochets.
+
+28
+00:01:05,830 --> 00:01:08,476
+s[0] me permet d'accéder
+
+29
+00:01:08,576 --> 00:01:09,940
+au premier élément de la séquence,
+
+30
+00:01:10,040 --> 00:01:11,164
+puisque, je vous le rappelle,
+
+31
+00:01:11,264 --> 00:01:13,412
+les séquences sont numérotées à partir de 0.
+
+32
+00:01:13,512 --> 00:01:16,136
+s[9] va me permettre d'accéder
+
+33
+00:01:16,236 --> 00:01:17,413
+au dernier élément de ma séquence
+
+34
+00:01:17,513 --> 00:01:20,038
+puisqu'ici, ma séquence a 10 éléments.
+
+35
+00:01:20,138 --> 00:01:20,961
+D'ailleurs, à ce propos,
+
+36
+00:01:21,061 --> 00:01:22,048
+comment je fais pour connaître
+
+37
+00:01:22,148 --> 00:01:23,428
+le nombre d'éléments dans une séquence ?
+
+38
+00:01:23,528 --> 00:01:25,647
+J'utilise la fonction built-in len.
+
+39
+00:01:26,325 --> 00:01:28,143
+Donc je fais un len(s) et ça va me retourner
+
+40
+00:01:28,243 --> 00:01:29,833
+que j'ai effectivement dix éléments
+
+41
+00:01:29,933 --> 00:01:30,719
+dans ma séquence.
+
+42
+00:01:31,671 --> 00:01:33,080
+Toutes les séquences supportent également
+
+43
+00:01:33,180 --> 00:01:34,269
+le test d'appartenance,
+
+44
+00:01:34,369 --> 00:01:35,738
+c'est une opération très puissante en Python
+
+45
+00:01:35,838 --> 00:01:40,615
+puisque je peux faire : est-ce que 'egg' in s
+
+46
+00:01:40,715 --> 00:01:41,874
+et ça va me retourner vrai,
+
+47
+00:01:41,974 --> 00:01:43,883
+effectivement, la chaîne de caractères 'egg'
+
+48
+00:01:43,983 --> 00:01:45,789
+est dans la chaîne de caractères 'egg, bacon'.
+
+49
+00:01:46,535 --> 00:01:51,001
+De même, je peux faire 'egg' not in s,
+
+50
+00:01:51,101 --> 00:01:52,343
+qui est le test de non appartenance,
+
+51
+00:01:52,443 --> 00:01:53,917
+et qui va me retourner faux,
+
+52
+00:01:54,017 --> 00:01:54,624
+puisque, effectivement,
+
+53
+00:01:54,724 --> 00:01:56,841
+'egg' est dans la chaîne de caractères
+
+54
+00:01:56,941 --> 00:01:57,942
+donc le test :
+
+55
+00:01:58,042 --> 00:01:59,112
+n'est-il pas dans la chaîne de caractères ?
+
+56
+00:01:59,212 --> 00:01:59,845
+retourne faux.
+
+57
+00:02:01,110 --> 00:02:02,263
+Donc ce test d'appartenance,
+
+58
+00:02:02,363 --> 00:02:03,329
+vous remarquez qu'il est
+
+59
+00:02:03,429 --> 00:02:04,534
+extrêmement expressif, puisque
+
+60
+00:02:04,634 --> 00:02:06,120
+c'est quasiment du langage naturel.
+
+61
+00:02:06,220 --> 00:02:07,248
+Je regarde est-ce que ma chaîne
+
+62
+00:02:07,348 --> 00:02:09,139
+de caractères egg in s,
+
+63
+00:02:09,239 --> 00:02:11,002
+est-ce que ma chaîne est dans s.
+
+64
+00:02:14,065 --> 00:02:15,901
+Ensuite, je peux faire de la concaténation
+
+65
+00:02:16,000 --> 00:02:16,710
+de séquences.
+
+66
+00:02:16,810 --> 00:02:18,185
+Regardez ma séquence s,
+
+67
+00:02:18,285 --> 00:02:20,472
+je peux très bien lui rajouter
+
+68
+00:02:20,572 --> 00:02:23,918
+la chaîne de caractères 'and beans'.
+
+69
+00:02:25,868 --> 00:02:27,044
+Et cette concaténation
+
+70
+00:02:27,144 --> 00:02:27,870
+va me produire
+
+71
+00:02:27,970 --> 00:02:30,110
+une nouvelle chaîne de caractères
+
+72
+00:02:30,210 --> 00:02:31,628
+puisque les opérations sur les séquences
+
+73
+00:02:31,728 --> 00:02:33,716
+ne les modifient pas, puisque typiquement
+
+74
+00:02:33,816 --> 00:02:34,828
+une chaîne de caractères n'est pas mutable,
+
+75
+00:02:34,928 --> 00:02:36,405
+mais ça retourne un nouvel objet,
+
+76
+00:02:36,505 --> 00:02:38,134
+dans ce cas-là, un nouvel objet
+
+77
+00:02:38,234 --> 00:02:39,581
+de type chaîne de caractères.
+
+78
+00:02:41,210 --> 00:02:42,595
+J'ai également des opérations
+
+79
+00:02:42,695 --> 00:02:44,383
+comme par exemple index(),
+
+80
+00:02:44,483 --> 00:02:45,896
+qui me permet de trouver
+
+81
+00:02:45,996 --> 00:02:46,891
+la première occurrence
+
+82
+00:02:46,991 --> 00:02:48,595
+par exemple de la lettre g.
+
+83
+00:02:49,473 --> 00:02:51,091
+Effectivement, la première occurrence
+
+84
+00:02:51,191 --> 00:02:52,761
+de la lettre g, c'est à la place 1.
+
+85
+00:02:52,861 --> 00:02:54,521
+Ou par exemple, count()
+
+86
+00:02:54,621 --> 00:02:55,935
+qui me permet de compter
+
+87
+00:02:56,035 --> 00:02:56,965
+le nombre d'éléments,
+
+88
+00:02:57,065 --> 00:03:00,429
+le nombre de g que j'ai dans ma séquence.
+
+89
+00:03:00,529 --> 00:03:03,146
+Donc ici, on voit que j'ai 2 fois la lettre g.
+
+90
+00:03:04,524 --> 00:03:05,697
+Je peux également appliquer
+
+91
+00:03:05,797 --> 00:03:07,975
+les fonctions built-in min() et max(),
+
+92
+00:03:08,075 --> 00:03:11,319
+qui me retournent le minimum et le maximum
+
+93
+00:03:11,419 --> 00:03:12,132
+de ma séquence.
+
+94
+00:03:12,232 --> 00:03:13,124
+Dans ce cas-là,
+
+95
+00:03:13,224 --> 00:03:14,108
+comme c'est une chaîne de caractères,
+
+96
+00:03:14,208 --> 00:03:15,947
+c'est en utilisant l'ordre lexicographique.
+
+97
+00:03:17,533 --> 00:03:19,589
+Et j'ai une dernière opération
+
+98
+00:03:19,689 --> 00:03:21,897
+qui est l'opération de shallow copy
+
+99
+00:03:21,997 --> 00:03:23,125
+qui me permet de faire... alors,
+
+100
+00:03:23,225 --> 00:03:24,768
+je vais prendre une séquence plus simple,
+
+101
+00:03:24,868 --> 00:03:26,167
+par exemple, un x,
+
+102
+00:03:26,267 --> 00:03:29,047
+et je veux afficher 30 x à mon écran,
+
+103
+00:03:29,147 --> 00:03:30,708
+je vais faire x fois 30
+
+104
+00:03:30,808 --> 00:03:32,827
+et ça va me faire une copie 30 fois
+
+105
+00:03:32,927 --> 00:03:34,667
+de cette chaîne de caractères 'x'.
+
+106
+00:03:34,767 --> 00:03:35,853
+Nous verrons dans la suite
+
+107
+00:03:35,953 --> 00:03:37,054
+que cette opération produit en fait
+
+108
+00:03:37,154 --> 00:03:37,682
+une shallow copy
+
+109
+00:03:37,782 --> 00:03:38,880
+qui peut avoir des effets de bord
+
+110
+00:03:38,980 --> 00:03:40,923
+lorsque la séquence multipliée
+
+111
+00:03:41,023 --> 00:03:41,803
+n'est pas un immuable
+
+112
+00:03:41,903 --> 00:03:43,423
+mais un objet de type mutable.
+
+113
+00:03:43,523 --> 00:03:45,318
+Mais nous reviendrons sur ça dans la suite.
+
+114
+00:03:48,523 --> 00:03:50,102
+Nous allons maintenant regarder
+
+115
+00:03:50,202 --> 00:03:50,955
+une dernière opération
+
+116
+00:03:51,055 --> 00:03:52,354
+très importante sur les séquences
+
+117
+00:03:52,454 --> 00:03:54,633
+qui s'appelle l'opération de slicing.
+
+118
+00:03:55,720 --> 00:03:58,218
+Pour illustrer cette opération de slicing,
+
+119
+00:03:58,318 --> 00:04:00,271
+qui est valable pour toutes les séquences
+
+120
+00:04:00,371 --> 00:04:01,493
+donc pour les chaînes de caractères
+
+121
+00:04:01,593 --> 00:04:02,838
+puisque c'est l'exemple que l'on va regarder
+
+122
+00:04:02,938 --> 00:04:04,301
+mais également pour les listes,
+
+123
+00:04:04,401 --> 00:04:06,338
+je vais créer une chaîne de caractères
+
+124
+00:04:06,438 --> 00:04:07,750
+qui s'appelle 'egg, bacon'
+
+125
+00:04:07,850 --> 00:04:09,480
+et donc ici, je vous représente
+
+126
+00:04:09,580 --> 00:04:10,180
+la chaîne de caractères
+
+127
+00:04:10,280 --> 00:04:11,708
+avec l'indice de chaque élément.
+
+128
+00:04:11,808 --> 00:04:13,949
+On voit que e, c'est l'élément d'indice 0,
+
+129
+00:04:14,049 --> 00:04:15,912
+g, l'élément d'indice 1,
+
+130
+00:04:16,012 --> 00:04:18,281
+le deuxième g, l'élément d'indice 2, etc...
+
+131
+00:04:19,133 --> 00:04:20,317
+Je vais maintenant faire
+
+132
+00:04:20,417 --> 00:04:21,423
+une opération de slicing.
+
+133
+00:04:21,523 --> 00:04:22,494
+L'opération de slicing se note
+
+134
+00:04:22,594 --> 00:04:23,371
+de la manière suivante :
+
+135
+00:04:23,471 --> 00:04:25,169
+on va mettre une borne de gauche,
+
+136
+00:04:25,269 --> 00:04:27,271
+deux points, une borne de droite.
+
+137
+00:04:27,371 --> 00:04:30,315
+La borne de gauche, en vert, est incluse
+
+138
+00:04:30,415 --> 00:04:32,517
+et la borne de droite est exclue.
+
+139
+00:04:33,512 --> 00:04:37,081
+Donc ici, s[0:3] va me retourner
+
+140
+00:04:37,181 --> 00:04:39,189
+tous les éléments qui vont entre 0 inclus
+
+141
+00:04:39,289 --> 00:04:41,497
+et 3 exclu, donc c'est 2 ;
+
+142
+00:04:41,597 --> 00:04:42,838
+ça va donc me retourner
+
+143
+00:04:42,938 --> 00:04:44,524
+la chaîne de caractères 'egg'.
+
+144
+00:04:44,624 --> 00:04:46,441
+Il est très important de comprendre que
+
+145
+00:04:46,541 --> 00:04:48,050
+l'opération de slice retourne à chaque fois
+
+146
+00:04:48,150 --> 00:04:49,575
+un nouvel objet.
+
+147
+00:04:50,171 --> 00:04:52,583
+Prenons un deuxième exemple, s[5:10],
+
+148
+00:04:52,683 --> 00:04:54,353
+ça va me retourner tous les éléments
+
+149
+00:04:54,453 --> 00:04:58,198
+allant de 5 inclus à 10 exclu,
+
+150
+00:04:58,298 --> 00:05:01,175
+10 moins 1, ça fait 9, ça va donc me retourner
+
+151
+00:05:01,275 --> 00:05:02,605
+la chaîne de caractères 'bacon'.
+
+152
+00:05:03,676 --> 00:05:05,955
+Si je fais s[ :3],
+
+153
+00:05:06,055 --> 00:05:09,184
+si vous ne spécifiez pas la borne de gauche,
+
+154
+00:05:09,284 --> 00:05:12,173
+vous allez parcourir tous les éléments
+
+155
+00:05:12,273 --> 00:05:14,817
+du début jusqu'au 3 exclu,
+
+156
+00:05:14,917 --> 00:05:16,381
+ça va donc me parcourir tous les éléments
+
+157
+00:05:16,481 --> 00:05:19,468
+allant de e jusqu'à 3 exclu, c'est 2,
+
+158
+00:05:19,568 --> 00:05:20,572
+ça va vous retourner
+
+159
+00:05:20,672 --> 00:05:22,180
+la chaîne de caractères 'egg'.
+
+160
+00:05:22,967 --> 00:05:25,811
+Et si vous ne spécifiez pas la borne de droite,
+
+161
+00:05:25,911 --> 00:05:27,684
+ça va vous retourner tous les éléments
+
+162
+00:05:27,784 --> 00:05:29,807
+allant de 5 jusqu'à la fin,
+
+163
+00:05:29,907 --> 00:05:31,492
+donc ça va vous retourner 'bacon'.
+
+164
+00:05:31,592 --> 00:05:33,591
+Pour finir, si vous ne spécifiez
+
+165
+00:05:33,691 --> 00:05:35,045
+ni la borne de gauche, ni la borne de droite,
+
+166
+00:05:35,145 --> 00:05:37,173
+ça vous retourne la chaîne de caractères
+
+167
+00:05:37,273 --> 00:05:39,459
+mais c'est important : cette opération de slice
+
+168
+00:05:39,559 --> 00:05:40,026
+ne va pas vous retourner
+
+169
+00:05:40,126 --> 00:05:41,298
+la chaîne de caractères elle-même,
+
+170
+00:05:41,398 --> 00:05:43,165
+ça va vous retourner une copie
+
+171
+00:05:43,265 --> 00:05:44,489
+de cette chaîne de caractères.
+
+172
+00:05:44,589 --> 00:05:45,921
+En fait, nous verrons dans la suite
+
+173
+00:05:46,021 --> 00:05:46,958
+qu'on appelle cette opération
+
+174
+00:05:47,058 --> 00:05:48,462
+une opération de shallow copy.
+
+175
+00:05:50,112 --> 00:05:51,663
+Maintenant, prenons un autre exemple.
+
+176
+00:05:51,763 --> 00:05:55,564
+On va rajouter à notre slice la notion de pas.
+
+177
+00:05:55,664 --> 00:05:57,680
+Dans un slice, on peut donner
+
+178
+00:05:57,780 --> 00:05:59,231
+une borne de droite, une borne de gauche
+
+179
+00:05:59,331 --> 00:06:00,526
+et également un pas,
+
+180
+00:06:00,626 --> 00:06:03,211
+c'est-à-dire, on va parcourir les éléments
+
+181
+00:06:03,311 --> 00:06:04,900
+un sur deux si on donne un pas de deux.
+
+182
+00:06:05,000 --> 00:06:06,143
+Regardons cet exemple :
+
+183
+00:06:06,243 --> 00:06:07,870
+s, de 0 à 10 par pas de 2,
+
+184
+00:06:07,970 --> 00:06:09,748
+ça veut dire qu'on va parcourir les éléments
+
+185
+00:06:09,848 --> 00:06:13,215
+allant de 0 à 10 exclu par pas de 2.
+
+186
+00:06:13,315 --> 00:06:17,796
+Donc e, g, l'espace, a, o.
+
+187
+00:06:18,422 --> 00:06:20,664
+Ça me retourne donc la chaîne de caractères
+
+188
+00:06:20,764 --> 00:06:22,579
+'eg ao'.
+
+189
+00:06:22,679 --> 00:06:25,757
+Maintenant, prenons s[ : :2].
+
+190
+00:06:25,857 --> 00:06:27,229
+Ça me parcourt tous les éléments
+
+191
+00:06:27,329 --> 00:06:30,267
+allant du début à la fin par pas de 2.
+
+192
+00:06:30,367 --> 00:06:34,136
+Ça va me retourner 'eg ao' de nouveau.
+
+193
+00:06:34,236 --> 00:06:39,215
+Si maintenant je fais s[ : 8 : 3],
+
+194
+00:06:39,315 --> 00:06:40,416
+ça parcourt tous les éléments
+
+195
+00:06:40,516 --> 00:06:43,819
+du début jusqu'à 8 exclu par pas de 3.
+
+196
+00:06:43,919 --> 00:06:47,207
+Ça va donc me retourner 'e,a'.
+
+197
+00:06:48,060 --> 00:06:50,892
+Et si je fais s[2 : : 3],
+
+198
+00:06:50,992 --> 00:06:52,663
+ça me parcourt tous les éléments
+
+199
+00:06:52,763 --> 00:06:56,859
+de 2 jusqu'à la fin par pas de 3, 'gbo'.
+
+200
+00:06:58,609 --> 00:07:00,220
+Regardons maintenant cet exemple.
+
+201
+00:07:00,320 --> 00:07:01,807
+Qu'est-ce qu'il se passe si je fais s[100] ?
+
+202
+00:07:01,907 --> 00:07:04,355
+s[100], c'est un indice qui est en dehors
+
+203
+00:07:04,455 --> 00:07:05,119
+de ma chaîne de caractères,
+
+204
+00:07:05,219 --> 00:07:06,040
+je vais donc avoir une erreur
+
+205
+00:07:06,140 --> 00:07:07,079
+qu'on appelle une exception.
+
+206
+00:07:07,179 --> 00:07:09,471
+Mon exception, comme toujours en Python,
+
+207
+00:07:09,571 --> 00:07:11,851
+est très explicite ; elle s'appelle IndexError
+
+208
+00:07:11,951 --> 00:07:13,763
+et elle m'écrit le message d'erreur :
+
+209
+00:07:13,863 --> 00:07:15,665
+string index out of range,
+
+210
+00:07:15,765 --> 00:07:16,819
+ça veut dire que l'indice
+
+211
+00:07:16,919 --> 00:07:18,662
+de ma chaîne de caractères est en dehors
+
+212
+00:07:18,762 --> 00:07:20,724
+des indices couverts par cette chaîne.
+
+213
+00:07:21,480 --> 00:07:24,820
+Par contre, si maintenant, je fais s[5:100],
+
+214
+00:07:25,743 --> 00:07:28,072
+je vais obtenir tous les éléments
+
+215
+00:07:28,172 --> 00:07:29,368
+qui vont de 5 jusqu'à la fin
+
+216
+00:07:29,468 --> 00:07:30,552
+de la chaîne de caractères.
+
+217
+00:07:30,652 --> 00:07:31,733
+Pourquoi est-ce que dans ce cas-là
+
+218
+00:07:31,833 --> 00:07:32,457
+je n'ai pas d'erreur ?
+
+219
+00:07:32,557 --> 00:07:34,962
+Parce qu'en fait, le slice est un objet
+
+220
+00:07:35,062 --> 00:07:36,703
+et Python va faire l'opération suivante :
+
+221
+00:07:36,803 --> 00:07:39,147
+il va prendre tous les indices
+
+222
+00:07:39,247 --> 00:07:40,057
+couverts par le slice,
+
+223
+00:07:40,157 --> 00:07:41,651
+donc les indices allant de 5 à 100,
+
+224
+00:07:41,751 --> 00:07:43,691
+et il va chercher l'intersection
+
+225
+00:07:43,791 --> 00:07:45,346
+avec les indices disponibles
+
+226
+00:07:45,446 --> 00:07:46,696
+dans notre objet chaîne de caractères.
+
+227
+00:07:46,796 --> 00:07:48,560
+Et il va retourner uniquement les éléments
+
+228
+00:07:48,660 --> 00:07:49,714
+qui sont à l'intersection.
+
+229
+00:07:49,814 --> 00:07:51,747
+Ici on voit que l'intersection est non nulle,
+
+230
+00:07:51,847 --> 00:07:53,141
+c'est 'bacon', il me retourne 'bacon'.
+
+231
+00:07:53,241 --> 00:07:55,894
+Si je fais un slice de 100 à 200,
+
+232
+00:07:55,994 --> 00:07:57,747
+dans ce cas-là, les indices représentés
+
+233
+00:07:57,847 --> 00:07:59,902
+par le slice et les indices représentés
+
+234
+00:08:00,002 --> 00:08:01,166
+par ma chaîne de caractères
+
+235
+00:08:01,266 --> 00:08:02,270
+n'ont pas d'intersection,
+
+236
+00:08:02,370 --> 00:08:04,665
+donc mon slice va me retourner un objet,
+
+237
+00:08:04,765 --> 00:08:06,505
+toujours de type chaîne de caractères
+
+238
+00:08:06,605 --> 00:08:07,679
+mais qui est vide.
+
+239
+00:08:08,686 --> 00:08:10,678
+Pour finir avec les chaînes de caractères,
+
+240
+00:08:10,778 --> 00:08:12,428
+nous allons parler des indices négatifs.
+
+241
+00:08:12,528 --> 00:08:13,956
+Regardons cet exemple-là.
+
+242
+00:08:14,907 --> 00:08:16,351
+Les indices négatifs, c'est
+
+243
+00:08:16,451 --> 00:08:17,335
+comme les indices positifs
+
+244
+00:08:17,435 --> 00:08:18,299
+sauf qu'ils sont numérotés
+
+245
+00:08:18,399 --> 00:08:19,619
+à partir de la fin.
+
+246
+00:08:19,719 --> 00:08:21,115
+C'est donc un moyen très commode
+
+247
+00:08:21,215 --> 00:08:23,451
+d'accéder aux derniers éléments
+
+248
+00:08:23,551 --> 00:08:24,909
+d'une séquence lorsqu'on sait
+
+249
+00:08:25,009 --> 00:08:26,698
+leur position à la fin de la séquence.
+
+250
+00:08:26,798 --> 00:08:30,562
+Donc s[-10:-7] va me retourner
+
+251
+00:08:30,662 --> 00:08:33,083
+tous les éléments allant de -10 inclus
+
+252
+00:08:33,183 --> 00:08:35,391
+jusqu'à -7 exclu.
+
+253
+00:08:35,491 --> 00:08:38,144
+Dans ce cas-là, on va aller de -10 à -8,
+
+254
+00:08:38,244 --> 00:08:39,268
+ça me retourne 'egg'.
+
+255
+00:08:39,368 --> 00:08:41,462
+Ce n'est pas parce que j'ai des indices négatifs
+
+256
+00:08:41,562 --> 00:08:42,339
+que je parcours ma séquence
+
+257
+00:08:42,439 --> 00:08:43,176
+dans un autre sens ;
+
+258
+00:08:43,276 --> 00:08:44,822
+je parcours toujours ma séquence
+
+259
+00:08:44,922 --> 00:08:46,563
+de la gauche vers la droite.
+
+260
+00:08:47,283 --> 00:08:49,603
+Si je fais s[:-3],
+
+261
+00:08:49,703 --> 00:08:50,909
+ça me retourne tous les éléments
+
+262
+00:08:51,009 --> 00:08:53,617
+allant du début jusqu'à -3 exclu,
+
+263
+00:08:53,717 --> 00:08:54,749
+c'est-à-dire -4,
+
+264
+00:08:54,849 --> 00:08:56,533
+ça va me retourner 'egg, ba'.
+
+265
+00:08:57,669 --> 00:09:00,734
+Et si maintenant je fais s[ : :-1],
+
+266
+00:09:00,834 --> 00:09:03,122
+le pas étant négatif, cette fois,
+
+267
+00:09:03,222 --> 00:09:04,561
+ça va parcourir ma séquence
+
+268
+00:09:04,661 --> 00:09:05,563
+dans le sens inverse,
+
+269
+00:09:05,663 --> 00:09:06,890
+de la droite vers la gauche.
+
+270
+00:09:06,990 --> 00:09:08,979
+C'est donc une notation qui est très souvent
+
+271
+00:09:09,079 --> 00:09:11,010
+utilisée pour renverser une séquence.
+
+272
+00:09:11,110 --> 00:09:13,853
+Donc s[ : : -1] va me retourner ma séquence
+
+273
+00:09:13,953 --> 00:09:15,763
+et l'afficher dans l'ordre inverse.
+
+274
+00:09:16,704 --> 00:09:19,902
+Si maintenant, je fais s[2 : 0 : -1],
+
+275
+00:09:20,002 --> 00:09:21,863
+ça va m'inverser ma séquence
+
+276
+00:09:21,963 --> 00:09:23,132
+et prendre un sous-ensemble
+
+277
+00:09:23,232 --> 00:09:24,356
+allant de droite à gauche,
+
+278
+00:09:24,456 --> 00:09:27,990
+donc allant de 2 inclus jusqu'à 0 exclu,
+
+279
+00:09:28,090 --> 00:09:31,156
+ce qui va me retourner la sous-chaîne 'gg'.
+
+280
+00:09:31,929 --> 00:09:35,367
+Si je fais s[2 : : -1],
+
+281
+00:09:35,467 --> 00:09:36,685
+ça me retourne ma séquence
+
+282
+00:09:36,785 --> 00:09:39,995
+en allant de 2 jusqu'au début.
+
+283
+00:09:41,178 --> 00:09:42,902
+Dans cette vidéo, nous avons vu
+
+284
+00:09:43,002 --> 00:09:47,055
+les principales caractéristiques des objets
+
+285
+00:09:47,155 --> 00:09:48,901
+qui sont regroupés dans l'ensemble
+
+286
+00:09:49,001 --> 00:09:50,714
+des séquences, sous le nom de séquences.
+
+287
+00:09:50,814 --> 00:09:53,562
+On a vu le test d'appartenance: in, not in ;
+
+288
+00:09:53,662 --> 00:09:54,719
+on a vu qu'on pouvait accéder aux éléments
+
+289
+00:09:54,819 --> 00:09:56,868
+d'une séquence avec la notation crochets ;
+
+290
+00:09:56,968 --> 00:09:58,181
+et surtout, nous avons vu
+
+291
+00:09:58,281 --> 00:10:00,325
+la notion très importante de slice
+
+292
+00:10:00,425 --> 00:10:01,722
+qu'il est important de maîtriser
+
+293
+00:10:01,822 --> 00:10:03,017
+puisque vous aurez à manipuler
+
+294
+00:10:03,117 --> 00:10:03,920
+de nombreuses séquences
+
+295
+00:10:04,020 --> 00:10:05,423
+dans vos programmes Python.
+
+296
+00:10:05,523 --> 00:10:06,238
+À bientôt !
+
