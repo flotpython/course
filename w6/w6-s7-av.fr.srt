@@ -4,7 +4,7 @@ Nous avons vu dans de précédentes vidéos
 
 2
 00:00:06,704 --> 00:00:08,221
-que le mécanisme des exceptions en Python
+que le mécanisme des exceptions, en Python,
 
 3
 00:00:08,421 --> 00:00:09,868
@@ -19,12 +19,12 @@ Nous avons surtout vu que ça permettait de
 facilement diagnostiquer des erreurs dans notre code
 
 6
-00:00:14,410 --> 00:00:15,124
-et que les exceptions,
+00:00:14,410 --> 00:00:15,944
+et que les exceptions, le mécanisme d'exception
 
 7
-00:00:15,324 --> 00:00:17,790
-le mécanisme des exceptions était en lui-même très performant.
+00:00:16,144 --> 00:00:17,790
+était en lui-même très performant.
 
 8
 00:00:17,990 --> 00:00:19,589
@@ -36,7 +36,7 @@ dans l'exercice normal d'un programme,
 
 10
 00:00:21,917 --> 00:00:23,764
-d'avoir de nombreuses exceptions et de les capturer
+d'avoir de nombreuses exceptions et de les capturer,
 
 11
 00:00:23,964 --> 00:00:25,446
@@ -48,7 +48,7 @@ de l'exécution de notre code.
 
 13
 00:00:27,169 --> 00:00:28,487
-Nous allons voir dans cette vidéo
+Nous allons voir, dans cette vidéo,
 
 14
 00:00:28,687 --> 00:00:30,009
@@ -60,565 +60,617 @@ A quoi ça sert de créer ses propres exceptions?
 
 16
 00:00:32,627 --> 00:00:34,926
-D'abord, voir que c'est extrêmement simple à faire
+D'abord, voir que c'est extrêmement simple à faire.
 
 17
-00:00:35,126 --> 00:00:37,188
-ça ne demande essentiellement que deux lignes de code.
+00:00:35,126 --> 00:00:35,969
+Ça ne demande, essentiellement,
 
 18
-00:00:37,388 --> 00:00:39,069
-Mais surtout ça vous permet d'avoir une exception
+00:00:36,169 --> 00:00:37,217
+que deux lignes de code.
 
 19
+00:00:37,417 --> 00:00:39,069
+Mais surtout, ça vous permet d'avoir une exception
+
+20
 00:00:39,269 --> 00:00:41,403
 qui corresponde vraiment à votre besoin.
 
-20
+21
 00:00:41,603 --> 00:00:44,186
 En Python, toutes les exceptions, que vous créez,
 
-21
+22
 00:00:44,386 --> 00:00:45,904
 doivent hériter de la classe Exception
 
-22
+23
 00:00:46,104 --> 00:00:47,882
 ou alors d'une de ses sous-classes.
 
-23
+24
 00:00:48,082 --> 00:00:49,569
 En fait, nous verrons que les exceptions
 
-24
+25
 00:00:49,769 --> 00:00:50,798
 créent un arbre d'héritage.
 
-25
+26
 00:00:50,998 --> 00:00:54,160
 Ouvrons maintenant un éditeur IDLE pour commencer
 
-26
+27
 00:00:54,360 --> 00:00:55,397
 à créer nos propres exceptions.
 
-27
+28
 00:00:55,597 --> 00:00:59,358
 Reprenons notre fameuse classe Phrase
 
-28
+29
 00:00:59,558 --> 00:01:03,571
 et essayons de lui ajouter un mécanisme de contrôle.
 
-29
+30
 00:01:03,771 --> 00:01:05,100
 Donc le mécanisme de contrôle que l'on pourrait ajouter
 
-30
-00:01:05,300 --> 00:01:07,433
-c'est : "si je crée une phrase avec une phrase
-
 31
+00:01:05,300 --> 00:01:07,433
+c'est si je crée une phrase, avec une phrase,
+
+32
 00:01:07,633 --> 00:01:08,787
 ça va fonctionner normalement;
 
-32
-00:01:08,987 --> 00:01:10,917
-par contre, si ma phrase est vide, c'est qu'il y a un problème
-
 33
-00:01:11,117 --> 00:01:14,105
-Parce que pourquoi créer une instance avec rien dedans.
+00:01:08,987 --> 00:01:09,994
+par contre, si ma phrase est vide,
 
 34
-00:01:14,305 --> 00:01:15,617
-Donc à ce moment-là, on pourrait dire
+00:01:10,194 --> 00:01:10,918
+c'est qu'il y a un problème.
 
 35
+00:01:11,118 --> 00:01:12,523
+Parce que, pourquoi créer une instance,
+
+36
+00:01:12,723 --> 00:01:14,013
+avec rien dedans.
+
+37
+00:01:14,213 --> 00:01:15,617
+Donc à ce moment-là, on pourrait dire
+
+38
 00:01:15,817 --> 00:01:17,824
 si jamais je fais ça, je pourrais afficher un message.
 
-36
+39
 00:01:18,024 --> 00:01:19,955
 Mais, en Python, la bonne manière de faire
 
-37
+40
 00:01:20,155 --> 00:01:22,130
 est de, ce qu'on appelle, lancer une exception.
 
-38
+41
 00:01:22,330 --> 00:01:24,000
 Donc cette exception, encore une fois, ne veut pas
 
-39
+42
 00:01:24,200 --> 00:01:25,227
 dire que le programme va s'arrêter.
 
-40
+43
 00:01:25,427 --> 00:01:27,386
 C'est une manière de communiquer.
 
-41
-00:01:27,586 --> 00:01:30,003
-qu'on a un comportement spécifique
+44
+00:01:27,586 --> 00:01:30,987
+qu'on a un comportement spécifique, dans le cadre de
 
-42
-00:01:30,203 --> 00:01:32,540
-dans le cadre de l'exécution spécifique de notre programme
+45
+00:01:31,187 --> 00:01:32,540
+ l'exécution de notre programme
 
-43
+46
 00:01:32,740 --> 00:01:33,942
 Regardons comment faire.
 
-44
+47
 00:01:34,142 --> 00:01:36,314
 Pour créer une exception, en Python,
 
-45
+48
 00:01:36,514 --> 00:01:37,752
 nous allons voir que c'est très simple :
 
-46
-00:01:37,952 --> 00:01:38,993
-les exceptions sont des classes
-
-47
-00:01:39,193 --> 00:01:40,631
-Je vais définir une nouvelle classe.
-
-48
-00:01:40,831 --> 00:01:43,901
-Je vais appeler ma classe avec un nom explicite
-
 49
-00:01:44,128 --> 00:01:45,645
-les exceptions doivent toujours avoir un nom explicite
+00:01:37,952 --> 00:01:38,874
+les exceptions sont des classes,
 
 50
+00:01:39,074 --> 00:01:40,631
+donc, je vais définir une nouvelle classe,
+
+51
+00:01:40,831 --> 00:01:43,901
+et je vais appeler ma classe avec un nom explicite;
+
+52
+00:01:44,128 --> 00:01:45,645
+les exceptions doivent toujours avoir un nom explicite.
+
+53
 00:01:45,845 --> 00:01:48,631
 Je vais appeler ça, PhaseVide...
 
-51
+54
 00:01:48,831 --> 00:01:50,721
 et on recommande de toujours finir notre exception
 
-52
+55
 00:01:50,921 --> 00:01:52,561
 par le mot Error (PhaseVideError) pour rendre clair
 
-53
+56
 00:01:52,761 --> 00:01:53,751
 que c'est une erreur.
 
-54
+57
 00:01:53,951 --> 00:01:55,636
 Toutes les exceptions finissent par Error
 
-55
-00:01:55,836 --> 00:01:59,069
-Et ensuite, mon exception doit hériter de la classe Exception
+58
+00:01:55,836 --> 00:01:57,615
+Et ensuite, mon exception doit hériter
 
-56
-00:01:59,269 --> 00:02:01,930
+59
+00:01:57,815 --> 00:01:59,064
+de la classe Exception.
+
+60
+00:01:59,264 --> 00:02:01,930
 Qu'est-ce-que je vais mettre dans ma classe?
 
-57
+61
 00:02:02,130 --> 00:02:05,316
 Dans 99,9 % des cas, vous n'avez absolument rien
 
-58
+62
 00:02:05,516 --> 00:02:06,876
 à mettre. Vous mettez simplement path,
 
-59
+63
 00:02:07,076 --> 00:02:09,329
-pour que votre classe soit syntaxiquement valide
+pour que votre classe soit syntaxiquement valide,
 
-60
+64
 00:02:09,529 --> 00:02:11,865
 mais vous n'avez pas besoin de définir des arguments.
 
-61
-00:02:11,950 --> 00:02:13,929
-Evidemment, cette classe Exception est une vraie classe
+65
+00:02:11,950 --> 00:02:13,198
+Evidemment, cette classe Exception
 
-62
-00:02:14,129 --> 00:02:15,817
-Vous pouvez définir ce que vous voulez dedans
+66
+00:02:13,398 --> 00:02:14,075
+est une vraie classe.
 
-63
+67
+00:02:14,275 --> 00:02:15,817
+Donc, vous pouvez définir ce que vous voulez dedans.
+
+68
 00:02:16,017 --> 00:02:17,701
 Mais, dans un usage standard de classe,
 
-64
+69
 00:02:17,901 --> 00:02:20,109
 vous n'avez pas besoin de définir d'attributs particuliers.
 
-65
+70
 00:02:20,309 --> 00:02:22,565
 Et donc, maintenant, regardons comment l'utiliser.
 
-66
+71
 00:02:22,765 --> 00:02:27,016
 Dans ma classe Phrase, je vais juste rajouter un test
 
-67
+72
 00:02:27,216 --> 00:02:29,103
 qui va être le suivant :
 
-68
+73
 00:02:29,303 --> 00:02:35,147
-je vais regarder si not ma_phrase
+je vais regarder si not ma_phrase,
 
-69
+74
 00:02:35,347 --> 00:02:38,656
-ce qui veut dire je vais rentrer dans ce test
+ce qui veut dire, je vais rentrer dans ce test
 
-70
+75
 00:02:38,800 --> 00:02:39,996
-si ma phrase est vide
+si ma phrase est vide,
 
-71
+76
 00:02:40,196 --> 00:02:41,675
 alors je vais lancer mon exception
 
-72
+77
 00:02:41,875 --> 00:02:47,270
 raise PhraseVideError()
 
-73
+78
 00:02:47,470 --> 00:02:50,339
-et je l'appelle, donc je crée une instance de ma classe
+et je l'appelle, donc je crée une instance de ma classe,
 
-74
+79
 00:02:50,539 --> 00:02:51,870
-je l'appelle avec des parenthèses
+je l'appelle avec des parenthèses,
 
-75
+80
 00:02:52,070 --> 00:02:53,305
 je crée une instance tout à fait normale.
 
-76
+81
 00:02:53,505 --> 00:02:55,719
-Donc maintenant, exécutons ce code
+Donc maintenant, exécutons ce code.
 
-77
+82
 00:02:55,919 --> 00:02:58,457
-Je le sauvegarde avec ctrl+s, je l'évalue avec F5.
+Je le sauvegarde avec Ctrl+s, je l'évalue avec F5.
 
-78
+83
 00:02:58,657 --> 00:03:01,848
 Et maintenant, je vais créer une instance de ma classe.
 
-79
+84
 00:03:02,096 --> 00:03:07,729
 Donc, je vais faire p=Phrase(s)
 
-80
+85
 00:03:07,929 --> 00:03:09,461
 et regardons ce qui se passe
 
-81
-00:03:09,661 --> 00:03:11,553
-j'ai bien mon instance et je regarde p
+86
+00:03:09,661 --> 00:03:12,743
+j'ai bien mon instance, et je regarde p qui contient bien
 
-82
-00:03:11,753 --> 00:03:15,110
-qui contient bien mon attribut mots qui est une liste des mots
+87
+00:03:12,943 --> 00:03:15,110
+mon attribut mots qui est une liste des mots.
 
-83
+88
 00:03:15,310 --> 00:03:17,199
 Maintenant, je vais créer une nouvelle instance
 
-84
+89
 00:03:17,399 --> 00:03:21,936
-qui est égale à Phrase( de, et cette fois, je vais passer
+qui est égale à Phrase de, et cette fois, je vais passer
 
-85
+90
 00:03:22,136 --> 00:03:22,926
-une chaîne de caractères vide (Phrase(''))
+une chaîne de caractères vide (Phrase('')).
 
-86
+91
 00:03:23,126 --> 00:03:24,731
 C'est typiquement mon cas d'erreur.
 
-87
+92
 00:03:24,931 --> 00:03:25,724
-Regardons ce qui se passe
+Regardons ce qui se passe.
 
-88
-00:03:25,924 --> 00:03:30,049
-j'ai une exception qui est lancée et qui s'appelle PhraseVideError
+93
+00:03:25,924 --> 00:03:27,344
+J'ai une exception qui est lancée
 
-89
-00:03:30,249 --> 00:03:32,220
+94
+00:03:27,544 --> 00:03:30,094
+et qui s'appelle PhraseVideError.
+
+95
+00:03:30,294 --> 00:03:32,220
 Comme tous les mécanismes d'exception, j'ai
 
-90
+96
 00:03:32,420 --> 00:03:34,106
 exactement l'endroit où c'est produit cette exception
 
-91
+97
 00:03:34,306 --> 00:03:35,497
 et la cause de cette exception.
 
-92
-00:03:35,697 --> 00:03:40,150
-Les exceptions en Python peuvent prendre des arguments
+98
+00:03:35,697 --> 00:03:38,374
+Les exceptions, en Python,
 
-93
-00:03:40,350 --> 00:03:41,710
+99
+00:03:38,574 --> 00:03:40,269
+peuvent prendre des arguments.
+
+100
+00:03:40,469 --> 00:03:41,710
 Donc, regardons ça.
 
-94
+101
 00:03:41,910 --> 00:03:44,532
 A mon exception PhraseVideError, je peux passer
 
-95
+102
 00:03:44,732 --> 00:03:46,702
-une liste d'arguments séparés par une virgule.
+une liste d'arguments, séparés par une virgule.
 
-96
+103
 00:03:46,902 --> 00:03:49,727
 Tous ces arguments vont être mis dans un tuple
 
-97
+104
 00:03:49,927 --> 00:03:51,859
-que je pourrai, ensuite, manipuler
+que je pourrai, ensuite, manipuler,
 
-98
+105
 00:03:52,059 --> 00:03:54,111
 lorsque je capturerai mon exception.
 
-99
+106
 00:03:54,311 --> 00:03:55,384
 Regardons ça.
 
-100
+107
 00:03:55,584 --> 00:03:57,558
-Ici, je vais passer un message d'erreur
+Ici, je vais passer un message d'erreur,
 
-101
+108
 00:03:57,758 --> 00:04:04,207
-par exemple, "attention, phrase vide"
+par exemple, "attention, phrase vide",
 
-102
+109
 00:04:04,407 --> 00:04:07,890
-donc je vais écrire ça, de la manière suivante
+donc je vais écrire ça, de la manière suivante.
 
-103
+110
 00:04:08,090 --> 00:04:12,626
-alors, on va le mettre comme ça.
+Alors, on va le mettre comme ça,
 
-104
+111
 00:04:12,826 --> 00:04:16,425
-Voilà ça sera plus simple.
+voilà, ça sera plus simple.
 
-105
+112
 00:04:16,625 --> 00:04:20,392
 J'ai perdu la fin de ma phrase donc je reviens dessus.
 
-106
+113
 00:04:20,592 --> 00:04:23,913
 Voilà. "attention, phrase vide"
 
-107
-00:04:24,113 --> 00:04:26,242
-ou je vais juste écrire simplement
-
-108
-00:04:26,442 --> 00:04:27,474
-Voilà, on va prendre plus simplement
-
-109
-00:04:27,674 --> 00:04:29,079
-pour ne pas trop décaler mon code
-
-110
-00:04:29,279 --> 00:04:31,577
-Je vais écrire "Phrase vide" et je vais passer un code d'erreur.
-
-111
-00:04:31,777 --> 00:04:33,093
-Par exemple, je passe 18.
-
-112
-00:04:33,293 --> 00:04:34,606
-C'est une code d'erreur que j'invente moi
-
-113
-00:04:34,806 --> 00:04:37,059
-pour vous montrer que je peux passer plusieurs arguments
-
 114
+00:04:24,113 --> 00:04:26,242
+ou je vais juste écrire simplement,
+
+115
+00:04:26,442 --> 00:04:27,474
+voilà, on va prendre plus simplement,
+
+116
+00:04:27,674 --> 00:04:29,079
+pour ne pas trop décaler mon code,
+
+117
+00:04:29,279 --> 00:04:30,205
+donc, je vais écrire "Phrase vide",
+
+118
+00:04:30,405 --> 00:04:31,735
+et je vais passer un code d'erreur;
+
+119
+00:04:31,935 --> 00:04:33,093
+par exemple, je passe 18.
+
+120
+00:04:33,293 --> 00:04:34,606
+C'est une code d'erreur que j'invente moi,
+
+121
+00:04:34,613 --> 00:04:35,246
+pour vous montrer
+
+122
+00:04:35,446 --> 00:04:37,059
+que je peux passer plusieurs arguments,
+
+123
 00:04:37,259 --> 00:04:40,974
 au moment de la création de mon instance d'exception.
 
-115
+124
 00:04:41,174 --> 00:04:45,427
 Donc je reviens au début. J'évalue ce code. Je l'exécute
 
-116
+125
 00:04:45,627 --> 00:04:48,738
 et maintenant re-créons une instance de Phrase
 
-117
+126
 00:04:48,938 --> 00:04:51,520
 qui prend une phrase vide
 
-118
+127
 00:04:51,720 --> 00:04:54,666
 Et j'exécute ça. Regardons ce qui se passe.
 
-119
-00:04:54,866 --> 00:04:57,700
-Je vois que j'ai bien toujours mon exception PhraseVideError
+128
+00:04:54,866 --> 00:04:55,384
+Je vois que j'ai bien
 
-120
-00:04:57,900 --> 00:04:58,969
-Mais je vois que, maintenant,
+129
+00:04:55,584 --> 00:04:57,929
+toujours mon exception PhraseVideError,
 
-121
+130
+00:04:58,129 --> 00:04:58,969
+mais je vois que, maintenant,
+
+131
 00:04:59,169 --> 00:05:01,664
 les arguments que j'ai passés à mon instance
 
-122
+132
 00:05:01,864 --> 00:05:05,437
 sont affichés au moment de l'exception.
 
-123
+133
 00:05:05,637 --> 00:05:06,873
 Donc je vois bien que j'ai
 
-124
-00:05:07,073 --> 00:05:09,531
-ma chaîne de caractères "phrase vide" et mon code d'erreur,
+134
+00:05:07,073 --> 00:05:08,479
+ma chaîne de caractères "phrase vide"
 
-125
-00:05:09,731 --> 00:05:12,028
+135
+00:05:08,679 --> 00:05:09,640
+et mon code d'erreur,
+
+136
+00:05:09,840 --> 00:05:12,028
 et ces arguments sont mis dans un tuple.
 
-126
+137
 00:05:12,228 --> 00:05:14,113
 Donc, maintenant, regardons comment les manipuler.
 
-127
+138
 00:05:14,313 --> 00:05:17,343
 Je vais simplement rajouter un bloc try except
 
-128
+139
 00:05:17,543 --> 00:05:19,601
 Faire un try de Phrase
 
-129
+140
 00:05:19,801 --> 00:05:23,639
 avec une chaîne de caractères vide (Phrase(''))
 
-130
+141
 00:05:23,839 --> 00:05:30,221
 et je vais faire un except de PhraseVideError
 
-131
+142
 00:05:30,421 --> 00:05:32,604
 je vous rappelle que mon except doit toujours,
 
-132
-00:05:32,804 --> 00:05:35,099
-autant que possible, capturer une exception de manière explicite,
+143
+00:05:32,804 --> 00:05:33,160
+autant que possible,
 
-133
-00:05:35,299 --> 00:05:38,285
-as e, donc ça veut dire que
+144
+00:05:33,360 --> 00:05:36,444
+capturer une exception de manière explicite, as e.
 
-134
-00:05:38,485 --> 00:05:42,293
-e va référencer l'instance de l'objet exception qui a été lancée
+145
+00:05:36,644 --> 00:05:39,399
+Donc, ça veut dire que e va référencer
 
-135
+146
+00:05:39,599 --> 00:05:42,293
+l'instance de l'objet exception qui a été lancée.
+
+147
 00:05:42,493 --> 00:05:45,889
 Et dans cet objet exception, en fait, j'ai un argument
 
-136
+148
 00:05:46,089 --> 00:05:50,054
 qui s'appelle args, qui est simplement un tuple
 
-137
+149
 00:05:50,254 --> 00:05:53,206
-qui va référencer le tuple que j'ai passé
+qui va référencer le tuple que j'ai passé,
 
-138
+150
 00:05:53,406 --> 00:05:54,729
-enfin les arguments que j'ai passés
+enfin les arguments que j'ai passés,
 
-139
+151
 00:05:54,929 --> 00:05:58,203
 lorsque j'ai construit mon exception. Donc exécutons ça.
 
-140
+152
 00:05:58,403 --> 00:05:59,602
 J'évalue ce code.
 
-141
+153
 00:05:59,802 --> 00:06:02,102
 Et je vois effectivement qu'ici je vois apparaître
 
-142
+154
 00:06:02,302 --> 00:06:03,368
 le tuple qui contient,
 
-143
+155
 00:06:03,568 --> 00:06:05,532
 comme premier élément, mon message d'erreur,
 
-144
-00:06:05,732 --> 00:06:08,074
-comme deuxième élément, par exemple, mon code d'erreur.
+156
+00:06:05,732 --> 00:06:06,900
+comme deuxième élément, par exemple,
 
-145
-00:06:08,274 --> 00:06:09,876
+157
+00:06:07,100 --> 00:06:08,174
+mon code d'erreur.
+
+158
+00:06:08,374 --> 00:06:09,876
 Comme c'est un tuple, après je peux tout à fait
 
-146
+159
 00:06:10,076 --> 00:06:11,803
 le manipuler comme n'importe quel tuple.
 
-147
+160
 00:06:13,003 --> 00:06:14,568
 Nous venons de voir comment créer
 
-148
+161
 00:06:14,768 --> 00:06:16,210
-vos propres exceptions en Python.
+vos propres exceptions, en Python.
 
-149
+162
 00:06:16,410 --> 00:06:18,705
-En fait, nous avons vu que c'était extrêmement simple
+En fait, nous avons vu que c'était extrêmement simple.
 
-150
+163
 00:06:18,905 --> 00:06:20,637
 Essentiellement, vous avez juste besoin de définir
 
-151
+164
 00:06:20,837 --> 00:06:23,467
 une classe avec un nom qui finit par Error
 
-152
+165
 00:06:23,667 --> 00:06:25,144
 et hérite d'Exception et puis c'est tout.
 
-153
+166
 00:06:25,344 --> 00:06:27,277
 C'est donc une manière extrêmement simple
 
-154
+167
 00:06:27,477 --> 00:06:30,791
 de documenter les comportements spécifiques
 
-155
+168
 00:06:30,991 --> 00:06:33,864
 ou les comportements erronés de votre programme.
 
-156
+169
 00:06:34,064 --> 00:06:35,547
-A bientôt.
+À bientôt !
 
