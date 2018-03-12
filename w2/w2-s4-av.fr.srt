@@ -620,10 +620,10 @@ sur un objet.
 
 156
 00:05:08,827 --> 00:05:10,313
-dir(list) va me stocker toutes les méthodes
+dir(list) va m'afficher toutes les méthodes
 
 157
-00:05:10,413 --> 00:05:10,854
+00:05:10,413 --> 00:05:10,913
 sur un objet liste.
 
 158
