@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:05,219 --> 00:00:06,390
 Nous avons vu que les listes étaient
 
@@ -348,7 +348,7 @@ Alors, comme j'ai un nombre négatif,
 
 88
 00:03:00,839 --> 00:03:02,681
-je ne peux plus calculer le logarithme de -100
+je ne peux plus calculer le logarithme de -1
 
 89
 00:03:02,781 --> 00:03:04,073
