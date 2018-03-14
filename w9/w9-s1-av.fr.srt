@@ -39,15 +39,15 @@ mais de vous les faire découvrir, pour que vous
 puissiez ainsi, les développer vous-même, et ainsi,
 
 11
-00:00:29,498 --> 00:00:30,507
+00:00:29,500 --> 00:00:30,500
 améliorer votre panorama
 
 12
-00:00:30,707 --> 00:00:32,230
+00:00:30,700 --> 00:00:32,760
 de techniques de programmation.
 
 13
-00:00:32,430 --> 00:00:36,308
+00:00:34,060 --> 00:00:36,300
 Lorsque nous avons introduit la notion de classe,
 
 14
@@ -191,15 +191,15 @@ pour résoudre ce problème,
 qu'on appelle les méthodes statiques
 
 49
-00:01:45,869 --> 00:01:47,379
+00:01:45,860 --> 00:01:47,740
 et les méthodes de classe.
 
 50
-00:01:47,579 --> 00:01:50,966
+00:01:48,980 --> 00:01:51,080
 Nous allons essayer de résoudre le problème suivant :
 
 51
-00:01:51,166 --> 00:01:53,924
+00:01:51,160 --> 00:01:53,920
 nous allons essayer de compter le nombre d'instances
 
 52
@@ -815,8 +815,8 @@ et également sur une instance de Phrase,
 et, dans ce cas-là, ça aurait été la méthode de Phrase
 
 205
-00:08:24,298 --> 00:08:24,627
- qui aurait été appelée.
+00:08:24,298 --> 00:08:24,798
+qui aurait été appelée.
 
 206
 00:08:24,827 --> 00:08:25,871
@@ -832,7 +832,7 @@ Seulement, ici, on se rend compte d'une limitation
 
 209
 00:08:31,264 --> 00:08:32,753
- de cette technique de programmation.
+de cette technique de programmation.
 
 210
 00:08:32,953 --> 00:08:33,957
@@ -919,7 +919,7 @@ dans ce cas-là, je vais rajouter un
 PhraseSansCasse.nb_i +=1. Voilà.
 
 231
-00:09:36,447 --> 00:09:36,929
+00:09:36,447 --> 00:09:36,947
 Donc là, maintenant,
 
 232

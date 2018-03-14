@@ -1,6 +1,6 @@
 1
 00:00:01,146 --> 00:00:10,802
-Mooc Python 3 / Semaine 1 Séquence 1 / Introduction
+
 
 2
 00:00:11,528 --> 00:00:14,213
@@ -716,5 +716,5 @@ le terme anglais, en fait.
 
 180
 00:07:07,757 --> 00:07:09,757
-A bientôt...
+A bientôt !
 

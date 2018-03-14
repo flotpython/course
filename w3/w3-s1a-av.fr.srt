@@ -1,21 +1,21 @@
-﻿1
+1
 00:00:10,541 --> 00:00:11,268
 Bonjour !
 
 2
-00:00:11,368 --> 00:00:12,722
+00:00:11,360 --> 00:00:12,720
 Cette semaine, nous allons découvrir
 
 3
-00:00:12,822 --> 00:00:36,790
+00:00:12,820 --> 00:00:14,560
 les fichiers et de nouveaux types built-in
 
 4
-00:00:14,859 --> 00:00:15,740
+00:00:14,560 --> 00:00:15,840
 que sont les tuples,
 
 5
-00:00:15,840 --> 00:00:17,197
+00:00:15,840 --> 00:00:17,200
 les dictionnaires et les sets.
 
 6
@@ -68,7 +68,7 @@ Les fichiers sont, comme souvent en Python,
 
 18
 00:00:40,333 --> 00:00:41,962
-simples et intuitifs à utiliser ;
+simples et intuitifs à utiliser,
 
 19
 00:00:42,062 --> 00:00:44,026
@@ -987,7 +987,7 @@ Je le mets en majuscule,
 mon objet line étant une liste,
 
 248
-00:08:39,733 --> 00:08:40,186
+00:08:39,733 --> 00:08:40,233
 il est mutable,
 
 249
