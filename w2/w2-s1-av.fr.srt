@@ -1,344 +1,832 @@
-1
-00:00:01,832 --> 00:00:11,737
-...
+﻿1
+00:00:14,249 --> 00:00:15,829
+Bonjour. Cette semaine, nous allons parler
 
 2
-00:00:14,156 --> 00:00:17,465
-Bonjour cette semaine nous allons parler des chaînes de caractères et des listes.
+00:00:15,929 --> 00:00:17,778
+des chaînes de caractères et des listes.
 
 3
-00:00:17,665 --> 00:00:21,122
-Nous en profiterons d'ailleurs lorsque nous parlerons des chaînes de caractères pour vous expliquer
+00:00:17,878 --> 00:00:19,302
+Nous en profiterons d'ailleurs
 
 4
-00:00:21,322 --> 00:00:25,687
-ce que sont les notions de codage-décodage jeux de caractères et Unicode
+00:00:19,402 --> 00:00:20,012
+lorsque nous parlerons
 
 5
-00:00:25,887 --> 00:00:28,580
-ce sont des notions fondamentales que vous devez maîtriser
+00:00:20,112 --> 00:00:20,763
+des chaînes de caractères,
 
 6
-00:00:28,780 --> 00:00:30,500
-dès que vous manipulez des chaînes de caractères
+00:00:20,863 --> 00:00:22,022
+pour vous expliquer ce que sont
 
 7
-00:00:30,700 --> 00:00:35,535
-Ensuite nous parlerons des objets, de séquences dont les chaînes de caractère et les listes font
+00:00:22,122 --> 00:00:23,584
+les notions de codage, décodage,
 
 8
-00:00:35,735 --> 00:00:39,490
-d'ailleurs partie. Dans la deuxième partie de cette semaine
+00:00:23,684 --> 00:00:25,696
+jeux de caractères et Unicode.
 
 9
-00:00:39,690 --> 00:00:43,690
-nous couvrirons un certain nombre de sujets très important pour commencer à faire
+00:00:25,796 --> 00:00:27,447
+Ce sont des notions fondamentales
 
 10
-00:00:43,916 --> 00:00:47,151
-pour premier programme. Nous parlerons notamment de test if-else, nous parlerons
+00:00:27,547 --> 00:00:28,501
+que vous devez maîtriser
 
 11
-00:00:47,351 --> 00:00:53,421
-de compréhension de listes de fonctions et de modules. Egalement nous ouvrirons la boucle for
+00:00:28,601 --> 00:00:29,416
+dès que vous manipulez
 
 12
-00:00:53,621 --> 00:00:55,962
-nous ferons que des introduction très rapides, notre objectif est de pouvoir
+00:00:29,516 --> 00:00:30,429
+des chaînes de caractères.
 
 13
-00:00:56,162 --> 00:01:01,931
-vous permettre dès cette semaine de commencer à écrire de vrais petits programmes.
+00:00:30,965 --> 00:00:34,390
+Ensuite nous parlerons des objets séquences
 
 14
-00:01:02,131 --> 00:01:05,888
-Dans cette vidéo nous allons parler des notions fondamentales de codage
+00:00:34,490 --> 00:00:36,448
+dont les chaînes de caractères et les listes
 
 15
-00:01:06,888 --> 00:01:13,353
-décodage jeux de caractères et Unicode. Commençons par regarder cette chaîne de caractère
+00:00:36,548 --> 00:00:37,415
+font d'ailleurs partie.
 
 16
-00:01:13,553 --> 00:01:16,029
-Ici vous voyez une succession de lettres...
+00:00:38,192 --> 00:00:39,983
+Dans la deuxième partie de cette semaine,
 
 17
-00:01:16,229 --> 00:01:19,769
-et il va sans doute falloir quelques secondes pour être capable d'identifier
+00:00:40,083 --> 00:00:42,021
+nous couvrirons un certain nombre de sujets
 
 18
-00:01:19,969 --> 00:01:22,449
-que ces lettres forment des mots, que ces mots forment une phrase
+00:00:42,500 --> 00:00:44,035
+très importants pour commencer à faire
 
 19
-00:01:22,649 --> 00:01:24,053
-la phrase 'je fais un mooc sur Python'
+00:00:44,135 --> 00:00:45,153
+vos premiers programmes.
 
 20
-00:01:24,253 --> 00:01:27,725
-Votre cerveau a fait une opération que l'on appelle une opération de décodage
+00:00:45,253 --> 00:00:46,302
+Nous parlerons notamment
 
 21
-00:01:27,925 --> 00:01:32,118
-Il a pris une suite de lettres et il a été capable d'identifier les mots contenus dans ces lettres
+00:00:46,402 --> 00:00:47,573
+de tests if else,
 
 22
-00:01:32,318 --> 00:01:38,244
-En informatique nous n'avons pas des lettres mais nous manipulons des bits, des flux de bits
+00:00:47,673 --> 00:00:49,503
+nous parlerons de compréhensions de liste,
 
 23
-00:01:38,444 --> 00:01:40,475
-La question maintenant que l'on peut se poser est...
+00:00:49,603 --> 00:00:51,044
+de fonctions et de modules.
 
 24
-00:01:40,675 --> 00:01:43,889
-comment passer d'un flux de bits à la notion de lettre ?
+00:00:51,402 --> 00:00:53,129
+Également nous couvrirons la boucle for.
 
 25
-00:01:44,089 --> 00:01:48,467
-En fait nous faisons en informatique la même opération : une opération de décodage...
+00:00:53,229 --> 00:00:54,291
+Nous ne ferons que des introductions
 
 26
-00:01:48,667 --> 00:01:50,452
-Donc en quoi va consister ce décodage ?
+00:00:54,391 --> 00:00:55,202
+très rapides ;
 
 27
-00:01:50,652 --> 00:01:54,616
-Le décodage va consister à définir une convention qui va dire...
+00:00:55,302 --> 00:00:57,233
+notre objectif est de pouvoir vous permettre,
 
 28
-00:01:54,816 --> 00:01:59,228
-'je découpe mon flux de bits en certain blocs... en blocs d'une certaine taille...'
+00:00:57,333 --> 00:00:58,424
+dès cette semaine,
 
 29
-00:01:59,428 --> 00:02:00,225
-Dans notre exemple nous allons prendre des blocs de 16 bits
+00:00:58,524 --> 00:00:59,473
+de commencer à écrire
 
 30
-00:02:00,425 --> 00:02:04,101
-c'est ce qu'on appelle d'ailleurs le codage ASCII.
+00:00:59,573 --> 00:01:00,792
+de vrais petits programmes.
 
 31
-00:02:04,346 --> 00:02:07,926
-Donc découpons notre flux de bits en blocs 16 bits et
+00:01:01,821 --> 00:01:03,567
+Dans cette vidéo, nous allons parler
 
 32
-00:02:08,126 --> 00:02:12,379
-regardons à quel nombre correspond ces blocs de 16 bits. Donc ici
+00:01:03,667 --> 00:01:05,209
+des notions fondamentales
 
 33
-00:02:12,579 --> 00:02:18,087
-c'est une conversion en nombre décimal pour faciliter l'explication mais en informatique dans un ordinateur
+00:01:05,535 --> 00:01:06,942
+de codage, décodage
 
 34
-00:02:18,287 --> 00:02:24,292
-nous restons évidemment en binaire. Donc on voit que le premier bloc de 16 bits correspond au code
+00:01:07,042 --> 00:01:09,014
+jeux de caractères et Unicode.
 
 35
-00:02:24,492 --> 00:02:30,069
-au nombre 97... le deuxième au code à 108 etc. 105, 99 et 101. Maintenant que nous avons été
+00:01:09,706 --> 00:01:10,783
+Commençons par regarder
 
 36
-00:02:30,269 --> 00:02:35,263
-capable de découper notre flux de bits en blocs et qu'on a obtenu un code correspondant à chaque bloc,
+00:01:10,883 --> 00:01:11,983
+cette chaîne de caractères.
 
 37
-00:02:35,463 --> 00:02:38,925
-il faut être capable de dire à quelle lettre correspond ce code...
+00:01:12,444 --> 00:01:14,957
+Ici, vous voyez une succession de lettres
 
 38
-00:02:39,125 --> 00:02:42,861
-Nous utilisons pour cela ce qu'on appelle un jeu de caractères.
+00:01:15,793 --> 00:01:16,981
+et il va sans doute vous falloir
 
 39
-00:02:43,061 --> 00:02:47,472
-Un jeu de caractères est une table qui va donner un code qui correspond à un caractère.
+00:01:17,081 --> 00:01:18,607
+quelques secondes pour être capable
 
 40
-00:02:47,672 --> 00:02:52,505
-Nous allons prendre le jeu de caractères ASCII et dans le jeu de caractères ASCII
+00:01:18,707 --> 00:01:20,141
+d'identifier que ces lettres forment des mots
 
 41
-00:02:52,705 --> 00:02:58,387
-le code 97 va correspondre à la lettre A, le code 108 à la lettre L etc.
+00:01:20,241 --> 00:01:21,620
+et que ces mots forment une phrase,
 
 42
-00:02:58,587 --> 00:03:03,496
-Une fois que vous avez ce caractère,un caractère est une notion abstraite.
+00:01:21,720 --> 00:01:23,372
+la phrase: Je fais un mooc sur Python.
 
 43
-00:03:03,696 --> 00:03:07,188
-Ce n'est pas encore un dessin qui vous allez être capable d'afficher sur votre écran.
+00:01:23,706 --> 00:01:25,611
+Votre cerveau a fait une opération
 
 44
-00:03:07,388 --> 00:03:12,284
-Pour être capable d'afficher un dessin sur un écran,il faut utiliser pour cela une police de caractères.
+00:01:25,711 --> 00:01:27,306
+que l'on appelle une opération de décodage ;
 
 45
-00:03:12,484 --> 00:03:17,984
-Donc ici nous allons représenter les différentes lettres du prénom Alice avec
+00:01:27,406 --> 00:01:28,620
+il a pris une suite de lettres
 
 46
-00:03:18,184 --> 00:03:22,859
-la police lucida calligraphy gras. Donc en fait, la police de caractères va...
+00:01:28,720 --> 00:01:29,994
+et il a été capable d'identifier
 
 47
-00:03:23,059 --> 00:03:27,270
-définir un glyphe... un glyphe c'est en fait là le dessin...
+00:01:30,094 --> 00:01:31,770
+les mots contenus dans cette liste.
 
 48
-00:03:27,470 --> 00:03:30,394
-qui va correspondre à chaque caractère que l'on veut afficher.
+00:01:32,828 --> 00:01:34,901
+En informatique, nous n'avons pas de lettres
 
 49
-00:03:30,594 --> 00:03:36,878
-En résumé, lorsque l'on lit un contenu sur Internet ou alors sur un disque dur
+00:01:35,001 --> 00:01:36,437
+mais nous manipulons des bits,
 
 50
-00:03:37,078 --> 00:03:42,118
-nous avons un flux de bits et nous avons donc des opérations de décodage pour obtenir les caractères
+00:01:36,537 --> 00:01:37,388
+des flux de bits.
 
 51
-00:03:42,318 --> 00:03:44,890
-et de manière inverse  lorsque l'on veut écrire quelque chose sur un disque dur
+00:01:37,874 --> 00:01:38,837
+La question maintenant
 
 52
-00:03:45,090 --> 00:03:46,700
-ou envoyer des données sur Internet...
+00:01:38,937 --> 00:01:39,646
+que l'on peut se poser est
 
 53
-00:03:46,900 --> 00:03:52,282
-nous allons faire une opération de codage pour re-transformer nos lettres en flux de bits.
+00:01:39,746 --> 00:01:41,214
+comment passer d'un flux de bits
 
 54
-00:03:52,482 --> 00:03:56,309
-Cependant vous avez peut-être remarqué un problème avec notre codage
+00:01:41,314 --> 00:01:43,346
+à la notion de lettre.
 
 55
-00:03:56,509 --> 00:03:58,760
-nous avons utilisez un codage ASCII qui est sur 16 bits.
+00:01:44,108 --> 00:01:46,171
+En fait nous faisons, en informatique,
 
 56
-00:03:58,960 --> 00:04:03,421
-Or sur 16 bits vous ne pouvez coder que 128 caractères différents.
+00:01:46,271 --> 00:01:47,027
+la même opération,
 
 57
-00:04:03,621 --> 00:04:07,874
-Nous voyons bien que nous ne pouvons pas coder tous les caractères du monde sur simplement
+00:01:47,127 --> 00:01:48,226
+une opération de décodage.
 
 58
-00:04:08,074 --> 00:04:12,524
-128 caractères. Nous devons donc utiliser des codages, des codages qu'on appelle étendus.
+00:01:48,326 --> 00:01:50,432
+Donc en quoi va consister ce décodage ?
 
 59
-00:04:12,724 --> 00:04:17,010
-Donc, il existe des codages ASCII étendus qui sont codés sur 8 bits.
+00:01:50,532 --> 00:01:52,023
+Le décodage va consister
 
 60
-00:04:17,210 --> 00:04:19,872
-Sur 8 bits vous pouvez coder 256 caractères
+00:01:52,123 --> 00:01:54,452
+à définir une convention qui va dire:
 
 61
-00:04:20,072 --> 00:04:24,837
-mais encore une fois 256 caractères ce n'est pas suffisant pour coder tous les caractères du monde.
+00:01:54,552 --> 00:01:56,058
+je découpe mon flux de bits
 
 62
-00:04:25,037 --> 00:04:30,358
-Or pendant des années nous avons utilisé un grand nombre de codage ASCII étendue
+00:01:56,158 --> 00:01:59,248
+en blocs d'une certaine taille.
 
 63
-00:04:30,558 --> 00:04:33,277
-et d'autres types de codage qui ont permis par exemple de coder
+00:01:59,348 --> 00:02:00,413
+Dans notre exemple,
 
 64
-00:04:33,477 --> 00:04:36,801
-les caractères utilisés en français ou les caractères utilisés en allemand.
+00:02:00,513 --> 00:02:02,185
+nous allons prendre des blocs de 7 bits.
 
 65
-00:04:37,001 --> 00:04:43,098
-Cependant ces jeux de caractères sont incompatibles et ce qui a produit pendant des années...
+00:02:02,285 --> 00:02:03,112
+C'est ce qu'on appelle d'ailleurs
 
 66
-00:04:43,298 --> 00:04:46,650
-les erreurs que vous connaissez sans doute vous recevez des mails avec des caractères bizarres
+00:02:03,212 --> 00:02:04,176
+le codage ASCII.
 
 67
-00:04:46,850 --> 00:04:50,515
-ou alors vous allez sur internet si vous voyez des caractères bizarres s'afficher
+00:02:04,451 --> 00:02:06,501
+Découpons notre flux de bits
 
 68
-00:04:50,715 --> 00:04:55,243
-C'est parce que simplement votre ordinateur ne contient pas le jeu de caractères qui a été utilisé
+00:02:06,601 --> 00:02:07,901
+en blocs de 7 bits,
 
 69
-00:04:55,443 --> 00:04:57,845
-pour encoder le texte publié par quelqu'un.
+00:02:08,193 --> 00:02:10,273
+et regardons à quels nombres
 
 70
-00:04:58,045 --> 00:05:03,557
-Pour résoudre ce problème, un projet à été démarré qui s'appelle le projet Unicode.
+00:02:10,373 --> 00:02:12,315
+correspondent ces blocs de 7 bits.
 
 71
-00:05:03,757 --> 00:05:09,270
-L'objectif de ce projet est de coder l'intégralité des caractères du monde. Dans Unicode, dans le jeu
+00:02:12,415 --> 00:02:14,639
+Ici, je fais une conversion en nombre décimal
 
 72
-00:05:09,470 --> 00:05:14,154
-de caractères Unicode nous avons actuellement plus de 120000 caractères qui ont été codés. Ainsi en utilisant
+00:02:14,739 --> 00:02:16,120
+pour faciliter l'explication
 
 73
-00:05:14,354 --> 00:05:21,511
-Unicode vous avez la certitude de pouvoir coder et décoder l'intégralité des caractères du monde entier.
+00:02:16,220 --> 00:02:17,669
+mais en informatique, dans un ordinateur,
 
 74
-00:05:21,611 --> 00:05:30,032
-Unicode utilise différents types de codage qui s'appellent UTF-8, UTF-16 et UTF-32. Sans rentrer dans le détail
+00:02:17,769 --> 00:02:18,885
+nous restons évidemment en binaire.
 
 75
-00:05:30,132 --> 00:05:35,148
-de ces encodages sachez qu'ils participent à un compromis entre compacité du codage et...
+00:02:19,412 --> 00:02:20,886
+Donc on voit que le premier bloc de 7 bits
 
 76
-00:05:35,355 --> 00:05:41,089
-vitesse de décodage. En pratique nous utilisons très régulièrement le codage UTF-8
+00:02:20,986 --> 00:02:24,234
+correspond au nombre 97,
 
 77
-00:05:41,171 --> 00:05:46,426
-qui a la caractéristique importante d'être totalement compatible avec le codage ASCII standard.
+00:02:24,334 --> 00:02:26,048
+le deuxième, au code 108,
 
 78
-00:05:46,626 --> 00:05:52,818
-La bonne nouvelle avec une école c'est que Python est totalement compatible avec le codage Unicode.
+00:02:26,148 --> 00:02:28,258
+et caetera, 105, 99 et 101.
 
 79
-00:05:53,018 --> 00:05:58,478
-La mauvaise nouvelle c'est que vous devez contrôler votre encodage.
+00:02:28,770 --> 00:02:30,340
+Maintenant que nous avons été capables
 
 80
-00:05:58,678 --> 00:06:03,166
-En effet, je vous ai dit qu'il existait maintenant le jeu de caractères Unicode qui couvre tous
+00:02:30,440 --> 00:02:32,807
+de découper notre flux de bits en blocs
 
 81
-00:06:03,366 --> 00:06:06,366
-les caractères du monde mais il existe encore de nombreux autres jeux de caractères
+00:02:32,907 --> 00:02:34,003
+et qu'on a obtenu un code
 
 82
-00:06:06,438 --> 00:06:12,229
- utilisés dans d'anciens documents. Si vous ne contrôlez pas finement votre codage et décodage
+00:02:34,103 --> 00:02:35,179
+correspondant à chaque bloc,
 
 83
-00:06:12,429 --> 00:06:16,296
-vous ne pourrez pas dire à Python quel type de jeu de caractères utiliser.
+00:02:35,279 --> 00:02:36,325
+il faut être capable de dire
 
 84
-00:06:16,496 --> 00:06:20,954
-Donc la règle est simple lorsque vous créez des documents ou lorsque vous lisez des documents
+00:02:36,425 --> 00:02:38,797
+à quelle lettre correspond ce code.
 
 85
-00:06:21,054 --> 00:06:26,918
-utilisez toujours UTF-8 sauf si on vous dit explicitement d'utiliser un autre jeu de caractères.
+00:02:39,239 --> 00:02:40,487
+Nous utilisons pour ça
 
 86
-00:06:27,118 --> 00:06:29,118
-A bientôt...
+00:02:40,587 --> 00:02:42,142
+ce qu'on appelle un jeu de caractères.
+
+87
+00:02:42,428 --> 00:02:43,989
+Un jeu de caractères est une table
+
+88
+00:02:44,089 --> 00:02:45,181
+qui va donner un code
+
+89
+00:02:45,281 --> 00:02:46,878
+qui correspond à un caractère.
+
+90
+00:02:47,570 --> 00:02:49,794
+Nous allons prendre le jeu de caractères ASCII
+
+91
+00:02:49,894 --> 00:02:51,462
+et dans le jeu de caractères ASCII,
+
+92
+00:02:51,562 --> 00:02:55,229
+le code 97 va correspondre à la lettre a,
+
+93
+00:02:55,329 --> 00:02:57,201
+le code 108 à la lettre l,
+
+94
+00:02:57,301 --> 00:02:58,145
+et caetera.
+
+95
+00:02:59,032 --> 00:03:01,391
+Une fois que vous avez ce caractère,
+
+96
+00:03:01,491 --> 00:03:03,389
+un caractère est une notion abstraite,
+
+97
+00:03:03,489 --> 00:03:04,766
+ça n'est pas encore un dessin
+
+98
+00:03:04,866 --> 00:03:05,941
+que vous allez être capable
+
+99
+00:03:06,041 --> 00:03:06,980
+d'afficher sur votre écran.
+
+100
+00:03:07,330 --> 00:03:08,426
+Pour être capable d'afficher
+
+101
+00:03:08,526 --> 00:03:09,549
+un dessin sur un écran,
+
+102
+00:03:09,649 --> 00:03:10,364
+il faut utiliser pour cela
+
+103
+00:03:10,464 --> 00:03:11,956
+une police de caractères.
+
+104
+00:03:12,225 --> 00:03:14,011
+Ici, nous allons représenter
+
+105
+00:03:14,111 --> 00:03:17,387
+les différentes lettres du prénom alice
+
+106
+00:03:17,625 --> 00:03:20,598
+avec la police lucida calligraphy gras.
+
+107
+00:03:21,399 --> 00:03:22,974
+En fait, la police de caractères
+
+108
+00:03:23,074 --> 00:03:24,892
+va définir un glyphe ;
+
+109
+00:03:24,992 --> 00:03:27,163
+un glyphe, c'est en fait le dessin
+
+110
+00:03:27,263 --> 00:03:28,947
+qui va correspondre à chaque caractère
+
+111
+00:03:29,047 --> 00:03:29,945
+que l'on veut afficher.
+
+112
+00:03:30,774 --> 00:03:33,303
+En résumé, lorsque l'on lit un contenu
+
+113
+00:03:33,403 --> 00:03:37,116
+sur internet, ou alors sur un disque dur,
+
+114
+00:03:37,216 --> 00:03:38,123
+nous avons un flux de bits
+
+115
+00:03:38,223 --> 00:03:38,691
+et nous faisons donc
+
+116
+00:03:38,791 --> 00:03:40,732
+des opérations de décodage
+
+117
+00:03:40,832 --> 00:03:41,850
+pour obtenir les caractères
+
+118
+00:03:42,278 --> 00:03:43,330
+et de manière inverse,
+
+119
+00:03:43,430 --> 00:03:44,039
+lorsque l'on veut écrire
+
+120
+00:03:44,139 --> 00:03:45,085
+quelque chose sur un disque dur,
+
+121
+00:03:45,185 --> 00:03:46,325
+ou envoyer des données sur internet,
+
+122
+00:03:46,425 --> 00:03:48,555
+nous allons faire une opération de codage
+
+123
+00:03:48,655 --> 00:03:52,537
+pour retransformer nos lettres en flux de bits.
+
+124
+00:03:53,021 --> 00:03:54,394
+Cependant, vous avez peut-être remarqué
+
+125
+00:03:54,494 --> 00:03:55,858
+un problème avec notre codage ;
+
+126
+00:03:55,958 --> 00:03:57,499
+nous avons utilisé un codage ASCII
+
+127
+00:03:57,599 --> 00:03:58,664
+qui est sur 7 bits.
+
+128
+00:03:58,950 --> 00:04:01,071
+Or, sur 7 bits, vous ne pouvez coder
+
+129
+00:04:01,171 --> 00:04:03,025
+que 128 caractères différents.
+
+130
+00:04:03,769 --> 00:04:05,494
+Nous voyons bien que nous ne pouvons pas
+
+131
+00:04:05,594 --> 00:04:06,950
+coder tous les caractères du monde
+
+132
+00:04:07,050 --> 00:04:09,086
+sur simplement 128 caractères.
+
+133
+00:04:09,378 --> 00:04:10,928
+Nous devons donc utiliser des codages
+
+134
+00:04:11,028 --> 00:04:12,616
+qu'on appelle des codages étendus.
+
+135
+00:04:12,716 --> 00:04:15,601
+Il existe des codages ASCII étendus
+
+136
+00:04:15,701 --> 00:04:16,969
+qui sont codés sur 8 bits.
+
+137
+00:04:17,318 --> 00:04:20,000
+Sur 8 bits, vous pouvez coder 256 caractères
+
+138
+00:04:20,331 --> 00:04:22,225
+mais encore une fois, 256 caractères,
+
+139
+00:04:22,325 --> 00:04:23,114
+ça n'est pas suffisant
+
+140
+00:04:23,214 --> 00:04:24,820
+pour coder tous les caractères du monde.
+
+141
+00:04:25,033 --> 00:04:27,665
+Or, pendant des années, nous avons utilisé
+
+142
+00:04:27,765 --> 00:04:30,212
+un grand nombre de codages ASCII étendus
+
+143
+00:04:30,312 --> 00:04:31,482
+et d'autres types de codages
+
+144
+00:04:31,800 --> 00:04:33,293
+qui ont permis par exemple de coder
+
+145
+00:04:33,393 --> 00:04:35,153
+les caractères utilisés en français
+
+146
+00:04:35,253 --> 00:04:36,698
+ou les caractères utilisés en allemand.
+
+147
+00:04:37,288 --> 00:04:39,314
+Cependant, ces jeux de caractères
+
+148
+00:04:39,414 --> 00:04:40,610
+sont incompatibles.
+
+149
+00:04:40,710 --> 00:04:42,905
+Et c'est ce qui a produit pendant des années
+
+150
+00:04:43,005 --> 00:04:44,455
+les erreurs que vous connaissez sans doute,
+
+151
+00:04:44,555 --> 00:04:45,544
+vous recevez des mails
+
+152
+00:04:45,644 --> 00:04:46,888
+avec des caractères bizarres
+
+153
+00:04:46,988 --> 00:04:48,749
+ou alors vous allez sur internet et vous voyez
+
+154
+00:04:48,849 --> 00:04:49,979
+des caractères bizarres s'afficher.
+
+155
+00:04:50,399 --> 00:04:52,099
+C'est parce que simplement votre ordinateur
+
+156
+00:04:52,199 --> 00:04:53,665
+ne contient pas le jeu de caractères
+
+157
+00:04:53,765 --> 00:04:56,367
+qui a été utilisé pour encoder le texte
+
+158
+00:04:56,586 --> 00:04:57,900
+publié par quelqu'un.
+
+159
+00:04:58,813 --> 00:05:00,008
+Pour résoudre ce problème,
+
+160
+00:05:00,236 --> 00:05:01,365
+un projet a été démarré
+
+161
+00:05:01,465 --> 00:05:02,845
+qui s'appelle le projet Unicode.
+
+162
+00:05:02,945 --> 00:05:04,322
+L'objectif de ce projet
+
+163
+00:05:04,422 --> 00:05:06,215
+est de coder l'intégralité
+
+164
+00:05:06,315 --> 00:05:07,453
+des caractères du monde.
+
+165
+00:05:07,699 --> 00:05:09,018
+Dans Unicode,
+
+166
+00:05:09,118 --> 00:05:10,392
+dans le jeu de caractères Unicode,
+
+167
+00:05:10,492 --> 00:05:11,090
+nous avons actuellement
+
+168
+00:05:11,190 --> 00:05:12,579
+plus de 120 000 caractères
+
+169
+00:05:12,679 --> 00:05:13,513
+qui ont été codés.
+
+170
+00:05:13,871 --> 00:05:15,158
+Ainsi, en utilisant Unicode,
+
+171
+00:05:15,258 --> 00:05:16,638
+vous avez la certitude
+
+172
+00:05:16,738 --> 00:05:19,014
+de pouvoir coder et décoder
+
+173
+00:05:19,114 --> 00:05:21,121
+l'intégralité des caractères du monde entier.
+
+174
+00:05:21,619 --> 00:05:24,283
+Unicode utilise différents types de codage
+
+175
+00:05:24,383 --> 00:05:28,339
+qui s'appellent UTF-8, UTF-16 et UTF-32.
+
+176
+00:05:28,617 --> 00:05:30,501
+Sans rentrer dans le détail de ces encodages,
+
+177
+00:05:30,754 --> 00:05:32,445
+sachez qu'ils participent à un compromis
+
+178
+00:05:32,545 --> 00:05:34,764
+entre compacité du codage
+
+179
+00:05:34,864 --> 00:05:36,500
+et vitesse de décodage.
+
+180
+00:05:36,859 --> 00:05:38,542
+En pratique, nous utilisons
+
+181
+00:05:38,642 --> 00:05:40,859
+très régulièrement le codage UTF-8
+
+182
+00:05:40,959 --> 00:05:43,154
+qui a la caractéristique importante
+
+183
+00:05:43,254 --> 00:05:44,491
+d'être totalement compatible
+
+184
+00:05:44,591 --> 00:05:46,304
+avec le codage ASCII standard.
+
+185
+00:05:47,729 --> 00:05:49,344
+La bonne nouvelle avec Unicode,
+
+186
+00:05:49,444 --> 00:05:51,366
+c'est que Python est totalement compatible
+
+187
+00:05:51,466 --> 00:05:52,916
+avec le codage Unicode.
+
+188
+00:05:53,971 --> 00:05:54,937
+La mauvaise nouvelle,
+
+189
+00:05:55,037 --> 00:05:56,467
+c'est que vous devez
+
+190
+00:05:56,567 --> 00:05:58,114
+contrôler votre encodage.
+
+191
+00:05:58,214 --> 00:05:59,525
+En effet, je vous ai dit
+
+192
+00:05:59,625 --> 00:06:00,680
+qu'il existait maintenant
+
+193
+00:06:00,780 --> 00:06:02,345
+le jeu de caractères Unicode
+
+194
+00:06:02,445 --> 00:06:03,863
+qui couvre tous les caractères du monde
+
+195
+00:06:03,963 --> 00:06:04,880
+mais il existe encore
+
+196
+00:06:04,980 --> 00:06:06,815
+de nombreux autres jeux de caractères
+
+197
+00:06:06,915 --> 00:06:09,030
+utilisés dans d'anciens documents.
+
+198
+00:06:09,282 --> 00:06:11,250
+Si vous ne contrôlez pas finement
+
+199
+00:06:11,350 --> 00:06:12,563
+votre codage et décodage,
+
+200
+00:06:12,796 --> 00:06:14,271
+vous ne pourrez pas dire à Python
+
+201
+00:06:14,371 --> 00:06:16,141
+quel type de jeu de caractères utiliser.
+
+202
+00:06:16,241 --> 00:06:17,292
+Donc la règle est simple:
+
+203
+00:06:17,522 --> 00:06:18,959
+lorsque vous créez des documents
+
+204
+00:06:19,059 --> 00:06:20,549
+ou lorsque vous lisez des documents,
+
+205
+00:06:20,783 --> 00:06:22,615
+utilisez toujours UTF-8
+
+206
+00:06:22,715 --> 00:06:24,539
+sauf si on vous dit explicitement
+
+207
+00:06:24,639 --> 00:06:26,297
+d'utiliser un autre jeu de caractères.
+
+208
+00:06:26,725 --> 00:06:27,478
+À bientôt !
 
