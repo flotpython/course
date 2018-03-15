@@ -52,7 +52,7 @@ implémentent un mécanisme subtil et complexe
 
 14
 00:00:34,065 --> 00:00:36,278
-et que, surtout, leurs noms ont été très mal choisis;
+et que, surtout, leurs noms ont été très mal choisis,
 
 15
 00:00:36,478 --> 00:00:38,289
@@ -557,7 +557,7 @@ différents appels et je définis bien
 
 140
 00:05:01,791 --> 00:05:04,142
-temperature comme un descripteur;
+temperature comme un descripteur,
 
 141
 00:05:04,342 --> 00:05:06,077
@@ -617,7 +617,7 @@ Et, on voit que j'ai trois méthodes qui sont appelées.
 
 155
 00:05:31,539 --> 00:05:34,944
-__setattr__, avec l'attribut temperature 18;
+__setattr__, avec l'attribut temperature 18,
 
 156
 00:05:35,144 --> 00:05:35,779
@@ -717,7 +717,7 @@ Maintenant, essayons d'accéder
 
 180
 00:06:30,492 --> 00:06:32,226
-Et pour ça, je vais utiliser la complétion;
+Et pour ça, je vais utiliser la complétion,
 
 181
 00:06:32,426 --> 00:06:35,913
@@ -765,7 +765,7 @@ Donc, il commence par interroger l'espace de nommage
 
 192
 00:06:58,701 --> 00:07:00,443
-de mon instance; c'est l'attribut dict.
+de mon instance, c'est l'attribut dict.
 
 193
 00:07:00,643 --> 00:07:02,430
@@ -829,7 +829,7 @@ __getatttribute__
 
 208
 00:07:29,990 --> 00:07:32,462
-Il se trouve que __getattribute__ est un descripteur;
+Il se trouve que __getattribute__ est un descripteur.
 
 209
 00:07:32,662 --> 00:07:35,015
@@ -973,7 +973,7 @@ je vois que j'appelle __setattr__,
 
 244
 00:09:08,756 --> 00:09:09,634
-je n'ai pas la logique des descripteurs;
+je n'ai pas la logique des descripteurs,
 
 245
 00:09:09,834 --> 00:09:11,531
@@ -1021,7 +1021,7 @@ Dans ce sens, __setattr__
 
 256
 00:09:31,684 --> 00:09:33,684
-n'a pas été très bien nommée;
+n'a pas été très bien nommée,
 
 257
 00:09:34,135 --> 00:09:35,137

@@ -132,7 +132,7 @@ opérations coûteuses et désagréables, à faire.
 
 34
 00:01:12,854 --> 00:01:15,027
-En Python,nous allons voir que vous n'avez pas
+En Python, nous allons voir que vous n'avez pas
 
 35
 00:01:15,227 --> 00:01:17,088
@@ -407,677 +407,666 @@ En fait, en Python, je peux définir
 ce que j'appelle une property.
 
 103
-00:04:35,940 --> 00:04:37,223
+00:04:35,940 --> 00:04:37,220
 C'est quoi une property ?
 
 104
-00:04:37,423 --> 00:04:41,067
+00:04:37,420 --> 00:04:45,220
 C'est dire, à ma classe, que je définis un attribut
 
 105
-00:04:41,267 --> 00:04:45,203
-(NDLR il a dit argument mais ce n’était pas le bon
+00:04:45,400 --> 00:04:47,540
+tout à fait classique et que cet attribut va
 
 106
-00:04:45,403 --> 00:04:47,544
-mot), tout à fait classique et que cet attribut va
-
-107
 00:04:47,744 --> 00:04:51,016
 correspondre à une couche de logique particulière.
 
-108
+107
 00:04:51,216 --> 00:04:53,595
 Je cherchais le mot attribut.
 
-109
+108
 00:04:53,795 --> 00:04:55,036
 Je vais donc définir un attribut.
 
-110
+109
 00:04:55,236 --> 00:04:56,478
 Regardons comment ça s'implémente.
 
-111
+110
 00:04:56,678 --> 00:04:58,696
 Je définis temperature,
 
-112
+111
 00:04:58,896 --> 00:05:00,378
 donc, c'est mon attribut normal.
 
-113
+112
 00:05:00,578 --> 00:05:02,552
 Et je vais dire que, maintenant, c'est une property,
 
-114
+113
 00:05:02,752 --> 00:05:06,795
 qui va prendre, comme getter, get_temperature,
 
-115
+114
 00:05:06,995 --> 00:05:15,147
 et, comme setter, set_temperature, tout simplement.
 
-116
+115
 00:05:15,347 --> 00:05:18,050
 Donc maintenant, je n'ai rien modifié à mon code,
 
-117
+116
 00:05:18,250 --> 00:05:19,409
 j'ai juste défini une property,
 
-118
+117
 00:05:19,609 --> 00:05:22,034
 qui dit que, maintenant, j'ai un attribut temperature
 
-119
+118
 00:05:22,234 --> 00:05:23,801
 qui correspond à cette property.
 
-120
+119
 00:05:24,001 --> 00:05:26,341
 Lorsque je vais accéder à cet attribut,
 
-121
+120
 00:05:26,541 --> 00:05:28,152
 je vais appeler, automatiquement, la méthode get.
 
-122
+121
 00:05:28,352 --> 00:05:30,688
 Lorsque je vais changer la valeur de cet attribut,
 
-123
+122
 00:05:30,888 --> 00:05:32,420
 je vais, automatiquement, appeler la méthode set.
 
-124
+123
 00:05:32,620 --> 00:05:34,757
 Donc maintenant, l'intérêt de ça, c'est que si jamais
 
-125
+124
 00:05:34,957 --> 00:05:35,830
 j'ai d'autres attributs dans ma classe,
 
-126
+125
 00:05:36,030 --> 00:05:39,718
 je n'ai pas besoin de faire des getters et des setters.
 
-127
+126
 00:05:39,918 --> 00:05:41,568
 Je peux directement manipuler ces attributs,
 
-128
+127
 00:05:41,768 --> 00:05:43,700
 et si, plus tard, je décide de rajouter
 
-129
+128
 00:05:43,900 --> 00:05:44,652
 une couche de logique,
 
-130
+129
 00:05:44,852 --> 00:05:46,385
 je n'aurai qu'à implémenter deux méthodes,
 
-131
+130
 00:05:46,585 --> 00:05:48,604
 et à définir une property, sur cet attribut.
 
-132
+131
 00:05:48,804 --> 00:05:50,290
 Vous noterez également,
 
-133
+132
 00:05:50,490 --> 00:05:51,529
 et c'est un point très important,
 
-134
+133
 00:05:51,729 --> 00:05:54,069
 que mes attributs, ici, utilisent tous un underscore.
 
-135
+134
 00:05:54,269 --> 00:05:56,288
 En effet, il ne faut pas que, dans vos getters et
 
-136
+135
 00:05:56,488 --> 00:05:59,770
-vos setters, vous utilisiez le même argument/attribut
+vos setters, vous utilisiez le même attribut
 
-137
+136
 00:05:59,970 --> 00:06:01,949
 sinon vous auriez un appel récursif à votre méthode.
 
-138
+137
 00:06:02,149 --> 00:06:04,168
 Donc maintenant, j'exécute ce code.
 
-139
+138
 00:06:04,368 --> 00:06:06,992
 Et maintenant, regardons comment manipuler ça.
 
-140
+139
 00:06:07,192 --> 00:06:09,167
 Je vais, simplement, créer une nouvelle instance
 
-141
+140
 00:06:09,367 --> 00:06:12,925
 de Maison, et je peux, directement, faire un
 
-142
+141
 00:06:13,125 --> 00:06:17,137
 m.temperature pour regarder la
 
-143
+142
 00:06:17,337 --> 00:06:18,296
 température actuelle.
 
-144
+143
 00:06:18,496 --> 00:06:21,684
 Et je peux faire un m.temperature = 22.
 
-145
+144
 00:06:21,884 --> 00:06:24,587
 Je vais donc voir ma température qui a été modifiée.
 
-146
+145
 00:06:24,787 --> 00:06:28,548
 Et si jamais, je fais un m.temperature = 28,
 
-147
+146
 00:06:28,748 --> 00:06:30,848
 je repasse, évidemment, dans ma couche de logique,
 
-148
+147
 00:06:31,048 --> 00:06:33,270
 et j'ai mon d'exception TemperatureError.
 
-149
+148
 00:06:34,653 --> 00:06:36,343
 Le mécanisme de propriété que
 
-150
+149
 00:06:36,543 --> 00:06:37,988
 nous venons de voir, repose sur un autre
 
-151
+150
 00:06:38,188 --> 00:06:39,717
 mécanisme qu'on appelle descripteur
 
-152
+151
 00:06:39,917 --> 00:06:41,805
 qui est plus général que les propriétés
 
-153
+152
 00:06:42,005 --> 00:06:43,001
 et plus puissant.
 
-154
+153
 00:06:43,201 --> 00:06:45,299
 Regardons comment implémenter un descripteur.
 
-155
+154
 00:06:45,499 --> 00:06:47,271
 Un descripteur, en fait, c'est une classe,
 
-156
+155
 00:06:47,471 --> 00:06:49,207
 tout à fait normale, une classe Python
 
-157
+156
 00:06:49,407 --> 00:06:51,336
 sur laquelle on va définir une méthode spéciale,
 
-158
+157
 00:06:51,536 --> 00:06:54,240
 qui s'appelle __get__.
 
-159
+158
 00:06:54,440 --> 00:06:56,577
-Si notre classe a, au moins, cette propriété/
+Si notre classe a, au moins, cette méthode
+
+159
+00:06:56,777 --> 00:06:58,794
+on va dire que cette classe est un
 
 160
-00:06:56,777 --> 00:06:58,794
-cette méthode, on va dire que cette classe est un
-
-161
 00:06:58,994 --> 00:07:00,886
 descripteur et elle peut avoir encore deux autres
 
-162
+161
 00:07:01,086 --> 00:07:03,552
 méthodes utilisées par le protocole des descripteurs
 
-163
+162
 00:07:03,752 --> 00:07:07,802
 qui sont les méthodes __set__ et __delete__.
 
-164
+163
 00:07:08,002 --> 00:07:09,173
 Donc regardons cela.
 
-165
+164
 00:07:09,373 --> 00:07:11,709
 Je vais créer une classe Temperature
 
-166
+165
 00:07:11,909 --> 00:07:15,435
 qui va définir une méthode __get__
 
-167
+166
 00:07:15,635 --> 00:07:22,408
 qui prend comme arguments (self, inst, et instype)
 
-168
+167
 00:07:22,608 --> 00:07:23,889
 Je vais revenir, dans quelques instants,
 
-169
+168
 00:07:24,089 --> 00:07:26,271
 sur la signification de ces paramètres.
 
-170
+169
 00:07:26,471 --> 00:07:32,382
 Et je vais retourner inst._temperature. Voilà.
 
-171
+170
 00:07:32,582 --> 00:07:34,959
 Donc, j'ai une classe Temperature
 
-172
+171
 00:07:35,159 --> 00:07:37,580
 qui définit une méthode __get__.
 
-173
+172
 00:07:37,620 --> 00:07:39,432
 C'est donc, par définition, un descripteur.
 
-174
+173
 00:07:39,632 --> 00:07:40,953
 En tout cas, c'est une classe qui respecte le
 
-175
+174
 00:07:41,153 --> 00:07:42,231
 protocole des descripteurs.
 
-176
+175
 00:07:42,431 --> 00:07:44,657
 Ma méthode __get__ prend trois paramètres :
 
-177
+176
 00:07:44,857 --> 00:07:47,234
 self, c'est l'instance du descripteur;
 
-178
+177
 00:07:47,434 --> 00:07:49,127
 j'ai donc un accès vers cette instance de
 
-179
+178
 00:07:49,327 --> 00:07:50,532
 descripteur, ce qui me permet, par exemple,
 
-180
+179
 00:07:50,732 --> 00:07:53,070
 de stocker des attributs, dans cette instance.
 
-181
+180
 00:07:53,270 --> 00:07:56,269
 inst, c'est l'instance de l'objet sur lequel
 
-182
+181
 00:07:56,469 --> 00:07:57,795
 on a mis le descripteur;
 
-183
+182
 00:07:57,995 --> 00:07:59,156
 on va voir ça, dans quelques instants.
 
-184
+183
 00:07:59,356 --> 00:08:01,451
-Et instype, c'est la classe (NDLR pas l'objet)
+Et instype, c'est la classe
 
-185
+184
 00:08:01,651 --> 00:08:05,208
 qui a créé cette instance sur laquelle on a
 
-186
+185
 00:08:05,408 --> 00:08:06,164
 mis le descripteur.
 
-187
+186
 00:08:06,364 --> 00:08:08,376
 On va revoir ça, dans quelques instants.
 
-188
+187
 00:08:08,576 --> 00:08:10,671
 Maintenant, je vais définir une méthode __set__
 
-189
+188
 00:08:10,871 --> 00:08:17,721
 qui prend des arguments (self, inst, et t)
 
-190
+189
 00:08:17,921 --> 00:08:18,960
 Et, dans ma méthode __set__,
 
-191
+190
 00:08:19,160 --> 00:08:19,997
 je vais faire une petite validation,
 
-192
+191
 00:08:20,197 --> 00:08:23,155
 comme ce que j'avais dans l'exemple précédent.
 
-193
+192
 00:08:23,355 --> 00:08:32,348
-Est-ce que t est compris entre 5 et 25?
+Est-ce que t est compris entre 5 et 25 ?
 
-194
+193
 00:08:32,548 --> 00:08:35,782
 S'il est compris entre 5 et 25, je vais faire
 
-195
+194
 00:08:35,982 --> 00:08:39,424
 inst._temperature = t
 
-196
+195
 00:08:39,624 --> 00:08:41,234
 c'est-à-dire que je modifie ma température,
 
-197
+196
 00:08:41,434 --> 00:08:42,845
 et ensuite, je retourne.
 
-198
+197
 00:08:43,045 --> 00:08:49,441
 Et ici, je fais simplement un raise TemperatureError().
 
-199
+198
 00:08:49,641 --> 00:08:51,369
 Donc, vous remarquez que ça correspond
 
-200
+199
 00:08:51,569 --> 00:08:53,667
 à un if else; j'ai mis un return pour éviter d'avoir
 
-201
+200
 00:08:53,867 --> 00:08:54,863
 à écrire le else.
 
-202
+201
 00:08:55,063 --> 00:08:57,037
 On aurait pu l'écrire, de manière différente.
 
-203
+202
 00:08:57,237 --> 00:09:02,669
 Et ensuite, je définis ma classe TemperatureError
 
-204
+203
 00:09:02,869 --> 00:09:06,347
 qui est mon exception, qui hérite de Exception,
 
-205
+204
 00:09:06,547 --> 00:09:08,153
 voilà, et qui fait simplement pass.
 
-206
+205
 00:09:08,353 --> 00:09:10,652
 J'ai défini, maintenant, mon exception, en plus.
 
-207
+206
 00:09:10,852 --> 00:09:13,473
 Et pour finir, je définis ma classe Maison.
 
-208
+207
 00:09:13,673 --> 00:09:15,238
 Donc, c'est la classe que j'avais tout à l'heure,
 
-209
+208
 00:09:15,438 --> 00:09:17,126
 sur laquelle je vais définir mon descripteur.
 
-210
+209
 00:09:17,326 --> 00:09:19,998
 Donc, dans ma classe Maison, je définis la
 
-211
+210
 00:09:20,198 --> 00:09:27,695
 méthode __init__ qui prend self et une température,
 
-212
+211
 00:09:27,895 --> 00:09:30,763
 une température pour initialiser mon instance,
 
-213
+212
 00:09:30,963 --> 00:09:32,081
 au moment où je la crée.
 
-214
+213
 00:09:32,281 --> 00:09:35,102
 Et ma méthode __init__ va simplement faire
 
-215
+214
 00:09:35,302 --> 00:09:38,778
 un self.temperature = t
 
-216
+215
 00:09:38,978 --> 00:09:41,282
 Et ensuite, pour mettre un descripteur
 
-217
+216
 00:09:41,482 --> 00:09:43,259
 dans ma classe Maison, je n'ai qu'à écrire
 
-218
+217
 00:09:43,459 --> 00:09:48,723
 temperature = Temperature()
 
-219
+218
 00:09:48,923 --> 00:09:51,747
 C'est-à-dire que mon attribut temperature
 
-220
+219
 00:09:51,947 --> 00:09:53,431
 est, en fait, une instance
 
-221
+220
 00:09:53,631 --> 00:09:55,234
 du descripteur Temperature.
 
-222
+221
 00:09:55,434 --> 00:09:57,159
 Donc, que va faire Python, maintenant ?
 
-223
+222
 00:09:57,359 --> 00:09:59,130
 À chaque fois que je vais accéder à cet
 
-224
+223
 00:09:59,330 --> 00:10:01,505
 attribut temperature, on va, automatiquement,
 
-225
+224
 00:10:01,705 --> 00:10:02,903
 appeler la méthode __get__.
 
-226
+225
 00:10:03,103 --> 00:10:05,360
 À chaque fois, que je vais modifier cet attribut
 
-227
+226
 00:10:05,560 --> 00:10:07,776
 temperature, on va, automatiquement, appeler
 
-228
+227
 00:10:07,976 --> 00:10:08,969
 la méthode __set__.
 
-229
+228
 00:10:09,169 --> 00:10:10,573
 Vous remarquez, également, une chose importante :
 
-230
+229
 00:10:10,773 --> 00:10:12,952
 c'est qu'ici j'utilise _temperature avec un underscore
 
-231
+230
 00:10:13,152 --> 00:10:14,356
 et ici également.
 
-232
+231
 00:10:14,556 --> 00:10:16,734
 Attention de ne pas utiliser l'attribut temperature
 
-233
+232
 00:10:16,934 --> 00:10:18,132
 sinon ça ferait un appel récursif;
 
-234
+233
 00:10:18,332 --> 00:10:19,496
 et dans ce cas-là, votre programme ne
 
-235
+234
 00:10:19,696 --> 00:10:21,062
 fonctionnerait pas correctement.
 
-236
+235
 00:10:21,262 --> 00:10:22,950
 Par contre, à l'intérieur de ma classe Maison,
 
-237
+236
 00:10:23,150 --> 00:10:24,555
 je peux effectivement utiliser l'attribut
 
-238
+237
 00:10:24,755 --> 00:10:26,081
 temperature directement.
 
-239
+238
 00:10:26,281 --> 00:10:27,683
 Donc directement, utiliser mon descripteur.
 
-240
+239
 00:10:27,883 --> 00:10:30,054
 J'exécute ce code, je l'évalue.
 
-241
+240
 00:10:30,254 --> 00:10:32,747
 Et maintenant, je vais créer une instance de Maison,
 
-242
+241
 00:10:32,947 --> 00:10:35,203
 que j'initialise à 18 degrés.
 
-243
+242
 00:10:35,403 --> 00:10:37,496
 Et je vais regarder quelle est la température,
 
-244
+243
 00:10:37,696 --> 00:10:40,158
 dans Maison.
 
-245
+244
 00:10:40,358 --> 00:10:42,001
 Je vois qu'il s'affiche bien 18 degrés.
 
-246
+245
 00:10:42,201 --> 00:10:44,384
 Je peux, maintenant, modifier ma température
 
-247
+246
 00:10:44,584 --> 00:10:45,745
 et la mettre à 22 degrés.
 
-248
+247
 00:10:45,945 --> 00:10:48,249
 Je regarde, de nouveau, quelle est la température
 
-249
+248
 00:10:48,449 --> 00:10:49,168
 dans Maison.
 
-250
+249
 00:10:49,368 --> 00:10:50,533
 Maintenant, c'est 22 degrés.
 
-251
+250
 00:10:50,733 --> 00:10:52,339
 Évidemment, comme j'appelle la méthode __set__
 
-252
+251
 00:10:52,539 --> 00:10:54,185
 j'ai tout mon mécanisme de validation
 
-253
+252
 00:10:54,385 --> 00:10:54,898
 qui entre en jeu.
 
-254
+253
 00:10:55,098 --> 00:10:59,965
 Et si ma température sort de l'intervalle autorisé,
 
-255
+254
 00:11:00,165 --> 00:11:01,572
 je vais avoir une exception;
 
-256
+255
 00:11:01,772 --> 00:11:03,588
 mon exception TemperatureError.
 
-257
+256
 00:11:05,958 --> 00:11:07,731
 En conclusion, nous avons vu qu'il était possible,
 
-258
+257
 00:11:07,931 --> 00:11:09,660
 en Python, d'ajouter une couche de logique
 
-259
+258
 00:11:09,860 --> 00:11:13,168
 autour de l'accès ou de la modification des attributs.
 
-260
+259
 00:11:13,368 --> 00:11:14,891
 On utilise, pour ça, les property
 
-261
+260
 00:11:15,091 --> 00:11:16,785
 ou alors un mécanisme plus général
 
-262
+261
 00:11:16,985 --> 00:11:18,836
 sur lequel reposent les property: les descripteurs.
 
-263
+262
 00:11:19,036 --> 00:11:20,848
 Vous verrez, qu'en pratique, les property
 
-264
+263
 00:11:21,048 --> 00:11:23,141
 sont très souvent largement suffisantes,
 
-265
+264
 00:11:23,341 --> 00:11:24,707
 mais, dans les cas les plus complexes
 
-266
+265
 00:11:24,907 --> 00:11:25,822
 et les plus sophistiqués,
 
-267
+266
 00:11:26,022 --> 00:11:27,997
 vous avez toujours la possibilité d'implémenter
 
-268
+267
 00:11:28,197 --> 00:11:29,809
 vos propres descripteurs.
 
-269
+268
 00:11:30,009 --> 00:11:30,889
 À bientôt !
-
-270
-00:11:31,089 --> 00:11:33,089
-
-
-
-
 

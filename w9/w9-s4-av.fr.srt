@@ -1,6 +1,6 @@
 1
 00:00:04,100 --> 00:00:05,415
-Dans cette vidéo,nous allons parler
+Dans cette vidéo, nous allons parler
 
 2
 00:00:05,615 --> 00:00:06,821
@@ -36,7 +36,7 @@ En pratique, à quoi peuvent servir
 
 10
 00:00:17,800 --> 00:00:18,356
-les métaclasses?
+les métaclasses ?
 
 11
 00:00:18,556 --> 00:00:19,191
@@ -148,7 +148,7 @@ les mêmes propriétés.
 
 38
 00:01:00,427 --> 00:01:03,102
-En fait, dans cette vidéo,nous allons détailler
+En fait, dans cette vidéo, nous allons détailler
 
 39
 00:01:03,302 --> 00:01:05,485
@@ -260,7 +260,7 @@ Quelle est la super-classe de dict ? C'est object.
 
 66
 00:02:03,326 --> 00:02:04,653
-Et, quelle est la super-classe de str?
+Et, quelle est la super-classe de str ?
 
 67
 00:02:04,853 --> 00:02:06,017
@@ -288,7 +288,7 @@ Alors, quelle différence, maintenant, j'ai
 
 73
 00:02:19,215 --> 00:02:20,662
-entre une classe et une instance?
+entre une classe et une instance ?
 
 74
 00:02:20,862 --> 00:02:25,736
@@ -348,7 +348,7 @@ Donc i, je le classe dans la catégorie instance.
 
 88
 00:02:56,288 --> 00:02:59,368
-Quel est le type de la classe C? C'est type.
+Quel est le type de la classe C ? C'est type.
 
 89
 00:02:59,568 --> 00:03:01,017
@@ -380,7 +380,7 @@ Donc int, je le classe dans la catégorie classe.
 
 96
 00:03:14,316 --> 00:03:16,788
-Quel est le type de la chaîne de caractères 'a'?
+Quel est le type de la chaîne de caractères 'a' ?
 
 97
 00:03:16,988 --> 00:03:17,866
@@ -400,7 +400,7 @@ Et quel est le type de str ? c'est type.
 
 101
 00:03:25,377 --> 00:03:27,727
-Donc str, je le classe dans la catégorie classe (NDLR pas type).
+Donc str, je le classe dans la catégorie classe.
 
 102
 00:03:27,927 --> 00:03:30,069
@@ -504,7 +504,7 @@ c'est l'objet type.
 
 127
 00:04:23,572 --> 00:04:26,079
-Donc,maintenant,si je reprends mon affichage,
+Donc, maintenant, si je reprends mon affichage,
 
 128
 00:04:26,279 --> 00:04:28,339
@@ -548,7 +548,7 @@ c'est qu'en fait le type d'une classe,
 
 138
 00:04:47,965 --> 00:04:49,253
-c'est également le type de sa super-classe (NDLR pas sous-classe).
+c'est également le type de sa super-classe.
 
 139
 00:04:49,453 --> 00:04:51,070
@@ -636,7 +636,7 @@ Donc regardons
 
 160
 00:05:34,461 --> 00:05:35,989
-mais quel est le lien entre type et object?
+mais quel est le lien entre type et object ?
 
 161
 00:05:36,189 --> 00:05:38,454
@@ -660,7 +660,7 @@ Donc, type a créé object.
 
 166
 00:05:45,792 --> 00:05:48,823
-Quelle est la super-classe de type?
+Quelle est la super-classe de type ?
 
 167
 00:05:49,023 --> 00:05:50,227
@@ -680,7 +680,7 @@ mais c'est une classe. type hérite de object.
 
 171
 00:05:57,136 --> 00:05:59,561
-Et pour finir, quel est le type de type?
+Et pour finir, quel est le type de type ?
 
 172
 00:05:59,761 --> 00:06:00,399
@@ -868,7 +868,7 @@ Seulement, c'est un sujet extrêmement complexe,
 
 218
 00:07:35,502 --> 00:07:37,239
-qui dépasse, de loin, le cadre de ce MOOC;
+qui dépasse, de loin, le cadre de ce MOOC,
 
 219
 00:07:37,439 --> 00:07:38,562
@@ -912,7 +912,7 @@ Comment est-ce qu'on fait pour écrire une
 
 229
 00:07:55,511 --> 00:07:56,510
-métaclasse en Python?
+métaclasse en Python ?
 
 230
 00:07:56,710 --> 00:08:00,854
@@ -936,7 +936,7 @@ Regardons ça un peu plus en détail.
 
 235
 00:08:10,086 --> 00:08:13,489
-Comment est-ce que la métaclasse crée l'objet?
+Comment est-ce que la métaclasse crée l'objet ?
 
 236
 00:08:13,689 --> 00:08:16,025
@@ -1036,11 +1036,11 @@ la fonction builtins type.
 
 260
 00:09:11,090 --> 00:09:13,147
-Donc il va dire C (le nom de la classe) égal à
+Donc il va dire C, le nom de la classe, égal à
 
 261
 00:09:13,347 --> 00:09:15,650
-type(le nom de la classe,
+type de le nom de la classe,
 
 262
 00:09:15,850 --> 00:09:19,047
@@ -1048,7 +1048,7 @@ la super-classe ou les super-classes dans un tuple,
 
 263
 00:09:19,247 --> 00:09:20,696
-et ensuite, l'espace de nommage).
+et ensuite, l'espace de nommage.
 
 264
 00:09:20,896 --> 00:09:22,630
@@ -1076,7 +1076,7 @@ dans le cadre de cette vidéo.
 
 270
 00:09:31,925 --> 00:09:35,363
-Donc que va faire l'appel de type?
+Donc que va faire l'appel de type ?
 
 271
 00:09:35,563 --> 00:09:37,542
@@ -1092,7 +1092,7 @@ Et, en fait, cet appel __call__
 
 274
 00:09:42,305 --> 00:09:42,776
-qu'est-ce qu'il va faire?
+qu'est-ce qu'il va faire ?
 
 275
 00:09:42,976 --> 00:09:44,101
@@ -1144,15 +1144,15 @@ Et on peut même se demander, mais en pratique,
 
 287
 00:10:09,692 --> 00:10:10,366
-qu'est-ce qu'il faut que j'implémente?
+qu'est-ce qu'il faut que j'implémente ?
 
 288
 00:10:10,566 --> 00:10:11,443
-Est-ce qu'il faut que j'implémente new?
+Est-ce qu'il faut que j'implémente new ?
 
 289
 00:10:11,643 --> 00:10:12,974
-Est-ce qu'il faut que j'implémente __init__?
+Est-ce qu'il faut que j'implémente __init__ ?
 
 290
 00:10:13,174 --> 00:10:14,742
@@ -1196,7 +1196,7 @@ hériter est de type.
 
 300
 00:10:32,877 --> 00:10:34,485
-Et quel va être le rôle de cette métaclasse?
+Et quel va être le rôle de cette métaclasse ?
 
 301
 00:10:34,685 --> 00:10:37,034
@@ -1292,7 +1292,7 @@ le nom de la classe, les super-classes,
 
 324
 00:11:19,089 --> 00:11:21,395
-et le dictionnaire/l'espace de nommage.
+et le dictionnaire, l'espace de nommage.
 
 325
 00:11:21,595 --> 00:11:23,448
@@ -1344,7 +1344,7 @@ avec items().
 
 337
 00:11:41,918 --> 00:11:43,241
-Et qu'est-ce que je vais faire?
+Et qu'est-ce que je vais faire ?
 
 338
 00:11:43,441 --> 00:11:46,358
