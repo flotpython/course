@@ -1,0 +1,236 @@
+1
+00:00:07,751 --> 00:00:08,916
+Bonjour
+
+2
+00:00:09,116 --> 00:00:10,563
+Vous voulez débuter en programmation
+
+3
+00:00:10,763 --> 00:00:12,050
+ou apprendre le langage à la mode
+
+4
+00:00:12,250 --> 00:00:13,865
+et vous vous demandez si ce MOOC sur Python
+
+5
+00:00:14,065 --> 00:00:14,866
+répond à vos attentes,
+
+6
+00:00:15,066 --> 00:00:16,557
+alors laissez moi vous expliquer
+
+7
+00:00:16,757 --> 00:00:18,492
+pourquoi vous allez adorer ce MOOC.
+
+8
+00:00:18,692 --> 00:00:20,222
+Python est un langage de programmation
+
+9
+00:00:20,422 --> 00:00:22,772
+facile à apprendre et parfaitement adapté pour débuter.
+
+10
+00:00:22,972 --> 00:00:25,445
+Mais, il est également incroyablement puissant
+
+11
+00:00:25,645 --> 00:00:26,853
+et permet d'écrire, en moins de temps
+
+12
+00:00:27,053 --> 00:00:28,900
+que n'importe quel autre langage, des programmes
+
+13
+00:00:29,100 --> 00:00:31,573
+allant du plus petit script au plus grand projet.
+
+14
+00:00:31,773 --> 00:00:34,853
+Python possède de nombreuses librairies
+
+15
+00:00:35,053 --> 00:00:36,868
+qui sont si riches qu'il existe probablement
+
+16
+00:00:37,068 --> 00:00:39,097
+déjà une librairie pour faire ce que vous voulez.
+
+17
+00:00:39,297 --> 00:00:41,527
+Vous pouvez créer un site web avec Django,
+
+18
+00:00:41,727 --> 00:00:44,359
+développer des applications sur Internet avec Twisted,
+
+19
+00:00:44,559 --> 00:00:46,219
+faire des applications réseau avec ScaPy,
+
+20
+00:00:46,419 --> 00:00:48,157
+faire du calcul scientifique ou symbolique
+
+21
+00:00:48,357 --> 00:00:49,721
+avec Numpy ou Sage,
+
+22
+00:00:49,921 --> 00:00:51,047
+et bien plus encore.
+
+23
+00:00:51,247 --> 00:00:53,798
+Cependant, pour exploiter pleinement ces librairies,
+
+24
+00:00:53,998 --> 00:00:55,737
+vous devez acquérir une profonde compréhension
+
+25
+00:00:55,937 --> 00:00:56,775
+du langage.
+
+26
+00:00:56,975 --> 00:00:59,483
+Dans ce MOOC, vous apprendrez à bien programmer
+
+27
+00:00:59,683 --> 00:01:00,196
+en Python.
+
+28
+00:01:00,396 --> 00:01:02,494
+En effet, on ne programme pas en Python
+
+29
+00:01:02,694 --> 00:01:04,917
+comme on programme en C++ ou en Java.
+
+30
+00:01:05,117 --> 00:01:07,423
+Le langage Python encourage
+
+31
+00:01:07,623 --> 00:01:08,789
+une programmation intuitive
+
+32
+00:01:08,989 --> 00:01:10,807
+qui repose sur une syntaxe naturelle
+
+33
+00:01:11,007 --> 00:01:12,499
+et des concepts fondamentaux puissants
+
+34
+00:01:12,699 --> 00:01:14,562
+qui facilitent la programmation.
+
+35
+00:01:14,762 --> 00:01:16,619
+Dans ce MOOC, nous verrons tous les aspects
+
+36
+00:01:16,819 --> 00:01:18,887
+du langage, dans de nombreuses vidéos courtes,
+
+37
+00:01:19,087 --> 00:01:20,088
+et nous les approfondirons
+
+38
+00:01:20,288 --> 00:01:21,901
+dans des exercices et mini-projets.
+
+39
+00:01:22,101 --> 00:01:24,282
+A la fin de ce MOOC, vous maîtriserez
+
+40
+00:01:24,482 --> 00:01:25,484
+les fondamentaux du langage
+
+41
+00:01:25,684 --> 00:01:26,973
+et vous saurez les utiliser
+
+42
+00:01:27,173 --> 00:01:28,545
+pour en exploiter toute la puissance.
+
+43
+00:01:28,745 --> 00:01:31,616
+Ce MOOC est parfaitement adapté à
+
+44
+00:01:31,816 --> 00:01:33,267
+des programmeurs confirmés qui veulent découvrir
+
+45
+00:01:33,467 --> 00:01:34,713
+et approfondir un nouveau langage.
+
+46
+00:01:34,913 --> 00:01:36,156
+Mais il est également adapté
+
+47
+00:01:36,356 --> 00:01:37,558
+à des débutants en programmation
+
+48
+00:01:37,758 --> 00:01:39,655
+d'un niveau licence scientifique,
+
+49
+00:01:39,855 --> 00:01:41,882
+c'est-à-dire avec des bases en informatique,
+
+50
+00:01:42,082 --> 00:01:44,352
+une familiarité avec certaines notions mathématiques
+
+51
+00:01:44,552 --> 00:01:45,800
+comme les variables et les fonctions,
+
+52
+00:01:46,000 --> 00:01:47,086
+des notions d'algorithmique,
+
+53
+00:01:47,286 --> 00:01:49,058
+et une bonne capacité d'abstraction.
+
+54
+00:01:49,258 --> 00:01:51,197
+Cependant, nous sommes convaincus
+
+55
+00:01:51,397 --> 00:01:53,543
+qu'une forte motivation et beaucoup de travail
+
+56
+00:01:53,743 --> 00:01:55,481
+peuvent remplacer ces prérequis.
+
+57
+00:01:55,681 --> 00:01:57,868
+Alors, n'hésitez pas à nous rejoindre sur ce MOOC
+
+58
+00:01:58,068 --> 00:02:00,622
+pour découvrir, approfondir, et maîtriser Python.
+
+59
+00:02:00,822 --> 00:02:02,822
+À bientôt !
+
