@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:05,757 --> 00:00:06,614
 Dans cette vidéo,
 
@@ -80,7 +80,7 @@ Les chaînes de caractères
 
 21
 00:00:34,209 --> 00:00:35,434
-sont des objets immuables ;
+sont des objets immuables,
 
 22
 00:00:35,534 --> 00:00:36,920
@@ -116,7 +116,7 @@ Comme je viens de l'expliquer,
 
 30
 00:00:46,082 --> 00:00:47,374
-les chaînes de caractères sont immuables ;
+les chaînes de caractères sont immuables,
 
 31
 00:00:47,474 --> 00:00:49,190
@@ -160,7 +160,7 @@ Python a l'avantage d'être un langage
 
 41
 00:01:02,764 --> 00:01:03,760
-auto-documenté ;
+auto-documenté,
 
 42
 00:01:03,860 --> 00:01:05,636
@@ -184,7 +184,7 @@ Je sais que les chaînes de caractères,
 
 47
 00:01:11,523 --> 00:01:12,670
-c'est le type str ;
+c'est le type str,
 
 48
 00:01:13,094 --> 00:01:14,709
@@ -192,7 +192,7 @@ je peux donc directement écrire
 
 49
 00:01:14,809 --> 00:01:16,387
-str point d'interrogation ;
+str point d'interrogation,
 
 50
 00:01:16,487 --> 00:01:18,226
@@ -212,7 +212,7 @@ ou depuis un notebook.
 
 54
 00:01:22,214 --> 00:01:23,391
-Regardons ce que j'obtiens ;
+Regardons ce que j'obtiens,
 
 55
 00:01:23,491 --> 00:01:25,373
@@ -264,7 +264,7 @@ qui commencent et finissent
 
 67
 00:01:46,504 --> 00:01:47,323
-par des doubles underscores ;
+par des doubles underscores,
 
 68
 00:01:47,664 --> 00:01:48,863
@@ -372,7 +372,7 @@ alors comme j'ai une apostrophe,
 
 94
 00:02:33,285 --> 00:02:34,723
-je vais l'entourer par des guillemets ;
+je vais l'entourer par des guillemets,
 
 95
 00:02:34,823 --> 00:02:37,852
@@ -580,7 +580,7 @@ formater une chaîne de caractères.
 
 146
 00:04:05,482 --> 00:04:07,254
-Je vais prendre l'exemple suivant ;
+Je vais prendre l'exemple suivant :
 
 147
 00:04:07,354 --> 00:04:11,156
@@ -704,7 +704,7 @@ avec ensuite point format.
 
 177
 00:05:04,630 --> 00:05:07,384
-Depuis Python3.5, il est possible de créer
+Depuis Python 3.6, il est possible de créer
 
 178
 00:05:07,484 --> 00:05:08,670
@@ -756,7 +756,7 @@ de cette chaîne de caractères
 
 190
 00:05:25,474 --> 00:05:27,330
-va être "sonia a 30 ans" ;
+va être "sonia a 30 ans",
 
 191
 00:05:27,430 --> 00:05:28,632
