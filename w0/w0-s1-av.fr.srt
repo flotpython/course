@@ -72,7 +72,7 @@ développer des applications sur Internet avec Twisted,
 
 19
 00:00:44,559 --> 00:00:46,219
-faire des applications réseau avec ScaPy,
+faire des applications réseau avec Scapy,
 
 20
 00:00:46,419 --> 00:00:48,157
