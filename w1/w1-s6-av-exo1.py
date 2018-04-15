@@ -22,24 +22,24 @@ i = 1
 # ou affecter le résultat d'un calcul
 i = 5 + 3
 
-## Comment on connait le type d'un objet en Python ?
+## Comment connait-on le type d'un objet en Python ?
 ## On utilise la fonction built-in type() qui accepte comme
 ## argument une variable ou un objet. 
 
 type(i)
 
-## en python les int sont de taille illimité
+## en Python les int sont de taille illimitée
 i = 23480284028402840289482184018 # taille illimitée
 i * i     # taille illimitée
 i ** 32
 
-## Les décimaux, qu'on appelle aussi 'flottants' on une
-## précision limité à environ 15 chiffres significatifs (53 bits de précision)
+## Les décimaux, qu'on appelle aussi 'flottants' ont une
+## précision limitée à environ 15 chiffres significatifs (53 bits de précision)
 # On sépare la partie entière et décimale par un .
 f = 4.3
 
 ## Pour finir on a les nombres complexes qui sont
-## construit comme deux nombre décimaux. Ils ont donc
+## construits comme deux nombre décimaux. Ils ont donc
 ## les mêmes limitations de précision. 
 
 c = 1 + 3j
@@ -47,25 +47,25 @@ c = 1 + 3j
 c.real, c.imag
 
 ## On peut 'mélanger' les types numériques dans une expression, 
-## par exemple en ajoutant un entier et un flottant
+## par exemple en ajoutant un entier et un flottant.
 ## Par contre on peut perdre en précision.
-## Un int et un float donne toujours un float
+## Un int et un float donnent toujours un float.
 
 i + f
 
 ## Un int ou un float et un complex
-## donne toujours un complex
+## donnent toujours un complex
 
 i + c
 
-## On peut convertir des types de bases entre eux (avec risque là aussi
+## On peut convertir des types de base entre eux (avec risque là aussi
 ## de perte de précision ou d'information, troncation).
 
 int(4.32)
 float(9879729572895792375948)
 complex(10)
 
-## Résumons les différentes opération que l'on peut faire sur les
+## Résumons les différentes opérations que l'on peut faire sur les
 ## types numériques
 
 5 + 3
@@ -81,13 +81,13 @@ abs(-5.3) # valeur absolue
 ## à proprement parler un type numérique, mais qui est implémenté comme
 ## tel, c'est le type booléen qui s'appelle bool en python.
 # Ce type est utilisé pour le résultat
-## de tous les tests en Python et ne contient que deux valeurs True et False
+## de tous les tests en Python et ne contient que deux valeurs True et False.
 ## On verra bientôt cette notion de test en Python, mais regardons un exemple
 ## simple pour illustrer les booléens
 
 1 < 2
 1 > 2
 
-## noter la premiere lettre qui est une majuscule
+## noter la première lettre qui est une majuscule
 
 ## nous reviendrons très bientôt sur l'utilisation des Booléens
