@@ -7,7 +7,7 @@ Le type dictionnaire est un type :
 (x) mutable
 
 [explanation]
-On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire
+On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire.
 [explanation]
 
 
