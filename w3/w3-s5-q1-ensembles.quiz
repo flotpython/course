@@ -27,14 +27,14 @@ option 5: la liste elle-même est mutable.
 Ensemble vide
 =====
 
-Pour créer un ensemble <code>set</code> vide en python on peut faire : 
+Pour créer un ensemble <code>set</code> vide en Python on peut faire : 
 
 [ ] <code>{}</code>
 [x] <code>set()</code>
 [x] <code>set([])</code>
 
 [explanation]
-La première forme renvoie un objet de type <code>dict</code>
+La première forme renvoie un objet de type <code>dict</code>.
 
 Les deux autres formes fonctionnent très bien; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
 
@@ -47,9 +47,9 @@ Test d'appartenance à un ensemble
 
 On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelle  affirmation est correcte ? : 
 
-( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble
-(x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant
-( ) On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>
+( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble.
+(x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant.
+( ) On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>.
 
 [explanation]
 Les ensembles sont implémentés comme des tables de hachage, au même titre que les dictionnaires. Que <code>s</code> soit un <code>set</code> ou un <code>frozenset</code>, on peut donc tester l'appartenance de <code>x</code> avec <code>x in s</code>, et cette opération prend un temps qui ne dépend pas de la taille de l'ensemble.
