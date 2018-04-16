@@ -2,11 +2,11 @@
 Fonctions (1)
 =====
 
-Une fonction en python 
+Une fonction en Python 
 
-( ) doit contenir une instruction <code>return</code> 
-( ) peut contenir 0 ou 1 instruction <code>return</code>
-(x) peut contenir 0 ou n instructions <code>return</code>
+( ) doit contenir une instruction <code>return</code>. 
+( ) peut contenir 0 ou 1 instruction <code>return</code>.
+(x) peut contenir 0 ou n instructions <code>return</code>.
 
 [explanation]
 Le <code>return</code> est optionnel, si la fonction termine sans avoir rencontré <code>return</code> elle retourne <code>None</code>.
@@ -20,9 +20,9 @@ Fonctions (2)
 
 Est-il possible pour une fonction de modifier l'objet qui lui est passé en argument ?
 
-(x) Oui, si l'objet est mutable
-( ) Oui, on peut modifier tous les objets
-( ) Non, une fonction travaille sur une copie et elle ne peut modifier l'objet dans l'espace de l'appelant
+(x) Oui, si l'objet est mutable.
+( ) Oui, on peut modifier tous les objets.
+( ) Non, une fonction travaille sur une copie et elle ne peut modifier l'objet dans l'espace de l'appelant.
 
 [explanation]
 Comme les arguments sont passés par référence, les objets de l'appelant, s'ils sont mutables, peuvent être modifiés à l'intérieur de la fonction.
@@ -34,9 +34,9 @@ Fonctions (3)
 
 Quand est exécuté le bloc de code d'une fonction ?
 
-( ) À l'importation du module contenant la fonction
-(x) À chaque appel de la fonction
-( ) À la création de l'objet fonction
+( ) À l'importation du module contenant la fonction.
+(x) À chaque appel de la fonction.
+( ) À la création de l'objet fonction.
 
 [explanation]
 Lors de l'importation du module contenant la fonction, l'objet fonction est créé, mais le bloc de code de la fonction n'est pas exécuté. Le bloc de code d'une fonction n'est exécuté qu'à l'appel de la fonction.
@@ -46,12 +46,12 @@ Lors de l'importation du module contenant la fonction, l'objet fonction est cré
 Type hints
 =====
 
-Parmi les déclarations de fonction suivantes, lesquelles sont légales en python3.6:
+Parmi les déclarations de fonction suivantes, lesquelles sont légales en Python3.6:
 
 [x] <code> def fact(n): </code>
 [x] <code> def fact(n : int):</code>
 [x] <code> def fact(n : int) -> int:</code>
 
 [explanation]
-Les trois formes sont légales, les deux dernières utilisent les *type hints* pour indiquer le type du paramètre, et pour la dernière le type de retour
+Les trois formes sont légales, les deux dernières utilisent les *type hints* pour indiquer le type du paramètre, et pour la dernière le type de retour.
 [explanation]

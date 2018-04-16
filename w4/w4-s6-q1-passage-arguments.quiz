@@ -2,7 +2,7 @@
 Passage d'arguments par défaut
 =====
 
-Quelles sont les manières correctes de déclarer un argument <code>var</code> par défaut dans une fonction.
+Quelles sont les manières correctes de déclarer un argument <code>var</code> par défaut dans une fonction ?
 
 <h3>Proposition 1</h3>
 <pre>
@@ -43,7 +43,7 @@ Choisissez une ou plusieurs propositions.
 [ ] Proposition 5
 
 [explanation]
-La proposition 1 est syntaxiquement incorrecte: on doit déclarer un argument par défaut avec le signe <code>=</code> et non <code>==</code>.
+La proposition 1 est syntaxiquement incorrecte : on doit déclarer un argument par défaut avec le signe <code>=</code> et non <code>==</code>.
 
 La proposition 2 est correcte.
 
@@ -51,7 +51,7 @@ La proposition 3 est incorrecte, les arguments par défaut doivent toujours appa
 
 La proposition 4 est correcte puisque dans ce cas, <code>b</code> est également un argument par défaut.
 
-La proposition 5 est incorrecte, on ne peut pas dupliquer un argument dans l'entête d'une fonction, ici <code>var</code> est dupliqué. 
+La proposition 5 est incorrecte, on ne peut pas dupliquer un argument dans l'en-tête d'une fonction, ici <code>var</code> est dupliqué. 
 [explanation]
 
 <hr/>
