@@ -34,7 +34,7 @@ Que va afficher l'exécution de ce code ?
 [ ] x
 
 [explanation]
-La directive <code>global</code> permet de modifier la variable <code>x</code> dans l'espace de nommage du module. Si la variable déclarée comme global n'existe par encore dans le module, elle est créée à la première affectation. 
+La directive <code>global</code> permet de modifier la variable <code>x</code> dans l'espace de nommage du module. Si la variable déclarée comme global n'existe pas encore dans le module, elle est créée à la première affectation. 
 [explanation]
 
 

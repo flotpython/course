@@ -64,7 +64,7 @@ Quels sont ceux qui impriment <code>oui</code> ? :
 [explanation]
 Dans le premier fragment, le premier test est positif, mais le second est négatif car <code>0</code> est considéré comme faux.
 
-Dans le second fragment, c'est la valeur de retour de <code>pop()</code>, donc l'entier 1, qui est évaluée à vrai. Ce fragment affiche donc oui
+Dans le second fragment, c'est la valeur de retour de <code>pop()</code>, donc l'entier 1, qui est évaluée à vrai. Ce fragment affiche donc oui.
 
 Dans le troisième fragment, le premier test est positif, mais le second est négatif, et par conséquent <b>rien n'est imprimé</b> car le <code>if</code> interne n'a pas de clause <code>else</code>.
 [explanation]

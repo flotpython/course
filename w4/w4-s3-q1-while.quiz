@@ -1,7 +1,7 @@
 <hr/>
 Boucle <code>while</code> (1)
 =====
-Pour quel usage une boucle <code>while</code> est mieux adaptée qu'une boucle <code>for</code>
+Pour quel usage une boucle <code>while</code> est mieux adaptée qu'une boucle <code>for</code> ?
 
 [ ] parcourir une liste
 [ ] parcourir un dictionnaire
