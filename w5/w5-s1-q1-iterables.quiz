@@ -12,9 +12,9 @@ Parmi les types suivants, lesquels sont des itérables ? :
 [ ] <code>complex</code>
 
 [explanation]
-On peut itérer sur tous les types de base qui constituent une collection d'autres objets (<code>list</code>, <code>tuple</code>, <code>set</code>)
+On peut itérer sur tous les types de base qui constituent une collection d'autres objets (<code>list</code>, <code>tuple</code>, <code>set</code>).
 
-On peut itérer sur les chaînes de caractères, dans ce cas on balaye les caractères contenus dans la chaîne
+On peut itérer sur les chaînes de caractères, dans ce cas on balaye les caractères contenus dans la chaîne.
 
 On peut itérer sur les dictionnaires, on balaye alors toutes les clés du dictionnaire.
 

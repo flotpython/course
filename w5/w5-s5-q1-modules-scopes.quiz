@@ -4,10 +4,10 @@ Modules et espaces de nommage (1)
 
 Sélectionnez les assertions suivantes qui sont vraies.
 
-[x] Un module est un fichier qui finit en <code>.py</code>
-[x] Un module peut contenir n'importe quel code python
-[x] Le premier import d'un module va créer un objet 
-[x] On utilise les modules comme des boîtes à outils
+[x] Un module est un fichier qui finit en <code>.py</code>.
+[x] Un module peut contenir n'importe quel code Python.
+[x] Le premier import d'un module va créer un objet. 
+[x] On utilise les modules comme des boîtes à outils.
 
 [explanation]
 Un module est un fichier finissant en .py qui contient du code Python.
@@ -21,13 +21,13 @@ Modules et espaces de nommage (2)
 
 Sélectionnez les assertions suivantes qui sont vraies.
 
-[x] Un espace de nommage sert à isoler les variables 
-[ ] Un espace de nommage sert à isoler les objets
-[ ] Deux variables de même nom dans deux espaces de nommage référencent toujours le même objet
-[x] Chaque module définit son propre espace de nommage
-[x] Je peux accéder à n'importe quelle variable <code>x</code> dans le module <code>mod</code> avec la notation <code>mod.x</code>
+[x] Un espace de nommage sert à isoler les variables.
+[ ] Un espace de nommage sert à isoler les objets.
+[ ] Deux variables de même nom dans deux espaces de nommage référencent toujours le même objet.
+[x] Chaque module définit son propre espace de nommage.
+[x] Je peux accéder à n'importe quelle variable <code>x</code> dans le module <code>mod</code> avec la notation <code>mod.x</code>.
 
-Pour la dernière assertion, vous pouvez supposer que le nom <code>x</code> ne commence pas par un underscore <code>_</code>
+Pour la dernière assertion, vous pouvez supposer que le nom <code>x</code> ne commence pas par un underscore <code>_</code>.
 
 [explanation]
 Les espaces de nommage servent à isoler les variables, mais pas les objets qui eux vivent dans un espace mémoire partagé.
@@ -89,7 +89,7 @@ Suivant la règle LEGB, la variable <code>spam</code> retournée par la fonction
 
 Enfin <code>egg</code> est la variable <code>egg</code> dans le module <code>egg</code>, soit <code>2</code>.
 
-Ces trois objets sont retourné par <code>egg()</code> sous la forme d'un tuple.
+Ces trois objets sont retournés par <code>egg()</code> sous la forme d'un tuple.
 
 Notons que le choix des noms de variables et de modules entraîne volontairement de la confusion pour tester votre compréhension dans ce quiz. Dans un cas réel de programme, on évitera au maximum d'utiliser dans deux modules que l'on écrit des variables avec un nom générique qui ont un rôle différent (entier et fonction pour <code>egg</code>). D'une manière générale, il est souhaitable que le nom du module et de ses attributs soient suffisamment explicites pour comprendre leur rôle sans regarder la documentation (ça n'est évidemment pas le cas ici). 
 [explanation]
