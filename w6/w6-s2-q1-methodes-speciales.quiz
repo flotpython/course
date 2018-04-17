@@ -56,15 +56,15 @@ Si maintenant je fais (évidemment ceci est déconseillé !):
 </pre>
 </code>
 
-Que va-t-il se passer ?
+que va-t-il se passer ?
 
-( ) le test retourne False
-(x) le test retourne True
-( ) une exception est levée
+( ) Le test retourne False.
+(x) Le test retourne True.
+( ) Une exception est levée.
 
 [explanation]
 En réaffectant la méthode spéciale truediv, je modifie la façon dont l'interpréteur évalue la division, qui va maintenant retourner la partie gauche de l'expression. C'est pourquoi le test renvoie True.
 
-Évidemment il s'agit d'un cas à vocation uniquement pédagogique, il est fortement déconseillé de modifier de cette façon le comportement de la bibliothèque standard; si un tel comportement était réellement souhaité il faudrait créer une sous-classe de Path, bien entendu.
+Évidemment il s'agit d'un cas à vocation uniquement pédagogique, il est fortement déconseillé de modifier de cette façon le comportement de la bibliothèque standard ; si un tel comportement était réellement souhaité il faudrait créer une sous-classe de Path, bien entendu.
 
 [explanation]

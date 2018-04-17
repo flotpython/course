@@ -4,15 +4,15 @@ Context manager (1)
 
 Quelle(s) affirmation(s) est(sont) vraie(s) ?
 
-[ ] Le but d'un context manager est de remplacer un bloc <code>try except</code>
+[ ] Le but d'un context manager est de remplacer un bloc <code>try except</code>.
 [x] Le but d'un context manager est de permettre à un développeur de définir dans son objet des opérations de finalisation qui seront automatiquement exécutées en sortie d'une instruction <code>with</code>.
 [x] Les opérations de finalisation sont exécutées même s'il y a une exception dans le bloc de code de l'instruction <code>with</code>.
-[x] Le protocole de context manager est défini par l'implémentation des méthodes <code>__enter__</code> et <code>__exit__</code>
+[x] Le protocole de context manager est défini par l'implémentation des méthodes <code>__enter__</code> et <code>__exit__</code>.
 
 
 
 [explanation]
-Toutes les affirmations sont vraies sauf la première. Le but du protocole de context manager est plutôt de remplacer la construction <code>try finally</code>
+Toutes les affirmations sont vraies sauf la première. Le but du protocole de context manager est plutôt de remplacer la construction <code>try finally</code>.
 [explanation]
 
 <hr/>
@@ -78,6 +78,6 @@ Exception
 ( ) Choix 4
 
 [explanation]
-Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va intérrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée.
+Lorsque l'on rentre dans le bloc de code du <code>with</code> on exécute la méthode <code>__enter__</code> sur l'instance de <code>MyContext</code>, puis on affiche <code>bloc with enter</code>. On lance ensuite une exception qui va interrompre l'exécution du bloc de code et appeler la méthode <code>__exit__</code> sur l'instance de <code>MyContext</code>. Cette méthode va afficher <code>in exit</code>, mais comme cette méthode retourne <code>True</code>, l'exception est capturée et n'est pas relancée.
 Dans du code réel naturellement, la méthode <code>__exit__</code> devrait tester si une exception a eu lieu on non, et la propager si nécessaire, ce que cet exemple simplifié ne fait pas.
 [explanation]

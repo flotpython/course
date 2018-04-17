@@ -4,10 +4,10 @@ Conception d'exceptions (1)
 
 Comment concevoir une exception ?
 
-(x) Il faut créer une classe qui hérite de la classe<code>Exception</code>
-( ) Il faut créer une classe qui contient <code>raise Exception</code>
-( ) Ça n'est pas possible en Python
-( ) Il faut écrire un bloc <code>try / except</code> dans une fonction
+(x) Il faut créer une classe qui hérite de la classe<code>Exception</code>.
+( ) Il faut créer une classe qui contient <code>raise Exception</code>.
+( ) Ça n'est pas possible en Python.
+( ) Il faut écrire un bloc <code>try / except</code> dans une fonction.
 
 [explanation]
 
@@ -23,18 +23,18 @@ class MyError(Exception):
     pass
 
 try:
-    raise MyError("une exception personalisée", 100)
+    raise MyError("une exception personnalisée", 100)
 except MyError as e:
     print(e.args)
 </pre>
 
 <h3>Que va produire l'exécution de ce code ?</h3>
-(x) L'affichage <code>('une exception personalisée', 100)</code>
-( ) Une exception <code>MyError: ('une exception personalisée', 100)</code>
-( ) Une exception <code>Exception: ('une exception personalisée', 100)</code>
-( ) Il ne va rien s'afficher
+(x) L'affichage <code>('une exception personnalisée', 100)</code>.
+( ) Une exception <code>MyError: ('une exception personnalisée', 100)</code>.
+( ) Une exception <code>Exception: ('une exception personnalisée', 100)</code>.
+( ) Il ne va rien s'afficher.
 
 [explanation]
-Une exception <code>MyError</code> est lancée par <code>raise MyError("une exception personalisée", 100)</code>, mais cette exception est correctement capturée par la clause <code>except MyError as e</code>. L'instance de l'exception a un attribut <code>args</code> qui référence le tuple des arguments passés à la construction de l'exception. 
+Une exception <code>MyError</code> est lancée par <code>raise MyError("une exception personnalisée", 100)</code>, mais cette exception est correctement capturée par la clause <code>except MyError as e</code>. L'instance de l'exception a un attribut <code>args</code> qui référence le tuple des arguments passés à la construction de l'exception. 
 [explanation]
 
