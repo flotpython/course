@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+###################################################################
+
+## Vidéo 1 (Organisation du MOOC)
+
+W1-S1-AV.txt 
+
+## Compléments Vidéo 1
+OK Complement-installer-python.ipynb quelques ressources pour l'installation de python
+
+## Quizz Vidéo 1
+
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (la distribution standard)
+
+## Compléments Vidéo 2
+OK Complement-accents.ipynb -- commencer à parler des accents
+
+## Quizz Vidéo 2
+
+###################################################################
+
+## Vidéo 3 (les notebooks - ipython)
+
+## Compléments Vidéo 3
+OK Complement-utiliser-les-notebooks.ipynb : expliquer le fonctionnement des notebooks
+NICETOHAVE quelques mots sur la charge et le timeout à 1h
+OK Complement-notebooks-et-interpreteur.ipynb : illustrer un bout de programme executé sous interpréteur, par python et sous notebook
+OK Complement-la-ligne-shebang.ipynb -- #!/usr/bin/env python pour mac et linux
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+OK Complement-fibonacci-prompt.ipynb & .py : un notebook qui calcule et affiche fibonacci avec raw_input  
+OK Complement-fibonacci.ipynb & .py : un notebook qui calcule et affiche fibonacci avec argument passé sur la ligne de commande
+OK S3-C6-carres-en-turtle.ipynb & .py : un notebook pour publier du code a telecharger et a jouer sur son ordi 
+OK turtle_squares.py : un petit bout de code turtle un peu plus élaboré - le code est prêt mais je ne sais pas trop comment le présenter
+			       	     	      ce serait bien de l'uploader quelque part et de le citer dans le 1er notebook
+OK turtle_fractal.py : arranger les differentes versions de turtle_fractal de semainex-a-ranger et exposer ici avec turtle_squares
+
+NICETOHAVE debugger-pdb.ipynb : expliquer le principe du debugger et le mettre en oeuvre sur un exemple
+
+###################################################################
+
+## Vidéo 4 (Pourquoi python)
+
+## Compléments Vidéo 4
+OK Complement-suggestions-de-lecture.ipynb : collection de liens utiles 
+OK Complement-type-checking.ipynb:  typage dynamique / typage statique / inference de type 
+OK Complement-garbage-collector.ipynb
+OK Complement-print-en-python3.ipynb - sans doute a deplacer + tard
+
+## Quizz Vidéo 4
+
+## Exercices Vidéo 4
+
+###################################################################

@@ -1,0 +1,190 @@
+# -*- coding: utf-8 -*-
+# -*- eval: (auto-fill-mode 0) -*-
+
+# TITRE SEMAINE 3 : Références partagées et itérateurs 
+
+###################################################################
+
+## Vidéo 1 (Tables de hash)
+NIVEAU: BASIC
+
+W3-S1-AV.txt 
+
+## Compléments Vidéo 1 
+pas de complement ni exercice sur ce topic tres abstrait
+## Quizz Vidéo 1
+## Exercices Vidéo 1
+
+
+###################################################################
+
+## Vidéo 2 (Les dictionnaires)
+NIVEAU: BASIC
+
+W3-S2-AV.txt 
+
+## Compléments Vidéo 2
+OK Complement-dictionnaires.ipynb - recapitulatif sur comment utiliser un dict + url vers la doc python
+OK Complement-cles-immuables.ipynb - types immuables et clés globalement immuables
+OK Complement-record-et-dictionnaire.ipynb - une utilisation standard du dictionnaire pour faire un struct
+
+## Quizz Vidéo 2
+OK W3-S2-E1-dicts.quiz - un quiz sur les dictionnaires
+
+## Exercices Vidéo 2
+OK Exercice-marine-dictionnaire.ipynb - premier morceau de code un peu réel avec data/marine*.json -- assez simple - data et corrections OK
+				               	       	       	      
+###################################################################
+
+## Vidéo 3 (Les ensembles)
+NIVEAU: BASIC
+
+W3-S3-AV.txt 
+
+## Compléments Vidéo 3
+OK Complement-ensembles.ipynb : recap. fonctions/methodes sur les ensembles
+
+-------- 
+XXX Inutile en fait puisque j'en parle dans la dernière vidéo du MOOC
+BOF *test de performance sur le test d'appartenance entre list et set
+pour expliquer qu'il faut toujours utiliser des sets
+>>> timeit.timeit(setup= "x = range(2)", stmt = '"c" in x', number = 6000000)
+1.042163089558322
+>>> timeit.timeit(setup= "x = set(range(2))", stmt = '"c" in x', number = 6000000)
+0.32964897792466274
+>>> timeit.timeit(setup= "x = range(2)", stmt = '0 in x', number = 6000000)
+0.3086782596151636
+>>> timeit.timeit(setup= "x = set(range(2))", stmt = '0 in x', number = 6000000)
+0.3819173343944584
+--------
+
+
+## Quizz Vidéo 3
+
+## Exercices Vidéo 3
+NICETOHAVE : un quiz qui met l'accent sur le choix judicieux du type de base en fonction du probleme posé 
+entre tuple, liste, dict, set (et pourquoi pas aussi frozenset si il faut hacher)
+
+OK Exercice-marine-ensembles.ipynb - avec le même genre de données de marine traffic xxx version python à 
+ 
+###################################################################
+
+## Vidéo 4 (Les références partagées)
+NIVEAU: BASIC
+
+W3-S4-AV.txt 
+
+## Compléments Vidéo 4
+OK Complement-operateur-is-et-fonction-id.ipynb : function id(), operateur is,  les entiers implementes comme des singletons
+OK Complement-references-circulaires.ipynb : une liste infinie; un exemple + utile de reference circulaire
+OK Complement-les-differentes-copies.ipynb - make sure this comes after is-id 
+OK Complement-instruction-del.ipynb *del a;  del L[i:j:k]; del d[clef]
+OK Complement-affectation-simultanee.ipynb   a = b = []
+
+BOF gc.ipynb peut-etre plus tard mais je vois ca comme un truc super scabreux (si on veut le faire correctement)
+en plus sys.getrefcount c'est un detail d'implementation; je sais pas si pypy a ça par exemple
+* sys.getrefcount()
+
+## Quizz Vidéo 4
+OK W3-S4-E1-multiply.quiz liste=[[1]]*5 et demander une solution pour ne pas avoir de ref. partagées 
+
+## Exercices Vidéo 4
+
+
+DROPPED* exo pour voir jusqu'à quelle taille de chaîne de caractères (et quelle taille d'entier) 
+                 Python arrête de faire des références partagées pour optimiser la mémoire. 
+		 je laisse tomber car la fonction is_singleton e comporte de maniere bizarre
+NICETOHAVE * essayer d'écrire un bout de code buggé et demander aux gens detrouver l'erreur en rajoutant une copie
+
+###################################################################
+## Vidéo 5 (Introduction aux modules)
+NIVEAU: BASIC
+
+W3-S5-AV.txt
+
+## Compléments Vidéo 5
+OK Complement-packages.ipynb
+OK Complement-modules-et-chemins.ipynb: 
+OK Complement-recapitulatif-import.ipynb : pourquoi il ne faut pas utiliser import *
+OK Complement-module-collections.ipynb: des variantes utiles aux types de base
+
+## Exercices Vidéo 5
+OK Exercice-decode-zen.ipynb : décoder le zen de python à partir de this (de import this) 
+
+## Quizz Vidéo 5  
+
+NICETOHAVE un exo (sans correction) qui invite les etudiants
+  (*) basique: creer un module dans leur workingdir et a l'importer
+  (*) intermediaire: creer un package "utils" dans le workingdir avec un module dedans
+
+ça pourrait se faire avec un quiz en dessous pour voir si les gens y arrivent,
+
+###################################################################
+
+## Vidéo 6 (L'indentation comme syntaxe de base)
+NIVEAU: BASIC
+
+W3-S6-AV.txt
+
+## Compléments Vidéo 6
+OK Complement-presentation.ipynb
+OK Complement-instruction-pass.ipynb
+-présenter pass qui est utilisé pour rendre syntaxiquement correct un bloc
+de code que l'on n'a pas encore écrit (voir pour les fonctions, for, if)
+
+## Quizz Vidéo 6
+
+## Exercices Vidéo 6
+XXX je n'ai aucune idée pour un exercice intéressant ici, ou bien alors peut être avec la formule
+(notebook + quiz) qu'on a évoquée à un moment mais qu'on n'a pas encore pu essayer
+
+###################################################################
+
+## Vidéo 7 (Les tests if/elif/else et les opérateurs booléens)
+NIVEAU: BASIC
+
+# if avec resultat non booleen
+# operateurs booleens - priorites..
+
+W3-S7-AV.txt
+
+## Compléments Vidéo 7
+OK Complement-evaluation-conditions.ipynb: évaluation paresseuse (repris et aménagé de W2-S6)
+OK Complement-conditions-2.ipynb:  recap expressions dans un if
+
+## Quizz Vidéo 7
+
+## Exercices Vidéo 7
+
+OK Exercice-if.ipynb: des exercices sur des ifs un peu torturés 
+NICETOHAVE : c'est un peu léger dans l'état
+
+###################################################################
+
+## Vidéo 8 (Les boucles for et les itérateurs)
+NIVEAU: BASIC
+
+W3-S8-AV.txt
+# for sur une sequence - for sur un objet qui a un iterateur -
+# __iter__  / next / StopIteration
+
+## Compléments Vidéo 8
+
+OK Complement-instructions-break-et-continue.ipynb
+OK Complement-ne-pas-modifier-sujet-boucle-for.ipynb: il ne faut pas pas modifier l'objet sur lequel on fait un for 
+ONGOING Complement-variables-de-boucle.ipynb  
+ OK Complement-iterateurs-et-performances.ipynb: 
+OK Complement-iterable-vs-iterateur.ipynb: un complément qui précise un peu mieux la notion d'itérable et d'itérateur
+
+BOF : je laisse tomber tout ca pour l'instant
+ -voir le else du for 
+-présenter la méthode built-in iter() en expliquant que comme
+__iter__() est une méthode Python privée, on ne doit pas l'appeler
+directement dans un programme, on doit utiliser la built-in iter()
+à la place.
+
+## Quizz Vidéo 8
+
+## Exercices Vidéo 8
+OK W3-S8-E1-iterables.quiz
+NICETOHAVE: W3-S8-E2-for.ipynb: des exercices sur des fors un peu torturés  

@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+#
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Compréhension de listes, sets et dictionnaires
+
+## Résumé de la vidéo (30 secondes)
+
+Nous avons vu que les boucles for et les fonction map et filter 
+pouvaient exploiter la puissance des itérateurs. Il existe
+un dernier moyen d'exploiter cette puissance en Python
+c'est la compréhension de listes. La compréhension de listes
+et le moyen de plus puissant, le plus souple et le plus intuitif
+de travailler avec des itérateurs. En particulier, la compréhension
+de listes peut totalement remplacer les fonction map et filter. 
+
+Ouvrons un terminal pour commencer à jouer avec la compréhension
+de listes...
+
+>>>>>>>>>> W4-S4-AV-exo1.py <<<<<<<<<< (2 minutes)
+
+## résumé et transition vers compréhension de set et dict (40 secondes)
+
+Le temp d'exécution des compréhensions de liste est toujours beaucoup
+plus rapide que pour les boucles for équivalentes, et en
+général un peu plus rapide que pour les fonctions map et filter
+équivalentes. Il faut par conséquent toujours 
+favoriser les compréhensions de listes.
+
+Il est fréquent pour le débutant de commencer par écrire
+une boucle for et de se rendre compte ensuite que cette boucle
+peut-être remplacée par une compréhension de listes. C'est tout
+à fait normal, mais vous verrez que vous vous habituerez très
+rapidement à cette nouvelle syntaxe, plus naturelle et plus
+intuitive que la boucle for. 
+
+Suite au grand succès rencontré par les compréhensions de listes
+chez le programmeur Python, les compréhensions de set et de 
+dictionnaires ont été introduites à partir de Python 2.7
+
+Ouvrons un terminal pour jouer avec la compréhension de sets 
+et de dictionnaires. 
+
+>>>>>>>>>> W4-S4-AV-exo2.py <<<<<<<<<< (4 minutes)
+
+## conclusion (20 secondes)
+
+La compréhension de list, set et dictionnaire représente un des
+outils les plus puissant en Python, qui, exploitant la puissance 
+des itérateurs, peut-être appliquée à n'importe quel objet ayant
+un itérateur. Lorsque l'on écrit une boucle for, ou que l'on utilise
+une fonction map ou filter, il faut toujours se demander si l'on 
+pourrait pas les remplacer par des compréhensions. 

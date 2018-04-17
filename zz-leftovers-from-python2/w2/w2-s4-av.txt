@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à afficher en surimpression pendant que je parle et à 
+## synchroniser avec le texte entre crochet 
+
+## TITRE : Les listes
+
+## Résumé de la vidéo (1 minute)
+
+Dans cette vidéo nous allons présenter le type de plus important
+en Python, c'est le type list. La liste est une séquence qui permet 
+de regrouper des objets hétérogènes de n'importe
+quel type. Les objets ne sont jamais stockés directement 
+dans la liste, seules les références vers ces objets
+sont stockées. Donc la taille d'une liste n'augmente pas avec la taille
+des objets qu'elle référence, mais seulement avec le nombre d'objet
+quelle référence. 
+
+Les listes sont mutables, c'est-à-dire que l'on peut les modifier en 
+place. On dit qu'une modification est en place lorsque l'on modifie directement
+l'objet en mémoire sans en faire une copie temporaire. L'intérêt d'une 
+modification en place est qu'elle est économe en mémoire puisqu'elle ne
+demande pas de copie temporaire.
+
+Ouvrons un terminal interactif et commençons a jouer avec les listes. 
+
+>>>>>>>>>> INCLUDE W2-S4-AV-exo1.py (8 minutes) <<<<<<<<<<
+
+Nous venons de voir le type list qui est central en Python. Vous 
+utiliserez, quelque soit votre programme, sans aucun doute de nombreuses
+listes. Alors jouez avec les listes pour les maitriser rapidement. 
