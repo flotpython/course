@@ -2,7 +2,7 @@
 Fonctions <code>lambda</code>
 =====
 
-Quelles expressions sont des fonctions <code>lambda</code> syntaxiquement valides
+Quelles expressions sont des fonctions <code>lambda</code> syntaxiquement valides ?
 
 [x] <code> lambda x: x + 1</code>
 [ ] <code> lambda x + 1: x</code>
