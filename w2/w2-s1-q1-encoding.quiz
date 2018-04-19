@@ -19,10 +19,10 @@ Unicode
 
 Cocher la ou les affirmations qui sont vraies.
 
-[x] Unicode est un standard qui définit à la fois un jeu de caractères et des encodages
-[x] Unicode définit trois encodages UTF-8, UTF-16 et UTF-32
-[x] UTF-8 est l'encodage à favoriser
-[ ] Unicode ne supporte pas certains caractères courants comme le symbole de l'euro
+[x] Unicode est un standard qui définit à la fois un jeu de caractères et des encodages.
+[x] Unicode définit trois encodages UTF-8, UTF-16 et UTF-32.
+[x] UTF-8 est l'encodage à favoriser.
+[ ] Unicode ne supporte pas certains caractères courants comme le symbole de l'euro.
 
 
 [explanation]
