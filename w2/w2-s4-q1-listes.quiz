@@ -15,11 +15,11 @@ Que faut-il faire ? (plusieurs réponses possibles)
 [x] <code>liste[2:2] = [4]</code>
 
 [explanation]
-La première formule remplace <code>2</code> par <code>4</code>, <code>liste</code> conserve 4 éléments et devient <code>&#91;0, 1, 4, 3&#93;</code>
-La seconde, idem mais <code>liste</code> devient <code>&#91;0, 1, &#91;4&#93;, 3&#93;</code>
-La troisième est correcte
-La quatrième est équivalente à la première, elle remplace <code>2</code> par <code>4</code>
-La cinquième est correcte également
+La première formule remplace <code>2</code> par <code>4</code>, <code>liste</code> conserve 4 éléments et devient <code>&#91;0, 1, 4, 3&#93;</code>.
+La seconde, idem mais <code>liste</code> devient <code>&#91;0, 1, &#91;4&#93;, 3&#93;</code>.
+La troisième est correcte.
+La quatrième est équivalente à la première, elle remplace <code>2</code> par <code>4</code>.
+La cinquième est correcte également.
 [explanation]
 
 
@@ -30,8 +30,8 @@ Listes (2)
 À nouveau on a 
 <pre>liste = [0, 1, 2, 3]</pre>
 
-On veut <em>extraire</em> et retourner le premier élément <code>0</code>, tout en la retirant de la liste.
-Plus précisément on veut affecter à la variable <code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>
+On veut <em>extraire</em> et retourner le premier élément <code>0</code>, tout en le retirant de la liste.
+Plus précisément on veut affecter à la variable <code>suivant</code> la valeur <code>0</code> de telle sorte qu'après l'exécution, <code>liste</code> ne contienne plus que <code>[1, 2, 3]</code>.
 
 Que faut-il faire ? (plusieurs réponses possibles)
 
@@ -42,11 +42,11 @@ Que faut-il faire ? (plusieurs réponses possibles)
 [ ] <code>suivant = del liste[0]</code>
 
 [explanation]
-La première formule retourne bien <code>0</code> mais ne modifie pas <code>liste</code>
-La seconde est correcte
-La troisième enlève bien <code>0</code> de <code>liste</code> mais ne retourne rien
-La quatrième version fonctionne - quoi qu'assez peu pythonique
-La dernière formule est syntaxiquement incorrecte; <code>del</code> est une instruction et ne peut pas être utilisée comme résultat d'une affectation.
+La première formule retourne bien <code>0</code> mais ne modifie pas <code>liste</code>.
+La seconde est correcte.
+La troisième enlève bien <code>0</code> de <code>liste</code> mais ne retourne rien.
+La quatrième version fonctionne - quoiqu'assez peu pythonique.
+La dernière formule est syntaxiquement incorrecte ; <code>del</code> est une instruction et ne peut pas être utilisée comme résultat d'une affectation.
 [explanation]
 
 
@@ -67,7 +67,7 @@ Comment peut-on faire ? (plusieurs réponses possibles)
 [x] <code>liste.sort(); liste.reverse()</code>
 
 [explanation]
-Il faut bien préciser <code>reverse=True</code> pour obtenir un tri <em>décroissant</em>
+Il faut bien préciser <code>reverse=True</code> pour obtenir un tri <em>décroissant</em>.
 
 On ne veut pas dupliquer la liste initiale, c'est pourquoi ce n'est pas une bonne idée d'utiliser <code>sorted</code>.
 

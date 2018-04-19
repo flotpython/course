@@ -2,18 +2,18 @@
 Module (1)
 =====
 
-Cocher toutes les affirmations exactes
+Cocher toutes les affirmations exactes :
 
-[x] Un module est souvent utilisé comme une boite à outils
-[ ] Un module s'utilise comme une fonction
-[x] Pour appeler une fonction <code>func</code> dans un module <code>mod</code> importé on utilise la notation <code>mod.func()</code>
-[ ] Les modules de la librairie standard ne sont pas toujours disponibles, on peut avoir à les télécharger séparement
+[x] Un module est souvent utilisé comme une boite à outils.
+[ ] Un module s'utilise comme une fonction.
+[x] Pour appeler une fonction <code>func</code> dans un module <code>mod</code> importé on utilise la notation <code>mod.func()</code>.
+[ ] Les modules de la bibliothèque standard ne sont pas toujours disponibles, on peut avoir à les télécharger séparement.
 
 
 [explanation]
 Les modules et les fonctions sont deux types d'objets différents. En particulier, on ne peut pas appeler un objet module. 
 
-Tous les modules de la librairies standard sont disponibles sur toutes les installations de Python. 
+Tous les modules de la bibliothèque standard sont disponibles sur toutes les installations de Python. 
 [explanation]
 
 

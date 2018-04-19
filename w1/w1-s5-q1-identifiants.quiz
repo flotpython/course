@@ -4,12 +4,12 @@ Objets, affectation et typage dynamique
 
 Quelles affirmations sont vraies ?
 
-[ ] Chaque variable possède un type
-[x] Chaque objet possède un type
-[ ] Le typage dynamique permet de changer le type des objets
-[x] L'opération d'affectation permet de donner un nom à un objet
+[ ] Chaque variable possède un type.
+[x] Chaque objet possède un type.
+[ ] Le typage dynamique permet de changer le type des objets.
+[x] L'opération d'affectation permet de donner un nom à un objet.
 
-<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides;
+<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides ;
 il peut y en avoir une ou plusieurs.</em>
 
 [explanation]
@@ -42,11 +42,11 @@ Pour être très clair, on parle bien de ce qui est <b>permis</b> par le langage
 [explanation]
 Seules les réponses d'indice impair sont correctes.
 
-le caractère deux-points ':' n'est pas autorisé
+Le caractère deux-points ':' n'est pas autorisé.
 
-le caractère '-' n'est pas autorisé
+Le caractère '-' n'est pas autorisé.
 
-un identifiant ne peut pas commencer par un chiffre
+Un identifiant ne peut pas commencer par un chiffre.
 [explanation]
 
 
@@ -65,11 +65,11 @@ Parmi les noms de variables suivants, lesquels sont autorisés par le langage ?
 
 [explanation]
 
-'var' est légal, ce n'est pas un mot-clé en python.
+'var' est légal, ce n'est pas un mot-clé en Python.
 
 'if' et 'True' sont des mots clés du langage, on ne peut pas les utiliser comme noms de variables.
 
-Par contre 'true' est une variable possible, car les noms de variables sont sensibles à la casse; ce n'est naturellement pas une pratique recommandée.
+Par contre 'true' est une variable possible, car les noms de variables sont sensibles à la casse ; ce n'est naturellement pas une pratique recommandée.
 
 De même on peut en théorie utiliser les accents français, cédilles, et caractères de l'alphabet grec, même si cette pratique n'est pas recommandée.
 
