@@ -46,7 +46,7 @@ Lors de l'importation du module contenant la fonction, l'objet fonction est cré
 Type hints
 =====
 
-Parmi les déclarations de fonction suivantes, lesquelles sont légales en Python3.6:
+Parmi les déclarations de fonction suivantes, lesquelles sont légales en Python-3.6:
 
 [x] <code> def fact(n): </code>
 [x] <code> def fact(n : int):</code>
