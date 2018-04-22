@@ -12,15 +12,15 @@ Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ens
 [explanation]
 Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalement immuable.
 
-option 1: ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
+option 1 : Ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
 
-option 2: le type <code>frozenset</code> est immuable; de plus comme un <code>frozenset</code> est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
+option 2 : Le type <code>frozenset</code> est immuable ; de plus comme un <code>frozenset</code> est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
 
-option3: le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
+option 3 : Le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
 
-option 4: un tuple d'objets globalement immuables est immuable.
+option 4 : Un tuple d'objets globalement immuables est immuable.
 
-option 5: la liste elle-même est mutable.
+option 5 : La liste elle-même est mutable.
 [explanation]
 
 <hr/>
@@ -36,9 +36,9 @@ Pour créer un ensemble <code>set</code> vide en Python on peut faire :
 [explanation]
 La première forme renvoie un objet de type <code>dict</code>.
 
-Les deux autres formes fonctionnent très bien; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
+Les deux autres formes fonctionnent très bien ; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
 
-La fonction <code>set</code> accepte donc en argument un objet de type quelconque et s'efforce de le traduire dans un ensemble. Lorsqu'on ne passe aucun argument à <code>set</code> (option 2), ou qu'on lui passe une liste vide, <code>set</code> renvoie naturellement un ensemble vide; on aurait pu utiliser aussi bien, de la même manière, <code>set(())</code>, <code>set({})</code>, ou même <code>set('')</code> pour arriver au même résultat.
+La fonction <code>set</code> accepte donc en argument un objet de type quelconque et s'efforce de le traduire dans un ensemble. Lorsqu'on ne passe aucun argument à <code>set</code> (option 2), ou qu'on lui passe une liste vide, <code>set</code> renvoie naturellement un ensemble vide ; on aurait pu utiliser aussi bien, de la même manière, <code>set(())</code>, <code>set({})</code>, ou même <code>set('')</code> pour arriver au même résultat.
 [explanation]
 
 <hr/>

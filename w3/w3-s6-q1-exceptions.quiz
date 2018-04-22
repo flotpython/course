@@ -33,7 +33,7 @@ On a du code qui peut produire une exception <code>TypeError</code>. Cochez les 
 
 
 [explanation]
-On doit capturer les exceptions qui sont prévisibles et donc on doit éviter de capturer <code>Exception</code> qui permet de capturer toutes les exceptions d'un coup et qui donc peut cacher une exception que nous n'avions par prévue et pour laquelle on n'a implémenté aucun comportement spécifique. 
+On doit capturer les exceptions qui sont prévisibles et donc on doit éviter de capturer <code>Exception</code> qui permet de capturer toutes les exceptions d'un coup et qui donc peut cacher une exception que nous n'avions pas prévue et pour laquelle on n'a implémenté aucun comportement spécifique. 
 
 Une exception peut se capturer n'importe où dans la pile d'exécution, mais on recommande en général de capturer l'exception au plus près de là où elle est produite. 
 [explanation]
