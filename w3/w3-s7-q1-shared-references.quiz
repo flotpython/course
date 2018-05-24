@@ -41,14 +41,14 @@ Qu'obtient-on comme valeur pour <code>liste</code> ? :
 (x) <code>&#91;&#91;1], [1], [1]]</code>
 
 [explanation]
-Cette fois on modifie en place la liste référencée par <code>cellule</code>, qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les 3 éléments de la liste.
+Cette fois on modifie en place la liste référencée par <code>cellule</code>, qui est partagée par les trois éléments de liste, on est dans le cas d'une référence partagée, la modification affecte les trois éléments de la liste.
 [explanation]
 
 <hr/>
 Références partagées (3)
 =====
 
-On considère la variante suivante:
+On considère la variante suivante :
 
 <pre>
 cellule = [0]
@@ -71,7 +71,7 @@ Qu'obtient-on comme valeur pour <code>liste</code> ? :
 Références partagées (4)
 =====
 
-On considère enfin la variante suivante:
+On considère enfin la variante suivante :
 
 <pre>
 cellule = [0]
@@ -109,9 +109,9 @@ L'opérateur <code>*</code> sur les listes crée des références partagées, co
 
 Comment faire pour éviter que les trois éléments de liste ne soient modifiés ? : 
 
-( ) il faut faire une <em>shallow copy</em>
-( ) il faut faire une <em>deep copy</em>
-(x) il faut construire la liste autrement
+( ) Il faut faire une <em>shallow copy</em>.
+( ) Il faut faire une <em>deep copy</em>.
+(x) Il faut construire la liste autrement.
 
 [explanation]
 Dans ce cas, une <em>shallow copy</em> ou une <em>deep copy</em> ne sera d'aucune aide, puisque cela va créer un nouvel objet, mais avec la même structure, donc les mêmes références partagées que l'objet original. La seule solution est de construire la liste autrement.
