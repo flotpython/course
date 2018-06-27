@@ -1,3 +1,106 @@
+## Vidéo 1 (Data science en Python) 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+
+## Vidéo 1 (Les bases de numpy) 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+
+# Old content
+
 ## Vidéo 1 (Introduction, survol des différents outils)
 
 ### compléments w7-s1

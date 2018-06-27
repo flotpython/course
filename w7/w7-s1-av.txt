@@ -1,0 +1,364 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Introduction au data science 
+## Temp total: ()
+
+## Sujet de la vidéo ()
+
+
+
+Cette semaine, nous allons parler de l'écosystème data science en
+Python. Il s'agit d'un écosystème extrêmement riche et en pleine
+effervescence qui contribue très largement au développement du domaine
+de la data science. Mais qu'est-ce qu'au juste le data science.
+
+>>>>>>>>>> INCLUDE W7-S1-AV-slice1.pptx <<<<<<<<<< ()
+
+Il s'agit d'un domaine à la frontière de trois disciplines: la
+programmation, la statistique et l'expertise domaine. Cela veut dire
+que vous devez maîtriser un langage de programmation, avoir de bonnes
+connaissances en statistiques et avoir une expertise dans le domaine
+que vous analysez.
+
+La programmation et la statistique sont sans doute
+les deux domaines les plus évidents lorsque l'on parle de 
+
+
+>>>>>>>>>> INCLUDE W7-S1-AV-exo1.py <<<<<<<<<< (8m30)
+
+
+Début de pandas en 2008 
+
+Numeric en 1995 qui a donné numpy 1.0 en 2006
+
+matplolib 2003
+
+Python started in 1989, Python 1.0 1994, Python 2 in 2000 and Python 3 in 2008
+
+
+# La data science en général
+## et en Python en particulier
+
+## Complément - niveau intermédiaire
+
+### Qu'est-ce qu'un data scientist ?
+
+J'aimerais commencer cette séquence par quelques réflexions générales
+sur ce qu'on appelle data science. Ce mot valise, récemment devenu à
+la mode, et que tout le monde veut ajouter à son CV, est un domaine
+qui regroupe tous les champs de l'analyse scientifique des
+données. Cela demande donc, pour être fait sérieusement, de
+maîtriser :
+
+1. un large champ de connaissances scientifiques, notamment des
+notions de statistiques appliquées ;
+
+2. les données que vous manipulez ;
+3. un langage de programmation pour automatiser les traitements.
+
+#### Statistiques appliquées
+
+Pour illustrer le premier point, pour quelque chose d'aussi simple
+qu'une moyenne, il est déjà possible de faire des erreurs. Quel
+intérêt de considérer une moyenne d'une distribution bimodale ? 
+
+Par exemple, j'ai deux groupees de personnes et je veux savoir lequel
+a le plus de chance de gagner à une épreuve de tir à la corde. L'âge
+moyen de mon groupe A est de 55 ans, l'âge moyen de mon groupe B est
+de 30 ans. Il me semble alors pouvoir affirmer que le groupe B a plus
+de chances de gagner. Seulement, dans le groupe B il y a 10 enfants de
+5 ans et 10 personnes de 55 ans et dans le groupe A j'ai une
+population homogène de 20 personnes ayant 55 ans. Finalement, ça sera
+sans doute le groupe A qui va gagner.
+
+Quelle erreur ai-je faite ? J'ai utilisé un outil statistique qui
+n'était pas adapté à l'analyse de mes groupes de personnes. Cette
+erreur peut vous paraître stupide, mais ces erreurs peuvent être très
+subtiles voire extrêmement difficiles à identifier.
+
+#### Connaissance des données
+
+C'est une des parties les plus importantes, mais largement sous
+estimées : analyser des données sur lesquelles on n'a pas d'expertise
+est une aberration. Le risque principal est d'ignorer l'existence d'un
+facteur caché, ou de supposer à tort l'indépendance des données
+(sachant que nombre d'outils statistiques ne fonctionnent que sur des
+données indépendantes). Sans rentrer plus dans le détail, je vous
+conseille de lire cet article de [David Louapre sur le paradoxe de
+Simpson](https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/)
+et [la vidéo associée](https://www.youtube.com/watch?v=vs_Zzf_vL2I),
+pour vous donner l'intuition que travailler sur des données qu'on ne
+maîtrise pas peut conduire à d'importantes erreurs d'interprétation.
+
+#### Maîtrise d'un langage de programmation
+
+Comme vous l'avez sans doute compris, le succès grandissant de la data
+science est dû à la démocratisation d'outils informatiques comme R, ou
+la suite d'outils disponibles dans Python, dont nous abordons certains
+aspects cette semaine.
+
+Il y a ici cependant de nouveau des difficultés. Comme nous allons le
+voir il est très facile de faire des erreurs qui seront totalement
+silencieuses, par conséquent, vous obtiendrez presque toujours un
+résultat, mais totalement faux. Sans une profonde compréhension des
+mécanismes et des implémentations, vous avez la garantie de faire
+n'importe quoi.
+
+Vous le voyez, je ne suis pas très encourageant, pour faire de la data
+science vous devrez maîtriser la bases des outils statistiques,
+comprendre les données que vous manipulez et maîtriser parfaitement
+les outils que vous utilisez. Beaucoup de gens pensent qu'en faisant
+un peu de R ou de Python on peut s'affirmer data scientist, c'est
+faux, et si vous êtes, par exemple, journaliste ou économiste et que
+vos résultats ont un impact politique, vous avez une vraie
+responsabilité et vos erreurs peuvent avoir d'importantes
+conséquences.
+
+### Présentation de `pandas`
+
+`numpy` est l'outil qui permet de manipuler des tableaux en Python, et
+`pandas` est l'outil qui permet d'ajouter des index à ces
+tableaux. Par conséquent, `pandas` repose entièrement sur `numpy` et
+toutes les données que vous manipulez en `pandas` sont des tableaux
+`numpy`.
+
+`pandas` est un projet qui évolue régulièrement, on vous recommande
+donc d'utiliser au moins `pandas` dans sa version 0.21. Voici les
+versions que l'on utilise ici.
+
+
+```python
+import numpy as np
+print(f"numpy version {np.__version__}")
+
+import pandas as pd
+print(f"pandas version {pd.__version__}")
+```
+
+Il est important de comprendre que le monde de la data science en
+Python suit un autre paradigme que Python. Là où Python favorise la
+clarté, la simplicité et l'uniformité, `numpy` and `pandas` favorisent
+l'efficacité. La conséquence est une augmentation de la complexité et
+une moins bonne uniformité. Aussi, personne ne joue le rôle de BDFL
+dans la communauté data science comme le fait Guido van Rossum pour
+Python. Nous entrons donc largement dans une autre philosophie que
+celle de Python.
+
+#### Erreurs classiques avec `numpy`
+
+Commençons par revenir rapidement sur `numpy` et en particulier sur
+des erreurs fréquentes.
+
+
+```python
+import numpy as np
+```
+
+
+```python
+x = np.ones((3, 3), dtype=np.uint8)
+print(x)
+```
+
+
+```python
+# changeons la première ligne de ce tableau
+x[0,:] = [255, 256, 12.532]
+print(x)
+```
+
+Comme on a créé un tableau d'entiers codés sur 8 bits, chaque entier
+ne peut prendre qu'une valeur entre 0 et 255. Si on dépasse 255, alors
+il n'y aura pas de message d'erreur, mais le calcul est fait
+silencieusement modulo 255. Vous remarquez aussi que si vous ajoutez
+un float à un tableau d'entier, le float sera simplement tronqué pour
+obtenir un entier. À nouveau, vous ne voyez aucun avertissement,
+aucune erreur.
+
+Regardons maintenant ces autres cas :
+
+
+```python
+# dans un tableau d'entiers, on peut
+# modifier un élément en écrivant une chaîne
+# de caractères si c'est
+# la représentation str d'un entier
+x[0, 0] = '8'
+print(x, x.dtype)
+```
+
+
+```python
+# mais si on essaie la même chose avec un flottant
+try:
+    x[0, 0] = '8.1'
+except ValueError as e:
+    print(f"On ne peut pas modifier une case à partir "
+          f"d'un float en str:\n{e}")
+```
+
+
+```python
+# et donc logiquement on ne peut pas non plus
+# avec un caractère même s'il est hexadécimal
+try:
+    x[0, 0] = 'c'
+except ValueError as e:
+    print(f"Ni une chaîne de caractères:\n{e}")
+```
+
+Une autre erreur classique est d'utiliser les opérateurs logiques
+booléens pour former un masque au lieu des opérateurs bitwises. Le
+moyen mnémotechnique est de penser qu'un masque est formé de bits et
+donc qu'il faut utiliser un opérateur logique bitwise, mais bon, ça
+aurait pu être implémenté autrement, et ce choix est discutable.
+
+
+```python
+a = np.random.randint(1, 10, size=(3, 3))
+print(a)
+```
+
+
+```python
+# combien d'éléments pairs et supérieurs à 5 ?
+# l'opérateur logique booléen and ne marche pas
+try:
+    np.sum((a % 2 == 0) and (a > 5))
+except ValueError as e:
+    print(f"and ne marche pas ici : {e}")
+```
+
+
+```python
+# il faut utiliser l'opérateur bitwise et ne pas oublier les parenthèses
+np.sum((a % 2 == 0) & (a > 5))
+```
+
+#### Les structures de données en `pandas`
+
+Il y a deux structures de données principales en `pandas`, la classe
+`Series` et la classe `DataFrame`. Une `Series` est un tableau à une
+dimension où chaque élément est indexé avec essentiellement un autre
+array (souvent de chaînes de caractères), et une `DataFrame` est un
+tableau à deux dimensions où les lignes et les colonnes sont
+indexées. La clef ici est de comprendre que l'intérêt de `pandas` est
+de pouvoir manipuler les tableaux `numpy` qui sont indexés, et le
+travail de `pandas` est de rendre les opérations sur ces index très
+efficaces.
+
+Vous pouvez bien sûr vous demander à quoi cela sert, alors regardons
+un petit exemple. Nous allons revenir sur les notions utilisées dans
+cet exemple, notre but ici est de vous montrer l'utilité de `pandas`
+sur un exemple.
+
+
+```python
+# seaborn est un module pour dessiner des courbes qui améliore
+# sensiblement matplotlib, mais ça n'est pas ce qui nous intéresse ici.
+# seaborn vient avec quelques jeux de données sur lesquels on peut jouer.
+import seaborn as sns
+
+# chargeons un jeu de données qui représente des pourboires
+tips = sns.load_dataset('tips')
+```
+
+`load_dataset` retourne une `DataFrame`.
+
+
+```python
+type(tips)
+```
+
+Regardons maintenant à quoi ressemble une `DataFrame` :
+
+
+```python
+# voici à quoi ressemblent ces données. On a la note totale (total_bill),
+# le pourboire (tip), le sexe de la personne qui a donné le pourboire,
+# si la personne est fumeur ou non fumeur (smoker), le jour du repas,
+# le moment du repas (time) et le nombre de personnes à table (size)
+tips.head()
+```
+
+On voit donc un exemple de `DataFrame` qui représente des données
+indexées, à la fois par des labels sur les colonnes, et par un rang
+entier sur les lignes. C'est l'utilisation de ces index qui va nous
+permettre de faire des requêtes expressives sur ces données.
+
+
+```python
+# commençons par une rapide description statistique de ces données
+tips.describe()
+```
+
+
+```python
+# prenons la moyenne par sexe
+tips.groupby('sex').mean()
+```
+
+
+```python
+# et maintenant la moyenne par jour
+tips.groupby('day').mean()
+```
+
+
+```python
+# et pour finir la moyenne par moment du repas
+tips.groupby('time').mean()
+```
+
+Vous voyez qu'en quelques requêtes simples et intuitives (nous
+reviendrons bien sûr sur ces notions) on peut grâce à la notion
+d'index, obtenir des informations précieuses sur nos données. Vous
+voyez qu'en l'occurrence, travailler directement sur le tableau
+`numpy` aurait été beaucoup moins aisé.
+
+### Conclusion
+
+
+Évidemment, nous ne pourrons pas couvrir cet écosystème
+dans le détail et faire de vous de data scientist accomplis. Il nous
+faudra pour cela un MOOC dédié. Nous pensons cependant pouvoir vous
+donner quelques bases solides 
+
+
+Nous avons vu que la data science est une discipline complexe qui
+demande de nombreuses compétences. Une de ces compétences est la
+maîtrise d'un langage de programmation, et à cet égard la suite data
+science de Python qui se base sur `numpy` et `pandas` offre une
+solution très performante.
+
+Il nous reste une dernière question à aborder : R ou la suite data
+science de Python ?
+
+Notre préférence va bien évidemment à la suite data science de Python
+parce qu'elle bénéficie de toute la puissance de Python. R est un
+langage dédié à la statistique qui n'offre pas la puissance d'un
+langage générique comme Python. Mais dans le contexte de la data
+science, R et la suite data science de Python sont deux excellentes
+solutions. À très grosse maille, la syntaxe de R est plus complexe que
+celle de Python, par contre, R est très utilisé par les statisticiens,
+il peut donc avoir une implémentation d'un nouvel algorithme de l'état
+de l'art plus rapidement que la suite data science de Python.
+
+
+
+
+## Conclusion (20s)
+Dans cette vidéo, nous avons vu...
+
+Nous verrons dans une prochaine vidéo...
+À bientôt
+
