@@ -10,7 +10,7 @@
 ## le slide i
 
 ## TITRE : Introduction au data science 
-## Temp total: ()
+## Temp total: (10m05)
 
 ## Sujet de la vidéo (15s)
 
@@ -25,11 +25,11 @@ de la data science. Mais qu'est-ce qu'au juste la data science.
 
 >>>>>>>>>> INCLUDE W7-S1-AV-slide1.pptx <<<<<<<<<< 
 
-Il s'agit d'un domaine à la frontière de trois disciplines: la
-programmation, la statistique et l'expertise domaine. Cela veut dire
-que vous devez maîtriser un langage de programmation, avoir de bonnes
-connaissances en statistiques appliquées et avoir une expertise dans
-le domaine que vous analysez.
+La data science est un domaine à la frontière de trois disciplines: la
+[programmation], la [statistique] et [l'expertise domaine]. Cela veut
+dire que vous devez maîtriser un langage de programmation, avoir de
+bonnes connaissances en statistiques appliquées et avoir une expertise
+dans le domaine que vous analysez.
 
 Si vous n'avez pas ces trois compétences, vous n'êtes pas dans le
 domaine de la data science. 
@@ -38,14 +38,14 @@ Regardons alors ce qu'il se passe s'il vous l'une de ces trois
 compétences.
 
 Si vous avez des connaissances en statistique et une expertise métier,
-vous êtes dans le domaine de l'analyse statistique classique.
+vous êtes dans le domaine de l'[analyse statistique classique].
 
 Si vous avez des connaissances en programmation et une expertise
-métier, vous êtes dans une zone de danger où vous pouvez tirer des
+métier, vous êtes dans une zone de [danger] où vous pouvez tirer des
 conclusions qui ne sont pas statistiquement valides.
 
 Si vous avez des connaissances en programmation et en statistique vous
-êtes dans une zone de danger puisqu'il vous manque l'expertise du
+êtes dans une zone de [danger] puisqu'il vous manque l'expertise du
 domaine pour comprendre quelles hypothèses vous pouvez faire sur vos
 données. Notez que le diagramme que j'utilise s'inspire largement de
 celui de Drew Conway. Dans son diagramme original, il plaçait le
@@ -55,7 +55,7 @@ features et de l'algorithme d'apprentissage ne peut être
 raisonnablement fait qu'avec une profonde connaissance des données que
 l'on manipule.
 
-### sujet de cette semaine ()
+### sujet de cette semaine (20s)
 
 Comme vous devez vous en douter, nous ne pouvons pas sur une seule
 semaine vous donner des bases de programmation et de statistiques, et
@@ -65,16 +65,16 @@ Cette semaine nous allons exclusivement nous consacrer à la partie
 programmation de la data science et plus particulièrement aux briques
 de base que sont numpy et pandas.
 
-### différence entre python et numpy/pandas ()
+### différence entre python et numpy/pandas (2m15)
 
 >>>>>>>>>> INCLUDE W7-S1-AV-slide2.pptx <<<<<<<<<< 
 
 Il faut prendre conscience qu'il y a de nombreuses différences entre
-python  et son écosystème data science en termes de maturité et de
-de philosophie.
+python et son écosystème data science en termes de maturité et de
+philosophie.
 
-Python est beaucoup plus mature que numpy et pandas. La version 1.0 de
-Python est sortie en 1996, la version 1.0 de numpy en 2006 et le
+Python est beaucoup plus mature que numpy et pandas. La [version 1.0]
+de Python est sortie en 1996, la version 1.0 de numpy en 2006 et le
 projet pandas a démarré en 2008 seulement.
 
 Mais au delà de cette maturité, les philosophies de Python d'un côté
@@ -101,251 +101,52 @@ et pandas ont démarré. La philosophie de numpy et pandas est la
 performance avant tout et là il y a nécessairement des compromis à
 faire avec la philosophie de Python. On perd en souplesse, on perd en
 uniformité, on perd en simplicité, mais on gagne beaucoup en
-performance.
+performance. On peut obtenir avec numpy et pandas une performance
+proche de ce que l'on aurait avec du code écrit en C. 
 
-Regardons un exemple, comme nous abordons la data science, utilisons à
-partir de maintenant un notebook. C'est en effet l'environnement de
-choix pour cette communauté.
-
-
->>>>>>>>>> INCLUDE W7-S1-AV-exo1.py <<<<<<<<<< (8m30)
-
-### Présentation de `pandas`
-
-`numpy` est l'outil qui permet de manipuler des tableaux en Python, et
-`pandas` est l'outil qui permet d'ajouter des index à ces
-tableaux. Par conséquent, `pandas` repose entièrement sur `numpy` et
-toutes les données que vous manipulez en `pandas` sont des tableaux
-`numpy`.
-
-`pandas` est un projet qui évolue régulièrement, on vous recommande
-donc d'utiliser au moins `pandas` dans sa version 0.21. Voici les
-versions que l'on utilise ici.
+Regardons un exemple. Comme nous abordons le domaine de la data
+science, on utilisera cette semaine des notebook. C'est en effet
+l'environnement de choix pour cette communauté puisqu'il permet de
+combiner en un même document, du texte formaté, du code exécutable et
+la possibilité d'intéragir graphiquement avec nos données. 
 
 
-```python
-import numpy as np
-print(f"numpy version {np.__version__}")
+>>>>>>>>>> INCLUDE w7-s1-av-exo1.py <<<<<<<<<< (4m00)
 
-import pandas as pd
-print(f"pandas version {pd.__version__}")
-```
+### qu'est-ce que numpy et pandas (1m00)
 
-Il est important de comprendre que le monde de la data science en
-Python suit un autre paradigme que Python. Là où Python favorise la
-clarté, la simplicité et l'uniformité, `numpy` and `pandas` favorisent
-l'efficacité. La conséquence est une augmentation de la complexité et
-une moins bonne uniformité. Aussi, personne ne joue le rôle de BDFL
-dans la communauté data science comme le fait Guido van Rossum pour
-Python. Nous entrons donc largement dans une autre philosophie que
-celle de Python.
+J'aimerai maintenant vous expliquer le rôle des librairies numpy et
+pandas.
 
-#### Erreurs classiques avec `numpy`
+Numpy est la librairie qui ajoute la notion de tableau hyper efficace
+à Python.  C'est la librairie de référence dès que l'on manipule des
+tableaux de type uniforme, par exemple des entiers, et que l'on a
+besoin de performance. La quasi intégralité des librairies data
+science en Python qui ont besoin de travailler sur des tableaux
+utilisent numpy.
 
-Commençons par revenir rapidement sur `numpy` et en particulier sur
-des erreurs fréquentes.
+Pandas est la librairie qui ajoute des index sur les lignes et les
+colonnes de tableaux numpy. Le principe des index est de pouvoir
+accéder très rapidement à des lignes ou des colonnes en utilisant
+quelque chose de plus expressif qu'un indice dans un tableau. Pandas
+permet de faire les opérations classiques sur les bases de données
+comme les regroupements (groupby), les concaténations, les jointures
+ou les pivots. 
 
+Si ces notions vous semblent obscures, n'ayez pas d'inquiétude, nous
+les couvrirons dans de prochaines vidéos.
 
-```python
-import numpy as np
-```
-
-
-```python
-x = np.ones((3, 3), dtype=np.uint8)
-print(x)
-```
+### Conclusion (25s)
 
 
-```python
-# changeons la première ligne de ce tableau
-x[0,:] = [255, 256, 12.532]
-print(x)
-```
-
-Comme on a créé un tableau d'entiers codés sur 8 bits, chaque entier
-ne peut prendre qu'une valeur entre 0 et 255. Si on dépasse 255, alors
-il n'y aura pas de message d'erreur, mais le calcul est fait
-silencieusement modulo 255. Vous remarquez aussi que si vous ajoutez
-un float à un tableau d'entier, le float sera simplement tronqué pour
-obtenir un entier. À nouveau, vous ne voyez aucun avertissement,
-aucune erreur.
-
-Regardons maintenant ces autres cas :
-
-
-```python
-# dans un tableau d'entiers, on peut
-# modifier un élément en écrivant une chaîne
-# de caractères si c'est
-# la représentation str d'un entier
-x[0, 0] = '8'
-print(x, x.dtype)
-```
-
-
-```python
-# mais si on essaie la même chose avec un flottant
-try:
-    x[0, 0] = '8.1'
-except ValueError as e:
-    print(f"On ne peut pas modifier une case à partir "
-          f"d'un float en str:\n{e}")
-```
-
-
-```python
-# et donc logiquement on ne peut pas non plus
-# avec un caractère même s'il est hexadécimal
-try:
-    x[0, 0] = 'c'
-except ValueError as e:
-    print(f"Ni une chaîne de caractères:\n{e}")
-```
-
-Une autre erreur classique est d'utiliser les opérateurs logiques
-booléens pour former un masque au lieu des opérateurs bitwises. Le
-moyen mnémotechnique est de penser qu'un masque est formé de bits et
-donc qu'il faut utiliser un opérateur logique bitwise, mais bon, ça
-aurait pu être implémenté autrement, et ce choix est discutable.
-
-
-```python
-a = np.random.randint(1, 10, size=(3, 3))
-print(a)
-```
-
-
-```python
-# combien d'éléments pairs et supérieurs à 5 ?
-# l'opérateur logique booléen and ne marche pas
-try:
-    np.sum((a % 2 == 0) and (a > 5))
-except ValueError as e:
-    print(f"and ne marche pas ici : {e}")
-```
-
-
-```python
-# il faut utiliser l'opérateur bitwise et ne pas oublier les parenthèses
-np.sum((a % 2 == 0) & (a > 5))
-```
-
-#### Les structures de données en `pandas`
-
-Il y a deux structures de données principales en `pandas`, la classe
-`Series` et la classe `DataFrame`. Une `Series` est un tableau à une
-dimension où chaque élément est indexé avec essentiellement un autre
-array (souvent de chaînes de caractères), et une `DataFrame` est un
-tableau à deux dimensions où les lignes et les colonnes sont
-indexées. La clef ici est de comprendre que l'intérêt de `pandas` est
-de pouvoir manipuler les tableaux `numpy` qui sont indexés, et le
-travail de `pandas` est de rendre les opérations sur ces index très
-efficaces.
-
-Vous pouvez bien sûr vous demander à quoi cela sert, alors regardons
-un petit exemple. Nous allons revenir sur les notions utilisées dans
-cet exemple, notre but ici est de vous montrer l'utilité de `pandas`
-sur un exemple.
-
-
-```python
-# seaborn est un module pour dessiner des courbes qui améliore
-# sensiblement matplotlib, mais ça n'est pas ce qui nous intéresse ici.
-# seaborn vient avec quelques jeux de données sur lesquels on peut jouer.
-import seaborn as sns
-
-# chargeons un jeu de données qui représente des pourboires
-tips = sns.load_dataset('tips')
-```
-
-`load_dataset` retourne une `DataFrame`.
-
-
-```python
-type(tips)
-```
-
-Regardons maintenant à quoi ressemble une `DataFrame` :
-
-
-```python
-# voici à quoi ressemblent ces données. On a la note totale (total_bill),
-# le pourboire (tip), le sexe de la personne qui a donné le pourboire,
-# si la personne est fumeur ou non fumeur (smoker), le jour du repas,
-# le moment du repas (time) et le nombre de personnes à table (size)
-tips.head()
-```
-
-On voit donc un exemple de `DataFrame` qui représente des données
-indexées, à la fois par des labels sur les colonnes, et par un rang
-entier sur les lignes. C'est l'utilisation de ces index qui va nous
-permettre de faire des requêtes expressives sur ces données.
-
-
-```python
-# commençons par une rapide description statistique de ces données
-tips.describe()
-```
-
-
-```python
-# prenons la moyenne par sexe
-tips.groupby('sex').mean()
-```
-
-
-```python
-# et maintenant la moyenne par jour
-tips.groupby('day').mean()
-```
-
-
-```python
-# et pour finir la moyenne par moment du repas
-tips.groupby('time').mean()
-```
-
-Vous voyez qu'en quelques requêtes simples et intuitives (nous
-reviendrons bien sûr sur ces notions) on peut grâce à la notion
-d'index, obtenir des informations précieuses sur nos données. Vous
-voyez qu'en l'occurrence, travailler directement sur le tableau
-`numpy` aurait été beaucoup moins aisé.
-
-### Conclusion
-
-
-Évidemment, nous ne pourrons pas couvrir cet écosystème
-dans le détail et faire de vous de data scientist accomplis. Il nous
-faudra pour cela un MOOC dédié. Nous pensons cependant pouvoir vous
-donner quelques bases solides 
-
-
-Nous avons vu que la data science est une discipline complexe qui
-demande de nombreuses compétences. Une de ces compétences est la
-maîtrise d'un langage de programmation, et à cet égard la suite data
-science de Python qui se base sur `numpy` et `pandas` offre une
+Dans cette vidéo, nous avons vu que la data science est une discipline
+complexe qui demande de nombreuses compétences. Une de ces compétences
+est la maîtrise d'un langage de programmation, et à cet égard la suite
+data science de Python qui se base sur `numpy` et `pandas` offre une
 solution très performante.
 
-Il nous reste une dernière question à aborder : R ou la suite data
-science de Python ?
+Nous verrons dans les prochaines vidéos des bases solides pour
+utiliser numpy et pandas efficacement. 
 
-Notre préférence va bien évidemment à la suite data science de Python
-parce qu'elle bénéficie de toute la puissance de Python. R est un
-langage dédié à la statistique qui n'offre pas la puissance d'un
-langage générique comme Python. Mais dans le contexte de la data
-science, R et la suite data science de Python sont deux excellentes
-solutions. À très grosse maille, la syntaxe de R est plus complexe que
-celle de Python, par contre, R est très utilisé par les statisticiens,
-il peut donc avoir une implémentation d'un nouvel algorithme de l'état
-de l'art plus rapidement que la suite data science de Python.
-
-
-
-
-## Conclusion (20s)
-Dans cette vidéo, nous avons vu...
-
-Nous verrons dans une prochaine vidéo...
 À bientôt
 

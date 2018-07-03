@@ -1,9 +1,10 @@
 # Commençons par créer une liste de 1000 éléments et un tableau numpy de 1000 éléments. 
 # Nous reviendrons largement sur les tableaux numpy, l'objectif ici est de vous montrer le
-# la gain de performance
+# la gain de performance pour faire une même opération en Python et en numpy.
 
+import numpy as np
 L = list(range(1_000))
-a = np.arange(1_000)
+a = np.array(L)
 
 # regardons si ces deux objets contiennent la même chose
 
@@ -32,25 +33,15 @@ all(a**2 == [x**2 for x in L])
 # On peut faire des boucles for ou des compréhensions. Mais le vrai gain de 
 # performance apparait lorsqu'on utilise un nouveau concept à apprendre 
 # et maitriser, la vectorization. Nous verrons que vous aurez à apprendre
-# beaucoup de nouveaux concepts.
+# plusieurs nouveaux concepts pour maitriser numpy.
 #
-# On autre prix à payer et la perte de souplesse et l'absence d'exception sur 
-# certaines opérations douteuses. Regardons cela
- print(a[999])
+# Il a d'autres prix à payer, notamment la perte de souplesse, l'absence d'exception sur 
+# certaines opérations fautives, et des conversions de type implicite.  
+ # nous reviendrons largement sur ces pièges dans la suite.  
  
- a[999]**2 == 999**2   # c'est évidemment vrai
- 
- # mais regardons maintenant cela
- a[999]**32 == 999**32  # c'est faux. 
- 
- type(a[999]) # c'est un entier signé codé sur 32 bits
- a[999]**32
- 
- # alors que
- 999**32
- 
- # Un tableau numpy ne peut contenir que des objets de même type, mais
- # si on fait une opération qui dépasse la précision de cet objet, l'erreur peut
- # passer silencieusement. 
- 
+# Nous voyons donc que le gain de performance est majeur, en général de
+# l'ordre de 100 fois plus rapide. On obtient essentiellement
+# l'efficacité d'un code écrit en C. Par contre, on sort de la
+# philosophie de Python, et on doit donc être très prudent et toujours
+# parfaitement comprendre le code que l'on écrit. 
 
