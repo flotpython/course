@@ -9,7 +9,7 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : Introduction à numpy
+## TITRE : Les tableaux numpy
 ## Temp total: (12m30)
 
 ## Sujet de la vidéo (30s)
@@ -19,7 +19,7 @@
 numpy est la librairie Python qui permet de manipuler des tableaux
 multidimensionnels que l'on appelle ndarray pour n-dimensional
 array. Il existe [quatre concepts majeur] à maitriser en numpy, les
-ndarray, la vectorization, le broadcasting et l'indexation. 
+ndarray, l'indexation, la vectorization et le broadcasting. 
 
 Dans cette vidéo, nous allons introduire la notion de ndarray que
 l'on appelle également tableau. Nous couvrirons les autres concepts
@@ -46,13 +46,10 @@ Ouvrons un notebook pour commencer à jouer avec les tableaux numpy.
 
 Dans cette vidéo, nous avons vu la notion de tableau numpy que l'on
 appelle ndarray. Un tableau numpy contient uniquement des éléments du
-même type et est stocké dans une zone de mémoire contiguë. Les
-tableaux sont mutables, on peut donc changer la valeur des éléments
-stockés, mais on ne peut pas en changer le nombre d'éléments.
-
-Nous verrons dans une prochaine vidéo comment on peut appliquer des
-opérations de manière très efficace aux tableaux numpy en utilisant la
-vectorisation. 
+même type et de même taille et est stocké dans une zone de mémoire
+contiguë. Les tableaux sont mutables, on peut donc changer la valeur
+des éléments stockés, mais on ne peut pas en changer le nombre
+d'éléments.
 
 À bientôt
 

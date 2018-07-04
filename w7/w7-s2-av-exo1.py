@@ -103,17 +103,17 @@ np.sctypes['others']
 # chaînes de caractères, mais ces chaines  doivent toutes avoir
 # la même taille. Regardons cela
 
-np.array(['spam', 'bean'], dtype='str')
+np.array(['spam', 'bean'], dtype=np.str)
 
 # nous voyons que les chaînes sont des chaines unicode codés sur 4 
 # caractères
 
-np.array(['spam', 'beans'], dtype='str')
+np.array(['spam', 'beans'], dtype=np.str)
 
 # on a maintenant des chaines codés sur 5 caractères, mais on peut
 # spécifier le nombre de caractères que l'on souhaite dans le type
 
-np.array(['spam', 'beans'], dtype=('str', 2))
+np.array(['spam', 'beans'], dtype=(np.str, 2))
 
 # et dans ce cas, les caractères au delà du deuxième sont simplement
 # tronqués. 

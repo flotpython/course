@@ -8,45 +8,56 @@
 
 
 
-## Vidéo 1 (Les bases de numpy) 
+## Vidéo 2 (Les bases de numpy) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 2
 
 - créer des tableaux d'objects
 - créer des tableaux de numpy.void (taille constante, type quelconque)
 - créer des dtype custom
 - montrer les notation U4, <i2, etc. au lieux de ('str', 4), np.int16
+- concaténation, split
 
-### Quizz Vidéo 1
+### Quizz Vidéo 2
 
-### Exercices Vidéo 1
+### Exercices Vidéo 2
 
 
-## Vidéo 1 () 
+## Vidéo 3 (Slicing, reshaping et indexation avancée) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 3
 
-### Quizz Vidéo 1
+- montrer ce cas d'indexation avancée
+a = np.arange(1, 11).reshape(2,5)
+L = [[0,1], [2,4]]
+a[L]
+-parler de sort
+-parler de partition
+- parler du tuple comme indice d'un tableau
+a = np.random.randint(1, 10, size=(3, 3))
+print(a)
+t = (1, 1)
+L = [1, 1]
+print(a[1, 1])
+print(a[t]) # me retourne l'élément de coordonnées (1, 1)
+print(a[L]) # me retourne deux fois la ligne 1
 
-### Exercices Vidéo 1
 
 
-## Vidéo 1 () 
+
+
+### Quizz Vidéo 3
+
+### Exercices Vidéo 3
+
+
+## Vidéo 4 () 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 4
 
-### Quizz Vidéo 1
+### Quizz Vidéo 4
 
-### Exercices Vidéo 1
-
-
-## Vidéo 1 () 
-### NIVEAU: BASIC
-### Compléments Vidéo 1
-
-### Quizz Vidéo 1
-
-### Exercices Vidéo 1
+### Exercices Vidéo 4
 
 
 ## Vidéo 1 () 

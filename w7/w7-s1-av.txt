@@ -145,6 +145,14 @@ est la maîtrise d'un langage de programmation, et à cet égard la suite
 data science de Python qui se base sur `numpy` et `pandas` offre une
 solution très performante.
 
+Malheureusement, le niveau de maturité de numpy et pandas est très
+inférieur à celui de Python. Il y a des inconsistances syntaxiques,
+plusieurs manière de faire la même chose, une documentation parfois
+très sommaire. Cependant, cet écosystème data science en Python est ce
+qu'il se fait de mieux aujourd'hui dans le domaine. Il faut donc
+accepter ces faiblesses et surtout, ne pas hésiter à contribuer aux
+projets qui sont toujours à la recherche d'aide. 
+
 Nous verrons dans les prochaines vidéos des bases solides pour
 utiliser numpy et pandas efficacement. 
 
