@@ -12,6 +12,11 @@
 ### NIVEAU: BASIC
 ### Compléments Vidéo 1
 
+- créer des tableaux d'objects
+- créer des tableaux de numpy.void (taille constante, type quelconque)
+- créer des dtype custom
+- montrer les notation U4, <i2, etc. au lieux de ('str', 4), np.int16
+
 ### Quizz Vidéo 1
 
 ### Exercices Vidéo 1
