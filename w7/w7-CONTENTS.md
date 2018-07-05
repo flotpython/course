@@ -74,6 +74,8 @@ ufunc.signature 	Definition of the core elements a generalized ufunc operates on
 ## Vidéo 5 (broadcasting) 
 ### NIVEAU: BASIC
 ### Compléments Vidéo 5
+-citer http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc
+notamment sur le problème de performance en broadcasting
 
 ### Quizz Vidéo 5
 

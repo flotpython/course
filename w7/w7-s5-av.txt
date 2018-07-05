@@ -1,0 +1,95 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Le broadcasting
+## Temp total: (7m30)
+
+## Sujet de la vidéo (30s)
+
+
+Lorsque l'on fait des opérations arithmétiques sur des tableaux numpy
+de mêmes dimensions, numpy fait par défaut les opérations éléments par
+éléments. C'est pas exemple le cas lorsqu'on additionne, mais
+également lorsqu'on multiplie deux tableaux de mêmes
+dimensions. Cependant, il arrive souvent que l'on veuille faire des
+opérations sur des tableaux de dimensions différentes.
+
+Numpy définit la notion de broadcasting qui permet de donner un sens à
+des opérations entre tableaux de dimensions différentes.
+
+Ouvrons un notebook pour commencer à jouer avec cette notion de
+broadcasting. 
+
+>>>>>>>>>> INCLUDE w7-s5-av-exo1.py <<<<<<<<<< (2m30)
+
+Évidemment, le broadcasting est plus général que le simple example que
+l'on vient de voir. Il fonctionne pour des tableaux à n dimensions,
+mais avec deux inconvénient. D'une part, au delà de deux dimensions,
+il devient difficile de comprendre ce que va faire l'opération de
+broadcasting, d'autre part, le resultat peut-être beaucoup plus gros
+que les deux tableaux d'origine, ce qui peut poser aussi bien de
+problème de mémoire que de performance.
+
+On va ici se limiter à des exemples à deux dimensions. 
+
+3m00
+
+>>>>>>>>>> INCLUDE W7-S5-AV-slide1.pptx <<<<<<<<<< (4m00)
+
+Prenons un premier exemple. Ici j'ai tableau qui fait une seule ligne
+et trois colonne, et une tableau de dimension 3*3.
+
+**Pour que le broacasting fonctionne, il faut, en prenant les
+dimensions par la droite, que soit elles aient la même taille, soit
+l'une des deux vaille 1.**
+
+Ici c'est effectivement le cas, les deux tableaux on 3 colonnes, et un
+tableau a une ligne et l'autre 3.
+
+Le broadcasting va propager la ligne du tableau "a" sur deux autres
+lignes pour obtenir de tableau de même dimension de "b". Je rappelle
+que le broadcasting ne va pas réellement créer un tableau temporaire.
+
+Prenons un deuxième exemple. Ici j'ai tableau qui fait une seule
+colonne et trois lignes, et une tableau de dimension 3*3.
+
+De nouveau, je peux appliquer la règle de broadcasting, le premier
+tableau a 1 colonne et l'autre 3, les deux tableaux ont le même nombre
+de lignes.
+
+Le broadcasting va propager la colonne du tableau "a" sur deux autres
+colonne pour obtenir de tableau de même dimension de "b".
+
+Prenons un dernier exemple. Ici j'ai tableau qui fait une seule
+colonne et trois lignes, et une tableau une seule ligne de 3
+colonnes.
+
+De nouveau le broadcasting va fonctionner, puisque l'une des deux
+dimensions pour les colonnes et les lignes est 1.
+
+La tableau final aura pour dimension le maximum des dimensions des
+tableaux initiaux, soit un tableau avec 3 lignes et 2 colonnes.
+Le broadcasting va donc propager la colonne du premier tableau pour
+obtenir un tableau 3x2 et la ligne du deuxième tableau pour obtenir un
+tableau 3*2. On fait ensuite le produit élément par élément
+
+
+### Conclusion (30s)
+
+Dans cette vidéo, nous avons vu la notion de broadcasting qui permet
+de faire des opérations sur des tableaux de dimensions différentes de
+manière très efficace. Cependant, il peut vite devenir compliqué de
+comprendre ce que va faire le broadcasting si on dépasse les tableaux
+de 2 dimensions. C'est pourquoi on vous recommande de ne pas abuser du
+broadcasting en dehors de cas simples.
+
+À bientôt
+
