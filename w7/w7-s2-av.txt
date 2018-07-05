@@ -51,5 +51,9 @@ contiguë. Les tableaux sont mutables, on peut donc changer la valeur
 des éléments stockés, mais on ne peut pas en changer le nombre
 d'éléments.
 
+Il est classique en data science, d'avoir des valeurs numériques
+invalides. On les représente en générale par une valeur nan qui
+signifie not a number. 
+
 À bientôt
 

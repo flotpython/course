@@ -22,13 +22,21 @@ np.ones((2, 2, 2)) # tableau à 3 dimensions
 
 # je peux donner autant de dimensions que nécessaire. 
 
+# Les tableaux ont également un attribut shape qui permet
+# d'obtenir les dimensions du tableau
+
+a = np.zeros((3, 4))
+a.shape
+
+#1m30
+
 # Évidemment un tableau numpy est mutable, je peux donc 
 # changer la valeur d'un élément en utilisant la notation crochet
 a = np.ones((2, 2))
 # on spécifie la position dans chaque dimension séparée par des
 # virgules, la numérotation commence à zero.
 # ici on choisi l'élément à la deuxième ligne et la deuxième colonne
-a[1, 1] = 18 
+a[1, 1] = 18 # équivallent à a[(1, 1)] et à a[1][1]
 print(a)
 
 # 2m20
@@ -40,7 +48,7 @@ print(a)
 # préallouer des tableaux en les remplissant de 0 ou de 1 pour ensuite
 # les modifier. 
 
-# 2m50
+# 2m40
 
 # dans un tableau numpy, je peux également spécifier le type des objets 
 # stocké avec l'argument dtype pour data type. Il s'agit d'un argument
@@ -57,7 +65,7 @@ print(a)
 
 # On utilise en général dans les tableaux numpy les types scalaires.
 
-#3m40
+#3m30
 
 # voici tous les types scalaires que l'on peut mettre dans un tableau
 np.sctypes
@@ -69,12 +77,22 @@ np.sctypes
 # Créons un tableau numpy avec la méthode array qui sert à 
 # convertir une séquence Python en tableau numpy
 
-np.array([1, 100, 110], dtype=np.int8)
+a = np.array([1, 100, 110], dtype=np.int8)
+print(a)
+
+# avec dtype, je peux obtenir le type des éléments stockés dans le tableau
+a.dtype
+
+# avec itemsize, je peux obtenir la tailles des éléments du tableau en bytes
+a.itemsize
+
+# et la taille totale du tableau en bytes avec nbytes
+a.nbytes
 
 # tout fonctionne bien, on a un tableau très compact, contenant
 # uniquement des entier codés sur 8 bits, 
 
-# 4m40
+# 5m00
 
 # mais regardons le cas  suivant
 
@@ -88,11 +106,31 @@ np.array([1, 4.5, 128], dtype=np.int8)
 #  maximum, on va boucler sur la première valeur, soit -128, Si on avait
 # donner 129, on aurait boucler sur la deuxième valeur soit -127, etc.
 
-# 6m00
+# 6m10
 
 # Évidemment, je peux spécifier une précision plus grande
 
 np.array([1, 2**32], dtype=np.int64)
+
+# Il y a une dernière chose importante à connaitre sur les types 
+# numériques. Il est courant en data science d'avoir des valeurs 
+# numériques invalides. On les note en général nan pour "not a number". 
+# En numpy, la notion de nan n'existe que pour les float et pas 
+# pour les entiers. Il s'agit d'une limitation importante de numpy
+# qu'il faut connaitre
+
+# si j'ai un tableau d'entier et une valeur nan, les entiers seront 
+# automatiquement convertis en float
+
+a = np.array([1, 2, np.nan])
+a.dtype
+
+# Si on spécifie le dtype, on aura alors une erreur et non pas une 
+# conversion silencieuse, ce qui est toujours beaucoup mieux
+
+a = np.array([1, 2, np.nan], dtype=np.int32)
+
+# 7m40
 
 # revenons maintenant au type scalaire dans la catégorie autre
 np.sctypes['others']
@@ -118,7 +156,7 @@ np.array(['spam', 'beans'], dtype=(np.str, 2))
 # et dans ce cas, les caractères au delà du deuxième sont simplement
 # tronqués. 
  
- #8m40
+ #9m30
  
 # pour finir sur les types scalaires, il y a également les types object et 
 # numpy.void. Ces deux types sont très particulier. Le type object 
@@ -131,7 +169,7 @@ np.array(['spam', 'beans'], dtype=(np.str, 2))
 # n'importe quel type d'objet d'une taille prédéfinie. Nous n'en 
 # parlerons pas plus ici. 
 
-#9m10
+#10m30
 
 # Nous avons vu qu'un tableau numpy pouvait contenir n'importe quel
 # type scalaire ou un objet dtype. L'objet dtype permet de 
@@ -142,18 +180,5 @@ np.array(['spam', 'beans'], dtype=(np.str, 2))
 # pourquoi je ne parlerai pas plus des notions de dtypes et de 
 # structured array
 
-# 9m50
-
-# Pour finir créons de nouveau un tableau
-
-a = np.zeros((2, 3), dtype=np.int8)
-
-# on a un certain nombre d'attributs qui nous permettent 
-# d'explorer les caractéristiques de ce tableau
-
-a.shape # donne la taille du tableau
-a.dtype # donne le type des éléments du tableau
-a.itemsize # donne la taille en bytes de éléments du tableau
-a.nbytes # donne la taille totale du tableau
-
 # 11m00
+

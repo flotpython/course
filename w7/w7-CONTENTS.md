@@ -42,31 +42,42 @@ print(a[1, 1])
 print(a[t]) # me retourne l'élément de coordonnées (1, 1)
 print(a[L]) # me retourne deux fois la ligne 1
 
-
-
-
-
 ### Quizz Vidéo 3
 
 ### Exercices Vidéo 3
 
 
-## Vidéo 4 () 
+## Vidéo 4 (vectorisation) 
 ### NIVEAU: BASIC
 ### Compléments Vidéo 4
+
+-introduire numba et cython
+- donner le lien de toutes les fonctions vectorisées numpy
+https://docs.scipy.org/doc/numpy/reference/ufuncs.html
+-parler de 
+ufunc.nin 	The number of inputs.
+ufunc.nout 	The number of outputs.
+ufunc.nargs 	The number of arguments.
+ufunc.ntypes 	The number of types.
+ufunc.types 	Returns a list with types grouped input->output.
+ufunc.identity 	The identity value.
+ufunc.signature 	Definition of the core elements a generalized ufunc operates on.
+
+-parler de scipy.special
+-parler de reduce, accumulate, outer
 
 ### Quizz Vidéo 4
 
 ### Exercices Vidéo 4
 
 
-## Vidéo 1 () 
+## Vidéo 5 (broadcasting) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 5
 
-### Quizz Vidéo 1
+### Quizz Vidéo 5
 
-### Exercices Vidéo 1
+### Exercices Vidéo 5
 
 
 ## Vidéo 1 () 

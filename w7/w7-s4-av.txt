@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : La vectorisation
+## Temp total: (11m10)
+
+## Sujet de la vidéo (20s)
+
+Nous allons voir dans cette vidéo comment appliquer une opération à
+chaque élément d'un tableau. On sait évidemment faire cela avec
+n'importe quel itérable en faisant soit une boucle for, soit
+une compréhension. Nous allons voir que même si un tableau numpy est
+itérable, on doit utiliser un nouveau concept qui s'appelle la
+vectorization pour tirer pleinement partie de la performance des
+tableaux numpy.  
+
+
+Ouvrons un notebook pour commencer à jouer avec la vectorisation. 
+
+>>>>>>>>>> INCLUDE w7-s4-av-exo1.py <<<<<<<<<< (10m00)
+
+
+
+### Conclusion (50s)
+
+Dans cette vidéo, nous avons vu la notion de vectorisation qui est
+centrale en numpy. C'est un changement de paradigm important avec
+Python, puisqu'il faut obligatoirement utiliser des fonctions
+vectorisée pour bénéficier de la rapidité des tableaux numpy.
+
+Les fonctions vectorisées sont en générales écrites en C, mais il
+existe des moyens de transformer des fonctions écrites en Python en
+fonction vectorisée en utilisant, par exemple, numba pour faire de la
+compilation just in time avec un simple décorateur, ou cython pour
+transformer et compiler statiquement vos fonctions Python en C avec
+simplement quelques annotation à votre code. Vous pouvez ainsi, en
+écrivant uniquement du code Python développer des fonctions numériques
+qui tournerons à la vitesse du C. Il s'agit d'un sujet avancé que nous
+arborerons rapidement dans les compléments.
+
+À bientôt
+

@@ -61,9 +61,10 @@ print(mars)
 
 mars > 0
 
-# l'opérateur de comparaison va générer un tableau de booléen qui 
-# est mis à True si la comparaison est vraie pour l'élément de même rang
-# et False sinon
+# l'opérateur de comparaison va appliquer la comparaison à 
+# chaque élément du tableau et générer un tableau de booléen 
+# de même dimension qui est mis à True si la comparaison est 
+# vraie  et False sinon
 
 # On peut utiliser les opérateurs <, <=, >, >=, ==, != pour générer d'autres
 # tableaux de booléens. 
@@ -133,8 +134,8 @@ print(mars)
 
 #11m00
 
-# Pour finir, on peut également passer comme indice n'importe quelle séquence d'entiers 
-# (sauf un tuple qui est réservé pour désigner un élément dans un tableau à plusieurs
+# Pour finir, on peut également passer comme indice un tableau ou une liste d'entiers 
+# (mais pas un tuple qui est réservé pour désigner un élément dans un tableau à plusieurs
 # dimension). Dans ce cas, cela va produire un nouveau tableau qui va 
 # contenir les éléments spécifiés dans la séquence d'entier. 
 
