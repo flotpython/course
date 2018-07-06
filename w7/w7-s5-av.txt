@@ -26,7 +26,7 @@ Numpy définit la notion de broadcasting qui permet de donner un sens à
 des opérations entre tableaux de dimensions différentes.
 
 Ouvrons un notebook pour commencer à jouer avec cette notion de
-broadcasting. 
+broadcasting.
 
 >>>>>>>>>> INCLUDE w7-s5-av-exo1.py <<<<<<<<<< (2m30)
 
@@ -38,7 +38,7 @@ broadcasting, d'autre part, le resultat peut-être beaucoup plus gros
 que les deux tableaux d'origine, ce qui peut poser aussi bien de
 problème de mémoire que de performance.
 
-On va ici se limiter à des exemples à deux dimensions. 
+On va ici se limiter à des exemples à deux dimensions.
 
 3m00
 
@@ -55,8 +55,9 @@ Ici c'est effectivement le cas, les deux tableaux on 3 colonnes, et un
 tableau a une ligne et l'autre 3.
 
 Le broadcasting va propager la ligne du tableau "a" sur deux autres
-lignes pour obtenir de tableau de même dimension de "b". Je rappelle
-que le broadcasting ne va pas réellement créer un tableau temporaire.
+lignes pour obtenir de tableau de même dimension de "b". Je précise
+que le broadcasting ne va pas réellement créer un tableau temporaire,
+sauf bien sûr pour stocker le résultat final.
 
 Prenons un deuxième exemple. Ici j'ai tableau qui fait une seule
 colonne et trois lignes, et une tableau de dimension 3*3.
@@ -92,4 +93,3 @@ de 2 dimensions. C'est pourquoi on vous recommande de ne pas abuser du
 broadcasting en dehors de cas simples.
 
 À bientôt
-

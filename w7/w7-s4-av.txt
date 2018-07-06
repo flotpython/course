@@ -16,14 +16,15 @@
 
 Nous allons voir dans cette vidéo comment appliquer une opération à
 chaque élément d'un tableau. On sait évidemment faire cela avec
-n'importe quel itérable en faisant soit une boucle for, soit
-une compréhension. Nous allons voir que même si un tableau numpy est
+n'importe quel itérable avec soit une boucle for, une compréhension
+ou une expression génératrice
+Nous allons voir que même si un tableau numpy est
 itérable, on doit utiliser un nouveau concept qui s'appelle la
-vectorization pour tirer pleinement partie de la performance des
-tableaux numpy.  
+vectorization pour tirer pleinement parti de la performance des
+tableaux numpy.
 
 
-Ouvrons un notebook pour commencer à jouer avec la vectorisation. 
+Ouvrons un notebook pour commencer à jouer avec la vectorisation.
 
 >>>>>>>>>> INCLUDE w7-s4-av-exo1.py <<<<<<<<<< (10m00)
 
@@ -44,7 +45,6 @@ transformer et compiler statiquement vos fonctions Python en C avec
 simplement quelques annotation à votre code. Vous pouvez ainsi, en
 écrivant uniquement du code Python développer des fonctions numériques
 qui tournerons à la vitesse du C. Il s'agit d'un sujet avancé que nous
-arborerons rapidement dans les compléments.
+arborerons rapidement dans les compléments. [xxx thierry: je n'ai pas de complément là-dessus non plus..]
 
 À bientôt
-
