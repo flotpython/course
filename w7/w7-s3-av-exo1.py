@@ -97,8 +97,7 @@ np.all(mars>0)
 # les opérateurs bitwise. Regardons un exemple
 
 # créons un tableau des jours du mois de mars
-# XXX Thierry : perso, je ferais plutôt len.size que len(size)
-jours_mars = np.arange(1, len(mars)+1, dtype=np.int8)
+jours_mars = np.arange(1, mars.size + 1, dtype=np.int8)
 
 # je peux maintenant calculer le nombre de jours où il a fait plus de
 # 10 dégrés à partir du 15 mars. Attention aux règles de priorité des opérateurs,

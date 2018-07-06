@@ -44,7 +44,9 @@ compilation just in time avec un simple décorateur, ou cython pour
 transformer et compiler statiquement vos fonctions Python en C avec
 simplement quelques annotation à votre code. Vous pouvez ainsi, en
 écrivant uniquement du code Python développer des fonctions numériques
-qui tournerons à la vitesse du C. Il s'agit d'un sujet avancé que nous
-arborerons rapidement dans les compléments. [xxx thierry: je n'ai pas de complément là-dessus non plus..]
+qui tournerons à la vitesse du C. Il s'agit d'un sujet avancé dont
+nous ne parlerons pas plus ici. 
+[xxx thierry: je n'ai pas de complément là-dessus non plus..]
+[AL: je propose de ne donner que les pointeurs vers les projets]
 
 À bientôt

@@ -101,7 +101,7 @@ et pandas ont démarré. La philosophie de numpy et pandas est la
 performance avant tout et là il y a nécessairement des compromis à
 faire avec la philosophie de Python. On perd en souplesse, on perd en
 uniformité, on perd en simplicité, mais on gagne beaucoup en
-performance. On peut se rapprocher avec numpy et pandas une performance
+performance. On peut se rapprocher avec numpy et pandas d'une performance
 proche de ce que l'on aurait avec du code écrit en C.
 
 Regardons un exemple. Comme nous abordons le domaine de la data

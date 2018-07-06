@@ -17,8 +17,9 @@ a = np.arange(1000)
 # du tableau ont le même type et la même taille. Cela permet
 # une accélération majeur de l'opération.
 
-# xxx thierry il me paraitrait important de dire ici
-# qu'on crée par défaut un nouveau tableau
+# La vectorisation va toujours créer un nouveau tableau pas défaut,
+# nous verrons dans la suite qu'il est possible d'écrire le résultat
+# dans un tableau existant.
 
 # Tous les opérateurs numériques sont vectorisé en numpy, on peut
 # donc simplement obtenir le carré de chaque élément d'un tableau
@@ -40,7 +41,10 @@ np.all(a**2 == [x**2 for x in a])
 
 # De plus, chaque opérateur est associé à une fonction numpy
 # que l'on appelle une fonction universelle ou ufunc.
-# [xxx thierry: ça me parait un peu léger comme manière de définir une ufunc...; tu pourrais expliciter un peu ce qui fait qu'une fonction est une ufunc ou pas ?]
+# [xxx thierry: ça me parait un peu léger comme manière de définir une
+# ufunc...; tu pourrais expliciter un peu ce qui fait qu'une fonction est 
+# une ufunc ou pas ?]
+# [AL: (TODO) je me vois pas quoi dire de plus ici]
 # par exemple l'opérateur ** est associé à la fonction np.power()
 # et l'opérateur + à la fonction np.add()
 
@@ -53,7 +57,7 @@ np.all(a**2 == np.power(a, 2))
 # Notons qu'il existe un grand nombre  de fonctions
 # universelles qui ne sont pas lié à un opérateur, comme les
 # fonction trigonométrique ou les fonctions logarithmes.
-# On en reparlera dans les compléments (xxx thierry: pas de liste...)
+# On en reparlera dans les compléments. 
 
 #3m30
 
@@ -73,7 +77,8 @@ a = np.arange(1, 1_000_000, dtype=np.float64)
 
 #5m30
 
-# Toutes les ufunc ont une variante [ce n'est pas une méthode] accessible via l'attribut `at` qui permet d'appliquer
+# Toutes les ufunc ont une variante accessible via l'attribut
+# `at` qui permet d'appliquer
 # l'opération à un sous ensemble des éléments et d'écrire en place
 a[:5]
 np.log.at(a, [2, 4])
@@ -81,17 +86,10 @@ a[:5]
 
 #6m30
 
-# pour finir, notons qu'il existe en numpy beaucoup d'autres fonctions qui
-# exploitent la vectorisation, mais qui ne sont pas des ufunc. D'une manière
-# générale, en numpy, vous devez éviter d'utiliser le protocol d'itération
-# classique et donc éviter de faire des boucles for ou des compréhension.
-
-[xxx cette dernière partie est assez obscure pour moi, quel est exactement le point que tu cherches à faire ?]
-
 # Nous avons vu que les ufunc appliquaient une opération à chaque élément
 # d'un tableau. Il n'y a dans ce cas, pas de notion de dimension du tableau.
-# Un certain nombre de fonctions vectorisée prennent en compte les dimensions
-# regardons un exemple
+# Un certain nombre de fonctions vectorisées, qui ne sont pas des ufunc,
+# prennent en compte les dimensions regardons un exemple
 
 a = np.arange(1, 10).reshape(3, 3)
 
@@ -107,9 +105,6 @@ np.sum(a, axis=1)
 
 # 8m10
 
-# vous avez beaucoup de méthodes comme prod, mean, std, min, max, median
-# percentile, [xxx thierry (1) NON pas de complément de ce genre; (2) pourquoi seulement se limiter à ces stats, wrt trigo/math/etc..] vous verrez ces méthodes dans les compléments
-
 # Imaginons, maintenant qu'au lieu d'avoir un tableau d'entier, j'ai un
 # tableau de float avec une valeur nan
 a = np.arange(1, 10, dtype=np.float).reshape(3, 3)
@@ -117,12 +112,12 @@ a[1, 1] = np.nan
 print(a)
 
 # comme le nan est contaminant, toute opération arithmétique avec un nan
-# produit un nan, on ne peut plus utiliser les méthodes classiques.
+# produit un nan, on ne peut plus utiliser les fonctions classiques.
 
 np.mean(a) # me retourne nan
 
-# Toutes ces méthodes ont un équivallent nan-safe qui va simplement ignorer
-# les valeurs mises à nan, ces méthodes commencent toutes par nan
+# Toutes ces fonctions ont un équivallent nan-safe qui va simplement ignorer
+# les valeurs mises à nan, ces fonctions commencent toutes par nan
 
 np.nanmean(a), np.nanmax(a)
 
