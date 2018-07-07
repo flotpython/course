@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Introduction aux Series et aux indexes en pandas
+## Temp total: ()
+
+## Sujet de la vidéo (25s)
+
+Nous avons vu que numpy était la librairie de référence en Python pour
+manipuler des tableaux. C'est exactement ce qu'il faut lorsqu'on fait
+du calcul matriciel. Cependant, en data science, on a très souvent des
+données qui sont associées à des labels. On aimerait donc pouvoir
+ajouter à un tableau un index permettant d'accéder facilement aux
+éléments du tableau de manière plus expressive qu'une simple
+coordonnée entière.
+
+Regardons un exemple.
+
+>>>>>>>>>> INCLUDE W7-S6-AV-slide1.pptx <<<<<<<<<< (1m20)
+
+Imaginons que j'ai un tableau d'age, j'aimerais pouvoir ajouter un
+index de noms me permettant d'accéder à chaque age par un nom, plutôt
+que par un numéro de ligne. Un tableau à une dimension avec un index
+s'appel une Series en Python.
+
+Imaginons maintenant que j'ai un tableau à deux dimensions où la
+première colonne représente des ages et la deuxième colonne représente
+des tailles. J'aimerais pouvoir ajouter un index sur les colonne et un
+index sur les lignes me permettant d'accéder facilement à la taille de
+Bob. Un tableau à deux dimensions avec un index sur les lignes et les
+colonnes s'appelle une DataFrame
+
+En résumé, il y a en pandas deux grands types pour représenter des
+données indexées : les Series pour les données à une dimension et les
+DataFrame pour les données à deux dimensions.
+
+Une grande partie de la complexité de pandas vient de la maîtrise de
+cette notion d'index. Les indexes on deux intérêts majeurs :
+ - un accès optimisé aux éléments de la Series ou de la DataFrame et
+ - un alignement automatique des indexes sur toutes les
+opérations. Cela veut dire que si vous additionnes deux Series,
+uniquement les valeurs qui ont le même index seront additionnées entre
+elles.
+
+Dans cette vidéos nous allons introduire les Series et les index en
+pandas. Ouvrons maintenant un notebook pour jouer avec ces notions. 
+
+>>>>>>>>>> INCLUDE w7-s6-av-exo1.py <<<<<<<<<< (12m10)
+
+
+
+
+### Conclusion (30s)
+
+Dans cette vidéo, nous avons vu la notion d'index et de Series en
+Python. 
+
+Nous verrons dans une prochaine vidéo ...
+
+À bientôt
+

@@ -82,13 +82,13 @@ notamment sur le problème de performance en broadcasting
 ### Exercices Vidéo 5
 
 
-## Vidéo 1 () 
+## Vidéo 6 (Introduction aux Series et aux indexes en pandas) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 6
 
-### Quizz Vidéo 1
+### Quizz Vidéo 6
 
-### Exercices Vidéo 1
+### Exercices Vidéo 6
 
 
 ## Vidéo 1 () 
