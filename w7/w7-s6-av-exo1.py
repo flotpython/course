@@ -4,8 +4,9 @@
 # ordonnées et sliceable (comme les éléments d'une liste). En
 # particulier, je peux avoir des éléments dupliqués dans un index. 
 
-# Un index offre donc à la fois un comportement de liste et 
-# un comportement de set. 
+# Un index permet d'accéder aux valeurs d'une Serie en offrant
+# à la fois un comportement de liste et un comportement de 
+# dictionnaire. 
 
 # En pratique, on crée jamais directement un objet index. Il 
 # va être automatiquement créé au moment de l'importation
@@ -19,24 +20,27 @@
 # Regardons maintenant un exemple de Series
 
 import pandas as pd
+
 s = pd.Series([20, 30, 40, 50], index=['eve', 'bill', 'liz','bob' ])
+# L'ordre des labels du set est primordiale puisqu'il est préservé
+# lors de la création de l'index et que c'est lui qui sera utilisé
+# pour donner un sens à l'opération de slicing. Nous y reviendrons
+# dans quelques instants.
 print(s)
 
 # regardons maintenant les différents composants de cette Series
 s.values
 
 # représente le tableau numpy contenant les données, il s'agit
-# d'un tableau numpy tout à fait standard. 
+# d'un tableau numpy. 
 
 s.index
 
-# représente l'object index. 
+# représente l'object index. On peut le voir un peu
+# comme les clefs d'un dictionnaire, c'est ce qui permet 
+# d'accéder aux valeurs de la Series.
 
-#2m10s
-
-# Il existe plusieurs manières d'accéder à un élément dans une
-# Series, mais une seule manière de le faire sans risque d'ambiguité
-# et sans effets de bords. 
+#2m30s
 
 # Pour accéder aux éléments d'une Series par leur label on utilise
 # l'attribut loc
@@ -106,7 +110,7 @@ s.iloc[1:3]
 
 # Les Series acceptent également la notion d'indexation avancée
 # comme les tableaux numpy. On peut donc faire les opérations 
-# suivantes
+# suivantes qui vont appliquer le test sur les valeurs de la Series.
 s.loc[s=='chien']
 
 s.loc[(s=='chat') | (s=='poisson')]
@@ -116,29 +120,20 @@ s.loc[(s=='chat') | (s=='poisson')] = 'autre'
 
 #8m40
 
-# Il faut bien comprendre que certaines opérations sur les Series
-# sont faites
-# sur les valeurs de la Series, c'est le cas de la création des tableaux
-# de booléens que l'on vient d'utiliser pour l'indexation avancée, 
+# vous verrez dans de documentations sur pandas que l'on peut
+# directement accéder au éléments d'une Series avec la notation
+# [] sans utiliser les attributs loc ou iloc
 
-s == 'chien'
+s['eve']
 
-# et certains opérations sont faites sur les clefs, c'est le cas, 
-# par exemple, du test d'appartenance
-
-'eve' in s
-
-# Le moyen mnémotechnique vous s'en souvenir est que les 
-# opérations que l'on fait habituellement sur les tableaux numpy 
-# s'applique aux valeurs de la Series, et les opérations que l'on 
-# fait habituellement sur  des dictionnaires s'appliques à l'index 
-# de la Series.
+# je vous déconseille d'utiliser cette notation qui est la source de 
+# nombreuses difficultés que vous verrez dans les compléments.
 
 # 9m30
 
 ### Alignement des labels
 
-# J'aimerais introduire la notion d'alignement des labels
+# Pour finir, j'aimerais introduire la notion d'alignement des labels
 # qui est une notion clef en pandas. Regardons un exemple
 
 s1 = pd.Series([1, 2, 3], index=list('abc'))
