@@ -109,13 +109,13 @@ notamment sur le problème de performance en broadcasting
 ### Exercices Vidéo 8
 
 
-## Vidéo 1 () 
+## Vidéo 9 (Gestion des dates en pandas) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 9
 
-### Quizz Vidéo 1
+### Quizz Vidéo 9
 
-### Exercices Vidéo 1
+### Exercices Vidéo 9
 
 
 ## Vidéo 1 () 
