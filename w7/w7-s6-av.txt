@@ -21,6 +21,9 @@ données qui sont associées à des labels. On aimerait donc pouvoir
 ajouter à un tableau un index permettant d'accéder facilement aux
 éléments du tableau de manière plus expressive qu'une simple
 coordonnée entière.
+[[il m'a fallu relire ca plusieurs fois; ce serait peut-être plus clair si tu
+  mets dans le powerpoint ces noms en filigrane; je tripote le powerpoint
+  pour illustrer ce que je veux dire mais je ne touche pas aux animations etc..]]
 
 Regardons un exemple.
 
@@ -33,7 +36,8 @@ s'appel une Series en pandas.
 
 Imaginons maintenant que j'ai un tableau à deux dimensions où la
 première colonne représente des ages et la deuxième colonne représente
-des tailles. J'aimerais pouvoir ajouter un index sur les colonne et un
+des tailles [!! pourquoi pas des noms justement alors ?; je ne comprends pas où tu nous emmènes là].
+J'aimerais pouvoir ajouter un index sur les colonne et un
 index sur les lignes me permettant d'accéder facilement à la taille de
 Bob. Un tableau à deux dimensions avec un index sur les lignes et les
 colonnes s'appelle une DataFrame
@@ -46,12 +50,12 @@ Une grande partie de la complexité de pandas vient de la maîtrise de
 cette notion d'index. Les indexes ont deux intérêts majeurs :
  - un accès optimisé aux éléments de la Series ou de la DataFrame et
  - un alignement automatique des indexes sur toutes les
-opérations. Cela veut dire que si vous additionnes deux Series,
+opérations. Cela veut dire que si vous additionnez deux Series,
 uniquement les valeurs qui ont le même index seront additionnées entre
 elles.
 
 Dans cette vidéos nous allons introduire les Series et les index en
-pandas. Ouvrons maintenant un notebook pour jouer avec ces notions. 
+pandas. Ouvrons maintenant un notebook pour jouer avec ces notions.
 
 >>>>>>>>>> INCLUDE w7-s6-av-exo1.py <<<<<<<<<< (12m10)
 
@@ -65,7 +69,6 @@ Python. Les indexes sont aux coeurs du fonctionnement de pandas en
 permettant de donner des labels aux valeurs stockées. Ces labels
 peuvent être utilisés pour accéder aux valeurs d'un Series, mais ils
 sont aussi automatiquement pris en compte lors des opérations sur les
-Series pour faire de l'alignement automatique. 
+Series pour faire de l'alignement automatique.
 
 À bientôt
-

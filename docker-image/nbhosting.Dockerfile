@@ -34,6 +34,10 @@ RUN (find /opt /usr -name notebook.js -o -name main.min.js | xargs sed -i -e 's|
  &&  (find /opt /usr -name notificationarea.js -o -name main.min.js | xargs sed -i -e 's|this.init_trusted_notebook_notification_widget();||')
 
 # --------
+# use latest pip
+RUN pip install -U pip
+
+# --------
 # the ipythontutor magic
 RUN pip install ipythontutor
 
@@ -50,4 +54,3 @@ RUN conda update -y numpy pandas
 # --------
 # install plotly for w7
 RUN pip install plotly
-
