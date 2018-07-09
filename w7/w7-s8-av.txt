@@ -60,9 +60,10 @@ opération que sont le regroupement et le pivot.
 
 Dans cette vidéo, nous avons vu des opérations avancées en pandas
 comme la concaténation, le merge, le regroupement et le pivot. Il
-s'agit d'opérations extrêmements puissantes et rapide.
-
-Nous verrons dans une prochaine vidéo ...
+s'agit d'opérations extrêmements puissantes et rapide. Cependant,
+nous n'avons couvert que les usages les plus simples. Je vous
+recommande d'étudier attentivement les compléments et de pratiquer ces
+différentes opération pour parfaitement les maîtriser. 
 
 À bientôt
 
