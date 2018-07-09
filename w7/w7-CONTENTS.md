@@ -91,13 +91,13 @@ notamment sur le problème de performance en broadcasting
 ### Exercices Vidéo 6
 
 
-## Vidéo 1 () 
+## Vidéo 7 (Les DataFrames en pandas) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 7
 
-### Quizz Vidéo 1
+### Quizz Vidéo 7
 
-### Exercices Vidéo 1
+### Exercices Vidéo 7
 
 
 ## Vidéo 1 () 
