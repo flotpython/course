@@ -18,12 +18,14 @@ Nous avons vu que numpy était la librairie de référence en Python pour
 manipuler des tableaux. C'est exactement ce qu'il faut lorsqu'on fait
 du calcul matriciel. Cependant, en data science, on a très souvent des
 données qui sont associées à des labels. On aimerait donc pouvoir
-ajouter à un tableau un index permettant d'accéder facilement aux
-éléments du tableau de manière plus expressive qu'une simple
-coordonnée entière.
-[[il m'a fallu relire ca plusieurs fois; ce serait peut-être plus clair si tu
+ajouter à un tableau un index sur les lignes et un index sur les
+colonnes pour accéder aux éléments du tableau de manière plus
+expressive qu'avec un simple numéro de ligne et de colonne.
+
+[[TP: il m'a fallu relire ca plusieurs fois; ce serait peut-être plus clair si tu
   mets dans le powerpoint ces noms en filigrane; je tripote le powerpoint
   pour illustrer ce que je veux dire mais je ne touche pas aux animations etc..]]
+[AL: to discuss]
 
 Regardons un exemple.
 
@@ -36,7 +38,14 @@ s'appel une Series en pandas.
 
 Imaginons maintenant que j'ai un tableau à deux dimensions où la
 première colonne représente des ages et la deuxième colonne représente
-des tailles [!! pourquoi pas des noms justement alors ?; je ne comprends pas où tu nous emmènes là].
+des tailles
+
+[TP: !! pourquoi pas des noms justement alors ?; je ne
+comprends
+pas où tu nous emmènes là].
+[AL: to discuss]
+
+
 J'aimerais pouvoir ajouter un index sur les colonne et un
 index sur les lignes me permettant d'accéder facilement à la taille de
 Bob. Un tableau à deux dimensions avec un index sur les lignes et les
