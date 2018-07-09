@@ -40,12 +40,12 @@ np.all(a**2 == [x**2 for x in a])
 # et les opérateurs bitwise (&, |, etc.) sont vectorisés.
 
 # De plus, chaque opérateur est associé à une fonction numpy
-# que l'on appelle une fonction universelle ou ufunc.
-# [xxx thierry: ça me parait un peu léger comme manière de définir une
-# ufunc...; tu pourrais expliciter un peu ce qui fait qu'une fonction est 
-# une ufunc ou pas ?]
-# [AL: (TODO) je me vois pas quoi dire de plus ici]
-# par exemple l'opérateur ** est associé à la fonction np.power()
+# vectorisée. On appelle ces fonctions vectorisées des ufuncs
+# ou fonctions universelles. Ce sont des fonctions qui travaillent
+# élément par élément et qui sont généralement implémentée
+# en C. 
+
+# Par exemple l'opérateur ** est associé à la fonction np.power()
 # et l'opérateur + à la fonction np.add()
 
 np.all(a**2 == np.power(a, 2))
@@ -121,4 +121,4 @@ np.mean(a) # me retourne nan
 
 np.nanmean(a), np.nanmax(a)
 
-10m00
+# 10m00

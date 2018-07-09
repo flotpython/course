@@ -9,8 +9,8 @@
 ## un transparent blanc). [Si] signifie que l'on doit se trouver sur
 ## le slide i
 
-## TITRE : 
-## Temp total: (Les DataFrames en pandas)
+## TITRE : Les DataFrames en pandas
+## Temp total: (12m00)
 
 ## Sujet de la vidéo (30s)
 

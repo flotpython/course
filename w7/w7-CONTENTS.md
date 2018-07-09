@@ -100,13 +100,13 @@ notamment sur le problème de performance en broadcasting
 ### Exercices Vidéo 7
 
 
-## Vidéo 1 () 
+## Vidéo 8 (Opérations avancées en pandas) 
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments Vidéo 8
 
-### Quizz Vidéo 1
+### Quizz Vidéo 8
 
-### Exercices Vidéo 1
+### Exercices Vidéo 8
 
 
 ## Vidéo 1 () 

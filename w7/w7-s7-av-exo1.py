@@ -19,11 +19,7 @@ df = pd.DataFrame({'age': age, 'taille': taille, 'sexe': sexe})
 # Regardons ce code pour créer une DataFrame. N'hésitez
 # pas à mettre la vidéo en pause pour avoir le temps de taper
 # ce code.
-print(df)
-
-[thierry] puisque tu es dans un notebook tu devrais faire juste:
 df
-sans le print(), le resultat est plus joli..
 
 #1m00
 
@@ -67,9 +63,7 @@ df.loc[:, 'taille']
 
 # on peut évidemment faire de l'indexation avancée
 
-df.loc[p.loc[:,'age']< 32]
-      ^^^
-attention c'est df et pas p
+df.loc[df.loc[:,'age']< 32]
 
 # Il est courant avec une DataFrame de transformer un index
 # en colonne et une colonne en index. Regardons cela
@@ -106,8 +100,7 @@ df = (df.reset_index()
 df1 = pd.DataFrame(np.ones((2,2)), index=list('ab'), columns=list('xy'))
 df2 = pd.DataFrame(np.ones((2,2)), index=list('ac'), columns=list('xz'))
 
-ce sera plus clair si tu montres d'abord df1 et df2:
-
+# regardons en premier df1 et df2
 df1
 df2
 
@@ -125,17 +118,13 @@ df
 # remplacer les NaN et effacer les lignes les contenants.
 
 df.fillna(-1) # pour remplacer les NaN par un -1
-df
 
 df.dropna() # pour supprimer les lignes contenant un NaN
-df
 
 # Vous verrez dans les compléments que ces methodes ont
 # plusieurs options qui par exemple de remplacer les NaN
 # avec une valeurs proches du NaN dans le tableau ou
 # de supprimer une contenant uniquement un certains
 # nombre de NaN.
-J'insiste lourdement mais on est bien d'accord que je te laisserai
-faire tous ces compléments que tu annonces dans les vidéos :)
 
 #9m30

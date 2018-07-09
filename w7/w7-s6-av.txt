@@ -22,11 +22,6 @@ ajouter à un tableau un index sur les lignes et un index sur les
 colonnes pour accéder aux éléments du tableau de manière plus
 expressive qu'avec un simple numéro de ligne et de colonne.
 
-[[TP: il m'a fallu relire ca plusieurs fois; ce serait peut-être plus clair si tu
-  mets dans le powerpoint ces noms en filigrane; je tripote le powerpoint
-  pour illustrer ce que je veux dire mais je ne touche pas aux animations etc..]]
-[AL: to discuss]
-
 Regardons un exemple.
 
 >>>>>>>>>> INCLUDE W7-S6-AV-slide1.pptx <<<<<<<<<< (1m30)
@@ -40,12 +35,6 @@ Imaginons maintenant que j'ai un tableau à deux dimensions où la
 première colonne représente des ages et la deuxième colonne représente
 des tailles
 
-[TP: !! pourquoi pas des noms justement alors ?; je ne
-comprends
-pas où tu nous emmènes là].
-[AL: to discuss]
-
-
 J'aimerais pouvoir ajouter un index sur les colonne et un
 index sur les lignes me permettant d'accéder facilement à la taille de
 Bob. Un tableau à deux dimensions avec un index sur les lignes et les
@@ -56,7 +45,8 @@ données indexées : les Series pour les données à une dimension et les
 DataFrame pour les données à deux dimensions.
 
 Une grande partie de la complexité de pandas vient de la maîtrise de
-cette notion d'index. Les indexes ont deux intérêts majeurs :
+cette notion d'index. Les indexes sont des objets puissants qui ont
+deux intérêts majeurs : 
  - un accès optimisé aux éléments de la Series ou de la DataFrame et
  - un alignement automatique des indexes sur toutes les
 opérations. Cela veut dire que si vous additionnez deux Series,
@@ -67,8 +57,6 @@ Dans cette vidéos nous allons introduire les Series et les index en
 pandas. Ouvrons maintenant un notebook pour jouer avec ces notions.
 
 >>>>>>>>>> INCLUDE w7-s6-av-exo1.py <<<<<<<<<< (12m10)
-
-
 
 
 ### Conclusion (20s)
