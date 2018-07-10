@@ -8,7 +8,7 @@
 
 class Maison:
     def __init__(self, t):
-        self._temperature = t
+        self.temperature = t
 
     def get_temperature(self):
         return self._temperature
@@ -42,7 +42,7 @@ m.set_temperature(80)
 
 class Maison:
     def __init__(self, t):
-        self._temperature = t
+        self.temperature = t
     
     def get_temperature(self):
         return self._temperature
@@ -60,6 +60,9 @@ class Maison:
 ## du nom de l'attribut dans l'instance _temperature, sinon, il y aura
 ## un appel récursif lors de l'affectation ou du référencement de
 ## l'attribut.
+
+## on peut cependant directement utiliser temperature dans la méthode
+## __init__ pour bénéficier de la validation lors de la création de notre instance.
     
 class TemperatureError(Exception):
     pass
