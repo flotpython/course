@@ -10,7 +10,7 @@
 ## le slide i
 
 ## TITRE : Opérations avancées en pandas
-## Temp total: ()
+## Temp total: (12m40)
 
 ## Sujet de la vidéo (30)
 
@@ -19,8 +19,9 @@ comme la concaténation, le merge (ou fusion), le regroupement, et le
 pivot. Ce sont des opérations que l'on retrouve habituellement dans
 les bases de données. Ces opérations sont parfois conceptuellement
 ardues et peuvent être difficile à prendre en main à cause de
-nombreuses options
-[[mais sont très utiles !! - en une ou deux lignes, remplace des pages de code fastidieux sans valeur ajoutée]]
+nombreuses options. Cependant, elles permettent en une ligne de code
+de faire des traitements très sophistiqués qui nous demanderait
+autrement un développement long et fastidieux.
 
 Dans cette vidéo, je vais introduire ces opérations dans leur forme la
 plus simple. Vous verrez dans les compléments des usages plus
@@ -30,10 +31,11 @@ Ouvrons un notebook pour commencer à jouer avec ces opérations.
 
 >>>>>>>>>> INCLUDE w7-s8-av-exo1.py <<<<<<<<<< (2m20)
 
-Regardons maintenant le cas du merge.
-
-[[il serait bien je pense que tu dises au moins une fois le mot 'JOIN' qui est
-le terme consacré dans les BdD pour faire l'équivalent du merge ]]
+Regardons maintenant le cas du merge qui est équivalent au join que
+l'on trouve dans les base de données. Notez qu'il existe également un
+join en pandas qui est un raccourci vers la fonction merge, mais avec
+quelques options de moins. C'est pourquoi, on préfère, en général,
+utiliser directement merge. 
 
 >>>>>>>>>> INCLUDE w7-s8-av-slide1.pptx <<<<<<<<<< (1m50)
 
@@ -57,7 +59,7 @@ DataFrame initiale sur une colonne particulière.
 Ouvrons de nouveau un notebook pour jouer avec les deux dernière
 opération que sont le regroupement et le pivot.
 
->>>>>>>>>> INCLUDE w7-s8-av-exo2.py <<<<<<<<<< (5m30)
+>>>>>>>>>> INCLUDE w7-s8-av-exo2.py <<<<<<<<<< (7m30)
 
 
 ### Conclusion (30s)

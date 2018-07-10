@@ -72,23 +72,20 @@ s.loc['2018-12': '2019-01-25']
 
 # et pour finir, essayons la méthode resample qui permet de rééchantillonner une
 # Series avec un DatetimeIndex. Cette méthode est similaire à groupby dans l'esprit,
-# le rééchantillonage va créer des groupes et on peut appliquer une opération à
-# ces groupes. Regardons cela
+# le resample retourne un resampler object qui permet d'accéder aux groupes
+# rééchantillonés et d'appliquer une opération à ces groupes. Regardons cela
 
 s.resample('M').mean()
 
-[[
+# resample est une méthode très puissante, par exemple, je peux rééchantilloné 
+# avec une fréquence de la semaine qui démarre le mercredi et calculer la somme
+# de chaque groupe.
 
-ça me paraît très bien, j'aurais juste je pense insisté un peu plus sur
-'resample' qui est je pense le truc le plus immédiatement utile lorsqu'on a des
-données qui ne sont - jamais - pile poil à une fréquence fixe.
+s.resample('W-WED').sum()
 
-je veux dire, tu ne donnes qu'un seul exemple pour regrouper par mois; si tu
-savais montrer comment grouper par semaine en commençant le mercredi, ou des
-variantes de ce genre, ce serait super !
+# la méthode resample vient avec beaucoup d'exemples que je vous
+# recommande de consulter
 
-]]
-
-
+s.resample?
 
 #9m40

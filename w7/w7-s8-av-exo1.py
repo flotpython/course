@@ -1,7 +1,6 @@
+### TO PUT IN THE NOTEBOOK (BEGIN)
 import numpy as np
 import pandas as pd
-
-### TO PUT IN THE NOTEBOOK (BEGIN)
 df1 = pd.DataFrame(np.random.randint(1, 10, size=(2, 2)),
                   columns=list('ab'),
                   index=list('xy'))
