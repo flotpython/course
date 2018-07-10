@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # -*- fill-column: 54 -*-
 #
 ## FORMAT DU FICHIER
@@ -32,17 +32,29 @@ les mutables et les immuables.
 
 ## Résumé de la vidéo (40 s)
 
-En résumé, il vaut se rappeler que les références partagées sur un
-immuable ne pose aucun problème, par contre les références partagées
-sur un mutable peuvent conduire à des effets de bords, c'est-à-dire à
-une modification de l'objet par une variable sans que cela soit voulu
-pour les autres variables référençant cet objet.
+Ce mécanisme de référence partagé est central en Python. Tout fonctionne
+par référence partagé et notamment le passage d'arguments à une fonction. 
+C'est donc le mécanisme qui permet à différentes parties d'un programme
+de travailler sur les mêmes objets. 
 
-Cependant, vous verrez qu'avec un peu d'habitude, il est facile de
-maitriser cette notion. De plus, les référecences partagées ont un gros
-avantage, elles permettent de minimiser le nombre d'objets en
-mémoire. C'est une caractéristique très importante dans un langage
-comme Python ou tout est objet.
+De plus, comme tout est objet en Python et donc tout prend pas mal
+de mémoire, il est important de minimiser les copies de objets. Et Python
+fait ça très bien grace aux références partagées. 
+
+Lorsque vous avez un objet builtin immuable, comme il ne peut pas 
+être modifié, Python utilise souvent des références partagés vers 
+une copie unique de cet objet. Par exemple, l'objet entier 1 est un 
+singleton, ça veut dire qu'il n'existe qu'en une seul copie, et il y
+a donc un grand nombre de référence vers cet objet. 
+
+Et lorsque ces objets immuables ne sont plus référencés, 
+Python les met dans un cache pour pouvoir les réutiliser 
+sans avoir à recréer l'objet. Ce mécanisme de cache est 
+utilisé pour les petits entiers, les petites chaînes de 
+caractères et certains tuples. 
+
+Vous voyez donc que c'est le mécanisme de références partagés qui permet
+d'optimiser l'utilisation de la mémoire en Python.
 
 À bientôt.
 
