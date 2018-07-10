@@ -26,6 +26,8 @@ np.datetime64('2018-06-30 08:35:23', 'ns')
 # de deux datetime64
 np.datetime64('2018-06-30 08:35:23') - np.datetime64('2017-06-30 18:33:20')
 
+#3m00
+
 # Pandas propose trois nouveaux types qui se basent sur datetime64 et timedelta64.
 # Ces types sont Timestamp pour représenter une date, Period pour représenter une date
 # et une durée associée (par exemple, une semaine à partir du 1er juillet 2018), et
@@ -47,28 +49,32 @@ pd.to_datetime('10 june 1973 8h30')
 
 pd.to_datetime(['10 june 1973', '22-June-1973']) # avec des formats hétérogènes
 
+#5m00
+
 # on peut également utiliser date_range pour créer un index, par exemple 
-index = pd.date_range('2018-01-01', periods=1000, freq='D')
+index = pd.date_range('1 jan 2018', periods=1000, freq='D')
 # pour créer mile dates à partir du 1 janvier 2018 avec une fréquence
 # d'un jour. Notons que les fréquences peuvent etre quelconque, regardons
 # cet exemple. On utilise t pour les minutes, parce que m est déjà utilisé pour les mois
-index = pd.date_range('2018-01-01', periods=1000, freq='18h36t')
+index = pd.date_range('2018-01-01', periods=1000, freq='43h36t') # t or min
 
 # regardons maintenant un exemple de Series avec un index DatetimeIndex
 s = pd.Series(np.random.randint(100, size=1000), index=index)
  
 # les Séries permette une indéxation intélligente
 s.loc['2018'] # me retourne toutes les entrées en 2018
-s.loc['2018-12'] # me retourne toutes les entrées en décembre 2018
+s.loc['dec 2018'] # me retourne toutes les entrées en décembre 2018
 
 # et je peux évidemment faire du slicing en utilisant le même principe
 s.loc['2018-12': '2019-01-25']
+
+#8m20
 
 # et pour finir, essayons la méthode resample qui permet de rééchantillonner une
 # Series avec un DatetimeIndex. Cette méthode est similaire à groupby dans l'esprit, 
 # le rééchantillonage va créer des groupes et on peut appliquer une opération à
 # ces groupes. Regardons cela
 
-s.resample('MS').mean()
+s.resample('M').mean()
 
-
+#9m40

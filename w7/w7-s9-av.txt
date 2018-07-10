@@ -10,25 +10,24 @@
 ## le slide i
 
 ## TITRE : Gestion des dates en numpy et pandas
-## Temp total: ()
+## Temp total: (11m05)
 
-## Sujet de la vidéo ()
+## Sujet de la vidéo (15s)
 
 Il est courant en data science de devoir manipuler des dates en
-particulier des séries temporelle. Aussi numpy que pandas ont un très
-bon support des dates et des séries temporelles. 
+particulier des séries temporelles.
 
 Dans cette vidéo, nous allons introduire le support des dates en numpy
-et pandas
+et le support des series temporelles en pandas
 
 
 Ouvrons un notebook pour commencer à jouer avec ces notions
 
->>>>>>>>>> INCLUDE w7-s9-av-exo1.py <<<<<<<<<< ()
+>>>>>>>>>> INCLUDE w7-s9-av-exo1.py <<<<<<<<<< (9m40)
 
 
 
-### Conclusion ()
+### Conclusion (20s)
 
 Dans cette vidéo, nous avons introduit la notion de dates en numpy et
 pandas. Nous avons notamment vu que pandas supportait des indexes
@@ -36,7 +35,7 @@ spécialisés pour les dates. Ces indexes offrent un accès intuitifs à
 des sous ensembles de dates et permet un rééchantillonage facile et
 performant.
 
-####### faire une pause #####
+####### faire une pause ##### (50s)
 
 Cette vidéo conclut notre introduction à l'écosystème data science en
 Python. Il y aurait beaucoup plus à dire que ce que nous avons la
@@ -44,7 +43,13 @@ possibilité de couvrir en une semaine. On aurait pu approfondir de
 nombreuses notions, parler des évolutions de pandas et notamment des
 nouveaux formats de données, étudier la parallélisation de code pandas
 ou parler de visualisation. Pandas est en constante évolution et la
-communauté autour de pandas est extrêmement active. 
+communauté autour de pandas est extrêmement active.
+
+Nous avons également vu que la philosophie de l'écosystème data
+science en python était centrée autour de la performance, ce qui est
+en rupture avec la philosophie de Python. Il faut donc prendre le
+temps de pratiquer et maîtriser les nouveaux concepts que l'on a
+introduit pour pleinement tirer partie de cet écosystème. 
 
 À bientôt
 
