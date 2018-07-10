@@ -19,7 +19,8 @@ comme la concaténation, le merge (ou fusion), le regroupement, et le
 pivot. Ce sont des opérations que l'on retrouve habituellement dans
 les bases de données. Ces opérations sont parfois conceptuellement
 ardues et peuvent être difficile à prendre en main à cause de
-nombreuses options.
+nombreuses options
+[[mais sont très utiles !! - en une ou deux lignes, remplace des pages de code fastidieux sans valeur ajoutée]]
 
 Dans cette vidéo, je vais introduire ces opérations dans leur forme la
 plus simple. Vous verrez dans les compléments des usages plus
@@ -29,7 +30,10 @@ Ouvrons un notebook pour commencer à jouer avec ces opérations.
 
 >>>>>>>>>> INCLUDE w7-s8-av-exo1.py <<<<<<<<<< (2m20)
 
-Regardons maintenant le cas du merge. 
+Regardons maintenant le cas du merge.
+
+[[il serait bien je pense que tu dises au moins une fois le mot 'JOIN' qui est
+le terme consacré dans les BdD pour faire l'équivalent du merge ]]
 
 >>>>>>>>>> INCLUDE w7-s8-av-slide1.pptx <<<<<<<<<< (1m50)
 
@@ -63,7 +67,6 @@ comme la concaténation, le merge, le regroupement et le pivot. Il
 s'agit d'opérations extrêmements puissantes et rapide. Cependant,
 nous n'avons couvert que les usages les plus simples. Je vous
 recommande d'étudier attentivement les compléments et de pratiquer ces
-différentes opération pour parfaitement les maîtriser. 
+différentes opération pour parfaitement les maîtriser.
 
 À bientôt
-
