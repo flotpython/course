@@ -1,21 +1,21 @@
-# numpy a  types pour gérer le dates datetime64 et un type pour 
+# numpy a  types pour gérer le dates datetime64 et un type pour
 # gérer les intervals de temps timedelta64.
 
 # ces deux objets sont codés sur 64 bits avec un codage très malin. On spécifie
 # notre résolution maximum et l'objet va automatiquement trouver le plus grande
-# nombre de date possibles à coder sur 64 bits avec la résolution souhaitée. 
+# nombre de date possibles à coder sur 64 bits avec la résolution souhaitée.
 
 # Par exemple avec une résolution de la ns, on peut coder toutes les dates
 # de 1678 à 2262. C'est cette résolution qui est la plus courrente. Si on a besoin
-# d'intervals beaucoup plus larges, on peut prendre la résolution de la ms qui permet 
-# de couvrir 600 millions d'années. 
+# d'intervals beaucoup plus larges, on peut prendre la résolution de la ms qui permet
+# de couvrir 600 millions d'années.
 
 # Pour créer un objet datetime64, il faut lui fournir une date dans le format
 # ISO8601. Regardons un exemple
 import numpy as np
 import pandas as pd
 np.datetime64('2018-06-30')
- 
+
  # on peut également spécifier une heure
 np.datetime64('2018-06-30 08:35:23')
 
@@ -31,10 +31,10 @@ np.datetime64('2018-06-30 08:35:23') - np.datetime64('2017-06-30 18:33:20')
 # Pandas propose trois nouveaux types qui se basent sur datetime64 et timedelta64.
 # Ces types sont Timestamp pour représenter une date, Period pour représenter une date
 # et une durée associée (par exemple, une semaine à partir du 1er juillet 2018), et
-# Timedelta pour représenter un interval de temps. 
+# Timedelta pour représenter un interval de temps.
 
-# Ces nouveaux types ont deux avantage majeurs par rapport aux types 
-# numpy: ils supportent un parsing de dates beaucoup plus flexible et 
+# Ces nouveaux types ont deux avantage majeurs par rapport aux types
+# numpy: ils supportent un parsing de dates beaucoup plus flexible et
 # ils peuvent être dans des index
 
 # Dans la suite, nous ne parlerons que du type Timestamp et de sont index
@@ -51,7 +51,7 @@ pd.to_datetime(['10 june 1973', '22-June-1973']) # avec des formats hétérogèn
 
 #5m00
 
-# on peut également utiliser date_range pour créer un index, par exemple 
+# on peut également utiliser date_range pour créer un index, par exemple
 index = pd.date_range('1 jan 2018', periods=1000, freq='D')
 # pour créer mile dates à partir du 1 janvier 2018 avec une fréquence
 # d'un jour. Notons que les fréquences peuvent etre quelconque, regardons
@@ -60,7 +60,7 @@ index = pd.date_range('2018-01-01', periods=1000, freq='43h36t') # t or min
 
 # regardons maintenant un exemple de Series avec un index DatetimeIndex
 s = pd.Series(np.random.randint(100, size=1000), index=index)
- 
+
 # les Séries permette une indéxation intélligente
 s.loc['2018'] # me retourne toutes les entrées en 2018
 s.loc['dec 2018'] # me retourne toutes les entrées en décembre 2018
@@ -71,10 +71,24 @@ s.loc['2018-12': '2019-01-25']
 #8m20
 
 # et pour finir, essayons la méthode resample qui permet de rééchantillonner une
-# Series avec un DatetimeIndex. Cette méthode est similaire à groupby dans l'esprit, 
+# Series avec un DatetimeIndex. Cette méthode est similaire à groupby dans l'esprit,
 # le rééchantillonage va créer des groupes et on peut appliquer une opération à
 # ces groupes. Regardons cela
 
 s.resample('M').mean()
+
+[[
+
+ça me paraît très bien, j'aurais juste je pense insisté un peu plus sur
+'resample' qui est je pense le truc le plus immédiatement utile lorsqu'on a des
+données qui ne sont - jamais - pile poil à une fréquence fixe.
+
+je veux dire, tu ne donnes qu'un seul exemple pour regrouper par mois; si tu
+savais montrer comment grouper par semaine en commençant le mercredi, ou des
+variantes de ce genre, ce serait super !
+
+]]
+
+
 
 #9m40
