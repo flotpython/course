@@ -33,5 +33,5 @@ Lancer idle depuis Git CMD
 
 
 ###### Pour le notebook ###########
-Dans firefox, choisir le zoom 200%
+Dans chrome, choisir le zoom 175% 
 
