@@ -18,18 +18,19 @@
 Dans cette vidéo, nous allons introduire un nouveau type built-in, les
 set. Un 'set' est un ensemble non ordonné d'objets uniques. Il est
 implémenté avec une table de hash, donc il est optimisé pour l'accés,
-l'insertion, l'effacement et surtout le test d'appartenance.  Il faut
-donc toujours les préférer à des listes lorsque l'on fait un test
-d'appartenance.
+l'insertion, l'effacement et surtout le test d'appartenance. 
 
-Comme le dictionnaire, un set ne peut accepter que des clefs hashable,
+Un set ne peut accepter que des clefs hashable,
 donc en particulie tous les type built-in immuable: les nombres, les
 chaînes de caractères, les tuples d'immuable, mais pas un objet
-built-in mutable comme une liste.  Par contre, contrairement aux
-dictionnaires, on ne peut pas stocker de valeur associée à une clef.
+built-in mutable comme une liste.  
 
 Les sets sont des objets mutables ça veut dire qu'on peut le modifier
 en place. 
+
+En pratique, on utilise très souvent les set pour les tests 
+d'appartenance et pour obtenir un ensemble des éléments uniques
+d'une séquence. 
 
 Ouvrons un interpréteur Python pour jouer avec les set. 
 
