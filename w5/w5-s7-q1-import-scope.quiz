@@ -15,7 +15,7 @@ import os
 
 [explanation]
 
-<code>import os</code> va charger le module <code>os</code> et créer une variable <code>os</code> qui va référencer l'objet module. 
+<code>import os</code> va charger le module <code>os</code> et créer une variable <code>os</code> qui va référencer l'objet module.
 
 [explanation]
 
@@ -26,16 +26,16 @@ Importation et espace de nommage (2)
 
 Quelle variable va être créée dans l'espace de nommage du module avec l'import suivant ?
 <pre>
-from os import path
+from pathlib import Path
 </pre>
 
-( ) la variable <code>os</code>
-( ) la variable <code>os.path</code>
-(x) la variable <code>path</code>
+( ) la variable <code>pathlib</code>
+( ) la variable <code>pathlib.Path</code>
+(x) la variable <code>Path</code>
 ( ) aucune variable
 
 [explanation]
-<code>from os import path</code> va charger le module <code>os.path</code> et va créer une variable <code>path</code> qui va référencer l'objet module. 
+<code>from pathlib import Path</code> va charger le module  <code>pathlib.Path</code>, mais l'objet module correspondant est rangé dans la variable locale <code>Path</code>.
 [explanation]
 
 
@@ -44,7 +44,7 @@ Importation et espace de nommage (3)
 =====
 
 Supposons que nous avons le code suivant.
-Dans un fichier <code>spam.py</code> on a 
+Dans un fichier <code>spam.py</code> on a
 <code>
 <pre>
 # fichier spam.py
@@ -82,11 +82,11 @@ On exécute le fichier <code>egg.py</code> en ligne de commande. Qu'imprime le p
 ( ) <code>[1, 1, 2, 1, 1]</code>
 
 [explanation]
-L'instruction <code>import spam</code> va importer le module <code>spam</code> et la variable <code>spam</code> va référencer ce module. <code>spam.beans</code> fait donc référence à la variable <code>beans</code> dans l'espace de nommage de <code>spam</code>. Par contre, <code>from spam import beans</code> importe le module <code>spam</code> et crée une variable <code>beans</code> dans l'espace de nommage du module <code>egg</code>, qui référence l'objet entier <code>1</code>. On a donc une référence partagée sur l'entier <code>1</code> entre la variable <code>beans</code> dans le module <code>spam</code> et la variable <code>beans</code> dans le module <code>egg</code>. 
+L'instruction <code>import spam</code> va importer le module <code>spam</code> et la variable <code>spam</code> va référencer ce module. <code>spam.beans</code> fait donc référence à la variable <code>beans</code> dans l'espace de nommage de <code>spam</code>. Par contre, <code>from spam import beans</code> importe le module <code>spam</code> et crée une variable <code>beans</code> dans l'espace de nommage du module <code>egg</code>, qui référence l'objet entier <code>1</code>. On a donc une référence partagée sur l'entier <code>1</code> entre la variable <code>beans</code> dans le module <code>spam</code> et la variable <code>beans</code> dans le module <code>egg</code>.
 
 <code>spam.beans</code> référence donc l'entier <code>1</code>, puis <code>beans</code> référence également l'entier <code>1</code>.
 
 L'instruction <code>spam.beans = 2</code> change la variable <code>beans</code> dans l'espace de nommage de <code>spam</code>, mais pas dans l'espace de nommage de <code>egg</code>.
 
-Donc <code>spam.beans</code> référence maintenant l'entier <code>2</code>, mais <code>beans</code> référence toujours l'entier <code>1</code>. Pour finir, <code>spam.f()</code> retourne la variable globale <code>beans</code> dans l'espace de nommage de <code>spam</code>, c'est donc maintenant l'entier <code>2</code>. 
+Donc <code>spam.beans</code> référence maintenant l'entier <code>2</code>, mais <code>beans</code> référence toujours l'entier <code>1</code>. Pour finir, <code>spam.f()</code> retourne la variable globale <code>beans</code> dans l'espace de nommage de <code>spam</code>, c'est donc maintenant l'entier <code>2</code>.
 [explanation]
