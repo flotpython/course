@@ -2,6 +2,7 @@ from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 
+# @BEG@ name=wc
 def wc(string):
     """
     Basic implementation of the wc(1) UNIX command.
@@ -10,7 +11,7 @@ def wc(string):
     nb_word = len(string.split())
     nb_byte = len(string)
     return nb_line, nb_word, nb_byte
-
+# @END@
 
 wc_input = (
     Args('''Python is a programming language that lets you work quickly
