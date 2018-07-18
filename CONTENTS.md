@@ -26,6 +26,7 @@ Plan du MOOC sur Python 3
 * w2-s7: Introduction aux compréhensions de listes
 * w2-s8: Introduction aux modules
 
+NOTE: intégrer w2-s9-x1 qui contient un exo par Benoit Izard
 
 ## Semaine 3
 ### Thème: Renforcement des notions de base, références partagées
