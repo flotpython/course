@@ -7,10 +7,10 @@ def wc(string):
     """
     Basic implementation of the wc(1) UNIX command.
     """
-    nb_line = string.count('\n')
-    nb_word = len(string.split())
-    nb_byte = len(string)
-    return nb_line, nb_word, nb_byte
+    nb_lines = string.count('\n')
+    nb_words = len(string.split())
+    nb_bytes = len(string)
+    return [nb_lines, nb_words, nb_bytes]
 # @END@
 
 wc_input = (
