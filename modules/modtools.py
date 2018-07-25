@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+import math
 
 """
 display the code for a module - or parts thereof
@@ -12,6 +13,8 @@ excludes = [".so", ".pyc"]
 
 
 def line_mark(lineno, width):
+    if width <= 0:
+        return ''
     return str(lineno).rjust(width, '0')
 
 
@@ -22,7 +25,15 @@ def check_legit(module):
         return True
 
 
-def show_module(module, beg=None, end=None, prefix='|', lineno_width=0):
+def guess_lineno_width(filename):
+    with open(filename) as feed:
+        nb_lines = sum(1 for x in feed)
+    if nb_lines == 0:
+        return 0
+    return int(math.log(nb_lines, 10)) + 1
+
+
+def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
     """
     display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
@@ -45,14 +56,14 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=0):
                 return
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
-        with open(file) as input:
+        if lineno_width is None:
+            lineno_width = guess_lineno_width(file)
+        with open(file) as feed:
             print("Fichier {}".format(file))
             print(40 * "-")
             if not showing:
                 print("<...>")
-            lineno = 0
-            for line in input.readlines():
-                lineno += 1
+            for lineno, line in enumerate(feed, 1):
                 # turn on showing mode if beg string is seen
                 if beg and line.find(beg) >= 0:
                     showing = True
@@ -62,9 +73,8 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=0):
                     return
                 # print this line if in showing mode
                 if showing:
-                    mark = '' if lineno_width <= 0 else line_mark(
-                        lineno, lineno_width)
-                    print(mark + prefix + line, end=' ')
+                    mark = line_mark(lineno, lineno_width)
+                    print(mark + prefix + line, end='')
     except AttributeError as e:
         print("show_module: Could not find module {}".format(module))
     except Exception as e:
@@ -85,7 +95,7 @@ from IPython.display import HTML
 # marche je prefere copier-coller show_module
 
 
-def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=0):
+def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
     """
     display the source code for a module (or package as a matter of fact)
     if beg is provided, listing starts with the first matching line
@@ -104,7 +114,8 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=0):
 
     # check this is a module
     if type(module) is not type(sys):
-        htmlprint("show_module: Unexpected input {}\n".format(module))
+        htmlprint("show_module: Unexpected input {}\n"
+                  .format(module))
         return HTML(html + "</pre>")
     try:
         name = module.__name__
@@ -116,14 +127,14 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=0):
                 return HTML(html + "</pre>")
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
-        with open(file) as input:
+        if lineno_width is None:
+            lineno_width = guess_lineno_width(file)
+        with open(file) as feed:
             htmlprint("Fichier {}".format(file))
             htmlprint(40 * "-")
             if not showing:
                 htmlprint("<...>")
-            lineno = 0
-            for line in input.readlines():
-                lineno += 1
+            for lineno, line in enumerate(feed):
                 # turn on showing mode if beg string is seen
                 if beg and line.find(beg) >= 0:
                     showing = True
@@ -133,8 +144,7 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=0):
                     return HTML(html + "</pre>")
                 # print this line if in showing mode
                 if showing:
-                    mark = '' if lineno_width <= 0 else line_mark(
-                        lineno, lineno_width)
+                    mark = line_mark(lineno, lineno_width)
                     htmlprint_nonl(mark + prefix + line)
     except AttributeError as e:
         htmlprint("show_module: Could not find module {}".format(module))
@@ -145,7 +155,15 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=0):
     return HTML(html + "</pre>")
 
 
-########################################
-# this works for packages as well
-show_package = show_module
-show_package_html = show_module_html
+def find_on_disk(package, modname):
+    """
+    Gory details of locating a .py file on the hard drive
+    from a preloaded package (package_relatif) and a filename like 'loader1.py'
+    """
+    from pathlib import Path
+    dir = Path(package.__file__).parent
+    modfile = dir / modname
+    if not modfile.exists():
+        raise ValueError(f"Could not spot file for module {modname} "
+                         f"in package {package}")
+    return str(modfile)
