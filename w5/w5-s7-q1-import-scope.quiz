@@ -35,7 +35,10 @@ from pathlib import Path
 ( ) aucune variable
 
 [explanation]
-<code>from pathlib import Path</code> va charger le module  <code>pathlib.Path</code>, mais l'objet module correspondant est rangé dans la variable locale <code>Path</code>.
+<code>from pathlib import Path</code> va charger le module
+<code>pathlib.Path</code>, mais l'objet correspondant - qui se trouve être une
+classe, mais peu importe ici - est rangé dans la variable locale
+<code>Path</code>.
 [explanation]
 
 
