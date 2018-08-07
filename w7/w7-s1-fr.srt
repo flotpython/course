@@ -1,0 +1,1156 @@
+﻿1
+00:00:11,182 --> 00:00:12,588
+Cette semaine, nous allons parler
+
+2
+00:00:12,688 --> 00:00:14,301
+de l'écosystème data science en Python,
+
+3
+00:00:14,741 --> 00:00:17,141
+qui est un écosystème en pleine effervescence
+
+4
+00:00:17,241 --> 00:00:18,588
+et extrêmement actif.
+
+5
+00:00:19,125 --> 00:00:20,149
+D'ailleurs, cet écosystème
+
+6
+00:00:20,249 --> 00:00:21,443
+contribue très largement
+
+7
+00:00:21,543 --> 00:00:23,061
+au succès de cette discipline.
+
+8
+00:00:23,161 --> 00:00:25,190
+Mais qu'est-ce qu'au juste la data science ?
+
+9
+00:00:25,788 --> 00:00:27,193
+Il s'agit d'une discipline
+
+10
+00:00:27,293 --> 00:00:28,951
+qui est à la frontière de trois domaines :
+
+11
+00:00:29,382 --> 00:00:30,266
+la programmation,
+
+12
+00:00:30,667 --> 00:00:31,981
+la statistique
+
+13
+00:00:32,081 --> 00:00:33,382
+et l'expertise domaine.
+
+14
+00:00:33,482 --> 00:00:34,672
+Pour être un data scientist,
+
+15
+00:00:34,772 --> 00:00:36,631
+vous devez maîtriser ces trois domaines.
+
+16
+00:00:37,122 --> 00:00:39,587
+Cependant, il est trop souvent sous-estimé
+
+17
+00:00:39,687 --> 00:00:40,941
+l'impact d'une lacune
+
+18
+00:00:41,041 --> 00:00:42,228
+dans un de ces trois domaines.
+
+19
+00:00:42,686 --> 00:00:44,193
+Regardons ce qu'il se passerait
+
+20
+00:00:44,293 --> 00:00:45,274
+si vous n'aviez pas
+
+21
+00:00:45,374 --> 00:00:46,996
+une de ces trois compétences.
+
+22
+00:00:47,430 --> 00:00:49,424
+Alors supposons que vous ayez des compétences
+
+23
+00:00:49,524 --> 00:00:51,502
+en statistiques et en expertise domaine.
+
+24
+00:00:51,602 --> 00:00:52,789
+Vous êtes là dans ce qu'on appelle
+
+25
+00:00:52,889 --> 00:00:54,148
+l'analyse statistique classique :
+
+26
+00:00:54,248 --> 00:00:55,663
+vous avez des données que vous manipulez
+
+27
+00:00:55,763 --> 00:00:56,836
+avec des outils statistiques.
+
+28
+00:00:57,627 --> 00:00:59,907
+Maintenant, supposons que vous ayez des compétences
+
+29
+00:00:59,969 --> 00:01:01,756
+en expertise domaine et en programmation,
+
+30
+00:01:01,856 --> 00:01:03,189
+mais pas de compétences statistiques.
+
+31
+00:01:03,289 --> 00:01:05,221
+Vous êtes ici dans une zone de danger.
+
+32
+00:01:05,721 --> 00:01:07,925
+En effet, vous allez faire
+
+33
+00:01:08,025 --> 00:01:09,196
+des analyses sur vos données
+
+34
+00:01:09,296 --> 00:01:11,199
+sans pouvoir valider que vos analyses
+
+35
+00:01:11,299 --> 00:01:12,716
+sont statistiquement valides.
+
+36
+00:01:12,816 --> 00:01:15,713
+Et pour finir, supposons que vous ayez des compétences
+
+37
+00:01:15,813 --> 00:01:17,505
+en programmation et en statistiques
+
+38
+00:01:17,605 --> 00:01:18,962
+mais pas d'expertise domaine.
+
+39
+00:01:19,131 --> 00:01:21,144
+Vous êtes de nouveau dans une zone de danger.
+
+40
+00:01:22,143 --> 00:01:23,948
+À ce propos, le diagramme que j'utilise
+
+41
+00:01:24,048 --> 00:01:25,073
+s'inspire très largement
+
+42
+00:01:25,173 --> 00:01:26,486
+du diagramme de Drew Conway.
+
+43
+00:01:26,586 --> 00:01:29,104
+Drew Conway, dans son diagramme original,
+
+44
+00:01:29,204 --> 00:01:31,123
+a mis le machine learning à la frontière
+
+45
+00:01:31,223 --> 00:01:33,348
+de la programmation et de la statistique.
+
+46
+00:01:33,421 --> 00:01:35,045
+Je suis en désaccord avec ce choix
+
+47
+00:01:35,145 --> 00:01:36,647
+parce que ça pourrait vous laisser penser
+
+48
+00:01:36,986 --> 00:01:39,353
+que le machine learning est la réponse
+
+49
+00:01:39,453 --> 00:01:41,350
+à une lacune dans une expertise domaine.
+
+50
+00:01:41,681 --> 00:01:43,110
+Or, ça n'est pas du tout le cas.
+
+51
+00:01:43,210 --> 00:01:45,021
+Lorsque vous faites du machine learning,
+
+52
+00:01:45,121 --> 00:01:46,821
+vous devez être capables
+
+53
+00:01:46,921 --> 00:01:48,181
+de préparer vos données,
+
+54
+00:01:48,281 --> 00:01:50,106
+de faire une sélection de features,
+
+55
+00:01:50,206 --> 00:01:51,357
+et également de choisir
+
+56
+00:01:51,457 --> 00:01:53,067
+votre algorithme d'apprentissage.
+
+57
+00:01:53,300 --> 00:01:55,873
+Or, sans une profonde connaissance domaine,
+
+58
+00:01:55,973 --> 00:01:56,642
+vous n'êtes pas capables
+
+59
+00:01:56,742 --> 00:01:57,926
+de faire des choix appropriés.
+
+60
+00:01:59,198 --> 00:02:00,076
+Comme vous vous en doutez,
+
+61
+00:02:00,176 --> 00:02:01,340
+cette semaine, nous n'allons pas pouvoir
+
+62
+00:02:01,440 --> 00:02:03,041
+couvrir et vous donner des compétences
+
+63
+00:02:03,141 --> 00:02:04,594
+dans chacun de ces trois domaines.
+
+64
+00:02:04,694 --> 00:02:06,906
+Cette semaine, nous allons principalement
+
+65
+00:02:07,422 --> 00:02:09,830
+nous focaliser sur la partie programmation.
+
+66
+00:02:09,930 --> 00:02:12,365
+Et en particulier, nous allons aborder
+
+67
+00:02:12,465 --> 00:02:14,995
+les briques de base que sont NumPy et pandas
+
+68
+00:02:15,095 --> 00:02:17,068
+dans l'écosystème data science de Python.
+
+69
+00:02:17,991 --> 00:02:20,568
+Il faut prendre conscience qu'il y a de grandes différences
+
+70
+00:02:20,667 --> 00:02:23,439
+en termes de maturité et en termes de philosophie
+
+71
+00:02:23,539 --> 00:02:26,390
+entre Python et NumPy et pandas.
+
+72
+00:02:27,072 --> 00:02:31,714
+En termes de maturité, Python 1.0 a été publié en 1994.
+
+73
+00:02:31,814 --> 00:02:34,334
+C'est donc un langage très ancien et très mature.
+
+74
+00:02:34,808 --> 00:02:38,303
+NumPy 1.0 a été publié en 2006,
+
+75
+00:02:38,403 --> 00:02:41,086
+et le projet pandas n'a quant à lui démarré qu'en 2008.
+
+76
+00:02:41,635 --> 00:02:43,503
+On voit donc que Python est très mature
+
+77
+00:02:43,603 --> 00:02:46,146
+et que NumPy et surtout pandas sont beaucoup moins matures.
+
+78
+00:02:46,717 --> 00:02:48,835
+En termes de philosophie, il y a également de grandes différences.
+
+79
+00:02:49,406 --> 00:02:51,486
+Python est un langage qui dès le départ
+
+80
+00:02:51,586 --> 00:02:53,416
+a eu comme objectif la simplicité.
+
+81
+00:02:53,808 --> 00:02:56,528
+Évidemment, cette simplicité vient avec un prix à payer
+
+82
+00:02:56,628 --> 00:02:58,980
+lorsque l'on a un langage extrêmement flexible
+
+83
+00:02:59,080 --> 00:03:01,984
+il y est beaucoup plus difficile de faire certains types d'optimisation.
+
+84
+00:03:02,718 --> 00:03:04,389
+NumPy et pandas dès le départ
+
+85
+00:03:04,489 --> 00:03:06,431
+ont eu pour objectif l'efficacité.
+
+86
+00:03:06,531 --> 00:03:08,257
+Et le prix à payer, cette fois,
+
+87
+00:03:08,357 --> 00:03:11,006
+est une perte de souplesse et une perte de simplicité.
+
+88
+00:03:11,800 --> 00:03:13,524
+Dans toute cette semaine, nous allons utiliser
+
+89
+00:03:13,624 --> 00:03:15,421
+comme environnement de développement les notebooks.
+
+90
+00:03:15,521 --> 00:03:17,707
+En effet, les notebooks sont l'environnement de choix
+
+91
+00:03:17,807 --> 00:03:19,738
+pour toute la communauté data science
+
+92
+00:03:19,968 --> 00:03:21,002
+parce qu'ils permettent de faire
+
+93
+00:03:21,102 --> 00:03:22,459
+ce qu'on appelle des runable papers.
+
+94
+00:03:22,559 --> 00:03:24,158
+Ce sont des papiers dans lesquels on peut mettre
+
+95
+00:03:24,258 --> 00:03:27,025
+du texte formaté mélangé avec du code
+
+96
+00:03:27,125 --> 00:03:29,843
+et avec lesquels on peut interagir dynamiquement
+
+97
+00:03:29,943 --> 00:03:30,734
+avec nos données.
+
+98
+00:03:31,005 --> 00:03:32,667
+Ouvrons maintenant un notebook
+
+99
+00:03:32,767 --> 00:03:34,075
+pour commencer à regarder
+
+100
+00:03:34,175 --> 00:03:35,945
+la performance de NumPy et pandas.
+
+101
+00:03:37,045 --> 00:03:39,231
+Mon objectif ici est de vous montrer
+
+102
+00:03:39,331 --> 00:03:41,674
+l'intérêt des librairies NumPy et pandas
+
+103
+00:03:41,774 --> 00:03:43,101
+sur deux exemples très simples.
+
+104
+00:03:43,459 --> 00:03:45,581
+Bien évidemment, nous reviendrons très largement
+
+105
+00:03:45,681 --> 00:03:47,367
+sur ces exemples dans la suite.
+
+106
+00:03:47,467 --> 00:03:50,461
+Ici, l'intérêt, c'est juste de voir une première motivation.
+
+107
+00:03:50,964 --> 00:03:52,354
+Commençons avec NumPy.
+
+108
+00:03:52,604 --> 00:03:55,458
+Pour cela, je vais créer une liste L
+
+109
+00:03:55,983 --> 00:03:59,553
+qui va contenir mille éléments.
+
+110
+00:04:01,198 --> 00:04:03,911
+Et je vais créer un tableau NumPy
+
+111
+00:04:05,608 --> 00:04:07,982
+qui va contenir les mêmes mille éléments.
+
+112
+00:04:08,082 --> 00:04:10,787
+On crée un tableau NumPy avec np.array
+
+113
+00:04:10,887 --> 00:04:12,658
+à partir, par exemple, d'une liste.
+
+114
+00:04:13,101 --> 00:04:15,710
+Et maintenant, on va calculer le carré de ces éléments.
+
+115
+00:04:15,810 --> 00:04:18,567
+Donc on sait faire ça très bien avec les compréhensions de listes.
+
+116
+00:04:18,667 --> 00:04:19,543
+Regardons un exemple.
+
+117
+00:04:19,937 --> 00:04:26,267
+Je vais faire un timeit de x au carré pour x dans L.
+
+118
+00:04:28,006 --> 00:04:30,382
+Et donc ensuite, je vais faire la même chose,
+
+119
+00:04:30,482 --> 00:04:31,489
+je vais faire un timeit
+
+120
+00:04:32,589 --> 00:04:37,569
+de x au carré pour x dans A.
+
+121
+00:04:38,669 --> 00:04:40,958
+Donc regardons la performance que j'ai pour la liste.
+
+122
+00:04:41,058 --> 00:04:44,257
+Pour la liste, le timeit a pris 328 microsecondes
+
+123
+00:04:44,357 --> 00:04:46,585
+pour calculer le carré de ces mille éléments.
+
+124
+00:04:47,306 --> 00:04:50,432
+Et pour le tableau NumPy, ça a pris 216 microsecondes.
+
+125
+00:04:50,432 --> 00:04:51,950
+Donc on voit qu'on a un gain de performance
+
+126
+00:04:52,050 --> 00:04:54,311
+important dans ce cas-là
+
+127
+00:04:54,411 --> 00:04:56,972
+autour, on va dire, de 30 % de gain de performance.
+
+128
+00:04:57,321 --> 00:05:00,383
+Mais la vraie performance que l'on obtient avec les tableaux NumPy,
+
+129
+00:05:00,483 --> 00:05:02,044
+c'est en utilisant un nouveau concept
+
+130
+00:05:02,144 --> 00:05:03,825
+qui n'existe pas en Python.
+
+131
+00:05:03,925 --> 00:05:05,867
+C'est le concept de vectorisation.
+
+132
+00:05:06,247 --> 00:05:07,415
+Regardons cet exemple.
+
+133
+00:05:08,854 --> 00:05:10,551
+Je vais refaire mon même timeit
+
+134
+00:05:10,651 --> 00:05:12,662
+mais maintenant je vais utiliser cette opération de vectorisation :
+
+135
+00:05:12,762 --> 00:05:15,610
+pour prendre les carrés des éléments d'un tableau
+
+136
+00:05:15,710 --> 00:05:18,629
+je n'ai qu'à écrire mon tableau que j'élève au carré,
+
+137
+00:05:18,729 --> 00:05:21,192
+et cette opération va appliquer l'opération carré
+
+138
+00:05:21,292 --> 00:05:22,601
+sur chaque élément du tableau.
+
+139
+00:05:23,070 --> 00:05:24,324
+Exécutons cela,
+
+140
+00:05:24,424 --> 00:05:26,894
+et donc regardons le temps d'exécution de cette opération
+
+141
+00:05:27,153 --> 00:05:29,860
+faite maintenant avec le principe de vectorisation,
+
+142
+00:05:29,960 --> 00:05:31,425
+qui est spécifique à NumPy,
+
+143
+00:05:31,917 --> 00:05:34,023
+et on va voir que ce temps d'exécution
+
+144
+00:05:34,123 --> 00:05:36,491
+est beaucoup plus rapide que ce que l'on obtient
+
+145
+00:05:36,591 --> 00:05:38,531
+avec des compréhensions de listes classiques
+
+146
+00:05:38,631 --> 00:05:40,643
+que ce soit sur des listes, ou sur des tableaux.
+
+147
+00:05:40,743 --> 00:05:44,268
+Effectivement, on est passé de 328 microsecondes
+
+148
+00:05:44,368 --> 00:05:46,442
+à 1,42 microseconde,
+
+149
+00:05:46,542 --> 00:05:48,774
+donc un gain de performance absolument majeur.
+
+150
+00:05:49,548 --> 00:05:51,350
+Donc, encore une fois, nous reviendrons très largement
+
+151
+00:05:51,450 --> 00:05:52,783
+sur ces notions de vectorisation,
+
+152
+00:05:52,883 --> 00:05:53,997
+de création de tableaux NumPy ;
+
+153
+00:05:54,097 --> 00:05:54,963
+c'était juste pour vous donner
+
+154
+00:05:56,063 --> 00:05:58,234
+une impression ou un premier aperçu
+
+155
+00:05:58,334 --> 00:05:59,595
+de l'intérêt de NumPy.
+
+156
+00:06:00,070 --> 00:06:02,148
+Maintenant, j'aimerais vous montrer un deuxième exemple
+
+157
+00:06:02,248 --> 00:06:04,090
+pour la librairie pandas.
+
+158
+00:06:04,505 --> 00:06:07,812
+Donc pour ça, je vais importer un jeu de données,
+
+159
+00:06:07,912 --> 00:06:09,653
+donc ça aussi, nous reviendrons dessus
+
+160
+00:06:09,753 --> 00:06:10,804
+dans une prochaine vidéo,
+
+161
+00:06:12,228 --> 00:06:15,194
+un jeu de données sur les passagers
+
+162
+00:06:15,435 --> 00:06:16,990
+qui ont embarqué sur le Titanic.
+
+163
+00:06:18,090 --> 00:06:20,913
+Donc j'exécute cette instruction
+
+164
+00:06:21,013 --> 00:06:22,327
+qui me permet de charger mon jeu de données
+
+165
+00:06:22,427 --> 00:06:24,053
+et je vais regarder à quoi ressemble ce jeu de données.
+
+166
+00:06:24,977 --> 00:06:27,134
+Si je regarde, en fait, c'est un grand tableau
+
+167
+00:06:27,490 --> 00:06:29,651
+et dans ce grand tableau, j'ai un certain nombre de colonnes.
+
+168
+00:06:29,751 --> 00:06:31,977
+J'ai une colonne "survived" qui me donne
+
+169
+00:06:32,077 --> 00:06:35,277
+si ce passager a survécu ou pas à la catastrophe du Titanic.
+
+170
+00:06:35,945 --> 00:06:37,853
+Ensuite, j'ai une colonne "sex" qui va me dire
+
+171
+00:06:37,953 --> 00:06:39,422
+si ce passager était un homme ou une femme.
+
+172
+00:06:40,112 --> 00:06:41,729
+Et j'ai une colonne "class" qui va me dire
+
+173
+00:06:41,829 --> 00:06:43,074
+dans quelle classe était ce passager.
+
+174
+00:06:43,560 --> 00:06:45,752
+Alors, ce grand tableau, c'est un tableau brut
+
+175
+00:06:45,852 --> 00:06:47,630
+qui contient environ huit cents lignes,
+
+176
+00:06:48,050 --> 00:06:49,344
+et moi, j'aimerais avoir une information
+
+177
+00:06:49,444 --> 00:06:50,931
+un peu plus facile à exploiter ;
+
+178
+00:06:51,031 --> 00:06:52,647
+par exemple, j'aimerais bien connaître
+
+179
+00:06:52,747 --> 00:06:54,597
+le taux de survie des passagers
+
+180
+00:06:54,697 --> 00:06:55,535
+par classe
+
+181
+00:06:56,117 --> 00:06:56,853
+et par sexe,
+
+182
+00:06:56,953 --> 00:06:57,918
+pour voir si j'ai une différence
+
+183
+00:06:58,457 --> 00:06:59,357
+entre les passagers des différentes classes
+
+184
+00:06:59,458 --> 00:07:00,786
+et entre les hommes et les femmes.
+
+185
+00:07:01,206 --> 00:07:02,888
+Alors, évidemment, si on devait faire ça à la main,
+
+186
+00:07:02,988 --> 00:07:04,000
+ça serait un petit peu fastidieux
+
+187
+00:07:04,100 --> 00:07:06,720
+mais en pandas, il y a des fonctions
+
+188
+00:07:06,820 --> 00:07:07,887
+qui nous permettent de faire ce calcul
+
+189
+00:07:07,987 --> 00:07:09,425
+de manière extrêmement simple.
+
+190
+00:07:09,525 --> 00:07:10,368
+Donc regardons cela.
+
+191
+00:07:11,468 --> 00:07:12,430
+Je vais écrire
+
+192
+00:07:12,530 --> 00:07:13,832
+t égale
+
+193
+00:07:13,932 --> 00:07:15,269
+tit -- c'est mon tableau
+
+194
+00:07:16,369 --> 00:07:17,419
+et je vais appeler
+
+195
+00:07:18,350 --> 00:07:19,899
+la méthode pivot_table
+
+196
+00:07:20,999 --> 00:07:22,854
+et dessus, je vais dire la chose suivante,
+
+197
+00:07:22,954 --> 00:07:23,769
+je vais dire : donne-moi
+
+198
+00:07:24,394 --> 00:07:26,241
+sur la colonne survived
+
+199
+00:07:27,341 --> 00:07:28,473
+donne-moi la moyenne
+
+200
+00:07:28,573 --> 00:07:30,628
+donc je vais donner la fonction que je vais appliquer
+
+201
+00:07:30,728 --> 00:07:31,783
+pour agréger,
+
+202
+00:07:34,904 --> 00:07:35,897
+donc je dis que c'est la moyenne
+
+203
+00:07:35,997 --> 00:07:38,264
+et ensuite je vais dire qu'est-ce que je vais mettre dans mon résultat
+
+204
+00:07:38,364 --> 00:07:40,248
+Alors, dans mon résultat, je veux voir un petit tableau condensé
+
+205
+00:07:40,348 --> 00:07:41,624
+sur les lignes
+
+206
+00:07:41,724 --> 00:07:43,067
+que je vais appeler index ;
+
+207
+00:07:43,167 --> 00:07:44,898
+je voudrais avoir la classe
+
+208
+00:07:46,258 --> 00:07:47,986
+et sur les colonnes,
+
+209
+00:07:49,607 --> 00:07:53,949
+j'aimerais avoir le sexe.
+
+210
+00:07:54,713 --> 00:07:55,741
+J'exécute cela,
+
+211
+00:07:55,841 --> 00:07:57,173
+et maintenant je regarde mon tableau ;
+
+212
+00:07:57,273 --> 00:07:59,229
+et en une seule instruction,
+
+213
+00:07:59,329 --> 00:08:01,646
+avec une seule fonction,
+
+214
+00:08:01,746 --> 00:08:05,054
+j'ai un tableau qui va me donner le taux de survie
+
+215
+00:08:05,154 --> 00:08:06,256
+par classe et par sexe,
+
+216
+00:08:06,356 --> 00:08:08,124
+donc je vois que les femmes de première classe
+
+217
+00:08:08,224 --> 00:08:09,994
+ont survécu à 96 %,
+
+218
+00:08:10,295 --> 00:08:11,818
+et les hommes de dernière classe
+
+219
+00:08:11,918 --> 00:08:13,691
+ont survécu autour de 13 %.
+
+220
+00:08:14,282 --> 00:08:16,205
+Pour finir, dans cette semaine,
+
+221
+00:08:16,305 --> 00:08:18,461
+nous ne couvrirons pas les aspects visualisation
+
+222
+00:08:18,561 --> 00:08:19,860
+mais je veux tout de même vous montrer
+
+223
+00:08:19,960 --> 00:08:21,245
+avec quelle simplicité
+
+224
+00:08:21,345 --> 00:08:22,771
+on pourrait visualiser ce résultat.
+
+225
+00:08:23,101 --> 00:08:25,349
+Je reprends simplement ma table t,
+
+226
+00:08:25,449 --> 00:08:26,720
+et je vais faire un plot
+
+227
+00:08:26,820 --> 00:08:28,812
+et ici, je vais dire le type de plot que je voudrais
+
+228
+00:08:28,912 --> 00:08:31,383
+un tableau sous forme de barres
+
+229
+00:08:31,483 --> 00:08:33,358
+et donc, regardons le résultat que j'obtiens
+
+230
+00:08:33,458 --> 00:08:35,346
+et avec une seule instruction plot
+
+231
+00:08:35,446 --> 00:08:37,285
+je vais obtenir mon taux de survie
+
+232
+00:08:37,732 --> 00:08:39,492
+par classe et par sexe.
+
+233
+00:08:39,592 --> 00:08:40,639
+Donc les femmes de première classe
+
+234
+00:08:40,739 --> 00:08:42,778
+ont survécu à plus de 90 %
+
+235
+00:08:42,878 --> 00:08:44,058
+et les hommes de dernière classe
+
+236
+00:08:44,158 --> 00:08:45,812
+ont survécu autour de 13 %.
+
+237
+00:08:46,800 --> 00:08:48,606
+Pour finir, j'aimerais vous expliquer
+
+238
+00:08:48,706 --> 00:08:51,076
+le rôle des librairies NumPy et pandas.
+
+239
+00:08:51,176 --> 00:08:53,212
+NumPy, c'est la librairie de référence
+
+240
+00:08:53,312 --> 00:08:55,555
+pour manipuler des tableaux en Python.
+
+241
+00:08:55,655 --> 00:08:57,304
+Donc la caractéristique de NumPy,
+
+242
+00:08:57,404 --> 00:08:58,387
+c'est qu'on va créer des tableaux
+
+243
+00:08:58,487 --> 00:08:59,457
+multidimensionnels
+
+244
+00:08:59,557 --> 00:09:01,587
+qui ne contiennent que des objets du même type.
+
+245
+00:09:02,253 --> 00:09:04,055
+Une autre caractéristique de NumPy, évidemment,
+
+246
+00:09:04,155 --> 00:09:05,300
+c'est cette très grande performance
+
+247
+00:09:05,400 --> 00:09:06,844
+avec ses opérations de vectorisation
+
+248
+00:09:06,944 --> 00:09:08,367
+mais nous reviendrons largement dessus.
+
+249
+00:09:09,032 --> 00:09:10,305
+pandas, quant à lui,
+
+250
+00:09:10,405 --> 00:09:11,606
+c'est la librairie de référence
+
+251
+00:09:11,706 --> 00:09:13,350
+qui permet d'ajouter des index
+
+252
+00:09:13,450 --> 00:09:14,568
+aux tableaux NumPy.
+
+253
+00:09:14,668 --> 00:09:15,890
+Ça sert à quoi, ces index ?
+
+254
+00:09:15,990 --> 00:09:17,891
+Ça sert à pouvoir donner des labels
+
+255
+00:09:17,991 --> 00:09:19,820
+aux lignes et aux colonnes des tableaux
+
+256
+00:09:19,920 --> 00:09:21,149
+et ainsi de pouvoir accéder
+
+257
+00:09:21,249 --> 00:09:23,279
+de manière beaucoup plus intuitive et expressive
+
+258
+00:09:23,379 --> 00:09:24,777
+aux éléments de ce tableau.
+
+259
+00:09:24,877 --> 00:09:27,094
+De plus, pandas supporte des opérations
+
+260
+00:09:27,194 --> 00:09:29,229
+que l'on trouve en général dans les bases de données
+
+261
+00:09:29,329 --> 00:09:30,619
+comme les opérations, par exemple,
+
+262
+00:09:30,719 --> 00:09:32,704
+de jointure, de pivot ou de regroupe.
+
+263
+00:09:35,682 --> 00:09:37,102
+Nous couvrirons toutes ces notions
+
+264
+00:09:37,202 --> 00:09:37,960
+dans de prochaines vidéos
+
+265
+00:09:38,060 --> 00:09:39,802
+donc si ces termes vous paraissent un petit peu obscurs,
+
+266
+00:09:39,902 --> 00:09:41,472
+pas d'inquiétude, nous reviendrons dessus.
+
+267
+00:09:43,096 --> 00:09:44,271
+Dans cette vidéo, nous avons vu
+
+268
+00:09:44,371 --> 00:09:45,574
+que le domaine de la data science
+
+269
+00:09:45,674 --> 00:09:46,720
+est un domaine complexe
+
+270
+00:09:46,820 --> 00:09:48,270
+qui demande de nombreuses compétences.
+
+271
+00:09:48,370 --> 00:09:50,163
+Cette semaine, nous parlerons uniquement
+
+272
+00:09:50,263 --> 00:09:52,354
+de l'aspect programmation, et à ce titre,
+
+273
+00:09:52,454 --> 00:09:54,891
+les librairies NumPy et pandas fournissent une solution
+
+274
+00:09:54,991 --> 00:09:57,546
+extrêmement efficace et satisfaisante à ce domaine.
+
+275
+00:09:57,793 --> 00:09:59,401
+Cependant, nous avons vu que NumPy et pandas
+
+276
+00:09:59,501 --> 00:10:01,341
+étaient des projets, des librairies
+
+277
+00:10:01,441 --> 00:10:03,145
+qui n'étaient pas parfaitement matures.
+
+278
+00:10:03,333 --> 00:10:05,213
+Donc cela va venir avec certaines frustrations,
+
+279
+00:10:05,313 --> 00:10:06,839
+notamment en termes d'uniformité
+
+280
+00:10:06,939 --> 00:10:08,107
+et en termes de simplicité,
+
+281
+00:10:08,561 --> 00:10:10,224
+que nous aurons à découvrir
+
+282
+00:10:10,324 --> 00:10:11,610
+au cours des prochaines vidéos.
+
+283
+00:10:11,710 --> 00:10:12,676
+Cependant,
+
+284
+00:10:12,776 --> 00:10:14,132
+c'est ce qui se fait de mieux
+
+285
+00:10:14,232 --> 00:10:15,478
+actuellement dans le domaine
+
+286
+00:10:15,578 --> 00:10:17,921
+donc il faut vivre avec ces limitations
+
+287
+00:10:18,021 --> 00:10:20,158
+et profiter pleinement de la puissance
+
+288
+00:10:20,258 --> 00:10:21,535
+de ces librairies NumPy et pandas.
+
+289
+00:10:21,991 --> 00:10:22,712
+À bientôt !
+
