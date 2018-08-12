@@ -1,0 +1,1492 @@
+1
+00:00:04,083 --> 00:00:05,904
+Nous avons introduit dans une précédente vidéo
+
+2
+00:00:06,004 --> 00:00:07,151
+la notion de tableau NumPy.
+
+3
+00:00:07,251 --> 00:00:09,145
+Dans cette vidéo, nous allons parler de slicing
+
+4
+00:00:09,245 --> 00:00:10,941
+que l'on peut appliquer aux tableaux NumPy,
+
+5
+00:00:11,041 --> 00:00:12,881
+de la notion de reshaping
+
+6
+00:00:12,981 --> 00:00:14,277
+qui permet de redimensionner
+
+7
+00:00:14,377 --> 00:00:15,877
+des tableaux NumPy,
+
+8
+00:00:15,977 --> 00:00:17,801
+et de la notion d'indexation avancée
+
+9
+00:00:17,901 --> 00:00:19,417
+qui permet de sélectionner
+
+10
+00:00:19,517 --> 00:00:20,335
+des éléments dans un tableau
+
+11
+00:00:20,435 --> 00:00:23,205
+de manière expressive et efficace.
+
+12
+00:00:23,305 --> 00:00:25,166
+Ouvrons maintenant un notebook
+
+13
+00:00:25,266 --> 00:00:26,217
+pour commencer à jouer
+
+14
+00:00:26,317 --> 00:00:27,423
+avec ces différentes notions.
+
+15
+00:00:28,658 --> 00:00:30,302
+Commençons par créer un tableau NumPy
+
+16
+00:00:30,402 --> 00:00:31,605
+constitué d'entiers
+
+17
+00:00:31,705 --> 00:00:33,118
+choisis au hasard.
+
+18
+00:00:33,612 --> 00:00:35,303
+Donc ici je vais écrire a égale
+
+19
+00:00:35,403 --> 00:00:39,487
+np point random point randint
+
+20
+00:00:39,580 --> 00:00:42,189
+donc random.randint(), c'est une méthode
+
+21
+00:00:42,289 --> 00:00:44,193
+qui nous permet de générer des nombres aléatoires
+
+22
+00:00:44,293 --> 00:00:45,439
+de 1 à 10
+
+23
+00:00:45,812 --> 00:00:48,961
+et ici, je vais spécifier la shape de mon tableau
+
+24
+00:00:49,061 --> 00:00:50,678
+donc ça va être un tableau 3x3.
+
+25
+00:00:50,778 --> 00:00:51,923
+Ici, c'est quelque chose
+
+26
+00:00:52,023 --> 00:00:53,001
+qui peut être un petit peu agaçant
+
+27
+00:00:53,633 --> 00:00:55,241
+et c'est quelque chose qui est un signe
+
+28
+00:00:55,341 --> 00:00:56,681
+du manque de maturité de Numpy,
+
+29
+00:00:56,781 --> 00:00:58,588
+nous avons vu dans une précédente vidéo
+
+30
+00:00:58,688 --> 00:01:00,999
+que pour once, la fonction once,
+
+31
+00:01:01,099 --> 00:01:03,010
+on utilisait l'argument shape
+
+32
+00:01:03,110 --> 00:01:04,463
+pour définir la taille d'un tableau ;
+
+33
+00:01:04,563 --> 00:01:06,178
+ici, dans random.randint,
+
+34
+00:01:06,278 --> 00:01:07,556
+on utilise l'argument size.
+
+35
+00:01:07,622 --> 00:01:09,266
+En fait, c'est exactement le même sens,
+
+36
+00:01:09,366 --> 00:01:11,278
+c'est pour définir les dimensions de mon tableau.
+
+37
+00:01:11,779 --> 00:01:12,852
+Donc ici, j'exécute ça,
+
+38
+00:01:12,952 --> 00:01:13,845
+je regarde mon tableau
+
+39
+00:01:13,945 --> 00:01:15,484
+et ici, j'ai un tableau 3x3
+
+40
+00:01:16,180 --> 00:01:17,586
+qui contient des nombres aléatoires
+
+41
+00:01:17,686 --> 00:01:18,517
+allant de 1 à 10.
+
+42
+00:01:19,779 --> 00:01:21,262
+Donc en NumPy, on peut faire
+
+43
+00:01:21,362 --> 00:01:22,550
+du slicing,
+
+44
+00:01:22,650 --> 00:01:24,247
+exactement comme ce que l'on ferait
+
+45
+00:01:24,347 --> 00:01:26,215
+avec des listes, avec la même sémantique.
+
+46
+00:01:26,315 --> 00:01:27,232
+Regardons cela.
+
+47
+00:01:27,332 --> 00:01:29,419
+Je vais prendre a de 1 deux points
+
+48
+00:01:30,385 --> 00:01:31,848
+ à 2 deux points
+
+49
+00:01:32,069 --> 00:01:34,026
+et donc c'est exactement le même sens
+
+50
+00:01:34,126 --> 00:01:37,635
+qu'un slicing classique sur les listes,
+
+51
+00:01:37,735 --> 00:01:40,046
+je vais de i à j moins 1
+
+52
+00:01:40,146 --> 00:01:41,202
+par pas de k.
+
+53
+00:01:41,302 --> 00:01:43,306
+Mais ici évidemment, comme j'ai deux coordonnées
+
+54
+00:01:43,406 --> 00:01:45,737
+je vais faire un slice sur les lignes
+
+55
+00:01:45,837 --> 00:01:47,601
+et un slice sur les colonnes.
+
+56
+00:01:47,701 --> 00:01:49,499
+Regardons le résultat de ce slice.
+
+57
+00:01:49,599 --> 00:01:51,487
+J'obtiens un nouveau tableau.
+
+58
+00:01:51,641 --> 00:01:53,072
+Alors le point très important
+
+59
+00:01:53,172 --> 00:01:54,539
+du slicing sur les tableaux NumPy,
+
+60
+00:01:54,639 --> 00:01:55,716
+c'est qu'en fait ce slice
+
+61
+00:01:55,816 --> 00:01:57,099
+ne va pas vous retourner réellement
+
+62
+00:01:57,199 --> 00:01:58,062
+un nouveau tableau,
+
+63
+00:01:58,162 --> 00:01:59,927
+il va uniquement vous retourner
+
+64
+00:02:00,027 --> 00:02:02,278
+une vue sur le tableau existant.
+
+65
+00:02:02,378 --> 00:02:03,489
+Donc en fait, on ne crée pas
+
+66
+00:02:03,589 --> 00:02:05,491
+de structure de données supplémentaire.
+
+67
+00:02:05,591 --> 00:02:07,114
+Regardons cela.
+
+68
+00:02:07,445 --> 00:02:09,141
+Je vais définir b
+
+69
+00:02:09,241 --> 00:02:11,023
+égal à a
+
+70
+00:02:11,775 --> 00:02:16,391
+de 1 deux points, virgule deux points 2
+
+71
+00:02:17,690 --> 00:02:19,033
+alors, b
+
+72
+00:02:19,613 --> 00:02:21,357
+est égal à cela.
+
+73
+00:02:21,661 --> 00:02:24,324
+Je regarde mon sous-tableau b
+
+74
+00:02:24,687 --> 00:02:26,214
+et maintenant, je vais dire
+
+75
+00:02:26,314 --> 00:02:29,548
+a de 1 virgule 1 égale 35.
+
+76
+00:02:29,648 --> 00:02:33,122
+Je modifie la valeur de l'élément 1, 1
+
+77
+00:02:33,222 --> 00:02:34,416
+dans le tableau a.
+
+78
+00:02:34,516 --> 00:02:35,698
+Et maintenant, donc évidemment,
+
+79
+00:02:35,798 --> 00:02:37,085
+mon tableau a a été modifié,
+
+80
+00:02:37,185 --> 00:02:38,826
+l'élément central vaut maintenant 35,
+
+81
+00:02:38,926 --> 00:02:40,415
+mais si je regarde mon tableau b,
+
+82
+00:02:40,515 --> 00:02:42,607
+mon tableau b a également été modifié.
+
+83
+00:02:42,707 --> 00:02:44,385
+Pourquoi ? Parce qu'en fait il s'agit simplement
+
+84
+00:02:44,485 --> 00:02:46,858
+d'une vue sur le tableau original.
+
+85
+00:02:46,958 --> 00:02:48,480
+En fait, c'est toujours le même principe :
+
+86
+00:02:48,580 --> 00:02:50,123
+en NumPy, on a une zone contiguë de mémoire
+
+87
+00:02:50,223 --> 00:02:52,547
+et on travaille sur cette zone contiguë de mémoire.
+
+88
+00:02:54,148 --> 00:02:56,742
+Maintenant, regardons une autre caractéristique
+
+89
+00:02:56,842 --> 00:02:57,582
+des tableaux NumPy,
+
+90
+00:02:57,682 --> 00:02:59,832
+c'est la possibilité de changer leurs dimensions,
+
+91
+00:02:59,932 --> 00:03:00,871
+le reshaping
+
+92
+00:03:01,330 --> 00:03:02,961
+avec la méthode reshape.
+
+93
+00:03:03,363 --> 00:03:04,196
+Regardons cela.
+
+94
+00:03:04,939 --> 00:03:06,614
+Je vais créer un tableau a
+
+95
+00:03:07,471 --> 00:03:09,165
+toujours aléatoire
+
+96
+00:03:10,044 --> 00:03:11,955
+random.randint
+
+97
+00:03:12,929 --> 00:03:18,108
+indice virgule size égale 4 virgule 4.
+
+98
+00:03:18,513 --> 00:03:20,536
+Ici, je crée un tableau 4x4
+
+99
+00:03:20,636 --> 00:03:21,909
+quatre lignes, quatre colonnes.
+
+100
+00:03:22,664 --> 00:03:24,883
+Et maintenant, je peux redimensionner ce tableau
+
+101
+00:03:24,983 --> 00:03:25,539
+Comment je fais ça ?
+
+102
+00:03:25,639 --> 00:03:26,672
+Je fais ça de la manière suivante :
+
+103
+00:03:26,772 --> 00:03:29,788
+b égale a point reshape
+
+104
+00:03:29,888 --> 00:03:31,466
+et ici, je vais donner une nouvelle dimension
+
+105
+00:03:32,061 --> 00:03:33,926
+et il faut évidemment que le nombre d'éléments
+
+106
+00:03:34,026 --> 00:03:35,028
+dans le tableau original
+
+107
+00:03:35,382 --> 00:03:36,983
+soit le même que dans le tableau
+
+108
+00:03:37,083 --> 00:03:38,173
+qui a été redimensionné.
+
+109
+00:03:38,778 --> 00:03:41,589
+Regardons maintenant mon redimensionnement
+
+110
+00:03:41,689 --> 00:03:42,989
+avec huit lignes et deux colonnes.
+
+111
+00:03:43,698 --> 00:03:45,459
+Ici, de nouveau, reshape ne va pas
+
+112
+00:03:45,559 --> 00:03:46,809
+vous retourner un nouveau tableau
+
+113
+00:03:46,909 --> 00:03:49,264
+mais va simplement vous retourner une vue
+
+114
+00:03:49,364 --> 00:03:51,185
+sur le tableau original.
+
+115
+00:03:52,310 --> 00:03:53,541
+Nous allons maintenant parler
+
+116
+00:03:53,641 --> 00:03:54,878
+de la notion de tableau booléen.
+
+117
+00:03:55,398 --> 00:03:56,627
+Donc ici, prenons un exemple,
+
+118
+00:03:56,727 --> 00:03:57,900
+un tableau qui représenterait
+
+119
+00:03:58,000 --> 00:03:59,424
+les températures du mois de mars
+
+120
+00:03:59,524 --> 00:04:01,876
+qui iraient de -5 à 20 degrés.
+
+121
+00:04:02,324 --> 00:04:04,857
+Prenons cet exemple, je vais écrire mars
+
+122
+00:04:04,957 --> 00:04:08,202
+égale np point random point randint
+
+123
+00:04:08,661 --> 00:04:10,907
+de -5 à 20
+
+124
+00:04:11,320 --> 00:04:14,202
+et ici, size égale 31.
+
+125
+00:04:14,302 --> 00:04:16,242
+Donc c'est un tableau à une dimension
+
+126
+00:04:16,342 --> 00:04:17,580
+qui contient trente-et-un éléments.
+
+127
+00:04:18,125 --> 00:04:19,315
+J'exécute et je vois bien
+
+128
+00:04:19,415 --> 00:04:21,263
+mon tableau de températures.
+
+129
+00:04:22,327 --> 00:04:23,794
+Maintenant, regardons
+
+130
+00:04:23,894 --> 00:04:25,946
+quelles températures sont strictement positives.
+
+131
+00:04:26,046 --> 00:04:28,485
+Pour cela, je peux utiliser
+
+132
+00:04:29,751 --> 00:04:31,544
+l'opérateur de comparaison
+
+133
+00:04:31,644 --> 00:04:33,447
+mars strictement positif
+
+134
+00:04:33,547 --> 00:04:35,413
+qui va effectuer une opération vectorisée
+
+135
+00:04:35,513 --> 00:04:37,149
+nous reviendrons sur cette notion de vectorisation
+
+136
+00:04:37,249 --> 00:04:38,204
+dans une prochaine vidéo
+
+137
+00:04:38,304 --> 00:04:39,748
+mais sachez simplement que c'est une opération
+
+138
+00:04:39,848 --> 00:04:40,642
+qui est très efficace
+
+139
+00:04:41,068 --> 00:04:42,899
+et qui va me produire quelque chose
+
+140
+00:04:42,999 --> 00:04:44,509
+que l'on appelle un tableau de booléens.
+
+141
+00:04:46,320 --> 00:04:48,246
+L'élément 15 est strictement positif
+
+142
+00:04:48,346 --> 00:04:50,033
+donc ici, dans mon tableau de booléens,
+
+143
+00:04:50,133 --> 00:04:50,808
+j'ai True.
+
+144
+00:04:50,908 --> 00:04:52,941
+L'élément -4 est négatif,
+
+145
+00:04:53,041 --> 00:04:54,499
+donc dans mon tableau de booléens, j'ai False
+
+146
+00:04:54,599 --> 00:04:56,242
+et j'applique donc cette comparaison
+
+147
+00:04:56,342 --> 00:04:58,136
+à chaque élément de mon tableau.
+
+148
+00:04:58,980 --> 00:05:00,919
+On peut utiliser, pour les comparaisons,
+
+149
+00:05:01,019 --> 00:05:01,917
+n'importe quel opérateur
+
+150
+00:05:02,017 --> 00:05:03,167
+supérieur, supérieur ou égal,
+
+151
+00:05:03,267 --> 00:05:04,169
+inférieur, inférieur ou égal,
+
+152
+00:05:04,269 --> 00:05:06,069
+égal, donc c'est égal égal,
+
+153
+00:05:06,169 --> 00:05:07,265
+ou différent.
+
+154
+00:05:08,253 --> 00:05:09,400
+Ces tableaux de booléens
+
+155
+00:05:09,500 --> 00:05:11,118
+sont extrêmement utiles.
+
+156
+00:05:11,218 --> 00:05:12,477
+Regardons un autre exemple.
+
+157
+00:05:12,577 --> 00:05:14,982
+Je vais faire mars égal égal à zéro :
+
+158
+00:05:15,082 --> 00:05:17,303
+est-ce que j'ai des températures nulles
+
+159
+00:05:17,403 --> 00:05:18,424
+dans mon tableau ?
+
+160
+00:05:18,591 --> 00:05:22,400
+ici, je n'en ai pas.
+
+161
+00:05:22,500 --> 00:05:23,652
+Vous pouvez vous demander
+
+162
+00:05:23,752 --> 00:05:25,082
+maintenant, j'ai mon tableau de booléens
+
+163
+00:05:25,182 --> 00:05:25,777
+mais qu'est-ce que j'en fais
+
+164
+00:05:25,877 --> 00:05:26,648
+ de ce tableau de booléens ?
+
+165
+00:05:26,999 --> 00:05:28,633
+En fait, ce tableau de  booléens a deux usages.
+
+166
+00:05:29,137 --> 00:05:30,542
+Le deuxième usage qu'on verra
+
+167
+00:05:30,642 --> 00:05:31,252
+ dans quelques instants,
+
+168
+00:05:31,352 --> 00:05:32,325
+c'est l'indexation avancée
+
+169
+00:05:32,425 --> 00:05:33,249
+mais le premier usage,
+
+170
+00:05:33,349 --> 00:05:35,018
+c'est lié à la constatation
+
+171
+00:05:35,118 --> 00:05:38,454
+que True vaut 1 et que False vaut 0.
+
+172
+00:05:38,876 --> 00:05:40,245
+Regardons à quoi ça nous sert.
+
+173
+00:05:40,664 --> 00:05:42,503
+Supposons que je me pose la question suivante :
+
+174
+00:05:42,919 --> 00:05:46,063
+Pour combien de jours il a fait
+
+175
+00:05:46,163 --> 00:05:47,900
+une température positive en mars ?
+
+176
+00:05:48,000 --> 00:05:49,703
+Je peux le savoir en faisant l'opération suivante :
+
+177
+00:05:49,803 --> 00:05:50,736
+np point sum
+
+178
+00:05:53,704 --> 00:05:56,086
+de mars strictement positif.
+
+179
+00:05:56,627 --> 00:05:57,676
+mars strictement positif
+
+180
+00:05:57,776 --> 00:05:58,913
+va me générer un tableau de booléens,
+
+181
+00:05:59,013 --> 00:06:00,387
+qui va être True
+
+182
+00:06:00,487 --> 00:06:02,919
+ uniquement quand c'est strictement positif,
+
+183
+00:06:03,019 --> 00:06:04,259
+et donc True vaut 1,
+
+184
+00:06:04,359 --> 00:06:05,440
+et False vaut 0,
+
+185
+00:06:05,540 --> 00:06:06,679
+et donc, en faisant la somme,
+
+186
+00:06:06,779 --> 00:06:07,829
+j'ai le nombre de jours
+
+187
+00:06:07,929 --> 00:06:09,446
+où il a fait une température strictement positive
+
+188
+00:06:09,546 --> 00:06:10,605
+en mars.
+
+189
+00:06:12,122 --> 00:06:13,112
+Maintenant, imaginons que
+
+190
+00:06:13,212 --> 00:06:14,112
+je me pose une autre question :
+
+191
+00:06:14,212 --> 00:06:16,051
+est-ce qu'il y a eu au moins un jour
+
+192
+00:06:16,151 --> 00:06:16,508
+au mois de mars
+
+193
+00:06:16,608 --> 00:06:17,558
+où il a fait 20 degrés ?
+
+194
+00:06:17,658 --> 00:06:18,996
+Pour cela, je vais utiliser any
+
+195
+00:06:19,377 --> 00:06:20,765
+qui va me retourner vrai si j'ai
+
+196
+00:06:20,865 --> 00:06:23,303
+au moins un True dans mon tableau de booléens.
+
+197
+00:06:23,857 --> 00:06:27,173
+Ici, je fais mars égal égal à 20 degrés
+
+198
+00:06:27,823 --> 00:06:29,086
+et donc, regardons ça :
+
+199
+00:06:29,186 --> 00:06:31,764
+non, il n'y a eu aucun jour en mars
+
+200
+00:06:31,864 --> 00:06:34,079
+où il a fait exactement la température 20 degrés.
+
+201
+00:06:34,179 --> 00:06:35,453
+Et regardons un dernier cas :
+
+202
+00:06:35,553 --> 00:06:38,526
+np.all mars strictement positif
+
+203
+00:06:38,626 --> 00:06:40,424
+qui va me servir à répondre à la question :
+
+204
+00:06:40,524 --> 00:06:42,266
+est-ce que, pour tous les jours du mois de mars,
+
+205
+00:06:43,869 --> 00:06:45,357
+il a fait une température strictement positive ?
+
+206
+00:06:45,457 --> 00:06:46,428
+La réponse est non.
+
+207
+00:06:46,528 --> 00:06:48,485
+Donc voyez qu'en manipulant ces tableaux de booléens
+
+208
+00:06:48,585 --> 00:06:50,009
+avec ces opérations d'agrégation
+
+209
+00:06:50,109 --> 00:06:52,526
+on peut déjà répondre à des questions intéressantes.
+
+210
+00:06:53,368 --> 00:06:54,713
+Maintenant, j'aimerais vous montrer
+
+211
+00:06:54,813 --> 00:06:55,795
+comment est-ce qu'on peut combiner
+
+212
+00:06:55,895 --> 00:06:57,198
+les tableaux de booléens entre eux,
+
+213
+00:06:57,298 --> 00:07:00,683
+en utilisant les opérateurs ET, OU et NOT.
+
+214
+00:07:01,274 --> 00:07:02,323
+Regardons un exemple.
+
+215
+00:07:02,723 --> 00:07:04,717
+Avant d'aller plus loin, je vais créer un tableau
+
+216
+00:07:05,441 --> 00:07:07,576
+jours du mois de mars
+
+217
+00:07:08,242 --> 00:07:11,155
+qui va être égal à np point arange
+
+218
+00:07:10,689 --> 00:07:14,155
+qui me permet, comme la fonction built-in range,
+
+219
+00:07:14,255 --> 00:07:16,898
+de générer une suite d'entiers
+
+220
+00:07:16,998 --> 00:07:20,264
+ici allant de 1 à mars.size
+
+221
+00:07:20,364 --> 00:07:23,244
+donc le nombre d'éléments que j'ai dans mars
+
+222
+00:07:23,344 --> 00:07:24,865
+dans le mois de mars plus un
+
+223
+00:07:25,516 --> 00:07:27,481
+et ici, je vais spécifier mon dtype
+
+224
+00:07:27,581 --> 00:07:28,097
+parce que je vous rappelle que
+
+225
+00:07:28,197 --> 00:07:29,815
+c'est toujours une bonne pratique
+
+226
+00:07:29,915 --> 00:07:31,146
+de maîtriser son dtype,
+
+227
+00:07:31,246 --> 00:07:32,614
+ici, je vais mettre un dytpe à int8.
+
+228
+00:07:32,714 --> 00:07:34,320
+Je regarde jours du mois de mars,
+
+229
+00:07:34,420 --> 00:07:35,091
+qu'est-ce que ça contient ?
+
+230
+00:07:35,191 --> 00:07:36,207
+Et bien, ça contient juste les entiers
+
+231
+00:07:36,307 --> 00:07:37,859
+allant de 1 à 31.
+
+232
+00:07:38,610 --> 00:07:40,047
+Et maintenant que j'ai ce tableau
+
+233
+00:07:40,147 --> 00:07:40,943
+des jours du mois de mars,
+
+234
+00:07:41,043 --> 00:07:41,953
+je peux combiner
+
+235
+00:07:42,821 --> 00:07:44,736
+un opérateur booléen sur ces jours
+
+236
+00:07:44,836 --> 00:07:45,861
+avec un opérateur booléen
+
+237
+00:07:45,961 --> 00:07:47,195
+sur le mois de mars directement.
+
+238
+00:07:47,501 --> 00:07:48,716
+Regardons donc un exemple :
+
+239
+00:07:49,998 --> 00:07:51,631
+Je vais faire np.sum
+
+240
+00:07:51,731 --> 00:07:52,305
+qui va me permettre
+
+241
+00:07:52,405 --> 00:07:54,214
+ de répondre à la question suivante :
+
+242
+00:07:55,416 --> 00:07:56,907
+je vous montre ça
+
+243
+00:07:57,007 --> 00:07:59,795
+je fais mars strictement supérieur à 10
+
+244
+00:08:00,899 --> 00:08:02,862
+combien de jours, au mois de mars,
+
+245
+00:08:02,962 --> 00:08:04,266
+il a fait plus de 10 degrés ?
+
+246
+00:08:04,786 --> 00:08:06,522
+et je rajoute l'opérateur ET
+
+247
+00:08:07,336 --> 00:08:10,290
+et ici, je vais mettre jours du mois de mars
+
+248
+00:08:10,390 --> 00:08:12,048
+supérieur ou égal à 15
+
+249
+00:08:12,148 --> 00:08:13,020
+donc ça veut dire quoi ?
+
+250
+00:08:13,120 --> 00:08:14,643
+Je vais calculer le nombre de jours
+
+251
+00:08:14,743 --> 00:08:15,913
+où il a fait plus de 10 degrés
+
+252
+00:08:16,013 --> 00:08:19,058
+pour les jours qui ont été après le 15 mars.
+
+253
+00:08:19,600 --> 00:08:21,443
+Ici, il faut noter plusieurs choses importantes
+
+254
+00:08:21,543 --> 00:08:22,727
+Regardons le résultat, c'est 7.
+
+255
+00:08:23,401 --> 00:08:24,845
+Notons plusieurs choses importantes.
+
+256
+00:08:24,945 --> 00:08:28,575
+La première chose, c'est que mon opérateur logique ET
+
+257
+00:08:28,675 --> 00:08:30,447
+ici, c'est un opérateur bitwise.
+
+258
+00:08:31,215 --> 00:08:33,933
+En effet, comme je manipule des tableaux de bits,
+
+259
+00:08:34,033 --> 00:08:35,647
+je dois appliquer un opérateur bitwise
+
+260
+00:08:35,747 --> 00:08:38,811
+et non plus l'opérateur classique AND, OR ou NOT.
+
+261
+00:08:39,391 --> 00:08:40,675
+Deuxième chose qu'on remarque,
+
+262
+00:08:40,775 --> 00:08:42,913
+c'est que j'ai entouré par des parenthèses
+
+263
+00:08:43,013 --> 00:08:44,092
+mars supérieur à 10
+
+264
+00:08:44,192 --> 00:08:46,106
+et jours de mars supérieur ou égal à 15
+
+265
+00:08:46,425 --> 00:08:48,148
+Pourquoi ? Parce que l'opérateur ET
+
+266
+00:08:48,248 --> 00:08:49,554
+est le plus prioritaire
+
+267
+00:08:49,654 --> 00:08:51,472
+et par conséquent, si l'on veut que notre opération
+
+268
+00:08:51,572 --> 00:08:52,389
+fasse ce que l'on souhaite
+
+269
+00:08:52,489 --> 00:08:53,825
+il faut obligatoirement
+
+270
+00:08:53,925 --> 00:08:55,879
+entourer ce qu'il y a à gauche et ce qu'il y a à droite
+
+271
+00:08:55,979 --> 00:08:57,067
+de notre opérateur bitwise
+
+272
+00:08:57,167 --> 00:08:58,168
+par des parenthèses.
+
+273
+00:08:59,542 --> 00:09:01,263
+Maintenant que l'on connaît les tableaux de booléens,
+
+274
+00:09:01,363 --> 00:09:02,984
+ça serait intéressant de les appliquer
+
+275
+00:09:03,540 --> 00:09:04,595
+à des tableaux existants
+
+276
+00:09:04,695 --> 00:09:05,381
+pour faire ce qu'on appelle
+
+277
+00:09:05,481 --> 00:09:06,585
+de l'indexation avancée.
+
+278
+00:09:06,685 --> 00:09:08,032
+Regardons cet exemple.
+
+279
+00:09:08,132 --> 00:09:09,856
+C'est quelque chose qui permet
+
+280
+00:09:09,956 --> 00:09:12,294
+d'obtenir des sous-ensembles de tableaux
+
+281
+00:09:12,394 --> 00:09:14,004
+de manière extrêmement expressive.
+
+282
+00:09:15,191 --> 00:09:18,044
+Ici, je vais prendre mon tableau du mois de mars
+
+283
+00:09:18,144 --> 00:09:20,054
+et comme indice, je vais lui passer directement
+
+284
+00:09:20,154 --> 00:09:20,757
+un tableau de booléens.
+
+285
+00:09:20,857 --> 00:09:21,717
+Et donc je vais passer
+
+286
+00:09:21,817 --> 00:09:23,762
+mars strictement supérieur à 10.
+
+287
+00:09:24,085 --> 00:09:25,427
+Que va faire cette opération ?
+
+288
+00:09:25,697 --> 00:09:28,298
+Elle va sélectionner dans le tableau mars
+
+289
+00:09:28,398 --> 00:09:30,200
+uniquement les valeurs pour lesquelles
+
+290
+00:09:30,300 --> 00:09:32,527
+la température est strictement supérieure à 10 degrés.
+
+291
+00:09:32,923 --> 00:09:34,953
+J'obtiens donc un nouveau tableau
+
+292
+00:09:35,053 --> 00:09:37,519
+qui est un sous-ensemble du tableau original.
+
+293
+00:09:37,921 --> 00:09:39,704
+Je peux également évidemment
+
+294
+00:09:40,477 --> 00:09:44,085
+passer comme indice avancé
+
+295
+00:09:44,438 --> 00:09:46,240
+des expressions booléennes
+
+296
+00:09:47,288 --> 00:09:48,849
+combinées avec des opérateurs logiques.
+
+297
+00:09:48,949 --> 00:09:50,437
+Par exemple, je vais passer
+
+298
+00:09:50,537 --> 00:09:52,772
+mars strictement supérieur à 10 degrés
+
+299
+00:09:52,872 --> 00:09:53,722
+et
+
+300
+00:09:55,154 --> 00:09:58,079
+jours de mars supérieur ou égal à 15,
+
+301
+00:09:58,610 --> 00:10:01,160
+donc retourne-moi, dans le tableau mars,
+
+302
+00:10:01,260 --> 00:10:02,971
+toutes les températures supérieures à 10 degrés
+
+303
+00:10:03,071 --> 00:10:04,064
+après le 15 mars
+
+304
+00:10:04,572 --> 00:10:06,490
+et donc voici les températures que j'obtiens.
+
+305
+00:10:06,590 --> 00:10:09,815
+Sur ces opérations d'indexation avancée,
+
+306
+00:10:09,915 --> 00:10:11,300
+je peux également faire de l'affectation.
+
+307
+00:10:11,400 --> 00:10:12,711
+Faisons une hypothèse.
+
+308
+00:10:12,811 --> 00:10:14,282
+Supposons qu'en fait
+
+309
+00:10:14,396 --> 00:10:16,238
+au mois de mars, nous savons qu'il y a forcément
+
+310
+00:10:16,338 --> 00:10:17,264
+des températures positives
+
+311
+00:10:17,364 --> 00:10:18,741
+et que toutes les températures négatives
+
+312
+00:10:18,841 --> 00:10:20,681
+soient simplement dues à des erreurs de mesure
+
+313
+00:10:20,781 --> 00:10:21,528
+avec notre instrument.
+
+314
+00:10:22,009 --> 00:10:23,823
+À ce moment-là, je peux remplacer
+
+315
+00:10:23,923 --> 00:10:25,129
+toutes les valeurs négatives
+
+316
+00:10:25,229 --> 00:10:26,226
+par, par exemple,
+
+317
+00:10:26,326 --> 00:10:28,775
+la moyenne des températures positives.
+
+318
+00:10:29,683 --> 00:10:31,000
+Regardons cet exemple.
+
+319
+00:10:31,100 --> 00:10:32,602
+Ici, je vais calculer moyenne
+
+320
+00:10:33,238 --> 00:10:36,031
+égale np point mean
+
+321
+00:10:36,131 --> 00:10:37,993
+donc je vais calculer avec NumPy la moyenne
+
+322
+00:10:38,980 --> 00:10:40,419
+du mois de mars
+
+323
+00:10:40,932 --> 00:10:41,735
+pour lequel
+
+324
+00:10:41,835 --> 00:10:44,505
+ les températures sont strictement positives.
+
+325
+00:10:45,087 --> 00:10:47,265
+Ça, ça va donc me donner une moyenne.
+
+326
+00:10:47,715 --> 00:10:49,207
+Et ensuite, je vais faire mars
+
+327
+00:10:50,722 --> 00:10:55,857
+pour les températures qui sont strictement négatives
+
+328
+00:10:55,957 --> 00:10:57,299
+donc mes erreurs de mesure,
+
+329
+00:10:57,399 --> 00:10:59,809
+je vais les remplacer par la moyenne.
+
+330
+00:11:00,334 --> 00:11:01,233
+J'exécute.
+
+331
+00:11:01,333 --> 00:11:02,970
+Et maintenant, je vais regarder
+
+332
+00:11:03,070 --> 00:11:04,179
+mon tableau du mois de mars
+
+333
+00:11:04,584 --> 00:11:05,882
+et dans mon tableau du mois de mars,
+
+334
+00:11:05,982 --> 00:11:06,383
+je vois maintenant
+
+335
+00:11:06,483 --> 00:11:08,680
+ que je n'ai plus aucune température négative
+
+336
+00:11:09,114 --> 00:11:11,287
+et les températures négatives ont été remplacées
+
+337
+00:11:11,387 --> 00:11:14,070
+par la moyenne sur les jours sur lesquels
+
+338
+00:11:14,170 --> 00:11:15,339
+il a fait une température positive.
+
+339
+00:11:15,932 --> 00:11:18,088
+Pour finir de parler de l'indexation avancée,
+
+340
+00:11:18,188 --> 00:11:20,697
+j'aimerais vous montrer une dernière possibilité,
+
+341
+00:11:21,068 --> 00:11:22,195
+c'est la possibilité suivante,
+
+342
+00:11:22,295 --> 00:11:23,443
+ici, je vais créer un tableau
+
+343
+00:11:23,543 --> 00:11:25,182
+ que je vais appeler countries
+
+344
+00:11:28,155 --> 00:11:32,065
+qui va être égal à np point array
+
+345
+00:11:33,324 --> 00:11:35,497
+et ici, je vais passer le tableau suivant
+
+346
+00:11:36,048 --> 00:11:37,996
+qui va contenir fr,
+
+347
+00:11:39,252 --> 00:11:40,198
+us
+
+348
+00:11:41,787 --> 00:11:42,726
+japon.
+
+349
+00:11:43,283 --> 00:11:45,394
+Et maintenant, je vais pouvoir construire
+
+350
+00:11:46,738 --> 00:11:50,083
+un nouveau tableau à partir de ces valeurs-là
+
+351
+00:11:50,183 --> 00:11:51,947
+en passant à countries
+
+352
+00:11:52,047 --> 00:11:53,326
+une liste d'indices.
+
+353
+00:11:53,426 --> 00:11:56,019
+Et ici, je vais lui passer 0 virgule 0,
+
+354
+00:11:56,119 --> 00:11:58,021
+ça veut dire que je vais avoir deux fois fr,
+
+355
+00:11:58,492 --> 00:12:00,524
+je vais lui passer 1, 2 et 0.
+
+356
+00:12:00,886 --> 00:12:03,722
+Donc ça me permet à partir d'un tableau original,
+
+357
+00:12:03,822 --> 00:12:04,699
+countries,
+
+358
+00:12:04,799 --> 00:12:06,360
+de récupérer les éléments du tableau
+
+359
+00:12:06,460 --> 00:12:07,542
+et de créer un nouveau tableau dans lequel
+
+360
+00:12:07,642 --> 00:12:09,155
+je peux même avoir des éléments dupliqués.
+
+361
+00:12:09,255 --> 00:12:11,314
+Regardons le résultat de cette évaluation :
+
+362
+00:12:11,414 --> 00:12:13,380
+je vais avoir deux fois fr, une fois us,
+
+363
+00:12:13,480 --> 00:12:15,441
+ une fois japon et une fois fr.
+
+364
+00:12:16,617 --> 00:12:18,334
+Dans cette vidéo, nous avons vu les notions
+
+365
+00:12:18,434 --> 00:12:20,101
+de slicing et de reshaping
+
+366
+00:12:20,201 --> 00:12:21,424
+qui permettent de générer des vues
+
+367
+00:12:21,524 --> 00:12:22,719
+sur des tableaux existants
+
+368
+00:12:23,053 --> 00:12:24,448
+et nous avons surtout vu la notion
+
+369
+00:12:24,548 --> 00:12:26,411
+d'indexation avancée à partir de masques.
+
+370
+00:12:26,776 --> 00:12:27,607
+C'est une opération
+
+371
+00:12:27,707 --> 00:12:28,996
+ qui est extrêmement puissante
+
+372
+00:12:29,096 --> 00:12:30,756
+et qu'il faut prendre le temps de bien maîtriser.
+
+373
+00:12:31,242 --> 00:12:32,290
+À bientôt !
+
