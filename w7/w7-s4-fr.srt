@@ -1,0 +1,996 @@
+1
+00:00:05,341 --> 00:00:06,913
+Dans cette vidéo, nous allons voir
+
+2
+00:00:07,013 --> 00:00:08,409
+comment appliquer une opération
+
+3
+00:00:08,509 --> 00:00:10,023
+à chaque élément d'un tableau NumPy.
+
+4
+00:00:10,554 --> 00:00:12,170
+Nous savons évidemment faire cela
+
+5
+00:00:12,270 --> 00:00:14,558
+avec ce que l'on connaît en Python
+
+6
+00:00:14,658 --> 00:00:15,802
+comme les boucles for,
+
+7
+00:00:15,902 --> 00:00:17,858
+les compréhensions ou les fonctions génératrices.
+
+8
+00:00:18,200 --> 00:00:20,477
+Mais nous allons voir que pour tirer pleinement parti
+
+9
+00:00:20,577 --> 00:00:22,205
+de la performance des tableaux NumPy,
+
+10
+00:00:22,305 --> 00:00:23,712
+il faut utiliser un nouveau concept
+
+11
+00:00:23,812 --> 00:00:25,274
+que l'on appelle la vectorisation.
+
+12
+00:00:25,761 --> 00:00:26,955
+Ouvrons maintenant un notebook
+
+13
+00:00:27,055 --> 00:00:28,781
+pour commencer à jouer avec cette notion.
+
+14
+00:00:30,020 --> 00:00:32,252
+Commençons par créer un tableau d'entiers.
+
+15
+00:00:32,352 --> 00:00:36,570
+a égale np point arange de 1000
+
+16
+00:00:36,670 --> 00:00:38,208
+donc un tableau qui contient mille entiers
+
+17
+00:00:38,401 --> 00:00:40,819
+et maintenant, calculons un polynôme
+
+18
+00:00:40,919 --> 00:00:42,658
+sur ce tableau.
+
+19
+00:00:43,128 --> 00:00:44,283
+Regardons cela,
+
+20
+00:00:44,383 --> 00:00:45,376
+je vais le faire de la manière suivante :
+
+21
+00:00:45,476 --> 00:00:46,831
+timeit de,
+
+22
+00:00:47,300 --> 00:00:48,853
+alors je vais le faire avec une compréhension,
+
+23
+00:00:48,953 --> 00:00:53,863
+x au carré plus 2 fois x moins 1
+
+24
+00:00:54,861 --> 00:00:57,641
+for x in a.
+
+25
+00:00:57,741 --> 00:00:59,657
+Et exécutons cela.
+
+26
+00:01:00,218 --> 00:01:01,754
+Ça, on sait tout à fait le faire,
+
+27
+00:01:01,854 --> 00:01:03,574
+on sait faire des opérations de compréhension,
+
+28
+00:01:03,674 --> 00:01:05,053
+des fonctions génératrices, des boucles for
+
+29
+00:01:05,153 --> 00:01:06,153
+sur les objets itérables
+
+30
+00:01:06,253 --> 00:01:07,244
+et a est itérable.
+
+31
+00:01:07,344 --> 00:01:08,910
+Mais la bonne manière de le faire,
+
+32
+00:01:09,010 --> 00:01:11,205
+c'est d'utiliser les opérations vectorisées.
+
+33
+00:01:11,305 --> 00:01:13,036
+Alors, qu'est-ce que c'est, une opération vectorisée
+
+34
+00:01:13,136 --> 00:01:13,739
+en NumPy ?
+
+35
+00:01:14,160 --> 00:01:15,849
+Les opérations vectorisées
+
+36
+00:01:15,949 --> 00:01:17,113
+exploitent le fait
+
+37
+00:01:17,213 --> 00:01:18,835
+que les tableaux Numpy sont stockés
+
+38
+00:01:18,935 --> 00:01:20,374
+dans des zones contiguës de mémoire
+
+39
+00:01:20,474 --> 00:01:22,149
+et que tous les éléments stockés
+
+40
+00:01:22,249 --> 00:01:23,142
+ont la même dimension.
+
+41
+00:01:23,242 --> 00:01:25,438
+Il est par conséquent extrêmement efficace
+
+42
+00:01:25,538 --> 00:01:27,271
+de parcourir les différents éléments
+
+43
+00:01:27,371 --> 00:01:29,898
+d'un tableau NumPy.
+
+44
+00:01:29,998 --> 00:01:32,204
+Regardons comment est-ce que j'écrirais ça
+
+45
+00:01:32,703 --> 00:01:34,024
+en opération vectorisée.
+
+46
+00:01:34,124 --> 00:01:35,909
+On va voir que c'est extrêmement intuitif
+
+47
+00:01:36,009 --> 00:01:38,186
+et même plus simple qu'une compréhension de liste.
+
+48
+00:01:38,286 --> 00:01:40,529
+Je vais directement effectuer mon opération
+
+49
+00:01:40,629 --> 00:01:42,663
+sur mon tableau NumPy.
+
+50
+00:01:42,763 --> 00:01:43,753
+Je vais écrire timeit de
+
+51
+00:01:43,853 --> 00:01:51,336
+a au carré plus 2 fois a moins 1.
+
+52
+00:01:52,017 --> 00:01:53,028
+J'exécute
+
+53
+00:01:53,128 --> 00:01:55,959
+et mon opération va automatiquement se faire
+
+54
+00:01:56,059 --> 00:01:57,338
+sur chaque élément du tableau,
+
+55
+00:01:57,438 --> 00:01:59,605
+donc l'opération élévation à la puissance,
+
+56
+00:01:59,705 --> 00:02:01,174
+la multiplication, la soustraction
+
+57
+00:02:01,274 --> 00:02:02,971
+et on va combiner le résultat
+
+58
+00:02:03,071 --> 00:02:04,304
+dans un nouveau tableau NumPy
+
+59
+00:02:04,404 --> 00:02:06,134
+et je vois qu'ici le gain de performance
+
+60
+00:02:06,234 --> 00:02:07,211
+est absolument majeur,
+
+61
+00:02:07,311 --> 00:02:09,138
+j'ai quasiment un facteur 100.
+
+62
+00:02:11,624 --> 00:02:13,816
+Alors, tous les opérateurs
+
+63
+00:02:13,916 --> 00:02:15,632
+que l'on utilise classiquement,
+
+64
+00:02:15,732 --> 00:02:17,208
+les opérateurs numériques,
+
+65
+00:02:17,308 --> 00:02:20,770
+le plus, le fois, le divisé, la soustraction,
+
+66
+00:02:21,791 --> 00:02:23,193
+les opérateurs de comparaison,
+
+67
+00:02:23,293 --> 00:02:24,774
+supérieur, inférieur, égal, différent,
+
+68
+00:02:24,874 --> 00:02:26,242
+les opérateurs bitwise,
+
+69
+00:02:26,342 --> 00:02:27,353
+sont tous vectorisés.
+
+70
+00:02:28,001 --> 00:02:29,121
+Et tous ces opérateurs
+
+71
+00:02:29,221 --> 00:02:30,204
+sont systématiquement associés
+
+72
+00:02:30,304 --> 00:02:32,143
+à une fonction NumPy.
+
+73
+00:02:32,691 --> 00:02:34,764
+Alors, en général, on préfère utiliser l'opérateur
+
+74
+00:02:34,864 --> 00:02:36,210
+parce qu'on voit que c'est beaucoup plus intuitif
+
+75
+00:02:36,310 --> 00:02:38,777
+écrire a au carré plus 2 fois a moins 1
+
+76
+00:02:38,877 --> 00:02:40,131
+plutôt que d'appeler des fonctions,
+
+77
+00:02:40,231 --> 00:02:41,835
+mais par contre, les fonctions permettent de
+
+78
+00:02:41,935 --> 00:02:43,883
+passer des paramètres qui parfois sont utiles ;
+
+79
+00:02:44,359 --> 00:02:46,744
+notamment, dans les fonctions vectorisées,
+
+80
+00:02:46,844 --> 00:02:48,668
+j'ai un paramètre qui s'appelle out.
+
+81
+00:02:48,768 --> 00:02:50,512
+Quel est ce paramètre out ?
+
+82
+00:02:50,612 --> 00:02:52,410
+Il permet de spécifier dans quel objet
+
+83
+00:02:52,510 --> 00:02:53,579
+je vais écrire le résultat.
+
+84
+00:02:54,029 --> 00:02:55,409
+Par défaut, les fonctions vectorisées
+
+85
+00:02:55,509 --> 00:02:56,495
+produisent un nouvel objet.
+
+86
+00:02:57,104 --> 00:02:58,414
+Mais je peux décider d'écrire
+
+87
+00:02:58,514 --> 00:02:59,701
+dans un objet existant ;
+
+88
+00:02:59,801 --> 00:03:01,153
+je vais donc économiser
+
+89
+00:03:01,253 --> 00:03:02,561
+le temps de création de cet objet,
+
+90
+00:03:02,661 --> 00:03:04,759
+et je vais donc avoir un gain important
+
+91
+00:03:04,859 --> 00:03:05,919
+en termes de mémoire
+
+92
+00:03:06,019 --> 00:03:07,739
+et un petit gain en termes de performance.
+
+93
+00:03:07,839 --> 00:03:09,107
+Regardons un exemple.
+
+94
+00:03:09,897 --> 00:03:11,027
+Je vais écrire
+
+95
+00:03:11,127 --> 00:03:20,993
+a égale np point arange de 1 à un million
+
+96
+00:03:23,554 --> 00:03:25,140
+et je vais donner comme dtype
+
+97
+00:03:27,094 --> 00:03:30,020
+np point float64.
+
+98
+00:03:32,480 --> 00:03:35,461
+Et ensuite, je vais faire
+
+99
+00:03:35,561 --> 00:03:37,158
+je vais comparer avec mon timeit
+
+100
+00:03:37,258 --> 00:03:39,162
+donc je vais faire ici une seule opération,
+
+101
+00:03:39,262 --> 00:03:41,245
+moins r 1 moins n 1,
+
+102
+00:03:41,345 --> 00:03:42,212
+donc ça veut dire que je n'exécute
+
+103
+00:03:42,312 --> 00:03:43,356
+qu'une seule fois l'instruction,
+
+104
+00:03:43,859 --> 00:03:46,124
+et je vais faire un np point racine carrée,
+
+105
+00:03:46,224 --> 00:03:48,130
+sqrt de a.
+
+106
+00:03:48,699 --> 00:03:50,682
+Exécutons ça et je vois que ça a pris
+
+107
+00:03:50,782 --> 00:03:52,634
+82 millisecondes.
+
+108
+00:03:53,251 --> 00:03:55,398
+Maintenant, je vais refaire la même opération
+
+109
+00:03:56,125 --> 00:03:58,465
+mais ici, je vais spécifier
+
+110
+00:03:59,081 --> 00:04:00,387
+l'argument out.
+
+111
+00:04:00,487 --> 00:04:02,803
+Donc ici, je vais écrire out égale a.
+
+112
+00:04:02,903 --> 00:04:04,704
+Je vais réécrire dans le tableau d'origine
+
+113
+00:04:04,804 --> 00:04:06,600
+et je vois qu'ici, j'ai eu un gain
+
+114
+00:04:06,700 --> 00:04:09,578
+ extrêmement important de performance.
+
+115
+00:04:10,319 --> 00:04:11,701
+Et en plus, je n'ai pas créé
+
+116
+00:04:11,801 --> 00:04:13,113
+un nouveau tableau en mémoire.
+
+117
+00:04:14,288 --> 00:04:15,849
+Certaines fonctions vectorisées
+
+118
+00:04:15,949 --> 00:04:19,544
+ont une variante à laquelle on peut accéder par at.
+
+119
+00:04:19,644 --> 00:04:20,737
+Regardons un exemple.
+
+120
+00:04:21,209 --> 00:04:24,241
+Donc j'ai un tableau a
+
+121
+00:04:24,341 --> 00:04:27,511
+et je vais écrire a de deux points 5.
+
+122
+00:04:28,778 --> 00:04:31,704
+J'obtiens les premiers éléments de mon tableau a.
+
+123
+00:04:32,379 --> 00:04:34,609
+Maintenant, je peux appeler np.log
+
+124
+00:04:36,388 --> 00:04:42,258
+point at de a virgule 2 virgule 4.
+
+125
+00:04:42,911 --> 00:04:48,135
+Que va faire cet appel de log avec at ?
+
+126
+00:04:48,235 --> 00:04:51,946
+En fait, on va appliquer la fonction log
+
+127
+00:04:52,046 --> 00:04:55,280
+uniquement aux éléments 2 et 4 de a
+
+128
+00:04:55,380 --> 00:04:57,759
+et on va les modifier en place,
+
+129
+00:04:57,859 --> 00:04:59,523
+donc at me permet d'appliquer une fonction
+
+130
+00:04:59,623 --> 00:05:02,400
+à certains éléments d'un tableau NumPy
+
+131
+00:05:02,500 --> 00:05:03,945
+et de les modifier en place.
+
+132
+00:05:04,045 --> 00:05:05,184
+Exécutons cette fonction
+
+133
+00:05:05,284 --> 00:05:06,489
+et regardons maintenant
+
+134
+00:05:06,589 --> 00:05:08,973
+ce que me redonne a de deux points 5 :
+
+135
+00:05:09,359 --> 00:05:11,050
+on voit bien que les éléments 2,
+
+136
+00:05:11,150 --> 00:05:12,427
+donc cet élément,
+
+137
+00:05:12,527 --> 00:05:13,740
+et l'élément 4
+
+138
+00:05:13,840 --> 00:05:15,617
+ont bien été modifiés en place ;
+
+139
+00:05:15,717 --> 00:05:17,460
+en fait, j'ai appliqué la fonction logarithme
+
+140
+00:05:17,560 --> 00:05:18,433
+à ces deux éléments-là.
+
+141
+00:05:19,995 --> 00:05:21,182
+Nous avons vu également
+
+142
+00:05:21,282 --> 00:05:23,182
+que les fonctions vectorisées
+
+143
+00:05:23,282 --> 00:05:24,847
+s'appliquaient élément par élément.
+
+144
+00:05:25,503 --> 00:05:27,809
+En réalité, toutes les fonctions vectorisées
+
+145
+00:05:27,909 --> 00:05:29,422
+ne s'appliquent pas élément par élément,
+
+146
+00:05:29,522 --> 00:05:31,206
+il y a certaines opérations vectorisées
+
+147
+00:05:31,306 --> 00:05:34,101
+qui font des opérations d'agrégation.
+
+148
+00:05:34,201 --> 00:05:36,208
+Lorsque l'on travaille élément par élément,
+
+149
+00:05:36,308 --> 00:05:37,151
+il n'y a pas de notion d'axe,
+
+150
+00:05:37,251 --> 00:05:38,862
+il n'y a pas de notion de dimension.
+
+151
+00:05:38,962 --> 00:05:41,935
+Par contre, lorsque l'on agrège des éléments,
+
+152
+00:05:42,035 --> 00:05:43,189
+là, il y a bien une notion d'axe,
+
+153
+00:05:43,289 --> 00:05:44,960
+on doit savoir si on agrège, par exemple,
+
+154
+00:05:45,060 --> 00:05:46,897
+suivant les lignes ou suivant les colonnes.
+
+155
+00:05:47,100 --> 00:05:48,331
+Regardons un exemple.
+
+156
+00:05:49,047 --> 00:05:52,581
+Je vais écrire a égale np point arange
+
+157
+00:05:54,931 --> 00:05:58,350
+de indices, et je vais faire un reshape
+
+158
+00:06:01,814 --> 00:06:04,553
+de 3 virgule 3.
+
+159
+00:06:04,653 --> 00:06:06,860
+J'exécute, je regarde mon tableau a
+
+160
+00:06:06,960 --> 00:06:08,053
+et j'ai donc un tableau qui fait
+
+161
+00:06:08,153 --> 00:06:09,472
+trois lignes et trois colonnes.
+
+162
+00:06:10,115 --> 00:06:12,135
+Et maintenant, je vais faire un np point sum
+
+163
+00:06:13,391 --> 00:06:14,180
+de a.
+
+164
+00:06:14,777 --> 00:06:16,256
+Si je fais np point sum de a,
+
+165
+00:06:16,356 --> 00:06:17,115
+qu'est-ce que je vais obtenir ?
+
+166
+00:06:17,215 --> 00:06:18,067
+Je vais faire la somme
+
+167
+00:06:18,167 --> 00:06:20,434
+de tous les éléments de a.
+
+168
+00:06:20,939 --> 00:06:23,641
+Mais à sum, je peux lui passer une notion d'axe,
+
+169
+00:06:23,741 --> 00:06:24,897
+et donc regardons cela ;
+
+170
+00:06:24,997 --> 00:06:26,407
+je peux écrire np.sum
+
+171
+00:06:26,808 --> 00:06:29,969
+de a virgule axis égale 0
+
+172
+00:06:30,759 --> 00:06:32,837
+et donc là, ça va me faire une somme
+
+173
+00:06:33,212 --> 00:06:36,180
+qui va être le long des lignes,
+
+174
+00:06:36,280 --> 00:06:38,206
+et donc en fait, je vais prendre chaque colonne
+
+175
+00:06:39,078 --> 00:06:41,230
+et je vais additionner les éléments de la colonne.
+
+176
+00:06:41,726 --> 00:06:44,017
+Maintenant, prenons une deuxième variante ;
+
+177
+00:06:44,117 --> 00:06:46,083
+je vais écrire np point sum
+
+178
+00:06:46,183 --> 00:06:48,717
+de a virgule axis égale 1,
+
+179
+00:06:48,817 --> 00:06:50,606
+et maintenant, je vais faire ma somme
+
+180
+00:06:50,706 --> 00:06:52,388
+suivant l'autre direction,
+
+181
+00:06:52,488 --> 00:06:53,694
+je vais prendre chaque ligne
+
+182
+00:06:53,794 --> 00:06:55,608
+et je vais additionner les éléments
+
+183
+00:06:55,708 --> 00:06:56,445
+sur les lignes.
+
+184
+00:06:58,487 --> 00:06:59,487
+Pour finir,
+
+185
+00:06:59,648 --> 00:07:01,346
+j'aimerais revenir sur la notion
+
+186
+00:07:01,446 --> 00:07:03,511
+de NaN, que l'on a notamment avec
+
+187
+00:07:03,611 --> 00:07:05,200
+les floats dans les tableaux NumPy.
+
+188
+00:07:05,300 --> 00:07:06,325
+Regardons un exemple.
+
+189
+00:07:06,711 --> 00:07:09,338
+Je vais de nouveau créer un tableau
+
+190
+00:07:13,001 --> 00:07:14,506
+en spécifiant le dtype
+
+191
+00:07:15,272 --> 00:07:19,799
+qui est égal à np point float64,
+
+192
+00:07:21,236 --> 00:07:22,770
+et je vais faire un reshape
+
+193
+00:07:23,354 --> 00:07:25,183
+de 3 virgule 3.
+
+194
+00:07:25,719 --> 00:07:26,885
+Je regarde ce que j'obtiens,
+
+195
+00:07:26,985 --> 00:07:29,845
+j'ai bien un tableau qui contient des float64,
+
+196
+00:07:29,945 --> 00:07:31,951
+un tableau à trois lignes et trois colonnes.
+
+197
+00:07:33,144 --> 00:07:36,104
+Maintenant, je vais écrire a de 1 virgule 1
+
+198
+00:07:36,204 --> 00:07:38,793
+égale np point nan.
+
+199
+00:07:38,893 --> 00:07:40,168
+Donc j'ajoute la valeur NaN
+
+200
+00:07:40,268 --> 00:07:41,403
+au milieu de mon tableau,
+
+201
+00:07:41,503 --> 00:07:42,620
+et maintenant, j'ai bien NaN,
+
+202
+00:07:42,720 --> 00:07:44,351
+NaN, c'est possible de l'avoir dans un tableau de floats,
+
+203
+00:07:44,451 --> 00:07:45,481
+puisque ça fait partie des floats.
+
+204
+00:07:46,051 --> 00:07:47,378
+Maintenant, qu'est-ce qu'il se passe
+
+205
+00:07:47,478 --> 00:07:48,620
+si je calcule une moyenne
+
+206
+00:07:49,212 --> 00:07:49,961
+de mon tableau ?
+
+207
+00:07:50,783 --> 00:07:51,983
+Regardons cela.
+
+208
+00:07:52,083 --> 00:07:53,774
+En fait, j'obtiens la valeur NaN.
+
+209
+00:07:54,137 --> 00:07:56,067
+Pourquoi ? Parce que le NaN est contaminant.
+
+210
+00:07:56,167 --> 00:07:57,668
+Comme le NaN est Not a Number,
+
+211
+00:07:57,768 --> 00:07:59,155
+toutes les opérations
+
+212
+00:07:59,391 --> 00:08:00,352
+faites sur des NaN
+
+213
+00:08:00,452 --> 00:08:02,093
+vont produire des NaN.
+
+214
+00:08:02,928 --> 00:08:04,330
+Il se trouve qu'en NumPy,
+
+215
+00:08:04,928 --> 00:08:06,575
+les fonctions que l'on a
+
+216
+00:08:06,675 --> 00:08:08,117
+ont toutes une variante
+
+217
+00:08:08,217 --> 00:08:09,933
+qui ignore les NaN.
+
+218
+00:08:10,033 --> 00:08:11,804
+Et donc ces fonctions démarrent
+
+219
+00:08:11,904 --> 00:08:13,585
+commencent avec le mot nan.
+
+220
+00:08:13,685 --> 00:08:14,660
+Regardons cet exemple.
+
+221
+00:08:14,760 --> 00:08:16,643
+np point nanmean
+
+222
+00:08:17,381 --> 00:08:19,666
+c'est la fonction qui va calculer la moyenne
+
+223
+00:08:19,766 --> 00:08:21,039
+sur les éléments de mon tableau
+
+224
+00:08:21,139 --> 00:08:23,723
+en ignorant les valeurs NaN.
+
+225
+00:08:24,192 --> 00:08:25,795
+De la même manière, je pourrais faire
+
+226
+00:08:25,895 --> 00:08:27,403
+nanmax de a
+
+227
+00:08:27,503 --> 00:08:29,436
+et je calculerais le maximum
+
+228
+00:08:29,536 --> 00:08:31,127
+de tous les éléments de mon tableau
+
+229
+00:08:31,227 --> 00:08:34,454
+en ignorant les valeurs NaN.
+
+230
+00:08:35,712 --> 00:08:37,029
+Dans cette vidéo, nous avons vu
+
+231
+00:08:37,129 --> 00:08:38,788
+la notion de vectorisation.
+
+232
+00:08:38,888 --> 00:08:40,527
+Il s'agit d'un changement important
+
+233
+00:08:40,627 --> 00:08:42,337
+de paradigme par rapport à Python
+
+234
+00:08:42,437 --> 00:08:44,431
+puisque maintenant, pour tirer pleinement parti
+
+235
+00:08:44,531 --> 00:08:47,327
+de la performance des tableaux NumPy,
+
+236
+00:08:47,427 --> 00:08:49,330
+vous devez utiliser ce concept de vectorisation.
+
+237
+00:08:49,789 --> 00:08:51,812
+En pratique, les fonctions vectorisées
+
+238
+00:08:51,912 --> 00:08:53,469
+sont très souvent écrites en C.
+
+239
+00:08:54,536 --> 00:08:56,399
+Heureusement, vous n'avez pas vous-mêmes
+
+240
+00:08:56,499 --> 00:08:57,493
+à écrire des fonctions en C
+
+241
+00:08:57,593 --> 00:08:59,646
+si vous voulez écrire vos propres fonctions vectorisées ;
+
+242
+00:08:59,746 --> 00:09:01,770
+vous pouvez grâce à deux projets phares
+
+243
+00:09:01,870 --> 00:09:03,659
+que sont Numba et Cython
+
+244
+00:09:03,759 --> 00:09:06,517
+écrire vos codes Python natifs
+
+245
+00:09:06,617 --> 00:09:09,397
+et les transformer, de manière extrêmement facile,
+
+246
+00:09:09,497 --> 00:09:10,777
+en fonctions vectorisées.
+
+247
+00:09:11,228 --> 00:09:12,810
+Nous n'en parlerons pas plus dans cette vidéo
+
+248
+00:09:12,910 --> 00:09:14,522
+puisqu'il s'agit d'un sujet avancé.
+
+249
+00:09:14,927 --> 00:09:15,729
+À bientôt !
+
