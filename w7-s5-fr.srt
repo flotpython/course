@@ -1,0 +1,780 @@
+1
+00:00:04,254 --> 00:00:06,443
+Lorsque l'on fait des opérations arithmétiques
+
+2
+00:00:06,543 --> 00:00:07,583
+sur des tableaux NumPy,
+
+3
+00:00:07,683 --> 00:00:09,210
+les opérations sont faites en général
+
+4
+00:00:09,310 --> 00:00:10,394
+élément par élément.
+
+5
+00:00:10,494 --> 00:00:12,593
+Évidemment, pour que ces opérations aient du sens,
+
+6
+00:00:12,693 --> 00:00:13,946
+l'addition, la multiplication,
+
+7
+00:00:14,046 --> 00:00:15,411
+il faut que les tableaux aient les mêmes dimensions.
+
+8
+00:00:16,457 --> 00:00:18,071
+Cependant, il arrive que l'on veuille
+
+9
+00:00:18,171 --> 00:00:19,038
+faire des opérations
+
+10
+00:00:19,138 --> 00:00:20,844
+sur des tableaux de dimensions différentes.
+
+11
+00:00:21,254 --> 00:00:23,858
+Dans ce cas-là, NumPy définit une notion
+
+12
+00:00:23,958 --> 00:00:25,233
+que l'on appelle le broadcasting
+
+13
+00:00:25,333 --> 00:00:26,630
+qui permet de donner un sens
+
+14
+00:00:26,961 --> 00:00:28,153
+à ces opérations
+
+15
+00:00:28,253 --> 00:00:29,665
+ entre tableaux de tailles différentes.
+
+16
+00:00:30,051 --> 00:00:31,364
+Ouvrons maintenant un notebook
+
+17
+00:00:31,464 --> 00:00:32,669
+pour découvrir cette notion.
+
+18
+00:00:33,907 --> 00:00:36,009
+Commençons par créer deux tableaux.
+
+19
+00:00:36,547 --> 00:00:38,934
+Je vais écrire un tableau a qui est
+
+20
+00:00:39,034 --> 00:00:43,322
+array de 1, 2, 3
+
+21
+00:00:44,332 --> 00:00:46,171
+et je vais écrire b qui est
+
+22
+00:00:46,271 --> 00:00:53,128
+np point array de 5, 5 et 5.
+
+23
+00:00:54,017 --> 00:00:55,356
+Et maintenant, faisons
+
+24
+00:01:00,071 --> 00:01:01,687
+a fois b
+
+25
+00:01:02,112 --> 00:01:03,286
+et regardons le résultat.
+
+26
+00:01:03,386 --> 00:01:04,972
+Alors, le résultat, sans surprise,
+
+27
+00:01:05,494 --> 00:01:07,135
+est le résultat de la multiplication
+
+28
+00:01:07,235 --> 00:01:09,054
+élément par élément des deux tableaux,
+
+29
+00:01:09,154 --> 00:01:11,149
+donc j'ai fait 5 fois 1, 5 fois 2, 5 fois 3.
+
+30
+00:01:11,612 --> 00:01:14,555
+Maintenant, créons un troisième tableau,
+
+31
+00:01:14,655 --> 00:01:16,200
+c qui est égal à 
+
+32
+00:01:16,300 --> 00:01:21,163
+np point array de uniquement 5.
+
+33
+00:01:21,880 --> 00:01:25,126
+Et maintenant, faisons a fois c.
+
+34
+00:01:25,532 --> 00:01:26,550
+Regardons le résultat,
+
+35
+00:01:26,650 --> 00:01:27,835
+j'obtiens le même résultat.
+
+36
+00:01:28,239 --> 00:01:30,483
+Or, c n'a pas la même dimension que a.
+
+37
+00:01:30,583 --> 00:01:31,788
+Alors qu'est-ce qu'il s'est passé ici ?
+
+38
+00:01:31,888 --> 00:01:34,075
+En fait, NumPy a fait du broadcasting,
+
+39
+00:01:34,175 --> 00:01:38,339
+il a propagé la valeur contenue dans le tableau c
+
+40
+00:01:38,439 --> 00:01:40,509
+sur chaque élément du tableau a,
+
+41
+00:01:40,609 --> 00:01:42,478
+ce qui me permet de faire la même opération
+
+42
+00:01:42,578 --> 00:01:45,396
+que si mon tableau c avait été de dimension 3.
+
+43
+00:01:46,556 --> 00:01:48,280
+Évidemment, on n'est pas obligé
+
+44
+00:01:48,380 --> 00:01:49,974
+de créer des tableaux avec un seul élément,
+
+45
+00:01:50,074 --> 00:01:52,184
+et le broadcasting se généralise à l'opération
+
+46
+00:01:52,284 --> 00:01:54,044
+faite simplement avec un entier.
+
+47
+00:01:54,144 --> 00:01:55,638
+Et donc ici, de nouveau,
+
+48
+00:01:55,738 --> 00:01:57,054
+je vais obtenir le même résultat,
+
+49
+00:01:57,423 --> 00:01:59,433
+mon entier 5 a été propagé,
+
+50
+00:01:59,533 --> 00:02:00,601
+broadcasté,
+
+51
+00:02:00,701 --> 00:02:03,029
+sur chaque élément de mon tableau a.
+
+52
+00:02:04,543 --> 00:02:06,495
+Évidemment le broadcasting est plus général
+
+53
+00:02:06,595 --> 00:02:08,206
+que le simple exemple que l'on vient de voir.
+
+54
+00:02:08,629 --> 00:02:10,252
+Le broadcasting s'applique à des tableaux
+
+55
+00:02:10,352 --> 00:02:11,400
+à n dimensions,
+
+56
+00:02:11,500 --> 00:02:13,304
+mais avec deux inconvénients majeurs.
+
+57
+00:02:13,938 --> 00:02:16,318
+Premièrement, lorsque l'on dépasse des tableaux
+
+58
+00:02:16,418 --> 00:02:17,912
+de deux ou trois dimensions,
+
+59
+00:02:18,012 --> 00:02:19,417
+il devient extrêmement difficile de comprendre
+
+60
+00:02:19,517 --> 00:02:21,134
+ce que va faire cette opération de broadcasting.
+
+61
+00:02:21,625 --> 00:02:22,733
+Le deuxième inconvénient,
+
+62
+00:02:22,833 --> 00:02:24,676
+c'est que le broadcasting peut produire
+
+63
+00:02:24,767 --> 00:02:26,013
+des tableaux de très grandes dimensions
+
+64
+00:02:26,113 --> 00:02:27,839
+et par conséquent, poser un problème de mémoire.
+
+65
+00:02:27,939 --> 00:02:29,968
+Dans la suite, je vais regarder uniquement
+
+66
+00:02:30,068 --> 00:02:31,705
+des exemples basés sur des tableaux
+
+67
+00:02:31,805 --> 00:02:32,722
+à deux dimensions.
+
+68
+00:02:33,208 --> 00:02:34,618
+Commençons par un exemple.
+
+69
+00:02:35,067 --> 00:02:36,814
+Ici, je vais créer un tableau
+
+70
+00:02:37,832 --> 00:02:39,718
+avec une ligne et trois colonnes,
+
+71
+00:02:39,818 --> 00:02:40,873
+1, 2, 3
+
+72
+00:02:41,308 --> 00:02:43,287
+et je vais créer un deuxième tableau
+
+73
+00:02:43,745 --> 00:02:45,816
+qui va être un tableau à trois dimensions,
+
+74
+00:02:45,916 --> 00:02:47,629
+qui contient trois lignes et trois colonnes
+
+75
+00:02:47,729 --> 00:02:48,817
+qui ne sont que des 1.
+
+76
+00:02:49,494 --> 00:02:51,538
+Et maintenant, je vais faire une multiplication
+
+77
+00:02:51,638 --> 00:02:52,829
+entre ces deux tableaux.
+
+78
+00:02:53,275 --> 00:02:55,383
+Donc je vais multiplier une ligne
+
+79
+00:02:55,483 --> 00:02:57,122
+par un tableau à trois dimensions.
+
+80
+00:02:57,944 --> 00:03:00,445
+Pour que l'opération de broadcasting soit définie,
+
+81
+00:03:00,879 --> 00:03:02,798
+il faut appliquer la règle suivante :
+
+82
+00:03:02,898 --> 00:03:05,622
+on prend les dimensions en partant de la droite
+
+83
+00:03:05,722 --> 00:03:07,839
+donc ici, 3, 3
+
+84
+00:03:07,939 --> 00:03:09,738
+et ces dimensions doivent soit être égales
+
+85
+00:03:10,533 --> 00:03:12,535
+soit l'une des deux doit être égale à 1.
+
+86
+00:03:12,635 --> 00:03:14,868
+pour que l'opération de broadcasting soit définie.
+
+87
+00:03:14,968 --> 00:03:17,468
+Donc ici, 3, 3 : les deux dimensions sont égales
+
+88
+00:03:17,917 --> 00:03:20,317
+et ici, 1, 3 : l'une des deux est égale à 1
+
+89
+00:03:20,417 --> 00:03:22,510
+donc l'opération de broadcasting est définie.
+
+90
+00:03:22,731 --> 00:03:24,314
+Alors, que va faire ce broadcasting ?
+
+91
+00:03:24,414 --> 00:03:25,727
+Il va faire la chose suivante :
+
+92
+00:03:25,827 --> 00:03:27,200
+il va propager ma ligne
+
+93
+00:03:27,300 --> 00:03:29,989
+sur chacune des lignes du tableau 1, 1.
+
+94
+00:03:30,430 --> 00:03:31,406
+Ici, le point important
+
+95
+00:03:31,506 --> 00:03:33,074
+c'est que cette propagation n'est pas faite
+
+96
+00:03:33,174 --> 00:03:34,560
+en créant un nouveau tableau.
+
+97
+00:03:34,660 --> 00:03:36,427
+C'est quelque chose qui est fait de manière dynamique
+
+98
+00:03:36,527 --> 00:03:37,857
+en appliquant la vectorisation
+
+99
+00:03:37,957 --> 00:03:40,060
+donc sans créer de structure de données temporaire.
+
+100
+00:03:40,804 --> 00:03:42,094
+Et maintenant que j'ai un tableau
+
+101
+00:03:42,194 --> 00:03:43,341
+1, 2, 3, 1, 2, 3, 1, 2, 3
+
+102
+00:03:43,441 --> 00:03:44,093
+multiplié au tableau
+
+103
+00:03:44,193 --> 00:03:45,787
+1, 1, 1, 1, 1, 1 et 1, 1, 1,
+
+104
+00:03:46,168 --> 00:03:48,022
+mon opération de multiplication est définie
+
+105
+00:03:48,122 --> 00:03:48,844
+élément par élément
+
+106
+00:03:48,944 --> 00:03:50,576
+et le résultat va donc être, évidemment,
+
+107
+00:03:50,676 --> 00:03:51,630
+ce nouveau tableau,
+
+108
+00:03:51,730 --> 00:03:53,466
+1, 2, 3, 1, 2, 3, 1, 2, 3.
+
+109
+00:03:54,580 --> 00:03:56,391
+Prenons maintenant un nouvel exemple.
+
+110
+00:03:56,932 --> 00:03:59,129
+Je vais maintenant définir un tableau
+
+111
+00:03:59,229 --> 00:04:01,214
+qui va contenir trois lignes et une colonne.
+
+112
+00:04:02,510 --> 00:04:04,186
+Et je vais définir un deuxième tableau,
+
+113
+00:04:04,286 --> 00:04:06,657
+qui est toujours mon tableau à trois dimensions,
+
+114
+00:04:06,757 --> 00:04:07,833
+trois lignes, trois colonnes,
+
+115
+00:04:07,933 --> 00:04:10,029
+qui ne contient que des entiers 1.
+
+116
+00:04:10,464 --> 00:04:11,893
+Et je veux de nouveau appliquer
+
+117
+00:04:11,993 --> 00:04:13,301
+cette opération de multiplication.
+
+118
+00:04:13,801 --> 00:04:15,045
+Donc de nouveau,
+
+119
+00:04:15,145 --> 00:04:16,890
+pour que le broadcasting soit défini,
+
+120
+00:04:16,990 --> 00:04:17,910
+il faut que mes dimensions,
+
+121
+00:04:18,010 --> 00:04:19,322
+en partant de la droite,
+
+122
+00:04:19,422 --> 00:04:20,897
+en les alignant par la droite,
+
+123
+00:04:20,997 --> 00:04:22,217
+soient soit les mêmes
+
+124
+00:04:22,317 --> 00:04:23,898
+ou alors que l'une des deux soit égale à 1.
+
+125
+00:04:23,998 --> 00:04:25,487
+Donc ici, j'ai 3, 1,
+
+126
+00:04:25,587 --> 00:04:26,865
+donc l'une des deux est égale à 1,
+
+127
+00:04:26,965 --> 00:04:28,548
+et la deuxième dimension,
+
+128
+00:04:28,648 --> 00:04:29,790
+c'est 3, 3, elles sont égales,
+
+129
+00:04:29,890 --> 00:04:31,273
+donc le broadcasting est défini.
+
+130
+00:04:31,373 --> 00:04:33,682
+Et donc, que va faire mon opération de broadcasting
+
+131
+00:04:33,782 --> 00:04:34,909
+dans ce cas-là ?
+
+132
+00:04:35,240 --> 00:04:37,733
+Elle va propager ma colonne
+
+133
+00:04:38,243 --> 00:04:41,001
+sur les autres colonnes de mon tableau 1, 1.
+
+134
+00:04:41,101 --> 00:04:43,161
+De nouveau, je ne crée pas de tableau temporaire.
+
+135
+00:04:43,518 --> 00:04:45,646
+Et maintenant, je vais pouvoir
+
+136
+00:04:45,746 --> 00:04:47,676
+définir mon opération de multiplication
+
+137
+00:04:47,776 --> 00:04:49,049
+élément par élément.
+
+138
+00:04:49,149 --> 00:04:50,722
+Et donc le résultat, dans ce cas-là, va être
+
+139
+00:04:50,822 --> 00:04:53,142
+une ligne de 1, une ligne de 2, une ligne de 3.
+
+140
+00:04:54,228 --> 00:04:56,745
+Pour finir, regardons ce dernier exemple.
+
+141
+00:04:57,293 --> 00:05:02,896
+Je vais définir un tableau à trois lignes et une colonne.
+
+142
+00:05:03,451 --> 00:05:07,379
+Et je vais définir un tableau qui va être à une ligne et deux colonnes.
+
+143
+00:05:07,479 --> 00:05:09,139
+Et je vais multiplier ces deux tableaux.
+
+144
+00:05:10,238 --> 00:05:12,073
+Donc regardons si l'opération de broadcasting
+
+145
+00:05:12,173 --> 00:05:12,950
+est définie dans ce cas.
+
+146
+00:05:14,130 --> 00:05:16,841
+Je vais aligner mes dimensions par la droite,
+
+147
+00:05:17,327 --> 00:05:19,846
+et donc, la dimension la plus à droite,
+
+148
+00:05:19,946 --> 00:05:20,965
+c'est 2, 1 ;
+
+149
+00:05:21,065 --> 00:05:22,169
+l'une des deux est égale à 1
+
+150
+00:05:22,269 --> 00:05:24,233
+donc pour l'instant, le broadcasting est défini.
+
+151
+00:05:25,002 --> 00:05:26,984
+La deuxième dimension, c'est 3, 1 ;
+
+152
+00:05:27,084 --> 00:05:28,192
+une des deux est égale à 1 ;
+
+153
+00:05:28,292 --> 00:05:30,463
+de nouveau, l'opération de broadcasting est définie.
+
+154
+00:05:30,925 --> 00:05:33,380
+Et dans ce cas-là, je vais produire un nouveau tableau
+
+155
+00:05:33,480 --> 00:05:34,791
+qui va avoir pour dimensions
+
+156
+00:05:34,891 --> 00:05:38,127
+le maximum de la dimension des deux tableaux sur chaque axe,
+
+157
+00:05:38,227 --> 00:05:40,191
+donc mon résultat, ça va être un tableau
+
+158
+00:05:40,291 --> 00:05:41,665
+3, 2.
+
+159
+00:05:42,135 --> 00:05:44,437
+Et donc, que va faire l'opération de broadcasting ?
+
+160
+00:05:44,863 --> 00:05:47,902
+Elle va propager ma colonne 1, 2, 3
+
+161
+00:05:48,635 --> 00:05:49,755
+sur une deuxième colonne
+
+162
+00:05:49,855 --> 00:05:52,007
+pour correspondre à un tableau 3, 2
+
+163
+00:05:52,107 --> 00:05:53,233
+donc à trois lignes et deux colonnes ;
+
+164
+00:05:53,682 --> 00:05:56,806
+et elle va propager ma ligne 4, 5
+
+165
+00:05:57,339 --> 00:05:58,729
+sur trois lignes
+
+166
+00:05:58,829 --> 00:05:59,573
+pour que de nouveau,
+
+167
+00:05:59,673 --> 00:06:01,521
+j'ai un tableau de dimensions 3, 2.
+
+168
+00:06:02,151 --> 00:06:04,282
+Je vous rappelle qu'ici encore,
+
+169
+00:06:04,382 --> 00:06:05,847
+cette opération de broadcasting est faite
+
+170
+00:06:05,947 --> 00:06:07,688
+sans créer de structure de données temporaire
+
+171
+00:06:07,788 --> 00:06:09,405
+donc c'est quelque chose qui est fait de manière dynamique
+
+172
+00:06:09,505 --> 00:06:11,346
+et de manière extrêmement efficace.
+
+173
+00:06:11,872 --> 00:06:14,419
+Maintenant que j'ai deux tableaux de dimensions 3, 2,
+
+174
+00:06:14,519 --> 00:06:16,594
+je peux les multiplier élément par élément
+
+175
+00:06:16,694 --> 00:06:18,514
+et j'obtiens donc le résultat suivant.
+
+176
+00:06:19,871 --> 00:06:21,218
+Dans cette vidéo, nous avons vu
+
+177
+00:06:21,318 --> 00:06:22,470
+la notion de broadcasting
+
+178
+00:06:22,570 --> 00:06:24,531
+qui permet de donner un sens à des opérations
+
+179
+00:06:24,631 --> 00:06:26,347
+sur des tableaux de dimensions différentes.
+
+180
+00:06:26,447 --> 00:06:29,394
+Nous avons vu que l'opération de broadcasting
+
+181
+00:06:29,494 --> 00:06:31,239
+ne créait pas de structure de données temporaire
+
+182
+00:06:31,339 --> 00:06:33,732
+mais évidemment, le résultat de l'opération de broadcasting
+
+183
+00:06:33,832 --> 00:06:35,984
+va créer l'allocation d'un nouveau tableau
+
+184
+00:06:36,084 --> 00:06:37,862
+qui peut être de très grandes dimensions.
+
+185
+00:06:37,962 --> 00:06:39,597
+Par conséquent, il faut faire attention
+
+186
+00:06:40,100 --> 00:06:42,155
+à cette opération qui peut créer des problèmes
+
+187
+00:06:42,255 --> 00:06:43,201
+de gestion de la mémoire.
+
+188
+00:06:43,727 --> 00:06:46,887
+Une autre difficulté avec l'opération de broadcasting,
+
+189
+00:06:46,987 --> 00:06:48,666
+c'est qu'il peut être difficile de donner un sens
+
+190
+00:06:48,766 --> 00:06:49,511
+à du broadcasting
+
+191
+00:06:49,611 --> 00:06:52,327
+sur des tableaux au-delà de deux ou trois dimensions.
+
+192
+00:06:52,695 --> 00:06:53,842
+C'est pourquoi on vous recommande
+
+193
+00:06:53,942 --> 00:06:55,296
+de limiter ce type d'opération
+
+194
+00:06:55,396 --> 00:06:57,123
+à des tableaux de faibles dimensions.
+
+195
+00:06:57,632 --> 00:06:58,292
+À bientôt !
+
