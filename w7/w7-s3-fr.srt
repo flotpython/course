@@ -72,7 +72,7 @@ Donc ici je vais écrire a égale
 
 19
 00:00:35,403 --> 00:00:39,487
-np point random point randint
+np.random.randint
 
 20
 00:00:39,580 --> 00:00:42,189
@@ -108,7 +108,7 @@ et c'est quelque chose qui est un signe
 
 28
 00:00:55,341 --> 00:00:56,681
-du manque de maturité de Numpy,
+du manque de maturité de NumPy,
 
 29
 00:00:56,781 --> 00:00:58,588
@@ -116,7 +116,7 @@ nous avons vu dans une précédente vidéo
 
 30
 00:00:58,688 --> 00:01:00,999
-que pour once, la fonction once,
+que pour ones, la fonction ones,
 
 31
 00:01:01,099 --> 00:01:03,010
@@ -384,7 +384,7 @@ random.randint
 
 97
 00:03:12,929 --> 00:03:18,108
-indice virgule size égale 4 virgule 4.
+1, 10 virgule size égale 4, 4.
 
 98
 00:03:18,513 --> 00:03:20,536
@@ -408,7 +408,7 @@ Je fais ça de la manière suivante :
 
 103
 00:03:26,772 --> 00:03:29,788
-b égale a point reshape
+b égale a.reshape
 
 104
 00:03:29,888 --> 00:03:31,466
@@ -484,7 +484,7 @@ Prenons cet exemple, je vais écrire mars
 
 122
 00:04:04,957 --> 00:04:08,202
-égale np point random point randint
+égale np.random.randint
 
 123
 00:04:08,661 --> 00:04:10,907
@@ -704,7 +704,7 @@ Je peux le savoir en faisant l'opération suivante :
 
 177
 00:05:49,803 --> 00:05:50,736
-np point sum
+np.sum
 
 178
 00:05:53,704 --> 00:05:56,086
@@ -864,7 +864,7 @@ jours du mois de mars
 
 217
 00:07:08,242 --> 00:07:11,155
-qui va être égal à np point arange
+qui va être égal à np.arange
 
 218
 00:07:10,689 --> 00:07:14,155
@@ -1276,7 +1276,7 @@ Ici, je vais calculer moyenne
 
 320
 00:10:33,238 --> 00:10:36,031
-égale np point mean
+égale np.mean
 
 321
 00:10:36,131 --> 00:10:37,993
@@ -1372,7 +1372,7 @@ ici, je vais créer un tableau
 
 344
 00:11:28,155 --> 00:11:32,065
-qui va être égal à np point array
+qui va être égal à np.array
 
 345
 00:11:33,324 --> 00:11:35,497

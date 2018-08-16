@@ -84,7 +84,7 @@ et je vais écrire b qui est
 
 22
 00:00:46,271 --> 00:00:53,128
-np point array de 5, 5 et 5.
+np.array de 5, 5 et 5.
 
 23
 00:00:54,017 --> 00:00:55,356
@@ -124,7 +124,7 @@ c qui est égal à
 
 32
 00:01:16,300 --> 00:01:21,163
-np point array de uniquement 5.
+np.array de uniquement 5.
 
 33
 00:01:21,880 --> 00:01:25,126

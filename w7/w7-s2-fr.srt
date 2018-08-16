@@ -160,7 +160,7 @@ Pour illustrer ce propos,
 
 41
 00:01:32,504 --> 00:01:34,541
-je vais prendre l'exemple de la fonction once
+je vais prendre l'exemple de la fonction ones
 
 42
 00:01:34,641 --> 00:01:36,141
@@ -176,11 +176,11 @@ Donc regardons un exemple.
 
 45
 00:01:39,108 --> 00:01:40,328
-np.once
+np.ones
 
 46
 00:01:40,746 --> 00:01:42,581
-et à once, je vais lui passer un argument shape
+et à ones, je vais lui passer un argument shape
 
 47
 00:01:43,235 --> 00:01:45,382
@@ -252,7 +252,7 @@ deux lignes, deux colonnes et puis une troisième dimension.
 
 64
 00:02:17,491 --> 00:02:20,524
-L'argument shape étant le premier argument passé à once,
+L'argument shape étant le premier argument passé à ones,
 
 65
 00:02:20,624 --> 00:02:22,076
@@ -264,7 +264,7 @@ il est optionnel, et donc on peut tout à fait
 
 67
 00:02:24,231 --> 00:02:28,660
-a égale np.once de 2 virgule 2
+a égale np.ones de 2 virgule 2
 
 68
 00:02:28,760 --> 00:02:30,647
@@ -708,7 +708,7 @@ donc qu'est-ce qu'il se passe ?
 
 178
 00:06:56,428 --> 00:06:58,308
-J'ai dépassé la précision de mon entier8.
+J'ai dépassé la précision de mon int8.
 
 179
 00:06:58,789 --> 00:07:00,400

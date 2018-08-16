@@ -56,7 +56,7 @@ Commençons par créer un tableau d'entiers.
 
 15
 00:00:32,352 --> 00:00:36,570
-a égale np point arange de 1000
+a égale np.arange de 1000
 
 16
 00:00:36,670 --> 00:00:38,208
@@ -376,7 +376,7 @@ Je vais écrire
 
 95
 00:03:11,127 --> 00:03:20,993
-a égale np point arange de 1 à un million
+a égale np.arange de 1 à un million
 
 96
 00:03:23,554 --> 00:03:25,140
@@ -384,7 +384,7 @@ et je vais donner comme dtype
 
 97
 00:03:27,094 --> 00:03:30,020
-np point float64.
+np.float64.
 
 98
 00:03:32,480 --> 00:03:35,461
@@ -424,7 +424,7 @@ Exécutons ça et je vois que ça a pris
 
 107
 00:03:50,782 --> 00:03:52,634
-82 millisecondes.
+5 millisecondes.
 
 108
 00:03:53,251 --> 00:03:55,398
@@ -487,12 +487,12 @@ et je vais écrire a de deux points 5.
 J'obtiens les premiers éléments de mon tableau a.
 
 123
-00:04:32,379 --> 00:04:34,609
-Maintenant, je peux appeler np.log
+00:04:32,379 --> 00:04:37,900
+Maintenant, je peux appeler np.log.at
 
 124
-00:04:36,388 --> 00:04:42,258
-point at de a virgule 2 virgule 4.
+00:04:37,910 --> 00:04:42,258
+de a virgule 2 virgule 4.
 
 125
 00:04:42,911 --> 00:04:48,135
@@ -620,11 +620,11 @@ Regardons un exemple.
 
 156
 00:05:49,047 --> 00:05:52,581
-Je vais écrire a égale np point arange
+Je vais écrire a égale np.arange
 
 157
 00:05:54,931 --> 00:05:58,350
-de indices, et je vais faire un reshape
+de 1, 10 et je vais faire un reshape
 
 158
 00:06:01,814 --> 00:06:04,553
@@ -644,7 +644,7 @@ trois lignes et trois colonnes.
 
 162
 00:06:10,115 --> 00:06:12,135
-Et maintenant, je vais faire un np point sum
+Et maintenant, je vais faire un np.sum
 
 163
 00:06:13,391 --> 00:06:14,180
@@ -652,7 +652,7 @@ de a.
 
 164
 00:06:14,777 --> 00:06:16,256
-Si je fais np point sum de a,
+Si je fais np.sum de a,
 
 165
 00:06:16,356 --> 00:06:17,115
@@ -704,7 +704,7 @@ Maintenant, prenons une deuxième variante ;
 
 177
 00:06:44,117 --> 00:06:46,083
-je vais écrire np point sum
+je vais écrire np.sum
 
 178
 00:06:46,183 --> 00:06:48,717
@@ -760,7 +760,7 @@ en spécifiant le dtype
 
 191
 00:07:15,272 --> 00:07:19,799
-qui est égal à np point float64,
+qui est égal à np.float64,
 
 192
 00:07:21,236 --> 00:07:22,770
@@ -788,7 +788,7 @@ Maintenant, je vais écrire a de 1 virgule 1
 
 198
 00:07:36,204 --> 00:07:38,793
-égale np point nan.
+égale np.nan.
 
 199
 00:07:38,893 --> 00:07:40,168
@@ -880,7 +880,7 @@ Regardons cet exemple.
 
 221
 00:08:14,760 --> 00:08:16,643
-np point nanmean
+np.nanmean
 
 222
 00:08:17,381 --> 00:08:19,666

@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:11,182 --> 00:00:12,588
 Cette semaine, nous allons parler
 
@@ -1044,7 +1044,7 @@ comme les opérations, par exemple,
 
 262
 00:09:30,719 --> 00:09:32,704
-de jointure, de pivot ou de regroupe.
+de jointure, de pivot ou de regroupement.
 
 263
 00:09:35,682 --> 00:09:37,102
