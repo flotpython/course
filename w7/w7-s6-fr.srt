@@ -452,7 +452,7 @@ Alors, regardons un exemple.
 
 114
 00:04:12,860 --> 00:04:16,774
-Je vais écrire s point loc de eve.
+Je vais écrire s.loc de eve.
 
 115
 00:04:17,836 --> 00:04:19,649
@@ -640,7 +640,7 @@ Je recrée le même slice que celui du dessus,
 
 161
 00:05:57,296 --> 00:05:59,328
-s point loc de eve à liz
+s.loc de eve à liz
 
 162
 00:05:59,428 --> 00:06:01,019
@@ -904,7 +904,7 @@ essayons de faire un slicing sur cette série.
 
 227
 00:08:18,664 --> 00:08:20,133
-Je vais faire s point loc
+Je vais faire s.loc
 
 228
 00:08:20,667 --> 00:08:23,690
@@ -980,7 +980,7 @@ Donc ici, avant de faire ce slice,
 
 246
 00:08:58,322 --> 00:09:03,571
-je vais faire s égale s point sort_index.
+je vais faire s égale s.sort_index.
 
 247
 00:09:04,013 --> 00:09:06,013
@@ -1068,7 +1068,7 @@ le premier élément de la Series,
 
 268
 00:09:45,705 --> 00:09:48,724
-et s point iloc de 4
+et s.iloc de 4
 
 269
 00:09:48,824 --> 00:09:49,598
@@ -1500,7 +1500,7 @@ avec la méthode add.
 
 376
 00:13:52,978 --> 00:13:58,055
-s1 point add s2
+s1.add s2
 
 377
 00:13:58,155 --> 00:14:00,174
