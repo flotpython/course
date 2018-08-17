@@ -1,0 +1,1348 @@
+1
+00:00:04,666 --> 00:00:06,263
+Dans une précédente vidéo, nous avons vu
+
+2
+00:00:06,363 --> 00:00:08,159
+la notion de série et d'index.
+
+3
+00:00:08,259 --> 00:00:10,167
+Les séries sont des tableaux à une dimension
+
+4
+00:00:10,267 --> 00:00:11,605
+sur lesquels on va mettre un index.
+
+5
+00:00:12,062 --> 00:00:13,416
+Dans cette vidéo, nous allons voir
+
+6
+00:00:13,516 --> 00:00:14,724
+la notion de dataframes,
+
+7
+00:00:14,824 --> 00:00:16,407
+qui sont des tableaux à deux dimensions
+
+8
+00:00:16,507 --> 00:00:17,594
+sur lesquels on va mettre des index
+
+9
+00:00:17,694 --> 00:00:19,423
+sur les lignes et sur les colonnes.
+
+10
+00:00:19,941 --> 00:00:21,662
+Tout ce que nous avons vu sur les séries
+
+11
+00:00:21,762 --> 00:00:25,199
+que ce soit loc, iloc, le slicing
+
+12
+00:00:25,299 --> 00:00:26,499
+ou l'alignement des labels
+
+13
+00:00:26,599 --> 00:00:28,756
+reste valable avec les dataframes.
+
+14
+00:00:29,434 --> 00:00:30,481
+Ouvrons maintenant un notebook
+
+15
+00:00:30,581 --> 00:00:31,934
+pour jouer avec ces objets.
+
+16
+00:00:33,249 --> 00:00:35,830
+Il existe plusieurs manière de créer une dataframe
+
+17
+00:00:35,930 --> 00:00:37,769
+et je vais en créer une à partir de séries.
+
+18
+00:00:37,869 --> 00:00:39,230
+Regardons un exemple ;
+
+19
+00:00:39,330 --> 00:00:42,292
+je vais créer une liste de prénoms
+
+20
+00:00:43,077 --> 00:00:44,616
+qui va contenir
+
+21
+00:00:44,716 --> 00:00:53,490
+'liz', 'bob', 'bill' et 'eve'.
+
+22
+00:00:54,636 --> 00:00:57,561
+Et ensuite, je vais créer une série age
+
+23
+00:00:59,644 --> 00:01:02,328
+qui va donc contenir des âges
+
+24
+00:01:02,913 --> 00:01:07,009
+25, 30, 35, 40
+
+25
+00:01:07,109 --> 00:01:08,740
+et qui va avoir pour index
+
+26
+00:01:10,614 --> 00:01:11,788
+les prénoms.
+
+27
+00:01:14,583 --> 00:01:17,062
+Alors, j'ai une erreur de syntaxe
+
+28
+00:01:17,162 --> 00:01:19,863
+parce que j'ai oublié ici mon crochet fermant.
+
+29
+00:01:20,890 --> 00:01:22,959
+Voilà, je réexécute.
+
+30
+00:01:23,389 --> 00:01:25,677
+Ensuite, je vais avoir taille
+
+31
+00:01:26,139 --> 00:01:28,190
+qui va également être une Series
+
+32
+00:01:28,617 --> 00:01:31,151
+et qui va contenir des tailles.
+
+33
+00:01:32,094 --> 00:01:33,940
+Donc ici, je vais avoir 160,
+
+34
+00:01:34,384 --> 00:01:39,025
+175, 170, 180
+
+35
+00:01:39,940 --> 00:01:42,003
+et je vais mettre comme index
+
+36
+00:01:42,103 --> 00:01:44,620
+de nouveau les prénoms.
+
+37
+00:01:46,726 --> 00:01:48,909
+Et puis pour finir je vais avoir une série sexe
+
+38
+00:01:49,429 --> 00:01:52,581
+que je vais définir de la manière suivante
+
+39
+00:01:54,824 --> 00:01:56,968
+qui va être une liste
+
+40
+00:01:57,451 --> 00:02:01,806
+construite à partir de 'fhhf'
+
+41
+00:02:02,818 --> 00:02:05,292
+et qui va avoir pour index
+
+42
+00:02:05,392 --> 00:02:07,949
+de nouveau les prénoms.
+
+43
+00:02:09,811 --> 00:02:11,478
+Et maintenant, je peux construire
+
+44
+00:02:11,578 --> 00:02:12,758
+directement ma dataframe
+
+45
+00:02:12,858 --> 00:02:14,077
+à partir de ces séries
+
+46
+00:02:14,177 --> 00:02:18,031
+en passant un dictionnaire
+
+47
+00:02:18,131 --> 00:02:19,291
+qui aura comme clés
+
+48
+00:02:19,391 --> 00:02:20,874
+les labels des colonnes
+
+49
+00:02:20,974 --> 00:02:22,984
+et comme valeurs les séries à ajouter.
+
+50
+00:02:23,349 --> 00:02:24,538
+Regardons cet exemple,
+
+51
+00:02:24,638 --> 00:02:28,557
+je vais dire df égale Dataframe
+
+52
+00:02:28,922 --> 00:02:31,466
+et je vais passer le dictionnaire suivant
+
+53
+00:02:31,566 --> 00:02:34,935
+'age' : age
+
+54
+00:02:36,001 --> 00:02:39,707
+'taille' : taille
+
+55
+00:02:40,821 --> 00:02:42,298
+je n'oublie pas ma virgule,
+
+56
+00:02:44,435 --> 00:02:49,365
+et 'sexe' :sexe.
+
+57
+00:02:50,429 --> 00:02:51,454
+J'exécute
+
+58
+00:02:51,554 --> 00:02:53,754
+et maintenant, je peux regarder ma dataframe
+
+59
+00:02:53,854 --> 00:02:55,143
+et je vais donc la voir apparaître
+
+60
+00:02:55,243 --> 00:02:56,551
+sous ce format-là
+
+61
+00:02:56,998 --> 00:02:57,981
+où j'ai trois colonnes,
+
+62
+00:02:58,081 --> 00:02:59,189
+ age, taille et sexe,
+
+63
+00:02:59,289 --> 00:03:00,486
+et j'ai quatre lignes
+
+64
+00:03:00,586 --> 00:03:02,708
+qui correspondent aux prénoms des personnes.
+
+65
+00:03:03,228 --> 00:03:05,078
+Alors maintenant, explorons cette dataframe.
+
+66
+00:03:05,731 --> 00:03:08,100
+Je peux accéder à l'index des lignes
+
+67
+00:03:08,637 --> 00:03:13,284
+en accédant à l'attribut index.
+
+68
+00:03:14,265 --> 00:03:16,451
+Je peux accéder à l'index des colonnes
+
+69
+00:03:16,551 --> 00:03:18,229
+en accédant à l'attribut columns.
+
+70
+00:03:19,360 --> 00:03:22,957
+Je peux accéder au tableau NumPy sous-jacent,
+
+71
+00:03:23,057 --> 00:03:24,276
+donc qui contient les valeurs,
+
+72
+00:03:24,703 --> 00:03:27,832
+en accédant à l'attribut values.
+
+73
+00:03:29,730 --> 00:03:31,795
+Et puis ensuite, je peux parcourir par exemple
+
+74
+00:03:31,895 --> 00:03:33,903
+les toutes premières lignes de mon dataframe
+
+75
+00:03:34,003 --> 00:03:35,917
+en utilisant l'attribut head
+
+76
+00:03:36,017 --> 00:03:37,803
+qui va parcourir les deux premières lignes.
+
+77
+00:03:38,731 --> 00:03:40,738
+Et je peux accéder aux dernières lignes
+
+78
+00:03:40,838 --> 00:03:42,231
+de ma dataframe
+
+79
+00:03:42,331 --> 00:03:43,510
+en utilisant tail
+
+80
+00:03:43,610 --> 00:03:45,211
+qui par exemple va me retourner
+
+81
+00:03:45,311 --> 00:03:46,397
+les deux dernières lignes.
+
+82
+00:03:47,395 --> 00:03:48,693
+Pour finir,
+
+83
+00:03:48,793 --> 00:03:51,200
+si on veut faire une exploration très rapide
+
+84
+00:03:51,679 --> 00:03:53,929
+des propriétés statistiques de dataframes,
+
+85
+00:03:54,029 --> 00:03:55,414
+je peux utiliser describe
+
+86
+00:03:55,514 --> 00:03:57,163
+qui va me sortir des statistiques
+
+87
+00:03:57,574 --> 00:03:59,408
+sur les colonnes numériques
+
+88
+00:03:59,508 --> 00:04:01,127
+et à describe, je peux lui passer des arguments
+
+89
+00:04:01,227 --> 00:04:02,282
+pour même sortir des statistiques
+
+90
+00:04:02,382 --> 00:04:03,400
+sur les colonnes non numériques
+
+91
+00:04:03,500 --> 00:04:05,214
+mais ici par défaut, c'est les colonnes numériques,
+
+92
+00:04:05,571 --> 00:04:09,424
+et je vois que l'âge moyen est 32,5 ;
+
+93
+00:04:09,524 --> 00:04:10,973
+j'ai la déviation standard, le minimum,
+
+94
+00:04:11,073 --> 00:04:12,282
+les percentiles, le maximum,
+
+95
+00:04:12,382 --> 00:04:14,158
+et j'ai la même chose pour la taille,
+
+96
+00:04:14,258 --> 00:04:16,502
+la taille moyenne, c'est 171,25.
+
+97
+00:04:18,239 --> 00:04:19,588
+Alors, regardons maintenant
+
+98
+00:04:19,688 --> 00:04:21,232
+l'indexation dans les DataFrames.
+
+99
+00:04:21,332 --> 00:04:23,210
+Comme je vous l'ai expliqué en introduction,
+
+100
+00:04:23,595 --> 00:04:25,900
+les DataFrames se manipulent comme les Series,
+
+101
+00:04:26,000 --> 00:04:27,556
+la seule différence, c'est que maintenant
+
+102
+00:04:27,656 --> 00:04:28,842
+j'ai deux dimensions,
+
+103
+00:04:28,942 --> 00:04:30,074
+j'ai des lignes et des colonnes.
+
+104
+00:04:30,386 --> 00:04:31,398
+Regardons cela.
+
+105
+00:04:32,283 --> 00:04:36,459
+Si je fais df.loc de liz
+
+106
+00:04:36,976 --> 00:04:38,080
+je vais accéder,
+
+107
+00:04:38,180 --> 00:04:39,614
+si je ne donne qu'un seul argument,
+
+108
+00:04:39,714 --> 00:04:41,670
+je vais accéder à la ligne correspondant à liz.
+
+109
+00:04:42,433 --> 00:04:44,791
+Donc ici, je vois bien la ligne correspondant à liz.
+
+110
+00:04:45,236 --> 00:04:46,803
+Si jamais je veux accéder
+
+111
+00:04:47,708 --> 00:04:49,296
+à une ligne et une colonne,
+
+112
+00:04:49,694 --> 00:04:51,708
+je vais spécifier liz virgule
+
+113
+00:04:52,270 --> 00:04:53,929
+et la colonne à laquelle je veux accéder
+
+114
+00:04:54,029 --> 00:04:55,142
+par exemple, l'âge.
+
+115
+00:04:55,524 --> 00:04:57,973
+Et donc ici, je vais avoir l'âge correspondant à liz.
+
+116
+00:04:58,073 --> 00:04:59,613
+Donc je vois que je peux accéder
+
+117
+00:04:59,713 --> 00:05:01,331
+aux éléments de ma dataframe
+
+118
+00:05:01,431 --> 00:05:03,365
+uniquement à partir des labels.
+
+119
+00:05:04,850 --> 00:05:07,188
+Évidemment, si je veux avoir
+
+120
+00:05:07,720 --> 00:05:09,046
+une colonne en entier,
+
+121
+00:05:09,146 --> 00:05:10,147
+je peux tout à fait le faire
+
+122
+00:05:10,247 --> 00:05:11,797
+en utilisant un slice,
+
+123
+00:05:11,897 --> 00:05:13,571
+donc je vais faire df loc :
+
+124
+00:05:13,671 --> 00:05:15,399
+ça veut dire : donne-moi toutes les lignes,
+
+125
+00:05:15,694 --> 00:05:17,325
+virgule taille
+
+126
+00:05:17,923 --> 00:05:19,351
+donc ça va me donner la taille
+
+127
+00:05:19,451 --> 00:05:20,533
+pour tous les éléments
+
+128
+00:05:20,633 --> 00:05:21,604
+de ma dataframe.
+
+129
+00:05:22,090 --> 00:05:23,939
+Donc de nouveau, avec loc,
+
+130
+00:05:24,039 --> 00:05:27,097
+si je n'ai qu'un seul élément passé à loc,
+
+131
+00:05:27,197 --> 00:05:28,517
+ça correspond à des lignes ;
+
+132
+00:05:28,617 --> 00:05:30,710
+si je passe deux éléments séparés par une virgule,
+
+133
+00:05:30,810 --> 00:05:31,957
+le premier correspond aux lignes,
+
+134
+00:05:32,057 --> 00:05:34,696
+le deuxième correspond aux colonnes.
+
+135
+00:05:36,069 --> 00:05:38,193
+Sur un dataframe, je peux également
+
+136
+00:05:38,293 --> 00:05:39,575
+faire de l'indexation avancée,
+
+137
+00:05:39,675 --> 00:05:40,909
+comme ce qu'on a vu pour les Series.
+
+138
+00:05:41,009 --> 00:05:41,929
+Regardons un exemple,
+
+139
+00:05:42,029 --> 00:05:42,923
+df.loc
+
+140
+00:05:44,370 --> 00:05:52,494
+de age, virgule, inférieur à 32
+
+141
+00:05:52,594 --> 00:05:54,112
+et donc ça va me sortir
+
+142
+00:05:54,713 --> 00:05:56,229
+tous les éléments de mon dataframe
+
+143
+00:05:56,329 --> 00:05:57,439
+pour lesquels la colonne age
+
+144
+00:05:57,539 --> 00:06:00,014
+est strictement inférieure à 32.
+
+145
+00:06:02,831 --> 00:06:05,297
+Une opération très courante sur les DataFrames,
+
+146
+00:06:05,397 --> 00:06:09,084
+c'est d'enlever l'index,
+
+147
+00:06:09,184 --> 00:06:10,886
+donc de transformer l'index en colonne.
+
+148
+00:06:10,986 --> 00:06:11,687
+Regardons un exemple.
+
+149
+00:06:11,787 --> 00:06:13,327
+Je vous remontre mon dataframe df.
+
+150
+00:06:13,812 --> 00:06:15,463
+Ici, ma colonne, c'est une colonne
+
+151
+00:06:15,563 --> 00:06:16,609
+qui contient des prénoms.
+
+152
+00:06:17,074 --> 00:06:19,398
+Or, ce que j'aimerais avoir,
+
+153
+00:06:19,498 --> 00:06:21,197
+c'est avoir une colonne de prénoms
+
+154
+00:06:21,297 --> 00:06:22,703
+et non pas les prénoms dans un index.
+
+155
+00:06:23,146 --> 00:06:24,385
+Comment est-ce que je peux faire ça ?
+
+156
+00:06:24,859 --> 00:06:26,416
+Je peux faire ça de la manière suivante,
+
+157
+00:06:26,516 --> 00:06:29,402
+df égale df.reset_index
+
+158
+00:06:29,866 --> 00:06:31,520
+reset_index va
+
+159
+00:06:31,744 --> 00:06:32,953
+prendre mon index
+
+160
+00:06:33,053 --> 00:06:34,494
+et le mettre dans une colonne.
+
+161
+00:06:34,594 --> 00:06:35,720
+J'exécute.
+
+162
+00:06:35,820 --> 00:06:37,294
+Je regarde ce que vaut df maintenant,
+
+163
+00:06:37,394 --> 00:06:38,364
+et maintenant, j'ai une nouvelle colonne
+
+164
+00:06:38,464 --> 00:06:39,500
+qui s'appelle index
+
+165
+00:06:39,600 --> 00:06:40,578
+qui contient les prénoms.
+
+166
+00:06:40,678 --> 00:06:42,033
+Mais ce que je voudrais maintenant,
+
+167
+00:06:42,133 --> 00:06:43,868
+c'est renommer cette colonne
+
+168
+00:06:43,968 --> 00:06:45,007
+pour ne plus qu'elle s'appelle index
+
+169
+00:06:45,107 --> 00:06:46,140
+mais qu'elle s'appelle, par exemple,
+
+170
+00:06:46,240 --> 00:06:46,630
+prenom.
+
+171
+00:06:47,162 --> 00:06:48,181
+Donc je peux faire ça
+
+172
+00:06:48,281 --> 00:06:50,915
+avec la méthode rename.
+
+173
+00:06:51,015 --> 00:06:52,413
+Donc je vais faire rename
+
+174
+00:06:53,527 --> 00:06:55,055
+et à rename, je vais lui dire
+
+175
+00:06:55,599 --> 00:06:59,358
+tu fais un renommage sur les colonnes
+
+176
+00:06:59,868 --> 00:07:03,150
+et à rename, je lui passe un dictionnaire
+
+177
+00:07:03,250 --> 00:07:04,613
+qui va contenir pour clé
+
+178
+00:07:05,389 --> 00:07:07,180
+l'ancien nom à remplacer,
+
+179
+00:07:07,280 --> 00:07:08,113
+index,
+
+180
+00:07:08,541 --> 00:07:09,528
+et pour valeur,
+
+181
+00:07:09,953 --> 00:07:11,544
+le nouveau nom à utiliser,
+
+182
+00:07:11,644 --> 00:07:12,071
+prenom.
+
+183
+00:07:12,842 --> 00:07:14,955
+C'est une syntaxe un tout petit peu particulière
+
+184
+00:07:15,055 --> 00:07:16,541
+mais donc on lui passe un dictionnaire
+
+185
+00:07:16,641 --> 00:07:17,992
+qui a pour clé l'ancien nom,
+
+186
+00:07:18,092 --> 00:07:19,260
+enfin, ce qu'on veut renommer,
+
+187
+00:07:19,360 --> 00:07:20,304
+et pour valeur,
+
+188
+00:07:20,404 --> 00:07:21,129
+le résultat.
+
+189
+00:07:21,229 --> 00:07:22,522
+J'exécute df,
+
+190
+00:07:22,622 --> 00:07:23,654
+et je vois donc maintenant
+
+191
+00:07:23,754 --> 00:07:25,464
+que ma colonne s'appelle prenom.
+
+192
+00:07:25,923 --> 00:07:27,545
+Et pour finir, je pourrais dire
+
+193
+00:07:27,645 --> 00:07:29,092
+ maintenant, ce que j'aimerais avoir comme index
+
+194
+00:07:29,192 --> 00:07:30,266
+c'est la colonne des âges.
+
+195
+00:07:30,366 --> 00:07:31,844
+Donc ça, je peux le faire de nouveau
+
+196
+00:07:31,944 --> 00:07:36,997
+en faisant df égale df.set_index
+
+197
+00:07:38,023 --> 00:07:39,025
+et ici, je vais dire
+
+198
+00:07:39,125 --> 00:07:40,879
+mets comme index la colonne des âges.
+
+199
+00:07:41,857 --> 00:07:42,755
+Et donc au final,
+
+200
+00:07:43,577 --> 00:07:45,157
+j'ai obtenu une dataframe
+
+201
+00:07:45,257 --> 00:07:46,117
+donc c'est les mêmes valeurs
+
+202
+00:07:46,217 --> 00:07:47,213
+que ce qu j'avais au départ
+
+203
+00:07:47,313 --> 00:07:48,904
+mais qui ont été réordonnées,
+
+204
+00:07:49,004 --> 00:07:50,467
+j'ai pris l'index, je l'ai mis comme colonne,
+
+205
+00:07:50,567 --> 00:07:52,487
+et j'ai pris une autre colonne que j'ai mise comme index.
+
+206
+00:07:52,587 --> 00:07:54,371
+Ce sont des opérations extrêmement courantes
+
+207
+00:07:54,471 --> 00:07:56,636
+dans les DataFrames en pandas.
+
+208
+00:07:57,054 --> 00:07:58,127
+Mais j'aimerais vous montrer
+
+209
+00:07:58,227 --> 00:07:59,665
+la bonne manière de le faire aujourd'hui
+
+210
+00:07:59,765 --> 00:08:01,578
+parce que vous voyez que j'ai utilisé plusieurs étapes
+
+211
+00:08:01,678 --> 00:08:03,551
+pour découper, pour expliquer ce que je faisais,
+
+212
+00:08:03,651 --> 00:08:05,861
+reseter l'index, renommer une colonne,
+
+213
+00:08:05,961 --> 00:08:07,992
+et recréer un index à partir d'une autre colonne.
+
+214
+00:08:08,393 --> 00:08:09,646
+Ce qu'on utilise aujourd'hui
+
+215
+00:08:09,746 --> 00:08:10,698
+c'est une technique différente.
+
+216
+00:08:10,798 --> 00:08:11,879
+Je vais repartir
+
+217
+00:08:12,363 --> 00:08:14,187
+de ma dataframe initiale,
+
+218
+00:08:14,821 --> 00:08:16,656
+que je vais reprendre ici.
+
+219
+00:08:25,310 --> 00:08:27,108
+Donc voici ma dataframe initiale
+
+220
+00:08:27,208 --> 00:08:28,282
+et ce que j'utilise aujourd'hui,
+
+221
+00:08:28,382 --> 00:08:31,187
+ce sont des méthodes qui sont chaînées
+
+222
+00:08:31,287 --> 00:08:32,285
+de la manière suivante.
+
+223
+00:08:32,780 --> 00:08:34,171
+Je vous montre ça, je vais écrire
+
+224
+00:08:34,271 --> 00:08:35,387
+df égale
+
+225
+00:08:35,878 --> 00:08:37,631
+et je mets entre parenthèses
+
+226
+00:08:37,731 --> 00:08:39,544
+et vous allez voir pourquoi je mets entre parenthèses,
+
+227
+00:08:39,956 --> 00:08:41,798
+df.reset_index
+
+228
+00:08:46,709 --> 00:08:47,966
+je vais à la ligne
+
+229
+00:08:48,066 --> 00:08:49,529
+et je rajoute l'opération suivante
+
+230
+00:08:49,629 --> 00:08:53,669
+rename de columns
+
+231
+00:08:59,560 --> 00:09:00,170
+égale
+
+232
+00:09:00,270 --> 00:09:01,520
+ et je passe mon dictionnaire
+
+233
+00:09:02,593 --> 00:09:03,726
+que je vais utiliser pour renommer,
+
+234
+00:09:03,826 --> 00:09:08,529
+donc index : nom
+
+235
+00:09:11,915 --> 00:09:12,745
+et ensuite,
+
+236
+00:09:12,845 --> 00:09:14,290
+je passe ma dernière opération
+
+237
+00:09:14,390 --> 00:09:18,053
+set_index de age.
+
+238
+00:09:18,719 --> 00:09:20,595
+Exécutons cela, regardons le résultat,
+
+239
+00:09:20,695 --> 00:09:22,296
+je vois que j'obtiens le même résultat.
+
+240
+00:09:22,396 --> 00:09:23,164
+Mais maintenant, j'ai quelque chose
+
+241
+00:09:23,264 --> 00:09:24,273
+qui est plus expressif,
+
+242
+00:09:24,679 --> 00:09:25,416
+parce que je mets,
+
+243
+00:09:25,516 --> 00:09:27,002
+dans une succession d'opérations,
+
+244
+00:09:27,102 --> 00:09:28,608
+les étapes que je vais appliquer
+
+245
+00:09:28,708 --> 00:09:30,092
+de transformation à mon dataframe,
+
+246
+00:09:30,447 --> 00:09:31,782
+et donc, pour que cela fonctionne,
+
+247
+00:09:31,882 --> 00:09:33,249
+il faut que toutes ces méthodes
+
+248
+00:09:33,349 --> 00:09:34,865
+retournent un nouveau dataframe
+
+249
+00:09:35,132 --> 00:09:36,449
+et c'est ce que font, en général,
+
+250
+00:09:36,549 --> 00:09:38,538
+les méthodes pandas par défaut.
+
+251
+00:09:40,698 --> 00:09:42,219
+Pour finir avec les DataFrames,
+
+252
+00:09:42,319 --> 00:09:43,373
+j'aimerais vous montrer un exemple
+
+253
+00:09:43,473 --> 00:09:44,405
+d'alignement d'index.
+
+254
+00:09:45,127 --> 00:09:46,861
+C'est ce que nous allons voir ici.
+
+255
+00:09:47,358 --> 00:09:49,680
+df1 égale
+
+256
+00:09:50,289 --> 00:09:53,206
+je vais créer un dataframe
+
+257
+00:09:53,306 --> 00:09:54,661
+qui va contenir
+
+258
+00:09:56,592 --> 00:09:58,038
+un tableau de 1
+
+259
+00:09:58,138 --> 00:09:59,202
+à deux dimensions
+
+260
+00:10:04,432 --> 00:10:05,950
+qui va avoir pour index
+
+261
+00:10:07,586 --> 00:10:09,892
+une liste qui va contenir a, b
+
+262
+00:10:11,531 --> 00:10:13,148
+et qui va avoir pour colonnes
+
+263
+00:10:14,645 --> 00:10:18,380
+une liste qui va contenir x, y.
+
+264
+00:10:23,230 --> 00:10:25,513
+Évaluons ça, regardons cette dataframe
+
+265
+00:10:26,458 --> 00:10:28,428
+ah, df1, je l'ai appelée,
+
+266
+00:10:28,771 --> 00:10:30,262
+voilà, et donc j'ai bien
+
+267
+00:10:30,362 --> 00:10:31,703
+cette dataframe que je viens de créer.
+
+268
+00:10:31,803 --> 00:10:33,277
+Maintenant, je vais en créer une deuxième
+
+269
+00:10:34,557 --> 00:10:36,227
+que je vais appeler df2
+
+270
+00:10:36,904 --> 00:10:38,711
+et qui va avoir une toute petite variation
+
+271
+00:10:39,766 --> 00:10:41,540
+au lieu d'avoir a, b, je vais prendre
+
+272
+00:10:41,640 --> 00:10:42,978
+comme index a, c,
+
+273
+00:10:43,576 --> 00:10:45,151
+et au lieu d'avoir x, y, je vais prendre
+
+274
+00:10:45,251 --> 00:10:46,496
+comme colonnes, x, z.
+
+275
+00:10:47,027 --> 00:10:48,464
+J'exécute df2.
+
+276
+00:10:48,933 --> 00:10:50,946
+Regardons cette nouvelle dataframe df2
+
+277
+00:10:51,046 --> 00:10:52,063
+et maintenant, faisons la somme
+
+278
+00:10:52,163 --> 00:10:54,302
+df1 plus df2.
+
+279
+00:10:55,449 --> 00:10:56,489
+Et qu'est-ce que je vois ?
+
+280
+00:10:56,589 --> 00:10:57,981
+Je vois que j'ai eu un alignement d'index.
+
+281
+00:10:58,783 --> 00:11:01,272
+Lorsque j'ai une valeur de même label,
+
+282
+00:11:01,832 --> 00:11:02,588
+ligne et colonne,
+
+283
+00:11:02,688 --> 00:11:03,666
+à gauche et à droite,
+
+284
+00:11:03,766 --> 00:11:04,923
+alors j'ai fait la somme.
+
+285
+00:11:05,023 --> 00:11:07,585
+C'est le cas pour le label a, x.
+
+286
+00:11:07,685 --> 00:11:09,472
+Mais pour tous les autres, je n'avais pas le label
+
+287
+00:11:09,572 --> 00:11:10,696
+soit à gauche, soit à droite,
+
+288
+00:11:10,796 --> 00:11:11,913
+ou soit dans les deux.
+
+289
+00:11:12,330 --> 00:11:13,659
+Comme on l'a vu avec les séries,
+
+290
+00:11:14,072 --> 00:11:14,720
+je peux tout à fait
+
+291
+00:11:14,820 --> 00:11:15,937
+contrôler ce comportement
+
+292
+00:11:16,037 --> 00:11:17,475
+avec la méthode add.
+
+293
+00:11:17,575 --> 00:11:21,540
+Je peux faire un df1.add de df2
+
+294
+00:11:21,895 --> 00:11:26,487
+virgule fill_value égale par exemple 0.
+
+295
+00:11:26,940 --> 00:11:28,196
+J'exécute
+
+296
+00:11:28,296 --> 00:11:29,535
+et maintenant, je remplace
+
+297
+00:11:29,635 --> 00:11:30,863
+la valeur manquante par 0
+
+298
+00:11:30,963 --> 00:11:32,928
+mais vous remarquez que j'ai toujours des NaN.
+
+299
+00:11:33,028 --> 00:11:34,270
+Pourquoi est-ce que j'ai toujours des NaN ?
+
+300
+00:11:34,370 --> 00:11:36,001
+Parce que fill_value ne va fonctionner
+
+301
+00:11:36,101 --> 00:11:36,889
+que s'il vous manque
+
+302
+00:11:36,989 --> 00:11:37,756
+soit une valeur à gauche
+
+303
+00:11:37,951 --> 00:11:39,213
+soit une valeur à droite.
+
+304
+00:11:39,313 --> 00:11:40,522
+S'il vous manque les deux valeurs,
+
+305
+00:11:40,622 --> 00:11:42,664
+alors le résultat sera NaN.
+
+306
+00:11:43,651 --> 00:11:46,176
+Alors je peux me sortir de ce problème-là
+
+307
+00:11:46,276 --> 00:11:47,376
+de la manière suivante ;
+
+308
+00:11:47,845 --> 00:11:50,513
+mon dataframe, je vais le renommer df,
+
+309
+00:11:50,613 --> 00:11:52,680
+je l'exécute, donc j'ai bien mon df ici
+
+310
+00:11:54,026 --> 00:11:55,277
+qui correspond à ce tableau-là,
+
+311
+00:11:55,707 --> 00:11:56,863
+et maintenant, dans pandas,
+
+312
+00:11:56,963 --> 00:11:57,998
+j'ai des méthodes qui s'appellent
+
+313
+00:11:58,622 --> 00:11:59,692
+fillna
+
+314
+00:11:59,792 --> 00:12:01,239
+qui me permettent de remplacer
+
+315
+00:12:01,339 --> 00:12:02,807
+les valeurs mises à NaN
+
+316
+00:12:02,907 --> 00:12:04,514
+par une valeur par défaut.
+
+317
+00:12:04,979 --> 00:12:06,196
+Ici, je peux mettre -1.
+
+318
+00:12:06,652 --> 00:12:07,878
+Voici un exemple de résultat.
+
+319
+00:12:08,373 --> 00:12:09,261
+Mon fillna m'affiche bien
+
+320
+00:12:09,361 --> 00:12:11,177
+-1 à la place des NaN
+
+321
+00:12:11,762 --> 00:12:13,379
+ou alors, je peux utiliser une méthode
+
+322
+00:12:13,479 --> 00:12:14,797
+qui s'appelle dropna
+
+323
+00:12:15,297 --> 00:12:17,399
+et qui va me jeter
+
+324
+00:12:17,499 --> 00:12:19,442
+les lignes qui contiennent des NaN.
+
+325
+00:12:20,042 --> 00:12:22,341
+Ces méthodes fillna et dropna
+
+326
+00:12:22,441 --> 00:12:23,426
+ont de nombreuses options
+
+327
+00:12:23,526 --> 00:12:24,978
+que nous verrons dans les compléments.
+
+328
+00:12:26,388 --> 00:12:27,671
+Dans cette vidéo, nous avons vu
+
+329
+00:12:27,771 --> 00:12:28,885
+la notion de DataFrame.
+
+330
+00:12:28,985 --> 00:12:30,958
+Les DataFrames sont des tableaux à deux dimensions
+
+331
+00:12:31,058 --> 00:12:32,002
+sur lesquels on a des labels
+
+332
+00:12:32,102 --> 00:12:33,901
+sur les lignes et sur les colonnes.
+
+333
+00:12:34,390 --> 00:12:35,778
+Les DataFrames comme les Series
+
+334
+00:12:35,878 --> 00:12:39,230
+acceptent loc, iloc, le slicing,
+
+335
+00:12:39,330 --> 00:12:40,332
+l'indexation avancée
+
+336
+00:12:40,432 --> 00:12:42,523
+et l'alignement de labels.
+
+337
+00:12:43,033 --> 00:12:43,787
+À bientôt !
+
