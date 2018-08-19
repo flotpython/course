@@ -1,0 +1,1608 @@
+1
+00:00:03,980 --> 00:00:05,489
+Une des grandes forces de pandas
+
+2
+00:00:05,589 --> 00:00:07,486
+est le support d'opérations avancées
+
+3
+00:00:07,586 --> 00:00:08,827
+comme la concaténation,
+
+4
+00:00:08,927 --> 00:00:10,100
+le merge
+
+5
+00:00:10,200 --> 00:00:11,627
+qu'on peut également appeler jointure,
+
+6
+00:00:11,727 --> 00:00:12,491
+le regroupement
+
+7
+00:00:12,591 --> 00:00:13,341
+et le pivot.
+
+8
+00:00:13,441 --> 00:00:14,601
+Ce sont des opérations
+
+9
+00:00:14,701 --> 00:00:15,725
+que l'on trouve habituellement
+
+10
+00:00:15,825 --> 00:00:16,593
+dans les bases de données
+
+11
+00:00:16,693 --> 00:00:18,478
+et qui sont extrêmement puissantes.
+
+12
+00:00:18,866 --> 00:00:20,183
+Cependant ces opérations
+
+13
+00:00:20,283 --> 00:00:22,043
+peuvent être conceptuellement difficiles
+
+14
+00:00:22,143 --> 00:00:23,681
+et ardues à prendre en main
+
+15
+00:00:23,781 --> 00:00:24,973
+à cause de nombreuses options.
+
+16
+00:00:25,357 --> 00:00:25,969
+Mais elles permettent
+
+17
+00:00:26,069 --> 00:00:27,356
+ en une seule ligne de code
+
+18
+00:00:27,456 --> 00:00:28,179
+de faire des traitements
+
+19
+00:00:28,279 --> 00:00:29,282
+qui sont sophistiqués
+
+20
+00:00:29,382 --> 00:00:30,963
+et qui nous demanderaient autrement
+
+21
+00:00:31,063 --> 00:00:32,633
+des développements longs et fastidieux.
+
+22
+00:00:33,022 --> 00:00:34,711
+Dans cette vidéo, je vais vous les présenter
+
+23
+00:00:34,811 --> 00:00:36,010
+dans leur forme la plus simple
+
+24
+00:00:36,371 --> 00:00:38,124
+et vous verrez les formes plus compliquées
+
+25
+00:00:38,224 --> 00:00:38,918
+dans les compléments.
+
+26
+00:00:39,313 --> 00:00:40,684
+Ouvrons maintenant un notebook
+
+27
+00:00:40,784 --> 00:00:43,170
+pour commencer à jouer avec ces différentes notions.
+
+28
+00:00:44,061 --> 00:00:45,087
+Commençons par regarder
+
+29
+00:00:45,187 --> 00:00:46,469
+l'opération de concaténation.
+
+30
+00:00:46,569 --> 00:00:47,884
+Pour gagner un petit peu de temps,
+
+31
+00:00:47,984 --> 00:00:49,104
+j'ai déjà entré deux dataframes
+
+32
+00:00:49,204 --> 00:00:49,896
+dans mon notebook ;
+
+33
+00:00:49,996 --> 00:00:51,810
+je vous laisse le temps de mettre la vidéo en pause
+
+34
+00:00:51,910 --> 00:00:52,962
+pour pouvoir les taper.
+
+35
+00:00:53,316 --> 00:00:54,919
+Regardons mes deux dataframes ;
+
+36
+00:00:55,019 --> 00:00:56,749
+j'ai une dataframe que j'appelle df1
+
+37
+00:00:56,849 --> 00:00:58,956
+qui va contenir deux colonnes, a, b,
+
+38
+00:00:59,056 --> 00:01:00,505
+et deux lignes, x, y,
+
+39
+00:01:00,605 --> 00:01:02,111
+et j'ai une dataframe df2
+
+40
+00:01:02,211 --> 00:01:04,764
+qui contient également deux colonnes, a, b,
+
+41
+00:01:04,864 --> 00:01:06,522
+et deux lignes, z, t.
+
+42
+00:01:06,622 --> 00:01:08,193
+Maintenant, j'aimerais concaténer
+
+43
+00:01:08,538 --> 00:01:09,501
+ces dataframes
+
+44
+00:01:09,601 --> 00:01:11,118
+en mettant une dataframe
+
+45
+00:01:11,218 --> 00:01:12,240
+en dessous de l'autre,
+
+46
+00:01:12,340 --> 00:01:14,248
+donc en fait, en alignant les colonnes.
+
+47
+00:01:14,695 --> 00:01:15,806
+Comment est-ce que je fais ça ?
+
+48
+00:01:15,906 --> 00:01:17,079
+Je fais ça de la manière suivante.
+
+49
+00:01:18,067 --> 00:01:19,127
+Je vais appeler concat ;
+
+50
+00:01:19,227 --> 00:01:20,132
+à concat, il faut lui passer
+
+51
+00:01:20,232 --> 00:01:22,562
+une liste de dataframes à concaténer.
+
+52
+00:01:22,981 --> 00:01:26,696
+Je vais lui passer df1, df2.
+
+53
+00:01:27,162 --> 00:01:29,487
+Et ici, je vais obtenir une nouvelle dataframe
+
+54
+00:01:29,587 --> 00:01:31,108
+dans laquelle j'ai bien mis
+
+55
+00:01:31,208 --> 00:01:33,191
+mes dataframes l'une au dessus de l'autre
+
+56
+00:01:33,291 --> 00:01:34,448
+en alignant les colonnes.
+
+57
+00:01:35,083 --> 00:01:37,207
+Après, je pourrais vouloir aligner les lignes,
+
+58
+00:01:37,307 --> 00:01:38,067
+donc mettre les dataframes
+
+59
+00:01:38,167 --> 00:01:39,618
+l'une à côté de l'autre.
+
+60
+00:01:39,718 --> 00:01:41,233
+Ça, je peux également le faire avec concat
+
+61
+00:01:41,333 --> 00:01:43,405
+en lui passant un paramètre axis.
+
+62
+00:01:43,788 --> 00:01:44,722
+Regardons ce cas-là.
+
+63
+00:01:44,822 --> 00:01:46,115
+Je vais légèrement
+
+64
+00:01:46,215 --> 00:01:47,226
+modifier mes dataframes
+
+65
+00:01:47,326 --> 00:01:48,630
+pour qu'elles puissent bien s'aligner
+
+66
+00:01:49,128 --> 00:01:50,370
+dans le bon sens
+
+67
+00:01:50,756 --> 00:01:52,157
+et donc, ici, je vais dire
+
+68
+00:01:52,257 --> 00:01:53,680
+que mes colonnes, c'est a, b, c, d
+
+69
+00:01:53,780 --> 00:01:54,896
+pour pouvoir les mettre dans ce sens-là
+
+70
+00:01:54,996 --> 00:01:56,405
+les colonnes les unes à côté des autres.
+
+71
+00:01:57,291 --> 00:01:59,034
+Et par contre, je vais pouvoir mettre
+
+72
+00:01:59,134 --> 00:02:00,896
+les mêmes lignes, x, y, x, y,
+
+73
+00:02:00,996 --> 00:02:02,050
+pour que les lignes soient bien alignées.
+
+74
+00:02:02,584 --> 00:02:04,734
+Maintenant, je vais les aligner de la manière suivante,
+
+75
+00:02:04,834 --> 00:02:06,536
+donc les concaténer de la manière suivante,
+
+76
+00:02:06,788 --> 00:02:08,169
+je passe toujours ma même liste,
+
+77
+00:02:08,269 --> 00:02:10,314
+df1, df2
+
+78
+00:02:10,686 --> 00:02:13,985
+et ensuite je vais passer axis égale 1
+
+79
+00:02:14,085 --> 00:02:16,044
+pour changer l'axe de concaténation.
+
+80
+00:02:16,144 --> 00:02:17,805
+Regardons maintenant le résultat
+
+81
+00:02:17,905 --> 00:02:19,896
+et on voit que mes dataframes ont bien été concaténées
+
+82
+00:02:19,996 --> 00:02:21,477
+l'une à côté de l'autre
+
+83
+00:02:21,577 --> 00:02:23,237
+en alignant les lignes.
+
+84
+00:02:24,579 --> 00:02:25,932
+Regardons maintenant le cas
+
+85
+00:02:26,032 --> 00:02:27,142
+de l'opération merge
+
+86
+00:02:27,242 --> 00:02:28,303
+qui est équivalente au join
+
+87
+00:02:28,403 --> 00:02:29,865
+que l'on trouve dans les bases de données.
+
+88
+00:02:30,288 --> 00:02:32,957
+Notez cependant que join existe également en pandas
+
+89
+00:02:33,057 --> 00:02:34,511
+et join est un raccourci
+
+90
+00:02:34,611 --> 00:02:36,574
+ vers l'opération merge
+
+91
+00:02:36,674 --> 00:02:38,171
+avec quelques options de moins.
+
+92
+00:02:38,271 --> 00:02:39,264
+C'est pourquoi en général
+
+93
+00:02:39,364 --> 00:02:40,991
+on préfère manipuler directement
+
+94
+00:02:41,091 --> 00:02:42,252
+la fonction merge.
+
+95
+00:02:42,782 --> 00:02:43,958
+Maintenant, je vais prendre
+
+96
+00:02:44,058 --> 00:02:45,144
+une dataframe
+
+97
+00:02:45,567 --> 00:02:47,004
+qui va contenir deux colonnes
+
+98
+00:02:47,104 --> 00:02:48,561
+une colonne personnel :
+
+99
+00:02:48,661 --> 00:02:49,803
+Bob, Lisa, Sue,
+
+100
+00:02:50,129 --> 00:02:50,979
+et une colonne groupe
+
+101
+00:02:51,079 --> 00:02:51,997
+qui est le groupe dans lequel
+
+102
+00:02:52,097 --> 00:02:53,031
+ces personnes travaillent :
+
+103
+00:02:53,131 --> 00:02:54,774
+service financier,
+
+104
+00:02:54,874 --> 00:02:55,558
+R & D,
+
+105
+00:02:55,658 --> 00:02:56,612
+et Ressources Humaines.
+
+106
+00:02:57,572 --> 00:02:59,568
+Et je vais créer une deuxième dataframe,
+
+107
+00:02:59,668 --> 00:03:00,702
+df2,
+
+108
+00:03:00,802 --> 00:03:02,771
+dans laquelle j'ai également ma colonne personnel
+
+109
+00:03:03,382 --> 00:03:05,234
+et je vais avoir comme deuxième colonne
+
+110
+00:03:05,334 --> 00:03:06,301
+une date d'embauche :
+
+111
+00:03:06,401 --> 00:03:08,022
+2004, 2008, 2014.
+
+112
+00:03:08,554 --> 00:03:10,910
+Regardons maintenant ces deux dataframes,
+
+113
+00:03:11,828 --> 00:03:14,074
+donc j'ai ma première dataframe, df1,
+
+114
+00:03:14,399 --> 00:03:16,478
+qui a une colonne personnel, une colonne groupe ;
+
+115
+00:03:17,009 --> 00:03:18,746
+et une deuxième dataframe df2,
+
+116
+00:03:18,846 --> 00:03:20,116
+qui a une colonne personnel
+
+117
+00:03:20,216 --> 00:03:22,044
+et une colonne date d'embauche.
+
+118
+00:03:22,981 --> 00:03:23,944
+Maintenant, qu'est-ce qu'il se passe
+
+119
+00:03:24,044 --> 00:03:25,498
+si on fait une opération de merge ?
+
+120
+00:03:25,973 --> 00:03:27,595
+En fait, merge, par défaut, va essayer
+
+121
+00:03:27,695 --> 00:03:28,674
+de trouver une colonne
+
+122
+00:03:28,774 --> 00:03:29,906
+qui ait le même label
+
+123
+00:03:30,006 --> 00:03:31,271
+à gauche et à droite,
+
+124
+00:03:31,371 --> 00:03:32,931
+donc dans df1 et dans df2.
+
+125
+00:03:33,031 --> 00:03:35,238
+Et effectivement, j'ai une colonne qui a le même label,
+
+126
+00:03:35,338 --> 00:03:36,542
+c'est la colonne personnel.
+
+127
+00:03:37,528 --> 00:03:39,566
+Ensuite, je vais parcourir
+
+128
+00:03:39,666 --> 00:03:40,828
+ma première dataframe,
+
+129
+00:03:40,928 --> 00:03:42,083
+et je vais essayer de trouver
+
+130
+00:03:42,183 --> 00:03:44,173
+est-ce qu'au Bob qui est à droite
+
+131
+00:03:44,273 --> 00:03:45,934
+correspond un Bob qui est à gauche.
+
+132
+00:03:46,034 --> 00:03:47,099
+Si c'est le cas,
+
+133
+00:03:47,199 --> 00:03:48,363
+je vais créer une entrée
+
+134
+00:03:48,463 --> 00:03:49,806
+dans laquelle je vais avoir Bob,
+
+135
+00:03:50,214 --> 00:03:51,625
+le groupe de gauche,
+
+136
+00:03:51,725 --> 00:03:52,929
+la date d'embauche de droite.
+
+137
+00:03:53,029 --> 00:03:55,014
+C'est ce qu'on appelle l'opération de jointure.
+
+138
+00:03:55,811 --> 00:03:57,602
+Ensuite, je vais parcourir le deuxième label,
+
+139
+00:03:57,702 --> 00:03:58,999
+je vais trouver Lisa, et je vais chercher
+
+140
+00:03:59,099 --> 00:04:00,691
+est-ce que j'ai un Lisa à droite.
+
+141
+00:04:01,007 --> 00:04:02,273
+Oui, j'ai un Lisa à droite.
+
+142
+00:04:02,527 --> 00:04:04,049
+Et je vais donc aligner
+
+143
+00:04:04,149 --> 00:04:06,029
+Lisa, R&D, 2004.
+
+144
+00:04:06,129 --> 00:04:07,817
+Et pour finir, j'arrive à Sue.
+
+145
+00:04:07,917 --> 00:04:09,864
+Est-ce que j'ai un Sue à gauche et à droite ? Oui
+
+146
+00:04:09,964 --> 00:04:11,128
+Et je vais donc aligner,
+
+147
+00:04:11,228 --> 00:04:13,127
+faire la jointure de ces deux tables,
+
+148
+00:04:13,715 --> 00:04:16,243
+je vais aligner Sue, RH et 2014.
+
+149
+00:04:16,343 --> 00:04:17,777
+Ici, je vous ai présenté
+
+150
+00:04:17,877 --> 00:04:20,169
+la version la plus simple du merge,
+
+151
+00:04:20,269 --> 00:04:22,104
+il y a beaucoup d'autres options disponibles
+
+152
+00:04:22,204 --> 00:04:23,753
+que nous couvrirons dans les compléments.
+
+153
+00:04:24,601 --> 00:04:26,283
+Ouvrons maintenant un notebook
+
+154
+00:04:26,383 --> 00:04:28,623
+pour continuer à jouer avec les deux dernières notions,
+
+155
+00:04:28,723 --> 00:04:30,883
+que sont le regroupement et le pivot.
+
+156
+00:04:31,966 --> 00:04:33,127
+Pour regarder les opérations
+
+157
+00:04:33,227 --> 00:04:34,547
+de regroupement et de pivot,
+
+158
+00:04:34,647 --> 00:04:36,666
+je vais utiliser un jeu de données réelles.
+
+159
+00:04:36,766 --> 00:04:39,264
+Pour cela, je vais utiliser la librairie seaborn
+
+160
+00:04:39,364 --> 00:04:41,530
+qui est une librairie de représentations graphiques
+
+161
+00:04:41,630 --> 00:04:42,980
+appliquées aux données statistiques
+
+162
+00:04:43,427 --> 00:04:44,683
+mais que je ne vais pas utiliser dans ce contexte,
+
+163
+00:04:44,783 --> 00:04:46,837
+je vais uniquement utiliser sa capacité
+
+164
+00:04:47,147 --> 00:04:49,399
+à télécharger un jeu de données publiques,
+
+165
+00:04:49,499 --> 00:04:50,966
+et notamment, le jeu de données que je vais regarder,
+
+166
+00:04:51,066 --> 00:04:52,763
+c'est le jeu de données des passagers du Titanic.
+
+167
+00:04:53,219 --> 00:04:54,660
+Regardons cela, je vais faire
+
+168
+00:04:54,760 --> 00:04:56,799
+import seaborn
+
+169
+00:04:57,424 --> 00:04:58,682
+as sns
+
+170
+00:04:59,252 --> 00:05:01,932
+et ensuite, je vais faire un load_dataset
+
+171
+00:05:02,032 --> 00:05:03,210
+du jeu de données titanic
+
+172
+00:05:04,989 --> 00:05:07,113
+et je vais récupérer dans ce jeu de données
+
+173
+00:05:07,213 --> 00:05:08,856
+uniquement trois colonnes,
+
+174
+00:05:08,956 --> 00:05:09,909
+donc je prends toutes les lignes
+
+175
+00:05:10,009 --> 00:05:11,002
+et je ne vais prendre que trois colonnes,
+
+176
+00:05:11,102 --> 00:05:13,778
+la colonne survived,
+
+177
+00:05:14,396 --> 00:05:16,112
+la colonne sex
+
+178
+00:05:16,692 --> 00:05:18,229
+et la colonne class.
+
+179
+00:05:22,131 --> 00:05:23,866
+Je vais évidemment nommer ce jeu de données
+
+180
+00:05:23,966 --> 00:05:25,245
+pour pouvoir le manipuler par la suite,
+
+181
+00:05:25,345 --> 00:05:27,313
+je vais l'appeler ti comme titanic.
+
+182
+00:05:27,715 --> 00:05:28,703
+Je l'exécute.
+
+183
+00:05:29,142 --> 00:05:30,354
+Et maintenant, je vais regarder
+
+184
+00:05:30,454 --> 00:05:31,426
+à quoi ressemble ce jeu de données.
+
+185
+00:05:31,860 --> 00:05:32,955
+Je regarde les premières lignes
+
+186
+00:05:33,055 --> 00:05:34,557
+et je vois que j'ai une colonne survived,
+
+187
+00:05:34,657 --> 00:05:36,783
+qui est à 0 lorsque la personne n'a pas survécu
+
+188
+00:05:36,883 --> 00:05:37,992
+au naufrage du Titanic
+
+189
+00:05:38,092 --> 00:05:39,274
+et 1 lorsqu'elle a survécu,
+
+190
+00:05:39,374 --> 00:05:40,867
+sex, c'est le sexe de cette personne,
+
+191
+00:05:40,967 --> 00:05:41,629
+homme ou femme,
+
+192
+00:05:41,729 --> 00:05:43,199
+et class, c'est la classe dans laquelle
+
+193
+00:05:43,299 --> 00:05:44,483
+cette personne a embarqué.
+
+194
+00:05:45,520 --> 00:05:46,737
+Maintenant, regardons un peu plus
+
+195
+00:05:46,837 --> 00:05:47,438
+ce jeu de données,
+
+196
+00:05:47,538 --> 00:05:48,335
+je vais regarder shape
+
+197
+00:05:48,435 --> 00:05:49,364
+qui me permet de voir
+
+198
+00:05:49,464 --> 00:05:51,310
+le nombre de lignes et le nombre de colonnes,
+
+199
+00:05:51,410 --> 00:05:53,342
+j'ai 891 lignes
+
+200
+00:05:53,442 --> 00:05:54,937
+donc c'est les 891 passagers
+
+201
+00:05:55,037 --> 00:05:56,263
+qui ont été recensés
+
+202
+00:05:56,363 --> 00:05:57,449
+dans ce jeu de données,
+
+203
+00:05:57,969 --> 00:05:59,800
+et maintenant, j'aimerais, par exemple,
+
+204
+00:05:59,900 --> 00:06:01,478
+accéder uniquement à la colonne
+
+205
+00:06:03,567 --> 00:06:05,921
+de la survie, la colonne survived.
+
+206
+00:06:06,021 --> 00:06:08,484
+Je vais exécuter ça.
+
+207
+00:06:09,369 --> 00:06:10,753
+Voilà, j'ai accès à cette colonne
+
+208
+00:06:10,853 --> 00:06:12,057
+et donc, comme j'ai accès à cette colonne,
+
+209
+00:06:12,157 --> 00:06:13,194
+maintenant, je peux calculer la moyenne
+
+210
+00:06:13,294 --> 00:06:13,991
+sur cette colonne.
+
+211
+00:06:14,421 --> 00:06:15,527
+Je vais rajouter mean
+
+212
+00:06:15,627 --> 00:06:17,003
+qui me permet d'appliquer
+
+213
+00:06:17,103 --> 00:06:18,743
+la moyenne à tous les éléments de cette colonne
+
+214
+00:06:18,843 --> 00:06:20,513
+et donc je vois que le taux de survie sur cette colonne
+
+215
+00:06:21,058 --> 00:06:23,279
+le taux de survie des passagers du Titanic,
+
+216
+00:06:23,679 --> 00:06:25,706
+en moyenne, était de 38 %.
+
+217
+00:06:26,755 --> 00:06:28,331
+Alors, maintenant, ce qui m'intéresserait plutôt,
+
+218
+00:06:28,431 --> 00:06:29,501
+ça serait de voir est-ce qu'il y a une différence
+
+219
+00:06:29,601 --> 00:06:30,125
+de taux de survie
+
+220
+00:06:30,225 --> 00:06:32,610
+entre la première, la deuxième et la troisième classe.
+
+221
+00:06:32,996 --> 00:06:34,292
+Ça, évidemment, je peux le faire,
+
+222
+00:06:34,392 --> 00:06:36,073
+je vais faire ce qu'on a déjà vu,
+
+223
+00:06:36,173 --> 00:06:38,044
+qui s'appelle l'indexation avancée,
+
+224
+00:06:38,413 --> 00:06:40,269
+donc au lieu de prendre toutes les lignes,
+
+225
+00:06:40,757 --> 00:06:42,751
+je vais prendre uniquement
+
+226
+00:06:43,888 --> 00:06:46,386
+les lignes pour lesquelles la classe
+
+227
+00:06:46,486 --> 00:06:50,139
+est égale à la première classe.
+
+228
+00:06:50,622 --> 00:06:51,571
+Exécutons ça.
+
+229
+00:06:51,671 --> 00:06:53,653
+Alors, il y a une petite erreur de syntaxe,
+
+230
+00:06:53,753 --> 00:06:55,138
+le égal, c'est un double égal,
+
+231
+00:06:55,797 --> 00:06:57,652
+et donc je vois que le taux de survie
+
+232
+00:06:57,752 --> 00:06:59,262
+pour les passagers de la première classe
+
+233
+00:06:59,574 --> 00:07:01,154
+est de 63 %.
+
+234
+00:07:01,587 --> 00:07:02,855
+Alors, maintenant, j'aimerais bien connaître
+
+235
+00:07:02,955 --> 00:07:03,919
+le taux de survie pour les passagers
+
+236
+00:07:04,019 --> 00:07:04,559
+de la deuxième classe,
+
+237
+00:07:04,900 --> 00:07:05,678
+donc ça, je peux le faire,
+
+238
+00:07:05,778 --> 00:07:07,400
+je peux ici écrire Second
+
+239
+00:07:07,500 --> 00:07:08,078
+et donc voir maintenant
+
+240
+00:07:08,178 --> 00:07:09,285
+le taux de survie pour la deuxième classe.
+
+241
+00:07:09,649 --> 00:07:11,289
+Et j'aimerais le faire pour la troisième classe.
+
+242
+00:07:11,585 --> 00:07:13,067
+On voit bien que c'est assez rébarbatif.
+
+243
+00:07:13,167 --> 00:07:14,772
+En fait, ce que j'aimerais réellement faire,
+
+244
+00:07:14,872 --> 00:07:16,972
+c'est regrouper mes passagers par classe
+
+245
+00:07:17,072 --> 00:07:19,040
+et calculer la moyenne
+
+246
+00:07:19,140 --> 00:07:20,323
+pour chacun de ces groupes.
+
+247
+00:07:20,707 --> 00:07:23,230
+C'est exactement ce que me permet de faire
+
+248
+00:07:23,330 --> 00:07:24,719
+l'opération groupby,
+
+249
+00:07:24,819 --> 00:07:26,195
+l'opération de regroupement.
+
+250
+00:07:26,548 --> 00:07:28,053
+Regardons comment ça fonctionne.
+
+251
+00:07:28,609 --> 00:07:30,983
+Je vais reprendre mon jeu de données titanic
+
+252
+00:07:31,498 --> 00:07:35,131
+et dessus, je vais appeler la méthode groupby
+
+253
+00:07:35,667 --> 00:07:36,479
+où je vais lui dire :
+
+254
+00:07:36,579 --> 00:07:37,945
+fais-moi un regroupement par classe.
+
+255
+00:07:38,045 --> 00:07:39,706
+Comment ça va fonctionner, ce regroupement ?
+
+256
+00:07:39,853 --> 00:07:41,394
+Je vais prendre la colonne class,
+
+257
+00:07:41,494 --> 00:07:43,062
+je vais regarder mes éléments uniques
+
+258
+00:07:43,162 --> 00:07:43,849
+dans cette colonne,
+
+259
+00:07:44,237 --> 00:07:45,886
+First, Second, Third,
+
+260
+00:07:46,049 --> 00:07:48,105
+et je vais créer un groupe par élément unique,
+
+261
+00:07:48,205 --> 00:07:50,105
+donc un groupe des passagers de première classe,
+
+262
+00:07:50,205 --> 00:07:51,333
+un groupe de deuxième classe,
+
+263
+00:07:51,433 --> 00:07:52,476
+un groupe de troisième classe.
+
+264
+00:07:52,981 --> 00:07:54,201
+Regardons ce que j'obtiens.
+
+265
+00:07:54,537 --> 00:07:56,962
+J'obtiens un objet DataFrameGroupBy,
+
+266
+00:07:57,062 --> 00:07:58,181
+donc un objet GroupBy.
+
+267
+00:07:58,651 --> 00:08:00,187
+Cet objet va me permettre
+
+268
+00:08:00,287 --> 00:08:01,500
+d'appliquer des opérations
+
+269
+00:08:01,600 --> 00:08:02,429
+à chacun de ces groupes.
+
+270
+00:08:02,529 --> 00:08:03,225
+Je vais pouvoir appliquer
+
+271
+00:08:03,325 --> 00:08:04,601
+des opérations d'agrégation
+
+272
+00:08:04,899 --> 00:08:06,177
+comme une moyenne, c'est ce qu'on va faire,
+
+273
+00:08:06,277 --> 00:08:07,496
+des opérations de filtrage,
+
+274
+00:08:07,596 --> 00:08:09,595
+ou des opérations de transformation.
+
+275
+00:08:10,063 --> 00:08:11,342
+Dans cette vidéo, on ne va regarder
+
+276
+00:08:11,442 --> 00:08:12,947
+que l'opération d'agrégation ;
+
+277
+00:08:13,047 --> 00:08:13,940
+nous verrons dans les compléments
+
+278
+00:08:14,040 --> 00:08:15,441
+d'autres types d'opérations.
+
+279
+00:08:16,250 --> 00:08:17,250
+Donc maintenant, je vais appliquer
+
+280
+00:08:17,350 --> 00:08:20,524
+l'opération d'agrégation moyenne.
+
+281
+00:08:21,150 --> 00:08:22,579
+Et regardons ce que j'obtiens,
+
+282
+00:08:23,043 --> 00:08:24,892
+j'obtiens un nouveau tableau
+
+283
+00:08:24,992 --> 00:08:27,600
+dans lequel j'ai comme lignes, les classes,
+
+284
+00:08:27,700 --> 00:08:28,939
+première, deuxième, troisième,
+
+285
+00:08:29,340 --> 00:08:31,674
+et j'ai une seule colonne survived
+
+286
+00:08:31,774 --> 00:08:33,489
+qui va me donner le taux de survie
+
+287
+00:08:33,589 --> 00:08:34,822
+pour la première classe, pour la deuxième
+
+288
+00:08:34,922 --> 00:08:35,963
+et pour la troisième classe.
+
+289
+00:08:36,459 --> 00:08:37,525
+Vous remarquez ici que,
+
+290
+00:08:37,625 --> 00:08:39,090
+dans mon dataframe original,
+
+291
+00:08:39,190 --> 00:08:40,151
+j'avais trois colonnes,
+
+292
+00:08:40,251 --> 00:08:41,153
+j'avais survived,
+
+293
+00:08:41,414 --> 00:08:42,247
+j'avais class
+
+294
+00:08:42,347 --> 00:08:43,062
+et j'avais sex.
+
+295
+00:08:43,162 --> 00:08:44,957
+Or ici, la colonne sex a disparu.
+
+296
+00:08:45,462 --> 00:08:47,106
+groupby applique un principe
+
+297
+00:08:47,206 --> 00:08:48,135
+qu'on appelle le principe
+
+298
+00:08:48,235 --> 00:08:50,284
+de suppression des nuisances colonnes
+
+299
+00:08:50,384 --> 00:08:51,872
+donc des colonnes nuisibles.
+
+300
+00:08:52,141 --> 00:08:53,197
+Ce sont les colonnes sur lesquelles
+
+301
+00:08:53,297 --> 00:08:54,523
+l'opération que l'on applique,
+
+302
+00:08:54,896 --> 00:08:55,910
+ici, l'opération moyenne,
+
+303
+00:08:56,010 --> 00:08:56,688
+n'a pas de sens.
+
+304
+00:08:57,175 --> 00:08:58,336
+Dans ce cas-là, ces colonnes
+
+305
+00:08:58,436 --> 00:08:59,543
+sont automatiquement
+
+306
+00:08:59,874 --> 00:09:01,440
+supprimées de notre résultat.
+
+307
+00:09:02,613 --> 00:09:03,610
+Imaginons maintenant
+
+308
+00:09:03,710 --> 00:09:04,973
+que je veuille faire un regroupement
+
+309
+00:09:05,073 --> 00:09:06,716
+non plus uniquement par classe
+
+310
+00:09:07,000 --> 00:09:08,788
+pour connaître le taux de survie pour chaque classe,
+
+311
+00:09:09,030 --> 00:09:10,858
+mais un regroupement par classe et par sexe.
+
+312
+00:09:10,958 --> 00:09:12,517
+Quel est, par exemple, le taux de survie
+
+313
+00:09:12,617 --> 00:09:14,272
+des hommes de deuxième classe 
+
+314
+00:09:14,372 --> 00:09:15,795
+ou des femmes de première classe ?
+
+315
+00:09:15,895 --> 00:09:17,276
+Alors, je peux le faire avec groupby.
+
+316
+00:09:17,597 --> 00:09:18,373
+C'est très simple.
+
+317
+00:09:18,708 --> 00:09:22,668
+Je vais reprendre mon groupby
+
+318
+00:09:22,768 --> 00:09:25,134
+et ici, au lieu de lui passer simplement une colonne,
+
+319
+00:09:25,234 --> 00:09:26,948
+je vais lui passer une liste de colonnes.
+
+320
+00:09:27,402 --> 00:09:29,629
+Donc je vais lui passer class
+
+321
+00:09:30,172 --> 00:09:32,054
+ et je vais lui passer la colonne sex.
+
+322
+00:09:33,728 --> 00:09:34,827
+J'exécute cela.
+
+323
+00:09:34,927 --> 00:09:36,372
+Et j'obtiens bien
+
+324
+00:09:36,724 --> 00:09:38,162
+un nouvel objet GroupBy
+
+325
+00:09:38,262 --> 00:09:39,649
+dans lequel j'ai un regroupement
+
+326
+00:09:39,749 --> 00:09:41,805
+à la fois par classe et à la fois par sexe,
+
+327
+00:09:42,069 --> 00:09:44,110
+et où je peux voir que les femmes de première classe
+
+328
+00:09:44,210 --> 00:09:46,626
+ont survécu à quasiment 97 %,
+
+329
+00:09:46,726 --> 00:09:48,288
+alors que les hommes de troisième classe
+
+330
+00:09:48,388 --> 00:09:50,479
+ont survécu à moins de 14 %.
+
+331
+00:09:51,171 --> 00:09:53,544
+Cependant, si on regarde cet objet,
+
+332
+00:09:53,644 --> 00:09:54,711
+je vais l'appeler g,
+
+333
+00:09:55,568 --> 00:09:57,391
+et si on regarde l'index de cet objet,
+
+334
+00:09:57,755 --> 00:10:00,870
+j'affiche mon objet g
+
+335
+00:10:01,322 --> 00:10:02,963
+et je regarde l'index de cet objet,
+
+336
+00:10:03,349 --> 00:10:04,438
+g.index
+
+337
+00:10:05,490 --> 00:10:07,541
+j'ai en fait un objet qui a un multi-index.
+
+338
+00:10:07,967 --> 00:10:10,171
+Or, les multi-index, ce sont des objets qui sont
+
+339
+00:10:10,650 --> 00:10:12,353
+un peu moins commodes à manipuler
+
+340
+00:10:12,453 --> 00:10:13,630
+que des index classiques,
+
+341
+00:10:13,730 --> 00:10:15,548
+et qui sont également un peu moins commodes à lire.
+
+342
+00:10:16,109 --> 00:10:17,736
+En fait, ce que j'aimerais vraiment avoir,
+
+343
+00:10:17,836 --> 00:10:19,194
+c'est avoir au final un tableau
+
+344
+00:10:19,294 --> 00:10:21,462
+dans lequel je vais avoir dans les lignes
+
+345
+00:10:21,562 --> 00:10:22,316
+les classes,
+
+346
+00:10:23,070 --> 00:10:24,101
+dans les colonnes,
+
+347
+00:10:24,301 --> 00:10:25,214
+le sexe
+
+348
+00:10:25,314 --> 00:10:27,089
+et comme valeur, le taux de survie
+
+349
+00:10:27,189 --> 00:10:28,874
+pour ces classes et pour ce sexe.
+
+350
+00:10:29,380 --> 00:10:31,234
+C'est exactement ce que me permet de faire
+
+351
+00:10:31,334 --> 00:10:32,832
+l'opération pivot_table.
+
+352
+00:10:32,932 --> 00:10:34,342
+En fait, on peut voir pivot_table
+
+353
+00:10:34,442 --> 00:10:37,088
+comme une généralisation de groupby
+
+354
+00:10:37,188 --> 00:10:38,221
+à deux dimensions.
+
+355
+00:10:38,581 --> 00:10:40,133
+Regardons cela.
+
+356
+00:10:40,994 --> 00:10:44,505
+Je vais reprendre mon jeu de données du Titanic,
+
+357
+00:10:44,605 --> 00:10:46,476
+c'est le jeu de données que j'ai depuis tout à l'heure,
+
+358
+00:10:46,925 --> 00:10:48,544
+et maintenant, je vais appliquer
+
+359
+00:10:49,015 --> 00:10:50,734
+l'opération pivot_table
+
+360
+00:10:51,255 --> 00:10:53,133
+et je vais l'appliquer de la manière suivante.
+
+361
+00:10:53,233 --> 00:10:54,249
+Ici, je vais dire
+
+362
+00:10:55,369 --> 00:10:56,861
+la colonne survived
+
+363
+00:10:57,834 --> 00:10:59,249
+je veux que cette colonne survived
+
+364
+00:10:59,349 --> 00:11:00,789
+ce soit la colonne que j'agrège.
+
+365
+00:11:01,754 --> 00:11:04,396
+Je veux appliquer comme fonction d'agrégation
+
+366
+00:11:05,249 --> 00:11:06,328
+la moyenne.
+
+367
+00:11:06,428 --> 00:11:08,007
+Par défaut, c'est la moyenne,
+
+368
+00:11:08,107 --> 00:11:09,008
+mais ici, je vous montre
+
+369
+00:11:09,108 --> 00:11:10,799
+comment est-ce qu'on peut spécifier cette fonction.
+
+370
+00:11:11,222 --> 00:11:13,335
+Ensuite, je veux avoir dans mon résultat
+
+371
+00:11:13,435 --> 00:11:16,715
+comme lignes, je vais avoir la classe
+
+372
+00:11:17,691 --> 00:11:19,647
+et ensuite, je vais avoir comme résultats
+
+373
+00:11:20,737 --> 00:11:21,880
+au niveau des colonnes
+
+374
+00:11:21,980 --> 00:11:23,404
+je vais avoir le sexe.
+
+375
+00:11:24,242 --> 00:11:27,189
+J'exécute cette opération
+
+376
+00:11:27,553 --> 00:11:30,136
+et j'obtiens effectivement un tableau
+
+377
+00:11:30,236 --> 00:11:30,861
+dans lequel j'ai
+
+378
+00:11:31,328 --> 00:11:32,115
+pour lignes,
+
+379
+00:11:32,433 --> 00:11:33,276
+les classes,
+
+380
+00:11:33,376 --> 00:11:34,862
+et pour colonnes, le sexe,
+
+381
+00:11:34,962 --> 00:11:35,815
+et pour valeurs,
+
+382
+00:11:36,264 --> 00:11:37,428
+la valeur agrégée
+
+383
+00:11:37,856 --> 00:11:38,845
+du taux de survie,
+
+384
+00:11:38,945 --> 00:11:40,477
+donc je vois que les femmes de première classe
+
+385
+00:11:40,577 --> 00:11:41,935
+ont survécu à 96 %
+
+386
+00:11:42,200 --> 00:11:43,479
+et les hommes de dernière classe
+
+387
+00:11:43,579 --> 00:11:44,338
+à 13 %
+
+388
+00:11:45,561 --> 00:11:46,812
+Dans cette vidéo, nous avons vu
+
+389
+00:11:46,912 --> 00:11:48,901
+des opérations avancées de pandas,
+
+390
+00:11:49,001 --> 00:11:50,533
+les opérations de concaténation,
+
+391
+00:11:50,633 --> 00:11:51,933
+de merge, de regroupement
+
+392
+00:11:52,033 --> 00:11:52,712
+et de pivot.
+
+393
+00:11:53,021 --> 00:11:54,154
+Ce sont des opérations
+
+394
+00:11:54,614 --> 00:11:55,766
+difficiles à prendre en main
+
+395
+00:11:55,866 --> 00:11:57,188
+mais extrêmement puissantes.
+
+396
+00:11:57,288 --> 00:11:58,394
+Nous n'avons vu dans cette vidéo
+
+397
+00:11:58,494 --> 00:11:59,927
+que les applications les plus simples
+
+398
+00:12:00,027 --> 00:12:01,219
+donc je vous recommande
+
+399
+00:12:01,319 --> 00:12:02,709
+de travailler les compléments
+
+400
+00:12:02,809 --> 00:12:04,078
+pour parfaitement maîtriser
+
+401
+00:12:04,178 --> 00:12:05,336
+ces différentes opérations.
+
+402
+00:12:05,662 --> 00:12:06,477
+À bientôt !
+
