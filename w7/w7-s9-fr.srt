@@ -116,7 +116,7 @@ on est capable de coder toutes les dates
 
 30
 00:00:56,866 --> 00:01:00,195
-allant de 1978 à 2262.
+allant de 1678 à 2262.
 
 31
 00:01:01,083 --> 00:01:02,143
