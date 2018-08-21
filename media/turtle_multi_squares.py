@@ -16,13 +16,13 @@ window.title("Caroline et Chloe")
 
 # create first turtle
 caroline = turtle.Turtle()
-caroline.color("hotpink")
 caroline.reset()
+caroline.color("hotpink")
 
 # second turtle
 chloe = turtle.Turtle()
-chloe.color("lightgreen")
 chloe.reset()
+chloe.color("lightgreen")
 
 # alternate : turtle, twist and square size
 contexts = ((caroline, 15, 100, ),

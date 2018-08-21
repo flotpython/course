@@ -1,0 +1,756 @@
+1
+00:00:04,700 --> 00:00:06,600
+Nous allons voir dans cette vidéo
+
+2
+00:00:06,700 --> 00:00:07,650
+les 4 types numériques
+
+3
+00:00:07,750 --> 00:00:08,650
+qui existent en Python.
+
+4
+00:00:08,750 --> 00:00:09,830
+Nous avons les entiers
+
+5
+00:00:09,930 --> 00:00:11,295
+qui représentent les nombres entiers,
+
+6
+00:00:11,395 --> 00:00:12,875
+les floats qui représentent
+
+7
+00:00:12,975 --> 00:00:14,475
+les nombres décimaux,
+
+8
+00:00:14,575 --> 00:00:15,000
+les complexes qui représentent
+
+9
+00:00:15,100 --> 00:00:16,020
+les nombres complexes,
+
+10
+00:00:16,120 --> 00:00:17,040
+et finalement les bools,
+
+11
+00:00:17,140 --> 00:00:18,000
+qui représentent les booléens
+
+12
+00:00:18,100 --> 00:00:19,180
+qui sont, on le verra,
+
+13
+00:00:19,280 --> 00:00:20,630
+un sous-ensemble des entiers.
+
+14
+00:00:21,030 --> 00:00:22,650
+Ouvrons un interpréteur Python
+
+15
+00:00:22,750 --> 00:00:23,730
+pour commencer à jouer
+
+16
+00:00:23,830 --> 00:00:25,260
+avec les types numériques.
+
+17
+00:00:26,450 --> 00:00:27,660
+Pour créer un entier en Python,
+
+18
+00:00:27,760 --> 00:00:29,000
+c'est très simple, il suffit de
+
+19
+00:00:29,100 --> 00:00:30,700
+taper cet entier dans l'interpréteur.
+
+20
+00:00:30,800 --> 00:00:33,120
+Donc par exemple si je fais 1 retour chariot,
+
+21
+00:00:33,220 --> 00:00:35,000
+je crée un nouvel objet entier.
+
+22
+00:00:35,100 --> 00:00:36,960
+Sauf que cet objet a été créé et
+
+23
+00:00:37,060 --> 00:00:38,100
+je n'ai aucun moyen de le manipuler
+
+24
+00:00:38,200 --> 00:00:39,415
+puisque je ne lui ai pas donné de nom.
+
+25
+00:00:39,515 --> 00:00:40,815
+Nous avons vu dans la précédente vidéo
+
+26
+00:00:40,915 --> 00:00:41,837
+qu'on pouvait nommer les objets
+
+27
+00:00:41,937 --> 00:00:43,657
+grâce à un mécanisme de référencement
+
+28
+00:00:43,757 --> 00:00:45,140
+par l'intermédiaire d'une variable.
+
+29
+00:00:45,240 --> 00:00:46,740
+Donc je vais écrire i égale 1
+
+30
+00:00:46,840 --> 00:00:49,740
+et je crée un objet de type entier
+
+31
+00:00:49,840 --> 00:00:51,490
+référencé par la variable i.
+
+32
+00:00:51,590 --> 00:00:53,776
+Je peux vérifier son type
+
+33
+00:00:53,876 --> 00:00:55,379
+avec la fonction built-in type()
+
+34
+00:00:55,479 --> 00:00:57,340
+qui me permet de vérifier le type des objets
+
+35
+00:00:57,440 --> 00:00:58,930
+référencés par les variables
+
+36
+00:00:59,030 --> 00:00:59,660
+donc je vois bien que
+
+37
+00:00:59,760 --> 00:01:00,820
+c'est un objet de type entier.
+
+38
+00:01:01,760 --> 00:01:04,230
+Les entiers se manipulent comme
+
+39
+00:01:04,330 --> 00:01:05,680
+dans une calculatrice en Python,
+
+40
+00:01:05,780 --> 00:01:07,280
+donc je peux tout à fait écrire
+
+41
+00:01:07,380 --> 00:01:08,500
+1 plus 3 pour additionner deux entiers,
+
+42
+00:01:08,600 --> 00:01:09,980
+je peux également les multiplier,
+
+43
+00:01:10,080 --> 00:01:11,710
+les diviser, les soustraire.
+
+44
+00:01:11,810 --> 00:01:13,690
+Je peux réaffecter une variable
+
+45
+00:01:13,790 --> 00:01:16,390
+avec le résultat d'une opération.
+
+46
+00:01:16,490 --> 00:01:19,490
+Donc par exemple i égale i fois 5
+
+47
+00:01:19,590 --> 00:01:21,090
+alors je vais faire i + 5
+
+48
+00:01:21,190 --> 00:01:23,930
+j'ai mon entier qui vaut 1
+
+49
+00:01:24,030 --> 00:01:24,570
+je lui ajoute 5
+
+50
+00:01:24,670 --> 00:01:25,960
+maintenant il vaut 6
+
+51
+00:01:26,060 --> 00:01:27,380
+Je peux le vérifier avec
+
+52
+00:01:27,480 --> 00:01:28,680
+la fonction built-in print()
+
+53
+00:01:28,780 --> 00:01:29,570
+qui me permet d'afficher
+
+54
+00:01:29,670 --> 00:01:31,000
+le contenu d'un entier.
+
+55
+00:01:31,100 --> 00:01:32,915
+Vous avez pu remarquer que j'utilise
+
+56
+00:01:33,015 --> 00:01:34,506
+soit print, soit le retour chariot.
+
+57
+00:01:34,606 --> 00:01:36,000
+En fait, ces deux opérations
+
+58
+00:01:36,100 --> 00:01:37,210
+sont très similaires ;
+
+59
+00:01:37,310 --> 00:01:38,050
+elles ont une toute petite différence
+
+60
+00:01:38,150 --> 00:01:39,025
+pour les chaînes de caractères,
+
+61
+00:01:39,125 --> 00:01:40,100
+nous reviendrons dessus
+
+62
+00:01:40,200 --> 00:01:41,670
+dans une prochaine vidéo.
+
+63
+00:01:41,770 --> 00:01:43,840
+Les entiers en Python
+
+64
+00:01:43,940 --> 00:01:45,650
+ont la caractéristique d'être des objets
+
+65
+00:01:45,750 --> 00:01:47,395
+de précision illimitée.
+
+66
+00:01:47,495 --> 00:01:48,490
+Ça, c'est quelque chose de
+
+67
+00:01:48,590 --> 00:01:49,690
+très important en Python, regardez.
+
+68
+00:01:49,790 --> 00:01:51,390
+Je crée un entier qui est extrêmement grand
+
+69
+00:01:51,490 --> 00:01:55,890
+je vais l'affecter à ma variable i.
+
+70
+00:01:55,990 --> 00:01:58,030
+J'ai donc un entier très grand
+
+71
+00:01:58,130 --> 00:02:00,570
+et je vais pouvoir multiplier cet entier par lui-même.
+
+72
+00:02:00,670 --> 00:02:02,600
+Et bien, Python ne va avoir aucune perte de précision
+
+73
+00:02:02,700 --> 00:02:03,780
+et va me créer un nouvel entier.
+
+74
+00:02:03,880 --> 00:02:05,508
+Je peux même élever cet entier
+
+75
+00:02:05,608 --> 00:02:06,975
+par exemple à la puissance 5,
+
+76
+00:02:07,075 --> 00:02:08,600
+on élève un entier à une puissance
+
+77
+00:02:08,700 --> 00:02:09,850
+avec le signe double étoile,
+
+78
+00:02:09,950 --> 00:02:11,817
+et je vois donc que je crée un nouvel entier
+
+79
+00:02:11,917 --> 00:02:12,731
+extrêmement grand.
+
+80
+00:02:12,940 --> 00:02:14,854
+Donc, ça, c'est pour le premier type numérique,
+
+81
+00:02:14,954 --> 00:02:15,990
+le type int.
+
+82
+00:02:16,090 --> 00:02:17,660
+Le deuxième type numérique en Python,
+
+83
+00:02:17,760 --> 00:02:18,520
+c'est le type float
+
+84
+00:02:18,620 --> 00:02:20,036
+qui manipule les nombres décimaux.
+
+85
+00:02:20,136 --> 00:02:21,513
+Donc regardons un exemple, j'écris
+
+86
+00:02:21,613 --> 00:02:24,675
+f égale 4 point 3
+
+87
+00:02:24,775 --> 00:02:27,483
+Ça représente le nombre décimal 4,3.
+
+88
+00:02:27,583 --> 00:02:29,600
+Donc la virgule se représente par un point.
+
+89
+00:02:30,740 --> 00:02:32,350
+Les floats, en Python,
+
+90
+00:02:32,450 --> 00:02:34,809
+ont une précision qui est limitée par contre,
+
+91
+00:02:34,909 --> 00:02:36,239
+ils sont en général codés
+
+92
+00:02:36,339 --> 00:02:38,100
+sur 15 chiffres significatifs
+
+93
+00:02:38,200 --> 00:02:39,775
+et encodés sur 53 bits.
+
+94
+00:02:39,875 --> 00:02:41,650
+Cela peut dépendre, évidemment,
+
+95
+00:02:41,750 --> 00:02:43,544
+de la plateforme sur laquelle on fait tourner
+
+96
+00:02:43,644 --> 00:02:44,800
+notre interpréteur Python.
+
+97
+00:02:45,200 --> 00:02:47,080
+Ensuite, j'ai les nombres complexes
+
+98
+00:02:47,180 --> 00:02:49,440
+qui se représentent de la manière suivante:
+
+99
+00:02:49,540 --> 00:02:51,200
+donc un nombre complexe, c'est
+
+100
+00:02:51,300 --> 00:02:52,590
+deux nombres float
+
+101
+00:02:52,690 --> 00:02:54,310
+mis l'un à côté de l'autre
+
+102
+00:02:54,410 --> 00:02:55,164
+donc je vais mettre
+
+103
+00:02:55,264 --> 00:02:58,814
+la partie réelle, 4, plus 5 J,
+
+104
+00:02:58,914 --> 00:03:00,296
+donc ça représente un nombre complexe
+
+105
+00:03:00,396 --> 00:03:05,213
+qui vaut 4 plus 5J, 5 étant la partie imaginaire
+
+106
+00:03:05,313 --> 00:03:06,700
+donc on représente la partie imaginaire
+
+107
+00:03:06,800 --> 00:03:08,450
+en Python avec un J.
+
+108
+00:03:08,956 --> 00:03:10,456
+Ensuite je peux additionner
+
+109
+00:03:10,556 --> 00:03:11,704
+n'importe quels types numériques
+
+110
+00:03:11,804 --> 00:03:12,680
+et Python va se charger
+
+111
+00:03:12,780 --> 00:03:13,975
+de faire la conversion pour nous.
+
+112
+00:03:14,075 --> 00:03:15,800
+Évidemment, lors de la conversion,
+
+113
+00:03:15,900 --> 00:03:17,425
+je peux avoir une perte de précision,
+
+114
+00:03:17,525 --> 00:03:18,540
+donc regardons cela.
+
+115
+00:03:18,640 --> 00:03:20,496
+J'ai un entier et j'ai un float ;
+
+116
+00:03:20,596 --> 00:03:23,362
+je peux additionner cet entier et ce float,
+
+117
+00:03:23,462 --> 00:03:24,891
+mais Python va convertir
+
+118
+00:03:24,991 --> 00:03:26,087
+le résultat en float.
+
+119
+00:03:26,187 --> 00:03:27,670
+Je vais donc avoir une perte de précision
+
+120
+00:03:27,770 --> 00:03:30,360
+et perdre un certain nombre de chiffres significatifs
+
+121
+00:03:30,460 --> 00:03:32,440
+que j'avais avec mon nombre entier.
+
+122
+00:03:32,540 --> 00:03:35,240
+Ensuite, si j'additionne un entier, plus un float,
+
+123
+00:03:35,340 --> 00:03:36,260
+plus un nombre complexe,
+
+124
+00:03:36,360 --> 00:03:37,773
+Python va convertir cela
+
+125
+00:03:37,873 --> 00:03:38,740
+en nombre complexe
+
+126
+00:03:38,840 --> 00:03:40,240
+et donc là encore une fois,
+
+127
+00:03:40,340 --> 00:03:41,500
+j'ai une perte de précision
+
+128
+00:03:41,600 --> 00:03:42,800
+au niveau de mon entier.
+
+129
+00:03:43,700 --> 00:03:46,060
+Je peux également convertir
+
+130
+00:03:46,160 --> 00:03:49,430
+les entiers en floats ou les floats en entiers,
+
+131
+00:03:49,530 --> 00:03:52,240
+en utilisant la fonction built-in int()
+
+132
+00:03:52,340 --> 00:03:53,190
+par exemple, pour convertir
+
+133
+00:03:53,290 --> 00:03:54,658
+un float vers un entier
+
+134
+00:03:54,758 --> 00:03:56,424
+donc l'opération, c'est la troncation ;
+
+135
+00:03:56,524 --> 00:03:57,900
+et je peux convertir
+
+136
+00:03:58,000 --> 00:04:00,900
+un entier en float de la manière suivante.
+
+137
+00:04:01,000 --> 00:04:02,200
+Je peux également faire la même chose
+
+138
+00:04:02,300 --> 00:04:05,313
+avec la fonction built-in complex()
+
+139
+00:04:05,413 --> 00:04:07,200
+pour convertir par exemple un float
+
+140
+00:04:07,300 --> 00:04:08,050
+en complexe,
+
+141
+00:04:08,150 --> 00:04:09,212
+donc on voit que j'obtiens
+
+142
+00:04:09,312 --> 00:04:12,100
+le nombre 4 + 0 J.
+
+143
+00:04:12,880 --> 00:04:14,510
+Pour résumer, regardons
+
+144
+00:04:14,610 --> 00:04:16,500
+les différentes opérations que l'on peut faire
+
+145
+00:04:16,600 --> 00:04:17,300
+sur les types numériques:
+
+146
+00:04:17,400 --> 00:04:18,920
+je peux faire une addition,
+
+147
+00:04:19,020 --> 00:04:21,367
+je peux faire une soustraction,
+
+148
+00:04:21,467 --> 00:04:23,381
+et donc je peux obtenir un nombre négatif,
+
+149
+00:04:23,481 --> 00:04:25,313
+je peux faire une multiplication,
+
+150
+00:04:25,413 --> 00:04:27,250
+une division, qui en Python
+
+151
+00:04:27,350 --> 00:04:29,400
+a la caractéristique d'être une division naturelle,
+
+152
+00:04:29,500 --> 00:04:32,490
+donc 3 divisé par 6 va me donner 0,5,
+
+153
+00:04:32,590 --> 00:04:34,700
+je peux forcer la division entière
+
+154
+00:04:34,800 --> 00:04:36,930
+avec un signe double barre oblique,
+
+155
+00:04:37,030 --> 00:04:38,926
+et je peux obtenir le reste
+
+156
+00:04:39,026 --> 00:04:40,240
+de cette division entière avec
+
+157
+00:04:40,340 --> 00:04:41,840
+le signe pourcentage.
+
+158
+00:04:41,940 --> 00:04:43,566
+Et puis pour finir, je peux
+
+159
+00:04:43,666 --> 00:04:45,361
+élever un nombre à une puissance
+
+160
+00:04:45,461 --> 00:04:46,800
+avec le signe double étoile,
+
+161
+00:04:46,900 --> 00:04:48,920
+et prendre la valeur absolue d'un nombre
+
+162
+00:04:49,020 --> 00:04:52,025
+avec la fonction built-in abs().
+
+163
+00:04:53,230 --> 00:04:55,230
+Maintenant que nous avons vu les entiers,
+
+164
+00:04:55,330 --> 00:04:57,181
+les floats et les complexes,
+
+165
+00:04:57,281 --> 00:04:59,185
+regardons le dernier type numérique
+
+166
+00:04:59,285 --> 00:05:00,471
+qui est le type booléen.
+
+167
+00:05:00,571 --> 00:05:02,450
+Alors le booléen est un peu particulier
+
+168
+00:05:02,550 --> 00:05:03,920
+parce qu'un booléen n'est pas un nombre
+
+169
+00:05:04,020 --> 00:05:06,008
+le booléen est représenté soit pas True,
+
+170
+00:05:06,108 --> 00:05:07,361
+qui représente vrai,
+
+171
+00:05:07,461 --> 00:05:08,472
+soit par False,
+
+172
+00:05:08,572 --> 00:05:09,618
+qui représente faux.
+
+173
+00:05:09,718 --> 00:05:11,550
+Notez bien que j'écris True et False
+
+174
+00:05:11,650 --> 00:05:14,420
+avec un T majuscule et avec un F majuscule.
+
+175
+00:05:14,520 --> 00:05:16,400
+Cependant, ce type booléen
+
+176
+00:05:16,500 --> 00:05:17,860
+est un sous-ensemble des entiers,
+
+177
+00:05:17,960 --> 00:05:19,520
+et il est codé en fait comme un entier,
+
+178
+00:05:19,620 --> 00:05:21,800
+False étant l'entier 0,
+
+179
+00:05:21,900 --> 00:05:23,830
+et True étant l'entier 1.
+
+180
+00:05:23,930 --> 00:05:25,875
+Regardons un exemple d'application
+
+181
+00:05:25,975 --> 00:05:26,920
+de ce booléen, je vais faire
+
+182
+00:05:27,020 --> 00:05:27,900
+une simple comparaison:
+
+183
+00:05:28,000 --> 00:05:29,280
+est-ce que 1 est plus petit que 2 ?
+
+184
+00:05:29,380 --> 00:05:30,886
+Je vois que c'est vrai.
+
+185
+00:05:30,986 --> 00:05:32,872
+Est-ce que 1 est plus grand que 5 ?
+
+186
+00:05:32,972 --> 00:05:34,260
+Je vois que c'est faux.
+
+187
+00:05:34,360 --> 00:05:35,850
+Nous reviendrons bien évidemment
+
+188
+00:05:35,950 --> 00:05:37,382
+sur ces expressions dans la suite.
+
+189
+00:05:37,482 --> 00:05:39,000
+À bientôt !
+

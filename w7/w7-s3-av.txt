@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Slicing, reshaping et indexation avancée
+
+## Temp total: (12m40)
+
+## Sujet de la vidéo (20s)
+
+Nous avons introduit dans une précédente vidéo la notion de tableau
+numpy. Nous allons dans cette vidéo introduire les notions de slicing
+et reshaping appliquée aux tableaux numpy, puis nous parlerons de
+l'indexation avancé qui permet de sélectionner et modifier des éléments
+d'un tableau de manière expressive.
+
+Ouvrons un notebook pour commencer à jouer avec ces notions.
+
+>>>>>>>>>> INCLUDE w7-s3-av-exo1.py <<<<<<<<<< (12m00)
+
+
+
+### Conclusion (20s)
+
+Dans cette vidéo, nous avons vu les notions de slice, de reshaphing
+qui produisent des vues sur un tableau, et la notion d'indexation
+avancée avec des mask qui permet de filtrer les éléments d'un tableau
+de manière expressive. La notion de mask est très puissante en numpy,
+il est donc important de bien la comprendre et la maîtriser. 
+
+À bientôt
+

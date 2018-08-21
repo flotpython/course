@@ -13,7 +13,7 @@ Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>Tr
 [x] <code>chaine.index('z') == len(chaine) - 1</code>
 
 [explanation]
-En effet, <code>chaine.index(x)</code> renvoye un index valide dans <code>chaine</code>, ça ne peut donc pas être la longueur de <code>chaine</code>; le dernier index valide dans une chaine non vide est toujours un de moins que la longueur de la chaine.
+En effet, <code>chaine.index(x)</code> renvoie un index valide dans <code>chaine</code>, ça ne peut donc pas être la longueur de <code>chaine</code>; le dernier index valide dans une chaîne non vide est toujours un de moins que la longueur de la chaîne.
 [explanation]
 
 <h3>Appartenance</h3>
@@ -23,9 +23,9 @@ Parmi les expressions suivantes, quelles sont celles qui s'évaluent à <code>Tr
 [x] <code>'nez' in chaine</code>
 
 [explanation]
-On trouve bien la sous-chaine <code>'nez'</code> dans la chaine de départ.
+On trouve bien la sous-chaîne <code>'nez'</code> dans la chaîne de départ.
 
-S'agissant de la première sous-chaine, bien que naturellement toutes les lettres prises individuellement sont présentes, on ne trouve pas la sous-chaîne telle quelle.
+S'agissant de la première sous-chaîne, bien que naturellement toutes les lettres prises individuellement sont présentes, on ne trouve pas la sous-chaîne telle quelle.
 [explanation]
 
 <h3>Slicing</h3>

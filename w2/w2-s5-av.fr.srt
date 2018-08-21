@@ -1,0 +1,896 @@
+1
+00:00:05,634 --> 00:00:07,176
+Nous avons déjà vu un certain nombre
+
+2
+00:00:07,276 --> 00:00:08,163
+de notions importantes.
+
+3
+00:00:08,263 --> 00:00:09,930
+Nous avons vu la notion d'objet,
+
+4
+00:00:10,029 --> 00:00:12,520
+les notions de variable, de typage dynamique,
+
+5
+00:00:12,620 --> 00:00:13,986
+puis nous avons vu des types centraux
+
+6
+00:00:14,086 --> 00:00:15,397
+en Python, comme les chaînes de caractères
+
+7
+00:00:15,497 --> 00:00:17,690
+ou les listes, et les opérations
+
+8
+00:00:17,790 --> 00:00:19,154
+que l'on peut effectuer sur les séquences.
+
+9
+00:00:19,254 --> 00:00:20,852
+Mais vous pouvez peut-être vous demander
+
+10
+00:00:20,952 --> 00:00:21,902
+comment je fais pour écrire
+
+11
+00:00:22,002 --> 00:00:22,817
+de vrais programmes ?
+
+12
+00:00:23,117 --> 00:00:24,610
+En fait, pour écrire de vrais programmes,
+
+13
+00:00:24,710 --> 00:00:25,795
+il faut maîtriser d'autres notions
+
+14
+00:00:25,895 --> 00:00:28,679
+comme par exemple les tests, les modules,
+
+15
+00:00:28,779 --> 00:00:29,972
+les boucles for, les fonctions.
+
+16
+00:00:30,983 --> 00:00:32,673
+Pour vous permettre, dès cette semaine,
+
+17
+00:00:32,773 --> 00:00:34,288
+de commencer à écrire de vrais programmes,
+
+18
+00:00:34,388 --> 00:00:36,156
+nous allons faire un survol rapide
+
+19
+00:00:36,256 --> 00:00:37,832
+de ces différentes notions clés
+
+20
+00:00:37,932 --> 00:00:39,294
+à l'écriture de vrais programmes.
+
+21
+00:00:40,212 --> 00:00:41,752
+Dans cette vidéo, je vais vous parler
+
+22
+00:00:41,852 --> 00:00:43,621
+de l'instruction if else, qui permet
+
+23
+00:00:43,721 --> 00:00:45,536
+de faire de l'exécution conditionnelle,
+
+24
+00:00:45,636 --> 00:00:47,746
+c'est-à-dire qu'un morceau de votre code
+
+25
+00:00:47,846 --> 00:00:50,516
+va s'exécuter en fonction du fait
+
+26
+00:00:50,616 --> 00:00:52,530
+qu'un test soit vrai ou qu'un test soit faux.
+
+27
+00:00:52,630 --> 00:00:55,097
+Par exemple, dans une instruction if else,
+
+28
+00:00:55,197 --> 00:00:56,410
+vous pouvez tester si
+
+29
+00:00:56,510 --> 00:00:57,885
+quelque chose est supérieur
+
+30
+00:00:57,985 --> 00:00:59,521
+ou supérieur ou égal à quelque chose d'autre,
+
+31
+00:00:59,621 --> 00:01:00,367
+vous pouvez tester
+
+32
+00:01:00,467 --> 00:01:02,040
+inférieur ou inférieur ou égal,
+
+33
+00:01:02,140 --> 00:01:04,413
+vous pouvez tester l'égalité ou la différence,
+
+34
+00:01:04,513 --> 00:01:06,301
+l'égalité étant le double signe égal
+
+35
+00:01:06,401 --> 00:01:08,096
+et la différence étant notée par
+
+36
+00:01:08,196 --> 00:01:09,297
+point d'exclamation égal,
+
+37
+00:01:09,397 --> 00:01:10,641
+et vous pouvez également faire
+
+38
+00:01:10,741 --> 00:01:11,553
+des tests d'appartenance.
+
+39
+00:01:11,653 --> 00:01:13,329
+En fait, dans un if, vous pouvez mettre
+
+40
+00:01:13,429 --> 00:01:14,593
+n'importe quel type d'expression
+
+41
+00:01:14,693 --> 00:01:16,189
+mais nous reviendrons sur ça
+
+42
+00:01:16,289 --> 00:01:17,260
+lorsque nous détaillerons
+
+43
+00:01:17,360 --> 00:01:18,857
+le fonctionnement précis
+
+44
+00:01:18,957 --> 00:01:20,888
+de l'instruction if else.
+
+45
+00:01:20,988 --> 00:01:22,878
+Maintenant, prenons un exemple
+
+46
+00:01:22,978 --> 00:01:24,091
+de test if else.
+
+47
+00:01:24,191 --> 00:01:25,870
+Supposons que vous vouliez afficher
+
+48
+00:01:25,970 --> 00:01:28,046
+un message si vous avez une note
+
+49
+00:01:28,146 --> 00:01:29,750
+qui est supérieure à 10 sur 20.
+
+50
+00:01:30,378 --> 00:01:31,135
+Prenons cet exemple ;
+
+51
+00:01:31,235 --> 00:01:33,312
+je commence par définir une variable note
+
+52
+00:01:33,412 --> 00:01:34,856
+qui vaut l'entier 8.
+
+53
+00:01:34,956 --> 00:01:37,507
+Puis je vais écrire mon instruction if.
+
+54
+00:01:37,607 --> 00:01:38,891
+Mon instruction if s'écrit
+
+55
+00:01:38,991 --> 00:01:39,707
+de la manière suivante:
+
+56
+00:01:40,007 --> 00:01:41,453
+j'écris if, c'est l'instruction,
+
+57
+00:01:41,553 --> 00:01:43,136
+une expression,
+
+58
+00:01:43,236 --> 00:01:45,906
+là, mon expression, c'est note supérieure à 10,
+
+59
+00:01:46,006 --> 00:01:47,046
+et un :
+
+60
+00:01:47,549 --> 00:01:49,915
+Ensuite je vais écrire un bloc d'instructions
+
+61
+00:01:50,563 --> 00:01:53,594
+print('reçu'), print('bravo !')
+
+62
+00:01:53,694 --> 00:01:55,485
+puis je peux écrire
+
+63
+00:01:55,585 --> 00:01:57,636
+une condition supplémentaire,
+
+64
+00:01:57,736 --> 00:02:00,464
+c'est-à-dire que si mon if est faux
+
+65
+00:02:00,564 --> 00:02:02,740
+je rentre dans la clause else.
+
+66
+00:02:02,840 --> 00:02:04,518
+Donc après le else, j'ai un :
+
+67
+00:02:04,618 --> 00:02:06,165
+et là encore, j'ai un bloc d'instructions
+
+68
+00:02:06,265 --> 00:02:07,452
+print('recalé')
+
+69
+00:02:08,183 --> 00:02:09,928
+Revenons maintenant sur cette syntaxe.
+
+70
+00:02:10,028 --> 00:02:11,834
+Vous remarquez que j'ai un :
+
+71
+00:02:11,934 --> 00:02:13,796
+Vous avez systématiquement un :
+
+72
+00:02:13,896 --> 00:02:15,239
+avant un bloc d'instructions
+
+73
+00:02:15,339 --> 00:02:16,267
+mais qu'est-ce que c'est,
+
+74
+00:02:16,367 --> 00:02:17,047
+un bloc d'instructions ?
+
+75
+00:02:17,147 --> 00:02:18,702
+Un bloc d'instructions, c'est
+
+76
+00:02:18,802 --> 00:02:20,409
+un ensemble d'instructions
+
+77
+00:02:20,509 --> 00:02:22,168
+qui sont toutes indentées
+
+78
+00:02:22,268 --> 00:02:23,951
+du même nombre de caractères vers la droite
+
+79
+00:02:24,051 --> 00:02:25,712
+la convention est d'indenter
+
+80
+00:02:25,812 --> 00:02:26,691
+tous les blocs d'instructions
+
+81
+00:02:26,791 --> 00:02:28,621
+de 4 caractères vers la droite.
+
+82
+00:02:29,627 --> 00:02:31,881
+Si mon test if est vrai,
+
+83
+00:02:31,981 --> 00:02:33,836
+je vais exécuter les instructions
+
+84
+00:02:33,936 --> 00:02:35,171
+qui sont dans le bloc d'instructions,
+
+85
+00:02:35,271 --> 00:02:36,794
+donc dans ce cas-là, si la note
+
+86
+00:02:36,894 --> 00:02:38,408
+est supérieure strictement à 10.
+
+87
+00:02:38,508 --> 00:02:40,345
+Si jamais ce test est faux,
+
+88
+00:02:40,445 --> 00:02:42,337
+je vais rentrer dans ma clause else
+
+89
+00:02:42,437 --> 00:02:44,674
+qui est elle aussi suivie par un :
+
+90
+00:02:44,774 --> 00:02:47,353
+et je vais exécuter le bloc d'instructions
+
+91
+00:02:47,453 --> 00:02:48,741
+qui est dans ma clause else.
+
+92
+00:02:48,841 --> 00:02:50,311
+Là encore, mon bloc d'instructions
+
+93
+00:02:50,411 --> 00:02:52,167
+c'est toutes les instructions qui sont décalées
+
+94
+00:02:52,267 --> 00:02:54,915
+de 4 caractères vers la droite.
+
+95
+00:02:56,212 --> 00:02:59,019
+Python est un langage qui est conçu
+
+96
+00:02:59,119 --> 00:03:01,120
+autour de cette notion de bloc d'instructions.
+
+97
+00:03:01,220 --> 00:03:03,022
+Et c'est quelque chose qu'il est très important
+
+98
+00:03:03,122 --> 00:03:03,764
+de bien comprendre.
+
+99
+00:03:04,675 --> 00:03:06,172
+Dans un certain nombre de langages,
+
+100
+00:03:06,272 --> 00:03:07,156
+vous n'avez pas cette notion
+
+101
+00:03:07,256 --> 00:03:07,907
+de blocs d'instructions
+
+102
+00:03:08,007 --> 00:03:09,732
+mais les blocs d'instructions sont délimités
+
+103
+00:03:09,832 --> 00:03:11,523
+par exemple par des accolades.
+
+104
+00:03:12,073 --> 00:03:13,337
+Regardons un exemple.
+
+105
+00:03:13,437 --> 00:03:15,923
+Voici un même test if else
+
+106
+00:03:16,023 --> 00:03:16,713
+que l'on vient d'écrire
+
+107
+00:03:16,813 --> 00:03:18,433
+mais avec une syntaxe qui pourrait être
+
+108
+00:03:18,533 --> 00:03:19,949
+une syntaxe, par exemple, à la Java.
+
+109
+00:03:20,403 --> 00:03:22,602
+Toutes mes instructions finissent par un ;
+
+110
+00:03:22,702 --> 00:03:24,255
+pour déterminer la fin de l'instruction,
+
+111
+00:03:24,355 --> 00:03:26,200
+et mes blocs d'instructions sont séparés
+
+112
+00:03:26,300 --> 00:03:27,268
+par des accolades ouvrantes
+
+113
+00:03:27,368 --> 00:03:28,562
+et des accolades fermantes.
+
+114
+00:03:29,440 --> 00:03:32,109
+Cela constitue un problème connu
+
+115
+00:03:32,209 --> 00:03:32,954
+en programmation,
+
+116
+00:03:33,054 --> 00:03:34,886
+puisque, pour être capable de savoir
+
+117
+00:03:34,986 --> 00:03:36,133
+où placer les accolades,
+
+118
+00:03:36,233 --> 00:03:37,047
+on définit ce qu'on appelle
+
+119
+00:03:37,147 --> 00:03:38,382
+des conventions de codage.
+
+120
+00:03:38,482 --> 00:03:40,173
+La convention de codage
+
+121
+00:03:40,273 --> 00:03:41,890
+n'a absolument aucun impact
+
+122
+00:03:41,990 --> 00:03:43,273
+sur l'exécution de mon code,
+
+123
+00:03:43,373 --> 00:03:45,176
+elle est simplement là pour faciliter
+
+124
+00:03:45,276 --> 00:03:47,655
+la lecture et l'écriture du code.
+
+125
+00:03:47,755 --> 00:03:49,446
+Or, ces conventions de codage
+
+126
+00:03:49,546 --> 00:03:52,165
+font partie d'écoles de programmation,
+
+127
+00:03:52,265 --> 00:03:53,830
+et certaines personnes préfèrent
+
+128
+00:03:53,930 --> 00:03:54,907
+certaines conventions de codage,
+
+129
+00:03:55,007 --> 00:03:56,211
+par exemple mettre les accolades
+
+130
+00:03:56,311 --> 00:03:58,650
+en fin de ligne et en début de ligne,
+
+131
+00:03:58,750 --> 00:03:59,961
+ou alors mettre les accolades
+
+132
+00:04:00,061 --> 00:04:01,487
+alignées avec les instructions.
+
+133
+00:04:02,151 --> 00:04:03,753
+En fait, vous vous rendrez compte,
+
+134
+00:04:03,853 --> 00:04:04,553
+si vous programmez
+
+135
+00:04:04,653 --> 00:04:05,847
+dans d'autres langages que Python,
+
+136
+00:04:05,947 --> 00:04:07,770
+que lire un code écrit
+
+137
+00:04:07,870 --> 00:04:08,822
+avec une convention de codage
+
+138
+00:04:08,922 --> 00:04:09,629
+qui n'est pas la vôtre
+
+139
+00:04:09,729 --> 00:04:11,225
+rend extrêmement difficile
+
+140
+00:04:11,325 --> 00:04:13,655
+l'interprétation ou la lecture de ce code.
+
+141
+00:04:13,755 --> 00:04:15,158
+En Python, vous n'avez pas ce problème
+
+142
+00:04:15,258 --> 00:04:17,104
+puisque la convention de codage
+
+143
+00:04:17,204 --> 00:04:18,423
+fait partie de la syntaxe.
+
+144
+00:04:18,523 --> 00:04:20,072
+Si vous ne respectez pas
+
+145
+00:04:20,172 --> 00:04:21,478
+la convention de codage,
+
+146
+00:04:21,578 --> 00:04:22,828
+vous aurez une erreur de syntaxe
+
+147
+00:04:22,928 --> 00:04:24,598
+donc votre code ne s'exécutera pas.
+
+148
+00:04:24,698 --> 00:04:26,322
+L'avantage de ça, c'est qu'en Python,
+
+149
+00:04:26,422 --> 00:04:27,952
+vous n'avez qu'une seule manière
+
+150
+00:04:28,052 --> 00:04:29,321
+de présenter votre code.
+
+151
+00:04:29,588 --> 00:04:31,553
+Regardons cela.
+
+152
+00:04:31,653 --> 00:04:33,807
+Ici, j'ai un code avec des accolades et
+
+153
+00:04:33,907 --> 00:04:36,104
+des points virgules à la manière de Java.
+
+154
+00:04:36,204 --> 00:04:37,956
+En Python, vous supprimez
+
+155
+00:04:38,056 --> 00:04:39,028
+tout ce qui est point virgule,
+
+156
+00:04:39,128 --> 00:04:40,933
+la fin d'une instruction, c'est le retour chariot,
+
+157
+00:04:41,033 --> 00:04:43,176
+vous supprimez tout ce qui est accolade
+
+158
+00:04:43,276 --> 00:04:45,081
+les blocs d'instructions sont tous décalés
+
+159
+00:04:45,181 --> 00:04:46,638
+de 4 caractères vers la droite,
+
+160
+00:04:46,738 --> 00:04:49,966
+et vous n'avez que ce fameux symbole ':'
+
+161
+00:04:50,363 --> 00:04:52,008
+Vous pouvez vous demander mais pourquoi
+
+162
+00:04:52,108 --> 00:04:53,516
+est-ce que je garde quand même le : ?
+
+163
+00:04:53,616 --> 00:04:56,915
+En fait, vous gardez le : parce que ce :
+
+164
+00:04:57,015 --> 00:05:00,372
+a été l'objet de tests utilisateurs
+
+165
+00:05:00,472 --> 00:05:01,876
+et on s'est rendu compte que
+
+166
+00:05:01,976 --> 00:05:03,937
+pour les utilisateurs, c'était plus facile de
+
+167
+00:05:04,037 --> 00:05:05,942
+détecter qu'il y avait des blocs d'instructions
+
+168
+00:05:06,042 --> 00:05:08,471
+lorsqu'ils étaient précédés d'un :
+
+169
+00:05:09,398 --> 00:05:11,983
+Le fait que Python utilise l'indentation
+
+170
+00:05:12,083 --> 00:05:13,323
+comme base de sa syntaxe
+
+171
+00:05:13,423 --> 00:05:15,473
+n'a presque que des avantages ;
+
+172
+00:05:15,573 --> 00:05:17,053
+ça vous permet d'avoir un code
+
+173
+00:05:17,153 --> 00:05:18,741
+écrit toujours de la même manière,
+
+174
+00:05:18,841 --> 00:05:20,425
+extrêmement bien présenté,
+
+175
+00:05:20,525 --> 00:05:22,242
+facile à lire, facile à écrire.
+
+176
+00:05:22,342 --> 00:05:24,401
+Il a cependant un seul inconvénient,
+
+177
+00:05:24,501 --> 00:05:28,606
+c'est que cette convention, cette syntaxe
+
+178
+00:05:28,706 --> 00:05:29,869
+qui est basée sur l'indentation
+
+179
+00:05:29,969 --> 00:05:31,893
+ne supporte pas très bien le copier-coller.
+
+180
+00:05:31,993 --> 00:05:33,731
+Par conséquent, ma recommandation est
+
+181
+00:05:33,831 --> 00:05:35,396
+lorsque vous copiez-collez du code,
+
+182
+00:05:35,496 --> 00:05:37,160
+par exemple, que vous récupérez d'internet
+
+183
+00:05:37,260 --> 00:05:38,479
+ou d'autres morceaux de code,
+
+184
+00:05:38,579 --> 00:05:40,537
+vous devez toujours très attentivement
+
+185
+00:05:40,637 --> 00:05:42,652
+vérifier que l'indentation respecte
+
+186
+00:05:42,752 --> 00:05:43,930
+ce que vous voulez faire.
+
+187
+00:05:44,747 --> 00:05:46,642
+Ensuite cette convention de codage
+
+188
+00:05:46,742 --> 00:05:48,069
+qui décale les blocs d'instructions
+
+189
+00:05:48,169 --> 00:05:49,522
+de 4 caractères vers la droite
+
+190
+00:05:49,622 --> 00:05:51,603
+a la tendance à créer des lignes
+
+191
+00:05:51,703 --> 00:05:52,664
+qui sont un petit peu grandes.
+
+192
+00:05:52,764 --> 00:05:54,191
+En Python, on vous recommande
+
+193
+00:05:54,291 --> 00:05:57,534
+de ne pas dépasser 79 caractères
+
+194
+00:05:57,634 --> 00:05:58,573
+sur une seule ligne ;
+
+195
+00:05:58,673 --> 00:06:00,173
+l'idée est de pouvoir, même si aujourd'hui
+
+196
+00:06:00,273 --> 00:06:01,767
+on a des écrans très grands,
+
+197
+00:06:01,867 --> 00:06:03,887
+de pouvoir mettre plusieurs éditeurs
+
+198
+00:06:03,987 --> 00:06:05,359
+l'un à côté de l'autre,
+
+199
+00:06:05,459 --> 00:06:06,495
+et puis de toute manière,
+
+200
+00:06:06,595 --> 00:06:08,003
+c'est plus facile de lire des lignes
+
+201
+00:06:08,103 --> 00:06:08,611
+qui sont courtes
+
+202
+00:06:08,711 --> 00:06:09,753
+que des lignes qui sont longues.
+
+203
+00:06:10,165 --> 00:06:11,966
+En Python, on vous encourage à avoir
+
+204
+00:06:12,066 --> 00:06:13,357
+peu de niveaux d'imbrications
+
+205
+00:06:13,457 --> 00:06:14,011
+de blocs de code
+
+206
+00:06:14,111 --> 00:06:16,050
+pour essayer de rester à ce niveau
+
+207
+00:06:16,150 --> 00:06:19,905
+de 79 colonnes par fichier.
+
+208
+00:06:21,318 --> 00:06:23,030
+Pour finir, Python vous permet
+
+209
+00:06:23,130 --> 00:06:24,691
+assez facilement de retourner à la ligne
+
+210
+00:06:24,791 --> 00:06:26,583
+tout ce qui est entre parenthèses,
+
+211
+00:06:26,683 --> 00:06:29,110
+entre crochets ou entre accolades
+
+212
+00:06:29,210 --> 00:06:30,841
+supporte le retour chariot
+
+213
+00:06:30,941 --> 00:06:32,070
+sans créer de problème
+
+214
+00:06:32,170 --> 00:06:33,193
+dans la syntaxe de Python.
+
+215
+00:06:33,293 --> 00:06:35,135
+Par exemple, si vous avez une grande liste
+
+216
+00:06:35,235 --> 00:06:36,367
+ou un grand nombre d'expressions
+
+217
+00:06:36,467 --> 00:06:37,568
+séparées par des parenthèses,
+
+218
+00:06:37,668 --> 00:06:38,739
+vous pouvez très facilement
+
+219
+00:06:38,839 --> 00:06:39,577
+faire un retour chariot,
+
+220
+00:06:39,677 --> 00:06:42,344
+et votre éditeur vous permettra
+
+221
+00:06:42,444 --> 00:06:43,790
+de bien aligner ces instructions
+
+222
+00:06:43,890 --> 00:06:45,864
+tout en respectant la syntaxe
+
+223
+00:06:45,964 --> 00:06:46,661
+des blocs d'instructions.
+
+224
+00:06:46,761 --> 00:06:47,980
+À bientôt !
+

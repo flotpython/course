@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les tableaux numpy
+## Temp total: (12m30)
+
+## Sujet de la vidéo (30s)
+
+>>>>>>>>>> INCLUDE W7-S2-AV-slide1.pptx <<<<<<<<<<
+
+numpy est la librairie Python qui permet de manipuler des tableaux
+multidimensionnels que l'on appelle ndarray pour n-dimensional
+array. Il existe [quatre concepts majeur] à maitriser en numpy, les
+ndarray, l'indexation, la vectorisation et le broadcasting.
+
+Dans cette vidéo, nous allons introduire la notion de ndarray que
+l'on appelle également tableau. Nous couvrirons les autres concepts
+dans les vidéos suivantes.
+
+
+### Notion de ndarray (30s)
+
+Les tableaux numpy ont deux caractéristiques qui réduisent leur
+souplesse (par rapport aux listes), mais qui permettent d'importantes
+optimisations : un tableau numpy est stocké sur une zone de mémoire
+contiguë et tous les éléments d'un tableau ont le même type. Cela
+permet d'avoir des fonctions écrites en C et spécialisées pour chaque
+type d'éléments autorisé dans un tableau. Et cela permet également de
+parcourir les éléments d'un tableau de manière très efficace.
+
+Ouvrons un notebook pour commencer à jouer avec les tableaux numpy.
+
+>>>>>>>>>> INCLUDE w7-s2-av-exo1.py <<<<<<<<<< (11m00)
+
+
+
+### Conclusion (30s)
+
+Dans cette vidéo, nous avons vu la notion de tableau numpy que l'on
+appelle ndarray. Un tableau numpy contient uniquement des [éléments homogènes], c'est-à-dire du
+même type et de même taille et est stocké dans une zone de mémoire
+contiguë. Les tableaux sont mutables, on peut donc changer la valeur
+des éléments stockés, mais on ne peut pas en changer le nombre
+d'éléments.
+
+Il est classique en data science, d'avoir des valeurs numériques
+invalides. On les représente en générale par une valeur nan qui
+signifie not a number.
+
+À bientôt

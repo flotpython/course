@@ -1,0 +1,1356 @@
+1
+00:00:04,019 --> 00:00:05,755
+Nous avons vu, dans une précédente vidéo,
+
+2
+00:00:05,955 --> 00:00:06,799
+la notion de décorateur,
+
+3
+00:00:06,999 --> 00:00:07,753
+et nous avons montré
+
+4
+00:00:07,953 --> 00:00:09,973
+que nous pouvions implémenter un décorateur,
+
+5
+00:00:10,173 --> 00:00:11,114
+sous forme d'une classe.
+
+6
+00:00:11,314 --> 00:00:13,053
+Cependant, vous savez qu'un décorateur,
+
+7
+00:00:13,253 --> 00:00:15,316
+c'est un callable qui retourne un callable.
+
+8
+00:00:15,516 --> 00:00:16,845
+Ça veut, donc, dire qu'on pourrait tout à fait
+
+9
+00:00:17,045 --> 00:00:18,129
+implémenter un décorateur
+
+10
+00:00:18,329 --> 00:00:19,535
+sous forme d'une fonction
+
+11
+00:00:19,735 --> 00:00:20,946
+qui retourne une fonction.
+
+12
+00:00:21,146 --> 00:00:23,663
+Pour cela, on utilise une technique
+
+13
+00:00:23,863 --> 00:00:25,236
+qui s'appelle la clôture.
+
+14
+00:00:25,436 --> 00:00:26,551
+Donc, avant d'expliquer cette technique,
+
+15
+00:00:26,751 --> 00:00:27,883
+il faut que je vous explique ce qu'est
+
+16
+00:00:28,083 --> 00:00:29,372
+une variable libre, en Python.
+
+17
+00:00:29,572 --> 00:00:31,880
+En Python, nous disons qu'une variable est libre,
+
+18
+00:00:32,080 --> 00:00:33,989
+lorsqu'elle n'est ni locale, ni globale.
+
+19
+00:00:34,189 --> 00:00:35,880
+Essentiellement, une variable libre,
+
+20
+00:00:36,080 --> 00:00:36,500
+c'est une variable
+
+21
+00:00:36,700 --> 00:00:39,048
+qui est contenue dans une fonction englobante.
+
+22
+00:00:39,248 --> 00:00:41,546
+Et, on dit, qu'en Python, on a une clôture
+
+23
+00:00:41,746 --> 00:00:43,033
+ou qu'une fonction est une clôture,
+
+24
+00:00:43,233 --> 00:00:44,480
+lorsqu'on a une fonction
+
+25
+00:00:44,680 --> 00:00:46,293
+qui référence des variables libres.
+
+26
+00:00:46,493 --> 00:00:48,487
+Ouvrons maintenant un éditeur IDLE
+
+27
+00:00:48,687 --> 00:00:50,344
+pour jouer avec cette notion de clôture.
+
+28
+00:00:52,180 --> 00:00:53,583
+Regardons maintenant un exemple.
+
+29
+00:00:53,783 --> 00:00:56,422
+Je vais définir, dans mon éditeur,
+
+30
+00:00:56,622 --> 00:00:58,480
+une variable y qui est égale à 3,
+
+31
+00:00:58,680 --> 00:01:01,160
+et une fonction, que je vais appeler incremente,
+
+32
+00:01:01,360 --> 00:01:04,566
+qui prend un argument x.
+
+33
+00:01:04,766 --> 00:01:07,513
+Et ensuite, ma fonction va simplement faire
+
+34
+00:01:07,713 --> 00:01:10,260
+un return x+y.
+
+35
+00:01:10,460 --> 00:01:12,039
+Donc, nous voyons, qu'ici, nous avons une fonction
+
+36
+00:01:12,239 --> 00:01:15,077
+tout à fait classique, qui n'a rien de particulier.
+
+37
+00:01:15,277 --> 00:01:16,892
+En fait, cette fonction n'est pas ce qu'on appelle,
+
+38
+00:01:17,092 --> 00:01:18,013
+en Python, une clôture,
+
+39
+00:01:18,213 --> 00:01:19,746
+puisqu'elle ne référence pas de variables libre,
+
+40
+00:01:19,946 --> 00:01:21,277
+parce que je n'ai pas de variables libre.
+
+41
+00:01:21,477 --> 00:01:22,560
+Donc maintenant, regardons
+
+42
+00:01:22,760 --> 00:01:23,922
+une vraie implémentation de clôture.
+
+43
+00:01:24,122 --> 00:01:26,139
+Donc, je vais définir une fonction,
+
+44
+00:01:26,339 --> 00:01:29,096
+mais, au lieu de l'appeler directement incremente,
+
+45
+00:01:29,296 --> 00:01:30,413
+je vais appeler une fonction
+
+46
+00:01:30,613 --> 00:01:34,218
+que je vais appeler plus_n
+
+47
+00:01:34,418 --> 00:01:36,275
+qui prend un argument y.
+
+48
+00:01:36,475 --> 00:01:37,516
+Donc, je vous rappelle que
+
+49
+00:01:37,716 --> 00:01:39,493
+les paramètres d'une fonction
+
+50
+00:01:39,693 --> 00:01:42,999
+sont des variables locales de cette fonction.
+
+51
+00:01:45,856 --> 00:01:49,755
+Et ensuite, je vais définir ma fonction incremente
+
+52
+00:01:49,955 --> 00:01:51,652
+qui va retourner x plus y
+
+53
+00:01:51,852 --> 00:01:55,461
+Et après, lorsque j'appelle ma fonction plus_n,
+
+54
+00:01:55,661 --> 00:02:00,489
+cette fonction va retourner incremente.
+
+55
+00:02:00,689 --> 00:02:03,358
+Donc ici, regardons ce que j'ai.
+
+56
+00:02:03,558 --> 00:02:06,641
+J'ai une fonction qui s'appelle plus_n
+
+57
+00:02:06,841 --> 00:02:08,536
+qui a un paramètre y.
+
+58
+00:02:08,736 --> 00:02:10,481
+Cette fonction définit une fonction incremente
+
+59
+00:02:10,681 --> 00:02:15,133
+qui prend un paramètre x et qui va retourner x+y.
+
+60
+00:02:15,333 --> 00:02:16,581
+y est une variable libre,
+
+61
+00:02:16,781 --> 00:02:18,760
+donc ma fonction incremente est une clôture,
+
+62
+00:02:18,960 --> 00:02:21,236
+et ma fonction plus_n retourne incremente.
+
+63
+00:02:21,436 --> 00:02:23,578
+Regardons comment ça se manipule, en pratique.
+
+64
+00:02:23,778 --> 00:02:27,119
+Donc je vais définir une variable plus3
+
+65
+00:02:27,319 --> 00:02:32,066
+qui est égale à plus_n(3).
+
+66
+00:02:32,266 --> 00:02:33,109
+Donc qu'est-ce que ça va faire?
+
+67
+00:02:33,309 --> 00:02:35,048
+Ça va appeler ma fonction plus_n
+
+68
+00:02:35,248 --> 00:02:36,535
+ça lui passe 3 comme argument,
+
+69
+00:02:36,735 --> 00:02:39,447
+et ça va retourner ma fonction incremente.
+
+70
+00:02:39,647 --> 00:02:41,591
+Sauf que ma fonction incremente, elle va garder
+
+71
+00:02:41,791 --> 00:02:44,227
+un lien vers cette variable libre y.
+
+72
+00:02:44,427 --> 00:02:46,074
+Donc, ça veut dire que ma fonction incremente,
+
+73
+00:02:46,274 --> 00:02:51,025
+à chaque fois que je l'appellerai, elle va retourner x+3.
+
+74
+00:02:51,225 --> 00:02:57,317
+y étant la référence vers cet entier 3.
+
+75
+00:02:57,517 --> 00:02:58,387
+Donc, j'exécute ça.
+
+76
+00:02:58,587 --> 00:03:00,892
+Et maintenant, je fais un plus3(10).
+
+77
+00:03:01,092 --> 00:03:01,971
+Et regardons le résultat.
+
+78
+00:03:02,171 --> 00:03:03,954
+Je vois bien apparaître 13.
+
+79
+00:03:04,154 --> 00:03:06,546
+Donc, pour ceux qui aiment voir les détails
+
+80
+00:03:06,746 --> 00:03:11,824
+d'implémentation, cette fonction plus3 a un attribut,
+
+81
+00:03:12,024 --> 00:03:12,889
+qu'on appelle __cloture__
+
+82
+00:03:13,089 --> 00:03:19,200
+que, pardon, qu'on appelle __closure__.
+
+83
+00:03:19,400 --> 00:03:23,292
+Voilà et donc, cet attribut garde une référence
+
+84
+00:03:23,492 --> 00:03:24,696
+vers toutes les variables libres.
+
+85
+00:03:24,896 --> 00:03:25,814
+Donc, en fait, c'est un tuple
+
+86
+00:03:26,014 --> 00:03:27,913
+qui garde les références vers les variables libres.
+
+87
+00:03:28,113 --> 00:03:29,575
+Et si je prends le premier élément,
+
+88
+00:03:29,775 --> 00:03:32,484
+et que j'appelle l'argument cell_contents,
+
+89
+00:03:32,684 --> 00:03:35,435
+je vais bien voir la référence vers l'entier 3.
+
+90
+00:03:36,925 --> 00:03:38,547
+Regardons, maintenant, comment implémenter
+
+91
+00:03:38,747 --> 00:03:41,082
+un décorateur, en utilisant cette notion de clôture.
+
+92
+00:03:41,282 --> 00:03:42,613
+Donc, maintenant, imaginons que je veuille écrire
+
+93
+00:03:42,813 --> 00:03:44,381
+un décorateur qui vous permet de calculer
+
+94
+00:03:44,581 --> 00:03:46,518
+le temps d'exécution d'une fonction.
+
+95
+00:03:46,718 --> 00:03:49,948
+Donc, je vais d'abord importer le module time,
+
+96
+00:03:50,148 --> 00:03:50,660
+puis ensuite, je vais définir
+
+97
+00:03:50,860 --> 00:03:52,148
+une fonction que j'appelle timer.
+
+98
+00:03:52,208 --> 00:03:53,374
+timer, c'est mon décorateur.
+
+99
+00:03:53,574 --> 00:03:54,945
+timer prend un argument :
+
+100
+00:03:55,145 --> 00:03:56,883
+c'est la fonction f que je vais décorer.
+
+101
+00:03:57,083 --> 00:04:01,437
+Ensuite, timer définit une fonction wrapper,
+
+102
+00:04:01,637 --> 00:04:02,677
+donc ça va être ma clôture,
+
+103
+00:04:02,877 --> 00:04:06,037
+qui prend une signature *args, **dargs,
+
+104
+00:04:06,237 --> 00:04:08,345
+dont je vous rappelle que cette signature * **
+
+105
+00:04:08,545 --> 00:04:09,957
+me permet d'accepter n'importe
+
+106
+00:04:10,157 --> 00:04:11,361
+quelle combinaison d'arguments.
+
+107
+00:04:11,561 --> 00:04:12,385
+C'est donc un décorateur
+
+108
+00:04:12,585 --> 00:04:14,729
+qui pourra décorer absolument n'importe quelle fonction.
+
+109
+00:04:14,929 --> 00:04:16,908
+Ensuite, je définis une variable start
+
+110
+00:04:17,108 --> 00:04:19,005
+qui prend le temps, maintenant,
+
+111
+00:04:19,205 --> 00:04:20,570
+le temps à l'appel de wrapper.
+
+112
+00:04:20,770 --> 00:04:24,096
+Dans la variable res, je mets
+
+113
+00:04:24,296 --> 00:04:25,904
+le résultat d'appel de ma fonction.
+
+114
+00:04:26,104 --> 00:04:26,662
+Donc, j'exécute ma fonction
+
+115
+00:04:26,862 --> 00:04:29,490
+et je prends sa valeur de retour, dans la variable res.
+
+116
+00:04:29,690 --> 00:04:32,670
+Je l'appelle avec la signature * **
+
+117
+00:04:32,870 --> 00:04:34,522
+qui permet, encore une fois, de pouvoir passer
+
+118
+00:04:34,722 --> 00:04:35,801
+n'importe quelle combinaison d'arguments
+
+119
+00:04:36,001 --> 00:04:36,722
+à ma fonction.
+
+120
+00:04:36,922 --> 00:04:37,913
+Donc, c'est un décorateur tout à fait général.
+
+121
+00:04:38,113 --> 00:04:41,601
+Et ensuite, je vais afficher, avec une f-string,
+
+122
+00:04:41,801 --> 00:04:43,414
+le temps d'exécution qui est, essentiellement,
+
+123
+00:04:43,614 --> 00:04:46,735
+le temps maintenant time.time() - start
+
+124
+00:04:46,935 --> 00:04:48,755
+Et ensuite, je retourne la valeur de
+
+125
+00:04:48,955 --> 00:04:50,955
+retour de ma fonction.
+
+126
+00:04:51,155 --> 00:04:54,795
+Et puis, mon décorateur timer va retourner wrapper
+
+127
+00:04:54,995 --> 00:04:55,469
+puisque, je vous rappelle,
+
+128
+00:04:55,669 --> 00:04:57,890
+qu'un décorateur doit retourner un callable.
+
+129
+00:04:58,090 --> 00:05:00,211
+Le callable, que je retourne, c'est wrapper.
+
+130
+00:05:00,411 --> 00:05:03,700
+Donc maintenant, je décore ma fonction avec @timer
+
+131
+00:05:03,900 --> 00:05:04,703
+et ma fonction, c'est une fonction
+
+132
+00:05:04,903 --> 00:05:06,188
+que j'appelle sum_poly5
+
+133
+00:05:06,388 --> 00:05:11,038
+qui va simplement calculer la somme des puissances 5
+
+134
+00:05:11,238 --> 00:05:12,976
+des entiers allant de zéro à n-1.
+
+135
+00:05:13,176 --> 00:05:15,482
+Et donc, je mets ça dans une expression génératrice.
+
+136
+00:05:15,682 --> 00:05:17,336
+Et je calcule la somme de cette expression génératrice.
+
+137
+00:05:17,536 --> 00:05:18,578
+Je vous rappelle, au passage,
+
+138
+00:05:18,778 --> 00:05:20,798
+que l'avantage de cette syntaxe, c'est que
+
+139
+00:05:20,998 --> 00:05:22,885
+je ne crée aucune structure de données temporaire.
+
+140
+00:05:23,085 --> 00:05:27,474
+Et maintenant, j'appelle sum_poly5 sur un million,
+
+141
+00:05:27,674 --> 00:05:29,688
+et je vois que le temps d'exécution s'affiche :
+
+142
+00:05:29,888 --> 00:05:32,765
+j'ai bien 0,47 seconde.
+
+143
+00:05:34,783 --> 00:05:35,992
+Donc maintenant, j'ai une limitation
+
+144
+00:05:36,192 --> 00:05:38,778
+avec cette notation de décorateur.
+
+145
+00:05:38,978 --> 00:05:42,383
+En fait, la limitation de ma clôture, c'est qu'une clôture
+
+146
+00:05:42,583 --> 00:05:45,413
+ne me permet pas de modifier les variables libres.
+
+147
+00:05:45,613 --> 00:05:47,637
+En effet, si jamais, je fais une affectation
+
+148
+00:05:47,837 --> 00:05:49,570
+localement d'une variable libre,
+
+149
+00:05:49,770 --> 00:05:51,626
+cette variable va devenir une variable locale.
+
+150
+00:05:51,826 --> 00:05:53,363
+Or, ça peut poser un problème
+
+151
+00:05:53,563 --> 00:05:54,319
+parce que je peux tout à fait
+
+152
+00:05:54,519 --> 00:05:55,769
+vouloir modifier des variables libres.
+
+153
+00:05:55,969 --> 00:05:56,623
+Prenons un exemple simple.
+
+154
+00:05:56,823 --> 00:05:58,642
+Par exemple, pour maintenir un compteur
+
+155
+00:05:58,842 --> 00:06:00,293
+qui compte le nombre d'appels d'une fonction.
+
+156
+00:06:00,493 --> 00:06:02,109
+Alors comment est-ce que je peux faire ça?
+
+157
+00:06:02,309 --> 00:06:03,715
+En fait, je vais vous présenter, dans la suite,
+
+158
+00:06:03,915 --> 00:06:05,243
+deux techniques qui permettent
+
+159
+00:06:05,443 --> 00:06:09,078
+de garder un compteur, lorsque j'appelle un décorateur.
+
+160
+00:06:09,278 --> 00:06:10,203
+Donc, regardons ça.
+
+161
+00:06:10,403 --> 00:06:16,404
+La première technique utilise l'instruction nonlocal que
+
+162
+00:06:16,604 --> 00:06:18,945
+nous avons déjà vue lorsqu'on a introduit les fonctions,
+
+163
+00:06:19,145 --> 00:06:20,963
+et la deuxième technique utilise ce qu'on appelle
+
+164
+00:06:21,163 --> 00:06:21,926
+un attribut de fonction.
+
+165
+00:06:22,126 --> 00:06:23,572
+Je vais, maintenant, vous présenter
+
+166
+00:06:23,772 --> 00:06:24,688
+chacune de ces techniques.
+
+167
+00:06:24,888 --> 00:06:28,011
+Commençons par regarder l'instruction nonlocal.
+
+168
+00:06:28,211 --> 00:06:30,998
+Donc pour ça, je vais définir un décorateur
+
+169
+00:06:31,198 --> 00:06:32,571
+qui va compter le nombre d'appels
+
+170
+00:06:32,771 --> 00:06:34,096
+que je fais à une fonction.
+
+171
+00:06:34,296 --> 00:06:36,603
+Donc, je définis un décorateur
+
+172
+00:06:36,803 --> 00:06:37,763
+que j'appelle trace_call
+
+173
+00:06:37,963 --> 00:06:39,643
+qui prend comme argument ma fonction à décorer.
+
+174
+00:06:39,843 --> 00:06:43,288
+Je vais maintenir un compteur dans mon décorateur
+
+175
+00:06:43,488 --> 00:06:45,339
+que j'appelle called, que j'initialise à 0,
+
+176
+00:06:45,539 --> 00:06:47,188
+et ensuite, je définis mon wrapper,
+
+177
+00:06:47,388 --> 00:06:48,718
+encore une fois, wrapper générique
+
+178
+00:06:48,918 --> 00:06:50,772
+qui accepte des arguments **.
+
+179
+00:06:50,972 --> 00:06:52,987
+Dans mon wrapper, je dis que called
+
+180
+00:06:53,187 --> 00:06:54,107
+est une variable nonlocal.
+
+181
+00:06:54,307 --> 00:06:56,487
+Je vous rappelle que l'instruction nonlocal
+
+182
+00:06:56,687 --> 00:06:58,903
+permet de dire que maintenant called,
+
+183
+00:06:59,103 --> 00:07:00,882
+ça n'est plus une variable locale à wrapper,
+
+184
+00:07:01,082 --> 00:07:04,366
+c'est la variable libre called, définie dans trace_call.
+
+185
+00:07:04,566 --> 00:07:06,104
+Et dont, nonlocal me permet de
+
+186
+00:07:06,304 --> 00:07:07,592
+modifier cette variable libre.
+
+187
+00:07:07,792 --> 00:07:10,933
+Ensuite donc, je vais faire called = called+1,
+
+188
+00:07:11,133 --> 00:07:12,302
+C'est donc le called de la variable libre
+
+189
+00:07:12,502 --> 00:07:14,502
+que je vais modifier.
+
+190
+00:07:14,702 --> 00:07:17,370
+Et ensuite, j'affiche simplement le résultat,
+
+191
+00:07:17,570 --> 00:07:19,749
+donc je veux dire : "j'ai tant d'appels de ma fonction f".
+
+192
+00:07:19,949 --> 00:07:24,415
+Je retourne le vrai appel de ma fonction f
+
+193
+00:07:24,615 --> 00:07:25,983
+donc, ça veut que wrapper va retourner
+
+194
+00:07:26,183 --> 00:07:27,389
+l'appel de cette fonction,
+
+195
+00:07:27,589 --> 00:07:28,510
+donc la fonction va être appelée,
+
+196
+00:07:28,710 --> 00:07:30,160
+je vais avoir sa valeur de retour.
+
+197
+00:07:30,360 --> 00:07:32,136
+Et pour finir, mon décorateur retournera le wrapper,
+
+198
+00:07:32,336 --> 00:07:34,317
+puisque il doit retourner un callable.
+
+199
+00:07:34,517 --> 00:07:36,540
+Donc maintenant, faisant un trace_call
+
+200
+00:07:36,740 --> 00:07:37,819
+d'une fonction toute simple,
+
+201
+00:07:38,019 --> 00:07:39,625
+donc ma fonction ne fait rien de spécifique.
+
+202
+00:07:39,825 --> 00:07:40,663
+Mais, c'est juste pour tracer
+
+203
+00:07:40,863 --> 00:07:41,780
+le nombre d'appels de cette fonction.
+
+204
+00:07:41,980 --> 00:07:43,552
+J'appelle my_func,
+
+205
+00:07:43,752 --> 00:07:45,370
+et je vois que mon décorateur
+
+206
+00:07:45,570 --> 00:07:47,391
+incrémente le compteur called,
+
+207
+00:07:47,591 --> 00:07:51,245
+et m'affiche que j'ai un appel de ma fonction my_func.
+
+208
+00:07:51,445 --> 00:07:53,590
+Je rappelle une deuxième fois my_func,
+
+209
+00:07:53,790 --> 00:07:55,526
+mon compteur est incrémenté de nouveau,
+
+210
+00:07:55,726 --> 00:07:58,152
+et je vois que j'ai deux appels de ma fonction my_func.
+
+211
+00:07:58,352 --> 00:08:00,940
+Une clé de cette notion de décorateur, c'est
+
+212
+00:08:01,140 --> 00:08:03,195
+qu'à chaque fois que je vais redécorer
+
+213
+00:08:03,395 --> 00:08:05,211
+une nouvelle fonction avec trace_call,
+
+214
+00:08:05,411 --> 00:08:08,360
+je vais créer un nouveau compteur called,
+
+215
+00:08:08,560 --> 00:08:10,582
+et je vais créer un nouveau wrapper, à chaque fois.
+
+216
+00:08:10,782 --> 00:08:14,191
+Donc maintenant, regardons une deuxième manière
+
+217
+00:08:14,391 --> 00:08:16,288
+de modifier une variable libre.
+
+218
+00:08:16,488 --> 00:08:18,466
+c'est avec, ce qu'on appelle, un attribut de fonction.
+
+219
+00:08:18,666 --> 00:08:20,637
+Donc je vous montre cette deuxième manière.
+
+220
+00:08:20,837 --> 00:08:23,840
+Je définis toujours mon décorateur trace_call,
+
+221
+00:08:24,040 --> 00:08:26,708
+et je définis un wrapper, toujours mon wrapper générique.
+
+222
+00:08:26,908 --> 00:08:29,659
+Mais maintenant, dans mon wrapper,
+
+223
+00:08:29,859 --> 00:08:33,221
+je vais écrire wrapper.called = wrapper.called + 1.
+
+224
+00:08:33,421 --> 00:08:35,964
+Donc ici, au moment de l'appel, on voit que
+
+225
+00:08:36,164 --> 00:08:37,939
+je n'ai pas d'attribut called dans mon wrapper.
+
+226
+00:08:38,139 --> 00:08:39,993
+Donc, cette instruction ne devrait pas fonctionner.
+
+227
+00:08:40,193 --> 00:08:41,360
+Vous allez voir, dans quelques instants,
+
+228
+00:08:41,560 --> 00:08:42,394
+pourquoi ça fonctionne.
+
+229
+00:08:42,594 --> 00:08:44,451
+Donc, pour l'instant, gardez simplement en tête,
+
+230
+00:08:44,651 --> 00:08:46,264
+que j'ai modifié un attribut,
+
+231
+00:08:46,464 --> 00:08:49,087
+sur mon objet fonction lui-même,
+
+232
+00:08:49,287 --> 00:08:50,243
+sur mon objet wrapper.
+
+233
+00:08:50,443 --> 00:08:51,810
+Les fonctions étant des objets mutables,
+
+234
+00:08:52,010 --> 00:08:54,028
+on peut leur rajouter des attributs et les modifier.
+
+235
+00:08:54,228 --> 00:08:57,266
+Donc maintenant, j'affiche wrapper.called
+
+236
+00:08:57,466 --> 00:08:58,551
+appels de f,
+
+237
+00:08:58,751 --> 00:09:00,935
+et je retourne l'appel de ma fonction normale.
+
+238
+00:09:01,135 --> 00:09:03,117
+Mais maintenant, la clé de fonctionnement
+
+239
+00:09:03,317 --> 00:09:05,259
+de cet attribut de fonction,
+
+240
+00:09:05,459 --> 00:09:07,761
+c'est que, après la définition de ma fonction,
+
+241
+00:09:07,961 --> 00:09:10,464
+je définis un attribut called sur wrapper.
+
+242
+00:09:10,664 --> 00:09:11,990
+Donc pourquoi ça fonctionne?
+
+243
+00:09:12,190 --> 00:09:13,440
+Ça fonctionne parce que,
+
+244
+00:09:13,640 --> 00:09:15,699
+tant que je n'ai pas appelé wrapper,
+
+245
+00:09:15,899 --> 00:09:17,430
+le bloc de code de ma fonction n'est pas appelé.
+
+246
+00:09:17,630 --> 00:09:18,712
+Par conséquent, je n'appelle pas
+
+247
+00:09:18,912 --> 00:09:20,565
+wrapper.called = wrapper.called + 1.
+
+248
+00:09:20,765 --> 00:09:22,294
+Donc, au moment de l'appel de ce wrapper,
+
+249
+00:09:22,494 --> 00:09:24,027
+l'attribut called  sur le wrapper
+
+250
+00:09:24,227 --> 00:09:26,692
+aura déjà été créé.
+
+251
+00:09:26,892 --> 00:09:30,516
+Et donc ensuite mon décorateur retourne wrapper
+
+252
+00:09:30,716 --> 00:09:32,320
+Donc maintenant, je décore, comme précédemment,
+
+253
+00:09:32,520 --> 00:09:34,134
+ma fonction avec trace_call.
+
+254
+00:09:34,334 --> 00:09:37,004
+Et je peux appeler ma fonction une fois,
+
+255
+00:09:37,204 --> 00:09:39,104
+et je peux l'appeler deux fois, et je vois bien
+
+256
+00:09:39,304 --> 00:09:42,171
+que j'ai le compteur d'appels qui est incrémenté.
+
+257
+00:09:43,840 --> 00:09:45,004
+Alors maintenant la question qu'on peut se poser
+
+258
+00:09:45,204 --> 00:09:46,777
+c'est : comment garder les métadonnées
+
+259
+00:09:46,977 --> 00:09:48,059
+de ma fonction décorée ?
+
+260
+00:09:48,259 --> 00:09:50,601
+En effet, vous n'avez peut-être pas noté ce point,
+
+261
+00:09:50,801 --> 00:09:51,965
+qui est un point important,
+
+262
+00:09:52,165 --> 00:09:54,557
+c'est que maintenant, votre variable f
+
+263
+00:09:54,757 --> 00:09:56,121
+ne référence plus la fonction originale,
+
+264
+00:09:56,321 --> 00:09:57,277
+mais référence un nouvel objet
+
+265
+00:09:57,477 --> 00:09:58,353
+qui s'appelle wrapper.
+
+266
+00:09:58,553 --> 00:10:01,024
+Donc, ça veut dire que le nom de cet objet fonction
+
+267
+00:10:01,224 --> 00:10:02,548
+est différent de la fonction originale,
+
+268
+00:10:02,748 --> 00:10:04,766
+et que tout ce qui est docstring, par exemple,
+
+269
+00:10:04,966 --> 00:10:05,884
+est également différent.
+
+270
+00:10:06,084 --> 00:10:08,023
+Donc, je vais vous montrer cet exemple.
+
+271
+00:10:08,223 --> 00:10:11,654
+Je redéfinis mon décorateur trace_call
+
+272
+00:10:11,854 --> 00:10:15,006
+avec un décorateur qui est implémenté
+
+273
+00:10:15,206 --> 00:10:17,555
+avec une technique d'attribut de fonction.
+
+274
+00:10:17,755 --> 00:10:18,960
+Et maintenant, dans ma fonction,
+
+275
+00:10:19,160 --> 00:10:20,845
+je définis une docstring,
+
+276
+00:10:21,045 --> 00:10:22,533
+documentation pour my_func.
+
+277
+00:10:22,733 --> 00:10:24,504
+Maintenant, regardons ce qui se passe
+
+278
+00:10:24,704 --> 00:10:27,211
+si j'appelle help sur my_func.
+
+279
+00:10:27,411 --> 00:10:29,436
+En fait, help sur my_func,
+
+280
+00:10:29,636 --> 00:10:32,349
+my_func, maintenant, référence l'objet wrapper,
+
+281
+00:10:32,549 --> 00:10:34,288
+donc, en fait, ça n'est plus l'objet my_func
+
+282
+00:10:34,488 --> 00:10:35,365
+qui est référencé mais l'objet wrapper.
+
+283
+00:10:35,565 --> 00:10:37,460
+dont help va me dire, voici l'aide de wrapper
+
+284
+00:10:37,660 --> 00:10:39,067
+et comme l'objet wrapper n'a pas
+
+285
+00:10:39,267 --> 00:10:40,353
+la docstring de my_func,
+
+286
+00:10:40,553 --> 00:10:42,038
+je ne vois pas cette docstring apparaître.
+
+287
+00:10:42,238 --> 00:10:43,603
+Donc ça, c'est un petit peu gênant parce que,
+
+288
+00:10:43,803 --> 00:10:46,391
+d'un point de vue technique de programmation,
+
+289
+00:10:46,591 --> 00:10:48,280
+on aimerait que mon décorateur puisse modifier
+
+290
+00:10:48,480 --> 00:10:49,197
+ma fonction mais, de manière,
+
+291
+00:10:49,397 --> 00:10:50,275
+complètement transparente.
+
+292
+00:10:50,475 --> 00:10:52,091
+Donc, si j'appelle help sur ma fonction,
+
+293
+00:10:52,291 --> 00:10:53,816
+ma fonction soit bien la fonction originale.
+
+294
+00:10:54,016 --> 00:10:55,094
+Or, ça n'est pas le cas.
+
+295
+00:10:55,294 --> 00:10:57,716
+En fait, il existe une technique très simple
+
+296
+00:10:57,916 --> 00:10:59,329
+pour garder les métadonnées
+
+297
+00:10:59,529 --> 00:11:01,341
+de la fonction décorée, dans le wrapper.
+
+298
+00:11:01,541 --> 00:11:05,236
+Il existe un module functools
+
+299
+00:11:05,436 --> 00:11:07,821
+qui a un décorateur qui s'appelle wraps.
+
+300
+00:11:08,021 --> 00:11:09,670
+Donc, pour garder les métadonnées,
+
+301
+00:11:09,870 --> 00:11:10,625
+vous n'avez qu'à faire
+
+302
+00:11:10,825 --> 00:11:12,064
+from functools import wraps
+
+303
+00:11:12,264 --> 00:11:16,395
+et décorer votre wrapper avec wraps(f),
+
+304
+00:11:16,595 --> 00:11:18,284
+f étant évidemment la fonction à décorer.
+
+305
+00:11:18,484 --> 00:11:21,443
+Ainsi, ce décorateur va modifier le wrapper
+
+306
+00:11:21,643 --> 00:11:24,436
+pour qu'il ait, comme nom, le nom de la fonction f
+
+307
+00:11:24,636 --> 00:11:27,016
+et qu'il ait, comme docstring,
+
+308
+00:11:27,216 --> 00:11:29,236
+la docstring originale de la fonction f.
+
+309
+00:11:29,436 --> 00:11:32,187
+Donc maintenant, je décore ma fonction
+
+310
+00:11:32,387 --> 00:11:33,306
+tout à fait normalement,
+
+311
+00:11:33,506 --> 00:11:36,082
+avec sa docstring documentation pour my_func.
+
+312
+00:11:36,282 --> 00:11:39,229
+Et maintenant, si j'appelle help sur my_func,
+
+313
+00:11:39,429 --> 00:11:40,387
+regardons ce qu'on observe.
+
+314
+00:11:40,587 --> 00:11:42,485
+On observe que j'ai bien le bon nom de fonction,
+
+315
+00:11:42,685 --> 00:11:45,106
+my_func, et que j'ai bien la bonne docstring.
+
+316
+00:11:45,306 --> 00:11:46,469
+Donc, d'une manière générale,
+
+317
+00:11:46,669 --> 00:11:48,202
+lorsque vous écrivez un décorateur
+
+318
+00:11:48,402 --> 00:11:50,221
+avec une technique de fonction,
+
+319
+00:11:50,421 --> 00:11:51,664
+n'oubliez pas d'utiliser wraps,
+
+320
+00:11:51,864 --> 00:11:53,432
+qui vous permet de garder les bonnes métadonnées.
+
+321
+00:11:55,142 --> 00:11:56,632
+Nous venons de voir une nouvelle manière
+
+322
+00:11:56,832 --> 00:11:58,079
+d'implémenter des décorateurs
+
+323
+00:11:58,279 --> 00:11:59,855
+avec la notion de décorateur
+
+324
+00:12:00,055 --> 00:12:01,461
+implémenté sous forme de fonction.
+
+325
+00:12:01,661 --> 00:12:03,516
+Nous avions vu des décorateurs implémentés
+
+326
+00:12:03,716 --> 00:12:04,228
+sous forme de classe,
+
+327
+00:12:04,428 --> 00:12:05,343
+maintenant, nous avons vu des décorateurs
+
+328
+00:12:05,543 --> 00:12:06,989
+implémentés sous forme de fonction.
+
+329
+00:12:07,189 --> 00:12:08,191
+vous pouvez vous dire, qu'en fait,
+
+330
+00:12:08,391 --> 00:12:09,756
+ces deux méthodes sont totalement équivalentes,
+
+331
+00:12:09,956 --> 00:12:10,557
+donc je pourrais les utiliser
+
+332
+00:12:10,757 --> 00:12:11,801
+de manière interchangeable.
+
+333
+00:12:12,001 --> 00:12:13,332
+En fait, elles ne sont pas totalement équivalentes,
+
+334
+00:12:13,532 --> 00:12:15,470
+et surtout, lorsque vous faites de la programmation
+
+335
+00:12:15,670 --> 00:12:17,652
+avancée, c'est important de maîtriser
+
+336
+00:12:17,852 --> 00:12:20,112
+un large éventail de techniques de programmation.
+
+337
+00:12:20,312 --> 00:12:22,689
+Les clôtures de fonction participent à améliorer
+
+338
+00:12:22,889 --> 00:12:25,553
+votre panorama de techniques de programmation.
+
+339
+00:12:25,753 --> 00:12:27,078
+À bientôt !
+

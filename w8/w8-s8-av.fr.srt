@@ -1,0 +1,1212 @@
+﻿1
+00:00:05,135 --> 00:00:06,177
+Dans les vidéos précédentes,
+
+2
+00:00:06,277 --> 00:00:08,232
+nous avons vu la boucle d'événements,
+
+3
+00:00:08,332 --> 00:00:09,354
+nous avons vu les tâches
+
+4
+00:00:09,454 --> 00:00:11,138
+qui nous permettent d'interagir
+
+5
+00:00:11,238 --> 00:00:12,189
+avec la boucle d'événements.
+
+6
+00:00:12,289 --> 00:00:13,600
+Maintenant, nous allons voir
+
+7
+00:00:13,700 --> 00:00:17,095
+le restant du contenu de la librairie asyncio.
+
+8
+00:00:17,506 --> 00:00:19,225
+Outre les boucles d'événements,
+
+9
+00:00:19,325 --> 00:00:20,769
+je vous avais déjà dit que nous avons
+
+10
+00:00:21,341 --> 00:00:23,789
+comme contenu, un certain nombre
+
+11
+00:00:23,889 --> 00:00:25,671
+d'utilitaires de synchronisation
+
+12
+00:00:25,771 --> 00:00:27,638
+sur lesquels je vais dire quelques mots,
+
+13
+00:00:27,738 --> 00:00:28,466
+quelques exemples.
+
+14
+00:00:29,308 --> 00:00:31,611
+Il y a également des fonctionnalités
+
+15
+00:00:31,711 --> 00:00:33,185
+pour interagir avec les processus,
+
+16
+00:00:33,285 --> 00:00:34,558
+typiquement la possibilité
+
+17
+00:00:34,658 --> 00:00:36,217
+de lancer des programmes,
+
+18
+00:00:37,055 --> 00:00:39,799
+écrire ou lire sur les canaux d'entrée/sortie
+
+19
+00:00:39,899 --> 00:00:41,052
+des programmes qu'on a créés,
+
+20
+00:00:41,759 --> 00:00:43,391
+et il y a également des classes abstraites
+
+21
+00:00:44,483 --> 00:00:46,202
+qui s'adressent, principalement,
+
+22
+00:00:46,302 --> 00:00:48,552
+à tout ce qui peut être protocoles réseaux.
+
+23
+00:00:49,301 --> 00:00:51,052
+On va balayer ça rapidement.
+
+24
+00:00:52,560 --> 00:00:53,603
+Je vais utiliser
+
+25
+00:00:53,952 --> 00:00:55,984
+le même ensemble d'utilitaires
+
+26
+00:00:56,084 --> 00:00:57,445
+qu'on avait déjà vus la fois passée.
+
+27
+00:00:57,772 --> 00:01:00,067
+Et je vais vous montrer quelques exemples
+
+28
+00:01:00,167 --> 00:01:02,008
+qui utilisent une queue.
+
+29
+00:01:02,108 --> 00:01:04,841
+Une queue, c'est un design pattern
+
+30
+00:01:04,941 --> 00:01:05,865
+très répandu ;
+
+31
+00:01:05,965 --> 00:01:07,753
+il y a exactement le même paradigme
+
+32
+00:01:07,853 --> 00:01:08,571
+dans les librairies
+
+33
+00:01:08,671 --> 00:01:10,171
+qui se préoccupent de threading.
+
+34
+00:01:12,741 --> 00:01:15,600
+Je vous montre rapidement la documentation
+
+35
+00:01:16,086 --> 00:01:17,279
+Une queue, c'est un objet qui
+
+36
+00:01:17,712 --> 00:01:18,794
+a une certaine taille,
+
+37
+00:01:18,894 --> 00:01:20,768
+donc vous avez un nombre fini de slots
+
+38
+00:01:20,868 --> 00:01:21,830
+et dans ces slots,
+
+39
+00:01:21,930 --> 00:01:23,439
+vous pouvez lire et écrire
+
+40
+00:01:24,558 --> 00:01:26,113
+de manière asynchrone
+
+41
+00:01:26,213 --> 00:01:27,685
+donc la logique, c'est que
+
+42
+00:01:27,785 --> 00:01:29,984
+vous pouvez écrire tant qu'il y a de la place,
+
+43
+00:01:30,084 --> 00:01:32,992
+et puis une fois que l'ensemble des slots
+
+44
+00:01:33,092 --> 00:01:33,622
+est rempli,
+
+45
+00:01:33,722 --> 00:01:35,349
+la prochaine fois que quelqu'un essaie d'écrire
+
+46
+00:01:35,787 --> 00:01:36,740
+ça va attendre,
+
+47
+00:01:36,840 --> 00:01:38,230
+ça ne va pas bloquer dans le sens où
+
+48
+00:01:38,330 --> 00:01:39,508
+on fait de la programmation asynchrone
+
+49
+00:01:39,608 --> 00:01:41,011
+et ça va attendre qu'une place se libère ;
+
+50
+00:01:41,409 --> 00:01:43,749
+il faut donc que quelqu'un fasse une lecture
+
+51
+00:01:44,099 --> 00:01:46,261
+et une fois que cette lecture sera faite,
+
+52
+00:01:46,361 --> 00:01:47,145
+et bien, il y a une place de libre.
+
+53
+00:01:47,400 --> 00:01:49,638
+Donc c'est un système qui vous permet
+
+54
+00:01:50,011 --> 00:01:51,202
+de faire de la synchronisation ;
+
+55
+00:01:51,302 --> 00:01:51,914
+je vais vous montrer
+
+56
+00:01:52,014 --> 00:01:53,144
+deux petits exemples
+
+57
+00:01:53,244 --> 00:01:54,783
+d'utilisation de la queue.
+
+58
+00:01:56,414 --> 00:01:58,003
+Alors, pour commencer, on va faire
+
+59
+00:01:58,706 --> 00:02:01,046
+le scénario habituel
+
+60
+00:02:01,146 --> 00:02:02,709
+de consommateur et écrivain.
+
+61
+00:02:03,498 --> 00:02:05,602
+Je crée une queue de taille 1,
+
+62
+00:02:05,928 --> 00:02:06,703
+tout simplement,
+
+63
+00:02:07,617 --> 00:02:09,796
+et je vais faire une coroutine
+
+64
+00:02:09,896 --> 00:02:10,910
+qui est un producteur qui,
+
+65
+00:02:11,010 --> 00:02:12,006
+toutes les secondes,
+
+66
+00:02:12,106 --> 00:02:14,466
+va écrire dans la queue.
+
+67
+00:02:16,796 --> 00:02:17,969
+Alors, pour faire ça simplement,
+
+68
+00:02:18,069 --> 00:02:20,144
+je vais faire un await queue.put,
+
+69
+00:02:20,244 --> 00:02:21,232
+je vous ai bien expliqué que
+
+70
+00:02:21,332 --> 00:02:22,767
+put était une coroutine donc
+
+71
+00:02:22,867 --> 00:02:24,279
+il faut bien que je fasse un await,
+
+72
+00:02:24,675 --> 00:02:27,246
+et puis on verra le message
+
+73
+00:02:27,346 --> 00:02:28,676
+s'incrémenter au fur et à mesure.
+
+74
+00:02:29,050 --> 00:02:30,240
+J'évalue ma coroutine.
+
+75
+00:02:30,340 --> 00:02:31,803
+Je fais une deuxième coroutine
+
+76
+00:02:31,903 --> 00:02:35,130
+qui, elle, va, de la même façon
+
+77
+00:02:35,230 --> 00:02:37,047
+faire une boucle sans fin et qui attend,
+
+78
+00:02:38,070 --> 00:02:39,365
+qui attend en lecture
+
+79
+00:02:39,465 --> 00:02:40,532
+quelque chose dans la queue,
+
+80
+00:02:40,867 --> 00:02:44,093
+si bien que, chaque fois
+
+81
+00:02:44,193 --> 00:02:45,522
+que l'écrivain va écrire,
+
+82
+00:02:45,622 --> 00:02:47,706
+le consommateur va immédiatement
+
+83
+00:02:47,806 --> 00:02:49,799
+écrire ce qui est consommé.
+
+84
+00:02:50,207 --> 00:02:51,544
+Donc ici, j'utilise,
+
+85
+00:02:51,644 --> 00:02:54,323
+de manière assez rudimentaire, la queue.
+
+86
+00:02:56,850 --> 00:02:57,843
+Enfin, le point important est de
+
+87
+00:02:57,943 --> 00:02:59,606
+se souvenir que le consommateur
+
+88
+00:02:59,706 --> 00:03:00,843
+n'a aucune idée du tempo
+
+89
+00:03:00,943 --> 00:03:02,263
+et que vraiment, il se synchronise
+
+90
+00:03:02,363 --> 00:03:03,113
+sur le producteur,
+
+91
+00:03:03,213 --> 00:03:04,674
+là, j'ai choisi d'écrire toutes les secondes
+
+92
+00:03:04,774 --> 00:03:06,450
+mais si j'écrivais le même code
+
+93
+00:03:06,550 --> 00:03:07,950
+avec une durée random
+
+94
+00:03:08,050 --> 00:03:09,124
+entre les événements,
+
+95
+00:03:09,224 --> 00:03:10,178
+ce serait exactement la même chose ;
+
+96
+00:03:10,278 --> 00:03:11,753
+le point qu'on veut illustrer ici,
+
+97
+00:03:11,853 --> 00:03:13,191
+c'est que je peux synchroniser
+
+98
+00:03:13,668 --> 00:03:14,957
+des choses qui sont déclenchées
+
+99
+00:03:15,057 --> 00:03:15,989
+dans un producteur,
+
+100
+00:03:16,394 --> 00:03:18,812
+voir exactement le même événement
+
+101
+00:03:18,912 --> 00:03:21,779
+à peu près au même moment
+
+102
+00:03:21,879 --> 00:03:23,197
+du côté de l'autre coroutine.
+
+103
+00:03:23,982 --> 00:03:26,474
+Maintenant, pour faire tourner mon scénario,
+
+104
+00:03:26,574 --> 00:03:27,971
+je vais tout simplement ajouter
+
+105
+00:03:28,255 --> 00:03:29,534
+mes deux coroutines
+
+106
+00:03:30,214 --> 00:03:31,031
+dans la queue,
+
+107
+00:03:31,131 --> 00:03:31,926
+comme on l'a vu tout à l'heure.
+
+108
+00:03:33,177 --> 00:03:35,083
+Et, pour exécuter le scénario,
+
+109
+00:03:35,183 --> 00:03:37,994
+je vais mettre mon timer à zéro
+
+110
+00:03:38,094 --> 00:03:39,375
+et ensuite, je vais tout simplement
+
+111
+00:03:39,926 --> 00:03:41,439
+faire un run_forever
+
+112
+00:03:41,539 --> 00:03:43,638
+et vous voyez que, tout simplement,
+
+113
+00:03:44,929 --> 00:03:45,910
+comme on s'y attend,
+
+114
+00:03:46,517 --> 00:03:48,396
+le producteur est complètement synchrone
+
+115
+00:03:48,496 --> 00:03:50,125
+avec le consommateur,
+
+116
+00:03:50,225 --> 00:03:50,849
+plutôt l'inverse.
+
+117
+00:03:52,514 --> 00:03:53,599
+Dans un deuxième scénario,
+
+118
+00:03:53,699 --> 00:03:54,374
+je vais vous montrer comment
+
+119
+00:03:54,474 --> 00:03:56,102
+je peux également utiliser une queue
+
+120
+00:03:56,436 --> 00:03:57,845
+pour limiter le parallélisme.
+
+121
+00:03:57,945 --> 00:03:59,276
+Donc l'idée, ce serait, typiquement,
+
+122
+00:03:59,376 --> 00:04:01,661
+vous avez un très grand nombre d'url
+
+123
+00:04:01,761 --> 00:04:02,333
+à aller chercher,
+
+124
+00:04:03,098 --> 00:04:04,901
+mais vous ne voulez pas aller les chercher
+
+125
+00:04:05,001 --> 00:04:06,038
+toutes les dix mille en même temps
+
+126
+00:04:06,138 --> 00:04:07,200
+parce que ce n'est pas possible
+
+127
+00:04:07,300 --> 00:04:08,470
+sur votre environnement,
+
+128
+00:04:08,570 --> 00:04:09,469
+vous voulez vous dire
+
+129
+00:04:09,569 --> 00:04:11,615
+je me donne une fenêtre d'une centaine,
+
+130
+00:04:11,848 --> 00:04:13,520
+je vais en faire 100 en parallèle
+
+131
+00:04:13,620 --> 00:04:15,270
+et dès qu'une de ces requêtes
+
+132
+00:04:15,370 --> 00:04:16,002
+se sera terminée,
+
+133
+00:04:16,102 --> 00:04:18,123
+je l'enlève, je mets une autre requête
+
+134
+00:04:18,223 --> 00:04:19,926
+jusqu'à épuisement des cent mille.
+
+135
+00:04:20,026 --> 00:04:21,090
+Donc c'est typiquement le genre de chose
+
+136
+00:04:21,190 --> 00:04:22,540
+qu'on peut faire très facilement
+
+137
+00:04:22,640 --> 00:04:23,387
+avec une queue également.
+
+138
+00:04:25,130 --> 00:04:27,127
+Je me redémarre ma queue
+
+139
+00:04:27,227 --> 00:04:28,185
+pour qu'elle soit bien propre ;
+
+140
+00:04:28,285 --> 00:04:29,728
+je me crée, dans mon exemple,
+
+141
+00:04:30,204 --> 00:04:33,063
+une fenêtre de tir avec 4 emplacements ;
+
+142
+00:04:34,787 --> 00:04:37,371
+et je définis une coroutine
+
+143
+00:04:37,471 --> 00:04:38,801
+qui va faire, principalement,
+
+144
+00:04:39,244 --> 00:04:40,677
+pour se synchroniser,
+
+145
+00:04:40,743 --> 00:04:43,172
+elle va essayer d'obtenir un slot
+
+146
+00:04:43,272 --> 00:04:44,996
+dans la queue en écrivant ;
+
+147
+00:04:45,623 --> 00:04:46,790
+ça paraît un peu contre-intuitif
+
+148
+00:04:46,890 --> 00:04:48,425
+mais quand on veut obtenir un slot,
+
+149
+00:04:48,525 --> 00:04:50,871
+on écrit puisque c'est comme ça
+
+150
+00:04:50,971 --> 00:04:51,854
+que ce sera matérialisé.
+
+151
+00:04:52,985 --> 00:04:55,545
+Alors, pour illustrer le sujet,
+
+152
+00:04:55,645 --> 00:04:57,706
+je vais créer un certain nombre de jobs
+
+153
+00:04:57,806 --> 00:04:59,656
+dont la durée sera 1, 2, 3,
+
+154
+00:04:59,756 --> 00:05:01,453
+1, 2, 3, 1, 2, 3
+
+155
+00:05:01,553 --> 00:05:03,811
+C'est ce que dit cette ligne de code.
+
+156
+00:05:04,777 --> 00:05:06,938
+Et puis, à peu près, c'est tout ;
+
+157
+00:05:07,038 --> 00:05:08,827
+et lorsque le job est terminé,
+
+158
+00:05:09,638 --> 00:05:11,100
+je rends la main en faisant un get.
+
+159
+00:05:11,200 --> 00:05:12,037
+Je vous répète,
+
+160
+00:05:12,137 --> 00:05:13,646
+je fais toujours des asyncio.sleep ;
+
+161
+00:05:13,746 --> 00:05:15,906
+imaginez que là, j'ai toute une coroutine
+
+162
+00:05:16,006 --> 00:05:18,154
+qui va chercher une requête HTTP
+
+163
+00:05:18,254 --> 00:05:19,054
+exactement comme on l'a vu
+
+164
+00:05:19,154 --> 00:05:19,772
+dans un des exemples ;
+
+165
+00:05:20,104 --> 00:05:21,724
+la logique serait exactement la même ;
+
+166
+00:05:21,824 --> 00:05:23,750
+ce qui m'importe, c'est de voir
+
+167
+00:05:23,850 --> 00:05:25,077
+qu'en encerclant mon code
+
+168
+00:05:25,177 --> 00:05:27,016
+avec un put puis ensuite un get,
+
+169
+00:05:27,405 --> 00:05:30,716
+je suis capable d'implémenter
+
+170
+00:05:30,816 --> 00:05:33,195
+cette politique de fenêtrage.
+
+171
+00:05:33,593 --> 00:05:35,526
+Je vous signale d'ailleurs
+
+172
+00:05:36,116 --> 00:05:37,820
+que vous pourriez tout à fait implémenter ça
+
+173
+00:05:37,920 --> 00:05:39,805
+avec un context manager asynchrone ;
+
+174
+00:05:40,194 --> 00:05:41,262
+en l'occurrence, j'ai voulu
+
+175
+00:05:41,362 --> 00:05:42,765
+garder le code simple.
+
+176
+00:05:43,623 --> 00:05:44,743
+Donc, voilà ce que ça donne
+
+177
+00:05:44,843 --> 00:05:46,110
+si j'exécute mon code.
+
+178
+00:05:47,081 --> 00:05:48,471
+Voilà ce que ça devrait donner
+
+179
+00:05:48,571 --> 00:05:50,095
+en fonction de ce que je vous ai expliqué,
+
+180
+00:05:50,195 --> 00:05:53,383
+le job 0 a une durée de 1, puis de 2, puis de 3,
+
+181
+00:05:53,483 --> 00:05:54,814
+puis de 1, puis de 2, puis de 3,
+
+182
+00:05:55,930 --> 00:05:57,760
+et vous pouvez remarquer qu'effectivement,
+
+183
+00:05:57,860 --> 00:05:59,879
+ce à quoi je m'attends, c'est d'avoir
+
+184
+00:05:59,979 --> 00:06:02,185
+ces 4 jobs exécutés dans la première seconde,
+
+185
+00:06:02,285 --> 00:06:03,880
+ces 4 jobs exécutés dans la deuxième,
+
+186
+00:06:04,212 --> 00:06:04,639
+et caetera.
+
+187
+00:06:04,739 --> 00:06:06,054
+Dans la quatrième seconde,
+
+188
+00:06:06,154 --> 00:06:07,383
+je n'ai plus que deux jobs à faire.
+
+189
+00:06:07,483 --> 00:06:08,770
+Donc voilà ce qu'il devrait se passer
+
+190
+00:06:08,870 --> 00:06:10,219
+et je vous invite à vérifier que
+
+191
+00:06:10,319 --> 00:06:12,058
+c'est bien ce qu'il se passe ici.
+
+192
+00:06:12,959 --> 00:06:14,555
+Je dois interrompre, comme d'habitude,
+
+193
+00:06:15,481 --> 00:06:16,648
+ma boucle
+
+194
+00:06:17,761 --> 00:06:18,824
+pour la raison habituelle
+
+195
+00:06:18,924 --> 00:06:20,127
+que je suis dans une boucle sans fin.
+
+196
+00:06:21,847 --> 00:06:22,951
+Ces deux exemples vous donnent
+
+197
+00:06:23,051 --> 00:06:25,422
+un aperçu de ce que vous êtes capables
+
+198
+00:06:25,522 --> 00:06:26,607
+de faire avec les mécanismes
+
+199
+00:06:26,707 --> 00:06:27,445
+de synchronisation ;
+
+200
+00:06:28,506 --> 00:06:30,358
+mais bien sûr, au delà de ça,
+
+201
+00:06:30,458 --> 00:06:33,114
+la vraie valeur ajoutée de la librairie asyncio
+
+202
+00:06:33,214 --> 00:06:33,737
+n'est pas là.
+
+203
+00:06:34,663 --> 00:06:35,886
+Ce qui nous intéresse vraiment,
+
+204
+00:06:35,986 --> 00:06:38,102
+c'est tout ce qui est la gestion du temps,
+
+205
+00:06:38,202 --> 00:06:39,748
+la gestion des processus externes,
+
+206
+00:06:40,642 --> 00:06:41,922
+l'interaction avec le réseau,
+
+207
+00:06:42,022 --> 00:06:43,082
+l'interaction avec les fichiers,
+
+208
+00:06:43,976 --> 00:06:46,520
+toutes ces fonctions qui sont un peu magiques
+
+209
+00:06:46,620 --> 00:06:48,246
+du point de vue de l'utilisateur
+
+210
+00:06:48,579 --> 00:06:51,498
+dans ce sens que la boucle asyncio
+
+211
+00:06:51,598 --> 00:06:52,602
+va nous permettre de faire
+
+212
+00:06:52,702 --> 00:06:53,778
+les choses au bon moment
+
+213
+00:06:55,013 --> 00:06:56,259
+en les mélangeant exactement
+
+214
+00:06:56,359 --> 00:06:57,897
+de manière optimale,
+
+215
+00:06:57,997 --> 00:07:00,259
+et ça peut paraître un petit peu magique
+
+216
+00:07:00,359 --> 00:07:01,326
+de comprendre comment tout ça,
+
+217
+00:07:01,426 --> 00:07:01,916
+ça fonctionne.
+
+218
+00:07:03,312 --> 00:07:05,000
+En fait, on a déjà vu tous les mécanismes
+
+219
+00:07:05,100 --> 00:07:05,813
+qui sont à l'œuvre ;
+
+220
+00:07:05,913 --> 00:07:06,938
+on a vu en particulier
+
+221
+00:07:07,038 --> 00:07:08,064
+la communication entre
+
+222
+00:07:08,164 --> 00:07:09,424
+la boucle d'un côté
+
+223
+00:07:09,801 --> 00:07:11,697
+et ces agents actifs de l'autre,
+
+224
+00:07:11,797 --> 00:07:12,969
+que ce soit la gestion du temps,
+
+225
+00:07:13,069 --> 00:07:14,185
+la gestion des sockets,
+
+226
+00:07:14,285 --> 00:07:15,729
+la gestion des process.
+
+227
+00:07:16,719 --> 00:07:18,884
+En fait, ces deux parties du système
+
+228
+00:07:19,698 --> 00:07:20,953
+sont complices l'une de l'autre
+
+229
+00:07:21,053 --> 00:07:22,248
+et communiquent avec ce mécanisme
+
+230
+00:07:22,348 --> 00:07:23,765
+de send et de yield qu'on a vu,
+
+231
+00:07:24,643 --> 00:07:26,643
+et l'intelligence réelle de la boucle,
+
+232
+00:07:26,743 --> 00:07:28,417
+ça va être d'utiliser au mieux
+
+233
+00:07:29,070 --> 00:07:30,754
+les capacités de l'operating system
+
+234
+00:07:30,854 --> 00:07:31,823
+à un niveau très, très bas
+
+235
+00:07:32,632 --> 00:07:34,754
+selon que ce soit sur Unix ou Windows,
+
+236
+00:07:34,854 --> 00:07:35,895
+avec une implémentation
+
+237
+00:07:35,995 --> 00:07:37,349
+à chaque fois ad hoc.
+
+238
+00:07:38,051 --> 00:07:39,895
+En particulier, sur Unix,
+
+239
+00:07:39,995 --> 00:07:41,698
+vous pouvez vous amuser à regarder
+
+240
+00:07:41,798 --> 00:07:43,489
+les appels système qui s'appellent
+
+241
+00:07:43,589 --> 00:07:44,640
+signal et select,
+
+242
+00:07:44,740 --> 00:07:46,801
+qui sont des fonctionnalités
+
+243
+00:07:47,206 --> 00:07:49,093
+de bas niveau qu'on peut utiliser en C ;
+
+244
+00:07:50,363 --> 00:07:51,734
+si vous avez déjà eu l'occasion
+
+245
+00:07:51,834 --> 00:07:54,488
+d'écrire du code de ce niveau-là en C,
+
+246
+00:07:54,588 --> 00:07:55,944
+vous pourrez certainement
+
+247
+00:07:56,044 --> 00:07:56,956
+être d'accord avec moi pour dire
+
+248
+00:07:57,056 --> 00:07:59,852
+que c'est particulièrement ardu à écrire ;
+
+249
+00:07:59,952 --> 00:08:01,163
+la plupart du temps, ça demande
+
+250
+00:08:01,263 --> 00:08:02,049
+énormément de soin.
+
+251
+00:08:02,811 --> 00:08:05,000
+Le gros avantage de asyncio,
+
+252
+00:08:05,100 --> 00:08:07,968
+c'est de vous offrir un niveau de réactivité
+
+253
+00:08:08,068 --> 00:08:09,356
+qui est comparable
+
+254
+00:08:10,165 --> 00:08:11,413
+à ce que vous pourriez écrire
+
+255
+00:08:11,513 --> 00:08:13,524
+avec un paradigme de ce niveau,
+
+256
+00:08:13,624 --> 00:08:15,378
+une interaction très, très bas niveau
+
+257
+00:08:15,478 --> 00:08:16,535
+avec l'operating system ;
+
+258
+00:08:17,054 --> 00:08:20,828
+mais avec une interface de programmation
+
+259
+00:08:20,928 --> 00:08:25,058
+qui est totalement, enfin quasiment identique
+
+260
+00:08:25,158 --> 00:08:25,870
+à ce que vous écririez
+
+261
+00:08:25,970 --> 00:08:26,851
+avec du code synchrone.
+
+262
+00:08:28,056 --> 00:08:30,836
+Je n'en dirai pas beaucoup plus de,
+
+263
+00:08:30,936 --> 00:08:32,938
+notamment, Transport, Protocol et Stream,
+
+264
+00:08:33,038 --> 00:08:34,201
+qui sont des classes abstraites
+
+265
+00:08:34,301 --> 00:08:35,202
+de très bas niveau.
+
+266
+00:08:36,710 --> 00:08:38,506
+Ce sont ces fonctionnalités-là
+
+267
+00:08:38,606 --> 00:08:40,036
+qui sont utilisées par
+
+268
+00:08:40,393 --> 00:08:41,818
+les librairies de haut niveau
+
+269
+00:08:41,918 --> 00:08:43,279
+que vous serez amenés à utiliser
+
+270
+00:08:43,379 --> 00:08:44,407
+lorsque vous allez commencer
+
+271
+00:08:44,507 --> 00:08:45,617
+à utiliser asyncio.
+
+272
+00:08:46,940 --> 00:08:48,675
+Typiquement, si vous faites du HTTP,
+
+273
+00:08:48,775 --> 00:08:51,337
+du ssh, du telnet, de la base de données
+
+274
+00:08:51,437 --> 00:08:53,583
+et enfin, toutes les fonctions,
+
+275
+00:08:53,683 --> 00:08:56,011
+je dirais, de niveau utilisateur,
+
+276
+00:08:56,111 --> 00:08:58,658
+sont implémentées sous forme de librairies
+
+277
+00:08:59,685 --> 00:09:01,066
+avec lesquelles vous allez interagir
+
+278
+00:09:01,600 --> 00:09:02,862
+avec des async with,
+
+279
+00:09:02,962 --> 00:09:04,511
+avec des async for,
+
+280
+00:09:04,611 --> 00:09:06,576
+enfin, des context managers asynchrones,
+
+281
+00:09:06,676 --> 00:09:08,056
+des itérateurs asynchrones,
+
+282
+00:09:08,156 --> 00:09:09,191
+des coroutines.
+
+283
+00:09:09,804 --> 00:09:11,295
+De ce point de vue là,
+
+284
+00:09:11,395 --> 00:09:12,832
+vous n'avez pas besoin,
+
+285
+00:09:12,932 --> 00:09:13,631
+dans un premier temps,
+
+286
+00:09:13,731 --> 00:09:15,195
+de rentrer très profondément
+
+287
+00:09:15,295 --> 00:09:17,170
+dans les internes de asyncio ;
+
+288
+00:09:17,270 --> 00:09:18,745
+c'est pourquoi je n'en dirai pas plus
+
+289
+00:09:18,845 --> 00:09:19,206
+aujourd'hui.
+
+290
+00:09:19,677 --> 00:09:20,740
+Mais sachez que,
+
+291
+00:09:22,036 --> 00:09:24,250
+avec ce mécanisme, vous avez vraiment
+
+292
+00:09:24,743 --> 00:09:25,853
+une méthode optimale
+
+293
+00:09:26,329 --> 00:09:29,285
+d'utiliser votre temps CPU
+
+294
+00:09:30,765 --> 00:09:34,006
+et de tirer le profit maximum
+
+295
+00:09:34,106 --> 00:09:35,351
+de votre machine
+
+296
+00:09:35,451 --> 00:09:37,260
+et d'avoir une application très réactive
+
+297
+00:09:37,360 --> 00:09:38,611
+tout en restant très lisible.
+
+298
+00:09:39,328 --> 00:09:40,803
+Dans la prochaine vidéo, nous verrons
+
+299
+00:09:41,116 --> 00:09:42,212
+une espèce de résumé
+
+300
+00:09:42,312 --> 00:09:45,067
+sur tous les écueils
+
+301
+00:09:45,167 --> 00:09:46,801
+qui se présentent aux débutants,
+
+302
+00:09:48,406 --> 00:09:49,197
+et dans l'immédiat, et bien,
+
+303
+00:09:49,297 --> 00:09:51,349
+je vous dis à bientôt !
+

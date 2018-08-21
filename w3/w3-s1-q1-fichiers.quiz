@@ -30,19 +30,19 @@ Que va faire le code suivant ?
 [ ] permettre d'écrire dans le fichier
 
 [explanation]
-L'ouverture d'un fichier en mode <code>'r'</code> va ouvrir le fichier en lecture seul si le fichier existe et produire une exception s'il n'existe pas.
+L'ouverture d'un fichier en mode <code>'r'</code> va ouvrir le fichier en lecture seule si le fichier existe et produire une exception s'il n'existe pas.
 [explanation]
 
 <hr/>
 Fichier (3)
 =====
 
-Quelle(s) affirmation(s) est(sont) exacte(s).
+Quelle(s) affirmation(s) est(sont) exacte(s) ?
 
 [x] Lorsqu'on parcourt un fichier ouvert en mode texte, on obtient des objets de type <code>str</code>.
 [x] Lorsqu'on parcourt un fichier ouvert en mode binaire, on obtient des objets de type <code>bytes</code>.
 [x] On ne doit spécifier l'encodage que pour les fichiers ouverts en mode texte.
-[x] En python moderne, on doit ouvrir un fichier avec l'instruction <code>with</code> et spécifier son encodage.
+[x] En Python moderne, on doit ouvrir un fichier avec l'instruction <code>with</code> et spécifier son encodage.
 
 [explanation]
 Toutes les affirmations sont exactes.

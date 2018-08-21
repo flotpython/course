@@ -18,7 +18,7 @@ L'exception <code>UnboundLocalError</code> ne se produit que si on référence d
 Portée des variables (2)
 =====
 
-Dans quel cas la variable <code>var</code> est locale à la fonction.
+Dans quel cas la variable <code>var</code> est-elle locale à la fonction ?
 
 <h3>Proposition 1</h3>
 <pre>
@@ -46,7 +46,7 @@ def f():
 </pre>
 
 
-Choisissez une ou plusieurs propositions
+Choisissez une ou plusieurs propositions :
 
 [ ] Proposition 1
 [x] Proposition 2

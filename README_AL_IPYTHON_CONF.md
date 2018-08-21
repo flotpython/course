@@ -25,3 +25,13 @@ Et j'ai modifi� l'option `c.InteractiveShell.colors = 'LightBG'`
 
 dans 
 `C:\Users\alegout\.ipython\profile_mooc\ipython_config.py `
+
+####### Pour IDLE ##############
+taille de font 20 en Courier New
+Lancer idle depuis Git CMD
+>idle
+
+
+###### Pour le notebook ###########
+Dans chrome, choisir le zoom 175% 
+

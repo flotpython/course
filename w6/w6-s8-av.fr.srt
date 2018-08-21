@@ -1,0 +1,808 @@
+1
+00:00:05,316 --> 00:00:06,972
+En programmation, il est courant de devoir faire
+
+2
+00:00:07,172 --> 00:00:08,864
+des opérations de finalisation.
+
+3
+00:00:09,064 --> 00:00:11,846
+Par exemple, quand vous avez un objet fichier
+
+4
+00:00:12,046 --> 00:00:14,025
+dont vous n'avez plus besoin, vous devez le fermer,
+
+5
+00:00:14,225 --> 00:00:15,214
+ou lorsque vous avez une socket,
+
+6
+00:00:15,414 --> 00:00:16,829
+vous devez également la fermer.
+
+7
+00:00:17,029 --> 00:00:18,389
+L'idée, c'est de libérer des ressources
+
+8
+00:00:18,589 --> 00:00:20,000
+quand on n'a plus besoin de cet objet.
+
+9
+00:00:20,200 --> 00:00:23,100
+Ces opérations de finalisation doivent être faites
+
+10
+00:00:23,300 --> 00:00:25,720
+même si on a une exception en cours d'exécution.
+
+11
+00:00:25,920 --> 00:00:26,673
+En fait, l'idée c'est
+
+12
+00:00:26,873 --> 00:00:28,850
+si votre programme plante, vous finaliser vos objets,
+
+13
+00:00:29,050 --> 00:00:31,500
+avant que le programme s'arrête définitivement.
+
+14
+00:00:31,700 --> 00:00:33,950
+En Python, vous avez une manière de faire ça.
+
+15
+00:00:34,150 --> 00:00:36,200
+C'est avec l'instruction try finally.
+
+16
+00:00:36,400 --> 00:00:38,284
+Donc, en fait, c'est un try except
+
+17
+00:00:38,484 --> 00:00:41,050
+qui a une clause finally qui va s'exécuter
+
+18
+00:00:41,250 --> 00:00:43,475
+que vous ayez une exception dans le bloc de code try
+
+19
+00:00:43,675 --> 00:00:45,700
+ou que vous n'ayez pas d'exception.
+
+20
+00:00:45,900 --> 00:00:47,525
+Vous avez la certitude que
+
+21
+00:00:47,725 --> 00:00:49,150
+le bloc de code du finally s'exécutera
+
+22
+00:00:49,350 --> 00:00:52,400
+quelque soit  l'exécution du bloc de code du try.
+
+23
+00:00:52,600 --> 00:00:54,600
+Cependant, ici, vous voyez un problème.
+
+24
+00:00:54,800 --> 00:00:56,300
+Lorsque vous faites de la finalisation,
+
+25
+00:00:56,500 --> 00:00:57,800
+on demande à la personne
+
+26
+00:00:58,000 --> 00:01:00,800
+qui utilise l'objet de penser à faire un try finally
+
+27
+00:01:01,000 --> 00:01:03,500
+et surtout, cette personne doit connaître
+
+28
+00:01:03,700 --> 00:01:06,000
+les bonnes opérations de finalisation à faire.
+
+29
+00:01:06,100 --> 00:01:07,275
+Lorsque l'on y pense,
+
+30
+00:01:07,475 --> 00:01:09,329
+on se dit que ça serait beaucoup plus malin
+
+31
+00:01:09,529 --> 00:01:11,345
+de laisser ces opérations de finalisation
+
+32
+00:01:11,545 --> 00:01:13,810
+à la charge de celui qui a conçu l'objet
+
+33
+00:01:14,010 --> 00:01:15,400
+et d'offrir un mécanisme pour dire
+
+34
+00:01:15,600 --> 00:01:17,046
+"je n'ai plus besoin de l'objet",
+
+35
+00:01:17,246 --> 00:01:18,206
+et qu'automatiquement
+
+36
+00:01:18,406 --> 00:01:20,000
+ces opérations de finalisation s'exécutent.
+
+37
+00:01:20,200 --> 00:01:23,550
+C'est exactement ce que permet un context manager.
+
+38
+00:01:23,750 --> 00:01:25,326
+Nous avons d'ailleurs déjà introduit la notion
+
+39
+00:01:25,526 --> 00:01:28,750
+de context manager, dans le cadre des fichiers.
+
+40
+00:01:28,950 --> 00:01:31,375
+Dans cette vidéo, nous allons voir comment concevoir
+
+41
+00:01:31,575 --> 00:01:33,800
+des context managers, pour vos propres objets.
+
+42
+00:01:34,000 --> 00:01:37,000
+Donc, regardons la syntaxe d'un context manager.
+
+43
+00:01:37,200 --> 00:01:40,121
+Vous faites un with expression as x :,
+
+44
+00:01:40,321 --> 00:01:41,650
+et ensuite vous avez un bloc de code.
+
+45
+00:01:41,750 --> 00:01:45,640
+Votre expression,
+
+46
+00:01:45,840 --> 00:01:48,515
+lorsque vous évaluez ce context manager,
+
+47
+00:01:48,715 --> 00:01:51,412
+votre expression va retourner un objet.
+
+48
+00:01:51,612 --> 00:01:55,261
+et cet objet va être un objet qui implémente un protocole
+
+49
+00:01:55,461 --> 00:01:57,612
+qu'on appelle le protocole de context manager.
+
+50
+00:01:57,812 --> 00:02:01,135
+Dans ce protocole, vous avez une méthode __enter__.
+
+51
+00:02:01,335 --> 00:02:04,463
+Cette méthode __enter__ va retourner un objet
+
+52
+00:02:04,663 --> 00:02:07,591
+qui va être référencé par la variable x.
+
+53
+00:02:07,791 --> 00:02:08,578
+Donc nous voyons bien que
+
+54
+00:02:08,778 --> 00:02:10,542
+cette méthode __enter__ appartient à l'objet.
+
+55
+00:02:10,742 --> 00:02:12,561
+Ensuite, vous évaluez le bloc de code
+
+56
+00:02:12,761 --> 00:02:16,324
+Et ensuite, en sortie du bloc de code, ou
+
+57
+00:02:16,524 --> 00:02:17,359
+si vous avez une exception,
+
+58
+00:02:17,559 --> 00:02:18,782
+lors de l'évaluation de ce bloc de code,
+
+59
+00:02:18,982 --> 00:02:20,765
+vous allez, dans tous les cas,
+
+60
+00:02:20,965 --> 00:02:23,698
+exécuter une méthode __exit__ sur cet objet.
+
+61
+00:02:23,898 --> 00:02:26,486
+C'est ça le protocole de context manager :
+
+62
+00:02:26,686 --> 00:02:29,642
+ce sont ces deux méthodes, __enter__ et __exit__,
+
+63
+00:02:29,842 --> 00:02:31,949
+qui sont automatiquement exécutées
+
+64
+00:02:32,149 --> 00:02:33,963
+lorsque vous avez l'instruction with.
+
+65
+00:02:33,993 --> 00:02:37,160
+Maintenant, ouvrons un éditeur IDLE pour commencer à
+
+66
+00:02:37,360 --> 00:02:40,328
+jouer avec la conception des contexts managers.
+
+67
+00:02:40,528 --> 00:02:43,899
+Illustrons la création d'un context manager avec
+
+68
+00:02:44,099 --> 00:02:47,270
+l'implémentation d'une classe que l'on va appeler Timer.
+
+69
+00:02:47,470 --> 00:02:50,023
+L'objectif de notre classe Timer sera
+
+70
+00:02:50,223 --> 00:02:53,295
+d'évaluer le temps d'exécution d'un bloc de code,
+
+71
+00:02:53,495 --> 00:02:55,361
+qui est à l'intérieur d'une instruction with.
+
+72
+00:02:55,561 --> 00:02:57,555
+Regardons comment faire ça.
+
+73
+00:02:57,600 --> 00:03:02,518
+Je vais d'abord importer le module time
+
+74
+00:03:02,718 --> 00:03:05,232
+qui me permet d'avoir un temps, un temps courant
+
+75
+00:03:05,432 --> 00:03:08,112
+et ensuite, je vais créer une classe que j'appelle Timer.
+
+76
+00:03:08,312 --> 00:03:10,781
+Dans cette classe, je vais définir
+
+77
+00:03:10,981 --> 00:03:12,465
+mon protocole de context manager.
+
+78
+00:03:12,665 --> 00:03:14,524
+Il me faut, donc, une méthode __enter__
+
+79
+00:03:14,724 --> 00:03:17,350
+qui va prendre comme argument, self
+
+80
+00:03:17,550 --> 00:03:22,140
+et qui doit faire quelque chose,
+
+81
+00:03:22,340 --> 00:03:23,830
+avant d'entrer dans mon bloc de code,
+
+82
+00:03:24,030 --> 00:03:25,642
+et ensuite, qui doit retourner un objet,
+
+83
+00:03:25,842 --> 00:03:29,599
+qui sera référencé par la variable qui est après le as.
+
+84
+00:03:29,799 --> 00:03:31,828
+En général, les contexts managers retournent
+
+85
+00:03:32,028 --> 00:03:34,023
+l'objet lui-même,
+
+86
+00:03:34,223 --> 00:03:35,928
+mais on pourrait imaginer retourner autre chose.
+
+87
+00:03:36,128 --> 00:03:38,145
+Dans mon context, je vais retourner l'objet lui-même.
+
+88
+00:03:38,345 --> 00:03:41,264
+Donc, je vais définir self.start, un attribut dans
+
+89
+00:03:41,464 --> 00:03:44,142
+mon instance, qui est égal à time.time().
+
+90
+00:03:44,342 --> 00:03:47,054
+time.time() me donne le temps courant.
+
+91
+00:03:47,254 --> 00:03:50,296
+Et ensuite, je vais faire un return de self.
+
+92
+00:03:50,496 --> 00:03:52,470
+C'est ce que va faire mon context manager.
+
+93
+00:03:52,670 --> 00:03:55,878
+Ensuite, dans ce protocole, je dois avoir une
+
+94
+00:03:56,078 --> 00:03:58,307
+deuxième méthode qui s'appelle __exit__,
+
+95
+00:03:58,507 --> 00:04:00,272
+qui est la méthode qui sera exécutée,
+
+96
+00:04:00,472 --> 00:04:02,939
+lorsque je sors du bloc de code du context manager
+
+97
+00:04:03,139 --> 00:04:04,283
+ou si j'ai une exception.
+
+98
+00:04:04,483 --> 00:04:08,136
+Cette méthode va prendre self et un attribut *args
+
+99
+00:04:08,336 --> 00:04:11,945
+et ensuite, je vais définir un attribut duree
+
+100
+00:04:12,145 --> 00:04:21,060
+qui est égal à time.time() - self.start.
+
+101
+00:04:21,260 --> 00:04:22,835
+Donc, on voit que, quand j'arrive dans __exit__,
+
+102
+00:04:23,035 --> 00:04:24,933
+je prends simplement le temps que j'avais au
+
+103
+00:04:25,133 --> 00:04:28,191
+démarrage et je le soustrais au temps courant.
+
+104
+00:04:28,391 --> 00:04:29,494
+Et, ça va me donner le temps d'exécution.
+
+105
+00:04:29,694 --> 00:04:34,840
+Ensuite, je vais faire un print, dans une f-string,
+
+106
+00:04:35,040 --> 00:04:37,883
+de simplement duree
+
+107
+00:04:38,083 --> 00:04:39,627
+et je vais dire que c'est en secondes.
+
+108
+00:04:39,827 --> 00:04:44,666
+Et ensuite, ma méthode __exit__ doit retourner 
+
+109
+00:04:44,866 --> 00:04:47,376
+un booléen: soit False, soit True.
+
+110
+00:04:47,576 --> 00:04:51,338
+Si je retourne False, ça veut dire qu'en cas d'exception,
+
+111
+00:04:51,538 --> 00:04:53,319
+mon exception va être remontée
+
+112
+00:04:53,519 --> 00:04:55,101
+et va faire arrêter mon programme.
+
+113
+00:04:55,301 --> 00:04:58,667
+Si je retourne True, ça veut dire qu'en cas d'exception,
+
+114
+00:04:58,867 --> 00:05:01,869
+mon exception va être capturée par l'instruction with
+
+115
+00:05:02,069 --> 00:05:04,562
+et, par conséquent, mon exception ne sortira pas.
+
+116
+00:05:04,762 --> 00:05:06,092
+Je vous rappelle, que, d'une manière générale,
+
+117
+00:05:06,292 --> 00:05:06,765
+c'est une bonne pratique
+
+118
+00:05:06,965 --> 00:05:08,374
+de laisser remonter les exceptions,
+
+119
+00:05:08,574 --> 00:05:11,356
+sauf si on sait précisément ce que l'on fait.
+
+120
+00:05:11,556 --> 00:05:16,299
+Et donc, ensuite je vais définir une dernière méthode
+
+121
+00:05:16,499 --> 00:05:18,462
+que je vais appeler __str__
+
+122
+00:05:18,662 --> 00:05:19,625
+Vous vous souvenez, c'est la méthode
+
+123
+00:05:19,825 --> 00:05:21,945
+qui est appelée par la fonction builtins print,
+
+124
+00:05:22,145 --> 00:05:32,283
+qui va juste me faire duree égal time.time() - self.start
+
+125
+00:05:32,483 --> 00:05:34,909
+et qui va faire un return d'une chaîne de caractères
+
+126
+00:05:35,000 --> 00:05:37,193
+qui va être une f-string
+
+127
+00:05:37,393 --> 00:05:46,405
+qui va contenir "intermediaire : duree en secondes.
+
+128
+00:05:46,605 --> 00:05:50,991
+Quel est l'intérêt de cette méthode __str__?
+
+129
+00:05:51,000 --> 00:05:53,875
+C'est lorsque j'appellerai print sur mon objet,
+
+130
+00:05:54,075 --> 00:05:55,885
+qui implémente le protocole de context manager,
+
+131
+00:05:56,085 --> 00:05:58,485
+je vais avoir un temps intermédiaire d'exécution.
+
+132
+00:05:58,685 --> 00:05:59,573
+Donc, ça me permet d'avoir un peu
+
+133
+00:05:59,773 --> 00:06:00,778
+plus de fonctionnalités.
+
+134
+00:06:00,978 --> 00:06:03,367
+Exécutons ça, évaluons le.
+
+135
+00:06:03,567 --> 00:06:07,500
+Et maintenant, définissons une autre instruction with
+
+136
+00:06:07,700 --> 00:06:08,724
+avec cet objet.
+
+137
+00:06:08,924 --> 00:06:13,209
+Je vous montre cela. Je vais faire un with Timer,
+
+138
+00:06:13,409 --> 00:06:17,495
+donc c'est mon context manager, as t:
+
+139
+00:06:17,695 --> 00:06:19,390
+Je vous rappelle que ma variable t
+
+140
+00:06:19,590 --> 00:06:22,662
+va prendre la valeur de retour de la méthode __enter__,
+
+141
+00:06:22,862 --> 00:06:24,266
+c'est donc l'instance de Timer,
+
+142
+00:06:24,466 --> 00:06:26,441
+elle-même, que je récupère.
+
+143
+00:06:26,641 --> 00:06:29,149
+Et dedans, je vais simplement faire une somme,
+
+144
+00:06:29,349 --> 00:06:31,165
+avec une expression génératrice,
+
+145
+00:06:31,365 --> 00:06:41,988
+qui est x for x in range(10_000_000). Voilà.
+
+146
+00:06:42,188 --> 00:06:45,510
+Ensuite, je vais faire un print de t,
+
+147
+00:06:45,710 --> 00:06:47,693
+pour afficher un temps intermédiaire
+
+148
+00:06:47,893 --> 00:06:52,233
+et je vais faire une deuxième compréhension,
+
+149
+00:06:52,433 --> 00:06:55,856
+où là, au lieu de prendre x, je prends x au carré.
+
+150
+00:06:56,056 --> 00:06:58,854
+Et maintenant, exécutons tout ça.
+
+151
+00:06:59,054 --> 00:07:01,241
+Lorsque je vais rentrer dans mon bloc de code,
+
+152
+00:07:01,441 --> 00:07:05,906
+je vais avoir l'attribut start, dans mon Timer,
+
+153
+00:07:06,106 --> 00:07:07,199
+qui va être initialisé au temps courant.
+
+154
+00:07:07,399 --> 00:07:11,538
+Ensuite, je vais exécuter ma somme de mon expression génératrice.
+
+155
+00:07:11,738 --> 00:07:14,119
+Ensuite, j'affiche un temps intermédiaire avec print de t,
+
+156
+00:07:14,319 --> 00:07:15,609
+ça va appeler la méthode __str__
+
+157
+00:07:15,809 --> 00:07:16,743
+qui affiche le temps intermédiaire.
+
+158
+00:07:16,943 --> 00:07:19,498
+Et ensuite, je calcule, de nouveau,
+
+159
+00:07:19,698 --> 00:07:21,548
+une deuxième somme,
+
+160
+00:07:21,748 --> 00:07:23,799
+et, en sortie de mon bloc de code,
+
+161
+00:07:23,999 --> 00:07:25,752
+je vais afficher le temps d'exécution, en faisant ça.
+
+162
+00:07:25,952 --> 00:07:27,112
+Et regardons, ce qui se passe.
+
+163
+00:07:27,312 --> 00:07:28,725
+Je vois que j'ai un temps intermédiaire
+
+164
+00:07:28,925 --> 00:07:30,127
+qui est de 0,7 seconde,
+
+165
+00:07:30,327 --> 00:07:32,509
+et le temps final est de 4 secondes.
+
+166
+00:07:32,709 --> 00:07:35,349
+Maintenant, regardons ce qui se passe
+
+167
+00:07:35,549 --> 00:07:36,143
+en cas d'exception.
+
+168
+00:07:36,343 --> 00:07:37,470
+Donc, je vais ajouter une exception ici :
+
+169
+00:07:37,670 --> 00:07:39,986
+un divisé par zéro, donc une ZeroDivisionError.
+
+170
+00:07:40,186 --> 00:07:41,110
+Et on va voir ce qui va se passer dans mon
+
+171
+00:07:41,310 --> 00:07:43,310
+context manager.
+
+172
+00:07:43,510 --> 00:07:45,750
+Donc j'exécute. J'évalue avec F5.
+
+173
+00:07:45,950 --> 00:07:47,104
+Et on voit que j'ai bien
+
+174
+00:07:47,304 --> 00:07:49,720
+mon temps intermédiaire qui s'affiche correctement,
+
+175
+00:07:49,920 --> 00:07:52,886
+mon temps final qui s'affiche correctement;
+
+176
+00:07:53,086 --> 00:07:54,782
+évidement, mon temps final est très proche
+
+177
+00:07:54,982 --> 00:07:55,894
+du temps intermédiaire
+
+178
+00:07:56,094 --> 00:07:57,706
+puisque, au moment de l'exception,
+
+179
+00:07:57,906 --> 00:07:59,105
+mon bloc d'instructions va s'arrêter
+
+180
+00:07:59,305 --> 00:08:00,223
+et je n'aurai pas le temps
+
+181
+00:08:00,423 --> 00:08:02,527
+d'évaluer ma dernière expression génératrice.
+
+182
+00:08:02,727 --> 00:08:04,107
+Mais, on voit, cependant, que,
+
+183
+00:08:04,307 --> 00:08:06,077
+ma méthode __exit__ a bien été appelée,
+
+184
+00:08:06,277 --> 00:08:07,912
+bien que j'ai une exception.
+
+185
+00:08:08,112 --> 00:08:11,643
+Nous venons de voir le mécanisme de context manager
+
+186
+00:08:11,843 --> 00:08:13,535
+qui vous permet d'exécuter du code
+
+187
+00:08:13,735 --> 00:08:15,649
+avant et après un bloc de code,
+
+188
+00:08:15,849 --> 00:08:18,029
+contenu dans une instruction with.
+
+189
+00:08:18,229 --> 00:08:19,391
+Notamment, le context manager est
+
+190
+00:08:19,591 --> 00:08:21,407
+extrêmement pratique pour implementer,
+
+191
+00:08:21,607 --> 00:08:24,028
+dans vos propres objets, les opérations de finalisation
+
+192
+00:08:24,228 --> 00:08:26,454
+et laisser, au protocole de context manager,
+
+193
+00:08:26,654 --> 00:08:29,621
+le soin de faire ces opérations pour l'utilisateur.
+
+194
+00:08:29,821 --> 00:08:30,372
+Nous verrons, également,
+
+195
+00:08:30,572 --> 00:08:31,981
+lorsque nous parlerons des décorateurs,
+
+196
+00:08:32,181 --> 00:08:33,913
+que les contexts managers sont très proches
+
+197
+00:08:34,113 --> 00:08:35,833
+dans l'esprit, mais très différents dans la forme.
+
+198
+00:08:36,033 --> 00:08:39,108
+Nous aborderons ça dans les sujets avancés de Python.
+
+199
+00:08:39,308 --> 00:08:40,707
+À bientôt !
+
+200
+00:08:40,907 --> 00:08:42,907
+
+
+201
+00:08:43,107 --> 00:08:45,107
+
+
+202
+00:08:45,307 --> 00:08:47,307
+
+

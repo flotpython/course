@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Les DataFrames en pandas
+## Temp total: (12m00)
+
+## Sujet de la vidéo (30s)
+
+Nous avons vu la notion d'index et de Series en pandas. Les Series
+sont des tableaux à une dimension sur lesquels on met un index.
+
+Dans cette vidéos nous allons voir les DataFrames qui sont des
+tableaux numpy à deux dimensions sur lesquels on met un index sur les
+colonnes et un index sur les lignes.
+
+Tout ce que nous avons vu sur les index pour les Series reste valide
+pour les DataFrame à la différence que maintenant on a un index pour
+les lignes et un index pour les colonnes.
+
+Ouvrons un notebook pour commencer à jouer avec les DataFrames. 
+
+>>>>>>>>>> INCLUDE w7-s7-av-exo1.py <<<<<<<<<< (11m00)
+
+
+
+### Conclusion (30s)
+
+Dans cette vidéo, nous avons vu la notion de introduit la notion de
+DataFrame qui représente un tableau numpy à deux dimensions avec un
+index sur les lignes et un index sur les colonnes.  Nous avons
+notamment vu que comme les Series, les DataFrame supportaient les
+attributs loc et iloc, l'indexation avancée et l'alignement des
+index.
+
+À bientôt
+

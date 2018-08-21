@@ -1,3 +1,135 @@
+## Vidéo 1 (Data science en Python) 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+
+## Vidéo 2 (Les bases de numpy) 
+### NIVEAU: BASIC
+### Compléments Vidéo 2
+
+- créer des tableaux d'objects
+- créer des tableaux de numpy.void (taille constante, type quelconque)
+- créer des dtype custom
+- montrer les notation U4, <i2, etc. au lieux de ('str', 4), np.int16
+- concaténation, split
+
+### Quizz Vidéo 2
+
+### Exercices Vidéo 2
+
+
+## Vidéo 3 (Slicing, reshaping et indexation avancée) 
+### NIVEAU: BASIC
+### Compléments Vidéo 3
+
+- montrer ce cas d'indexation avancée
+a = np.arange(1, 11).reshape(2,5)
+L = [[0,1], [2,4]]
+a[L]
+-parler de sort
+-parler de partition
+- parler du tuple comme indice d'un tableau
+a = np.random.randint(1, 10, size=(3, 3))
+print(a)
+t = (1, 1)
+L = [1, 1]
+print(a[1, 1])
+print(a[t]) # me retourne l'élément de coordonnées (1, 1)
+print(a[L]) # me retourne deux fois la ligne 1
+
+### Quizz Vidéo 3
+
+### Exercices Vidéo 3
+
+
+## Vidéo 4 (vectorisation) 
+### NIVEAU: BASIC
+### Compléments Vidéo 4
+
+-introduire numba et cython
+- donner le lien de toutes les fonctions vectorisées numpy
+https://docs.scipy.org/doc/numpy/reference/ufuncs.html
+-parler de 
+ufunc.nin 	The number of inputs.
+ufunc.nout 	The number of outputs.
+ufunc.nargs 	The number of arguments.
+ufunc.ntypes 	The number of types.
+ufunc.types 	Returns a list with types grouped input->output.
+ufunc.identity 	The identity value.
+ufunc.signature 	Definition of the core elements a generalized ufunc operates on.
+
+-parler de scipy.special
+-parler de reduce, accumulate, outer
+
+### Quizz Vidéo 4
+
+### Exercices Vidéo 4
+
+
+## Vidéo 5 (broadcasting) 
+### NIVEAU: BASIC
+### Compléments Vidéo 5
+-citer http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc
+notamment sur le problème de performance en broadcasting
+
+### Quizz Vidéo 5
+
+### Exercices Vidéo 5
+
+
+## Vidéo 6 (Introduction aux Series et aux indexes en pandas) 
+### NIVEAU: BASIC
+### Compléments Vidéo 6
+
+### Quizz Vidéo 6
+
+### Exercices Vidéo 6
+
+
+## Vidéo 7 (Les DataFrames en pandas) 
+### NIVEAU: BASIC
+### Compléments Vidéo 7
+
+### Quizz Vidéo 7
+
+### Exercices Vidéo 7
+
+
+## Vidéo 8 (Opérations avancées en pandas) 
+### NIVEAU: BASIC
+### Compléments Vidéo 8
+
+### Quizz Vidéo 8
+
+### Exercices Vidéo 8
+
+
+## Vidéo 9 (Gestion des dates en pandas) 
+### NIVEAU: BASIC
+### Compléments Vidéo 9
+
+### Quizz Vidéo 9
+
+### Exercices Vidéo 9
+
+
+## Vidéo 1 () 
+### NIVEAU: BASIC
+### Compléments Vidéo 1
+
+### Quizz Vidéo 1
+
+### Exercices Vidéo 1
+
+
+
+# Old content
+
 ## Vidéo 1 (Introduction, survol des différents outils)
 
 ### compléments w7-s1

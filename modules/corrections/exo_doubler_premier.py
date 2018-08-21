@@ -33,16 +33,20 @@ from operator import add
 from operator import mul
 from .exo_distance import distance
 
-# pour l'exemple on choisit les 3 premiers avec des fonctions différentes
-for i in (1, 3, 5): 
+# pour l'exemple on choisit les 3 premiers inputs
+# avec des fonctions différentes
+for i in (1, 3, 5):
     doubler_premier_inputs.append(Args(add, i, 4))
     doubler_premier_inputs.append(Args(mul, i, 4))
 doubler_premier_inputs.insert(2, Args(distance, 1.5, 4.))
+doubler_premier_inputs.insert(3, Args(distance, 2.0, 4., 4., 4.))
 
 
 exo_doubler_premier = ExerciseFunction(
     doubler_premier, doubler_premier_inputs,
-    nb_examples=3, render_name=False,
+    nb_examples=4,
+    render_name=False,
+    layout_args=(40,10,10),
     call_layout='truncate'
 )
 

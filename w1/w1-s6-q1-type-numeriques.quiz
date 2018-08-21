@@ -10,9 +10,9 @@ Comment calculer la 16-ème puissance de 2 ? (rappel: plusieurs réponses possib
 [x] <code>1 &lt;&lt; 16</code>
 
 [explanation]
-Le signe puissance en python est **
+Le signe puissance en python est **.
 
-On peut obtenir aussi le résultat en partant de 1 (un seul bit), avec un décalage à gauche de 16 bits
+On peut obtenir aussi le résultat en partant de 1 (un seul bit), avec un décalage à gauche de 16 bits.
 
 [explanation]
 
@@ -30,7 +30,7 @@ Parmi les expressions suivantes, quelles sont celles qui retournent un flottant 
 [ ] (3 + 3) // 5
 
 [explanation]
-L'opération <code>/</code> est la division en Python, les trois premières expressions s'évaluent toutes les 3 à 1.2
+L'opération <code>/</code> est la division en Python, les trois premières expressions s'évaluent toutes les 3 à 1.2.
 
 La dernière expression est une opération entre entiers, elle retourne donc l'entier 1, et un entier n'est pas un flottant. 
 [explanation]
@@ -52,6 +52,6 @@ Comment entrer la valeur du complexe 3 + 2i ?
 [explanation]
 Python utilise 'j' plutôt que 'i' pour identifier la partie imaginaire. 
 
-Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'
+Les deux dernières formes font référence à une variable "normale" qui s'appellerait 'i' ou 'j'.
 [explanation]
 

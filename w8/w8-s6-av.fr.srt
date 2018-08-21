@@ -1,0 +1,1520 @@
+1
+00:00:05,420 --> 00:00:06,910
+Dans les vidéos précédentes, nous avons vu
+
+2
+00:00:07,010 --> 00:00:08,220
+les mécanismes qui sont
+
+3
+00:00:08,320 --> 00:00:09,480
+dans le langage lui-même.
+
+4
+00:00:09,580 --> 00:00:11,750
+Je vous rappelle qu'on avait vu
+
+5
+00:00:11,850 --> 00:00:12,550
+les mécanismes utilisateurs,
+
+6
+00:00:12,650 --> 00:00:13,860
+définir des coroutines ;
+
+7
+00:00:13,960 --> 00:00:16,170
+nous avons vu les mécanismes plus experts
+
+8
+00:00:16,270 --> 00:00:18,300
+pour commencer à voir comment on fait
+
+9
+00:00:18,400 --> 00:00:19,300
+implémenter les boucles.
+
+10
+00:00:19,400 --> 00:00:21,150
+Maintenant nous allons voir
+
+11
+00:00:21,250 --> 00:00:22,880
+le contenu de la librairie asyncio,
+
+12
+00:00:22,980 --> 00:00:24,900
+et pour ça, nous allons commencer par
+
+13
+00:00:25,000 --> 00:00:25,990
+la boucle d'événements.
+
+14
+00:00:26,770 --> 00:00:28,950
+Donc je vais importer asyncio.
+
+15
+00:00:30,400 --> 00:00:32,150
+Avant de commencer,
+
+16
+00:00:32,250 --> 00:00:33,630
+je vais utiliser dans cette vidéo
+
+17
+00:00:33,730 --> 00:00:35,000
+un certain nombre d'utilitaires,
+
+18
+00:00:35,100 --> 00:00:37,040
+en fait un tout petit utilitaire très simple,
+
+19
+00:00:37,140 --> 00:00:38,300
+j'ai deux fonctions qui s'appellent
+
+20
+00:00:38,400 --> 00:00:39,520
+start_timer et show_timer.
+
+21
+00:00:39,620 --> 00:00:41,440
+Je vous les montre en action.
+
+22
+00:00:41,540 --> 00:00:43,090
+Le principe, c'est juste de pouvoir
+
+23
+00:00:43,190 --> 00:00:46,000
+mettre un tag au moment où
+
+24
+00:00:46,100 --> 00:00:47,080
+je démarre l'expérience,
+
+25
+00:00:47,180 --> 00:00:48,400
+puis ensuite avec show_timer,
+
+26
+00:00:48,500 --> 00:00:49,900
+je vais pouvoir vous montrer exactement
+
+27
+00:00:50,000 --> 00:00:51,150
+le temps qu'il s'est passé depuis
+
+28
+00:00:51,250 --> 00:00:52,400
+le début de l'expérience,
+
+29
+00:00:52,500 --> 00:00:53,470
+donc c'est extrêmement simple.
+
+30
+00:00:54,570 --> 00:00:55,420
+Je vous rappelle que
+
+31
+00:00:55,520 --> 00:00:57,000
+dans le tout premier exemple,
+
+32
+00:00:57,100 --> 00:00:59,950
+nous avons vu déjà une boucle, bien entendu,
+
+33
+00:01:00,050 --> 00:01:01,480
+et on avait utilisé pour ça
+
+34
+00:01:01,580 --> 00:01:04,160
+une fonction qui s'appelle run_until_complete
+
+35
+00:01:04,260 --> 00:01:07,730
+donc c'est une fonction qui prend exactement
+
+36
+00:01:07,830 --> 00:01:10,150
+un argument, et on l'avait utilisée pour
+
+37
+00:01:10,250 --> 00:01:12,460
+faire du parallélisme en conjonction avec
+
+38
+00:01:12,560 --> 00:01:15,510
+asyncio.gather, qui, je vous le rappelle,
+
+39
+00:01:15,610 --> 00:01:18,340
+va se charger d'exécuter plusieurs tâches
+
+40
+00:01:18,440 --> 00:01:19,720
+en parallèle et de nous retourner
+
+41
+00:01:19,820 --> 00:01:21,690
+la liste des résultats.
+
+42
+00:01:21,790 --> 00:01:24,490
+Il y a d'autres façons d'utiliser une boucle.
+
+43
+00:01:24,590 --> 00:01:25,960
+Les mécanismes en question
+
+44
+00:01:26,060 --> 00:01:27,050
+sont extrêmement simples,
+
+45
+00:01:27,150 --> 00:01:28,000
+mais j'ai trouvé qu'ils étaient
+
+46
+00:01:28,100 --> 00:01:29,200
+particulièrement mal expliqués
+
+47
+00:01:29,300 --> 00:01:30,710
+dans la documentation, donc je vais vous
+
+48
+00:01:30,810 --> 00:01:32,490
+sous-titrer quelques usages.
+
+49
+00:01:32,590 --> 00:01:37,220
+Nous avons - je vais agrandir un petit peu -
+
+50
+00:01:37,320 --> 00:01:38,620
+nous avons pour commencer
+
+51
+00:01:38,720 --> 00:01:41,110
+une fonction dans le module asyncio
+
+52
+00:01:41,210 --> 00:01:42,940
+qui s'appelle ensure_future
+
+53
+00:01:43,040 --> 00:01:45,550
+et sa fonctionnalité consiste à rajouter
+
+54
+00:01:45,650 --> 00:01:48,430
+un traitement à faire dans une boucle.
+
+55
+00:01:48,530 --> 00:01:50,760
+Alors, je dis traitement, on verra qu'en fait
+
+56
+00:01:50,860 --> 00:01:51,760
+ça s'appelle une tâche
+
+57
+00:01:51,860 --> 00:01:52,700
+mais comme je n'ai pas encore expliqué
+
+58
+00:01:52,800 --> 00:01:53,420
+ce que c'est qu'une tâche,
+
+59
+00:01:53,520 --> 00:01:55,670
+on va essayer d'être générique.
+
+60
+00:01:56,230 --> 00:01:58,000
+C'est une fonctionnalité
+
+61
+00:01:58,100 --> 00:01:58,900
+que vous pouvez utiliser
+
+62
+00:01:59,000 --> 00:02:00,800
+avant de commencer une boucle ;
+
+63
+00:02:00,900 --> 00:02:02,390
+vous pouvez aussi l'utiliser
+
+64
+00:02:02,490 --> 00:02:03,750
+en plein milieu de votre traitement,
+
+65
+00:02:03,850 --> 00:02:04,530
+donc vous pouvez le mettre
+
+66
+00:02:04,630 --> 00:02:06,600
+dans le code synchrone,
+
+67
+00:02:06,700 --> 00:02:07,750
+vous pouvez aussi le mettre
+
+68
+00:02:07,850 --> 00:02:08,890
+dans le code asynchrone.
+
+69
+00:02:10,110 --> 00:02:12,470
+Une fois que vous avez rempli votre boucle,
+
+70
+00:02:12,570 --> 00:02:14,280
+vous pouvez utiliser maintenant
+
+71
+00:02:14,380 --> 00:02:17,400
+une méthode sur l'objet boucle
+
+72
+00:02:17,500 --> 00:02:18,770
+qui s'appelle run_forever,
+
+73
+00:02:18,870 --> 00:02:20,320
+qui cette fois-ci ne prend pas d'argument,
+
+74
+00:02:20,420 --> 00:02:22,600
+qui va travailler sur le contenu courant,
+
+75
+00:02:22,700 --> 00:02:24,100
+c'est-à-dire en gros les traitements
+
+76
+00:02:24,200 --> 00:02:25,470
+qui ont été ajoutés,
+
+77
+00:02:25,570 --> 00:02:28,100
+et qui bien entendu donc suppose qu'on a
+
+78
+00:02:28,200 --> 00:02:30,370
+au moins une fois utilisé ensure_future avant.
+
+79
+00:02:30,470 --> 00:02:31,570
+Donc je vais vous montrer comment
+
+80
+00:02:31,670 --> 00:02:33,740
+on peut utiliser cette fonctionnalité
+
+81
+00:02:33,840 --> 00:02:36,320
+pour faire quelque chose qui ressemble
+
+82
+00:02:36,420 --> 00:02:41,300
+à ce type de workflow, qu'on appelle un fork.
+
+83
+00:02:41,400 --> 00:02:44,270
+C'est-à-dire, j'ai une tâche qui se déroule
+
+84
+00:02:44,370 --> 00:02:45,410
+et, en plein milieu de la tâche,
+
+85
+00:02:45,510 --> 00:02:47,870
+je veux rajouter un autre traitement
+
+86
+00:02:47,970 --> 00:02:48,600
+dans la boucle.
+
+87
+00:02:49,830 --> 00:02:51,270
+Donc pour faire ça, je vais commencer
+
+88
+00:02:51,370 --> 00:02:53,050
+par me définir une coroutine,
+
+89
+00:02:53,150 --> 00:02:54,690
+que j'ai appelée c1, donc ça va correspondre
+
+90
+00:02:54,790 --> 00:02:56,400
+à la toute première tâche.
+
+91
+00:02:56,700 --> 00:02:58,390
+Cette coroutine, elle fait tout simplement
+
+92
+00:03:00,000 --> 00:03:01,530
+un premier sleep d'une seconde,
+
+93
+00:03:01,630 --> 00:03:02,400
+et au bout d'une seconde,
+
+94
+00:03:02,500 --> 00:03:04,730
+pour déclencher le fork, ce qu'elle va faire,
+
+95
+00:03:04,830 --> 00:03:06,580
+c'est d'appeler ensure_future
+
+96
+00:03:06,680 --> 00:03:08,650
+avec une deuxième coroutine,
+
+97
+00:03:08,750 --> 00:03:10,720
+puis ensuite, elle va de nouveau
+
+98
+00:03:10,820 --> 00:03:12,110
+attendre une seconde, elle va se terminer.
+
+99
+00:03:12,730 --> 00:03:14,340
+Donc j'évalue ma coroutine.
+
+100
+00:03:14,440 --> 00:03:16,200
+La deuxième coroutine,
+
+101
+00:03:16,300 --> 00:03:17,130
+elle est extrêmement simple,
+
+102
+00:03:17,230 --> 00:03:18,400
+elle se contente d'attendre deux secondes,
+
+103
+00:03:18,500 --> 00:03:20,340
+vous avez vu que la deuxième coroutine
+
+104
+00:03:20,440 --> 00:03:21,930
+n'avait absolument rien à faire.
+
+105
+00:03:24,520 --> 00:03:26,690
+Pour démarrer, donc là je vous rappelle,
+
+106
+00:03:26,790 --> 00:03:28,160
+je n'ai fait que définir des coroutines,
+
+107
+00:03:28,260 --> 00:03:31,450
+pour démarrer, je vais ajouter la coroutine c1
+
+108
+00:03:31,550 --> 00:03:33,520
+dans ma boucle par défaut.
+
+109
+00:03:34,500 --> 00:03:37,450
+Pour exécuter le scénario, ce que je vais faire
+
+110
+00:03:37,550 --> 00:03:38,830
+je vais faire start_timer pour qu'on ait
+
+111
+00:03:38,930 --> 00:03:40,820
+une bonne vision de ce qui se passe,
+
+112
+00:03:40,920 --> 00:03:42,820
+et ensuite, je vais simplement faire
+
+113
+00:03:42,920 --> 00:03:45,770
+un run_forever sur la boucle.
+
+114
+00:03:45,870 --> 00:03:46,940
+Donc, ce qui va se passer, c'est que
+
+115
+00:03:47,500 --> 00:03:48,990
+je vais déclencher c1 ;
+
+116
+00:03:49,090 --> 00:03:50,140
+au bout d'une seconde,
+
+117
+00:03:50,240 --> 00:03:51,890
+j'arrive à l'événement forking ;
+
+118
+00:03:51,990 --> 00:03:53,160
+je démarre c2 ;
+
+119
+00:03:53,260 --> 00:03:54,930
+au bout d'encore une seconde,
+
+120
+00:03:55,030 --> 00:03:56,510
+c1 se termine ;
+
+121
+00:03:56,610 --> 00:03:57,450
+au bout d'encore une seconde,
+
+122
+00:03:57,550 --> 00:03:59,120
+c2 se termine.
+
+123
+00:03:59,680 --> 00:04:00,950
+Donc, maintenant, ma boucle,
+
+124
+00:04:01,050 --> 00:04:03,560
+comme je suis dans un mode boucle sans fin,
+
+125
+00:04:03,660 --> 00:04:05,250
+il faut que je l'interrompe, donc
+
+126
+00:04:05,350 --> 00:04:06,760
+dans cette session-là, ce que je vais faire,
+
+127
+00:04:06,860 --> 00:04:09,400
+c'est que je vais envoyer en gros
+
+128
+00:04:09,500 --> 00:04:10,630
+une interruption clavier,
+
+129
+00:04:10,730 --> 00:04:13,380
+en interrompant mon kernel
+
+130
+00:04:13,480 --> 00:04:14,800
+puisque là je suis dans un notebook.
+
+131
+00:04:16,320 --> 00:04:18,140
+Voilà une première utilisation
+
+132
+00:04:18,240 --> 00:04:22,920
+de la boucle et de run_forever.
+
+133
+00:04:24,240 --> 00:04:27,450
+Bon, à ce stade-là, j'ai une boucle qui a servi,
+
+134
+00:04:27,550 --> 00:04:29,350
+dans laquelle j'ai ajouté des tâches,
+
+135
+00:04:29,450 --> 00:04:30,530
+dans laquelle j'ai fait des choses.
+
+136
+00:04:30,630 --> 00:04:32,110
+Si je ne suis pas très sûr de l'état
+
+137
+00:04:32,210 --> 00:04:34,150
+dans lequel est ma boucle, je vais utiliser
+
+138
+00:04:34,250 --> 00:04:36,250
+la conjonction de deux fonctions,
+
+139
+00:04:36,350 --> 00:04:37,610
+sur lesquelles je reviendrai un peu plus tard,
+
+140
+00:04:37,710 --> 00:04:39,600
+je vais créer une nouvelle boucle et je vais
+
+141
+00:04:39,700 --> 00:04:40,940
+la déclarer comme boucle par défaut
+
+142
+00:04:41,040 --> 00:04:41,960
+puisque vous avez vu tout à l'heure
+
+143
+00:04:42,060 --> 00:04:44,300
+que j'ai fait ensure_future
+
+144
+00:04:44,400 --> 00:04:45,390
+sans préciser aucune boucle,
+
+145
+00:04:45,490 --> 00:04:46,890
+donc, quand j'ai fait ça, j'ai utilisé
+
+146
+00:04:46,990 --> 00:04:48,590
+la notion de boucle par défaut.
+
+147
+00:04:48,690 --> 00:04:49,960
+On y reviendra tout à l'heure,
+
+148
+00:04:50,060 --> 00:04:51,110
+pour l'instant, je vous demande de l'admettre.
+
+149
+00:04:53,000 --> 00:04:54,100
+Et je vais vous refaire
+
+150
+00:04:54,200 --> 00:04:55,880
+le même scénario qu'à l'instant
+
+151
+00:04:55,980 --> 00:04:57,490
+mais je vais vous montrer que je peux aussi,
+
+152
+00:04:58,500 --> 00:05:00,650
+à la fin du scénario, plutôt que d'avoir à
+
+153
+00:05:00,750 --> 00:05:02,900
+interrompre, moi, la boucle,
+
+154
+00:05:03,000 --> 00:05:04,140
+parce que je sais qu'elle est terminée,
+
+155
+00:05:04,240 --> 00:05:05,620
+je peux programmer le fait
+
+156
+00:05:05,720 --> 00:05:07,170
+que le scénario est terminé.
+
+157
+00:05:07,270 --> 00:05:08,320
+Et pour ça, je vais utiliser
+
+158
+00:05:08,420 --> 00:05:10,700
+exactement le même scénario ;
+
+159
+00:05:10,800 --> 00:05:13,000
+simplement, à la fin de c2,
+
+160
+00:05:13,100 --> 00:05:14,760
+puisque moi, je sais que c'est la fin de c2,
+
+161
+00:05:14,860 --> 00:05:18,550
+je peux appeler une fonction synchrone,
+
+162
+00:05:18,650 --> 00:05:20,700
+ce n'est pas une coroutine,
+
+163
+00:05:20,800 --> 00:05:22,000
+je n'ai pas fait await,
+
+164
+00:05:22,100 --> 00:05:25,760
+je dis de manière impérative
+
+165
+00:05:25,860 --> 00:05:27,030
+que la boucle doit se terminer,
+
+166
+00:05:27,130 --> 00:05:28,740
+et donc, si j'évalue ce scénario,
+
+167
+00:05:28,840 --> 00:05:29,800
+vous allez voir que
+
+168
+00:05:30,770 --> 00:05:32,840
+je fais exactement la même chose,
+
+169
+00:05:32,940 --> 00:05:34,650
+donc je pars d'une boucle qui est vide,
+
+170
+00:05:34,750 --> 00:05:37,580
+je lui rajoute une coroutine,
+
+171
+00:05:37,680 --> 00:05:39,560
+et lorsque je déclenche ma boucle,
+
+172
+00:05:40,760 --> 00:05:43,080
+tout le scénario se déroule comme prévu
+
+173
+00:05:43,180 --> 00:05:45,310
+et à la fin, on me rend la main,
+
+174
+00:05:45,410 --> 00:05:46,450
+la boucle ne tourne plus,
+
+175
+00:05:46,550 --> 00:05:48,230
+elle s'est arrêtée proprement.
+
+176
+00:05:49,800 --> 00:05:51,100
+On va voir maintenant comment on peut
+
+177
+00:05:51,200 --> 00:05:53,030
+mélanger un petit peu les deux mécanismes,
+
+178
+00:05:53,130 --> 00:05:54,510
+ça veut dire que vous pouvez aussi bien
+
+179
+00:05:54,610 --> 00:05:57,500
+utiliser ensure_future pour ajouter des tâches
+
+180
+00:05:57,600 --> 00:06:00,100
+et ensuite, utiliser run_until_complete.
+
+181
+00:06:00,200 --> 00:06:02,520
+La sémantique est assez simple,
+
+182
+00:06:02,620 --> 00:06:04,080
+on va voir un tout petit exemple.
+
+183
+00:06:04,180 --> 00:06:06,110
+Donc, je me réinitialise ma boucle
+
+184
+00:06:06,210 --> 00:06:07,080
+comme je l'ai fait tout à l'heure,
+
+185
+00:06:08,250 --> 00:06:12,490
+je crée un tout petit utilitaire,
+
+186
+00:06:12,590 --> 00:06:14,100
+donc, là, ce que je vais faire, c'est de
+
+187
+00:06:14,200 --> 00:06:16,840
+simuler un job qui prend un certain temps.
+
+188
+00:06:17,500 --> 00:06:18,900
+Je vous rappelle que,
+
+189
+00:06:19,000 --> 00:06:20,350
+dans tous mes exemples,
+
+190
+00:06:20,450 --> 00:06:21,240
+j'utilise la plupart du temps
+
+191
+00:06:21,340 --> 00:06:22,000
+uniquement des sleep.
+
+192
+00:06:22,100 --> 00:06:23,220
+Dans la vraie vie, ce que vous allez faire,
+
+193
+00:06:23,320 --> 00:06:25,000
+c'est des coroutines qui font des vraies choses
+
+194
+00:06:25,100 --> 00:06:27,000
+Bon, évidemment, le contenu
+
+195
+00:06:27,100 --> 00:06:29,180
+de ce qui se passe entre le début et la fin
+
+196
+00:06:29,280 --> 00:06:31,500
+de votre coroutine, ça va être lié
+
+197
+00:06:31,600 --> 00:06:33,330
+à tous les événements qui vont avec
+
+198
+00:06:33,430 --> 00:06:36,290
+la requête http ; tout ça, va fonctionner
+
+199
+00:06:36,390 --> 00:06:38,290
+de la manière qu'on a décrite depuis le début.
+
+200
+00:06:38,390 --> 00:06:40,700
+Encore une fois, ne vous bloquez pas
+
+201
+00:06:40,800 --> 00:06:41,800
+sur le fait que je fais des sleep,
+
+202
+00:06:41,900 --> 00:06:43,510
+dans votre tête, imaginez que vous avez
+
+203
+00:06:43,610 --> 00:06:44,570
+simplement un traitement avec
+
+204
+00:06:44,670 --> 00:06:45,520
+plein de petites opérations
+
+205
+00:06:45,620 --> 00:06:46,650
+qui vont se dérouler normalement.
+
+206
+00:06:46,750 --> 00:06:48,540
+Ce qu'on cherche à démontrer ici,
+
+207
+00:06:48,640 --> 00:06:51,100
+c'est la logique d'exécution de la boucle.
+
+208
+00:06:52,000 --> 00:06:54,300
+Sur la base de cet utilitaire,
+
+209
+00:06:54,400 --> 00:06:55,840
+je vais me définir deux petites coroutines,
+
+210
+00:06:55,940 --> 00:06:57,400
+une longue et une courte,
+
+211
+00:06:57,500 --> 00:06:58,550
+donc une qui prend une seconde,
+
+212
+00:06:58,650 --> 00:06:59,800
+une qui prend deux secondes,
+
+213
+00:07:00,280 --> 00:07:01,630
+et mon scénario, ça va être de vous montrer
+
+214
+00:07:01,730 --> 00:07:04,000
+que je peux mettre dans la boucle
+
+215
+00:07:05,000 --> 00:07:06,210
+la coroutine qui est longue,
+
+216
+00:07:06,310 --> 00:07:07,300
+qui va prendre deux secondes,
+
+217
+00:07:08,570 --> 00:07:11,300
+et ensuite, lancer un scénario dans lequel
+
+218
+00:07:11,400 --> 00:07:13,860
+je fais un run_until_complete de la première.
+
+219
+00:07:15,860 --> 00:07:16,550
+Je vais faire ça,
+
+220
+00:07:16,650 --> 00:07:19,050
+je vais exécuter les deux tâches,
+
+221
+00:07:19,150 --> 00:07:20,360
+je ne vais pas me concentrer seulement
+
+222
+00:07:20,460 --> 00:07:21,770
+sur la petite tâche que j'ai mise
+
+223
+00:07:21,870 --> 00:07:22,500
+dans run_until_complete ;
+
+224
+00:07:22,600 --> 00:07:23,900
+je fais fonctionner toutes les tâches
+
+225
+00:07:24,000 --> 00:07:24,900
+qui sont dans la boucle,
+
+226
+00:07:25,050 --> 00:07:26,360
+mais je vais m'arrêter dès que
+
+227
+00:07:26,460 --> 00:07:30,490
+le sujet, donc la courte, va se terminer
+
+228
+00:07:30,590 --> 00:07:31,470
+donc au bout d'une seconde.
+
+229
+00:07:31,910 --> 00:07:33,150
+Et, une fois que j'ai fait ça,
+
+230
+00:07:33,250 --> 00:07:35,370
+je peux continuer à relancer ma boucle
+
+231
+00:07:35,470 --> 00:07:37,990
+en faisant un run_forever cette fois.
+
+232
+00:07:39,100 --> 00:07:42,080
+Et elle va exécuter ce qui reste
+
+233
+00:07:42,180 --> 00:07:43,750
+comme sujet pour elle,
+
+234
+00:07:43,850 --> 00:07:44,830
+c'est-à-dire en l'occurrence la longue,
+
+235
+00:07:44,930 --> 00:07:46,080
+elle va finir d'exécuter la longue ;
+
+236
+00:07:46,180 --> 00:07:48,480
+elle va même le faire instantanément,
+
+237
+00:07:48,580 --> 00:07:50,280
+vous allez voir ici, il y a un délai de 0 seconde,
+
+238
+00:07:50,380 --> 00:07:51,390
+pourquoi, parce que j'ai beaucoup parlé,
+
+239
+00:07:51,490 --> 00:07:52,330
+et pendant ce temps-là,
+
+240
+00:07:52,430 --> 00:07:53,610
+le temps auquel il aurait fallu
+
+241
+00:07:53,710 --> 00:07:55,760
+faire la fin de la section longue est arrivé
+
+242
+00:07:55,860 --> 00:07:57,540
+donc on le déclenche immédiatement.
+
+243
+00:07:58,780 --> 00:08:00,838
+Et là, de nouveau, j'ai la petite étoile
+
+244
+00:08:00,938 --> 00:08:02,768
+qui indique que mon interpréteur est occupé
+
+245
+00:08:02,868 --> 00:08:03,593
+parce que ma boucle,
+
+246
+00:08:03,693 --> 00:08:05,668
+c'est une boucle sans fin, je ne l'ai pas arrêtée
+
+247
+00:08:05,768 --> 00:08:08,002
+et donc je vais devoir l'interrompre moi
+
+248
+00:08:08,102 --> 00:08:09,725
+avec une interruption clavier.
+
+249
+00:08:11,037 --> 00:08:12,540
+Pour résumer ce qu'on a vu
+
+250
+00:08:12,640 --> 00:08:14,811
+jusqu'à maintenant au sujet de la boucle,
+
+251
+00:08:14,911 --> 00:08:16,188
+on a vu qu'on avait deux façons
+
+252
+00:08:16,288 --> 00:08:17,829
+de la déclencher, on va dire,
+
+253
+00:08:17,929 --> 00:08:19,874
+on a run_until_complete,
+
+254
+00:08:19,974 --> 00:08:24,166
+qui prend exactement une coroutine,
+
+255
+00:08:25,364 --> 00:08:27,075
+qui va retourner sa valeur ;
+
+256
+00:08:28,832 --> 00:08:31,714
+son usage, ça va être en particulier,
+
+257
+00:08:31,814 --> 00:08:32,905
+si vous avez un code qui est
+
+258
+00:08:33,005 --> 00:08:34,137
+massivement synchrone,
+
+259
+00:08:34,237 --> 00:08:35,050
+et que vous voulez simplement
+
+260
+00:08:35,150 --> 00:08:36,144
+à un moment donné,
+
+261
+00:08:36,244 --> 00:08:38,006
+comme on l'a fait dans un des exemples,
+
+262
+00:08:38,106 --> 00:08:38,716
+aller chercher
+
+263
+00:08:38,816 --> 00:08:40,850
+un certain nombre de requêtes http,
+
+264
+00:08:40,950 --> 00:08:42,001
+attendre qu'elles soient toutes là,
+
+265
+00:08:42,101 --> 00:08:44,285
+et puis continuer dans un traitement
+
+266
+00:08:44,385 --> 00:08:45,098
+de type synchrone.
+
+267
+00:08:45,198 --> 00:08:46,978
+Dans un usage de ce genre
+
+268
+00:08:47,078 --> 00:08:49,034
+c'est tout-à-fait run_until_complete
+
+269
+00:08:49,134 --> 00:08:50,232
+que vous allez avoir envie d'utiliser.
+
+270
+00:08:51,350 --> 00:08:53,902
+Par contre, si vous avez une application
+
+271
+00:08:54,002 --> 00:08:55,685
+qui est massivement asynchrone,
+
+272
+00:08:55,785 --> 00:08:57,328
+vous allez vous mettre plutôt
+
+273
+00:08:57,428 --> 00:08:58,751
+dans un mode où vous allez créer
+
+274
+00:08:58,851 --> 00:08:59,741
+une boucle au démarrage,
+
+275
+00:08:59,841 --> 00:09:02,356
+la mettre dans un mode de boucle sans fin,
+
+276
+00:09:02,456 --> 00:09:04,635
+et avoir la logique de votre application
+
+277
+00:09:04,735 --> 00:09:07,129
+qui ajoute des tâches au fur et à mesure.
+
+278
+00:09:08,432 --> 00:09:10,410
+Cette méthode évidemment ne retourne pas
+
+279
+00:09:10,510 --> 00:09:12,339
+sauf en cas de stop explicite
+
+280
+00:09:12,439 --> 00:09:13,850
+comme on l'a vu tout à l'heure.
+
+281
+00:09:15,403 --> 00:09:16,447
+Donc pour finir cette vidéo
+
+282
+00:09:16,547 --> 00:09:17,531
+je vais revenir un petit peu
+
+283
+00:09:17,631 --> 00:09:19,620
+sur la fonction qui s'appelle get_event_loop.
+
+284
+00:09:20,665 --> 00:09:21,419
+Le modèle mental,
+
+285
+00:09:21,519 --> 00:09:24,207
+je vous ai expliqué que asyncio
+
+286
+00:09:24,307 --> 00:09:26,373
+c'était un modèle singlethread
+
+287
+00:09:26,473 --> 00:09:27,727
+comme vous faites tourner une boucle
+
+288
+00:09:27,827 --> 00:09:28,647
+dans un seul thread,
+
+289
+00:09:29,518 --> 00:09:31,863
+vous avez par contre la possibilité
+
+290
+00:09:31,963 --> 00:09:32,941
+d'avoir plusieurs threads
+
+291
+00:09:33,041 --> 00:09:34,219
+dans votre application,
+
+292
+00:09:34,319 --> 00:09:36,035
+et une boucle d'événements par thread,
+
+293
+00:09:36,135 --> 00:09:37,234
+ça ne pose aucun problème ;
+
+294
+00:09:37,334 --> 00:09:39,516
+le modèle mental, c'est que vous allez avoir
+
+295
+00:09:39,616 --> 00:09:41,443
+en général une boucle par thread,
+
+296
+00:09:41,543 --> 00:09:42,460
+ça ne fait pas vraiment beaucoup de sens
+
+297
+00:09:42,560 --> 00:09:43,155
+d'avoir deux boucles,
+
+298
+00:09:43,255 --> 00:09:44,048
+en tout cas, pas au même moment,
+
+299
+00:09:44,148 --> 00:09:46,532
+donc get_event_loop,
+
+300
+00:09:46,632 --> 00:09:47,585
+c'est un espèce d'utilitaire
+
+301
+00:09:47,685 --> 00:09:49,453
+qui est conçu pour que vous puissiez
+
+302
+00:09:49,553 --> 00:09:52,852
+avoir facilement accès à la boucle courante.
+
+303
+00:09:52,952 --> 00:09:53,512
+Qu'est-ce que ça veut dire,
+
+304
+00:09:53,612 --> 00:09:54,366
+la boucle courante ?
+
+305
+00:09:54,466 --> 00:09:55,902
+En règle générale, c'est simplement
+
+306
+00:09:56,002 --> 00:09:57,938
+la boucle qui correspond
+
+307
+00:09:58,038 --> 00:09:59,975
+au thread dans lequel vous vous trouvez.
+
+308
+00:10:00,489 --> 00:10:01,923
+Et donc, il y a cette notion,
+
+309
+00:10:02,023 --> 00:10:03,972
+c'est une espèce de globale on va dire
+
+310
+00:10:04,072 --> 00:10:05,545
+sauf que ce n'est pas une variable globale,
+
+311
+00:10:05,645 --> 00:10:08,674
+c'est une fonction pour accéder à cet objet.
+
+312
+00:10:10,082 --> 00:10:12,547
+Et donc get_event_loop, sa fonctionnalité
+
+313
+00:10:12,647 --> 00:10:14,453
+c'est de pouvoir facilement
+
+314
+00:10:14,553 --> 00:10:15,846
+accéder à la boucle courante
+
+315
+00:10:16,701 --> 00:10:18,311
+pour faire des opérations du style,
+
+316
+00:10:18,411 --> 00:10:19,503
+on en a vu un exemple à l'instant
+
+317
+00:10:19,603 --> 00:10:22,096
+dans ma coroutine c2, tout à l'heure,
+
+318
+00:10:22,196 --> 00:10:23,763
+j'ai voulu arrêter la boucle,
+
+319
+00:10:23,863 --> 00:10:25,763
+il a fallu que j'accède à l'objet boucle
+
+320
+00:10:25,863 --> 00:10:28,632
+et pour faire ça, je peux typiquement
+
+321
+00:10:28,732 --> 00:10:29,950
+utiliser get_event_loop.
+
+322
+00:10:32,179 --> 00:10:34,143
+En compagnons de cette fonction,
+
+323
+00:10:34,243 --> 00:10:35,829
+vous avez les deux fonctions que j'ai utilisées
+
+324
+00:10:35,929 --> 00:10:38,632
+jusqu'à maintenant sans vous les détailler,
+
+325
+00:10:38,732 --> 00:10:41,424
+new_event_loop, c'est une fonction
+
+326
+00:10:41,524 --> 00:10:42,668
+qui crée une nouvelle boucle.
+
+327
+00:10:42,768 --> 00:10:44,600
+En règle générale, on n'a pas besoin
+
+328
+00:10:44,700 --> 00:10:46,297
+de l'utiliser si on est dans une application
+
+329
+00:10:46,397 --> 00:10:47,527
+avec un seul thread parce que,
+
+330
+00:10:47,627 --> 00:10:49,530
+par commodité dans le thread principal
+
+331
+00:10:50,061 --> 00:10:52,339
+la boucle est déjà créée,
+
+332
+00:10:52,439 --> 00:10:53,706
+la boucle par défaut est déjà créée.
+
+333
+00:10:54,508 --> 00:10:55,976
+Si vous voulez vous mettre
+
+334
+00:10:56,076 --> 00:10:56,969
+dans un mode multithread,
+
+335
+00:10:57,069 --> 00:10:58,985
+vous serez amenés à utiliser new_event_loop.
+
+336
+00:10:59,085 --> 00:11:01,090
+Et set_event_loop, qui vous permet
+
+337
+00:11:01,190 --> 00:11:03,486
+simplement de déclarer un objet
+
+338
+00:11:03,586 --> 00:11:05,375
+comme étant le nouvel objet par défaut
+
+339
+00:11:05,475 --> 00:11:06,100
+du thread.
+
+340
+00:11:06,520 --> 00:11:09,078
+Pour résumer ce qu'on a vu dans cette vidéo,
+
+341
+00:11:09,178 --> 00:11:10,818
+on a vu qu'avec ensure_future
+
+342
+00:11:10,918 --> 00:11:12,505
+vous pouvez ajouter des choses à faire
+
+343
+00:11:12,605 --> 00:11:14,239
+dans une boucle sans fin,
+
+344
+00:11:14,339 --> 00:11:15,629
+dans une boucle d'événements, pardon.
+
+345
+00:11:16,301 --> 00:11:17,539
+Vous avez deux méthodes
+
+346
+00:11:17,639 --> 00:11:21,419
+pour décider quelle est exactement la portée
+
+347
+00:11:21,519 --> 00:11:22,442
+de ce que vous voulez faire faire
+
+348
+00:11:22,542 --> 00:11:23,088
+à votre boucle,
+
+349
+00:11:23,188 --> 00:11:23,967
+est-ce que c'est une seule chose
+
+350
+00:11:24,067 --> 00:11:25,369
+et attendre que ce soit fini, ou bien
+
+351
+00:11:25,469 --> 00:11:27,404
+la faire continuer jusqu'à ce que,
+
+352
+00:11:27,504 --> 00:11:29,648
+par un autre moyen, on lui dise de s'arrêter.
+
+353
+00:11:30,909 --> 00:11:32,984
+Nous avons vu que on avait
+
+354
+00:11:33,084 --> 00:11:34,333
+des petites fonctions utilitaires
+
+355
+00:11:34,433 --> 00:11:38,068
+pour se propager la boucle courante
+
+356
+00:11:38,168 --> 00:11:40,844
+sans avoir besoin de, explicitement,
+
+357
+00:11:40,944 --> 00:11:42,964
+la passer en argument à toutes les coroutines
+
+358
+00:11:43,064 --> 00:11:44,134
+parce que ça, ça donne un code qui est
+
+359
+00:11:44,234 --> 00:11:45,237
+totalement illisible.
+
+360
+00:11:46,331 --> 00:11:49,100
+On peut, si on lit la documentation,
+
+361
+00:11:49,200 --> 00:11:51,016
+avoir envie de faire ça, donc
+
+362
+00:11:51,116 --> 00:11:52,914
+je vous encourage à surtout
+
+363
+00:11:53,014 --> 00:11:54,449
+essayer par tous les moyens
+
+364
+00:11:54,549 --> 00:11:55,915
+de ne pas le faire, ça n'est pas nécessaire.
+
+365
+00:11:56,866 --> 00:11:59,440
+Et notamment, il est question
+
+366
+00:11:59,540 --> 00:12:00,882
+dans la version 3.7
+
+367
+00:12:00,982 --> 00:12:02,032
+d'améliorer un tout petit peu
+
+368
+00:12:02,132 --> 00:12:03,009
+un certain nombre de bugs
+
+369
+00:12:03,109 --> 00:12:03,889
+qui pourraient exister,
+
+370
+00:12:03,989 --> 00:12:06,223
+mais, de manière générale, je vous invite
+
+371
+00:12:06,323 --> 00:12:09,358
+à ne pas propager vos objets boucles
+
+372
+00:12:09,458 --> 00:12:10,378
+d'une coroutine à l'autre,
+
+373
+00:12:10,478 --> 00:12:12,511
+il faut utiliser ces mécanismes-là.
+
+374
+00:12:12,611 --> 00:12:17,287
+Et on a vu en définitive un utilitaire
+
+375
+00:12:17,387 --> 00:12:18,581
+qui vous permet d'arrêter la boucle
+
+376
+00:12:18,681 --> 00:12:19,177
+quand vous le voulez,
+
+377
+00:12:20,006 --> 00:12:20,935
+ça n'est pas d'un usage
+
+378
+00:12:21,035 --> 00:12:21,514
+extrêmement fréquent,
+
+379
+00:12:21,614 --> 00:12:22,873
+mais, voilà, à titre anecdotique
+
+380
+00:12:22,973 --> 00:12:24,383
+vous savez que ça existe.
+

@@ -1,0 +1,720 @@
+1
+00:00:01,146 --> 00:00:10,802
+
+
+2
+00:00:11,528 --> 00:00:14,213
+Bonjour à tous, je suis Thierry Parmentelat
+
+3
+00:00:14,413 --> 00:00:16,413
+et avec Arnaud Legout je vous souhaite la bienvenue
+
+4
+00:00:16,613 --> 00:00:18,820
+sur ce cours consacré à Python 3.
+
+5
+00:00:19,020 --> 00:00:21,938
+Donc cette première semaine nous verrons
+
+6
+00:00:22,138 --> 00:00:24,304
+des généralités sur le langage Python
+
+7
+00:00:24,504 --> 00:00:26,092
+nous verrons également les outils
+
+8
+00:00:26,292 --> 00:00:27,125
+ou comment utiliser les outils
+
+9
+00:00:27,325 --> 00:00:30,554
+qu'on va utiliser issus de l'écosystème Python.
+
+10
+00:00:30,754 --> 00:00:33,173
+Et puis on verra très très mollement
+
+11
+00:00:33,373 --> 00:00:34,819
+un début de cours en fin de semaine.
+
+12
+00:00:35,019 --> 00:00:38,224
+Aujourd'hui je vais vous parler du contenu du cours
+
+13
+00:00:38,424 --> 00:00:41,528
+et de l'organisation du matériel pédagogique
+
+14
+00:00:41,728 --> 00:00:44,566
+et donc de savoir un petit peu comment utiliser le MOOC.
+
+15
+00:00:44,766 --> 00:00:47,389
+En terme de contenus, je précise que
+
+16
+00:00:47,589 --> 00:00:50,480
+c'est un mooc qui est une 2ème édition
+
+17
+00:00:50,680 --> 00:00:52,085
+d'un cours que l'on a déjà donné sur Python 2
+
+18
+00:00:52,285 --> 00:00:54,776
+à l'époque entre 2014 et 2016.
+
+19
+00:00:54,976 --> 00:00:56,735
+Entre-temps l'éco-système python a
+
+20
+00:00:56,831 --> 00:00:59,131
+largement basculé du côté de python 3
+
+21
+00:01:00,229 --> 00:01:02,079
+c'est pourquoi on a décidé de le revoir
+
+22
+00:01:02,279 --> 00:01:05,567
+et notre référence ici sera python 3.6
+
+23
+00:01:05,767 --> 00:01:06,767
+C'est-à-dire c'est la version
+
+24
+00:01:06,967 --> 00:01:10,019
+que l'on a utilisée pour filmer les vidéos.
+
+25
+00:01:10,219 --> 00:01:14,102
+Nous avons organisé le cours en 2 grandes parties
+
+26
+00:01:14,302 --> 00:01:17,233
+vous allez avoir d'abord un tronc commun
+
+27
+00:01:17,433 --> 00:01:19,779
+qui durera 6 semaines dans lesquelles
+
+28
+00:01:19,979 --> 00:01:20,991
+on couvrira les fondamentaux
+
+29
+00:01:21,191 --> 00:01:23,715
+je vais en dire un mot
+
+30
+00:01:23,915 --> 00:01:25,591
+et puis de manière optionnelle
+
+31
+00:01:25,791 --> 00:01:26,814
+à partir de la semaine 7 nous avons un certain
+
+32
+00:01:27,014 --> 00:01:29,194
+nombre d'approfondissements, des options
+
+33
+00:01:29,394 --> 00:01:31,856
+Je vais donner également un peu plus de détails
+
+34
+00:01:32,056 --> 00:01:33,827
+Alors en terme de tronc commun
+
+35
+00:01:34,027 --> 00:01:37,260
+nous avons comme objectif de voir
+
+36
+00:01:37,460 --> 00:01:38,927
+les fondamentaux du langage
+
+37
+00:01:39,127 --> 00:01:41,248
+c'est-à-dire que nous allons parler
+
+38
+00:01:41,448 --> 00:01:42,399
+des types de base, les fonctions
+
+39
+00:01:42,599 --> 00:01:43,949
+les structures de contrôle
+
+40
+00:01:44,149 --> 00:01:46,523
+les modules, les espaces de nommage
+
+41
+00:01:46,723 --> 00:01:48,723
+la programmation objet
+
+42
+00:01:48,923 --> 00:01:51,553
+Tout ça fait partie du tronc commun
+
+43
+00:01:51,753 --> 00:01:55,641
+Et pendant tout le cours on insistera
+
+44
+00:01:55,841 --> 00:01:57,290
+sur les traits marquants de Python
+
+45
+00:01:57,490 --> 00:01:59,832
+qui sont: le fait que c'est un langage très lisible
+
+46
+00:02:00,032 --> 00:02:02,304
+le fait que tout est objet...
+
+47
+00:02:02,504 --> 00:02:06,135
+On insistera bien sur la notion de liaison lexicale
+
+48
+00:02:06,335 --> 00:02:08,316
+mais de typage dynamique
+
+49
+00:02:08,516 --> 00:02:09,516
+pour que vous ayez
+
+50
+00:02:09,716 --> 00:02:12,062
+une bonne compréhension du code
+
+51
+00:02:12,262 --> 00:02:14,083
+et puis on évoquera aussi
+
+52
+00:02:14,283 --> 00:02:16,496
+des traits particulièrement caractéristiques
+
+53
+00:02:16,696 --> 00:02:17,515
+que sont les itérations
+
+54
+00:02:17,715 --> 00:02:18,341
+les espaces de nommage
+
+55
+00:02:18,541 --> 00:02:20,633
+ce genre de choses...
+
+56
+00:02:20,833 --> 00:02:22,690
+Alors maintenant en ce qui concerne
+
+57
+00:02:22,890 --> 00:02:24,890
+les modules optionnels
+
+58
+00:02:25,090 --> 00:02:26,703
+on va vous proposer 3 directions
+
+59
+00:02:26,903 --> 00:02:28,150
+pour approfondir le cours
+
+60
+00:02:28,350 --> 00:02:30,329
+Une première semaine dans laquelle
+
+61
+00:02:30,529 --> 00:02:32,158
+on verra les outils dits de data science
+
+62
+00:02:32,358 --> 00:02:34,538
+une deuxième semaine
+
+63
+00:02:34,738 --> 00:02:38,286
+où on parlera de programmation asynchrone
+
+64
+00:02:38,486 --> 00:02:41,948
+c'est un sujet très innovant et très intéressant
+
+65
+00:02:42,148 --> 00:02:44,581
+je vous invite à le regarder si vous êtes intéressé
+
+66
+00:02:44,781 --> 00:02:47,970
+et en dernière semaine on reviendra
+
+67
+00:02:48,170 --> 00:02:49,471
+sur les sujets avancés
+
+68
+00:02:49,671 --> 00:02:51,197
+c'est à dire en l'occurrence
+
+69
+00:02:51,397 --> 00:02:54,381
+des sujets du style métaclasses
+
+70
+00:02:54,581 --> 00:02:57,971
+décorateurs, des techniques de programmation
+
+71
+00:02:58,171 --> 00:02:59,971
+qui sont particulièrement avancées
+
+72
+00:03:00,171 --> 00:03:01,260
+qu'on a jugé bon de ne pas mettre
+
+73
+00:03:01,460 --> 00:03:03,618
+dans le tronc commun.
+
+74
+00:03:03,818 --> 00:03:05,724
+J'indique quand même que
+
+75
+00:03:05,924 --> 00:03:08,155
+pour les deux premières semaines qui sont là
+
+76
+00:03:08,355 --> 00:03:10,656
+on pourrait sans problème faire un MOOC
+
+77
+00:03:10,856 --> 00:03:12,062
+sur chacun de ces sujets donc...
+
+78
+00:03:12,262 --> 00:03:14,257
+il s'agira vraiment d'une toute petite introduction
+
+79
+00:03:14,457 --> 00:03:17,108
+on cherche à gratter la surface du sujet
+
+80
+00:03:17,308 --> 00:03:18,734
+on cherche surtout à ce que vous sachiez
+
+81
+00:03:18,934 --> 00:03:20,447
+que ça existe pour vous donner les moyens
+
+82
+00:03:20,647 --> 00:03:22,509
+d'approfondir tout ces sujets de votre côté
+
+83
+00:03:22,709 --> 00:03:24,293
+si nécessaire.
+
+84
+00:03:24,579 --> 00:03:27,661
+Que vous suiviez ou pas les modules optionnels
+
+85
+00:03:27,861 --> 00:03:28,960
+à l'issue du tronc commun vous aurez
+
+86
+00:03:29,160 --> 00:03:31,496
+le bagage qui vous permettra d'écrire
+
+87
+00:03:31,696 --> 00:03:33,685
+du code propre évidemment
+
+88
+00:03:33,885 --> 00:03:35,448
+mais on aimerait bien également
+
+89
+00:03:35,648 --> 00:03:37,374
+vous donner les moyens de lire du code
+
+90
+00:03:37,574 --> 00:03:39,859
+on insiste sur le fait que c'est comme
+
+91
+00:03:40,059 --> 00:03:41,518
+un petit peu une langue étrangère
+
+92
+00:03:41,718 --> 00:03:42,511
+Si vous ne lisez pas de code
+
+93
+00:03:42,711 --> 00:03:43,713
+vous n'apprendrez pas
+
+94
+00:03:43,913 --> 00:03:45,382
+les différents paradigmes et idiomes
+
+95
+00:03:45,582 --> 00:03:47,004
+c'est pour cette raison
+
+96
+00:03:47,104 --> 00:03:48,334
+qu'on vous apprend parfois des choses
+
+97
+00:03:48,534 --> 00:03:50,181
+qui sont au-delà de ce dont vous avez besoin
+
+98
+00:03:50,381 --> 00:03:52,268
+mais ça vous permet de lire du code étranger
+
+99
+00:03:52,468 --> 00:03:53,967
+et puis on aimerait bien également que
+
+100
+00:03:54,167 --> 00:03:57,125
+vous ayez un bagage suffisant pour bien choisir
+
+101
+00:03:57,325 --> 00:03:59,736
+et bien utiliser toutes les librairies tierces
+
+102
+00:03:59,936 --> 00:04:02,136
+dont vous pourriez avoir besoin parce c'est
+
+103
+00:04:02,336 --> 00:04:03,438
+quand même un des avantages de python
+
+104
+00:04:03,638 --> 00:04:04,211
+c'est de pouvoir utiliser un code
+
+105
+00:04:04,411 --> 00:04:06,166
+qui fait à peu près n'importe quoi
+
+106
+00:04:06,366 --> 00:04:10,190
+régler n'importe quel problème je veux dire :)
+
+107
+00:04:10,390 --> 00:04:11,605
+En terme d'organisation du cours
+
+108
+00:04:11,805 --> 00:04:13,768
+on va proposer chaque semaine
+
+109
+00:04:13,968 --> 00:04:15,160
+évidemment un certain nombre de vidéos
+
+110
+00:04:15,360 --> 00:04:17,360
+en gros, c'est de l'ordre de 6 à 8
+
+111
+00:04:17,560 --> 00:04:21,300
+il va y avoir un certain nombre de compléments
+
+112
+00:04:21,500 --> 00:04:24,291
+Alors, la raison c'est qu'en 5 ou 6 minutes de vidéos
+
+113
+00:04:24,491 --> 00:04:25,788
+c'est extrêmement difficile d'aller
+
+114
+00:04:25,988 --> 00:04:28,688
+au fond du sujet, on va vous proposer d'approfondir
+
+115
+00:04:28,888 --> 00:04:32,310
+Il y aura pour presque toutes les séquences
+
+116
+00:04:32,510 --> 00:04:34,510
+des 6 semaines du tronc commun
+
+117
+00:04:34,710 --> 00:04:36,224
+un quiz par séquence
+
+118
+00:04:36,424 --> 00:04:37,749
+c'est ça qui entrera en ligne de compte
+
+119
+00:04:37,949 --> 00:04:38,749
+pour l'attestation
+
+120
+00:04:38,949 --> 00:04:41,656
+Et enfin vous aurez des exercices auto-évalués et
+
+121
+00:04:41,856 --> 00:04:43,757
+je vous montrerai dans une vidéo
+
+122
+00:04:43,957 --> 00:04:45,370
+comment ça fonctionne
+
+123
+00:04:45,570 --> 00:04:48,411
+le principe c'est qu'on vous propose un sujet
+
+124
+00:04:48,611 --> 00:04:51,921
+vous établissez votre solution
+
+125
+00:04:52,121 --> 00:04:53,896
+et vous avez un retour immédiat en ligne
+
+126
+00:04:54,096 --> 00:04:55,687
+pour savoir si votre solution
+
+127
+00:04:55,887 --> 00:04:57,121
+correspond à ce qui était demandé
+
+128
+00:04:57,321 --> 00:05:01,325
+Nous avons également classé tous les matériaux
+
+129
+00:05:01,525 --> 00:05:04,393
+en gros, à titre indicatif en 3 niveaux de difficulté
+
+130
+00:05:04,593 --> 00:05:06,271
+qui sont basique, intermédiaire, avancé
+
+131
+00:05:06,471 --> 00:05:08,161
+donc c'est vraiment à prendre à titre indicatif
+
+132
+00:05:08,361 --> 00:05:11,084
+le but du jeu c'est vous permettre de choisir
+
+133
+00:05:11,284 --> 00:05:13,674
+en bonne connaissance de cause
+
+134
+00:05:13,874 --> 00:05:18,226
+votre propre cursus en fonction de vos intérêts
+
+135
+00:05:18,426 --> 00:05:21,042
+et aussi de vos attentes en terme de complexité.
+
+136
+00:05:21,242 --> 00:05:25,327
+Je ne décrirai pas dans cette vidéo
+
+137
+00:05:25,527 --> 00:05:27,442
+les modalités de délivrance des attestations
+
+138
+00:05:27,642 --> 00:05:29,491
+je vous invite à vous référer à un complément
+
+139
+00:05:29,691 --> 00:05:32,493
+ce qui nous permettra chaque année de le mettre à jour
+
+140
+00:05:32,693 --> 00:05:35,314
+Par contre j'insiste sur le fait
+
+141
+00:05:35,514 --> 00:05:37,147
+que vous n'êtes pas seul dans ce cours
+
+142
+00:05:37,347 --> 00:05:38,667
+il y a un très grand nombre d'étudiants avec vous
+
+143
+00:05:38,867 --> 00:05:42,053
+donc je vous invite à utiliser le forum de discussion
+
+144
+00:05:42,253 --> 00:05:45,126
+c'est un endroit où on trouve beaucoup d'intérêts
+
+145
+00:05:45,326 --> 00:05:48,070
+vous allez forcément trouver quelqu'un
+
+146
+00:05:48,270 --> 00:05:49,528
+qui a eu soit le même problème que vous
+
+147
+00:05:49,728 --> 00:05:51,388
+soit la même préoccupation
+
+148
+00:05:51,588 --> 00:05:54,996
+soit qui vous aidera à installer sur Windows
+
+149
+00:05:55,196 --> 00:05:56,792
+un outil particulier...
+
+150
+00:05:56,992 --> 00:06:00,106
+réponse que nous n'aurions pas forcément d'ailleurs
+
+151
+00:06:00,306 --> 00:06:04,858
+donc je vous invite surtout à utiliser ce forum
+
+152
+00:06:05,058 --> 00:06:07,781
+sans aucune forme de limitation
+
+153
+00:06:07,981 --> 00:06:12,240
+c'est vraiment un endroit très ouvert.
+
+154
+00:06:12,440 --> 00:06:14,727
+Enfin en termes de langues
+
+155
+00:06:14,927 --> 00:06:16,707
+je dois vous dire que, évidemment
+
+156
+00:06:16,907 --> 00:06:17,958
+tout le cours est en français
+
+157
+00:06:18,158 --> 00:06:19,044
+les exercices sont en français
+
+158
+00:06:19,244 --> 00:06:21,123
+tous les supports que nous avons écrits
+
+159
+00:06:21,323 --> 00:06:23,723
+sont en français, mais nous allons
+
+160
+00:06:23,923 --> 00:06:24,324
+ nous référer de très nombreuses fois
+
+161
+00:06:24,524 --> 00:06:25,905
+à des documents en anglais pour la raison
+
+162
+00:06:26,105 --> 00:06:27,722
+que le langage est écrit en anglais
+
+163
+00:06:27,922 --> 00:06:29,314
+la documentation officielle est écrite en anglais
+
+164
+00:06:29,514 --> 00:06:32,633
+la quasi intégralité du code existant
+
+165
+00:06:32,833 --> 00:06:34,253
+est écrite en anglais
+
+166
+00:06:34,323 --> 00:06:37,189
+donc c'est pratiquement inévitable
+
+167
+00:06:37,389 --> 00:06:39,878
+et je dois nous excuser également parce que
+
+168
+00:06:40,078 --> 00:06:42,804
+à l'occasion nous avons décidé de garder
+
+169
+00:06:43,004 --> 00:06:46,285
+le terme original anglais dans une phrase quand
+
+170
+00:06:46,485 --> 00:06:48,285
+on parlera de séquence 'unpacking' par exemple
+
+171
+00:06:48,485 --> 00:06:50,616
+pour la raison qu'en fait
+
+172
+00:06:50,816 --> 00:06:53,197
+c'est quasiment impossible à traduire
+
+173
+00:06:53,397 --> 00:06:55,017
+donc si vous étiez amené à faire
+
+174
+00:06:55,217 --> 00:06:56,152
+une recherche sur internet
+
+175
+00:06:56,252 --> 00:06:58,710
+sur une traduction que nous vous aurions faite
+
+176
+00:06:58,910 --> 00:07:00,910
+vous risqueriez d'avoir des difficultés pour trouver
+
+177
+00:07:01,110 --> 00:07:03,247
+c'est beaucoup plus raisonnable
+
+178
+00:07:03,447 --> 00:07:04,903
+que vous ayez dès le départ
+
+179
+00:07:05,103 --> 00:07:07,557
+le terme anglais, en fait.
+
+180
+00:07:07,757 --> 00:07:09,757
+A bientôt !
+

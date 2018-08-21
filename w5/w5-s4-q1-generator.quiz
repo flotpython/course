@@ -4,10 +4,10 @@ Expression génératrice (1)
 
 Quel est l'intérêt d'une expression génératrice par rapport à une compréhension de liste ?
 
-[ ] C'est beaucoup plus rapide à parcourir
-[ ] C'est plus facile à écrire
-[x] Ça occupe moins de mémoire
-[ ] C'est totalement équivalent
+[ ] C'est beaucoup plus rapide à parcourir.
+[ ] C'est plus facile à écrire.
+[x] Ça occupe moins de mémoire.
+[ ] C'est totalement équivalent.
 
 [explanation]
 

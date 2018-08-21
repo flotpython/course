@@ -1,0 +1,716 @@
+﻿1
+00:00:00,663 --> 00:00:01,887
+Nous venons de voir qu'il était
+
+2
+00:00:01,987 --> 00:00:02,851
+extrêmement important
+
+3
+00:00:02,951 --> 00:00:04,369
+de bien fermer vos fichiers.
+
+4
+00:00:04,469 --> 00:00:06,220
+Cependant, vous pouvez vous demander
+
+5
+00:00:06,320 --> 00:00:07,473
+mais pourquoi est-ce tellement important
+
+6
+00:00:07,573 --> 00:00:08,310
+de fermer les fichiers ?
+
+7
+00:00:08,410 --> 00:00:09,681
+En fait, la raison est simple.
+
+8
+00:00:09,781 --> 00:00:11,155
+Votre programme Python
+
+9
+00:00:11,255 --> 00:00:13,399
+va discuter avec le système d'exploitation
+
+10
+00:00:13,499 --> 00:00:14,543
+et c'est le système d'exploitation
+
+11
+00:00:14,643 --> 00:00:16,947
+qui va effectivement ouvrir, fermer
+
+12
+00:00:17,047 --> 00:00:18,215
+et écrire dans les fichiers.
+
+13
+00:00:18,604 --> 00:00:20,420
+Lorsque vous faites un open,
+
+14
+00:00:20,520 --> 00:00:21,960
+vous dites à votre système d'exploitation:
+
+15
+00:00:22,060 --> 00:00:23,647
+attention, moi, je veux ouvrir ce fichier ;
+
+16
+00:00:23,747 --> 00:00:25,048
+et lorsque vous faites un close,
+
+17
+00:00:25,148 --> 00:00:26,582
+vous lui dites: je veux fermer ce fichier.
+
+18
+00:00:26,682 --> 00:00:28,340
+Comme le nombre de fichiers
+
+19
+00:00:28,440 --> 00:00:29,479
+simultanément ouverts
+
+20
+00:00:29,579 --> 00:00:31,219
+est limité dans un système d'exploitation,
+
+21
+00:00:31,319 --> 00:00:33,511
+si vous ne dites pas que vous faites un close,
+
+22
+00:00:33,611 --> 00:00:35,260
+le système d'exploitation va croire que
+
+23
+00:00:35,360 --> 00:00:36,297
+le fichier est toujours ouvert,
+
+24
+00:00:36,397 --> 00:00:37,253
+et vous pouvez vous retrouver
+
+25
+00:00:37,353 --> 00:00:38,884
+dans une situation dans laquelle
+
+26
+00:00:38,984 --> 00:00:41,079
+votre ordinateur n'est plus capable
+
+27
+00:00:41,179 --> 00:00:42,352
+d'ouvrir de nouveaux fichiers.
+
+28
+00:00:42,928 --> 00:00:44,419
+Mais quand on y pense,
+
+29
+00:00:44,519 --> 00:00:46,094
+on se dit mais pourquoi
+
+30
+00:00:46,194 --> 00:00:48,122
+est-ce que c'est au programmeur
+
+31
+00:00:48,222 --> 00:00:50,029
+de penser à fermer systématiquement
+
+32
+00:00:50,129 --> 00:00:50,578
+le fichier,
+
+33
+00:00:50,678 --> 00:00:51,846
+alors qu'en Python,
+
+34
+00:00:51,946 --> 00:00:52,755
+tout est un objet
+
+35
+00:00:52,855 --> 00:00:54,119
+et qu'un fichier est également un objet.
+
+36
+00:00:54,219 --> 00:00:55,641
+On pourrait très bien se dire:
+
+37
+00:00:55,741 --> 00:00:57,728
+en fait, on pourrait faire en sorte que
+
+38
+00:00:57,828 --> 00:00:59,441
+l'objet soit suffisamment intelligent
+
+39
+00:00:59,541 --> 00:01:01,681
+pour savoir que lorsqu'on n'en a plus besoin
+
+40
+00:01:01,781 --> 00:01:03,932
+il fait toutes les opérations nécessaires
+
+41
+00:01:04,032 --> 00:01:04,871
+à sa fermeture.
+
+42
+00:01:04,971 --> 00:01:06,763
+Et bien en fait, ce mécanisme
+
+43
+00:01:06,863 --> 00:01:07,581
+existe en Python.
+
+44
+00:01:07,681 --> 00:01:09,513
+C'est quelque chose qu'on appelle
+
+45
+00:01:09,613 --> 00:01:10,516
+un protocole qui s'appelle
+
+46
+00:01:10,616 --> 00:01:12,244
+le protocole de context manager.
+
+47
+00:01:12,344 --> 00:01:14,860
+En fait, un objet fichier implémente
+
+48
+00:01:14,960 --> 00:01:16,320
+ce protocole de context manager,
+
+49
+00:01:16,420 --> 00:01:19,478
+et, lorsque l'on n'a plus besoin de ce fichier,
+
+50
+00:01:19,578 --> 00:01:20,374
+le fichier sera
+
+51
+00:01:20,474 --> 00:01:21,447
+automatiquement fermé.
+
+52
+00:01:21,547 --> 00:01:23,227
+Regardons comment cela fonctionne
+
+53
+00:01:23,327 --> 00:01:23,940
+en Python.
+
+54
+00:01:24,519 --> 00:01:25,981
+Pour accéder à ce protocole
+
+55
+00:01:26,081 --> 00:01:27,008
+de context manager,
+
+56
+00:01:27,108 --> 00:01:28,612
+vous utilisez l'instruction with,
+
+57
+00:01:28,712 --> 00:01:30,551
+ensuite, vous ouvrez votre fichier
+
+58
+00:01:30,651 --> 00:01:32,201
+normalement, comme un fichier standard,
+
+59
+00:01:32,301 --> 00:01:40,302
+on va ouvrir le fichier c:/temp/spam.txt.
+
+60
+00:01:41,984 --> 00:01:43,605
+Ensuite, j'ouvre mon fichier
+
+61
+00:01:43,705 --> 00:01:44,635
+en mode lecture
+
+62
+00:01:44,735 --> 00:01:47,398
+et évidemment, je contrôle l'encodage
+
+63
+00:01:47,498 --> 00:01:50,912
+avec encoding égale utf8.
+
+64
+00:01:52,321 --> 00:01:54,018
+Ensuite, je vais donner un nom
+
+65
+00:01:54,118 --> 00:01:55,779
+à cet objet fichier, as f,
+
+66
+00:01:55,879 --> 00:01:57,632
+et je mets un :
+
+67
+00:01:57,732 --> 00:01:59,026
+ça veut dire que je vais créer
+
+68
+00:01:59,126 --> 00:02:00,151
+un bloc d'instructions.
+
+69
+00:02:00,848 --> 00:02:02,115
+Dans mon context manager,
+
+70
+00:02:02,215 --> 00:02:03,492
+j'ai un bloc d'instructions
+
+71
+00:02:03,592 --> 00:02:04,655
+et ce bloc d'instructions
+
+72
+00:02:04,755 --> 00:02:06,184
+va être exécuté ;
+
+73
+00:02:06,284 --> 00:02:08,559
+lorsque je sors de ce bloc d'instructions,
+
+74
+00:02:09,175 --> 00:02:10,801
+on va appeler
+
+75
+00:02:11,111 --> 00:02:13,653
+une méthode qui s'appelle exit
+
+76
+00:02:13,753 --> 00:02:15,740
+sur le context manager de l'objet fichier,
+
+77
+00:02:15,840 --> 00:02:17,713
+nous verrons ça dans de prochaines vidéos,
+
+78
+00:02:17,813 --> 00:02:19,129
+qui va avoir pour effet de fermer
+
+79
+00:02:19,229 --> 00:02:20,329
+automatiquement le fichier.
+
+80
+00:02:20,429 --> 00:02:22,458
+L'intérêt de ce context manager,
+
+81
+00:02:22,558 --> 00:02:23,773
+c'est que vous n'avez plus à fermer
+
+82
+00:02:23,873 --> 00:02:24,908
+explicitement le fichier,
+
+83
+00:02:25,008 --> 00:02:26,700
+il sera automatiquement fermé
+
+84
+00:02:26,800 --> 00:02:28,397
+en sortie de bloc de code,
+
+85
+00:02:28,497 --> 00:02:29,997
+mais c'est aussi que si vous avez
+
+86
+00:02:30,097 --> 00:02:31,518
+une exception dans ce bloc de code,
+
+87
+00:02:31,618 --> 00:02:33,394
+le fichier sera quand même fermé.
+
+88
+00:02:33,494 --> 00:02:35,394
+Cela simplifie énormément
+
+89
+00:02:35,494 --> 00:02:36,585
+l'ouverture des fichiers
+
+90
+00:02:36,685 --> 00:02:38,284
+puisque vous n'avez plus à gérer
+
+91
+00:02:38,384 --> 00:02:40,512
+la fermeture et les erreurs d'exécution.
+
+92
+00:02:42,593 --> 00:02:44,070
+Maintenant, parcourons mon fichier,
+
+93
+00:02:44,170 --> 00:02:46,790
+for line in f,
+
+94
+00:02:46,890 --> 00:02:48,290
+et je vais simplement faire
+
+95
+00:02:48,390 --> 00:02:52,618
+un print de line.
+
+96
+00:02:52,718 --> 00:02:54,966
+J'affiche les différentes lignes de mon fichier.
+
+97
+00:02:55,066 --> 00:02:57,419
+J'exécute ce context manager,
+
+98
+00:02:57,519 --> 00:02:59,383
+et je vois les différentes lignes s'afficher.
+
+99
+00:02:59,483 --> 00:03:00,874
+En sortie du bloc de code,
+
+100
+00:03:00,974 --> 00:03:02,809
+le fichier a été automatiquement fermé
+
+101
+00:03:02,909 --> 00:03:04,551
+et encore une fois, si j'avais une exception
+
+102
+00:03:04,651 --> 00:03:06,389
+le fichier aurait été fermé.
+
+103
+00:03:07,219 --> 00:03:08,604
+Regardons maintenant comment
+
+104
+00:03:08,704 --> 00:03:10,292
+écrire dans un fichier binaire.
+
+105
+00:03:10,392 --> 00:03:12,097
+Comme nous venons de découvrir
+
+106
+00:03:12,197 --> 00:03:12,992
+les context managers,
+
+107
+00:03:13,092 --> 00:03:14,971
+c'est ce que nous allons utiliser par la suite.
+
+108
+00:03:15,797 --> 00:03:19,014
+Nous allons ouvrir notre fichier
+
+109
+00:03:19,114 --> 00:03:20,647
+dans un context manager,
+
+110
+00:03:20,747 --> 00:03:21,305
+with
+
+111
+00:03:22,934 --> 00:03:25,243
+je mets la fonction built-in open,
+
+112
+00:03:25,861 --> 00:03:27,233
+et je vais ouvrir mon fichier
+
+113
+00:03:27,333 --> 00:03:31,527
+c:/temp/spam.bin
+
+114
+00:03:31,627 --> 00:03:34,851
+Ensuite, je vais spécifier le mode d'ouverture
+
+115
+00:03:34,951 --> 00:03:36,942
+je veux ouvrir mon fichier en mode écriture,
+
+116
+00:03:37,042 --> 00:03:39,039
+et pour dire à Python que je veux
+
+117
+00:03:39,139 --> 00:03:40,052
+l'ouvrir en mode binaire,
+
+118
+00:03:40,152 --> 00:03:42,358
+je n'ai qu'à rajouter un petit b
+
+119
+00:03:42,458 --> 00:03:44,893
+au mode d'ouverture du fichier.
+
+120
+00:03:44,993 --> 00:03:46,278
+Donc si je veux ouvrir un fichier
+
+121
+00:03:46,378 --> 00:03:47,758
+en mode binaire et écriture,
+
+122
+00:03:47,858 --> 00:03:49,358
+j'écris bw ;
+
+123
+00:03:49,458 --> 00:03:51,312
+si je veux l'ouvrir en mode binaire et lecture,
+
+124
+00:03:51,412 --> 00:03:52,637
+je vais écrire br.
+
+125
+00:03:53,779 --> 00:03:55,325
+Comme mon fichier est ouvert
+
+126
+00:03:55,425 --> 00:03:55,754
+en mode binaire,
+
+127
+00:03:55,854 --> 00:03:57,210
+je n'ai pas spécifié d'encodage,
+
+128
+00:03:57,310 --> 00:03:58,670
+et ensuite j'écris as f
+
+129
+00:03:58,770 --> 00:04:00,675
+pour donner un nom à mon fichier.
+
+130
+00:04:02,244 --> 00:04:03,634
+Ensuite, je vais faire une simple boucle:
+
+131
+00:04:03,734 --> 00:04:06,561
+for i in range de 100,
+
+132
+00:04:07,752 --> 00:04:09,040
+et je vais écrire dans mon fichier
+
+133
+00:04:09,140 --> 00:04:10,345
+f.write
+
+134
+00:04:12,319 --> 00:04:14,169
+Comme mon fichier est ouvert
+
+135
+00:04:14,269 --> 00:04:15,087
+en mode binaire,
+
+136
+00:04:15,187 --> 00:04:16,823
+je ne peux écrire dans ce fichier
+
+137
+00:04:16,923 --> 00:04:18,358
+que des objets de type bytes
+
+138
+00:04:18,458 --> 00:04:19,510
+et je ne pourrai lire
+
+139
+00:04:19,610 --> 00:04:21,086
+que des objets de type bytes.
+
+140
+00:04:21,700 --> 00:04:23,084
+Pour écrire un objet de type bytes,
+
+141
+00:04:23,184 --> 00:04:23,569
+c'est très simple,
+
+142
+00:04:23,669 --> 00:04:24,604
+j'écris une chaîne de caractères
+
+143
+00:04:25,416 --> 00:04:27,720
+en écrivant un petit b juste avant.
+
+144
+00:04:29,014 --> 00:04:29,974
+Ça, c'est une chaîne de caractères
+
+145
+00:04:30,074 --> 00:04:30,780
+de type bytes,
+
+146
+00:04:30,880 --> 00:04:31,844
+et dedans, je vais écrire
+
+147
+00:04:31,944 --> 00:04:33,249
+un caractère hexadécimal
+
+148
+00:04:33,349 --> 00:04:34,676
+qui est juste 3d.
+
+149
+00:04:37,353 --> 00:04:38,792
+J'exécute mon bloc de code,
+
+150
+00:04:38,892 --> 00:04:40,612
+j'ai écrit dans mon fichier,
+
+151
+00:04:40,712 --> 00:04:43,078
+en sortie du bloc de code,
+
+152
+00:04:43,178 --> 00:04:44,884
+le context manager a fermé le fichier,
+
+153
+00:04:44,984 --> 00:04:46,566
+et j'ai maintenant sur mon disque dur
+
+154
+00:04:46,666 --> 00:04:48,605
+un fichier qui s'appelle spam.bin
+
+155
+00:04:48,705 --> 00:04:52,666
+qui contient le caractère 3d écrit 100 fois.
+
+156
+00:04:55,721 --> 00:04:57,424
+Donc pour résumer encore une fois,
+
+157
+00:04:57,524 --> 00:04:59,568
+ouverture d'un fichier en mode texte:
+
+158
+00:04:59,668 --> 00:05:00,712
+on manipule le fichier
+
+159
+00:05:00,812 --> 00:05:02,448
+avec des objets de type str ;
+
+160
+00:05:03,025 --> 00:05:04,642
+ouverture d'un fichier en mode binaire:
+
+161
+00:05:04,742 --> 00:05:05,674
+on manipule le fichier
+
+162
+00:05:05,774 --> 00:05:07,770
+avec des objets de type bytes.
+
+163
+00:05:08,777 --> 00:05:11,240
+Nous venons de voir les fichiers en Python.
+
+164
+00:05:11,340 --> 00:05:12,672
+Nous avons vu que ces objets fichiers
+
+165
+00:05:12,772 --> 00:05:14,310
+sont des objets extrêmement puissants,
+
+166
+00:05:14,410 --> 00:05:14,883
+qui permettent
+
+167
+00:05:14,983 --> 00:05:17,153
+de manière naturelle et intuitive
+
+168
+00:05:17,253 --> 00:05:18,983
+de parcourir des fichiers.
+
+169
+00:05:19,083 --> 00:05:20,451
+On a également vu
+
+170
+00:05:20,551 --> 00:05:22,270
+la notion de context manager,
+
+171
+00:05:22,370 --> 00:05:24,652
+qui permet d'ouvrir un fichier
+
+172
+00:05:24,752 --> 00:05:26,911
+et de garantir sa fermeture automatique
+
+173
+00:05:27,011 --> 00:05:28,893
+lorsqu'on n'a plus besoin de cet objet fichier.
+
+174
+00:05:28,993 --> 00:05:30,651
+Par la suite, nous vous recommandons
+
+175
+00:05:30,751 --> 00:05:31,884
+d'utiliser systématiquement
+
+176
+00:05:31,984 --> 00:05:33,236
+les context managers
+
+177
+00:05:33,336 --> 00:05:34,660
+dès que vous aurez à ouvrir
+
+178
+00:05:34,760 --> 00:05:35,746
+des fichiers en Python.
+
+179
+00:05:35,846 --> 00:05:36,721
+À bientôt !
+

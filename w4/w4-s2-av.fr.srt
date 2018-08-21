@@ -1,0 +1,904 @@
+﻿1
+00:00:03,745 --> 00:00:05,017
+Dans une précédente vidéo,
+
+2
+00:00:05,117 --> 00:00:07,121
+nous avons vu l'instruction if else.
+
+3
+00:00:07,221 --> 00:00:09,417
+Dans cette vidéo, nous allons revenir dessus
+
+4
+00:00:09,517 --> 00:00:11,538
+et en particulier, nous allons vous expliquer
+
+5
+00:00:11,638 --> 00:00:14,032
+ce qui peut être contenu dans un test.
+
+6
+00:00:14,502 --> 00:00:17,073
+Revenons sur cette syntaxe de if else.
+
+7
+00:00:19,125 --> 00:00:21,447
+Vous commencez avec l'instruction if
+
+8
+00:00:21,547 --> 00:00:22,950
+et ensuite vous mettez un test.
+
+9
+00:00:23,050 --> 00:00:24,482
+Nous allons revenir dans quelques instants
+
+10
+00:00:24,582 --> 00:00:26,513
+sur exactement ce que peut contenir ce test.
+
+11
+00:00:26,613 --> 00:00:28,154
+Ensuite on a un :
+
+12
+00:00:28,254 --> 00:00:29,388
+qui signifie qu'on va avoir
+
+13
+00:00:29,488 --> 00:00:30,306
+un bloc d'instructions.
+
+14
+00:00:31,576 --> 00:00:34,137
+Ce bloc d'instructions ne sera exécuté
+
+15
+00:00:34,237 --> 00:00:36,397
+que si le test est vrai.
+
+16
+00:00:37,621 --> 00:00:40,431
+Ensuite, on peut avoir de manière optionnelle
+
+17
+00:00:40,531 --> 00:00:43,471
+un elif avec un bloc d'instructions
+
+18
+00:00:43,571 --> 00:00:45,336
+ou même plusieurs elif
+
+19
+00:00:45,436 --> 00:00:46,831
+avec des blocs d'instructions.
+
+20
+00:00:48,124 --> 00:00:49,795
+L'intérêt de ces elif
+
+21
+00:00:49,895 --> 00:00:51,473
+c'est de faire des tests supplémentaires ;
+
+22
+00:00:51,573 --> 00:00:52,980
+ça va fonctionner de la manière suivante:
+
+23
+00:00:53,366 --> 00:00:54,843
+vous commencez avec le premier if:
+
+24
+00:00:54,943 --> 00:00:56,085
+si le premier test est vrai,
+
+25
+00:00:56,551 --> 00:00:58,572
+vous exécutez le bloc d'instructions
+
+26
+00:00:58,672 --> 00:01:00,667
+et vous sortez de votre if else.
+
+27
+00:01:01,345 --> 00:01:03,097
+Si le test 1 est faux,
+
+28
+00:01:03,197 --> 00:01:05,864
+vous passez au deuxième test, le test 2,
+
+29
+00:01:05,964 --> 00:01:07,148
+s'il est vrai, vous exécutez
+
+30
+00:01:07,248 --> 00:01:08,667
+le bloc d'instructions correspondant ;
+
+31
+00:01:08,767 --> 00:01:12,503
+sinon, else if, elif ça veut dire else if,
+
+32
+00:01:12,603 --> 00:01:13,949
+vous passez au troisième test
+
+33
+00:01:14,049 --> 00:01:16,445
+et vous continuez, de manière successive,
+
+34
+00:01:16,545 --> 00:01:17,564
+jusqu'au dernier test.
+
+35
+00:01:18,219 --> 00:01:21,167
+Si l'intégralité de vos tests sont faux,
+
+36
+00:01:18,558 --> 00:01:25,580
+vous pouvez, avec le else optionnel,
+
+37
+00:01:25,680 --> 00:01:29,046
+faire une exécution d'un bloc d'instructions.
+
+38
+00:01:29,652 --> 00:01:30,487
+En résumé,
+
+39
+00:01:31,002 --> 00:01:32,496
+si test 1 est vrai, vous exécutez
+
+40
+00:01:32,596 --> 00:01:33,769
+le bloc d'instructions correspondant ;
+
+41
+00:01:33,869 --> 00:01:35,400
+sinon vous passez à test 2,
+
+42
+00:01:35,500 --> 00:01:36,976
+sinon vous passez à test 3,
+
+43
+00:01:37,076 --> 00:01:38,942
+et si aucun des tests n'est vrai,
+
+44
+00:01:39,042 --> 00:01:41,478
+vous finissez dans else et vous exécutez
+
+45
+00:01:41,578 --> 00:01:43,141
+le bloc d'instructions de else.
+
+46
+00:01:43,241 --> 00:01:46,812
+En fait, dans une structure if, elif, else,
+
+47
+00:01:46,912 --> 00:01:49,749
+un seul bloc d'instructions sera exécuté.
+
+48
+00:01:53,000 --> 00:01:54,218
+Regardons maintenant ce que
+
+49
+00:01:54,318 --> 00:01:56,393
+nous pouvons avoir dans un test.
+
+50
+00:01:56,959 --> 00:02:00,483
+Dans un test d'un if ou d'un elif,
+
+51
+00:02:00,583 --> 00:02:01,723
+vous pouvez avoir absolument
+
+52
+00:02:01,823 --> 00:02:02,963
+n'importe quelle expression.
+
+53
+00:02:03,539 --> 00:02:05,924
+En fait, le test va évaluer,
+
+54
+00:02:06,024 --> 00:02:08,652
+va appeler la fonction built-in bool
+
+55
+00:02:08,752 --> 00:02:11,465
+sur le résultat de l'évaluation
+
+56
+00:02:11,565 --> 00:02:12,279
+de cette expression.
+
+57
+00:02:12,379 --> 00:02:13,565
+Vous avez une expression,
+
+58
+00:02:13,665 --> 00:02:15,701
+cette expression va être exécutée,
+
+59
+00:02:15,801 --> 00:02:17,532
+elle va produire un objet
+
+60
+00:02:17,632 --> 00:02:19,354
+et vous allez appeler bool sur cet objet.
+
+61
+00:02:19,454 --> 00:02:21,241
+Que va faire bool sur cet objet ?
+
+62
+00:02:21,341 --> 00:02:23,048
+Il va appeler soit la méthode
+
+63
+00:02:23,148 --> 00:02:24,462
+double underscore bool double underscore
+
+64
+00:02:24,562 --> 00:02:25,493
+qui est une méthode spéciale,
+
+65
+00:02:25,593 --> 00:02:26,965
+lorsque nous parlerons des classes
+
+66
+00:02:27,065 --> 00:02:27,919
+nous reviendrons largement
+
+67
+00:02:28,019 --> 00:02:28,870
+sur ces méthodes spéciales,
+
+68
+00:02:29,381 --> 00:02:30,991
+et cette méthode bool va retourner
+
+69
+00:02:31,091 --> 00:02:32,479
+vrai ou faux,
+
+70
+00:02:32,579 --> 00:02:34,357
+qui sera pris en compte par le test,
+
+71
+00:02:34,457 --> 00:02:36,875
+ou alors, s'il n'y a pas de méthode bool,
+
+72
+00:02:36,975 --> 00:02:38,131
+il va appeler la méthode len.
+
+73
+00:02:38,977 --> 00:02:40,987
+Si la méthode len retourne 0,
+
+74
+00:02:41,087 --> 00:02:42,289
+ce sera faux ;
+
+75
+00:02:42,389 --> 00:02:43,513
+si la méthode len retourne
+
+76
+00:02:43,613 --> 00:02:44,462
+quelque chose d'autre,
+
+77
+00:02:44,562 --> 00:02:45,398
+ce sera vrai.
+
+78
+00:02:45,498 --> 00:02:47,238
+L'intuition derrière ça, c'est que
+
+79
+00:02:47,338 --> 00:02:49,332
+un objet vide, de longueur vide,
+
+80
+00:02:49,432 --> 00:02:50,697
+est considéré comme faux,
+
+81
+00:02:50,797 --> 00:02:52,149
+un objet qui n'est pas vide
+
+82
+00:02:52,249 --> 00:02:53,130
+est considéré comme vrai.
+
+83
+00:02:53,713 --> 00:02:54,589
+Regardons maintenant
+
+84
+00:02:54,689 --> 00:02:55,997
+quelques exemples d'expressions
+
+85
+00:02:56,097 --> 00:02:58,811
+que nous pouvons avoir dans un test
+
+86
+00:02:58,911 --> 00:03:00,283
+d'un if ou d'un elif.
+
+87
+00:03:00,760 --> 00:03:02,705
+Ces exemples ne sont pas exhaustifs
+
+88
+00:03:02,805 --> 00:03:04,079
+mais vous permettent de couvrir
+
+89
+00:03:04,179 --> 00:03:05,864
+un panorama de tests que l'on peut faire.
+
+90
+00:03:06,580 --> 00:03:07,712
+Premier exemple, c'est mettre
+
+91
+00:03:07,812 --> 00:03:08,991
+directement un type built-in ;
+
+92
+00:03:10,289 --> 00:03:12,984
+un type built-in, s'il est False,
+
+93
+00:03:13,084 --> 00:03:16,691
+0, None, ou n'importe quel type
+
+94
+00:03:16,791 --> 00:03:18,374
+liste, set, dictionnaire,
+
+95
+00:03:18,474 --> 00:03:19,993
+chaîne de caractères, tuple, vide,
+
+96
+00:03:20,563 --> 00:03:22,116
+il sera considéré comme faux.
+
+97
+00:03:22,216 --> 00:03:23,434
+Tout le reste est vrai.
+
+98
+00:03:23,534 --> 00:03:25,056
+Regardons un exemple.
+
+99
+00:03:25,156 --> 00:03:26,576
+Je définis un dictionnaire
+
+100
+00:03:26,676 --> 00:03:29,654
+et je fais : if d print de d.
+
+101
+00:03:29,754 --> 00:03:31,581
+L'intérêt de faire ça, c'est que
+
+102
+00:03:31,681 --> 00:03:32,804
+si mon dictionnaire est vide,
+
+103
+00:03:32,904 --> 00:03:34,068
+je ne fais pas de print,
+
+104
+00:03:34,168 --> 00:03:35,707
+s'il y a quelque chose dans mon dictionnaire,
+
+105
+00:03:35,807 --> 00:03:36,799
+je vais afficher
+
+106
+00:03:36,899 --> 00:03:37,960
+ce que contient mon dictionnaire.
+
+107
+00:03:38,925 --> 00:03:39,851
+Deuxième exemple:
+
+108
+00:03:39,951 --> 00:03:41,443
+je peux mettre une comparaison
+
+109
+00:03:42,248 --> 00:03:43,516
+donc je peux mettre supérieur,
+
+110
+00:03:43,616 --> 00:03:45,508
+supérieur ou égal, inférieur, inférieur ou égal,
+
+111
+00:03:45,608 --> 00:03:47,146
+égal ou différent.
+
+112
+00:03:47,246 --> 00:03:48,426
+Regardons un exemple.
+
+113
+00:03:48,526 --> 00:03:50,803
+Si a est différent de b,
+
+114
+00:03:50,903 --> 00:03:52,419
+je vais afficher faux.
+
+115
+00:03:54,249 --> 00:03:55,215
+Troisième exemple:
+
+116
+00:03:55,765 --> 00:03:57,126
+le test d'appartenance.
+
+117
+00:03:57,957 --> 00:04:00,459
+Je peux faire if 'a' in 'marc'
+
+118
+00:04:00,559 --> 00:04:02,227
+donc si la lettre 'a' est dans
+
+119
+00:04:02,327 --> 00:04:03,293
+la chaîne de caractères 'marc',
+
+120
+00:04:03,393 --> 00:04:04,595
+j'affiche 'ok'.
+
+121
+00:04:06,254 --> 00:04:08,287
+Là aussi, un test extrêmement simple,
+
+122
+00:04:08,387 --> 00:04:09,365
+et encore une fois intuitif.
+
+123
+00:04:09,465 --> 00:04:11,263
+Donc ici, j'insiste sur la nature
+
+124
+00:04:11,363 --> 00:04:13,816
+explicite et proche du langage naturel
+
+125
+00:04:13,916 --> 00:04:14,446
+de Python:
+
+126
+00:04:14,546 --> 00:04:15,858
+if 'a' in 'marc'
+
+127
+00:04:15,958 --> 00:04:17,518
+c'est si 'a' est dans 'marc'
+
+128
+00:04:17,618 --> 00:04:20,069
+alors j'affiche (print) 'ok'.
+
+129
+00:04:20,169 --> 00:04:21,089
+On voit que c'est extrêmement facile
+
+130
+00:04:21,189 --> 00:04:22,192
+à lire et à comprendre.
+
+131
+00:04:23,278 --> 00:04:25,396
+Exemple suivant: un retour de fonction.
+
+132
+00:04:26,573 --> 00:04:28,261
+Que va être l'évaluation
+
+133
+00:04:28,361 --> 00:04:29,114
+du retour de fonction ?
+
+134
+00:04:29,214 --> 00:04:31,943
+On va évaluer l'objet qui est retourné
+
+135
+00:04:32,043 --> 00:04:33,005
+par l'appel de la fonction,
+
+136
+00:04:33,105 --> 00:04:35,351
+avec les règles qu'on a vues précédemment.
+
+137
+00:04:35,451 --> 00:04:37,522
+Je fais une chaîne de caractères
+
+138
+00:04:37,622 --> 00:04:39,191
+qui est égale à '123',
+
+139
+00:04:40,045 --> 00:04:42,461
+et je regarde if s.isdecimal().
+
+140
+00:04:42,561 --> 00:04:44,321
+On voit que '123' est décimale.
+
+141
+00:04:44,421 --> 00:04:46,449
+isdecimal va donc me retourner
+
+142
+00:04:46,549 --> 00:04:48,218
+un booléen True ou False ;
+
+143
+00:04:48,318 --> 00:04:49,630
+dans ce cas-là, ça va être True,
+
+144
+00:04:49,730 --> 00:04:50,533
+je vais donc pouvoir bien faire
+
+145
+00:04:50,633 --> 00:04:52,405
+mon print de int de s
+
+146
+00:04:52,505 --> 00:04:54,109
+puisque s est une chaîne de caractères
+
+147
+00:04:54,209 --> 00:04:55,259
+qui représente un entier.
+
+148
+00:04:57,383 --> 00:04:59,492
+Regardons maintenant ce dernier cas:
+
+149
+00:04:59,592 --> 00:05:01,675
+ce sont les opérateurs de test booléen ;
+
+150
+00:05:01,775 --> 00:05:03,464
+lorsque vous avez plusieurs conditions,
+
+151
+00:05:03,564 --> 00:05:04,146
+vous pouvez les combiner
+
+152
+00:05:04,246 --> 00:05:05,142
+avec ces opérateurs.
+
+153
+00:05:05,611 --> 00:05:09,955
+A and B est vraie si B et B sont vraies,
+
+154
+00:05:10,696 --> 00:05:15,591
+A or B est vraie si soit A, soit B est vraie.
+
+155
+00:05:15,691 --> 00:05:17,412
+Il est d'ailleurs intéressant de remarquer
+
+156
+00:05:17,512 --> 00:05:18,980
+que ces opérateurs sont ce qu'on appelle
+
+157
+00:05:19,080 --> 00:05:19,813
+short-circuit:
+
+158
+00:05:19,913 --> 00:05:20,963
+ça veut dire quoi ?
+
+159
+00:05:21,063 --> 00:05:24,068
+Ça veut dire que A et B est vraie
+
+160
+00:05:24,168 --> 00:05:24,994
+si les deux sont vraies.
+
+161
+00:05:25,094 --> 00:05:27,236
+Donc si on évalue A à faux,
+
+162
+00:05:27,336 --> 00:05:29,931
+on sait que le A and B sera faux
+
+163
+00:05:30,031 --> 00:05:31,387
+donc on n'évaluera pas le B.
+
+164
+00:05:32,242 --> 00:05:34,613
+De même, A or B est vraie
+
+165
+00:05:34,713 --> 00:05:36,109
+si A est vraie,
+
+166
+00:05:36,209 --> 00:05:37,831
+donc si jamais A est vraie,
+
+167
+00:05:37,931 --> 00:05:40,774
+dans le A or B, on n'évaluera pas le B.
+
+168
+00:05:40,874 --> 00:05:42,234
+C'est ce qu'on appelle short-circuit,
+
+169
+00:05:42,334 --> 00:05:42,895
+court-circuit,
+
+170
+00:05:42,995 --> 00:05:44,789
+on va court-circuiter l'évaluation
+
+171
+00:05:44,889 --> 00:05:46,155
+si on sait que le test est de toute façon
+
+172
+00:05:46,255 --> 00:05:47,258
+déjà validé.
+
+173
+00:05:47,358 --> 00:05:49,690
+Et puis pour finir, on a not A
+
+174
+00:05:49,790 --> 00:05:51,321
+qui permet de retourner vrai
+
+175
+00:05:51,421 --> 00:05:52,534
+si A est faux.
+
+176
+00:05:53,221 --> 00:05:54,413
+Regardons un exemple:
+
+177
+00:05:54,513 --> 00:05:56,735
+j'ai une chaîne de caractères qui vaut '123'
+
+178
+00:05:56,835 --> 00:05:58,282
+et je regarde si
+
+179
+00:05:58,648 --> 00:06:00,362
+'1' est dans ma chaîne de caractères
+
+180
+00:06:00,462 --> 00:06:01,522
+et que s est décimale,
+
+181
+00:06:01,622 --> 00:06:04,145
+alors je vais faire un print de
+
+182
+00:06:04,245 --> 00:06:05,873
+ma chaîne de caractères convertie en entier
+
+183
+00:06:05,973 --> 00:06:06,719
+plus 10.
+
+184
+00:06:07,623 --> 00:06:08,964
+Pour finir, je vais vous montrer
+
+185
+00:06:09,064 --> 00:06:10,822
+un petit jeu fait uniquement à base
+
+186
+00:06:10,922 --> 00:06:12,774
+de tests if elif else
+
+187
+00:06:12,874 --> 00:06:13,717
+qui est le suivant:
+
+188
+00:06:14,481 --> 00:06:15,747
+on va juste faire
+
+189
+00:06:15,847 --> 00:06:17,604
+s égale input("Quelle est votre question ?\n")
+
+190
+00:06:17,704 --> 00:06:19,074
+input est une fonction built-in
+
+191
+00:06:19,174 --> 00:06:20,609
+qui vous permet de taper du texte
+
+192
+00:06:20,709 --> 00:06:22,264
+dans un terminal.
+
+193
+00:06:22,644 --> 00:06:24,024
+Lorsque vous faites un retour chariot,
+
+194
+00:06:24,124 --> 00:06:25,003
+ce que vous avez tapé
+
+195
+00:06:25,103 --> 00:06:27,051
+va être mis dans une chaîne de caractères
+
+196
+00:06:27,151 --> 00:06:28,993
+et s va référencer cet objet.
+
+197
+00:06:29,268 --> 00:06:30,427
+Après, vous pouvez manipuler
+
+198
+00:06:30,527 --> 00:06:31,764
+ce que vous avez tapé sur le terminal.
+
+199
+00:06:32,346 --> 00:06:34,994
+Ensuite, je fais un if s.startswith('bonjour')
+
+200
+00:06:35,094 --> 00:06:37,244
+donc si jamais ma chaîne de caractères
+
+201
+00:06:37,344 --> 00:06:38,212
+commence avec "bonjour",
+
+202
+00:06:38,312 --> 00:06:39,519
+je vais simplement afficher
+
+203
+00:06:39,619 --> 00:06:41,456
+un print("bonjour, comment allez-vous ?").
+
+204
+00:06:41,556 --> 00:06:43,386
+Et ensuite, je fais un elif
+
+205
+00:06:43,486 --> 00:06:45,613
+si jamais la chaîne de caractères "bien"
+
+206
+00:06:45,713 --> 00:06:47,116
+est dans ce que j'ai tapé,
+
+207
+00:06:47,216 --> 00:06:49,763
+alors je vais afficher "c'est super !".
+
+208
+00:06:50,480 --> 00:06:51,211
+Ensuite, je fais
+
+209
+00:06:51,780 --> 00:06:53,271
+si jamais dans ma chaîne de caractères
+
+210
+00:06:53,371 --> 00:06:54,893
+j'ai "bye" qui est contenu,
+
+211
+00:06:54,993 --> 00:06:57,451
+j'affiche simplement "Au revoir !"
+
+212
+00:06:57,551 --> 00:06:59,754
+et sinon, je vais afficher
+
+213
+00:06:59,854 --> 00:07:01,375
+print "mais encore...".
+
+214
+00:07:01,475 --> 00:07:02,551
+Voilà, c'est un tout petit jeu,
+
+215
+00:07:02,651 --> 00:07:03,922
+vous n'allez pas passer une année là-dessus,
+
+216
+00:07:04,022 --> 00:07:04,946
+mais vous verrez que ça vous amusera
+
+217
+00:07:05,046 --> 00:07:05,688
+quelques minutes.
+
+218
+00:07:06,966 --> 00:07:10,141
+Nous venons de voir l'instruction if elif else
+
+219
+00:07:10,241 --> 00:07:11,253
+qui permet de faire
+
+220
+00:07:11,353 --> 00:07:12,539
+une évaluation conditionnelle
+
+221
+00:07:12,639 --> 00:07:13,522
+de blocs de code.
+
+222
+00:07:14,007 --> 00:07:14,530
+Nous avons vu que
+
+223
+00:07:14,630 --> 00:07:15,852
+les tests étaient très expressifs
+
+224
+00:07:15,952 --> 00:07:17,264
+ce qui vous permet d'écrire du code
+
+225
+00:07:17,364 --> 00:07:19,362
+qui soit simple et intuitif à lire.
+
+226
+00:07:19,785 --> 00:07:20,752
+À bientôt !
+

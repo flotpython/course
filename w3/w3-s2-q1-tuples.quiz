@@ -13,10 +13,10 @@ Parmi les expressions et instructions ci-dessous, lesquelles sont valides ?
 [ ] <code>triple[0] = 0</code>
 
 [explanation]
-La première expression est correcte et renvoie 1
-La seconde expression est correcte et renvoie une copie du tuple
-La troisième expression n'est pas valable et renvoie une exception <em>IndexError</em>, car <code>triple</code> n'a pas de case numéro 3 (<em>index out of range</em>)
-L'affectation de la quatrième réponse n'est pas autorisée, car un tuple est un objet immuable
+La première expression est correcte et renvoie 1.
+La seconde expression est correcte et renvoie une copie du tuple.
+La troisième expression n'est pas valable et renvoie une exception <em>IndexError</em>, car <code>triple</code> n'a pas de case numéro 3 (<em>index out of range</em>).
+L'affectation de la quatrième réponse n'est pas autorisée, car un tuple est un objet immuable.
 [explanation]
 
 <hr/>
@@ -31,9 +31,9 @@ Quelles sont les expressions qui renvoient <code>True</code> ?
 [ ] <code>[ (1), ] [0][0] == 1</code>
 
 [explanation]
-Dans la première expression, l'absence de virgule rend les parenthèses vides de sens, cela revient à comparer 1 et 1
-Dans la seconde expression la partie droite n'est pas un tuple, mais un simple entier à cause de l'absence de virgule
-Dans la troisième expression, on a une liste contenant un tuple contenant l'entier, l'expression renvoie <code>True</code>
+Dans la première expression, l'absence de virgule rend les parenthèses vides de sens, cela revient à comparer 1 et 1.
+Dans la seconde expression la partie droite n'est pas un tuple, mais un simple entier à cause de l'absence de virgule.
+Dans la troisième expression, on a une liste contenant un tuple contenant l'entier, l'expression renvoie <code>True</code>.
 Dans la quatrième expression, la virgule n'est pas correctement placée et la parenthèse ne crée pas un tuple.
 [explanation]
 
@@ -53,9 +53,9 @@ Quelles sont parmi les affectations suivantes celles qui sont valables, et qui a
 
 
 [explanation]
-Dans la première forme, <code>four</code> ne se trouve pas dans un tuple à cause de l'absence de virgule; du coup <code>four</code> va valoir <code> &#91;(4,)&#93;</code> et non pas <code>4</code>
-La seconde forme est correcte
-Dans la troisième forme, <code>one</code> est inclus dans un tuple, ce qui empêche l'affectation de fonctionner
+Dans la première forme, <code>four</code> ne se trouve pas dans un tuple à cause de l'absence de virgule ; du coup <code>four</code> va valoir <code> &#91;(4,)&#93;</code> et non pas <code>4</code>.
+La seconde forme est correcte.
+Dans la troisième forme, <code>one</code> est inclus dans un tuple, ce qui empêche l'affectation de fonctionner.
 La dernière forme est correcte, même si les parties droite et gauche de l'affectation mélangent listes et tuples.
 [explanation]
 
@@ -70,7 +70,7 @@ On cherche à écrire un code qui permette d'intervertir les deux derniers élé
 [x] <code>liste[-2], liste[-1] = liste[-1], liste[-2]</code>
 
 [explanation] 
-La première formule fonctionne, quoi que pas très "pythonique"
-La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(list.reverse)
-La dernière formule fonctionne, ce serait notre préférée. Comme on l'a vu déjà, les expressions à droite de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
+La première formule fonctionne, quoique pas très "pythonique".
+La seconde formule est une invention, list.reverse() n'accepte pas d'argument, comme le montrerait help(list.reverse).
+La dernière formule fonctionne, ce serait notre préférée. Comme on l'a déjà vu, les expressions à droite de l'affectation sont toutes évaluées, puis l'affectation est réalisée.
 [explanation]

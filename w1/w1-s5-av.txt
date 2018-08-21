@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 ## FORMAT DU FICHIER
 ## Tout ce qui commence avec un ## est un commentaire
 ##
@@ -12,6 +12,8 @@
 ## Temp total: 6m15
 
 ## Résumé de la vidéo (30s)
+
+Bonjour, je suis Arnaud Legout et nous allons passer les prochaines semaines de ce MOOC ensemble. 
 
 >>>>>>>>>> INCLUDE W1-S6-AV-slide1.pptx <<<<<<<<<<
 [S1]

@@ -12,33 +12,33 @@ Parmi les objets suivants, lesquels peut-on insérer comme élément dans un ens
 [explanation]
 Pour pouvoir être inséré dans un objet <code>set</code>, un objet doit être globalement immuable.
 
-option 1: ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
+option 1 : Ce qui n'est évidemment pas le cas pour un <code>set</code>, dans lequel on peut insérer et enlever des éléments.
 
-option 2: le type <code>frozenset</code> est immuable; de plus comme un <code>frozenset</code> est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
+option 2 : Le type <code>frozenset</code> est immuable ; de plus comme un <code>frozenset</code> est un ensemble, tous ses éléments sont aussi globalement immuables, donc l'objet lui-même est globalement immuable.
 
-option3: le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
+option 3 : Le tuple est immuable mais ses éléments ne le sont pas, on ne peut donc pas insérer ce tuple dans un ensemble.
 
-option 4: un tuple d'objets globalement immuables est immuable.
+option 4 : Un tuple d'objets globalement immuables est immuable.
 
-option 5: la liste elle-même est mutable.
+option 5 : La liste elle-même est mutable.
 [explanation]
 
 <hr/>
 Ensemble vide
 =====
 
-Pour créer un ensemble <code>set</code> vide en python on peut faire : 
+Pour créer un ensemble <code>set</code> vide en Python on peut faire : 
 
 [ ] <code>{}</code>
 [x] <code>set()</code>
 [x] <code>set([])</code>
 
 [explanation]
-La première forme renvoie un objet de type <code>dict</code>
+La première forme renvoie un objet de type <code>dict</code>.
 
-Les deux autres formes fonctionnent très bien; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
+Les deux autres formes fonctionnent très bien ; la logique ici est qu'on appelle la fonction <code>set</code> qui est un constructeur d'ensemble, ou si on préfère, un convertisseur vers le type <code>set</code>.
 
-La fonction <code>set</code> accepte donc en argument un objet de type quelconque et s'efforce de le traduire dans un ensemble. Lorsqu'on ne passe aucun argument à <code>set</code> (option 2), ou qu'on lui passe une liste vide, <code>set</code> renvoie naturellement un ensemble vide; on aurait pu utiliser aussi bien, de la même manière, <code>set(())</code>, <code>set({})</code>, ou même <code>set('')</code> pour arriver au même résultat.
+La fonction <code>set</code> accepte donc en argument un objet de type quelconque et s'efforce de le traduire dans un ensemble. Lorsqu'on ne passe aucun argument à <code>set</code> (option 2), ou qu'on lui passe une liste vide, <code>set</code> renvoie naturellement un ensemble vide ; on aurait pu utiliser aussi bien, de la même manière, <code>set(())</code>, <code>set({})</code>, ou même <code>set('')</code> pour arriver au même résultat.
 [explanation]
 
 <hr/>
@@ -47,9 +47,9 @@ Test d'appartenance à un ensemble
 
 On veut écrire un test d'appartenance de l'objet <code>x</code> dans un ensemble <code>s</code>. Quelle  affirmation est correcte ? : 
 
-( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble
-(x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant
-( ) On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>
+( ) Le test peut s'écrire <code>x in s</code> et il prend un temps qui grandit avec la taille de l'ensemble.
+(x) Le test peut s'écrire <code>x in s</code> et il prend un temps constant.
+( ) On ne peut pas tester l'appartenance en une seule expression, il faut balayer tous les éléments de <code>s</code> et les comparer à <code>x</code>.
 
 [explanation]
 Les ensembles sont implémentés comme des tables de hachage, au même titre que les dictionnaires. Que <code>s</code> soit un <code>set</code> ou un <code>frozenset</code>, on peut donc tester l'appartenance de <code>x</code> avec <code>x in s</code>, et cette opération prend un temps qui ne dépend pas de la taille de l'ensemble.

@@ -12,13 +12,13 @@ else:
 </code>
 </pre>
 
-(x) Ce code est invalide
-( ) Ce code affiche 'oui'
-( ) Ce code affiche 'non'
+(x) Ce code est invalide.
+( ) Ce code affiche 'oui'.
+( ) Ce code affiche 'non'.
 
 [explanation]
 
-Il manque le <code>:</code> en fin de ligne du <code>if</code> pour que la syntaxe soit correcte
+Il manque le <code>:</code> en fin de ligne du <code>if</code> pour que la syntaxe soit correcte.
 
 [explanation]
 
@@ -26,13 +26,13 @@ Il manque le <code>:</code> en fin de ligne du <code>if</code> pour que la synta
 
 
 <hr/>
-Quelle(s) affirmation(s) est(sont) vraie(s)
+Quelle(s) affirmation(s) est(sont) vraie(s) ?
 =====
 
-[x] Des conventions de codage sont dans la syntaxe de Python
-[ ] En Python, il y a peu de contraintes sur la manière de présenter le code
-[ ] On utilise des accolades en Python pour identifier les blocs d'instructions
-[x] Il faut toujours un <code>:</code> à la fin de la ligne précédant un bloc de code
+[x] Des conventions de codage sont dans la syntaxe de Python.
+[ ] En Python, il y a peu de contraintes sur la manière de présenter le code.
+[ ] On utilise des accolades en Python pour identifier les blocs d'instructions.
+[x] Il faut toujours un <code>:</code> à la fin de la ligne précédant un bloc de code.
 
 [explanation]
 

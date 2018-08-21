@@ -1,0 +1,74 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Opérations avancées en pandas
+## Temp total: (12m40)
+
+## Sujet de la vidéo (30)
+
+Une des grande force de pandas est le support d'opérations avancées
+comme la concaténation, le merge (ou fusion), le regroupement, et le
+pivot. Ce sont des opérations que l'on retrouve habituellement dans
+les bases de données. Ces opérations sont parfois conceptuellement
+ardues et peuvent être difficile à prendre en main à cause de
+nombreuses options. Cependant, elles permettent en une ligne de code
+de faire des traitements très sophistiqués qui nous demanderait
+autrement un développement long et fastidieux.
+
+Dans cette vidéo, je vais introduire ces opérations dans leur forme la
+plus simple. Vous verrez dans les compléments des usages plus
+avancés.
+
+Ouvrons un notebook pour commencer à jouer avec ces opérations.
+
+>>>>>>>>>> INCLUDE w7-s8-av-exo1.py <<<<<<<<<< (2m20)
+
+Regardons maintenant le cas du merge qui est équivalent au join que
+l'on trouve dans les base de données. Notez qu'il existe également un
+join en pandas qui est un raccourci vers la fonction merge, mais avec
+quelques options de moins. C'est pourquoi, on préfère, en général,
+utiliser directement merge. 
+
+>>>>>>>>>> INCLUDE w7-s8-av-slide1.pptx <<<<<<<<<< (1m50)
+
+Je commence par créer une DataFrame qui contient le prénom du
+personnel et le groupe dans lequel ils travaillent.
+
+Puis je crée une deuxième DataFrame qui contient le prénom du
+personnel et leur date d'embauche.
+
+Regardons ces deux DataFrame. Je vais maintenant merger ces deux
+DataFrame. Par défaut merge va chercher une colonne de même nom dans
+les deux DataFrame et il va utiliser cette colonne comme clef de
+merge. Ici, c'est la colonne personnel. On peut évidemment totalement
+configurer la clef de merge, nous verrons cela dans les compléments.
+
+Merge va ensuite parcourir les entrée de df1 et chercher s'il y a une
+entrée dans df2 pour le même label de la colonne personnel.
+On construit ainsi une nouvelle DataFrame qui fusionne les deux
+DataFrame initiale sur une colonne particulière.
+
+Ouvrons de nouveau un notebook pour jouer avec les deux dernière
+opération que sont le regroupement et le pivot.
+
+>>>>>>>>>> INCLUDE w7-s8-av-exo2.py <<<<<<<<<< (7m30)
+
+
+### Conclusion (30s)
+
+Dans cette vidéo, nous avons vu des opérations avancées en pandas
+comme la concaténation, le merge, le regroupement et le pivot. Il
+s'agit d'opérations extrêmements puissantes et rapide. Cependant,
+nous n'avons couvert que les usages les plus simples. Je vous
+recommande d'étudier attentivement les compléments et de pratiquer ces
+différentes opération pour parfaitement les maîtriser.
+
+À bientôt

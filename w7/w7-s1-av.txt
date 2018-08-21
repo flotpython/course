@@ -1,0 +1,159 @@
+# -*- coding: utf-8 -*-
+# -*- fill-column: 54 -*-
+## FORMAT DU FICHIER
+## Tout ce qui commence avec un ## est un commentaire
+##
+## le texte entre double crochets ouvrants et fermants
+## est à synchroniser avec les slides. [SB] signifie slide blanc,
+## c'est à dire qu'il n'y pas de transparent affiché à ce moment (ou
+## un transparent blanc). [Si] signifie que l'on doit se trouver sur
+## le slide i
+
+## TITRE : Introduction au data science
+## Temp total: (10m05)
+
+## Sujet de la vidéo (15s)
+
+
+
+Cette semaine, nous allons parler de l'écosystème data science en
+Python. Il s'agit d'un écosystème extrêmement riche et en pleine
+effervescence qui contribue très largement au développement du domaine
+de la data science. Mais qu'est-ce qu'au juste la data science.
+
+### definition de data science (1m50)
+
+>>>>>>>>>> INCLUDE W7-S1-AV-slide1.pptx <<<<<<<<<<
+
+La data science est un domaine à la frontière de trois disciplines: la
+[programmation], la [statistique] et [l'expertise domaine]. Cela veut
+dire que vous devez maîtriser un langage de programmation, avoir de
+bonnes connaissances en statistiques appliquées et avoir une expertise
+dans le domaine que vous analysez.
+
+Si vous n'avez pas ces trois compétences, vous n'êtes pas dans le
+domaine de la data science.
+
+Regardons alors ce qu'il se passe s'il vous manque l'une de ces trois
+compétences.
+
+Si vous avez des connaissances en statistique et une expertise métier,
+vous êtes dans le domaine de l'[analyse statistique classique].
+
+Si vous avez des connaissances en programmation et une expertise
+métier, vous êtes dans une zone de [danger] où vous pouvez tirer des
+conclusions qui ne sont pas statistiquement valides.
+
+Si vous avez des connaissances en programmation et en statistique vous
+êtes dans une zone de [danger] puisqu'il vous manque l'expertise du
+domaine pour comprendre quelles hypothèses vous pouvez faire sur vos
+données. Notez que le diagramme que j'utilise s'inspire largement de
+celui de Drew Conway. Dans son diagramme original, il plaçait le
+machine learning entre la programmation et la statistique. Je suis en
+désaccord avec cela puisque la préparation des données, le choix des
+features et de l'algorithme d'apprentissage ne peut être
+raisonnablement fait qu'avec une profonde connaissance des données que
+l'on manipule.
+
+### sujet de cette semaine (20s)
+
+Comme vous devez vous en douter, nous ne pouvons pas sur une seule
+semaine vous donner des bases de programmation et de statistiques, et
+une expertise dans un domaine à analyser.
+
+Cette semaine nous allons exclusivement nous consacrer à la partie
+programmation de la data science et plus particulièrement aux briques
+de base que sont numpy et pandas.
+
+### différence entre python et numpy/pandas (2m15)
+
+>>>>>>>>>> INCLUDE W7-S1-AV-slide2.pptx <<<<<<<<<<
+
+Il faut prendre conscience qu'il y a de nombreuses différences entre
+python et son écosystème data science en termes de maturité et de
+philosophie.
+
+Python est beaucoup plus mature que numpy et pandas. La [version 1.0]
+de Python est sortie en 1996, la version 1.0 de numpy en 2006 et le
+projet pandas a démarré en 2008 seulement.
+
+Mais au delà de cette maturité, les philosophies de Python d'un côté
+et de numpy/pandas de l'autre sont très différentes.
+
+Au coeur de Python, il y a la simplicité d'utilisation. Les
+conséquences de cette simplicité sont, par exemple : le typage
+dynamique, le tout objet ou des listes mutables extrêmement
+malléables.
+
+Le prix à payer est la performance. En effet, la souplesse
+et la simplicité de Python complique ou rend impossible certaines
+optimisations des langages compilés. De plus, la philosophie de Python
+a toujours été de considérer les optimisations et l'efficacité en
+deuxième intention.
+
+C'est sans aucun doute ce choix de la simplicité qui est à l'origine
+de l'énorme succès de Python. Cependant, pour certaines applications,
+la performance est centrale. C'est notamment le cas pour le calcul
+scientifique.
+
+C'est pour répondre à ce besoin de performance que les projets numpy
+et pandas ont démarré. La philosophie de numpy et pandas est la
+performance avant tout et là il y a nécessairement des compromis à
+faire avec la philosophie de Python. On perd en souplesse, on perd en
+uniformité, on perd en simplicité, mais on gagne beaucoup en
+performance. On peut se rapprocher avec numpy et pandas d'une performance
+proche de ce que l'on aurait avec du code écrit en C.
+
+Regardons un exemple. Comme nous abordons le domaine de la data
+science, on utilisera cette semaine des notebook. C'est en effet
+l'environnement de choix pour cette communauté puisqu'il permet de
+combiner en un même document, du texte formaté, du code exécutable et
+la possibilité d'intéragir graphiquement avec nos données.
+
+
+>>>>>>>>>> INCLUDE w7-s1-av-exo1.py <<<<<<<<<< (4m00)
+
+### qu'est-ce que numpy et pandas (1m00)
+
+J'aimerai maintenant vous expliquer le rôle des librairies numpy et
+pandas.
+
+Numpy est la librairie qui ajoute la notion de tableau hyper efficace
+à Python.  C'est la librairie de référence dès que l'on manipule des
+tableaux de type uniforme, par exemple des entiers, et que l'on a
+besoin de performance. La quasi intégralité des librairies data
+science en Python qui ont besoin de travailler sur des tableaux
+utilisent numpy.
+
+Pandas est la librairie qui ajoute des index sur les lignes et les
+colonnes de tableaux numpy. Le principe des index est de pouvoir
+accéder très efficacement à des lignes ou des colonnes en utilisant
+quelque chose de plus expressif qu'un indice dans un tableau. Pandas
+permet de faire les opérations classiques sur les bases de données
+comme les regroupements (groupby), les concaténations, les jointures
+ou les pivots.
+
+Si ces notions vous semblent obscures, n'ayez pas d'inquiétude, nous
+les couvrirons dans de prochaines vidéos.
+
+### Conclusion (25s)
+
+
+Dans cette vidéo, nous avons vu que la data science est une discipline
+complexe qui demande de nombreuses compétences. Une de ces compétences
+est la maîtrise d'un langage de programmation, et à cet égard la suite
+data science de Python qui se base sur `numpy` et `pandas` offre une
+solution très performante.
+
+Malheureusement, le niveau de maturité de numpy et pandas est très
+inférieur à celui de Python. Il y a quelques inconsistances syntaxiques,
+plusieurs manière de faire la même chose, une documentation parfois
+très sommaire. Cependant, cet écosystème data science en Python est ce
+qu'il se fait de mieux aujourd'hui dans le domaine. Il faut donc
+accepter ces faiblesses et surtout, ne pas hésiter à contribuer aux
+projets qui sont toujours à la recherche d'aide.
+
+Nous verrons dans les prochaines vidéos des bases solides pour
+utiliser numpy et pandas efficacement.
+
+À bientôt

@@ -59,13 +59,13 @@ self
 À quoi sert la ligne <code>self.question = question</code> (une ou plusieurs réponses possibles)?
 
 [ ] À rien, on n'en n'a pas besoin
-[x] À garder une référence dans l'instance vers la première chaîne de caractère passée à <code>Quiz()</code>
+[x] À garder une référence dans l'instance vers la première chaîne de caractères passée à <code>Quiz()</code>
 [x] À créer un attribut <code>question</code> sur l'instance
 [x] À initialiser l'instance
 [ ] À définir un attribut <code>question</code> sur la classe 
 
 [explanation]
-Cette ligne va définir un attribut <code>question</code> sur l'instance et cet attribut va référencer la première chaîne de caractère passée à <code>Quiz()</code>
+Cette ligne va définir un attribut <code>question</code> sur l'instance et cet attribut va référencer la première chaîne de caractères passée à <code>Quiz()</code>
 
 Cette ligne sert donc à initialiser l'instance. 
 [explanation]
@@ -74,7 +74,7 @@ Cette ligne sert donc à initialiser l'instance.
 Appel de méthode
 ====
 
-À quoi est équivalent l'appel <code>q.ask()</code>
+À quoi est équivalent l'appel <code>q.ask()</code> ?
 
 ( ) <code>Quiz.q(self)</code>
 ( ) <code>Quiz.ask(self)</code>

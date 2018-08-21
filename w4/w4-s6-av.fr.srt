@@ -1,0 +1,1740 @@
+﻿1
+00:00:04,077 --> 00:00:05,946
+Lorsque vous définissez une fonction,
+
+2
+00:00:06,575 --> 00:00:09,208
+par exemple def sum a virgule b,
+
+3
+00:00:09,308 --> 00:00:11,760
+les variables a et b sont ce qu'on appelle
+
+4
+00:00:11,860 --> 00:00:13,646
+des paramètres de la fonction.
+
+5
+00:00:14,197 --> 00:00:15,684
+Et lorsque vous appelez une fonction,
+
+6
+00:00:15,784 --> 00:00:18,643
+par exemple sum de x virgule y,
+
+7
+00:00:18,743 --> 00:00:20,824
+les variables x et y représentent
+
+8
+00:00:20,924 --> 00:00:22,709
+ce qu'on appelle les arguments de la fonction.
+
+9
+00:00:23,210 --> 00:00:24,871
+Dans cette vidéo, nous allons voir
+
+10
+00:00:24,971 --> 00:00:25,781
+les différentes manières
+
+11
+00:00:25,881 --> 00:00:28,149
+de définir les paramètres d'une fonction
+
+12
+00:00:28,249 --> 00:00:29,604
+et les différentes manières
+
+13
+00:00:29,704 --> 00:00:31,838
+de passer des arguments à une fonction.
+
+14
+00:00:32,395 --> 00:00:34,998
+Ouvrons maintenant un interpréteur Python
+
+15
+00:00:35,098 --> 00:00:36,147
+pour commencer à jouer
+
+16
+00:00:36,247 --> 00:00:38,097
+avec ces définitions de paramètres
+
+17
+00:00:38,197 --> 00:00:39,953
+et ces passages d'arguments.
+
+18
+00:00:41,045 --> 00:00:42,248
+Commençons par regarder
+
+19
+00:00:42,348 --> 00:00:43,543
+la manière standard de définir
+
+20
+00:00:43,643 --> 00:00:45,054
+les paramètres d'une fonction.
+
+21
+00:00:45,154 --> 00:00:47,579
+Je vais donc définir une fonction agenda
+
+22
+00:00:47,679 --> 00:00:49,291
+qui prend trois paramètres:
+
+23
+00:00:49,391 --> 00:00:53,977
+nom, prénom et téléphone.
+
+24
+00:00:54,501 --> 00:00:57,771
+Et ensuite, ma fonction agenda
+
+25
+00:00:57,871 --> 00:00:59,193
+va simplement faire un return
+
+26
+00:00:59,293 --> 00:01:01,464
+d'un dictionnaire qui va contenir
+
+27
+00:01:01,564 --> 00:01:05,278
+pour nom, le paramètre nom,
+
+28
+00:01:06,179 --> 00:01:11,135
+pour prénom, le paramètre prénom,
+
+29
+00:01:13,057 --> 00:01:18,111
+et pour téléphone, le paramètre téléphone.
+
+30
+00:01:19,565 --> 00:01:20,979
+Voici ma fonction agenda.
+
+31
+00:01:21,079 --> 00:01:23,291
+Je l'évalue, j'exécute avec F5,
+
+32
+00:01:23,391 --> 00:01:24,400
+et maintenant,
+
+33
+00:01:24,500 --> 00:01:25,761
+je vais appeler ma fonction agenda.
+
+34
+00:01:25,861 --> 00:01:27,468
+Je vais l'appeler de la manière suivante,
+
+35
+00:01:27,568 --> 00:01:28,861
+une manière qu'on a déjà vue
+
+36
+00:01:28,961 --> 00:01:30,072
+qui est tout à fait classique,
+
+37
+00:01:30,172 --> 00:01:31,816
+je vais passer un nom 'idle',
+
+38
+00:01:31,916 --> 00:01:35,331
+un prénom 'eric',
+
+39
+00:01:36,147 --> 00:01:38,003
+et un numéro de téléphone
+
+40
+00:01:39,063 --> 00:01:39,627
+voilà.
+
+41
+00:01:41,266 --> 00:01:42,601
+J'exécute ma fonction
+
+42
+00:01:42,701 --> 00:01:43,785
+et je vois que ma fonction
+
+43
+00:01:43,885 --> 00:01:45,127
+me retourne bien un dictionnaire
+
+44
+00:01:45,227 --> 00:01:47,198
+qui a pour clé nom, pour valeur 'idle',
+
+45
+00:01:47,298 --> 00:01:48,985
+pour clé prenom, pour valeur 'eric'
+
+46
+00:01:49,085 --> 00:01:51,504
+et pour clé tel, pour valeur
+
+47
+00:01:51,604 --> 00:01:53,078
+le numéro de téléphone que j'ai passé.
+
+48
+00:01:53,643 --> 00:01:55,010
+Seulement, on se rend bien compte que,
+
+49
+00:01:55,110 --> 00:01:56,851
+lorsque l'on définit une fonction,
+
+50
+00:01:57,304 --> 00:01:58,488
+les paramètres de la fonction,
+
+51
+00:01:58,588 --> 00:01:59,719
+si on les choisit bien,
+
+52
+00:01:59,819 --> 00:02:01,175
+si on a des noms qui sont explicites,
+
+53
+00:02:01,717 --> 00:02:03,022
+il est beaucoup plus facile
+
+54
+00:02:03,122 --> 00:02:04,925
+de se souvenir du nom des paramètres
+
+55
+00:02:05,025 --> 00:02:05,741
+que de leur ordre.
+
+56
+00:02:06,332 --> 00:02:07,332
+Est-ce que j'ai mis le nom
+
+57
+00:02:07,432 --> 00:02:08,174
+ou le prénom avant ?
+
+58
+00:02:08,274 --> 00:02:08,933
+Est-ce que le téléphone
+
+59
+00:02:09,033 --> 00:02:10,156
+est entre le nom et le prénom ?
+
+60
+00:02:10,256 --> 00:02:11,912
+Ça, on a du mal à s'en souvenir ;
+
+61
+00:02:12,012 --> 00:02:12,964
+par contre, se souvenir qu'on a
+
+62
+00:02:13,235 --> 00:02:15,160
+un paramètre nom, un paramètre prénom
+
+63
+00:02:15,260 --> 00:02:16,062
+et un paramètre tel,
+
+64
+00:02:16,162 --> 00:02:17,703
+est quelque chose de très facile.
+
+65
+00:02:18,312 --> 00:02:19,569
+Donc Python vous permet
+
+66
+00:02:20,158 --> 00:02:22,135
+d'utiliser cette possibilité
+
+67
+00:02:22,235 --> 00:02:24,305
+en vous permettant d'appeler une fonction
+
+68
+00:02:24,405 --> 00:02:24,808
+avec ce qu'on appelle
+
+69
+00:02:24,908 --> 00:02:25,952
+des arguments nommés.
+
+70
+00:02:26,326 --> 00:02:27,645
+Regardons comment cela fonctionne.
+
+71
+00:02:28,138 --> 00:02:30,090
+Lorsque j'appelle ma fonction agenda,
+
+72
+00:02:30,190 --> 00:02:31,385
+au lieu de passer mes arguments
+
+73
+00:02:31,485 --> 00:02:34,351
+dans l'ordre de définition des paramètres,
+
+74
+00:02:34,451 --> 00:02:36,116
+je peux donner explicitement
+
+75
+00:02:36,216 --> 00:02:37,220
+le nom des paramètres
+
+76
+00:02:37,320 --> 00:02:39,291
+auxquels je veux passer mes arguments.
+
+77
+00:02:39,789 --> 00:02:40,669
+Regardons cela.
+
+78
+00:02:41,744 --> 00:02:43,192
+Je vais donc appeler ma fonction
+
+79
+00:02:43,292 --> 00:02:46,766
+avec tel égale un numéro de téléphone,
+
+80
+00:02:48,930 --> 00:02:51,819
+nom égale 'idle',
+
+81
+00:02:53,279 --> 00:02:55,141
+je rappelle ma ligne,
+
+82
+00:02:56,653 --> 00:03:01,802
+et prenom égale 'eric'.
+
+83
+00:03:03,017 --> 00:03:05,329
+On voit que j'ai défini mes arguments
+
+84
+00:03:05,429 --> 00:03:07,177
+que j'ai passé mes arguments à ma fonction
+
+85
+00:03:07,277 --> 00:03:08,691
+dans un ordre quelconque,
+
+86
+00:03:08,791 --> 00:03:10,057
+par contre, je les ai nommés
+
+87
+00:03:10,508 --> 00:03:11,602
+en fonction des paramètres
+
+88
+00:03:11,702 --> 00:03:12,883
+définis dans l'en-tête de ma fonction.
+
+89
+00:03:12,983 --> 00:03:14,251
+Il est très important
+
+90
+00:03:14,351 --> 00:03:16,935
+que les noms que vous donnez,
+
+91
+00:03:17,035 --> 00:03:19,236
+ce soient exactement les nom qui sont définis
+
+92
+00:03:19,336 --> 00:03:20,363
+dans les paramètres de la fonction.
+
+93
+00:03:20,745 --> 00:03:21,867
+J'exécute mon agenda
+
+94
+00:03:21,967 --> 00:03:24,049
+et on voit que mon dictionnaire
+
+95
+00:03:24,149 --> 00:03:25,894
+a été construit parfaitement
+
+96
+00:03:25,994 --> 00:03:26,958
+avec le nom qui est bien idle,
+
+97
+00:03:27,058 --> 00:03:28,030
+le prénom qui est bien eric
+
+98
+00:03:28,130 --> 00:03:29,359
+et le téléphone qui est bien
+
+99
+00:03:29,459 --> 00:03:30,456
+un numéro de téléphone.
+
+100
+00:03:31,870 --> 00:03:33,651
+Maintenant, lorsque je définis ma fonction,
+
+101
+00:03:33,751 --> 00:03:35,041
+je pourrais tout à fait dire
+
+102
+00:03:35,141 --> 00:03:36,136
+j'aimerais bien avoir
+
+103
+00:03:36,236 --> 00:03:37,718
+des paramètres optionnels.
+
+104
+00:03:37,818 --> 00:03:39,704
+Par exemple, si jamais je ne passe pas
+
+105
+00:03:39,804 --> 00:03:40,679
+de numéro de téléphone,
+
+106
+00:03:41,284 --> 00:03:42,535
+j'aimerais avoir par exemple
+
+107
+00:03:42,635 --> 00:03:43,543
+un point d'interrogation
+
+108
+00:03:43,980 --> 00:03:45,401
+à la place du numéro de téléphone,
+
+109
+00:03:45,501 --> 00:03:46,665
+ce qui me permettrait par exemple
+
+110
+00:03:46,765 --> 00:03:47,790
+d'afficher une valeur par défaut.
+
+111
+00:03:48,860 --> 00:03:50,091
+Bien c'est possible en Python,
+
+112
+00:03:50,191 --> 00:03:51,132
+en mettant justement
+
+113
+00:03:51,232 --> 00:03:52,116
+ces paramètres optionnels.
+
+114
+00:03:52,216 --> 00:03:53,337
+Comment est-ce que je définis cela ?
+
+115
+00:03:53,679 --> 00:03:55,142
+Je définis ça avec mon paramètre
+
+116
+00:03:55,242 --> 00:03:56,061
+suivi de égal
+
+117
+00:03:56,161 --> 00:03:59,621
+suivi de la valeur qui sera passée
+
+118
+00:03:59,721 --> 00:04:00,899
+à ce paramètre
+
+119
+00:04:00,999 --> 00:04:02,698
+si jamais je ne le spécifie pas
+
+120
+00:04:02,798 --> 00:04:03,846
+lors de l'appel de la fonction.
+
+121
+00:04:04,284 --> 00:04:05,275
+Regardons cela.
+
+122
+00:04:07,056 --> 00:04:08,097
+J'évalue ma fonction
+
+123
+00:04:08,197 --> 00:04:09,937
+et maintenant j'appelle ma fonction agenda
+
+124
+00:04:10,037 --> 00:04:12,902
+avec, comme arguments,
+
+125
+00:04:13,002 --> 00:04:13,531
+'eric',
+
+126
+00:04:13,631 --> 00:04:14,694
+alors, le premier, c'est le nom
+
+127
+00:04:14,794 --> 00:04:15,947
+donc je vais passer 'idle',
+
+128
+00:04:16,047 --> 00:04:17,907
+le deuxième, c'est 'eric',
+
+129
+00:04:18,007 --> 00:04:18,965
+donc là, évidemment,
+
+130
+00:04:19,065 --> 00:04:20,644
+j'aurais pu passer des arguments nommés
+
+131
+00:04:20,744 --> 00:04:22,258
+mais je passe des arguments ordonnés,
+
+132
+00:04:22,358 --> 00:04:23,996
+et je ne passe pas de numéro de téléphone.
+
+133
+00:04:24,537 --> 00:04:25,792
+Quel va être mon agenda ?
+
+134
+00:04:26,294 --> 00:04:27,591
+Mon agenda va être
+
+135
+00:04:27,852 --> 00:04:29,598
+nom: 'idle', prénom:'eric',
+
+136
+00:04:29,698 --> 00:04:30,752
+téléphone: point d'interrogation.
+
+137
+00:04:31,230 --> 00:04:33,630
+Si jamais je passe un numéro de téléphone,
+
+138
+00:04:33,730 --> 00:04:35,964
+évidemment, c'est ce numéro de téléphone
+
+139
+00:04:36,064 --> 00:04:36,867
+qui va être pris en compte
+
+140
+00:04:36,967 --> 00:04:39,038
+et là, mon argument optionnel
+
+141
+00:04:39,660 --> 00:04:41,147
+ne sera pas utilisé
+
+142
+00:04:41,247 --> 00:04:42,367
+et donc je vois bien que maintenant
+
+143
+00:04:42,467 --> 00:04:43,926
+mon agenda est construit
+
+144
+00:04:44,026 --> 00:04:45,428
+avec l'argument numéro de téléphone
+
+145
+00:04:45,528 --> 00:04:46,956
+que j'ai passé à ma fonction.
+
+146
+00:04:47,387 --> 00:04:49,220
+Lorsque vous définissez des arguments
+
+147
+00:04:49,320 --> 00:04:50,458
+ordonnés et optionnels,
+
+148
+00:04:50,558 --> 00:04:53,122
+c'est très important de mettre en premier
+
+149
+00:04:53,872 --> 00:04:55,071
+les arguments ordonnés...
+
+150
+00:04:55,171 --> 00:04:56,792
+Pardon, lorsque vous définissez
+
+151
+00:04:56,892 --> 00:04:57,698
+l'en-tête d'une fonction,
+
+152
+00:04:57,798 --> 00:04:59,698
+c'est très important de définir en premier
+
+153
+00:04:59,798 --> 00:05:00,976
+les paramètres ordonnés
+
+154
+00:05:01,523 --> 00:05:03,697
+et ensuite, les paramètres optionnels.
+
+155
+00:05:04,816 --> 00:05:06,316
+Nous venons de voir deux manières
+
+156
+00:05:06,416 --> 00:05:08,315
+de définir les paramètres d'une fonction,
+
+157
+00:05:08,415 --> 00:05:10,103
+paramètres ordonnés,
+
+158
+00:05:10,203 --> 00:05:11,427
+paramètres par défaut.
+
+159
+00:05:11,527 --> 00:05:13,030
+Et nous avons vu deux manières
+
+160
+00:05:13,130 --> 00:05:14,535
+de passer des arguments à une fonction,
+
+161
+00:05:14,933 --> 00:05:16,332
+arguments ordonnés,
+
+162
+00:05:16,432 --> 00:05:17,842
+arguments nommés.
+
+163
+00:05:18,353 --> 00:05:20,145
+Il existe en tout quatre manières
+
+164
+00:05:20,245 --> 00:05:21,545
+de définir les paramètres d'une fonction,
+
+165
+00:05:21,645 --> 00:05:22,506
+et quatre manières
+
+166
+00:05:22,606 --> 00:05:24,216
+de passer les arguments à une fonction.
+
+167
+00:05:24,316 --> 00:05:26,252
+Regardons ces dernières manières.
+
+168
+00:05:27,620 --> 00:05:28,605
+La prochaine manière
+
+169
+00:05:28,705 --> 00:05:29,450
+que je vais vous montrer,
+
+170
+00:05:29,883 --> 00:05:32,619
+pour définir les paramètres d'une fonction,
+
+171
+00:05:32,719 --> 00:05:33,710
+c'est la forme étoile.
+
+172
+00:05:34,380 --> 00:05:35,437
+C'est une forme qui peut
+
+173
+00:05:35,537 --> 00:05:36,307
+vous sembler un peu étrange
+
+174
+00:05:36,407 --> 00:05:37,843
+mais qui est extrêmement pratique.
+
+175
+00:05:37,943 --> 00:05:39,626
+Je définis une fonction f
+
+176
+00:05:39,726 --> 00:05:41,361
+qui cette fois va prendre un argument
+
+177
+00:05:41,461 --> 00:05:44,687
+qui est devancé par une petite étoile.
+
+178
+00:05:45,494 --> 00:05:47,348
+Donc t va être une variable
+
+179
+00:05:47,448 --> 00:05:48,523
+qui va référencer,
+
+180
+00:05:48,623 --> 00:05:49,930
+nous allons le voir dans un instant,
+
+181
+00:05:52,808 --> 00:05:54,211
+un tuple d'arguments
+
+182
+00:05:54,311 --> 00:05:55,300
+que je passe à ma fonction.
+
+183
+00:05:55,400 --> 00:05:57,468
+Regardons, j'ai défini ma fonction f
+
+184
+00:05:57,568 --> 00:05:59,312
+qui prend étoile t, je fais print de t.
+
+185
+00:05:59,822 --> 00:06:00,966
+J'évalue cette fonction.
+
+186
+00:06:01,404 --> 00:06:03,102
+Et maintenant, je peux appeler f
+
+187
+00:06:03,202 --> 00:06:04,058
+sans aucun argument.
+
+188
+00:06:04,443 --> 00:06:06,145
+Je vois qu'elle retourne un tuple vide.
+
+189
+00:06:06,245 --> 00:06:07,815
+Je peux appeler ma fonction f
+
+190
+00:06:07,915 --> 00:06:09,486
+avec un argument,
+
+191
+00:06:09,586 --> 00:06:10,860
+et je vais voir qu'elle va retourner
+
+192
+00:06:10,960 --> 00:06:12,099
+un tuple avec un élément.
+
+193
+00:06:12,468 --> 00:06:15,292
+Je peux appeler f avec 2, 3, 4, 5 arguments,
+
+194
+00:06:15,392 --> 00:06:16,395
+autant d'arguments que je veux,
+
+195
+00:06:16,495 --> 00:06:17,742
+et elle va me retourner
+
+196
+00:06:17,842 --> 00:06:18,998
+un tuple de ces arguments.
+
+197
+00:06:19,500 --> 00:06:21,651
+Donc l'intérêt de cette notation étoile,
+
+198
+00:06:21,751 --> 00:06:22,614
+et dans cette notation,
+
+199
+00:06:22,714 --> 00:06:23,573
+ce qui est important, c'est l'étoile,
+
+200
+00:06:23,673 --> 00:06:24,575
+ce n'est pas le nom de la variable,
+
+201
+00:06:24,675 --> 00:06:25,241
+le nom de la variable peut être
+
+202
+00:06:25,341 --> 00:06:26,014
+tout à fait quelconque,
+
+203
+00:06:26,613 --> 00:06:28,311
+c'est que lorsque j'ai une forme étoile,
+
+204
+00:06:28,411 --> 00:06:29,344
+je peux passer
+
+205
+00:06:29,444 --> 00:06:31,071
+une liste quelconque d'arguments
+
+206
+00:06:31,421 --> 00:06:32,152
+à ma fonction ;
+
+207
+00:06:32,252 --> 00:06:34,169
+ces arguments vont être mis dans un tuple
+
+208
+00:06:34,269 --> 00:06:35,247
+qui va être référencé
+
+209
+00:06:35,347 --> 00:06:37,321
+par la variable qui suit l'étoile,
+
+210
+00:06:37,421 --> 00:06:39,060
+donc dans notre cas, par la variable t.
+
+211
+00:06:40,231 --> 00:06:41,732
+Il existe une deuxième forme,
+
+212
+00:06:41,832 --> 00:06:43,333
+c'est la forme double étoile.
+
+213
+00:06:44,216 --> 00:06:45,054
+Je vais vous montrer
+
+214
+00:06:45,154 --> 00:06:46,540
+le fonctionnement de cette forme.
+
+215
+00:06:46,640 --> 00:06:49,062
+Donc je fais double étoile de d ;
+
+216
+00:06:50,066 --> 00:06:50,961
+je vais mettre un petit d,
+
+217
+00:06:51,061 --> 00:06:52,416
+vous allez voir dans quelques secondes
+
+218
+00:06:52,516 --> 00:06:53,559
+pourquoi est-ce que je l'appelle d.
+
+219
+00:06:54,398 --> 00:06:56,840
+Je sauvegarde ce code, je l'évalue avec F5,
+
+220
+00:06:56,940 --> 00:06:59,093
+et maintenant, la forme double étoile
+
+221
+00:06:59,193 --> 00:07:00,623
+me permet d'appeler ma fonction
+
+222
+00:07:00,723 --> 00:07:01,597
+sans aucun argument,
+
+223
+00:07:01,697 --> 00:07:02,672
+mais on voit que maintenant,
+
+224
+00:07:02,772 --> 00:07:04,783
+ma fonction ne me retourne plus,
+
+225
+00:07:04,883 --> 00:07:06,224
+enfin, mon print ne m'affiche plus
+
+226
+00:07:06,324 --> 00:07:07,485
+un tuple mais un dictionnaire.
+
+227
+00:07:07,964 --> 00:07:09,619
+En fait, la forme double étoile
+
+228
+00:07:09,719 --> 00:07:10,546
+me permet de passer
+
+229
+00:07:10,646 --> 00:07:12,284
+n'importe quel argument nommé
+
+230
+00:07:12,384 --> 00:07:13,025
+à ma fonction.
+
+231
+00:07:13,502 --> 00:07:17,847
+Je vais mettre nom égale 'idle',
+
+232
+00:07:18,324 --> 00:07:22,074
+prenom égale 'eric',
+
+233
+00:07:22,614 --> 00:07:24,578
+on voit bien que dans ma fonction f
+
+234
+00:07:24,678 --> 00:07:26,027
+je n'ai jamais défini de paramètres
+
+235
+00:07:26,127 --> 00:07:27,179
+nom ou prenom,
+
+236
+00:07:27,279 --> 00:07:28,101
+mais la forme double étoile
+
+237
+00:07:28,201 --> 00:07:29,556
+me permet de prendre ces paramètres.
+
+238
+00:07:30,938 --> 00:07:33,117
+Python va prendre ces arguments nommés
+
+239
+00:07:33,217 --> 00:07:34,358
+et les mettre dans un dictionnaire,
+
+240
+00:07:34,458 --> 00:07:36,148
+la clé étant le nom de l'argument,
+
+241
+00:07:36,248 --> 00:07:38,589
+la valeur étant l'argument que je lui passe,
+
+242
+00:07:39,082 --> 00:07:40,542
+et on voit que maintenant j'ai un dictionnaire
+
+243
+00:07:40,642 --> 00:07:41,685
+qui a été construit, qui vaut:
+
+244
+00:07:41,785 --> 00:07:43,791
+nom: 'idle', prenom: 'eric'.
+
+245
+00:07:44,278 --> 00:07:45,103
+Alors, vous pouvez vous demander
+
+246
+00:07:45,203 --> 00:07:46,459
+mais quel est l'intérêt de ces formes
+
+247
+00:07:46,559 --> 00:07:47,849
+étoile et double étoile ?
+
+248
+00:07:48,295 --> 00:07:50,053
+La forme étoile est assez évidente ;
+
+249
+00:07:50,153 --> 00:07:51,131
+lorsque vous faites un print,
+
+250
+00:07:51,504 --> 00:07:52,877
+vous avez remarqué que vous pouvez faire
+
+251
+00:07:52,977 --> 00:07:55,343
+un print de 1, ça va afficher 1 ;
+
+252
+00:07:55,443 --> 00:08:03,092
+puis vous pouvez faire un print de 1, 2, 3, 4,
+
+253
+00:08:03,192 --> 00:08:04,476
+vous lui passez autant d'arguments
+
+254
+00:08:04,576 --> 00:08:05,078
+que vous voulez
+
+255
+00:08:05,178 --> 00:08:06,404
+et il va tous vous les afficher.
+
+256
+00:08:06,745 --> 00:08:08,075
+En fait, comment est-ce que print
+
+257
+00:08:08,477 --> 00:08:10,021
+peut faire ce type d'opération ?
+
+258
+00:08:10,121 --> 00:08:12,799
+Simplement parce que dans l'en-tête de print,
+
+259
+00:08:12,899 --> 00:08:13,852
+de la fonction print,
+
+260
+00:08:13,952 --> 00:08:15,097
+il y a un argument qui s'appelle
+
+261
+00:08:15,197 --> 00:08:16,304
+un argument étoile
+
+262
+00:08:16,404 --> 00:08:17,316
+qui me permet de passer
+
+263
+00:08:17,416 --> 00:08:18,861
+une liste quelconque d'arguments.
+
+264
+00:08:19,337 --> 00:08:20,343
+La forme double étoile
+
+265
+00:08:20,443 --> 00:08:21,457
+est un petit peu plus subtile,
+
+266
+00:08:21,557 --> 00:08:22,950
+et nous en parlerons dans les compléments,
+
+267
+00:08:23,050 --> 00:08:24,117
+elle est notamment utilisée
+
+268
+00:08:24,217 --> 00:08:25,806
+lorsque vous construisez des wrappers.
+
+269
+00:08:26,802 --> 00:08:28,141
+Donc nous avons vu quatre manières
+
+270
+00:08:28,241 --> 00:08:30,417
+de définir les arguments d'une fonction:
+
+271
+00:08:31,392 --> 00:08:32,788
+arguments ordonnés,
+
+272
+00:08:32,888 --> 00:08:34,035
+arguments par défaut,
+
+273
+00:08:34,135 --> 00:08:35,129
+forme étoile,
+
+274
+00:08:35,229 --> 00:08:36,634
+forme double étoile.
+
+275
+00:08:36,734 --> 00:08:37,898
+Nous pouvons combiner
+
+276
+00:08:37,998 --> 00:08:38,945
+ces différentes manières,
+
+277
+00:08:39,642 --> 00:08:40,718
+ces différentes formes
+
+278
+00:08:40,818 --> 00:08:42,036
+dans une même en-tête de fonction,
+
+279
+00:08:42,136 --> 00:08:43,034
+mais ça n'est pas recommandé
+
+280
+00:08:43,134 --> 00:08:44,510
+parce que ça crée très rapidement
+
+281
+00:08:44,610 --> 00:08:45,364
+beaucoup de complexité,
+
+282
+00:08:45,464 --> 00:08:46,466
+et d'ailleurs vous verrez
+
+283
+00:08:46,566 --> 00:08:47,198
+dans les compléments
+
+284
+00:08:47,298 --> 00:08:48,266
+les contraintes que vous avez
+
+285
+00:08:48,366 --> 00:08:50,598
+sur la définition de ces différents paramètres.
+
+286
+00:08:51,032 --> 00:08:52,325
+Il nous reste maintenant à voir
+
+287
+00:08:52,425 --> 00:08:53,747
+deux manières d'appeler une fonction.
+
+288
+00:08:54,282 --> 00:08:55,482
+Regardons cela.
+
+289
+00:08:57,232 --> 00:08:58,985
+Je vais définir une fonction f
+
+290
+00:08:59,085 --> 00:09:00,210
+qui prend deux arguments
+
+291
+00:09:01,056 --> 00:09:02,631
+a et b
+
+292
+00:09:03,019 --> 00:09:05,579
+et qui va simplement faire un print de a, b.
+
+293
+00:09:05,961 --> 00:09:07,341
+J'exécute ma fonction.
+
+294
+00:09:08,249 --> 00:09:09,176
+Maintenant, j'ai ma fonction
+
+295
+00:09:09,276 --> 00:09:09,885
+que je peux appeler.
+
+296
+00:09:10,276 --> 00:09:11,363
+Supposons maintenant
+
+297
+00:09:11,463 --> 00:09:14,438
+que dans le code de mon programme,
+
+298
+00:09:14,538 --> 00:09:16,308
+j'ai à un moment une liste qui contient
+
+299
+00:09:16,408 --> 00:09:18,070
+deux éléments, 1 et 2.
+
+300
+00:09:18,170 --> 00:09:19,201
+Nous savons que c'est très courant,
+
+301
+00:09:19,301 --> 00:09:20,298
+les listes sont vraiment au coeur
+
+302
+00:09:20,398 --> 00:09:21,393
+de tous les programmes Python.
+
+303
+00:09:21,837 --> 00:09:23,158
+De quelles manières pouvons-nous
+
+304
+00:09:23,258 --> 00:09:23,828
+appeler cette fonction ?
+
+305
+00:09:23,928 --> 00:09:25,351
+Une manière classique, ça serait de faire
+
+306
+00:09:25,451 --> 00:09:28,718
+L de 0 et puis L de 1.
+
+307
+00:09:29,580 --> 00:09:32,127
+Ça va passer 1 au paramètre a
+
+308
+00:09:32,227 --> 00:09:33,642
+et 2 au paramètre b.
+
+309
+00:09:33,742 --> 00:09:34,890
+Ça va évidemment fonctionner,
+
+310
+00:09:34,990 --> 00:09:36,258
+ça va m'afficher 1, 2.
+
+311
+00:09:36,552 --> 00:09:38,109
+Seulement en Python, il y a une règle
+
+312
+00:09:38,209 --> 00:09:39,481
+que vous devez toujours garder en tête,
+
+313
+00:09:39,581 --> 00:09:41,260
+c'est que dès que vous manipulez des indices
+
+314
+00:09:41,360 --> 00:09:42,584
+probablement, vous ne faites pas
+
+315
+00:09:42,600 --> 00:09:43,344
+du code pythonique.
+
+316
+00:09:43,444 --> 00:09:45,744
+Python vous offre vraiment la possibilité
+
+317
+00:09:46,285 --> 00:09:48,746
+de manipuler très rarement les indices.
+
+318
+00:09:49,623 --> 00:09:50,626
+Alors, dans ce cas-là, comment est-ce que
+
+319
+00:09:50,726 --> 00:09:51,977
+je pourrais passer ma liste
+
+320
+00:09:52,518 --> 00:09:54,010
+comme argument de ma fonction ?
+
+321
+00:09:54,110 --> 00:09:55,791
+Et bien en fait, je vais passer ma liste
+
+322
+00:09:55,891 --> 00:09:57,293
+avec une forme étoile.
+
+323
+00:09:57,777 --> 00:09:59,075
+Que va faire cette forme étoile ?
+
+324
+00:09:59,175 --> 00:10:00,125
+Elle va faire ce qu'on appelle
+
+325
+00:10:00,225 --> 00:10:00,979
+du tuple unpacking
+
+326
+00:10:01,079 --> 00:10:01,932
+que nous avons déjà vu.
+
+327
+00:10:02,355 --> 00:10:05,086
+Elle va prendre chaque élément de ma liste
+
+328
+00:10:05,186 --> 00:10:07,281
+et elle va le unpacker vers les paramètres
+
+329
+00:10:07,381 --> 00:10:07,966
+de ma fonction.
+
+330
+00:10:08,066 --> 00:10:09,346
+Il faut évidemment que j'aie
+
+331
+00:10:09,446 --> 00:10:10,644
+le même nombre d'éléments dans ma liste
+
+332
+00:10:10,744 --> 00:10:12,349
+que j'ai de paramètres dans ma fonction,
+
+333
+00:10:12,449 --> 00:10:13,651
+mais si j'ai le même nombre,
+
+334
+00:10:13,751 --> 00:10:15,180
+le unpacking va être automatique.
+
+335
+00:10:15,280 --> 00:10:17,035
+J'appelle ma fonction f
+
+336
+00:10:17,135 --> 00:10:18,059
+avec une forme étoile,
+
+337
+00:10:18,159 --> 00:10:19,235
+et automatiquement,
+
+338
+00:10:19,335 --> 00:10:20,626
+1 est passé à a
+
+339
+00:10:20,726 --> 00:10:22,106
+et 2 est passé à b.
+
+340
+00:10:22,206 --> 00:10:23,398
+C'est une forme extrêmement pratique
+
+341
+00:10:23,498 --> 00:10:24,620
+qu'il faut favoriser.
+
+342
+00:10:27,911 --> 00:10:31,712
+Pour finir, je peux passer à ma fonction
+
+343
+00:10:31,812 --> 00:10:33,127
+directement un dictionnaire
+
+344
+00:10:33,227 --> 00:10:34,366
+avec une forme double étoile.
+
+345
+00:10:34,805 --> 00:10:35,526
+J'aimerais vous montrer
+
+346
+00:10:35,626 --> 00:10:36,372
+comment cela fonctionne.
+
+347
+00:10:37,503 --> 00:10:40,908
+Je vais définir un dictionnaire d
+
+348
+00:10:41,008 --> 00:10:43,539
+qui prend pour argument a
+
+349
+00:10:43,639 --> 00:10:44,515
+qui vaut 1
+
+350
+00:10:44,615 --> 00:10:50,130
+et pour argument b, une valeur 2.
+
+351
+00:10:50,230 --> 00:10:52,547
+Et maintenant, je peux appeler ma fonction f
+
+352
+00:10:52,647 --> 00:10:54,314
+avec une forme double étoile d ;
+
+353
+00:10:54,414 --> 00:10:56,193
+mon dictionnaire va être automatiquement
+
+354
+00:10:56,293 --> 00:10:57,087
+passé à ma fonction.
+
+355
+00:10:57,558 --> 00:10:59,344
+Donc là, on voit que ça, ça a très peu d'intérêt
+
+356
+00:10:59,444 --> 00:11:02,017
+puisque je dois nommer les arguments,
+
+357
+00:11:02,117 --> 00:11:03,310
+en même temps, je donne les valeurs ;
+
+358
+00:11:03,410 --> 00:11:04,375
+on peut se dire: mais quel est l'intérêt
+
+359
+00:11:04,475 --> 00:11:05,255
+de cette forme double étoile ?
+
+360
+00:11:05,629 --> 00:11:07,300
+En fait, cette forme double étoile
+
+361
+00:11:07,400 --> 00:11:08,114
+a de nombreux usages
+
+362
+00:11:08,214 --> 00:11:08,984
+et je vais vous en montrer un
+
+363
+00:11:09,084 --> 00:11:10,119
+qui est extrêmement pratique.
+
+364
+00:11:10,581 --> 00:11:12,548
+Vous savez que dans la fonction print,
+
+365
+00:11:12,648 --> 00:11:14,583
+vous avez une forme étoile,
+
+366
+00:11:14,683 --> 00:11:15,819
+donc vous avez une liste d'arguments,
+
+367
+00:11:15,919 --> 00:11:16,670
+mais vous avez également
+
+368
+00:11:16,770 --> 00:11:17,565
+des arguments nommés,
+
+369
+00:11:17,665 --> 00:11:18,701
+par exemple, vous avez sep
+
+370
+00:11:18,801 --> 00:11:20,871
+qui permet de séparer les valeurs,
+
+371
+00:11:20,971 --> 00:11:22,497
+vous avez end qui permet de définir
+
+372
+00:11:22,597 --> 00:11:25,160
+une valeur de fin lorsque je fais mon print ;
+
+373
+00:11:25,628 --> 00:11:27,143
+et ces arguments, si jamais je veux
+
+374
+00:11:27,243 --> 00:11:28,693
+les afficher systématiquement
+
+375
+00:11:28,793 --> 00:11:29,393
+de la même manière,
+
+376
+00:11:29,493 --> 00:11:30,827
+il faut les écrire à chaque fois dans mon print.
+
+377
+00:11:31,216 --> 00:11:33,362
+Regardons un exemple, je fais un print de
+
+378
+00:11:33,462 --> 00:11:35,689
+1 virgule 2 virgule
+
+379
+00:11:35,789 --> 00:11:39,198
+sep égale un point virgule
+
+380
+00:11:39,942 --> 00:11:43,805
+virgule end égale 'FIN'.
+
+381
+00:11:44,299 --> 00:11:45,613
+On voit bien que si à chaque fois
+
+382
+00:11:45,713 --> 00:11:46,634
+que je devais faire ce print,
+
+383
+00:11:46,734 --> 00:11:48,153
+ça serait extrêment laborieux.
+
+384
+00:11:48,253 --> 00:11:49,520
+Je reprends mon print,
+
+385
+00:11:49,620 --> 00:11:51,838
+j'ai oublié de mettre mon apostrophe,
+
+386
+00:11:52,547 --> 00:11:53,759
+voilà, je vois bien affiché
+
+387
+00:11:53,859 --> 00:11:55,392
+1 point virgule 2 FIN.
+
+388
+00:11:55,492 --> 00:11:56,840
+Seulement, ça serait très laborieux.
+
+389
+00:11:57,244 --> 00:11:58,753
+Avec cette forme double étoile, en fait,
+
+390
+00:11:58,853 --> 00:11:59,607
+je peux mettre ces arguments
+
+391
+00:11:59,707 --> 00:12:00,631
+dans un dictionnaire,
+
+392
+00:12:00,731 --> 00:12:02,673
+et directement les passer à ma fonction print.
+
+393
+00:12:02,773 --> 00:12:03,671
+Regardons cela.
+
+394
+00:12:03,771 --> 00:12:05,061
+Je vais définir un dictionnaire
+
+395
+00:12:05,161 --> 00:12:06,889
+que j'appelle pp pour pretty print,
+
+396
+00:12:06,989 --> 00:12:07,937
+affichage joli,
+
+397
+00:12:08,503 --> 00:12:10,159
+et je vais lui passer ces arguments
+
+398
+00:12:10,259 --> 00:12:23,045
+sep : ';' virgule end: 'FIN'.
+
+399
+00:12:24,027 --> 00:12:26,042
+J'ai défini mon dictionnaire pretty print,
+
+400
+00:12:26,142 --> 00:12:27,326
+regardons, c'est le dictionnaire, voilà,
+
+401
+00:12:27,426 --> 00:12:28,269
+que je viens juste d'écrire.
+
+402
+00:12:28,435 --> 00:12:30,574
+Et maintenant, je peux écrire print de
+
+403
+00:12:30,674 --> 00:12:31,405
+1 virgule 2
+
+404
+00:12:31,505 --> 00:12:33,187
+et au lieu de réécrire à la main
+
+405
+00:12:33,287 --> 00:12:34,503
+sep: point virgule, end: FIN,
+
+406
+00:12:34,603 --> 00:12:36,083
+je lui passe un double étoile de d ;
+
+407
+00:12:36,183 --> 00:12:38,366
+et là Python va faire du unpacking
+
+408
+00:12:38,466 --> 00:12:39,049
+du dictionnaire
+
+409
+00:12:39,149 --> 00:12:42,224
+vers les paramètres de mon print,
+
+410
+00:12:42,324 --> 00:12:43,424
+et automatiquement,
+
+411
+00:12:43,524 --> 00:12:45,342
+alors, je le reprends ;
+
+412
+00:12:49,045 --> 00:12:51,128
+j'ai passé l'argument d qui n'était pas le bon,
+
+413
+00:12:51,228 --> 00:12:53,150
+c'est le pp, le pretty print évidemment.
+
+414
+00:12:53,250 --> 00:12:56,155
+Donc je passe mon double étoile pretty print
+
+415
+00:12:56,255 --> 00:12:57,649
+et là, les arguments vont être
+
+416
+00:12:57,749 --> 00:13:00,394
+automatiquement passés à ma fonction print.
+
+417
+00:13:02,137 --> 00:13:04,290
+Nous venons de voir les différentes manières
+
+418
+00:13:04,390 --> 00:13:06,027
+de définir les paramètres d'une fonction
+
+419
+00:13:06,127 --> 00:13:07,730
+et de passer des arguments à une fonction.
+
+420
+00:13:07,830 --> 00:13:08,762
+Nous avons quatre manières
+
+421
+00:13:08,862 --> 00:13:10,010
+de définir les paramètres:
+
+422
+00:13:10,110 --> 00:13:12,410
+paramètres ordonnés,
+
+423
+00:13:12,510 --> 00:13:13,462
+paramètres par défaut,
+
+424
+00:13:13,562 --> 00:13:14,737
+forme étoile, forme double étoile,
+
+425
+00:13:14,837 --> 00:13:16,694
+et nous avons quatre manières
+
+426
+00:13:16,794 --> 00:13:18,151
+de passer des arguments à une fonction:
+
+427
+00:13:18,692 --> 00:13:20,057
+arguments ordonnés,
+
+428
+00:13:20,157 --> 00:13:21,160
+arguments nommés,
+
+429
+00:13:21,260 --> 00:13:23,384
+forme étoile, forme double étoile.
+
+430
+00:13:23,484 --> 00:13:25,033
+Ces différentes manières
+
+431
+00:13:25,133 --> 00:13:25,956
+de définir les paramètres
+
+432
+00:13:26,056 --> 00:13:27,275
+et de passer des arguments à une fonction
+
+433
+00:13:27,375 --> 00:13:29,360
+vous offrent énormément de souplesse
+
+434
+00:13:29,460 --> 00:13:31,637
+sur la manière d'appeler les fonctions.
+
+435
+00:13:32,146 --> 00:13:32,912
+À bientôt !
+

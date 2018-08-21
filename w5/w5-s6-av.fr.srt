@@ -1,0 +1,516 @@
+﻿1
+00:00:04,030 --> 00:00:05,307
+Dans cette vidéo, nous allons parler
+
+2
+00:00:05,407 --> 00:00:07,415
+du processus d'importation des modules,
+
+3
+00:00:07,515 --> 00:00:08,809
+c'est-à-dire les différentes étapes
+
+4
+00:00:08,909 --> 00:00:10,249
+que va suivre l'interpréteur Python
+
+5
+00:00:10,349 --> 00:00:12,309
+du moment où on tape l'instruction import
+
+6
+00:00:12,409 --> 00:00:14,341
+jusqu'au moment où on a l'objet module.
+
+7
+00:00:14,674 --> 00:00:16,204
+Ouvrons un interpréteur Python
+
+8
+00:00:16,304 --> 00:00:17,145
+pour commencer à regarder
+
+9
+00:00:17,245 --> 00:00:18,478
+ce processus d'importation.
+
+10
+00:00:19,994 --> 00:00:21,420
+Lorsque l'on importe un module,
+
+11
+00:00:21,520 --> 00:00:22,626
+on utilise l'instruction import,
+
+12
+00:00:22,726 --> 00:00:23,450
+comme on l'a déjà vu,
+
+13
+00:00:23,550 --> 00:00:24,122
+et par exemple, je vais ici
+
+14
+00:00:24,222 --> 00:00:26,154
+importer le module os.
+
+15
+00:00:26,439 --> 00:00:28,025
+os a deux rôles,
+
+16
+00:00:28,125 --> 00:00:30,233
+il va définir le nom du fichier
+
+17
+00:00:30,333 --> 00:00:31,568
+qui va être cherché sur le disque dur,
+
+18
+00:00:31,668 --> 00:00:33,479
+qui va s'appeler os.py ;
+
+19
+00:00:33,975 --> 00:00:35,292
+nous avons quelques exceptions
+
+20
+00:00:35,392 --> 00:00:36,302
+pour certains modules qui sont
+
+21
+00:00:36,402 --> 00:00:37,548
+directement écrits en C
+
+22
+00:00:37,648 --> 00:00:38,780
+mais en général, ce sont des fichiers
+
+23
+00:00:38,880 --> 00:00:39,449
+écrits en Python ;
+
+24
+00:00:40,255 --> 00:00:42,345
+et ce nom, os, va également
+
+25
+00:00:42,445 --> 00:00:43,552
+définir le nom de la variable
+
+26
+00:00:43,652 --> 00:00:45,295
+qui va référencer l'objet module.
+
+27
+00:00:45,611 --> 00:00:47,027
+Si je fais un print de os,
+
+28
+00:00:47,505 --> 00:00:49,213
+je vois bien que os est une variable
+
+29
+00:00:49,313 --> 00:00:51,076
+qui référence l'objet module.
+
+30
+00:00:51,482 --> 00:00:52,451
+Donc, maintenant regardons
+
+31
+00:00:52,551 --> 00:00:53,688
+les différentes étapes
+
+32
+00:00:54,277 --> 00:00:54,811
+qui vont se dérouler
+
+33
+00:00:54,911 --> 00:00:57,180
+lorsqu'on tape import os.
+
+34
+00:00:57,706 --> 00:00:58,518
+Premièrement,
+
+35
+00:00:58,618 --> 00:01:00,920
+il faut trouver le fichier sur le disque dur.
+
+36
+00:01:01,381 --> 00:01:03,276
+Pour trouver ce fichier sur le disque dur,
+
+37
+00:01:03,376 --> 00:01:06,420
+l'interpréteur va regarder
+
+38
+00:01:06,520 --> 00:01:07,633
+dans un certain nombre de répertoires ;
+
+39
+00:01:07,733 --> 00:01:09,418
+il va commencer par regarder
+
+40
+00:01:09,518 --> 00:01:11,131
+est-ce que le module os est défini
+
+41
+00:01:11,231 --> 00:01:12,659
+dans le répertoire courant,
+
+42
+00:01:12,759 --> 00:01:14,487
+là où vous avez démarré votre interpréteur ?
+
+43
+00:01:15,094 --> 00:01:16,933
+Ensuite, s'il ne trouve pas ce fichier,
+
+44
+00:01:17,033 --> 00:01:19,256
+il va le chercher dans la variable système
+
+45
+00:01:19,356 --> 00:01:20,417
+qui s'appelle PYTHONPATH.
+
+46
+00:01:20,517 --> 00:01:21,890
+Regardons cela.
+
+47
+00:01:22,222 --> 00:01:26,748
+J'ai, dans mon module os,
+
+48
+00:01:26,848 --> 00:01:28,494
+une liste qui s'appelle environ,
+
+49
+00:01:29,091 --> 00:01:30,916
+qui en fait veut dire environnement,
+
+50
+00:01:31,016 --> 00:01:32,218
+et qui contient la liste
+
+51
+00:01:33,170 --> 00:01:35,326
+pardon, c'est un dictionnaire qui contient
+
+52
+00:01:35,426 --> 00:01:37,341
+toutes les variables d'environnement
+
+53
+00:01:37,441 --> 00:01:37,899
+dans notre système.
+
+54
+00:01:37,999 --> 00:01:39,911
+Donc regardons cette variable PYTHONPATH
+
+55
+00:01:40,460 --> 00:01:42,780
+et regardons vers quoi elle est définie ;
+
+56
+00:01:42,880 --> 00:01:44,603
+dans mon système, elle est définie vers
+
+57
+00:01:44,703 --> 00:01:46,338
+le bureau de mon ordinateur.
+
+58
+00:01:46,806 --> 00:01:49,224
+Donc je cherche le fichier
+
+59
+00:01:49,324 --> 00:01:50,336
+dans le répertoire courant,
+
+60
+00:01:50,436 --> 00:01:51,683
+puis ensuite dans PYTHONPATH,
+
+61
+00:01:51,783 --> 00:01:53,445
+et si je ne le trouve pas, au final,
+
+62
+00:01:53,545 --> 00:01:54,939
+je vais le chercher dans le répertoire
+
+63
+00:01:55,039 --> 00:01:55,873
+des librairies standards ;
+
+64
+00:01:55,973 --> 00:01:57,682
+évidemment, c'est pour ça qu'on peut
+
+65
+00:01:57,782 --> 00:01:59,359
+importer n'importe quel module
+
+66
+00:01:59,459 --> 00:02:00,391
+de la librairie standard
+
+67
+00:02:00,491 --> 00:02:02,251
+sans avoir à se soucier de l'endroit
+
+68
+00:02:02,351 --> 00:02:03,841
+où se situe ce fichier module.
+
+69
+00:02:04,969 --> 00:02:06,240
+Lorsque l'on a un doute
+
+70
+00:02:06,340 --> 00:02:07,415
+sur le chemin de recherche,
+
+71
+00:02:07,515 --> 00:02:08,886
+en fait, on peut regarder dans une variable
+
+72
+00:02:08,986 --> 00:02:10,237
+qui s'appelle sys.path.
+
+73
+00:02:10,337 --> 00:02:12,773
+Donc importons le module sys
+
+74
+00:02:13,496 --> 00:02:17,151
+et sys.path est une liste qui contient
+
+75
+00:02:17,941 --> 00:02:21,125
+tous les chemins qui sont suivis
+
+76
+00:02:21,225 --> 00:02:22,661
+par l'interpréteur Python dans l'ordre,
+
+77
+00:02:22,761 --> 00:02:24,229
+du premier chemin au dernier.
+
+78
+00:02:24,636 --> 00:02:25,816
+Cette variable étant une liste,
+
+79
+00:02:25,916 --> 00:02:27,622
+on peut la modifier en cours d'exécution
+
+80
+00:02:27,722 --> 00:02:29,558
+et lorsque l'on fera une importation,
+
+81
+00:02:29,658 --> 00:02:30,838
+le processus d'importation
+
+82
+00:02:30,938 --> 00:02:32,910
+regardera l'état actuel de cette variable.
+
+83
+00:02:33,010 --> 00:02:33,701
+C'est ce qui nous permet,
+
+84
+00:02:33,801 --> 00:02:35,329
+dans un programme, de pouvoir adapter
+
+85
+00:02:35,429 --> 00:02:37,104
+les chemins de recherche des modules.
+
+86
+00:02:37,455 --> 00:02:38,603
+Donc maintenant que j'ai trouvé
+
+87
+00:02:38,703 --> 00:02:39,336
+mon fichier module,
+
+88
+00:02:39,436 --> 00:02:42,081
+je vais devoir le pré-compiler ;
+
+89
+00:02:42,181 --> 00:02:44,168
+la pré-compilation consiste à générer
+
+90
+00:02:44,268 --> 00:02:45,739
+ce qu'on appelle du bytecode.
+
+91
+00:02:46,163 --> 00:02:47,843
+Ce bytecode, qui en général,...
+
+92
+00:02:48,458 --> 00:02:51,498
+le fichier va se finir par une extension .pyc,
+
+93
+00:02:51,598 --> 00:02:53,202
+Tous ces fichiers bytecode vont être mis
+
+94
+00:02:53,302 --> 00:02:58,647
+dans un répertoire qui s'appelle __pycache__
+
+95
+00:02:58,924 --> 00:03:01,025
+Donc ce répertoire est en général
+
+96
+00:03:01,125 --> 00:03:04,094
+là où vous exécutez votre programme.
+
+97
+00:03:04,730 --> 00:03:06,537
+Et pour finir, l'interpréteur Python,
+
+98
+00:03:06,637 --> 00:03:08,408
+une fois qu'il a généré le bytecode,
+
+99
+00:03:08,508 --> 00:03:10,103
+va évaluer ce bytecode
+
+100
+00:03:10,203 --> 00:03:11,776
+pour générer l'objet module.
+
+101
+00:03:12,068 --> 00:03:13,172
+Je vous rappelle qu'un module
+
+102
+00:03:13,272 --> 00:03:14,922
+s'importe toujours de manière séquentielle
+
+103
+00:03:15,022 --> 00:03:16,227
+donc on va parcourir les lignes
+
+104
+00:03:16,327 --> 00:03:17,141
+de la première ligne
+
+105
+00:03:17,241 --> 00:03:18,437
+à la dernière ligne de code
+
+106
+00:03:18,537 --> 00:03:20,166
+dans l'ordre, du début jusqu'à la fin,
+
+107
+00:03:20,442 --> 00:03:22,062
+et que lorsque l'on rencontre une fonction,
+
+108
+00:03:22,062 --> 00:03:23,239
+on va créer les objets fonction ;
+
+109
+00:03:23,339 --> 00:03:25,043
+par contre, le bloc de code de la fonction
+
+110
+00:03:25,143 --> 00:03:28,193
+ne sera évalué qu'à l'appel de la fonction.
+
+111
+00:03:29,146 --> 00:03:30,721
+Le processus d'importation
+
+112
+00:03:30,821 --> 00:03:32,295
+étant une opération coûteuse,
+
+113
+00:03:32,395 --> 00:03:34,332
+l'interpréteur, lorsque vous faites
+
+114
+00:03:34,432 --> 00:03:37,352
+de multiples import vers le même module,
+
+115
+00:03:37,452 --> 00:03:39,376
+ne va importer ce module qu'une seule fois,
+
+116
+00:03:39,637 --> 00:03:40,586
+et il va ensuite créer
+
+117
+00:03:40,686 --> 00:03:41,578
+des références partagées
+
+118
+00:03:41,678 --> 00:03:42,987
+vers cet objet module.
+
+119
+00:03:43,408 --> 00:03:44,657
+C'est pourquoi il est très important
+
+120
+00:03:44,757 --> 00:03:46,016
+de comprendre qu'un objet module
+
+121
+00:03:46,116 --> 00:03:46,668
+est mutable,
+
+122
+00:03:46,768 --> 00:03:48,473
+et que la manière d'importer un module
+
+123
+00:03:48,573 --> 00:03:50,034
+peut avoir un impact
+
+124
+00:03:50,134 --> 00:03:51,594
+sur l'espace de nommage de ce module
+
+125
+00:03:51,694 --> 00:03:52,606
+ou l'espace de nommage
+
+126
+00:03:52,706 --> 00:03:53,429
+de votre programme.
+
+127
+00:03:53,529 --> 00:03:54,481
+C'est ce que nous couvrirons
+
+128
+00:03:54,581 --> 00:03:55,623
+dans une prochaine vidéo.
+
+129
+00:03:55,900 --> 00:03:56,642
+À bientôt !
+

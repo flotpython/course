@@ -9,7 +9,7 @@ Les chaînes de caractères en Python sont mutables.
 
 [explanation]
 
-Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet créé on ne peut plus de modifier. 
+Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet créé on ne peut plus le modifier. 
 
 [explanation]
 
@@ -18,7 +18,7 @@ Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet cr
 Strings (2)
 =====
 
-Cocher la ou les expressions qui définissent correctement une chaîne de caractères en Python
+Cocher la ou les expressions qui définissent correctement une chaîne de caractères en Python.
 
 [ ] <code>'spam"</code>
 [x] <code>"spam"</code>
@@ -29,7 +29,7 @@ Cocher la ou les expressions qui définissent correctement une chaîne de caract
 [ ] <code>'"'"</code>
 
 [explanation]
-Une chaîne de caractères est entourée soit par deux <code>'</code> ou par deux <code>"</code>. Si la chaîne est entourée par deux <code>'</code> (respectivement <code>"</code>), alors le caractères <code>"</code> (respectivement <code>'</code>) pourra être utilisé comme un caractère normal dans la chaîne de caractères. 
+Une chaîne de caractères est entourée soit par deux <code>'</code> ou par deux <code>"</code>. Si la chaîne est entourée par deux <code>'</code> (respectivement <code>"</code>), alors le caractère <code>"</code> (respectivement <code>'</code>) pourra être utilisé comme un caractère normal dans la chaîne de caractères. 
 
 [explanation]
 
@@ -53,7 +53,7 @@ Quelle(s) solution(s) est(sont) correcte(s) ?
 [explanation]
 Attention de ne pas mettre d'apostrophes (sans caractère <code>\</code> devant) dans une chaîne délimitée par des apostrophes.
 
-Une f-string doit toujours commencer être précédée d'un <code>f</code>
+Une f-string doit toujours être précédée d'un <code>f</code>.
 [explanation]
 
 <hr/>
@@ -62,7 +62,7 @@ Strings - encodage
 
 Quelle(s) affirmation(s) est(sont) vraie(s) ?
 
-[x] Sans spécifier explicitement l'encodage choisit, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme. 
+[x] Sans spécifier explicitement l'encodage choisi, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme. 
 [x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> est pour les chaînes de caractères encodées. 
 [ ] Lorsqu'une chaîne est décodée on ne peut plus l'encoder.
 

@@ -1,0 +1,1118 @@
+1
+00:00:04,015 --> 00:00:05,993
+Nous avons vu, dans une précédente vidéo,
+
+2
+00:00:06,193 --> 00:00:08,406
+les notions de property et de descripteurs.
+
+3
+00:00:08,606 --> 00:00:10,214
+Nous avons vu qu'il s'agissait d'un mécanisme
+
+4
+00:00:10,414 --> 00:00:12,423
+puissant, pour contrôler l'accès
+
+5
+00:00:12,623 --> 00:00:14,476
+et la modification d'un attribut particulier.
+
+6
+00:00:14,676 --> 00:00:16,613
+Dans cette vidéo, nous allons voir
+
+7
+00:00:16,813 --> 00:00:18,993
+une autre mécanique qui repose sur trois méthodes,
+
+8
+00:00:19,193 --> 00:00:22,065
+qui s'appellent __getattribute__, __setattr__,
+
+9
+00:00:22,265 --> 00:00:25,053
+et __getattr__ qui permettent de contrôler
+
+10
+00:00:25,253 --> 00:00:27,916
+l'accès et la modification de n'importe quel attribut,
+
+11
+00:00:28,116 --> 00:00:28,907
+en Python.
+
+12
+00:00:29,107 --> 00:00:30,916
+Nous allons voir, également, que ces méthodes
+
+13
+00:00:31,116 --> 00:00:33,865
+implémentent un mécanisme subtil et complexe
+
+14
+00:00:34,065 --> 00:00:36,278
+et que, surtout, leurs noms ont été très mal choisis,
+
+15
+00:00:36,478 --> 00:00:38,289
+ce qui est souvent source de confusion.
+
+16
+00:00:38,489 --> 00:00:40,346
+Nous allons revenir sur ça, dans quelques instants.
+
+17
+00:00:40,546 --> 00:00:41,907
+Donc commençons par regarder
+
+18
+00:00:42,107 --> 00:00:43,267
+la méthode __getattribute__
+
+19
+00:00:43,467 --> 00:00:46,086
+Si vous implémentez la méthode __getattribute__
+
+20
+00:00:46,286 --> 00:00:48,253
+sur votre classe, vous aurez la certitude
+
+21
+00:00:48,453 --> 00:00:51,075
+que tous les accès à des attributs,
+
+22
+00:00:51,275 --> 00:00:53,411
+sur votre instance, passeront par cette
+
+23
+00:00:53,611 --> 00:00:54,772
+méthode __getattribute__
+
+24
+00:00:54,972 --> 00:00:56,912
+Donc que votre attribut existe dans votre instance
+
+25
+00:00:57,112 --> 00:00:58,112
+ou qu'il n'existe pas,
+
+26
+00:00:58,312 --> 00:01:00,038
+vous allez passer par __getattribute__.
+
+27
+00:01:00,238 --> 00:01:02,909
+Par contre, toute la logique de recherche
+
+28
+00:01:03,109 --> 00:01:05,284
+des attributs et, en particulier, les mécanismes
+
+29
+00:01:05,484 --> 00:01:07,905
+des descripteurs sont implémentés dans
+
+30
+00:01:08,105 --> 00:01:10,402
+la méthode __getattribute__ de l'objet object.
+
+31
+00:01:10,602 --> 00:01:12,818
+Donc si vous voulez garder cette mécanique
+
+32
+00:01:13,018 --> 00:01:13,936
+de recherche des attributs
+
+33
+00:01:14,136 --> 00:01:15,539
+et garder la mécanique des descripteurs,
+
+34
+00:01:15,739 --> 00:01:17,836
+vous serez obligés d'appeler
+
+35
+00:01:18,036 --> 00:01:20,470
+object.__getattribute__() dans votre surcharge
+
+36
+00:01:20,670 --> 00:01:21,714
+de __getattribute__
+
+37
+00:01:21,914 --> 00:01:24,339
+Regardons maintenant une deuxième méthode
+
+38
+00:01:24,539 --> 00:01:26,068
+qui s'appelle __setattr__.
+
+39
+00:01:26,268 --> 00:01:28,730
+__setattr__ est la méthode,
+
+40
+00:01:28,930 --> 00:01:30,215
+si vous l'implémentez dans votre classe,
+
+41
+00:01:30,415 --> 00:01:32,184
+qui sera systématiquement appelée,
+
+42
+00:01:32,384 --> 00:01:34,393
+lorsque vous modifiez un attribut,
+
+43
+00:01:34,593 --> 00:01:36,446
+que cet attribut existe
+
+44
+00:01:36,646 --> 00:01:38,909
+et que vous vouliez le modifier.
+
+45
+00:01:39,109 --> 00:01:44,455
+Toute la mécanique de modification des attributs
+
+46
+00:01:44,655 --> 00:01:48,006
+est implémentée dans, encore une fois,
+
+47
+00:01:48,206 --> 00:01:50,547
+la méthode __setattr__ de l'objet object.
+
+48
+00:01:50,747 --> 00:01:52,806
+Donc si vous voulez modifier votre attribut
+
+49
+00:01:53,006 --> 00:01:54,456
+et si vous voulez garder la mécanique
+
+50
+00:01:54,656 --> 00:01:56,787
+des descripteurs, vous serez obligés d'appeler
+
+51
+00:01:56,987 --> 00:02:00,377
+object.__setattr__() dans votre implémentation
+
+52
+00:02:00,577 --> 00:02:01,696
+de __setattr__.
+
+53
+00:02:01,896 --> 00:02:03,625
+Nous remarquons d'ailleurs ici, que ce nom
+
+54
+00:02:03,825 --> 00:02:05,033
+__setattr__ est étrange.
+
+55
+00:02:05,233 --> 00:02:06,725
+On se serait attendu à ce que cette
+
+56
+00:02:06,925 --> 00:02:08,546
+méthode s'appelle __setattribute__,
+
+57
+00:02:08,746 --> 00:02:09,910
+parce qu'en fait, cette méthode est vraiment
+
+58
+00:02:10,110 --> 00:02:12,163
+la méthode symétrique de __getattribute__.
+
+59
+00:02:12,363 --> 00:02:14,007
+Mais pour des raisons historiques, elle s'est appelée
+
+60
+00:02:14,207 --> 00:02:16,304
+__setattr__ ce qui est un petit peu troublant,
+
+61
+00:02:16,504 --> 00:02:20,057
+mais qui est l'implémentation que l'on a, en Python.
+
+62
+00:02:20,257 --> 00:02:21,907
+Regardons maintenant la dernière méthode
+
+63
+00:02:22,107 --> 00:02:23,505
+qui est la méthode __getattr__,
+
+64
+00:02:23,705 --> 00:02:25,516
+qui est elle, une méthode très différente
+
+65
+00:02:25,716 --> 00:02:28,298
+de __getattribute__et de __setattr__,
+
+66
+00:02:28,498 --> 00:02:29,822
+contrairement à ce que son nom
+
+67
+00:02:30,022 --> 00:02:30,899
+pourrait laisser entendre.
+
+68
+00:02:31,099 --> 00:02:33,725
+En fait, __getattr__ est, en quelque
+sorte,
+
+69
+00:02:33,925 --> 00:02:35,086
+une méthode de la dernière chance.
+
+70
+00:02:35,286 --> 00:02:37,506
+Si vous n'implémentez pas __getattribute__
+
+71
+00:02:37,706 --> 00:02:40,546
+dans votre classe, et si l'attribut auquel vous
+
+72
+00:02:40,746 --> 00:02:42,562
+essayez d'accéder n'existe pas dans l'espace de
+
+73
+00:02:42,762 --> 00:02:44,492
+nommage ou le long de l'arbre d'héritage,
+
+74
+00:02:44,692 --> 00:02:47,069
+la méthode __getattr__ va être appelée
+
+75
+00:02:47,269 --> 00:02:48,997
+en dernier ressort.
+
+76
+00:02:49,197 --> 00:02:50,970
+Donc, c'est la dernière méthode qui est appelée,
+
+77
+00:02:51,170 --> 00:02:53,312
+avant d'avoir une exception AttributeError.
+
+78
+00:02:53,512 --> 00:02:56,588
+Encore une fois, vous avez trois méthodes :
+
+79
+00:02:56,788 --> 00:02:58,476
+__getattribute__,__setattr__,
+
+80
+00:02:58,676 --> 00:03:00,610
+__setattr__ est la méthode symétrique
+
+81
+00:03:00,810 --> 00:03:01,806
+de __getattribute__,
+
+82
+00:03:02,006 --> 00:03:04,169
+et vous avez une méthode qui s'appelle __getattr__
+
+83
+00:03:04,369 --> 00:03:05,203
+qui est, en quelque sorte,
+
+84
+00:03:05,403 --> 00:03:06,521
+la méthode de la dernière chance,
+
+85
+00:03:06,721 --> 00:03:09,065
+qui n'est appelée que si cet attribut
+
+86
+00:03:09,265 --> 00:03:10,144
+n'a pas été défini
+
+87
+00:03:10,344 --> 00:03:12,357
+et si l'attribut n'est pas défini
+
+88
+00:03:12,557 --> 00:03:13,638
+le long de l'arbre d'héritage.
+
+89
+00:03:13,838 --> 00:03:16,668
+Ouvrons maintenant un éditeur IDLE
+
+90
+00:03:16,868 --> 00:03:17,664
+pour commencer à jouer avec
+
+91
+00:03:17,864 --> 00:03:18,903
+ces différentes méthodes.
+
+92
+00:03:20,303 --> 00:03:22,718
+Reprenons l'exemple du descripteur Temperature
+
+93
+00:03:22,918 --> 00:03:24,450
+que nous avions dans une précédente vidéo.
+
+94
+00:03:24,650 --> 00:03:26,987
+Donc ici, vous voyez que j'ai mon descripteur :
+
+95
+00:03:27,187 --> 00:03:29,327
+j'ai défini mes deux méthodes __get__et __set__.
+
+96
+00:03:29,527 --> 00:03:30,806
+À ce propos, voyez que j'ai un petit peu de code,
+
+97
+00:03:31,006 --> 00:03:32,738
+donc, n'hésitez pas à mettre cette vidéo en pause
+
+98
+00:03:32,938 --> 00:03:34,662
+et à prendre le temps de, tranquillement, taper
+
+99
+00:03:34,862 --> 00:03:37,236
+le code qui est dans mon éditeur IDLE.
+
+100
+00:03:37,436 --> 00:03:40,830
+Donc, on voit que j'ai mon descripteur Temperature
+
+101
+00:03:41,030 --> 00:03:42,314
+qui définit une méthode __get__,
+
+102
+00:03:42,514 --> 00:03:44,532
+dans laquelle je vais afficher un print
+
+103
+00:03:44,732 --> 00:03:46,379
+de 'desc __get__', ça veut dire que je rentre
+
+104
+00:03:46,579 --> 00:03:47,940
+dans la méthode __get__ de mon descripteur.
+
+105
+00:03:48,140 --> 00:03:49,545
+Et j'ai une méthode __set__
+
+106
+00:03:49,745 --> 00:03:51,025
+dans laquelle je fais simplement un print
+
+107
+00:03:51,225 --> 00:03:54,827
+'desc de __set__' et j'affiche l'argument
+
+108
+00:03:55,027 --> 00:03:57,332
+que je vais affecter à mon attribut descripteur
+
+109
+00:03:57,532 --> 00:03:58,620
+lorsque je veux modifier.
+
+110
+00:03:58,820 --> 00:04:00,673
+Je n'ai pas de logique
+
+111
+00:04:00,873 --> 00:04:01,957
+dans mon descripteur __set__
+
+112
+00:04:02,157 --> 00:04:03,803
+parce qu'ici l'intérêt est uniquement de tracer
+
+113
+00:04:04,003 --> 00:04:06,297
+les différents appels de méthodes.
+
+114
+00:04:06,497 --> 00:04:08,225
+Puis ensuite, j'ai ma classe Maison,
+
+115
+00:04:08,425 --> 00:04:10,282
+qui définit sa méthode __init__,
+
+116
+00:04:10,482 --> 00:04:12,700
+tout à fait normale, qu'on a déjà vu précédemment,
+
+117
+00:04:12,900 --> 00:04:15,239
+et j'ai implémenté les deux méthodes spéciales :
+
+118
+00:04:15,439 --> 00:04:17,655
+__getattribute__ et __setattr__.
+
+119
+00:04:17,855 --> 00:04:19,341
+Vous remarquez que je n'ai pas implémenté
+
+120
+00:04:19,541 --> 00:04:20,662
+__getattr__, qui est une méthode un petit peu
+
+121
+00:04:20,862 --> 00:04:22,831
+différente, et je vous laisserai expérimenter
+
+122
+00:04:23,031 --> 00:04:24,351
+cette méthode, à titre d'exercice.
+
+123
+00:04:24,551 --> 00:04:26,932
+Donc la méthode __getattribute__, je vous rappelle,
+
+124
+00:04:27,132 --> 00:04:28,335
+est appelée systématiquement.
+
+125
+00:04:28,535 --> 00:04:30,432
+Dans cette méthode, je vais afficher
+
+126
+00:04:30,632 --> 00:04:32,356
+que je suis bien dans __getattribute__,
+
+127
+00:04:32,556 --> 00:04:33,560
+et je vais afficher l'attribut
+
+128
+00:04:33,760 --> 00:04:36,349
+auquel je suis en train d'accéder.
+
+129
+00:04:36,549 --> 00:04:38,823
+Et ensuite, dans __setattr__,
+
+130
+00:04:39,023 --> 00:04:41,620
+ma méthode __setattr__ prend trois arguments :
+
+131
+00:04:41,820 --> 00:04:42,864
+self, a, et v
+
+132
+00:04:43,064 --> 00:04:45,495
+a est l'attribut que je vais modifier,
+
+133
+00:04:45,695 --> 00:04:48,829
+v est la valeur que je veux affecter à mon attribut.
+
+134
+00:04:49,029 --> 00:04:50,888
+Donc ma méthode __setattr__ va, encore une fois,
+
+135
+00:04:51,088 --> 00:04:52,908
+juste faire un affichage
+
+136
+00:04:53,108 --> 00:04:56,270
+que j'appelle __setattr__, il va afficher cet attribut
+
+137
+00:04:56,470 --> 00:04:58,213
+est maintenant égal à cette valeur.
+
+138
+00:04:58,413 --> 00:04:59,614
+Donc ça va me permettre de tracer ces
+
+139
+00:04:59,814 --> 00:05:01,591
+différents appels et je définis bien
+
+140
+00:05:01,791 --> 00:05:04,142
+temperature comme un descripteur,
+
+141
+00:05:04,342 --> 00:05:06,077
+c'est une instance de la classe Temperature
+
+142
+00:05:06,277 --> 00:05:07,122
+qui est un descripteur.
+
+143
+00:05:07,322 --> 00:05:08,817
+Donc, j'exécute ce code.
+
+144
+00:05:09,017 --> 00:05:10,715
+Et maintenant, je vais créer
+
+145
+00:05:10,915 --> 00:05:12,204
+une instance de ma Maison.
+
+146
+00:05:12,404 --> 00:05:17,052
+Donc, je vais écrire m = Maison(18)
+
+147
+00:05:17,252 --> 00:05:18,462
+Regardons ce qui va se passer lorsque
+
+148
+00:05:18,662 --> 00:05:19,587
+je fais un retour chariot.
+
+149
+00:05:19,787 --> 00:05:20,989
+Lorsque je fais un retour chariot,
+
+150
+00:05:21,189 --> 00:05:23,421
+je vais appeler un self.temperature
+
+151
+00:05:23,621 --> 00:05:26,060
+ça veut donc dire que je vais changer la valeur
+
+152
+00:05:26,260 --> 00:05:27,389
+de l'attribut temperature,
+
+153
+00:05:27,589 --> 00:05:28,959
+temperature étant un descripteur.
+
+154
+00:05:29,159 --> 00:05:31,339
+Et, on voit que j'ai trois méthodes qui sont appelées.
+
+155
+00:05:31,539 --> 00:05:34,944
+__setattr__, avec l'attribut temperature 18,
+
+156
+00:05:35,144 --> 00:05:35,779
+c'est normal,
+
+157
+00:05:35,979 --> 00:05:37,755
+__setattr__ est appelée systématiquement
+
+158
+00:05:37,955 --> 00:05:40,058
+dès que je modifie un attribut de ma classe.
+
+159
+00:05:40,258 --> 00:05:43,134
+Il se trouve que cet attribut est un descripteur.
+
+160
+00:05:43,334 --> 00:05:45,816
+Dans ma méthode _setattr__,
+
+161
+00:05:46,016 --> 00:05:47,996
+vous remarquez que j'ai appelé la méthode
+
+162
+00:05:48,196 --> 00:05:50,921
+object.__setattr__, donc je vais rentrer dans la
+
+163
+00:05:51,121 --> 00:05:52,533
+logique des descripteurs
+
+164
+00:05:52,733 --> 00:05:54,590
+et je vais donc appeler mon descripteur
+
+165
+00:05:54,790 --> 00:05:55,960
+desc __set__ 18
+
+166
+00:05:56,160 --> 00:05:59,520
+Dans mon descripteur, je fais,
+
+167
+00:05:59,720 --> 00:06:03,945
+dans __set__, ici, je modifie, dans mon instance,
+
+168
+00:06:04,145 --> 00:06:08,085
+l'attribut _temperature, ça va donc repasser par la
+
+169
+00:06:08,285 --> 00:06:11,243
+méthode __setattr__ avec _temperature
+
+170
+00:06:11,443 --> 00:06:12,851
+et ça va le mettre à 18.
+
+171
+00:06:13,051 --> 00:06:15,153
+On voit toute cette logique un petit peu sophistiquée
+
+172
+00:06:15,353 --> 00:06:17,456
+je passe dans le __setattr__ avec temperature,
+
+173
+00:06:17,656 --> 00:06:18,251
+c'est un descripteur,
+
+174
+00:06:18,451 --> 00:06:20,310
+je passe dans l'appel __set__ du descripteur,
+
+175
+00:06:20,510 --> 00:06:22,400
+et l'appel __set__ du descripteur modifie un attribut
+
+176
+00:06:22,600 --> 00:06:24,955
+de mon instance, je repasse donc dans__setattr__
+
+177
+00:06:25,155 --> 00:06:27,048
+avec l'attribut _temperature
+
+178
+00:06:27,248 --> 00:06:28,900
+Maintenant, essayons d'accéder
+
+179
+00:06:29,100 --> 00:06:30,292
+à cet attribut temperature.
+
+180
+00:06:30,492 --> 00:06:32,226
+Et pour ça, je vais utiliser la complétion,
+
+181
+00:06:32,426 --> 00:06:35,913
+je vais faire m.temp tab (tabulation)
+
+182
+00:06:36,113 --> 00:06:38,464
+et nous voyons que deux méthodes sont appelées.
+
+183
+00:06:38,664 --> 00:06:42,488
+__getattribute__ est appelée pour
+
+184
+00:06:42,688 --> 00:06:43,776
+l'attribut dict,
+
+185
+00:06:43,976 --> 00:06:45,060
+et __getattribute__ est appelée pour
+
+186
+00:06:45,260 --> 00:06:46,140
+l'attribut class. Mais quel rapport
+
+187
+00:06:46,340 --> 00:06:48,121
+avec mon mécanisme?
+
+188
+00:06:48,321 --> 00:06:51,396
+En fait, simplement, j'ai fait un m.temp complétion
+
+189
+00:06:51,596 --> 00:06:53,858
+IDLE pour savoir quelle complétion faire
+
+190
+00:06:54,058 --> 00:06:56,528
+va interroger les espaces de nommage.
+
+191
+00:06:56,728 --> 00:06:58,501
+Donc, il commence par interroger l'espace de nommage
+
+192
+00:06:58,701 --> 00:07:00,443
+de mon instance, c'est l'attribut dict.
+
+193
+00:07:00,643 --> 00:07:02,430
+Il ne trouve pas l'attribut dedans,
+
+194
+00:07:02,630 --> 00:07:04,366
+il continue à remonter l'arbre d'héritage,
+
+195
+00:07:04,566 --> 00:07:06,384
+il arrive dans class. Et dans class,
+
+196
+00:07:06,584 --> 00:07:08,203
+ensuite, il va interroger les différents espaces de
+
+197
+00:07:08,403 --> 00:07:09,776
+nommage, mais le reste n'est pas instrumenté
+
+198
+00:07:09,976 --> 00:07:11,261
+donc on ne voit pas les différents appels.
+
+199
+00:07:11,461 --> 00:07:13,610
+Mais, en fait, IDLE, lorsqu'on fait une complétion
+
+200
+00:07:13,810 --> 00:07:15,544
+va remonter l'arbre d'héritage, jusqu'à trouver
+
+201
+00:07:15,744 --> 00:07:16,588
+mon attribut.
+
+202
+00:07:16,788 --> 00:07:19,363
+Donc, maintenant, je fais un m.temperature.
+
+203
+00:07:19,563 --> 00:07:21,618
+Voyons les différents appels qui sont effectués.
+
+204
+00:07:21,818 --> 00:07:24,836
+Je vois la méthode __getattribute__ qui est appelée
+
+205
+00:07:25,036 --> 00:07:26,245
+pour l'attribut temperature.
+
+206
+00:07:26,445 --> 00:07:28,792
+Normal, tous les appels d'attributs passent par
+
+207
+00:07:28,992 --> 00:07:29,790
+__getatttribute__
+
+208
+00:07:29,990 --> 00:07:32,462
+Il se trouve que __getattribute__ est un descripteur.
+
+209
+00:07:32,662 --> 00:07:35,015
+Or, dans ma méthode __getattribute__,
+
+210
+00:07:35,215 --> 00:07:37,892
+j'ai bien fait un return de object.__getattribute__
+
+211
+00:07:38,092 --> 00:07:40,154
+Donc, j'appelle bien la méthode __getattribute__
+
+212
+00:07:40,354 --> 00:07:42,699
+sur object qui contient la logique des descripteurs.
+
+213
+00:07:42,899 --> 00:07:45,410
+Cette méthode va détecter que c'est un descripteur,
+
+214
+00:07:45,610 --> 00:07:47,193
+va appeler la méthode desc.__get__.
+
+215
+00:07:47,393 --> 00:07:49,785
+Et, dans le __get__, qu'est-ce que je fais?
+
+216
+00:07:49,985 --> 00:07:52,940
+Je fais un inst._temperature,
+
+217
+00:07:53,140 --> 00:07:55,241
+j'appelle donc l'attribut _temperature sur
+
+218
+00:07:55,441 --> 00:07:56,321
+mon instance.
+
+219
+00:07:56,521 --> 00:07:58,591
+Donc, je vois bien, ici, l'appel de _getattribute__
+
+220
+00:07:58,791 --> 00:08:01,550
+pour cet attribut _temperature.
+
+221
+00:08:01,750 --> 00:08:04,250
+Donc, continuons à jouer un petit peu
+
+222
+00:08:04,450 --> 00:08:05,371
+avec ces descripteurs.
+
+223
+00:08:05,571 --> 00:08:09,851
+Maintenant, je vais affecter une valeur,
+
+224
+00:08:10,051 --> 00:08:14,030
+par exemple 22, à mon attribut temperature.
+
+225
+00:08:14,230 --> 00:08:18,656
+Voilà. Je l'exécute
+
+226
+00:08:18,856 --> 00:08:21,222
+et je vois que je vais passer par __setattr__
+
+227
+00:08:21,422 --> 00:08:23,077
+temperature égale 22
+
+228
+00:08:23,277 --> 00:08:25,464
+Ensuite, je détecte que c'est un descripteur,
+
+229
+00:08:25,664 --> 00:08:27,486
+je passe dans la logique des descripteurs.
+
+230
+00:08:27,686 --> 00:08:29,954
+Mon descripteur va modifier _temperature,
+
+231
+00:08:30,154 --> 00:08:33,033
+je repasse dans __setattr__ pour _temperature.
+
+232
+00:08:33,233 --> 00:08:35,633
+Maintenant, regardons un attribut qui n'existe pas,
+
+233
+00:08:35,833 --> 00:08:37,896
+dans mon espace de nommage : m.x.
+
+234
+00:08:38,096 --> 00:08:42,364
+m.x x est un attribut sur mon instance,
+
+235
+00:08:42,564 --> 00:08:43,895
+je passe dans __getattribute__
+
+236
+00:08:44,095 --> 00:08:48,764
+__getattribute__ appelle le __getattribute__
+
+237
+00:08:48,964 --> 00:08:50,744
+d'object qui est ici,
+
+238
+00:08:50,944 --> 00:08:52,764
+qui va implémenter toute la logique
+
+239
+00:08:52,964 --> 00:08:55,029
+qui est utilisée lorsque je ne trouve pas un attribut.
+
+240
+00:08:55,229 --> 00:08:56,517
+Je ne trouve pas mon attribut,
+
+241
+00:08:56,717 --> 00:08:59,592
+j'ai donc une exception AttributeError.
+
+242
+00:08:59,792 --> 00:09:06,335
+Si, maintenant, je fais un m.x = 10,
+
+243
+00:09:06,535 --> 00:09:08,556
+je vois que j'appelle __setattr__,
+
+244
+00:09:08,756 --> 00:09:09,634
+je n'ai pas la logique des descripteurs,
+
+245
+00:09:09,834 --> 00:09:11,531
+c'est normal puisque x n'est pas
+
+246
+00:09:11,731 --> 00:09:13,291
+implémenté comme un descripteur.
+
+247
+00:09:13,491 --> 00:09:15,521
+Et ensuite, je peux bien accéder à mon attribut,
+
+248
+00:09:15,721 --> 00:09:17,311
+et ça va repasser par _getattribute__
+
+249
+00:09:17,511 --> 00:09:18,803
+et j'obtiens la valeur.
+
+250
+00:09:19,926 --> 00:09:22,512
+Nous venons de voir les méthodes __getattribute__
+
+251
+00:09:22,712 --> 00:09:24,896
+__setattr__, et __getattr__.
+
+252
+00:09:25,096 --> 00:09:26,301
+Nous avons bien insisté, sur le fait,
+
+253
+00:09:26,501 --> 00:09:28,651
+que les méthodes __getattribute__ et __setattr__
+
+254
+00:09:28,851 --> 00:09:30,439
+sont des méthodes symétriques.
+
+255
+00:09:30,639 --> 00:09:31,484
+Dans ce sens, __setattr__
+
+256
+00:09:31,684 --> 00:09:33,684
+n'a pas été très bien nommée,
+
+257
+00:09:34,135 --> 00:09:35,137
+cela aurait mieux de l'appeller __setattribute__
+
+258
+00:09:35,337 --> 00:09:36,218
+mais bon, c'est comme ça.
+
+259
+00:09:36,418 --> 00:09:38,193
+Nous avons vu que _getattr__
+
+260
+00:09:38,393 --> 00:09:40,381
+est une méthode un petit peu différente,
+
+261
+00:09:40,581 --> 00:09:40,979
+qui est, entre guillemets,
+
+262
+00:09:41,179 --> 00:09:42,516
+"la méthode de la dernière chance"
+
+263
+00:09:42,716 --> 00:09:44,077
+qui sera appelée uniquement
+
+264
+00:09:44,277 --> 00:09:45,689
+si un attribut n'existe pas.
+
+265
+00:09:47,145 --> 00:09:49,329
+Cette vidéo conclut ce MOOC, sur Python.
+
+266
+00:09:49,529 --> 00:09:51,102
+Thierry et moi espérons que vous avez apprécié
+
+267
+00:09:51,302 --> 00:09:53,361
+ce MOOC et que nous vous avons convaincus que
+
+268
+00:09:53,561 --> 00:09:54,724
+Python est un excellent langage
+
+269
+00:09:54,924 --> 00:09:56,377
+pour aborder tout un tas de problèmes.
+
+270
+00:09:56,577 --> 00:09:58,354
+Si vous avez suivi tout ce MOOC,
+
+271
+00:09:58,554 --> 00:10:00,575
+ce que nous supposons si vous arrivez à cette vidéo
+
+272
+00:10:00,775 --> 00:10:02,307
+vous avez, maintenant, une profonde connaissance
+
+273
+00:10:02,507 --> 00:10:04,254
+de Python qui vous permettra d'aborder
+
+274
+00:10:04,454 --> 00:10:05,495
+les sujets les plus complexes.
+
+275
+00:10:05,695 --> 00:10:08,047
+Cependant, n'oubliez jamais que seule la pratique
+
+276
+00:10:08,247 --> 00:10:10,720
+vous permettra de devenir un expert de ce langage.
+
+277
+00:10:10,920 --> 00:10:12,618
+Merci encore de votre confiance.
+
+278
+00:10:12,818 --> 00:10:13,780
+Au revoir !
+
+279
+00:10:13,980 --> 00:10:15,980
+
+
+
