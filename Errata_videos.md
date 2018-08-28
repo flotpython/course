@@ -27,7 +27,11 @@ lie une variable à un bloc de code, la référence est le mécanisme qui associ
 à un objet. Dans le premier exemple, x=1 va à la fois permettre à la variable x de référencer l'objet 1, mais
 également de lier la variable x au bloc de code dans lequel elle est déclarée. 
 
-# vidéo 7.9
+# vidéo 7.4 numpy: vectorisation
+
+À  3:50 je fais un lapsus et dis 82 ms au lieu de  5 ms
+
+# vidéo 7.9 pandas: gestion des dates et des séries temporelles
 À 0:55 la granularité de la nanoseconde permet d'encoder toutes les dates de 1678 à 2262
 
 # vidéo 9.4 Les métaclasses
