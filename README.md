@@ -2,44 +2,55 @@
 
 `nbautoeval` is a very lightweight python framework for creating **auto-evaluated** exercises inside a jupyter (python) notebook.
 
-Given a text that describes the expectations, students are invited to write their own code, 
-and can then see the outcome on teacher-defined data samples, compared with the results obtained through a teacher-provided solution, with a visual feedback.
+Given a text that describes the expectations, students are invited to write
+their own code,  and can then see the outcome on teacher-defined data samples,
+compared with the results obtained through a teacher-provided solution, with a
+visual feedback.
 
-At this point, due to lack of knowledge/documentation about open/edx (read: the version running at FUN), there is no available code for exporting the results as grades or anything similar (hence the `autoeval` name).
+At this point, due to lack of knowledge/documentation about open/edx (read: the
+version running at FUN), there is no available code for exporting the results as
+grades or anything similar (hence the `autoeval` name).
 
-There indeed are provisions in the code to accumulate statistics on all attempted corrections, as an attempt to provide feedback to teachers.
+There indeed are provisions in the code to accumulate statistics on all
+attempted corrections, as an attempt to provide feedback to teachers.
 
 # Try it on `mybinder`
 
-Click the badge below to see a few sample demos under `mybinder.org` - it's all in the `demo-notebooks` subdir.
+Click the badge below to see a few sample demos under `mybinder.org` - it's all
+in the `demo-notebooks` subdir.
 
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/parmentelat/nbautoeval)
 
 
 # History
 
-This was initially embedded into a [MOOC on python2](https://github.com/parmentelat/flotpython) 
-that ran for the first time on [the French FUN platform](https://www.france-universite-numerique-mooc.fr/) in Fall 2014. 
-It was then duplicated into a [MOOC on bioinformatics](https://github.com/parmentelat/flotbioinfo) 
-in Spring 2016 where it was named `nbautoeval` for the first time, but still embedded in a greater git module.
+This was initially embedded into a [MOOC on python2](https://github.com/parmentelat/flotpython)
+that ran for the first time on [the French FUN platform](https://www.france-universite-numerique-mooc.fr/)
+in Fall 2014. It was then duplicated into a [MOOC on
+bioinformatics](https://github.com/parmentelat/flotbioinfo) in Spring 2016
+where it was named `nbautoeval` for the first time, but still embedded in a
+greater git module.
 
-The current git repo is created in June 2016 from that basis, with the intention to be used as a submodule from these 2 repos, 
-and possibly others since a few people have proved interested.
+The current git repo is created in June 2016 from that basis, with the intention
+to be used as a git subtree from these 2 repos, and possibly others since a few
+people have proved interested.
 
 # Requirements
 
-Target currently is any python-based notebook running on jupyter-v4. It is not quite clear at this moment which version(s) 
-specifically will work smoothly with `nbautoeval`, but in essence there is very little dependency to the jupyter version.
+Target currently is any python-based notebook running on jupyter-v5. It is not
+quite clear at this moment which version(s) specifically will work smoothly with
+`nbautoeval`, but in essence there is very little dependency to the jupyter
+version.
 
-It was initially written in python2 but should be oblivious to a change of version to python3.
+It was initially written in python2 but is now targetting primarily python3; hopefully it still works for python2 :)
 
 # Installation
 
-Initially, `nbautoeval` was used in MOOC courses, that in turn were
-implemented as git repos; in this context `nbautoeval` was simply
-injected in this code using git *subtree*.
+Initially, `nbautoeval` was used in MOOC courses, that in turn were implemented
+as git repos; in this context `nbautoeval` was simply injected in this code
+using git *subtree*.
 
-It is now also available at pypi
+It is now also available at pypi:
 
 ```
 pip install nbautoeval
@@ -68,5 +79,3 @@ A teacher who wishes to implement an exercise needs to write 2 parts :
 
 * there remains some hard-wired labels in French
 * the regexp-based exercises come in too many variants and are thus not very well tested
-
-
