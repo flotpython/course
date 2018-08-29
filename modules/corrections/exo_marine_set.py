@@ -9,7 +9,7 @@ import json
 
 with open("data/marine-e2-ext.json") as feed:
     extended_full = json.load(feed)
-    
+
 with open("data/marine-e2-abb.json") as feed:
     abbreviated_full = json.load(feed)
 
@@ -47,7 +47,7 @@ def diff(extended, abbreviated):
     # une intersection d'ensembles
     both_ids = abbreviated_ids & extended_ids
 
-    # les ids des bateaux seulement dans extended 
+    # les ids des bateaux seulement dans extended
     # ditto
     extended_only_ids = extended_ids - abbreviated_ids
 
@@ -68,7 +68,7 @@ def diff_bis(extended, abbreviated):
     """
     Même code mais qui utilise les compréhensions d'ensemble
     que l'on n'a pas encore vues - à nouveau, voir semaine 5
-    mais vous allez voir que c'est assez intuitif 
+    mais vous allez voir que c'est assez intuitif
     """
     extended_ids = {ship[0] for ship in extended}
     abbreviated_ids = {ship[0] for ship in abbreviated}
@@ -172,7 +172,7 @@ abbreviated = b_a + a_o
 
 ##############################
 # on passe des copies pour éviter qu'un bout de code ne pollue
-# tout l'exercice en modifiant le master 
+# tout l'exercice en modifiant le master
 import copy
 
 # a single dataset is enough
@@ -185,7 +185,10 @@ class ExoDiff(ExerciseFunction):
     def resultat(self, extended, abbreviated):
         return self.solution(extended, abbreviated)
 
-exo_diff = ExoDiff(diff, "inputs_gets_overridden")
+exo_diff = ExoDiff(
+    diff, "inputs_gets_overridden",
+    font_size='x-small', header_font_size='small',
+)
 
 
 ##############################

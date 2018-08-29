@@ -9,7 +9,7 @@ from nbautoeval.args import Args
 
 import os
 
-#################### 
+####################
 # the function as it is specified does not fit in the 'exercice' framework
 # so here create helpers to make all this compliant
 def file_contents(filename):
@@ -24,11 +24,11 @@ def file_contents(filename):
 def exercice_compliant(fun):
     def wrapped(in_name, out_name):
         # clean up output (in case the function does not create it
-        try: 
+        try:
             os.unlink(out_name)
         except:
             pass
-        # run 
+        # run
         fun(in_name, out_name)
         # return output's contents
         return file_contents(out_name)
@@ -48,7 +48,7 @@ def show_comptage(in_name, out_name, comptage, suffix):
         os.unlink(out_name)
     except OSError:
         print("Votre fonction ne semble pas créer le fichier de sortie")
-        return 
+        return
     html = ""
     html += "<table>"
     html += "<tr><th>Entrée</th></tr>"
@@ -59,9 +59,9 @@ def show_comptage(in_name, out_name, comptage, suffix):
         html += "<tr><td>{}</td></tr>".format(line)
     html += "</table>"
     return HTML(html)
-    
+
 @exercice_compliant
-# @BEG@ name=comptage 
+# @BEG@ name=comptage
 def comptage(in_filename, out_filename):
     """
     retranscrit le fichier in_filename dans le fichier out_filename
@@ -97,7 +97,7 @@ def comptage_bis(in_filename, out_filename):
             # enumerate(.., 1) pour commencer avec une ligne
             # numérotée 1 et pas 0
             for lineno, line in enumerate(input, 1):
-                # une astuce : si on met deux chaines 
+                # une astuce : si on met deux chaines
                 # collées comme ceci elle sont concaténées
                 # et on n'a pas besoin de mettre de backslash
                 # puisqu'on est dans des parenthèses
@@ -158,5 +158,6 @@ exo_comptage = ExoComptage(
     comptage, comptage_args,
     layout='text_backslash_n',
     layout_args=(None, 'xx-small', 'xx-small'),
-    call_layout='void'
+    call_layout='void',
+    font_size='x-small', header_font_size='small',
 )

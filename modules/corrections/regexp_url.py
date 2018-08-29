@@ -19,7 +19,7 @@ http:///missing/hostname/
 i_flag = "(?i)"
 
 # pour élaborer la chaine (proto1|proto2|...)
-protos_list = ['http', 'https', 'ftp', 'ssh', ] 
+protos_list = ['http', 'https', 'ftp', 'ssh', ]
 protos      = "(?P<proto>" + "|".join(protos_list) + ")"
 
 # à l'intérieur de la zone 'user/password', la partie
@@ -52,6 +52,7 @@ exo_url = ExerciseRegexpGroups(
     'url', url, groups,
     [Args(x) for x in url_strings],
     nb_examples=0,
+    font_size='x-small', header_font_size='small',
 )
 
 url_ko = i_flag + protos + "://" + hostname + '/' + path
