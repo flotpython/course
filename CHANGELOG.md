@@ -1,3 +1,10 @@
+# 0.4.0 - 2018 Aug 30
+
+* cosmetic changes in example and correction tables
+  * vertical bars to separate the columns
+  * so that code cells can now be left-aligned
+* ability to tweak font sizes (header and plain) for a given exercise
+
 # 0.3.0 - 2018 Jan 5
 
 * merge changes from flotpython
