@@ -38,6 +38,10 @@ RUN (find /opt /usr -name notebook.js -o -name main.min.js | xargs sed -i -e 's|
 RUN pip install -U pip
 
 # --------
+# auto-evaluated exercices
+RUN pip install nbautoeval
+
+# --------
 # the ipythontutor magic
 RUN pip install ipythontutor
 
