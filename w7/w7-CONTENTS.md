@@ -4,16 +4,16 @@ En dehors du tronc commun: pas de quiz
 ### NIVEAU: BASIC
 ### Compléments
 
-* w7-s01-c01-installation.ipynb
-* w7-s01-c02-data-science.ipynb
+* w7-s01-c1-installation.ipynb
+* w7-s01-c2-data-science.ipynb
 
 # Vidéo 2 (Les bases de numpy)
 ### NIVEAU: BASIC
 
 ### Compléments
 
-* w7-s02-c01-dimension1.ipynb
-* w7-s02-c02-dtype.ipynb
+* w7-s02-c1-dimension1.ipynb
+* w7-s02-c2-dtype.ipynb
 
 # Vidéo 3 (Slicing, reshaping et indexation avancée)
 ### NIVEAU: BASIC
@@ -46,32 +46,32 @@ En dehors du tronc commun: pas de quiz
 ### NIVEAU: BASIC
 ### Compléments
 
-* w7-s06-c01-Series.ipynb
+* w7-s06-c1-Series.ipynb
 
 # Vidéo 7 (Les DataFrames en pandas)
 ### NIVEAU: BASIC
 ### Compléments
 
-* w7-s07-c01-DataFrame.ipynb
+* w7-s07-c1-DataFrame.ipynb
 
 # Vidéo 8 (Opérations avancées en pandas)
 ### NIVEAU: BASIC
 ### Compléments
 
-* w7-s08-c01-operations-avancee-pandas.ipynb
+* w7-s08-c1-operations-avancee-pandas.ipynb
 
 # Vidéo 9 (Gestion des dates en pandas)
 ### NIVEAU: BASIC
 ### Compléments
 
-w7-s09-c01-TimeSeries.ipynb
+w7-s09-c1-TimeSeries.ipynb
 
 # Séquence 10 (pas de vidéo)
 
 ## Compléments
 
-* w7-s10-c01-matplotlib-2d.ipynb
-* w7-s10-c02-matplotlib-3d.ipynb
-* w7-s10-c03-notebooks-interactifs.ipynb
-* w7-s10-c04-animations-matplotlib.ipynb
-* w7-s10-c05-bokeh-et-al.ipynb
+* w7-s10-c1-matplotlib-2d.ipynb
+* w7-s10-c2-matplotlib-3d.ipynb
+* w7-s10-c3-notebooks-interactifs.ipynb
+* w7-s10-c4-animations-matplotlib.ipynb
+* w7-s10-c5-bokeh-et-al.ipynb
