@@ -85,10 +85,16 @@ NOTE: intégrer w2-s9-x1 qui contient un exo par Benoit Izard
 ### Thème: L'écosystème data science Python
 ### Niveau: BASIC
 
-* w7-s1: Vidéo : Introduction, survol des différents outils
-* w7-s2: `numpy`
-* w7-s3: `pandas`
-* w7-s4: `matplotlib`
+* w7-s01: Présentation générale
+* w7-s02: numpy: le type ndarray
+* w7-s03: numpy: slicing, reshaping et indexation avancée
+* w7-s04: numpy: vectorisation
+* w7-s05: numpy: broadcasting
+* w7-s06: pandas: introduction aux Series et aux indexes
+* w7-s07: pandas: le type DataFrame
+* w7-s08: pandas: opérations avancées
+* w7-s09: pandas: gestion des dates et des séries temporelles
+* w7-s10 (pas de vidéo): notebooks concernant matplotlib
 
 
 ## Semaine 8

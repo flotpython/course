@@ -1,197 +1,77 @@
-## Vidéo 1 (Data science en Python) 
+En dehors du tronc commun: pas de quiz
+
+# Vidéo 1 (Data science en Python)
 ### NIVEAU: BASIC
-### Compléments Vidéo 1
+### Compléments
 
-### Quizz Vidéo 1
+* w7-s01-c01-installation.ipynb
+* w7-s01-c02-data-science.ipynb
 
-### Exercices Vidéo 1
-
-
-
-## Vidéo 2 (Les bases de numpy) 
+# Vidéo 2 (Les bases de numpy)
 ### NIVEAU: BASIC
-### Compléments Vidéo 2
 
-- créer des tableaux d'objects
-- créer des tableaux de numpy.void (taille constante, type quelconque)
-- créer des dtype custom
-- montrer les notation U4, <i2, etc. au lieux de ('str', 4), np.int16
-- concaténation, split
+### Compléments
 
-### Quizz Vidéo 2
+* w7-s02-c01-dimension1.ipynb
+* w7-s02-c02-dtype.ipynb
 
-### Exercices Vidéo 2
-
-
-## Vidéo 3 (Slicing, reshaping et indexation avancée) 
+# Vidéo 3 (Slicing, reshaping et indexation avancée)
 ### NIVEAU: BASIC
-### Compléments Vidéo 3
+### Compléments
 
-- montrer ce cas d'indexation avancée
-a = np.arange(1, 11).reshape(2,5)
-L = [[0,1], [2,4]]
-a[L]
--parler de sort
--parler de partition
-- parler du tuple comme indice d'un tableau
-a = np.random.randint(1, 10, size=(3, 3))
-print(a)
-t = (1, 1)
-L = [1, 1]
-print(a[1, 1])
-print(a[t]) # me retourne l'élément de coordonnées (1, 1)
-print(a[L]) # me retourne deux fois la ligne 1
+* w7-s03-c1-shape.ipynb
+* w7-s03-c2-initialisation.ipynb
 
-### Quizz Vidéo 3
-
-### Exercices Vidéo 3
-
-
-## Vidéo 4 (vectorisation) 
+# Vidéo 4 (vectorisation)
 ### NIVEAU: BASIC
-### Compléments Vidéo 4
-
--introduire numba et cython
-- donner le lien de toutes les fonctions vectorisées numpy
-https://docs.scipy.org/doc/numpy/reference/ufuncs.html
--parler de 
-ufunc.nin 	The number of inputs.
-ufunc.nout 	The number of outputs.
-ufunc.nargs 	The number of arguments.
-ufunc.ntypes 	The number of types.
-ufunc.types 	Returns a list with types grouped input->output.
-ufunc.identity 	The identity value.
-ufunc.signature 	Definition of the core elements a generalized ufunc operates on.
-
--parler de scipy.special
--parler de reduce, accumulate, outer
-
-### Quizz Vidéo 4
-
-### Exercices Vidéo 4
 
 
-## Vidéo 5 (broadcasting) 
+# Vidéo 5 (broadcasting)
 ### NIVEAU: BASIC
-### Compléments Vidéo 5
--citer http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc
-notamment sur le problème de performance en broadcasting
 
-### Quizz Vidéo 5
+### Compléments
 
-### Exercices Vidéo 5
+* w7-s05-c1-broadcasting.ipynb
+* w7-s05-c2-indexing-slicing.ipynb
+* w7-s05-c3-operations-logiques.ipynb
+* w7-s05-c4-algebre-lineaire.ipynb
+* w7-s05-c5-indexation-evoluee.ipynb
+* w7-s05-c6-divers.ipynb
 
+### Exercices
 
-## Vidéo 6 (Introduction aux Series et aux indexes en pandas) 
+* w7-s05-x1-stairs.ipynb
+
+# Vidéo 6 (Introduction aux Series et aux indexes en pandas)
 ### NIVEAU: BASIC
-### Compléments Vidéo 6
+### Compléments
 
-### Quizz Vidéo 6
+* w7-s06-c01-Series.ipynb
 
-### Exercices Vidéo 6
-
-
-## Vidéo 7 (Les DataFrames en pandas) 
+# Vidéo 7 (Les DataFrames en pandas)
 ### NIVEAU: BASIC
-### Compléments Vidéo 7
+### Compléments
 
-### Quizz Vidéo 7
+* w7-s07-c01-DataFrame.ipynb
 
-### Exercices Vidéo 7
-
-
-## Vidéo 8 (Opérations avancées en pandas) 
+# Vidéo 8 (Opérations avancées en pandas)
 ### NIVEAU: BASIC
-### Compléments Vidéo 8
+### Compléments
 
-### Quizz Vidéo 8
+* w7-s08-c01-operations-avancee-pandas.ipynb
 
-### Exercices Vidéo 8
-
-
-## Vidéo 9 (Gestion des dates en pandas) 
+# Vidéo 9 (Gestion des dates en pandas)
 ### NIVEAU: BASIC
-### Compléments Vidéo 9
+### Compléments
 
-### Quizz Vidéo 9
+w7-s09-c01-TimeSeries.ipynb
 
-### Exercices Vidéo 9
+# Séquence 10 (pas de vidéo)
 
+## Compléments
 
-## Vidéo 1 () 
-### NIVEAU: BASIC
-### Compléments Vidéo 1
-
-### Quizz Vidéo 1
-
-### Exercices Vidéo 1
-
-
-
-# Old content
-
-## Vidéo 1 (Introduction, survol des différents outils)
-
-### compléments w7-s1
-
-* **c1** installation (partant de python pur, ou avec conda)
-
-
-## Séquence 2 (`numpy`) - pas de vidéo
-### NIVEAU: basique
-### compléments w7-s2
-
-* **c1** programmation vectorielle à 1 dimension
-
-* **c2** type d'un tableau numpy -- attribut `dtype`
-
-* **c3** plusieurs dimensions & reshaping
-
-* **c4** initialisations de tableaux (empty, zeros, ones, arange, linspace, gridmesh, ...)
-
-* **c5** broadcasting
-
-* **x1** première tranche d'exercices - pour montrer qu'on
-  peut faire **plein** de trucs sans indexation
-  * distributions normale et uniforme (introduire np.random)
-
-* **c6** indexing & slicing
-
-* **c7** opérations logiques
-
-* **c8** algèbre linéaire
-
-* **c9** indexation - revisitée
-  * indexations évoluées (booléens, listes et tableaux)
-
-* **c10** divers
-  * mémoire / copies / views / l'option out=
-  * structured arrays
-  * stacking & tiling
-
-* **x2**
-
-  * ACP
-  * modeliser D4 avec des structured arrays
-  * mandelbrot (avancé)
-
-
-## Séquence 3 (`pandas`) - pas de vidéo
-### compléments w7-s3
-
-* ...
-
-
-## Séquence 4 (`matplotlib`) - pas de vidéo
-### compléments w7-s4
-
-* **c01** matplotlib: juste mentionner les deux tutos
-  * 2D: on peut sans doute s'inspirer de https://matplotlib.org/2.0.2/users/pyplot_tutorial.html
-  * 3D : s'inspirer de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
-
-* **c02** autres librairies ?
-  * bokeh - notamment https://bokeh.pydata.org/en/latest/docs/user_guide/notebook.html#inline-plots
-  * plotly https://plot.ly/python/offline/
-  * seaborn
-
-* **cxx** : notebooks interactifs : `interact` et `ipywidgets`
+* w7-s10-c01-matplotlib-2d.ipynb
+* w7-s10-c02-matplotlib-3d.ipynb
+* w7-s10-c03-notebooks-interactifs.ipynb
+* w7-s10-c04-animations-matplotlib.ipynb
+* w7-s10-c05-bokeh-et-al.ipynb
