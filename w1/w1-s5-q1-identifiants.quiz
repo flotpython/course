@@ -9,16 +9,15 @@ Quelles affirmations sont vraies ?
 [ ] Le typage dynamique permet de changer le type des objets.
 [x] L'opération d'affectation permet de donner un nom à un objet.
 
-<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides ;
-il peut y en avoir une ou plusieurs.</em>
+<em>Les cases à cocher <b>carrées</b> indiquent que c'est un exercice à choix multiples et que vous devez choisir <b>toutes les réponses</b> valides; il peut y en avoir une ou plusieurs.</em>
 
 [explanation]
 
-En Python, seuls les objets ont un type, les variables n'ont pas de type et c'est le mécanisme de typage dynamique qui permet d'associer des objets typés à des variables sans type.
+En Python, seuls les objets ont un type, les variables n'ont pas de type et c'est le mécanisme de typage dynamique qui permet d'associer un objet (typé) à une variable (sans type).
 
-Python utilise le typage dynamique mais également le typage fort. Ce sont deux notions qu'il ne faut pas confondre. Avec le typage fort, tous les objets ont un type et ce type ne peut plus changer après la création de l'objet. 
+Python utilise le typage dynamique mais également le typage fort. Ce sont deux notions qu'il ne faut pas confondre. Avec le typage fort, tous les objets ont un type et ce type ne peut plus changer après la création de l'objet.
 
-Par contre une variable ne définit qu'un nom pour un objet, et une variable peut donc changer de type, mais pas un objet.
+Par contre une variable ne définit qu'un nom pour un objet; on peut la réaffecter plus tard à un objet d'un autre type.
 
 [explanation]
 
@@ -40,13 +39,13 @@ Pour être très clair, on parle bien de ce qui est <b>permis</b> par le langage
 
 
 [explanation]
-Seules les réponses d'indice impair sont correctes.
+La réponse 2 est fausse car le caractère '-' n'est pas autorisé.
 
-Le caractère deux-points ':' n'est pas autorisé.
+Réponse 4: Le caractère deux-points ':' n'est pas autorisé.
 
-Le caractère '-' n'est pas autorisé.
+Réponse 6: un identifiant ne peut pas commencer par un chiffre.
 
-Un identifiant ne peut pas commencer par un chiffre.
+Les autres réponses sont correctes.
 [explanation]
 
 
@@ -74,5 +73,3 @@ Par contre 'true' est une variable possible, car les noms de variables sont sens
 De même on peut en théorie utiliser les accents français, cédilles, et caractères de l'alphabet grec, même si cette pratique n'est pas recommandée.
 
 [explanation]
-
-

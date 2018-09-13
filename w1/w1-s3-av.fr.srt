@@ -476,7 +476,7 @@ en l'occurrence, je vais faire
 
 120
 00:03:42,407 --> 00:03:44,377
-math point ceiling
+math.ceil
 
 121
 00:03:46,430 --> 00:03:48,428
@@ -1249,4 +1249,3 @@ utiliser les notebooks.
 313
 00:10:13,676 --> 00:10:14,351
 À bientôt !
-
