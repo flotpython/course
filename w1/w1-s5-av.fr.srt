@@ -355,16 +355,16 @@ la notation "point".
 Pour cela, nous allons mettre l'objet
 
 90
-00:02:34,712 --> 00:02:36,727
-Et n'oublions pas de mettre les parenthèses
-
-91
-00:02:36,827 --> 00:02:37,800
-ouvrante et fermante
-
-92
 00:02:31,952 --> 00:02:34,612
 "point" la méthode que l'on veut appeler.
+
+91
+00:02:34,712 --> 00:02:36,727
+et n'oublions pas de mettre les parenthèses
+
+92
+00:02:36,827 --> 00:02:37,800
+ouvrante et fermante
 
 93
 00:02:37,900 --> 00:02:39,148
@@ -913,4 +913,3 @@ qui est égale à un objet.
 229
 00:06:49,260 --> 00:06:50,760
 À bientôt !
-
