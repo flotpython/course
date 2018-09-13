@@ -324,7 +324,7 @@ que ça existe pour vous donner les moyens
 
 82
 00:03:20,647 --> 00:03:22,509
-d'approfondir tout ces sujets de votre côté
+d'approfondir tous ces sujets de votre côté
 
 83
 00:03:22,709 --> 00:03:24,293
@@ -717,4 +717,3 @@ le terme anglais, en fait.
 180
 00:07:07,757 --> 00:07:09,757
 A bientôt !
-
