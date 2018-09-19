@@ -2,7 +2,7 @@
 Types numériques (1)
 =====
 
-Comment calculer la 16-ème puissance de 2 ? (rappel: plusieurs réponses possibles)
+Comment calculer la 16e puissance de 2 ? (rappel : plusieurs réponses possibles)
 
 [x] <code>2 ** 16</code>
 [ ] <code>2 &amp;&amp; 16</code>
@@ -10,7 +10,7 @@ Comment calculer la 16-ème puissance de 2 ? (rappel: plusieurs réponses possib
 [x] <code>1 &lt;&lt; 16</code>
 
 [explanation]
-Le signe puissance en python est **.
+Le signe puissance en Python est **.
 
 On peut obtenir aussi le résultat en partant de 1 (un seul bit), avec un décalage à gauche de 16 bits.
 
