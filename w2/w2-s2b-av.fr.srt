@@ -288,7 +288,7 @@ on utilise toujours utf-8 sauf si on a une très bonne
 
 73
 00:03:31,807 --> 00:03:33,601
-raison de faire autrement mais en général on a pas
+raison de faire autrement mais en général on n'a pas
 
 74
 00:03:33,801 --> 00:03:35,541
@@ -372,7 +372,7 @@ je vais lui passer le codec que j'utilise
 
 94
 00:04:30,384 --> 00:04:37,592
-qui est utf-8 ... ... et donc je vais ré-obtenir
+qui est utf-8 ... ... et donc je vais ré-obtenir ma
 
 95
 00:04:37,792 --> 00:04:40,341
@@ -424,7 +424,7 @@ existent aujourd'hui avec l'encodage et le décodage
 
 107
 00:05:09,690 --> 00:05:10,962
-ne sont pas liés au jeux de caractères
+ne sont pas liés au jeu de caractères
 
 108
 00:05:11,162 --> 00:05:13,053
