@@ -30,12 +30,12 @@ RUN apt-get update && apt-get install lsof
 # hacks for jupyter itself
 # (*) disable check done when saving files - see https://github.com/jupyter/notebook/issues/484
 # (*) disable the 'Trusted' notification widget
-# (#) remove the 'Notebook saved' message that annoyingly pops up 
+# (#) remove the 'Notebook saved' message that annoyingly pops up
 RUN (find /opt /usr -name notebook.js -o -name main.min.js | xargs sed -i -e 's|if (check_last_modified)|if (false)|') \
  &&  (find /opt /usr -name notificationarea.js -o -name main.min.js | \
       xargs sed -i \
       -e 's|this.init_trusted_notebook_notification_widget();||' \
-      -e '|nnw.set_message(i18n.msg._("Notebook saved"),2000);||' \
+      -e 's|nnw.set_message(i18n.msg._("Notebook saved"),2000);||' \
       )
 
 # --------
