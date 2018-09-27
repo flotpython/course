@@ -2,14 +2,14 @@
 Strings (1)
 =====
 
-Les chaînes de caractères en Python sont mutables. 
+Les chaînes de caractères en Python sont mutables.
 
 ( ) Vrai
 (x) Faux
 
 [explanation]
 
-Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet créé on ne peut plus le modifier. 
+Les chaînes de caractères sont immuables, ça veut dire qu'une fois l'objet créé on ne peut plus le modifier.
 
 [explanation]
 
@@ -29,7 +29,7 @@ Cocher la ou les expressions qui définissent correctement une chaîne de caract
 [ ] <code>'"'"</code>
 
 [explanation]
-Une chaîne de caractères est entourée soit par deux <code>'</code> ou par deux <code>"</code>. Si la chaîne est entourée par deux <code>'</code> (respectivement <code>"</code>), alors le caractère <code>"</code> (respectivement <code>'</code>) pourra être utilisé comme un caractère normal dans la chaîne de caractères. 
+Une chaîne de caractères est entourée soit par deux <code>'</code> ou par deux <code>"</code>. Si la chaîne est entourée par deux <code>'</code> (respectivement <code>"</code>), alors le caractère <code>"</code> (respectivement <code>'</code>) pourra être utilisé comme un caractère normal dans la chaîne de caractères.
 
 [explanation]
 
@@ -41,7 +41,7 @@ On veut afficher la chaîne de caractères <code>le numéro d'appel des urgences
 <pre>
 text = 'des urgences'
 numero = 112
-<pre>
+</pre>
 
 Quelle(s) solution(s) est(sont) correcte(s) ?
 
@@ -62,11 +62,10 @@ Strings - encodage
 
 Quelle(s) affirmation(s) est(sont) vraie(s) ?
 
-[x] Sans spécifier explicitement l'encodage choisi, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme. 
-[x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> est pour les chaînes de caractères encodées. 
+[x] Sans spécifier explicitement l'encodage choisi, le codage utilisé sera dépendant de la machine sur laquelle on fait tourner le programme.
+[x] Le type <code>str</code> est pour les chaînes de caractères décodées et le type <code>bytes</code> est pour les chaînes de caractères encodées.
 [ ] Lorsqu'une chaîne est décodée on ne peut plus l'encoder.
 
 [explanation]
-On peut décoder et encoder une chaîne de caractères autant de fois que nécessaire. 
+On peut décoder et encoder une chaîne de caractères autant de fois que nécessaire.
 [explanation]
-
