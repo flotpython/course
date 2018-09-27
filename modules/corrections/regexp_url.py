@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+# pylint: disable=c0111, c0103, c0326
+
 from nbautoeval.exercise_regexp import ExerciseRegexp, ExerciseRegexpGroups
 from nbautoeval.args import Args
 
@@ -44,6 +47,24 @@ path        = r"(?P<path>.*)"
 
 # on assemble le tout
 url = i_flag + protos + "://" + user + hostname + port + '/' + path
+# @END@
+
+# @BEG@ name=url more=bis
+# merci à sizeof qui a pointé l'utilisation de re.X
+# https://docs.python.org/fr/3/library/re.html#re.X
+# ce qui donne une présentation beaucoup plus compacte
+
+protos_list = ['http', 'https', 'ftp', 'ssh', ]
+
+url_bis = rf"""(?x)                    # verbose mode
+    (?i)                               # ignore case
+    (?P<proto>{"|".join(protos_list)}) # http|https|...
+    ://                                # separator
+    ((?P<user>\w+){password}@)?        # optional user/password
+    (?P<hostname>[\w\.]+)              # mandatory hostname
+    (:(?P<port>\d+))?                  # optional port
+    /(?P<path>.*)                      # mandatory path
+"""
 # @END@
 
 groups = [ 'proto', 'user', 'password', 'hostname', 'port', 'path' ]
