@@ -240,7 +240,7 @@ Ensuite je vais écrire un bloc d'instructions
 
 61
 00:01:50,563 --> 00:01:53,594
-print('reçu'), print('bravo !')
+print('reçu'); print('bravo !')
 
 62
 00:01:53,694 --> 00:01:55,485

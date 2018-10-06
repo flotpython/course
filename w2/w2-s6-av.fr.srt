@@ -292,7 +292,7 @@ qui est égale à 1, 2, 5, 8, 9 ;
 
 74
 00:02:43,468 --> 00:02:45,992
-et que je veuille faire parcourir
+et que je veuille obtenir
 
 75
 00:02:46,092 --> 00:02:48,205
