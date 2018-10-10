@@ -111,7 +111,7 @@ class ExoIndex(ExerciseFunction):
         self.datasets = [Args(bateaux)]
         return ExerciseFunction.correction(self, student_index)
 
-    # une fonction pour exposer le resultat attendu
+    # une fonction pour exposer le résultat attendu
     def resultat(self, bateaux):
         return self.solution(bateaux)
 
@@ -170,7 +170,7 @@ def merge_bis(extended, abbreviated):
     # pareil que pour la première solution,
     # on sait d'après les hypothèses
     # que les id trouvées dans abbreviated
-    # sont déja présentes dans le resultat
+    # sont déja présentes dans le résultat
     for ship in abbreviated:
         id = ship[0]
         # on ajoute un tuple correspondant à la position
@@ -207,8 +207,8 @@ def merge_ter(extended, abbreviated):
     # et en les transformant en tuples pour les positions
     # puisque c'est ce qui est demandé
     return {
-        e[0] : e[4:6] + [ tuple(e[1:4]), tuple(a[1:4]) ]
-        for (e,a) in zip (extended, abbreviated)
+        ext[0] : ext[4:6] + [ tuple(ext[1:4]), tuple(abb[1:4]) ]
+        for (ext, abb) in zip (extended, abbreviated)
         }
 # @END@
 

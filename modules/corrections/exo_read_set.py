@@ -11,10 +11,10 @@ def read_set(filename):
     """
     # on crée un ensemble vide
     result = set()
-    
+
     # on parcourt le fichier
-    with open(filename) as f:
-        for line in f:
+    with open(filename) as feed:
+        for line in feed:
             # avec strip() on enlève la fin de ligne,
             # et les espaces au début et à la fin
             result.add(line.strip())
@@ -28,10 +28,10 @@ def read_set(filename):
 # une compréhension de liste mais on remplace
 # les [] par des {}
 def read_set_bis(filename):
-    with open(filename) as f:
-        return {line.strip() for line in f}
-# @END@    
-    
+    with open(filename) as feed:
+        return {line.strip() for line in feed}
+# @END@
+
 
 read_set_inputs = [
     Args("data/setref1.txt"),
@@ -57,9 +57,11 @@ def search_in_set(filename_reference, filename):
 
     # on crée une liste vide
     result = []
-    with open(filename) as f:
-        for line in f:
+    with open(filename) as feed:
+        for line in feed:
             token = line.strip()
+            # remarquez ici les doubles parenthèses
+            # pour passer le tuple en argument
             result.append((token, token in reference_set))
 
     return result
@@ -74,9 +76,9 @@ def search_in_set_bis(filename_reference, filename):
 
     # c'est un plus clair avec une compréhension
     # mais moins efficace car on calcule strip() deux fois
-    with open(filename) as f:
+    with open(filename) as feed:
         return [(line.strip(), line.strip() in reference_set)
-                for line in f]
+                for line in feed]
 # @END@
 
 

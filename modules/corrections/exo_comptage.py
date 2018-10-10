@@ -102,7 +102,7 @@ def comptage_bis(in_filename, out_filename):
                 # et on n'a pas besoin de mettre de backslash
                 # puisqu'on est dans des parenthèses
                 out_file.write(f"{lineno}:{len(line.split())}:"
-                             f"{len(line)}:{line}")
+                               f"{len(line)}:{line}")
 # @END@
 
 @exercice_compliant
@@ -115,7 +115,7 @@ def comptage_ter(in_filename, out_filename):
          open(out_filename, 'w', encoding='utf-8') as out_file:
         for lineno, line in enumerate(in_file, 1):
             out_file.write(f"{lineno}:{len(line.split())}:"
-                         f"{len(line)}:{line}")
+                           f"{len(line)}:{line}")
 # @END@
 
 
