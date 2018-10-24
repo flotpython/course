@@ -30,8 +30,8 @@ def taxes(income):
 
 # @BEG@ name=taxes more=bis  latex_size=footnotesize
 
-# cette solution est plus lourde
-# je la retiens parce qu'elle montre un cas de for .. else ..
+# cette solution est plus pataude; je la retiens
+# parce qu'elle montre un cas de for .. else ..
 # qui ne soit pas trop tiré par les cheveux
 # quoique
 
@@ -47,10 +47,10 @@ bands = [
 
 def taxes_bis(income):
     """
-    utilise un for avec un else
+    Utilise un for avec un else
     """
     amount = 0
-    
+
     # en faisant ce zip un peu étrange, on va
     # considérer les couples de tuples consécutifs dans
     # la liste bands
@@ -69,7 +69,7 @@ def taxes_bis(income):
     else:
         band_top, rate_top = bands[-1]
         amount += (income - band_top) * rate_top
-    return(int(amount))
+    return int(amount)
 # @END@
 
 
@@ -109,7 +109,7 @@ taxes_values = [ 0, 45_000, 11_500, 5_000,
 taxes_inputs = [Args(v) for v in taxes_values]
 
 exo_taxes = ExerciseFunction(taxes, taxes_inputs, nb_examples=2)
-    
+
 if __name__ == '__main__':
     for value in taxes_values:
         tax = taxes(value)

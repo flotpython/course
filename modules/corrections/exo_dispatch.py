@@ -8,7 +8,9 @@ inputs_dispatch1 = [Args(a, b) for a in range (3, 6) for b in range (7, 10)]
 
 # @BEG@ name=dispatch1
 def dispatch1(a, b):
-    """dispatch1 comme spécifié"""
+    """
+    dispatch1 comme spécifié
+    """
     # si les deux arguments sont pairs
     if a%2 == 0 and b%2 == 0:
         return a*a + b*b
@@ -46,13 +48,15 @@ inputs_dispatch2 = [
 
 # @BEG@ name=dispatch2
 def dispatch2(a, b, A, B):
-    """dispatch2 comme spécifié"""
-    # les deux cas de la diagonale \ 
+    """
+    dispatch2 comme spécifié
+    """
+    # les deux cas de la diagonale \
     if (a in A and b in B) or (a not in A and b not in B):
         return a*a + b*b
     # sinon si b n'est pas dans B
     # ce qui alors implique que a est dans A
-    elif b not in B: 
+    elif b not in B:
         return a*(b-1)
     # le dernier cas, on sait forcément que
     # b est dans B et a n'est pas dans A
@@ -67,4 +71,3 @@ dispatch2_ko = dispatch1_ko
 exo_dispatch2 = ExerciseFunction(
     dispatch2, inputs_dispatch2,
     layout_args=(50, 30, 30))
-

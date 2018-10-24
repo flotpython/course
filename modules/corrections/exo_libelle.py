@@ -5,6 +5,9 @@ from nbautoeval.args import Args
 ##############################
 # @BEG@ name=libelle
 def libelle(ligne):
+    """
+    n'oubliez pas votre docstring
+    """
     # on enlève les espaces et les tabulations
     ligne = ligne.replace(' ', '').replace('\t','')
     # on cherche les 3 champs
@@ -32,7 +35,7 @@ def libelle_ko(ligne):
 
 inputs_libelle = [
     Args("Joseph, Dupont, 4"),
-    Args("Jean"), 
+    Args("Jean"),
     Args("Jules , Durand, 1"),
     Args(" Ted, Mosby, 2,"),
     Args(" Jacques , Martin, 3 \t"),
@@ -47,4 +50,3 @@ exo_libelle = ExerciseFunction(
     layout_args = (25, 25, 25),
     render_name = False,
 )
-
