@@ -31,7 +31,7 @@ Compréhensions d'ensemble
 ma_liste = [1, 2, 4, 1, 2, 7, 4, 2, 1, 3, 4, 2, 5, 1, 7, 4, 9, 5, 4, 2, 4]
 </pre>
 
-Valider toutes les réponses qui retournent un ensemble de tous les éléments uniques de <code>ma_liste</code> élevés au carré ?
+Valider toutes les réponses qui retournent un ensemble de tous les éléments de <code>ma_liste</code> élevés au carré ?
 
 [x] <code>{x**2 for x in ma_liste}</code>
 [x] <code>set([x**2 for x in ma_liste])</code>
