@@ -59,9 +59,9 @@ self
 À quoi sert la ligne <code>self.question = question</code> (une ou plusieurs réponses possibles)?
 
 [ ] À rien, on n'en n'a pas besoin
-[x] À garder une référence dans l'instance vers la première chaîne de caractères passée à <code>Quiz()</code>
+[x] À garder dans l'instance une référence vers la première chaîne de caractères passée à <code>Quiz()</code>
 [x] À créer un attribut <code>question</code> sur l'instance
-[x] À initialiser l'instance
+[x] À contribuer à initialiser l'instance
 [ ] À définir un attribut <code>question</code> sur la classe 
 
 [explanation]
