@@ -5,16 +5,17 @@ from nbautoeval.args import Args
 
 # @BEG@ name=decode_zen no_example=skip
 # le module this est implémenté comme une petite énigme
+#
 # comme le laissent entrevoir les indices, on y trouve
 # (*) dans l'attribut 's' une version encodée du manifeste
 # (*) dans l'attribut 'd' le code à utiliser pour décoder
 #
-# ce qui veut dire qu'en première approximation on pourrait
+# ce qui veut dire qu'en première approximation, on pourrait
 # énumérer les caractères du manifeste en faisant
 # (this.d[c] for c in this.s)
 #
 # mais ce serait le cas seulement si le code agissait sur
-# tous les caractères; comme ce n'est pas le cas il faut
+# tous les caractères; mais ce n'est pas le cas, il faut
 # laisser intacts les caractères de this.s qui ne sont pas
 # dans this.d
 
@@ -37,8 +38,9 @@ def decode_zen(this_module):
 # @BEG@ name=decode_zen more=bis
 # une autre version un peu plus courte
 #
-# on utilise la méthode get d'un dictionnaire, qui permet de spécifier
-# (en second argument) quelle valeur on veut utiliser dans les cas où la
+# on utilise la méthode get d'un dictionnaire,
+# qui permet de spécifier (en second argument)
+# quelle valeur on veut utiliser dans les cas où la
 # clé n'est pas présente dans le dictionnaire
 #
 # dict.get(key, default)
@@ -46,7 +48,7 @@ def decode_zen(this_module):
 
 def decode_zen_bis(this_module):
     """
-    une autre version un peu plus courte
+    une autre version, un peu plus courte
     """
     return "".join(this_module.d.get(c, c) for c in this_module.s)
 # @END@

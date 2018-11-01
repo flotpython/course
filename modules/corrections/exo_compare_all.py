@@ -6,15 +6,15 @@ from functools import reduce
 
 
 # @BEG@ name=compare_all
-def compare_all(f, g, entrees):
+def compare_all(fun1, fun2, entrees):
     """
     retourne une liste de booléens, un par entree dans entrees
-    qui indique si f(entree) == g(entree)
+    qui indique si fun1(entree) == fun2(entree)
     """
     # on vérifie pour chaque entrée si f et g retournent
     # des résultats égaux avec ==
-    # et on assemble le tout avec une comprehension de liste 
-    return [f(entree) == g(entree) for entree in entrees]
+    # et on assemble le tout avec une comprehension de liste
+    return [fun1(entree) == fun2(entree) for entree in entrees]
 # @END@
 
 

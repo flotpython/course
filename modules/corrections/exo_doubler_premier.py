@@ -4,27 +4,38 @@ from nbautoeval.args import Args
 
 
 # @BEG@ name=doubler_premier
-def doubler_premier(f, first, *args):
+def doubler_premier(func, first, *args):
     """
     renvoie le résultat de la fonction f appliquée sur
-    f(2 * first, *args)
+    func(2 * first, *args)
     """
     # une fois qu'on a écrit la signature on a presque fini le travail
     # en effet on a isolé la fonction, son premier argument, et le reste
     # des arguments
-    # il ne reste qu'à appeler f, après avoir doublé first
-    return f(2*first, *args)
+    # il ne reste qu'à appeler func, en doublant first
+    return func(2*first, *args)
 # @END@
 
 
 # @BEG@ name=doubler_premier more=bis
-def doubler_premier_bis(f, *args):
+def doubler_premier_bis(func, *args):
     """
     marche aussi mais moins élégant
     """
+    first, *remains = args
+    return func(2*first, *remains)
+# @END@
+
+
+# @BEG@ name=doubler_premier more=ter
+def doubler_premier_ter(func, *args):
+    """
+    ou encore comme ça, mais
+    c'est carrément moche
+    """
     first = args[0]
     remains = args[1:]
-    return f(2*first, *remains)
+    return func(2*first, *remains)
 # @END@
 
 
