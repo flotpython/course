@@ -368,7 +368,7 @@ parce qu'ils permettent de faire
 
 93
 00:03:21,102 --> 00:03:22,459
-ce qu'on appelle des runable papers.
+ce qu'on appelle des runnable papers.
 
 94
 00:03:22,559 --> 00:03:24,158
