@@ -10,7 +10,7 @@
 
 def d_m_s(f):
     """
-    make a float readable; e.g. transform 2.5 into 2.30'00'' 
+    make a float readable; e.g. transform 2.5 into 2.30'00''
     we avoid using the degree sign to keep things simple
     input is assumed positive
     """
@@ -71,7 +71,7 @@ class Position(object):
 
 class Ship(object):
     """
-    a ship object, that requires a ship id, 
+    a ship object, that requires a ship id,
     and optionnally a ship name and country
     which can also be set later on
 
@@ -89,7 +89,7 @@ class Ship(object):
     def add_position(self, position):
         """
         insert a position relating to this ship
-        positions are not kept in order so you need 
+        positions are not kept in order so you need
         to call `sort_positions` once you're done
         """
         self.positions.append(position)
@@ -119,7 +119,7 @@ class ShipDict(dict):
 
     def is_abbreviated(self, chunk):
         """
-        depending on the size of the incoming data chunk, 
+        depending on the size of the incoming data chunk,
         guess if it is an abbreviated or extended data
         """
         return len(chunk) <= 7
@@ -156,7 +156,7 @@ class ShipDict(dict):
         chunk is a plain list coming from the JSON data
         and be either extended or abbreviated
 
-        based on the result of is_abbreviated(), 
+        based on the result of is_abbreviated(),
         gets sent to add_extended or add_abbreviated
         """
         if self.is_abbreviated(chunk):

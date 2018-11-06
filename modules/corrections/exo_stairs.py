@@ -12,17 +12,17 @@ def stairs(k):
     # on calcule n
     n = 2 * k + 1
     # on calcule les deux tableaux d'indices
-    # tous les deux de dimension n 
+    # tous les deux de dimension n
     ix, iy = np.indices((n, n))
     # il n'y a plus qu'à appliquer la formule qui va bien
     return 2 * k - (np.abs(ix - k) + np.abs(iy - k))
 # @END@
-    
 
-# @BEG@ name=stairs
+
+# @BEG@ name=stairs more=bis
 def stairs_bis(k):
     """
-    Bien sûr on peut préciser le type mais ce n'est pas 
+    Bien sûr on peut préciser le type mais ce n'est pas
     réellement nécessaire ici
     """
     n = 2 * k + 1
@@ -51,4 +51,3 @@ exo_stairs = ExerciseFunctionNumpy(
     stairs_inputs,
     nb_examples = 2,
     )
-
