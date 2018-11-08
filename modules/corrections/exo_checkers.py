@@ -1,3 +1,4 @@
+# pylint: disable=c0111
 import numpy as np
 
 from nbautoeval.exercise_function import ExerciseFunctionNumpy
@@ -27,7 +28,7 @@ def checkers(taille, upper_left=True):
 
 # faux parce qu'on ignore upper_left
 # voir aussi si la correction est contente avec des float
-def checkers_ko(taille, _):
+def checkers_ko(taille, ignored=True):
     result = np.ones(shape=(taille, taille), dtype=float)
     # on remplit les cases blanches en deux fois
     result[1::2, 0::2] = 0
