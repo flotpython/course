@@ -23,7 +23,7 @@ def laccess(liste):
 # @BEG@ name=laccess more=bis
 # une autre version qui utilise
 # un trait qu'on n'a pas encore vu
-def laccess(liste):
+def laccess_bis(liste):
     # si la liste est vide il n'y a rien à faire
     if not liste:
         return
@@ -64,6 +64,3 @@ inputs_laccess_strings = [
 exo_laccess_strings = ExerciseFunction(
     laccess, inputs_laccess_strings
 )
-
-
-    
