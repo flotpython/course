@@ -17,6 +17,7 @@ def checkers(taille, upper_left=True):
     # par défaut tout est blanc
     result = np.zeros(shape=(taille, taille), dtype=int)
     # on remplit les cases blanches en deux fois
+    # avec un slicing astucieux; c'est le ::2 qui fait le travail
     result[1::2, 0::2] = 1
     result[0::2, 1::2] = 1
     # on renverse si upper_left est False
