@@ -20,7 +20,22 @@ def checkers(size, corner_0_0=True):
     # avec un slicing astucieux; c'est le ::2 qui fait le travail
     result[1::2, 0::2] = 1
     result[0::2, 1::2] = 1
-    # on renverse si corner_0_0 est False
+    # on renverse si corner_0_0 est noir
+    if corner_0_0:
+        result = 1 - result
+    return result
+# @END@
+
+
+# @BEG@ name=checkers more=bis
+def checkers_bis(size, corner_0_0=True):
+    """
+    Ditto
+    """
+    # on peut aussi voir le damier comme une fonction sur
+    # les coordonnées, du genre (i + j) % 2
+    I, J = np.indices((size, size))
+    result = (I + J) % 2
     if corner_0_0:
         result = 1 - result
     return result
@@ -50,4 +65,4 @@ exo_checkers = ExerciseFunctionNumpy(
     checkers,
     checkers_inputs,
     nb_examples=2,
-    )
+)
