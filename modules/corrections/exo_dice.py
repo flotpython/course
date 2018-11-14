@@ -26,7 +26,10 @@ def dice(target, nb_dice=2, sides=6):
         combinations = combinations + line
     # ce qui nous intéresse mainteant c'est le nombre
     # de cases dans le cube qui valent 'target'
-    return np.count_nonzero(combinations == target)
+    # on peut penser à np.count_nonzero, mais en
+    # géneral on a tendance à trouver `sum` dans du code
+    # de ce genre
+    return np.sum(combinations == target)
 # @END@
 
 
