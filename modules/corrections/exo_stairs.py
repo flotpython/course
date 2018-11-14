@@ -34,6 +34,33 @@ def stairs_bis(taille):
     return 2 * taille - (np.abs(ix - taille) + np.abs(iy - taille))
 # @END@
 
+# @BEG@ name=stairs more=ter
+def stairs_ter(taille):
+    """
+    Version proposée par j4l4y
+    Dans la rubrique 'oneliner challenge'
+    """
+    # la forme np.abs(np.range(-n, n+1)) correspond à la forme
+    # en V, par pour n=3 : -3, -2, -1, 0, 1, 2, 3
+    # dans cette version, on l'agrandit artificiellement en 2D
+    # pour pouvoir prendre sa transposée
+    return (lambda x: x + x.T)(
+        taille - np.abs(range(-taille, taille+1))[:, np.newaxis]
+    )
+# @END@
+
+# @BEG@ name=stairs more=quater
+def stairs_quater(taille):
+    """
+    Une variante pour se débarrasser de la transposition
+    """
+    # Je vous laisse vous convaincre que ça fonctionne aussi
+    # en utilisant le broadcasting
+    # pour s'économiser une transposition explicite
+    return (lambda x: x + x[:, np.newaxis])(
+        taille - np.abs(range(-taille, taille+1))
+    )
+# @END@
 
 
 def stairs_ko(taille):
