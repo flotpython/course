@@ -63,3 +63,6 @@ RUN conda update -y numpy pandas
 # --------
 # install plotly for w7
 RUN pip install plotly
+
+# go back to tornado-4.5.3 for w8 and asyncio 
+RUN pip install tornado==4.5.3
