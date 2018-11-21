@@ -51,7 +51,7 @@ Compréhensions de dictionnaire
 =====
 <pre>
 data = {'marc' : 30, 'eric' : 8, 'frank': 46, 'marie': 25, 'louise': 11, 'julie': 62}
-age_mystere = {nom:age for nom, age in data.items() if age >= 18}
+age_mystere = {nom:age for nom, age in data.items() if age > 18}
 </pre>
 
 Que va contenir age_mystere ?
