@@ -41,7 +41,7 @@ def stairs_ter(taille):
     Dans la rubrique 'oneliner challenge'
     """
     # la forme np.abs(np.range(-n, n+1)) correspond à la forme
-    # en V, par pour n=3 : -3, -2, -1, 0, 1, 2, 3
+    # en V, par exemple pour n=3 : -3, -2, -1, 0, 1, 2, 3
     # dans cette version, on l'agrandit artificiellement en 2D
     # pour pouvoir prendre sa transposée
     return (lambda x: x + x.T)(

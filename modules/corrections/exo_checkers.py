@@ -16,25 +16,29 @@ def checkers(size, corner_0_0=True):
     # les coordonnées, du genre (i + j) % 2
     # et pour inverser on peut faire un xor
     I, J = np.indices((size, size))
-    return (I + J) % 2 ^corner_0_0
+    return (I + J) % 2 ^ corner_0_0
 # @END@
 
 
 # @BEG@ name=checkers more=bis
 def checkers_bis(size, corner_0_0=True):
     """
-    La même chose sur une ligne, avec sum()
+    La même chose sur une ligne, avec
+    * sum() pour l'addition
+    * et logique pour le modulo 2
+    * toujours xor pour inverser
+
     credits: j4l4y
     """
     # avec sum() sur indices()
     # on peut tout faire en une ligne:
-    return sum(np.indices((size, size))) & 1 ^ c
+    return sum(np.indices((size, size))) & 1 ^ corner_0_0
 # @END@
 
 # @BEG@ name=checkers more=ter
 def checkers_ter(size, corner_0_0=True):
     """
-    ditto
+    Une autre approche complètement
     """
     # on part de zéro
     result = np.zeros(shape=(size, size), dtype=int)
@@ -52,7 +56,9 @@ def checkers_ter(size, corner_0_0=True):
 # @BEG@ name=checkers more=quater
 def checkers_quater(size, corner_0_0=True):
     """
-    idem
+    Et encore une autre, sans doute pas très lisible
+    mais très astucieuse
+
     credits: j4l4y
     """
     # une utilisation très astucieuse de resize,

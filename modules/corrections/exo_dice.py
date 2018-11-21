@@ -71,12 +71,12 @@ from itertools import product
 def dice_ter(target, nb_dice=2, sides=6):
     """
     La même chose, mais on voit une méthode qui n'utilise pas
-    repeat dans itertools.product
+    `repeat=` dans itertools.product
     Ça pourrait être utile si par exemple les dés n'avaient
     pas tous la même taille
     """
     # on construit les <nb_dice> instances de range() qui serviront
-    # de base à itertools
+    # de base à product
     iterators = (range(1, sides+1) for dimension in range(nb_dice))
     return sum(sum(x) == target for x in product(*iterators))
 # @END@
@@ -85,7 +85,9 @@ def dice_ter(target, nb_dice=2, sides=6):
 # @BEG@ name=dice more=quat
 def dice_quat(target, nb_dice=2, sides=6):
     """
-    Cette version semble un peu plus rapide
+    Cette version semble un peu plus rapide 
+    que les deux  précédentes avec product,
+    mais toujours beaucoup plus lente que la version numpy
     """
     iterators = (range(1, sides+1) for dimension in range(nb_dice))
     count = 0

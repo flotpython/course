@@ -22,11 +22,13 @@ def hundreds(lines, columns, offset):
 # @BEG@ name=hundreds more=bis
 def hundreds_bis(lines, columns, offset):
     """
-    ditto
+    Pareil, toujours à base de broadcasting
     """
-    ### à nouveau à base de broadcasting, mais cette fois
-    ### on se fabrique soi-même la souche
-    ### de la ligne et de la colonne
+    # cette fois on se fabrique soi-même la souche
+    # des lignes et des colonnes pour montrer
+    # comment on peut se faire indices() à la main
+    # dans du vrai code, utilisez indices()
+    #
     # une colonne 0, 1, .. lines-1
     column = np.arange(lines)[:, np.newaxis]
     # une ligne 0, 1, ... columns-1
@@ -41,7 +43,7 @@ def hundreds_bis(lines, columns, offset):
 # @BEG@ name=hundreds more=ter
 def hundreds_ter(lines, columns, offset):
     """
-    encore
+    Une approche discutable
     """
     # à la Fortran; ça n'est pas forcément
     # la bonne approche ici bien sûr
