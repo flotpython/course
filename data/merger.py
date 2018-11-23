@@ -23,8 +23,8 @@ class Merger(object):
     def __init__(self):
         """
         constructor creates an ArgumentParser object to implement main interface
-        puts resulting args in self.args
-        also creates an empty instance of ShipDict for merging incoming data
+        puts resulting args in self.args also creates an empty instance of
+        ShipDict for merging incoming data
         """
         parser = ArgumentParser()
         parser.add_argument("-v", "--verbose", dest='verbose', default=False,
@@ -36,32 +36,32 @@ class Merger(object):
         parser.add_argument("-z", "--gzip", dest='gzip', default=False,
                             action='store_true',
                             help="Store kml output in gzip (KMZ) format")
-        parser.add_argument("inputs", nargs='*')
+        parser.add_argument("json_filenames", nargs='*')
         self.args = parser.parse_args()
 
         # the windows command line is a little lazy with filename expansion
-        inputs = []
-        for input in self.args.inputs:
-            if '*' not in input:
-                inputs.append(input)
+        json_filenames = []
+        for json_filename in self.args.json_filenames:
+            if '*' not in json_filename:
+                json_filenames.append(json_filename)
             else:
-                inputs.extend(glob.glob(input))
-        self.args.inputs = inputs
+                json_filenames.extend(glob.glob(json_filename))
+        self.args.json_filenames = json_filenames
 
         self.ship_dict = ShipDict()
 
-    def merge(self, json_input_filenames):
+    def merge(self, json_filenames):
         """
         given a list of json filenames, decode the JSON content
         and insert it into the local instance of ShipDict
         """
-        for json_input_filename in json_input_filenames:
+        for json_filename in json_filenames:
 
             # self.args.verbose is True if we run the program with --verbose
             if self.args.verbose:
-                print(f"Opening {json_input_filename} for parsing JSON")
+                print(f"Opening {json_filename} for parsing JSON")
 
-            with open(json_input_filename, newline="\n") as feed:
+            with open(json_filename, newline="\n") as feed:
                 # decode json
                 chunks = json.load(feed)
                 # each incoming file contains a list of
@@ -83,7 +83,7 @@ class Merger(object):
     def write_ships_summary(self, ships, out_name):
         """
         saves in filename a summary of all selected ships
-        typically out_name is <ship_name>.txt or ALL_SHIPS.txt 
+        typically out_name is <ship_name>.txt or ALL_SHIPS.txt
         also it will have a -v added in verbose mode
         as we show more stuff in verbose mode
 
@@ -148,7 +148,7 @@ class Merger(object):
 
         as per usual convention, this returns 0 if everything goes fine
         and non-zero otherwise, and specifically
-          (*) 1 if both output files were created but they do not match 
+          (*) 1 if both output files were created but they do not match
               the reference result
           (*) 2 if an exception occured and prevented file creation
 
@@ -156,10 +156,17 @@ class Merger(object):
         in particular it is possible to restrict to the ship(s) that match
         one specific ship name using -s/--ship
         """
+
+        # this try/except is mostly for illustrating how
+        # to display an exception in your code, rather than relying
+        # on Python to do it for you when an exception is not handled
+        # in this particular instance, the try/except is not
+        # particularly helpful then
+
         try:
             # send the contents of all incoming files to the ship_dict instance
             # this method also clears
-            self.merge(self.args.inputs)
+            self.merge(self.args.json_filenames)
 
             # if --ship is specified on the command line,
             # corresponding value is stored in self.args.ship_name
@@ -202,9 +209,9 @@ class Merger(object):
             return 0 if ok else 1
 
         # if anything goes south
-        except Exception as e:
+        except Exception as exc:
             # give description of the exception
-            print('Something went wrong', e)
+            print(f'Something went wrong, {type(exc)}, {exc}')
             # plus provide a snapshot of the stack at the point
             # where the exception was raised
             import traceback
