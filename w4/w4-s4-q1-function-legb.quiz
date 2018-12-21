@@ -4,10 +4,49 @@ Portée des variables (1)
 
 Dans quel cas rencontre-t-on une exception <code>UnboundLocalError</code> ?
 
-[ ] si on référence une variable globale depuis une fonction
-[ ] si on affecte dans une fonction une variable déjà définie globalement
-[x] si on référence dans une fonction une variable définie en dessous dans la fonction
-[ ] si on affecte deux fois une variable locale dans une fonction
+<h3>Proposition 1 : si on référence une variable globale depuis une fonction.</h3>
+<pre>
+x = 0 
+def f():
+     print(x)
+</pre>
+<br/>
+
+<h3>Proposition 2 : si on affecte dans une fonction une variable déjà définie globalement.</h3>
+<pre>
+x = 0 
+def f():
+    x = 3
+    print(x)
+</pre>
+<br/>
+
+<h3>Proposition 3 : si on référence dans une fonction une variable définie en dessous dans la fonction.</h3>
+<pre>
+x = 0 
+def f():
+    print(x)
+    x = 3
+</pre>
+<br/>
+
+<h3>Proposition 4 : si on affecte deux fois une variable locale dans une fonction.</h3>
+<pre>
+x = 0 
+def f():
+    x = 3
+    print(x)
+    x = 4
+</pre>
+<br/>
+
+
+Choisissez une ou plusieurs propositions :
+
+[ ] Proposition 1
+[ ] Proposition 2
+[x] Proposition 3
+[ ] Proposition 4
 
 [explanation]
 L'exception <code>UnboundLocalError</code> ne se produit que si on référence dans une fonction une variable définie en dessous dans la fonction.
@@ -27,6 +66,7 @@ def f():
     tmp = 'locale'
     return var
 </pre>
+<br/>
 
 <h3>Proposition 2</h3>
 <pre>
@@ -35,6 +75,7 @@ def f():
     var = 'locale'
     return var
 </pre>
+<br/>
 
 <h3>Proposition 3</h3>
 <pre>
@@ -44,7 +85,7 @@ def f():
     var = 'locale'
     return var
 </pre>
-
+<br/>
 
 Choisissez une ou plusieurs propositions :
 
