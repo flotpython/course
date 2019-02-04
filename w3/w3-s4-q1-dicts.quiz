@@ -15,7 +15,7 @@ On peut ajouter ou enlever des couples (clé, valeur) dans un dictionnaire.
 Dictionnaires (2)
 =====
 
-Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été insérées ? : 
+Est-il exact de dire que la recherche d'une clé dans un dictionnaire prend le même temps que la recherche d'un élément dans une liste (de même longueur) :
 
 ( ) oui
 (x) non
@@ -23,9 +23,8 @@ Dans un dictionnaire, peut-on connaître l'ordre dans lequel les clés ont été
 [explanation]
 Nous avons vu l'implémentation des dictionnaires sous forme d'une table de hash.
 
-Comme les clés sont rangées sur la base de la fonction de hachage, l'implémentation de base des dictionnaires ne se souvient pas de l'ordre dans lequel les clés sont insérées.
+Aussi on a coutume de dire que pour la recherche d'une clé dans un dictionnaire se fait en temps constant, alors que la recherche dans une liste demande dans le cas le pire de balayer toute la liste, ce qui rend cette recherche plus coûteuse car linéairement dépendante de la taille de la liste.
 
-NB. la classe <code>OrderedDict</code>, dans le module <code>collections</code>, ajoute cette fonctionnalité.
 [explanation]
 
 <hr/>
