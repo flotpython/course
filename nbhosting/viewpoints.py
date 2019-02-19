@@ -26,13 +26,13 @@ def sections(coursedir, viewpoint):
         weeks = [
             "Prise en mains",
             "Types de base / Syntaxe",
-            "w3",
-            "w4",
-            "w5",
-            "w6",
-            "w7",
-            "w8",
-            "w9",
+            "Renforcements / Références partagées",
+            "Fonctions / Portée des variables",
+            "Itération / Importation",
+            "Classes",
+            "Écosystème data science",
+            "Programmation asynchrone",
+            "Sujets avancés",
         ]
         sections = [
             Section(coursedir=coursedir,
