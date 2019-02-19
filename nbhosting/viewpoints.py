@@ -1,33 +1,44 @@
+# pylint: disable=c0111
 from nbhosting.courses import (
-    Section, notebooks_by_pattern, group_by_directories)
+    Sections, Section, Notebook,
+    notebooks_by_pattern, sections_by_directory)
 
-def sections(root, viewpoint):
+def sections(coursedir, viewpoint):
     """
-    root is the expanded course root, for mattern-matching approches
+    coursedir allows for pattern-matching approches
     """
 
     if viewpoint == "exos":
-        return group_by_directories(
-            root,
-            notebooks_by_pattern(root, "w?/w*-s*-x*.ipynb"))
+        return sections_by_directory(
+            coursedir,
+            notebooks_by_pattern(coursedir, "w?/w*-s*-x*.ipynb"))
 
-    if viewpoint == "manual":
+    # test the generic sectioning algo
+    if viewpoint == "default":
+        return sections_by_directory(
+            coursedir,
+            notebooks_by_pattern(coursedir, "w?/w*-s*-[cx]*.ipynb"))
+
+    # default for viewpoint is 'course'
+    if viewpoint == "course":
         # this for now is just some random selection
         # for testing manual sectioning
-        return [
-            Section(root=root,
-                    name="Intro",
-                    notebooks=[
-                        "w1/w1-s1-c1-versions-python.ipynb",
-                        "w1/w1-s4-c2-interpreteur-et-notebooks.ipynb",
-                        "w1/w1-s6-x1-flottants.ipynb",
-                    ] + notebooks_by_pattern(root, "w2/*ipnb")),
-            Section(root=root,
-                    name="numpy",
-                    notebooks=notebooks_by_pattern(root, "w7/w7-s*-[cx]*"))
+        weeks = [
+            "Prise en mains",
+            "Types de base / Syntaxe",
+            "w3",
+            "w4",
+            "w5",
+            "w6",
+            "w7",
+            "w8",
+            "w9",
         ]
-
-    # default is for viewpoint == 'course'
-    return group_by_directories(     # default is "course":
-        root,
-        notebooks_by_pattern(root, "w?/w*-s*-[cx]*.ipynb"))
+        sections = [
+            Section(coursedir=coursedir,
+                    name=week,
+                    notebooks=notebooks_by_pattern(
+                        coursedir,
+                        f"w{w}/w*-s*-[cx]*.ipynb"))
+            for (w, week) in enumerate(weeks, 1)]
+        return Sections(sections)
