@@ -29,8 +29,6 @@ def sections(coursedir, track):
 
     # default for track is 'course'
     if track == "course":
-        # this for now is just some random selection
-        # for testing manual sectioning
         weeks = [
             "Prise en mains",
             "Types de base / Syntaxe",
