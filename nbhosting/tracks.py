@@ -72,6 +72,6 @@ def tracks(coursedir):
 
     return {
         'exos': _exo_track(coursedir),
-        'generic': _generic_track(coursedir),
+#        'generic': _generic_track(coursedir),
         DEFAULT_TRACK: _course_track(coursedir),
     }
