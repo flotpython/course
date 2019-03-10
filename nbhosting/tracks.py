@@ -16,9 +16,7 @@ which cannot be found elsewhere on the disk.
 """
 from nbhosting.courses import (
     Track, Section, Notebook,
-    notebooks_by_pattern, track_by_directory,
-    DEFAULT_TRACK)
-
+    notebooks_by_pattern, track_by_directory)
 
 WEEK_NAMES = {
     'w1': "1. Prise en mains",
@@ -32,23 +30,27 @@ WEEK_NAMES = {
     'w9': "9. Sujets avancés",
 }
 
-# we use this pattern in -x* to create a track
-# that contains only exercises
-def _exo_track(coursedir):
-    return track_by_directory(
-        coursedir,
-        notebooks_by_pattern(coursedir, "w?/w*-s*-x*.ipynb"),
-        dir_labels=WEEK_NAMES)
-
-
 # plain track contains everything under w?
 def _course_track(coursedir):
     # a more elaborate sectioning, still based
     # on the filesystem structure but with better names
     return track_by_directory(
         coursedir,
-        notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.ipynb"),
-        dir_labels=WEEK_NAMES)
+        name="mooc",
+        description='Compléments du MOOC Python 3',
+        notebooks=notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.ipynb"),
+        directory_labels=WEEK_NAMES)
+
+
+# we use this pattern in -x* to create a track
+# that contains only exercises
+def _exo_track(coursedir):
+    return track_by_directory(
+        coursedir,
+        name="exos",
+        description='Exercices extraits du MOOC Python 3',
+        notebooks=notebooks_by_pattern(coursedir, "w?/w*-s*-x*.ipynb"),
+        directory_labels=WEEK_NAMES)
 
 
 def tracks(coursedir):
@@ -57,10 +59,19 @@ def tracks(coursedir):
     at the root directory of the filesystem tree
     that holds notebooks
 
-    this returns a dictionary that maps track names to Track instance
     """
 
-    return {
-        'exos': _exo_track(coursedir),
-        DEFAULT_TRACK: _course_track(coursedir),
-    }
+    return [
+        track_by_directory(
+	    coursedir,
+            name="mooc",
+            description='Compléments du MOOC Python 3',
+            notebooks=notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.ipynb"),
+            directory_labels=WEEK_NAMES),
+        track_by_directory(
+            coursedir,
+            name="exos",
+            description='Exercices extraits du MOOC Python 3',
+            notebooks=notebooks_by_pattern(coursedir, "w?/w*-s*-x*.ipynb"),
+            directory_labels=WEEK_NAMES)
+    ]
