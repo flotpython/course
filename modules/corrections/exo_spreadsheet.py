@@ -10,7 +10,7 @@ def spreadsheet(index):
     """
     def int_to_char(n):
         """
-        traduit un entier entre 1 et 26 
+        traduit un entier entre 1 et 26
         en un caractère entre 'A' et 'Z'
         """
         # si index était compris entre 0 et 25, on pourrait obtenir
@@ -22,11 +22,11 @@ def spreadsheet(index):
         return chr(ord('A') + (n - 1) % 26)
 
     # index peut être supérieur à 26
-    # en remarquant que la dernière lettre s'incrémente à chaque fois 
-    # qu'index augmente, et repasse à 'A' de manière cyclique, 
-    # on voit qu'on peut utiliser notre version cyclique de `int_to_char` 
+    # en remarquant que la dernière lettre s'incrémente à chaque fois
+    # qu'index augmente, et repasse à 'A' de manière cyclique,
+    # on voit qu'on peut utiliser notre version cyclique de `int_to_char`
     # pour calculer la lettre la plus à droite dans le résultat.
-    # et pour les autres lettres, il suffit de recommencer sur le quotient 
+    # et pour les autres lettres, il suffit de recommencer sur le quotient
 
     result = int_to_char(index)
     while index > 26:
@@ -46,9 +46,9 @@ def spreadsheet_bis(index):
     est bien un entier supérieur à 0.
     """
     if not isinstance(index, int):
-        raise TypeError("index must be an integer !")
+        raise TypeError("index must be an integer!")
     elif index < 1:
-        raise ValueError("index must be positive !")
+        raise ValueError("index must be positive!")
 
     result = chr(ord('A') + (index - 1) % 26)
     while index > 26:
