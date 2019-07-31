@@ -1,0 +1,8 @@
+jupyterlab
+numpy
+matplotlib
+pandas
+plotly==3.10.0
+bokeh
+ipywidgets
+jupyter-contrib-nbextensions
