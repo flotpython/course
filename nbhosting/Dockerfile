@@ -10,4 +10,4 @@ RUN jupyter nbextension enable splitcell/splitcell
 
 # --------
 # install plotly for w7
-RUN pip install plotly
+RUN pip install plotly==3.10.0
