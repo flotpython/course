@@ -79,9 +79,13 @@ def spreadsheet_ter(index):
     elif index < 1:
         raise ValueError("index must be positive!")
 
+    # et donc pour être bien clair, ici on appelle
+    # la fonction imbriquée et pas celle qui est globale au module
+    # même si dans ce cas les deux sont identiques
     result = int_to_char(index)
     while index > 26:
         index = (index - 1) // 26
+        # idem ici bien sûr
         result = int_to_char(index) + result
     return result
 # @END@
