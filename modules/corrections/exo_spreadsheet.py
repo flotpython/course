@@ -58,6 +58,38 @@ def spreadsheet_bis(index):
     return result
 # @END@
 
+# @BEG@ name=spreadsheet more=ter
+# int_to_char n'a pas besoin d'être exposée dans l'espace de nommage du module.
+# On peut l'inclure dans spreadsheet_ter puisque c'est une fonction assistante.
+def spreadsheet_ter(index):
+    """
+    transforme un numéro de colonne en nom alphabétique
+    dans l'ordre lexicographique
+    1 -> A; 26 -> Z; 27 -> AA; 28 -> AB; etc..
+    """
+    def int_to_char(n):
+        """
+        traduit un entier entre 1 et 26 
+        en un caractère entre 'A' et 'Z'
+        """
+        return chr(ord('A') + (n - 1) % 26)
+    
+    if not isinstance(index, int):
+        raise TypeError("index must be an integer!")
+    elif index < 1:
+        raise ValueError("index must be positive!")
+
+    # et donc pour être bien clair, ici on appelle
+    # la fonction imbriquée et pas celle qui est globale au module
+    # même si dans ce cas les deux sont identiques
+    result = int_to_char(index)
+    while index > 26:
+        index = (index - 1) // 26
+        # idem ici bien sûr
+        result = int_to_char(index) + result
+    return result
+# @END@
+
 z   = 26
 zz  =  26**2 + 26
 zzz = 26**3 + 26**2 + 26
