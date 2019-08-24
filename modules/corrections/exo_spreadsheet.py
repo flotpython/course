@@ -59,8 +59,11 @@ def spreadsheet_bis(index):
 # @END@
 
 # @BEG@ name=spreadsheet more=ter
-# int_to_char n'a pas besoin d'être exposée dans l'espace de nommage du module.
-# On peut l'inclure dans spreadsheet_ter puisque c'est une fonction assistante.
+# la fonction int_to_char n'a pas besoin d'être exposée
+#  dans l'espace de nommage du module.
+# puisque c'est une fonction assistante,
+#  on peut en faire une variable locale à spreadsheet_ter
+#  en la déclarant à l'intérieur de la fonction
 def spreadsheet_ter(index):
     """
     transforme un numéro de colonne en nom alphabétique
@@ -79,9 +82,8 @@ def spreadsheet_ter(index):
     elif index < 1:
         raise ValueError("index must be positive!")
 
-    # et donc pour être bien clair, ici on appelle
-    # la fonction imbriquée et pas celle qui est globale au module
-    # même si dans ce cas les deux sont identiques
+    # ici int_to_char est une variable locale
+    # à la fonction spreadsheet_ter
     result = int_to_char(index)
     while index > 26:
         index = (index - 1) // 26
