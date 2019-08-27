@@ -20,17 +20,26 @@ def power(x, n):
 # @END@
 
 # pour ne pas se contenter de x**n
-class Foo:
+class Number:
     def __init__(self, number):
         self.number = number
-    def __mul__(self, other):
-        return Foo(self.number * other.number)
     def __repr__(self):
-        return f"number <{self.number}>"
+        return f"Number({self.number})"
+
+    @staticmethod
+    def get_number(obj):
+        if isinstance(obj, Number):
+            return obj.number
+        elif isinstance(obj, (int, float, complex)):
+            return obj
+
+    def __mul__(self, other):
+        return Number(self.number * self.get_number(other))
     def __eq__(self, other):
-        return self.number == other.number
-    
-# ceci ne devrait pas marcher avec des instances de Foo
+        return self.number == self.get_number(other)
+
+
+# ceci ne devrait pas marcher avec des instances de Number
 def power_ko(x, n):
     return x ** n
 
@@ -39,7 +48,7 @@ inputs_power = [
     Args(2, 1),
     Args(2, 10),
     Args(1j, 4),
-    Args(Foo(1j), 4),
+    Args(Number(1j), 4),
 ]
 
 powers = (2, 3, 1024, 1025)
