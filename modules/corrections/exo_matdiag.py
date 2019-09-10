@@ -67,10 +67,7 @@ def matdiag_quater(liste):
     pour le faire à la main, il se trouve qu'il y a 
     - bien sûr - une fonction pour ça dans numpy
     """
-    n = len(liste)
-    resultat = np.zeros((n, n))
-    np.fill_diagonal(resultat, liste)
-    return resultat
+    return np.diag(liste)
 # @END@
 
 def matdiag_ko(liste):
