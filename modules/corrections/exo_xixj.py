@@ -74,6 +74,7 @@ def xixj_ter(*args):
 
 def xixj_ko(*args):
     # presque ça mais sans le reshape
+    array = np.array(args)
     return array.T @ array
 
 inputs_xixj = [
