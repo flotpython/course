@@ -65,11 +65,12 @@ def xixj_ter(*args):
     """
     n = len(args)
     column = np.array(args).reshape((n, 1))
+    return column.T * column
     # le broadcasting c'est magique parfois
     # car avec cette méthode on peut multiplier
     # dans n'importe quel ordre !
+    # ce qui fait que ceci marche ausi !
     # return column * column.T
-    return column.T * column
 # @END@
 
 def xixj_ko(*args):

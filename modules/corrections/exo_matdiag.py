@@ -55,7 +55,8 @@ def matdiag_ter(liste):
     # à un slice qui commence à 1 avec un pas de n+1
     plat[0 : : n+1] = liste
     # 
-    # maintenant on remettre reshaper sous forme n x n
+    # maintenant on peut remettre
+    # dans une forme n x n avec reshape
     #
     return plat.reshape((n, n))
 # @END@
