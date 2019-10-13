@@ -83,7 +83,7 @@ ENCODED_LOWER_UPPER = {
 }
 # @END@
 
-# @BEG@ name=cesar more=bis-suite latex_size=footnotesize
+# @BEG@ name=cesar more=bis continued=true latex_size=footnotesize
 
 # enfin pour le cas où le texte est en majuscule, on
 # va considérer l'union des deux premières tables
