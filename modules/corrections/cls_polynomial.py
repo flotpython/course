@@ -126,7 +126,7 @@ polynomial_scenarios = [
     ),
     ClassScenario(
         Args(0),
-        ClassExpression("INSTANCE.degree"),
+        ClassExpression("INSTANCE == CLASS() == CLASS(0, 0)"),
     ),
     ClassScenario(
         Args(1),
@@ -137,17 +137,22 @@ polynomial_scenarios = [
         Args(1, 2, 3),
         ClassExpression("INSTANCE.degree"),
     ),
-    ClassScenario(Args(1, 2, 3, 0, 0)),
+    ClassScenario(Args(1, 0, 3, 0, 0)),
     ClassScenario(
-        Args(0, 0, 1, 2, 3),
-        ClassExpression("INSTANCE == CLASS(1, 2, 3)"),
+        Args(0, 0, 1, 0, 3),
+        ClassExpression("INSTANCE == CLASS(1, 0, 3)"),
         ),
     ClassScenario(
         # init arguments
         Args(1, 2, 3),
-        ClassExpression('INSTANCE.derivative()'),
         ClassExpression('INSTANCE(10)'),
         ClassExpression('INSTANCE(100)'),
+    ),
+    ClassScenario(
+        # init arguments
+        Args(1, 2, 3),
+        ClassExpression('INSTANCE.derivative()'),
+        ClassExpression('INSTANCE.derivative()(10)'),
     ),
     ClassScenario(
         Args(1, 2, 3),
