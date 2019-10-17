@@ -4,13 +4,13 @@ Modules et espaces de nommage (1)
 
 Sélectionnez les assertions suivantes qui sont vraies.
 
-[x] Un module est un fichier qui finit en <code>.py</code>.
+[x] Un fichier qui finit en <code>.py</code> peut être importé comme un module.
 [x] Un module peut contenir n'importe quel code Python.
 [x] Le premier import d'un module va créer un objet. 
 [x] On utilise les modules comme des boîtes à outils.
 
 [explanation]
-Un module est un fichier finissant en .py qui contient du code Python.
+Un fichier finissant en .py qui contient du code Python est considéré comme un module. 
 
 Lors du premier import, un objet module est créé, cet objet peut ensuite être utilisé comme une boîte à outils. 
 [explanation]
