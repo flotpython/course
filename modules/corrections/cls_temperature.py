@@ -22,9 +22,13 @@ class Temperature:
        273.15
     """
 
-    KELVIN = 273.15
+    KELVIN = 273
 
-    def __init__(self, *, kelvin=None, celsius=None):
+    def __init__(self, *, 
+                 # that star sign above means that any parameter 
+                 # **MUST BE NAMED**, and that one cannot call
+                 # e.g. Temperature(10)
+                 kelvin=None, celsius=None):
         # our unique internal data is _kelvin
         # BUT even from the constructor we'll 
         # access it only through properties
@@ -39,7 +43,7 @@ class Temperature:
             
     
     def __repr__(self):
-        return f"{self._kelvin:.2g}°"
+        return f"{self._kelvin:d}°"
 
     
     def __eq__(self, other):
