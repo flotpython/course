@@ -12,5 +12,10 @@ RUN jupyter nbextension enable splitcell/splitcell
 # install plotly for w7
 RUN pip install plotly==3.10.0
 
+# nbautoeval is in the core images but we often need 
+# the very latest version, that core images cannot
+# always afford to follow very closely
+RUN pip install -U nbautoeval
+
 ### speed up jupyter lab startup
 RUN jupyter lab build
