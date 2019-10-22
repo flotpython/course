@@ -89,10 +89,27 @@ def prime_legos():
     iterates over shifted primes (with a 5-items padding with 1s)
     and over primes squares
     """
-    primes1 = itertools.chain(itertools.repeat(1, 5), primes())
-    primes2 = (prime**2 for prime in primes())
-    return zip(primes1, primes2)
+    part1 = itertools.chain(itertools.repeat(1, 5), primes())
+    part2 = (prime**2 for prime in primes())
+    return zip(part1, part2)
 # @END@ 
+
+
+# @BEG@ name=prime_legos more=bis
+def prime_legos_bis():
+    """
+    same behaviour
+    we optimize CPU performance by creating a single instance
+    of the primes() generator, and duplicate it using `itertools.tee()`
+    """
+    # this is where the pseudo-copy takes place
+    primes1, primes2 = itertools.tee(primes(), 2)
+    # the rest is of course the same as in the naive version
+    part1 = itertools.chain(itertools.repeat(1, 5), primes1)
+    part2 = (prime**2 for prime in primes2)
+    return zip(part1, part2)
+# @END@ 
+
 
 args_prime_legos = [
     GeneratorArgs(islice=(10,)),
@@ -104,6 +121,9 @@ exo_prime_legos = ExerciseGenerator(
     max_iterations=101,
     nb_examples=0,
 )
+
+def prime_legos_ko():
+    return zip(primes(), primes())
 
 
 
