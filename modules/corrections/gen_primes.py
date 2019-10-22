@@ -1,9 +1,10 @@
-import itertools
-
 from nbautoeval import ExerciseGenerator, GeneratorArgs
 
 
 # @BEG@ name=primes
+import math
+import itertools
+
 def primes():
     """
     enumerate prime numbers
@@ -13,7 +14,7 @@ def primes():
     cache_primes = set()
     
     for n in itertools.count(2):
-        for i in range(2, n):
+        for i in range(2, int(math.sqrt(n))+1):
             # no need to try to divide by non-primes
             if i not in cache_primes:
                 continue
@@ -84,6 +85,8 @@ exo_prime_squares = ExerciseGenerator(
 ### LEGOs
 
 # @BEG@ name=prime_legos
+import itertools
+
 def prime_legos():
     """
     iterates over shifted primes (with a 5-items padding with 1s)
@@ -96,6 +99,8 @@ def prime_legos():
 
 
 # @BEG@ name=prime_legos more=bis
+import itertools
+
 def prime_legos_bis():
     """
     same behaviour
