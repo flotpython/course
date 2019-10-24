@@ -148,7 +148,7 @@ def prime_th_primes():
     # current will scan all prime numbers
     current = next(primes1)
     # index will scan all integers
-    for index, prime in enumerate(primes()):
+    for index, prime in enumerate(primes2):
         # when it matches 'current' it means we have a winner
         if index == current:
             yield prime
