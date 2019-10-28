@@ -9,7 +9,7 @@ from nbautoeval.exercise_class import (
     ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
 from nbautoeval.args import Args
 
-# @BEG@ name=polynomial
+# @BEG@ name=polynomial latex_size=footnotesize
 class Polynomial:
     """
     a class that models polynomials 
@@ -20,6 +20,7 @@ class Polynomial:
        >>> f(10)
        321
     """
+
 
     # pretty print one monomial
     @staticmethod
@@ -35,7 +36,7 @@ class Polynomial:
         else:
             return f"{coef}X^{degre}"
 
-
+    
     def __init__(self, *high_first):
         # internal structure is a tuple of coeficients, 
         # index 0 being the constant part
@@ -49,32 +50,23 @@ class Polynomial:
                     yield coef
         self.coefs = tuple(skip_first_nulls(high_first))[::-1]
 
+
     def __repr__(self):
         if not self.coefs:
             return '0'
         return " + ".join(reversed(
             [self.repr_monomial(d, c) for (d, c) in enumerate(self.coefs) if c]))
+# @END@ 
 
+# @BEG@ name=polynomial latex_size=footnotesize continued=true
     def _get_degree(self):
         return 0 if not self.coefs else (len(self.coefs) - 1)
     degree = property(_get_degree)
 
+
     def __eq__(self, other):
         return self.coefs == other.coefs
 
-    def __call__(self, param):
-        """make instances callable"""
-        # this is an interesting idiom
-        # reduce allows to apply a 2-argument function
-        # on an iterable from left to right 
-        # that is to say for example
-        # reduce(foo, [1, 2, 3, 4]) -> foo(1, foo(2, foo(3, 4))
-        # in this code the function object created 
-        # with the lambda expression is called a closure
-        # it 'captures' the 'param' parameter in a function
-        # that takes 2 arguments
-        return reduce(lambda a, b: a*param + b, self.coefs[::-1])
-    
 
     def __add__(self, other):
         """add 2 Polynomial instances"""
@@ -88,6 +80,7 @@ class Polynomial:
             *(c1+c2 for (c1, c2) in zip_longest(self.coefs, other.coefs,
                                                 fillvalue=0)))
 
+
     def __mul__(self, other):
         """multiply 2 polynomials"""
         # a rather inefficient implementation
@@ -99,6 +92,23 @@ class Polynomial:
                 enumerate(self.coefs), enumerate(other.coefs)):
             result_coefs[i+j] += c*d
         return Polynomial(*reversed(result_coefs))
+# @END@ 
+
+
+# @BEG@ name=polynomial latex_size=footnotesize continued=true
+    def __call__(self, param):
+        """make instances callable"""
+        # this is an interesting idiom
+        # reduce allows to apply a 2-argument function
+        # on an iterable from left to right 
+        # that is to say for example
+        # reduce(foo, [1, 2, 3, 4]) -> foo(1, foo(2, foo(3, 4))
+        # in this code the function object created 
+        # with the lambda expression is called a closure
+        # it 'captures' the 'param' parameter in a function
+        # that takes 2 arguments
+        return reduce(lambda a, b: a*param + b, self.coefs[::-1])
+    
 
     def derivative(self):
         """

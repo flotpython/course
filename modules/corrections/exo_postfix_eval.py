@@ -2,7 +2,7 @@ from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 
-# @BEG@ name=postfix_eval
+# @BEG@ name=postfix_eval latex_size=footnotesize
 def postfix_eval(chaine):
     """
     an evaluator for postfixed expressions
@@ -19,7 +19,9 @@ def postfix_eval(chaine):
     stack = []
     # split the line into tokens
     tokens = chaine.split()
-    
+# @END@
+
+# @BEG@ name=postfix_eval latex_size=footnotesize continued=true
     for token in tokens:
         operand = None
         try:
@@ -60,7 +62,7 @@ def postfix_eval(chaine):
 # @END@
 
 
-# @BEG@ name=postfix_eval more=bis
+# @BEG@ name=postfix_eval more=bis latex_size=footnotesize
 # exact same behaviour, but this version uses a dictionary to 
 # avoid the awkward part where we check for a supported operator
 
@@ -132,7 +134,7 @@ exo_postfix_eval = ExerciseFunction(
 )
 
 
-# @BEG@ name=postfix_eval_typed
+# @BEG@ name=postfix_eval_typed latex_size=footnotesize
 def postfix_eval_typed(chaine, type):
     """
     a postfix evaluator, using a parametric type

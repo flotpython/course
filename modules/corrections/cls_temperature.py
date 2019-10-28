@@ -30,18 +30,23 @@ class Temperature:
                  # e.g. Temperature(10)
                  kelvin=None, celsius=None):
         # our unique internal data is _kelvin
-        # BUT even from the constructor we'll 
-        # access it only through properties
+        # but even from the constructor we'll 
+        # access it **only through properties**
         if kelvin is None and celsius is None:
+            # this calls _set_kelvin()
             kelvin = 0
         if kelvin is not None and celsius is not None:
             raise ValueError("Temperature wants only one among kelvin and celsius")
         if kelvin is not None:
+            # this calls _set_kelvin()
             self.kelvin = kelvin
         else:
+            # this calls _set_celsius()
             self.celsius = celsius
-            
-    
+# @END@ 
+
+
+# @BEG@ name=temperature continued=true
     def __repr__(self):
         return f"{self._kelvin:d}°"
 
