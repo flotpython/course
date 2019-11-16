@@ -468,7 +468,7 @@ donc, je vais écrire "Phrase vide",
 
 118
 00:04:30,405 --> 00:04:31,735
-et je vais passer un code d'erreur;
+et je vais passer un code d'erreur ;
 
 119
 00:04:31,935 --> 00:04:33,093
@@ -476,7 +476,7 @@ par exemple, je passe 18.
 
 120
 00:04:33,293 --> 00:04:34,606
-C'est une code d'erreur que j'invente moi,
+C'est un code d'erreur que j'invente moi,
 
 121
 00:04:34,613 --> 00:04:35,246
