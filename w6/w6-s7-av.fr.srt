@@ -208,7 +208,7 @@ les exceptions doivent toujours avoir un nom explicite.
 
 53
 00:01:45,845 --> 00:01:48,631
-Je vais appeler ça, PhaseVide...
+Je vais appeler ça, PhraseVide...
 
 54
 00:01:48,831 --> 00:01:50,721
@@ -216,7 +216,7 @@ et on recommande de toujours finir notre exception
 
 55
 00:01:50,921 --> 00:01:52,561
-par le mot Error (PhaseVideError) pour rendre clair
+par le mot Error (PhraseVideError) pour rendre clair
 
 56
 00:01:52,761 --> 00:01:53,751
