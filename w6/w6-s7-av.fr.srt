@@ -244,7 +244,7 @@ Dans 99,9 % des cas, vous n'avez absolument rien
 
 62
 00:02:05,516 --> 00:02:06,876
-à mettre. Vous mettez simplement path,
+à mettre. Vous mettez simplement pass,
 
 63
 00:02:07,076 --> 00:02:09,329
