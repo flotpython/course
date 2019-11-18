@@ -44,7 +44,7 @@ En fait, l'idée c'est
 
 12
 00:00:26,873 --> 00:00:28,850
-si votre programme plante, vous finaliser vos objets,
+si votre programme plante, vous finalisez vos objets,
 
 13
 00:00:29,050 --> 00:00:31,500
@@ -84,7 +84,7 @@ le bloc de code du finally s'exécutera
 
 22
 00:00:49,350 --> 00:00:52,400
-quelque soit  l'exécution du bloc de code du try.
+quelque soit l'exécution du bloc de code du try.
 
 23
 00:00:52,600 --> 00:00:54,600

@@ -208,7 +208,7 @@ les exceptions doivent toujours avoir un nom explicite.
 
 53
 00:01:45,845 --> 00:01:48,631
-Je vais appeler ça, PhaseVide...
+Je vais appeler ça, PhraseVide...
 
 54
 00:01:48,831 --> 00:01:50,721
@@ -216,7 +216,7 @@ et on recommande de toujours finir notre exception
 
 55
 00:01:50,921 --> 00:01:52,561
-par le mot Error (PhaseVideError) pour rendre clair
+par le mot Error (PhraseVideError) pour rendre clair
 
 56
 00:01:52,761 --> 00:01:53,751
@@ -244,7 +244,7 @@ Dans 99,9 % des cas, vous n'avez absolument rien
 
 62
 00:02:05,516 --> 00:02:06,876
-à mettre. Vous mettez simplement path,
+à mettre. Vous mettez simplement pass,
 
 63
 00:02:07,076 --> 00:02:09,329
@@ -468,7 +468,7 @@ donc, je vais écrire "Phrase vide",
 
 118
 00:04:30,405 --> 00:04:31,735
-et je vais passer un code d'erreur;
+et je vais passer un code d'erreur ;
 
 119
 00:04:31,935 --> 00:04:33,093
@@ -476,7 +476,7 @@ par exemple, je passe 18.
 
 120
 00:04:33,293 --> 00:04:34,606
-C'est une code d'erreur que j'invente moi,
+C'est un code d'erreur que j'invente moi,
 
 121
 00:04:34,613 --> 00:04:35,246
