@@ -1,6 +1,6 @@
 1
 00:00:03,787 --> 00:00:06,176
-Nous avons que NumPy était la librairie de référence
+Nous savons que NumPy est la librairie de référence
 
 2
 00:00:06,276 --> 00:00:08,794
