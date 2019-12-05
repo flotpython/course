@@ -12,7 +12,7 @@ et nous avons montré
 
 4
 00:00:07,953 --> 00:00:09,973
-que nous pouvions implémenter un décorateur,
+que nous pouvions implémenter un décorateur
 
 5
 00:00:10,173 --> 00:00:11,114
@@ -28,7 +28,7 @@ c'est un callable qui retourne un callable.
 
 8
 00:00:15,516 --> 00:00:16,845
-Ça veut, donc, dire qu'on pourrait tout à fait
+Ça veut donc dire qu'on pourrait tout à fait
 
 9
 00:00:17,045 --> 00:00:18,129
@@ -84,7 +84,7 @@ qui est contenue dans une fonction englobante.
 
 22
 00:00:39,248 --> 00:00:41,546
-Et, on dit, qu'en Python, on a une clôture
+Et, on dit qu'en Python, on a une clôture
 
 23
 00:00:41,746 --> 00:00:43,033
@@ -136,7 +136,7 @@ un return x+y.
 
 35
 00:01:10,460 --> 00:01:12,039
-Donc, nous voyons, qu'ici, nous avons une fonction
+Donc, nous voyons qu'ici, nous avons une fonction
 
 36
 00:01:12,239 --> 00:01:15,077
@@ -152,11 +152,11 @@ en Python, une clôture,
 
 39
 00:01:18,213 --> 00:01:19,746
-puisqu'elle ne référence pas de variables libre,
+puisqu'elle ne référence pas de variable libre,
 
 40
 00:01:19,946 --> 00:01:21,277
-parce que je n'ai pas de variables libre.
+parce que je n'ai pas de variable libre.
 
 41
 00:01:21,477 --> 00:01:22,560
@@ -248,7 +248,7 @@ et ma fonction plus_n retourne incremente.
 
 63
 00:02:21,436 --> 00:02:23,578
-Regardons comment ça se manipule, en pratique.
+Regardons comment ça se manipule en pratique.
 
 64
 00:02:23,778 --> 00:02:27,119
@@ -260,11 +260,11 @@ qui est égale à plus_n(3).
 
 66
 00:02:32,266 --> 00:02:33,109
-Donc qu'est-ce que ça va faire?
+Donc qu'est-ce que ça va faire ?
 
 67
 00:02:33,309 --> 00:02:35,048
-Ça va appeler ma fonction plus_n
+Ça va appeler ma fonction plus_n,
 
 68
 00:02:35,248 --> 00:02:36,535
@@ -288,7 +288,7 @@ Donc, ça veut dire que ma fonction incremente,
 
 73
 00:02:46,274 --> 00:02:51,025
-à chaque fois que je l'appellerai, elle va retourner x+3.
+à chaque fois que je l'appellerai, elle va retourner x+3,
 
 74
 00:02:51,225 --> 00:02:57,317
@@ -584,7 +584,7 @@ ne me permet pas de modifier les variables libres.
 
 147
 00:05:45,613 --> 00:05:47,637
-En effet, si jamais, je fais une affectation
+En effet, si jamais je fais une affectation
 
 148
 00:05:47,837 --> 00:05:49,570
@@ -620,7 +620,7 @@ qui compte le nombre d'appels d'une fonction.
 
 156
 00:06:00,493 --> 00:06:02,109
-Alors comment est-ce que je peux faire ça?
+Alors comment est-ce que je peux faire ça ?
 
 157
 00:06:02,309 --> 00:06:03,715
@@ -632,7 +632,7 @@ deux techniques qui permettent
 
 159
 00:06:05,443 --> 00:06:09,078
-de garder un compteur, lorsque j'appelle un décorateur.
+de garder un compteur lorsque j'appelle un décorateur.
 
 160
 00:06:09,278 --> 00:06:10,203
@@ -792,7 +792,7 @@ puisque il doit retourner un callable.
 
 199
 00:07:34,517 --> 00:07:36,540
-Donc maintenant, faisant un trace_call
+Donc maintenant, faisons un trace_call
 
 200
 00:07:36,740 --> 00:07:37,819
@@ -868,7 +868,7 @@ de modifier une variable libre.
 
 218
 00:08:16,488 --> 00:08:18,466
-c'est avec, ce qu'on appelle, un attribut de fonction.
+C'est avec, ce qu'on appelle, un attribut de fonction.
 
 219
 00:08:18,666 --> 00:08:20,637
@@ -912,7 +912,7 @@ pourquoi ça fonctionne.
 
 229
 00:08:42,594 --> 00:08:44,451
-Donc, pour l'instant, gardez simplement en tête,
+Donc, pour l'instant, gardez simplement en tête
 
 230
 00:08:44,651 --> 00:08:46,264
@@ -964,7 +964,7 @@ je définis un attribut called sur wrapper.
 
 242
 00:09:10,664 --> 00:09:11,990
-Donc pourquoi ça fonctionne?
+Donc pourquoi ça fonctionne ?
 
 243
 00:09:12,190 --> 00:09:13,440
@@ -1156,7 +1156,7 @@ on aimerait que mon décorateur puisse modifier
 
 290
 00:10:48,480 --> 00:10:49,197
-ma fonction mais, de manière,
+ma fonction mais, de manière
 
 291
 00:10:49,397 --> 00:10:50,275
@@ -1168,7 +1168,7 @@ Donc, si j'appelle help sur ma fonction,
 
 293
 00:10:52,291 --> 00:10:53,816
-ma fonction soit bien la fonction originale.
+que ma fonction soit bien la fonction originale.
 
 294
 00:10:54,016 --> 00:10:55,094
@@ -1312,7 +1312,7 @@ implémentés sous forme de fonction.
 
 329
 00:12:07,189 --> 00:12:08,191
-vous pouvez vous dire, qu'en fait,
+Vous pouvez vous dire qu'en fait,
 
 330
 00:12:08,391 --> 00:12:09,756
