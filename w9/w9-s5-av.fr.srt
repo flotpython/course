@@ -40,7 +40,7 @@ un inconvénient majeur : c'est qu'ils ajoutent
 
 11
 00:00:23,195 --> 00:00:25,745
-une complexité, lors de l'accès à nos attributs.
+une complexité lors de l'accès à nos attributs.
 
 12
 00:00:25,945 --> 00:00:27,605
@@ -72,7 +72,7 @@ la manière d'accéder à cet attribut.
 
 19
 00:00:38,607 --> 00:00:41,115
-Et ben, en fait, vous allez devoir modifier
+Et bien, en fait, vous allez devoir modifier
 
 20
 00:00:41,315 --> 00:00:45,084
@@ -88,7 +88,7 @@ et que d'autres personnes utilisent vos attributs,
 
 23
 00:00:49,237 --> 00:00:51,343
-ils vont devoir, entièrement, modifier leur code.
+ils vont devoir entièrement modifier leur code.
 
 24
 00:00:51,543 --> 00:00:52,988
@@ -128,7 +128,7 @@ des getters et setters pour n'avoir à subir ces
 
 33
 00:01:10,069 --> 00:01:12,654
-opérations coûteuses et désagréables, à faire.
+opérations coûteuses et désagréables à faire.
 
 34
 00:01:12,854 --> 00:01:15,027
@@ -140,7 +140,7 @@ besoin d'implémenter des getters et setters,
 
 36
 00:01:17,288 --> 00:01:19,220
-pour ajouter une couche de logique,
+pour ajouter une couche de logique
 
 37
 00:01:19,420 --> 00:01:22,041
@@ -240,7 +240,7 @@ la présentation), voilà donc j'ai t qui est compris
 
 61
 00:02:42,236 --> 00:02:45,057
-entre 5 et 25 degrés, deux points :
+entre 5 et 25 degrés,
 
 62
 00:02:45,257 --> 00:02:51,622
@@ -276,7 +276,7 @@ Et puis ici, voilà, je définis une classe
 
 70
 00:03:09,597 --> 00:03:16,969
-TemperatureError qui hérite d'exception, 2 points :
+TemperatureError qui hérite d'Exception,
 
 71
 00:03:17,169 --> 00:03:18,895
@@ -328,7 +328,7 @@ Donc là, j'ai utilisé les getters et les setters
 
 83
 00:03:38,044 --> 00:03:39,570
-de manière, tout à fait standard.
+de manière tout à fait standard.
 
 84
 00:03:39,770 --> 00:03:41,666
@@ -412,7 +412,7 @@ C'est quoi une property ?
 
 104
 00:04:37,420 --> 00:04:45,220
-C'est dire, à ma classe, que je définis un attribut
+C'est dire à ma classe que je définis un attribut
 
 105
 00:04:45,400 --> 00:04:47,540
@@ -516,7 +516,7 @@ je n'aurai qu'à implémenter deux méthodes,
 
 130
 00:05:46,585 --> 00:05:48,604
-et à définir une property, sur cet attribut.
+et à définir une property sur cet attribut.
 
 131
 00:05:48,804 --> 00:05:50,290
@@ -592,7 +592,7 @@ Le mécanisme de propriété que
 
 149
 00:06:36,543 --> 00:06:37,988
-nous venons de voir, repose sur un autre
+nous venons de voir repose sur un autre
 
 150
 00:06:38,188 --> 00:06:39,717
@@ -700,7 +700,7 @@ Ma méthode __get__ prend trois paramètres :
 
 176
 00:07:44,857 --> 00:07:47,234
-self, c'est l'instance du descripteur;
+self, c'est l'instance du descripteur ;
 
 177
 00:07:47,434 --> 00:07:49,127
@@ -712,7 +712,7 @@ descripteur, ce qui me permet, par exemple,
 
 179
 00:07:50,732 --> 00:07:53,070
-de stocker des attributs, dans cette instance.
+de stocker des attributs dans cette instance.
 
 180
 00:07:53,270 --> 00:07:56,269
@@ -792,7 +792,7 @@ Donc, vous remarquez que ça correspond
 
 199
 00:08:51,569 --> 00:08:53,667
-à un if else; j'ai mis un return pour éviter d'avoir
+à un if else ; j'ai mis un return pour éviter d'avoir
 
 200
 00:08:53,867 --> 00:08:54,863
@@ -800,7 +800,7 @@ Donc, vous remarquez que ça correspond
 
 201
 00:08:55,063 --> 00:08:57,037
-On aurait pu l'écrire, de manière différente.
+On aurait pu l'écrire de manière différente.
 
 202
 00:08:57,237 --> 00:09:02,669
@@ -896,7 +896,7 @@ appeler la méthode __get__.
 
 225
 00:10:03,103 --> 00:10:05,360
-À chaque fois, que je vais modifier cet attribut
+À chaque fois que je vais modifier cet attribut
 
 226
 00:10:05,560 --> 00:10:07,776
@@ -908,7 +908,7 @@ la méthode __set__.
 
 228
 00:10:09,169 --> 00:10:10,573
-Vous remarquez, également, une chose importante :
+Vous remarquez également une chose importante :
 
 229
 00:10:10,773 --> 00:10:12,952
@@ -964,7 +964,7 @@ que j'initialise à 18 degrés.
 
 242
 00:10:35,403 --> 00:10:37,496
-Et je vais regarder quelle est la température,
+Et je vais regarder quelle est la température
 
 243
 00:10:37,696 --> 00:10:40,158
@@ -1012,7 +1012,7 @@ Et si ma température sort de l'intervalle autorisé,
 
 254
 00:11:00,165 --> 00:11:01,572
-je vais avoir une exception;
+je vais avoir une exception,
 
 255
 00:11:01,772 --> 00:11:03,588
@@ -1044,7 +1044,7 @@ sur lequel reposent les property: les descripteurs.
 
 262
 00:11:19,036 --> 00:11:20,848
-Vous verrez, qu'en pratique, les property
+Vous verrez qu'en pratique, les property
 
 263
 00:11:21,048 --> 00:11:23,141

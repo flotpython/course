@@ -208,7 +208,7 @@ Je vois que c'est object.
 
 53
 00:01:32,414 --> 00:01:33,578
-ça, ce n'est pas une surprise,
+Ça, ce n'est pas une surprise,
 
 54
 00:01:33,778 --> 00:01:35,101
@@ -228,7 +228,7 @@ donc, ce qui nous confirme bien qu'il n'y a rien
 
 58
 00:01:42,241 --> 00:01:44,378
- au dessus d'object, dans l'arbre d'héritage.
+ au dessus d'object dans l'arbre d'héritage.
 
 59
 00:01:44,578 --> 00:01:46,387
@@ -268,7 +268,7 @@ C'est également object.
 
 68
 00:02:06,217 --> 00:02:08,643
-Donc, on voit que je définisse une classe moi-même
+Donc, on voit que, que je définisse une classe moi-même
 
 69
 00:02:08,843 --> 00:02:10,418
@@ -364,7 +364,7 @@ Ensuite, je vais regarder avec les types builtins.
 
 92
 00:03:06,068 --> 00:03:07,516
-Quel est le type de 1 ? c'est int.
+Quel est le type de 1 ? C'est int.
 
 93
 00:03:07,716 --> 00:03:08,928
@@ -396,7 +396,7 @@ c'est une instance.
 
 100
 00:03:21,075 --> 00:03:25,177
-Et quel est le type de str ? c'est type.
+Et quel est le type de str ? C'est type.
 
 101
 00:03:25,377 --> 00:03:27,727
@@ -436,11 +436,11 @@ une classe que vous implémentez.
 
 110
 00:03:44,440 --> 00:03:46,055
-Ce sont des objets qui se comportent,
+Ce sont des objets qui se comportent
 
 111
 00:03:46,255 --> 00:03:47,712
-exactement, de la même manière.
+exactement de la même manière.
 
 112
 00:03:47,912 --> 00:03:49,767
@@ -532,7 +532,7 @@ et object qui un objet un peu particulier
 
 134
 00:04:35,917 --> 00:04:38,098
-mais qui est la super-classe de toutes les classes
+mais qui est la super-classe de toutes les classes.
 
 135
 00:04:38,298 --> 00:04:39,341
@@ -640,7 +640,7 @@ mais quel est le lien entre type et object ?
 
 161
 00:05:36,189 --> 00:05:38,454
-En fait, si on regarde quel est le type d'objet,
+En fait, si on regarde quel est le type d'object,
 
 162
 00:05:38,654 --> 00:05:40,023
@@ -684,7 +684,7 @@ Et pour finir, quel est le type de type ?
 
 172
 00:05:59,761 --> 00:06:00,399
-ça c'est quelque chose qui peut être
+Ça c'est quelque chose qui peut être
 
 173
 00:06:00,599 --> 00:06:02,134
@@ -712,11 +712,11 @@ qui est créé par l'interpréteur.
 
 179
 00:06:09,893 --> 00:06:12,364
-Mais, comme on dit que, type est la super-classe
+Mais, comme on dit que type est la super-classe
 
 180
 00:06:12,564 --> 00:06:13,856
-de toutes les classes et ben, en fait, c'est
+de toutes les classes et bien, en fait, c'est
 
 181
 00:06:14,056 --> 00:06:14,966
@@ -760,7 +760,7 @@ et, en vert, on a la notion d'instanciation.
 
 191
 00:06:36,185 --> 00:06:38,975
-object a été instanciés par type,
+object a été instancié par type,
 
 192
 00:06:39,175 --> 00:06:40,420
@@ -776,7 +776,7 @@ ou le type d'object, c'est type.
 
 195
 00:06:43,066 --> 00:06:47,800
-Et type est également sa propre métaclasse
+Et type est également sa propre métaclasse.
 
 196
 00:06:47,890 --> 00:06:49,713
@@ -788,7 +788,7 @@ Maintenant, je crée une classe B.
 
 198
 00:06:51,767 --> 00:06:53,670
-Ma classe b va hériter d'object
+Ma classe B va hériter d'object
 
 199
 00:06:53,870 --> 00:06:55,771
@@ -976,7 +976,7 @@ l'importation de ce code et au moment de la
 
 245
 00:08:34,549 --> 00:08:35,546
-création de l'objet classe?
+création de l'objet classe ?
 
 246
 00:08:35,746 --> 00:08:37,603
@@ -1056,7 +1056,7 @@ Voilà. Donc, c'est essentiellement les différentes
 
 265
 00:09:22,830 --> 00:09:24,767
-étapes, que va parcourir l'interpréteur.
+étapes que va parcourir l'interpréteur.
 
 266
 00:09:24,967 --> 00:09:26,862
@@ -1192,7 +1192,7 @@ Pour créer une métaclasse, il faut obligatoirement
 
 299
 00:10:31,801 --> 00:10:32,677
-hériter est de type.
+hériter de type.
 
 300
 00:10:32,877 --> 00:10:34,485
@@ -1252,7 +1252,7 @@ Mais, en pratique, on pourrait tout à fait valider
 
 314
 00:10:59,020 --> 00:11:00,550
-la correct syntaxe des méthodes,
+la correcte syntaxe des méthodes,
 
 315
 00:11:00,750 --> 00:11:02,079
@@ -1656,7 +1656,7 @@ qui est très intéressant pour comprendre
 
 415
 00:14:41,132 --> 00:14:44,048
-les mécanismes de création d'objets, en Python.
+les mécanismes de création d'objets en Python.
 
 416
 00:14:44,248 --> 00:14:45,898
@@ -1668,7 +1668,7 @@ propres métaclasses, vous pouvez ajouter
 
 418
 00:14:47,585 --> 00:14:48,627
-toute une couche de logique,
+toute une couche de logique
 
 419
 00:14:48,827 --> 00:14:51,174
