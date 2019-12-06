@@ -12,7 +12,7 @@ Nous avons vu qu'il s'agissait d'un mécanisme
 
 4
 00:00:10,414 --> 00:00:12,423
-puissant, pour contrôler l'accès
+puissant pour contrôler l'accès
 
 5
 00:00:12,623 --> 00:00:14,476
@@ -160,7 +160,7 @@ si vous l'implémentez dans votre classe,
 
 41
 00:01:30,415 --> 00:01:32,184
-qui sera systématiquement appelée,
+qui sera systématiquement appelée
 
 42
 00:01:32,384 --> 00:01:34,393
@@ -208,7 +208,7 @@ de __setattr__.
 
 53
 00:02:01,896 --> 00:02:03,625
-Nous remarquons d'ailleurs ici, que ce nom
+Nous remarquons d'ailleurs ici que ce nom
 
 54
 00:02:03,825 --> 00:02:05,033
@@ -240,7 +240,7 @@ __setattr__ ce qui est un petit peu troublant,
 
 61
 00:02:16,504 --> 00:02:20,057
-mais qui est l'implémentation que l'on a, en Python.
+mais qui est l'implémentation que l'on a en Python.
 
 62
 00:02:20,257 --> 00:02:21,907
@@ -256,7 +256,7 @@ qui est elle, une méthode très différente
 
 65
 00:02:25,716 --> 00:02:28,298
-de __getattribute__et de __setattr__,
+de __getattribute__ et de __setattr__,
 
 66
 00:02:28,498 --> 00:02:29,822
@@ -313,7 +313,7 @@ Encore une fois, vous avez trois méthodes :
 
 79
 00:02:56,788 --> 00:02:58,476
-__getattribute__,__setattr__,
+__getattribute__, __setattr__,
 
 80
 00:02:58,676 --> 00:03:00,610
@@ -377,7 +377,7 @@ Donc ici, vous voyez que j'ai mon descripteur :
 
 95
 00:03:27,187 --> 00:03:29,327
-j'ai défini mes deux méthodes __get__et __set__.
+j'ai défini mes deux méthodes __get__ et __set__.
 
 96
 00:03:29,527 --> 00:03:30,806
@@ -465,7 +465,7 @@ tout à fait normale, qu'on a déjà vu précédemment,
 
 117
 00:04:12,900 --> 00:04:15,239
-et j'ai implémenté les deux méthodes spéciales :
+et j'ai implémenté les deux méthodes spéciales
 
 118
 00:04:15,439 --> 00:04:17,655
@@ -637,7 +637,7 @@ Il se trouve que cet attribut est un descripteur.
 
 160
 00:05:43,334 --> 00:05:45,816
-Dans ma méthode _setattr__,
+Dans ma méthode __setattr__,
 
 161
 00:05:46,016 --> 00:05:47,996
@@ -681,11 +681,11 @@ et ça va le mettre à 18.
 
 171
 00:06:13,051 --> 00:06:15,153
-On voit toute cette logique un petit peu sophistiquée
+On voit toute cette logique un petit peu sophistiquée.
 
 172
 00:06:15,353 --> 00:06:17,456
-je passe dans le __setattr__ avec temperature,
+Je passe dans le __setattr__ avec temperature,
 
 173
 00:06:17,656 --> 00:06:18,251
@@ -701,7 +701,7 @@ et l'appel __set__ du descripteur modifie un attribut
 
 176
 00:06:22,600 --> 00:06:24,955
-de mon instance, je repasse donc dans__setattr__
+de mon instance, je repasse donc dans __setattr__
 
 177
 00:06:25,155 --> 00:06:27,048
@@ -745,7 +745,7 @@ l'attribut class. Mais quel rapport
 
 187
 00:06:46,340 --> 00:06:48,121
-avec mon mécanisme?
+avec mon mécanisme ?
 
 188
 00:06:48,321 --> 00:06:51,396
@@ -873,7 +873,7 @@ mon instance.
 
 219
 00:07:56,521 --> 00:07:58,591
-Donc, je vois bien, ici, l'appel de _getattribute__
+Donc, je vois bien, ici, l'appel de __getattribute__
 
 220
 00:07:58,791 --> 00:08:01,550
@@ -989,7 +989,7 @@ Et ensuite, je peux bien accéder à mon attribut,
 
 248
 00:09:15,721 --> 00:09:17,311
-et ça va repasser par _getattribute__
+et ça va repasser par __getattribute__
 
 249
 00:09:17,511 --> 00:09:18,803
@@ -997,15 +997,15 @@ et j'obtiens la valeur.
 
 250
 00:09:19,926 --> 00:09:22,512
-Nous venons de voir les méthodes __getattribute__
+Nous venons de voir les méthodes __getattribute__,
 
 251
 00:09:22,712 --> 00:09:24,896
-__setattr__, et __getattr__.
+__setattr__ et __getattr__.
 
 252
 00:09:25,096 --> 00:09:26,301
-Nous avons bien insisté, sur le fait,
+Nous avons bien insisté sur le fait
 
 253
 00:09:26,501 --> 00:09:28,651
@@ -1033,7 +1033,7 @@ mais bon, c'est comme ça.
 
 259
 00:09:36,418 --> 00:09:38,193
-Nous avons vu que _getattr__
+Nous avons vu que __getattr__
 
 260
 00:09:38,393 --> 00:09:40,381
@@ -1057,7 +1057,7 @@ si un attribut n'existe pas.
 
 265
 00:09:47,145 --> 00:09:49,329
-Cette vidéo conclut ce MOOC, sur Python.
+Cette vidéo conclut ce MOOC sur Python.
 
 266
 00:09:49,529 --> 00:09:51,102
@@ -1065,7 +1065,7 @@ Thierry et moi espérons que vous avez apprécié
 
 267
 00:09:51,302 --> 00:09:53,361
-ce MOOC et que nous vous avons convaincus que
+ce MOOC et que nous vous avons convaincu que
 
 268
 00:09:53,561 --> 00:09:54,724
@@ -1081,11 +1081,11 @@ Si vous avez suivi tout ce MOOC,
 
 271
 00:09:58,554 --> 00:10:00,575
-ce que nous supposons si vous arrivez à cette vidéo
+ce que nous supposons si vous arrivez à cette vidéo,
 
 272
 00:10:00,775 --> 00:10:02,307
-vous avez, maintenant, une profonde connaissance
+vous avez maintenant une profonde connaissance
 
 273
 00:10:02,507 --> 00:10:04,254
