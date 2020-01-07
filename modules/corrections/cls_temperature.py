@@ -15,11 +15,11 @@ class Temperature:
        >>> k = Temperature(kelvin=0); k
        0 °K
        >>> c = Temperature(celsius=0); c
-       -273.15 °K
+       -273 °K
        >>> c.kelvin
-       -273.15
+       -273
        >>> k.celsius 
-       273.15
+       273
     """
 
     KELVIN = 273
