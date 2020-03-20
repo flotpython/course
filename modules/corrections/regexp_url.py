@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0103, c0326
 
-from nbautoeval.exercise_regexp import ExerciseRegexp, ExerciseRegexpGroups
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseRegexp, ExerciseRegexpGroups, PPrintRenderer
 
 ######################################## url
 url_strings = """
@@ -74,6 +71,7 @@ exo_url = ExerciseRegexpGroups(
     [Args(x) for x in url_strings],
     nb_examples=0,
     font_size='x-small', header_font_size='small',
+    result_renderer=PPrintRenderer(width=30),
 )
 
 url_ko = i_flag + protos + "://" + hostname + '/' + path

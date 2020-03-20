@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction
 
 from random import randint
 
@@ -68,7 +66,7 @@ def numbers_ko(liste):
 def numbers_input():
     length = randint(2, 6)
     result = []
-    for i in range(length):
+    for _ in range(length):
         result.append(randint(5, 15))
     return result
 
@@ -77,6 +75,5 @@ numbers_inputs = [Args(), Args(6)] + [Args(*numbers_input()) for i in range (4)]
 
 exo_numbers = ExerciseFunction(
     numbers, numbers_inputs,
-    layout_args = (30, 25, 25),
     nb_examples = 3,
 )

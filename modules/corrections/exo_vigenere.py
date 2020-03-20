@@ -1,9 +1,6 @@
-#!/usr/bin/env python3
-
 # pylint: disable=c0111
 
-from nbautoeval.args import Args
-from nbautoeval.exercise_function import ExerciseFunction
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 # @BEG@ name=cesar latex_size=footnotesize
 
@@ -148,7 +145,7 @@ for c in 'aNz':
 exo_cesar = ExerciseFunction(
     cesar, inputs_cesar,
     nb_examples = 6,
-    layout_args=(50, 10, 10),
+#    layout_args=(50, 10, 10),
 )
 
 def cesar_ko(*args, **kwds):
@@ -188,7 +185,7 @@ inputs_vigenere = [
 exo_vigenere = ExerciseFunction(
     vigenere, inputs_vigenere,
     nb_examples=2,
-    layout_args=(50, 25, 25),
+    call_renderer=PPrintCallRenderer(width=25),
 )
 
 def vigenere_ko(*args, **kwds):

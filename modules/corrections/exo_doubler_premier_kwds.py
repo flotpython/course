@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, CallRenderer
 
 from .exo_distance import distance
 from .exo_doubler_premier import doubler_premier_inputs
@@ -60,8 +58,8 @@ doubler_premier_kwds_inputs \
 
 exo_doubler_premier_kwds = ExerciseFunction(
     doubler_premier_kwds, doubler_premier_kwds_inputs,
-    call_layout='truncate',
-    nb_examples=5, render_name=False,
+    nb_examples=5,
+    call_renderer=CallRenderer(show_function=False),
 )
 
 

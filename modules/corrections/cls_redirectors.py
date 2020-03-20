@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0103
 
 import random
 import string
 
 
-from nbautoeval.exercise_class import (
-    ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
-from nbautoeval.args import Args
+from nbautoeval import (
+    Args, ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
 
 
 def random_name():
@@ -59,9 +56,7 @@ for r in range(3, 6):
 
 exo_redirector1 = ExerciseClass(
     Redirector1, redirector1_scenarios,
-    layout='pprint',
     nb_examples=2,
-    layout_args=(),
     obj_name='R',
 )
 
@@ -130,9 +125,7 @@ for r in range(3, 6):
 
 exo_redirector2 = ExerciseClass(
     Redirector2, redirector2_scenarios,
-    layout='pprint',
     nb_examples=2,
-    layout_args=(),
     obj_name='R',
 )
 

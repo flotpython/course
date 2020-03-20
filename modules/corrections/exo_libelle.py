@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction
 
 ##############################
 # @BEG@ name=libelle
@@ -47,6 +45,4 @@ inputs_libelle = [
 exo_libelle = ExerciseFunction(
     libelle, inputs_libelle,
     nb_examples = 0,
-    layout_args = (25, 25, 25),
-    render_name = False,
 )

@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintRenderer
 
 
 from .exo_aplatir import aplatir
@@ -35,7 +34,10 @@ alternat_inputs = [
 
 
 exo_alternat = ExerciseFunction(
-    alternat, alternat_inputs, nb_examples=2)
+    alternat, alternat_inputs, 
+    nb_examples=2,
+    result_renderer=PPrintRenderer(width=16),
+)
 
 
 def alternat_ko(iter1, iter2):

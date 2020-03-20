@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer, PPrintRenderer
 
 
 # load all the data
@@ -187,7 +184,9 @@ class ExoDiff(ExerciseFunction):
 
 exo_diff = ExoDiff(
     diff, "inputs_gets_overridden",
-    font_size='x-small', header_font_size='small',
+    font_size='x-small', 
+    call_renderer=PPrintCallRenderer(width=20),
+    result_renderer=PPrintRenderer(width=30),
 )
 
 

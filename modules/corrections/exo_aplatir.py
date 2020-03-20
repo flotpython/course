@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, CallRenderer, PPrintRenderer
 
 
 # @BEG@ name=aplatir
@@ -28,5 +26,9 @@ aplatir_inputs = [
 
 
 exo_aplatir = ExerciseFunction(
-    aplatir, aplatir_inputs, nb_examples=0)
+    aplatir, aplatir_inputs, nb_examples=0,
+#    call_renderer=CallRenderer(show_function=False),
+    result_renderer=PPrintRenderer(width=20),
+    font_size='x-small',
+)
 

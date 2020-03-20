@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction
 
 # @BEG@ name=spreadsheet
 def int_to_char(n):

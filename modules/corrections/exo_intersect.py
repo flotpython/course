@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 
 # @BEG@ name=intersect
@@ -55,4 +53,7 @@ intersect_inputs.append(Args(A2, B2))
 
 
 exo_intersect = ExerciseFunction(
-    intersect, intersect_inputs, nb_examples=2)
+    intersect, intersect_inputs,
+    nb_examples=2,
+    call_renderer=PPrintCallRenderer(width=20),
+)

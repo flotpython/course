@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintRenderer, PPrintCallRenderer
 
 import json
 
@@ -34,7 +32,7 @@ def show():
     print("abbreviated_full has {} {}-entries"
           .format(len(abbreviated_full), len(abbreviated_full[0])))
     print("extended has {} entries".format(len(extended)))
-    print("abbreviated has entries".format(len(abbreviated)))
+    print("abbreviated has {} entries".format(len(abbreviated)))
 
 #show()
 
@@ -117,7 +115,9 @@ class ExoIndex(ExerciseFunction):
 
 exo_index = ExoIndex(
     index, "inputs_gets_overridden",
-    font_size='x-small', header_font_size='small',
+    font_size='xx-small',
+    call_renderer=PPrintCallRenderer(width=25),
+    result_renderer=PPrintRenderer(width=30),
 )
 
 
@@ -227,5 +227,7 @@ class ExoMerge(ExerciseFunction):
 
 exo_merge = ExoMerge(
     merge, "inputs_gets_overridden",
-    font_size='x-small', header_font_size='small',
+    font_size='xx-small',
+    call_renderer=PPrintCallRenderer(width=25),
+    result_renderer=PPrintRenderer(width=30),
 )

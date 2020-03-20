@@ -1,8 +1,7 @@
 # pylint: disable=c0111
 import numpy as np
 
-from nbautoeval.exercise_function import ExerciseFunctionNumpy
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunctionNumpy
 
 # @BEG@ name=dice
 def dice(target, nb_dice=2, sides=6):
@@ -19,7 +18,7 @@ def dice(target, nb_dice=2, sides=6):
     combinations = line
     # construire l'hyper-cube avec une dimension de plus
     # on fait ça (nb-dice-1) fois car là on a déjà la dimension 1
-    for dimension in range(nb_dice-1):
+    for _dimension in range(nb_dice-1):
         # une dimension de plus
         line = line[:, np.newaxis]
         # on ajoute
@@ -119,5 +118,5 @@ exo_dice = ExerciseFunctionNumpy(
     dice,
     dice_inputs,
     nb_examples=5,
-    layout_args=(50, 10, 10),
+#    layout_args=(50, 10, 10),
     )

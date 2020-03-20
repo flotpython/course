@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_regexp import ExerciseRegexp, ExerciseRegexpGroups
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseRegexp, ExerciseRegexpGroups, PPrintRenderer
 
 
 agenda_strings = [
@@ -38,7 +36,9 @@ agenda_groups = ['nom', 'prenom']
 exo_agenda = ExerciseRegexpGroups(
     'agenda', agenda, agenda_groups,
     [Args(x) for x in agenda_strings],
-    nb_examples = 0)
+    nb_examples = 0,
+    result_renderer=PPrintRenderer(width=30),
+)
 
 
 agenda_ko = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?"

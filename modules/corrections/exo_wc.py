@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import ExerciseFunction, Args, PPrintRenderer, PPrintCallRenderer
 
 
 # @BEG@ name=wc
@@ -38,4 +37,8 @@ Sparse is better than dense.
 ...'''),
     )
 
-exo_wc = ExerciseFunction(wc, wc_inputs, layout_args=(80, 15, 15))
+exo_wc = ExerciseFunction(
+    wc, wc_inputs,
+    call_renderer=PPrintCallRenderer(width=80, show_function=False),
+    result_renderer=PPrintRenderer(width=15))
+                          

@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0411, c0103
 
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintRenderer
 
 
 # @BEG@ name=graph_dict
@@ -69,7 +66,7 @@ inputs_graph_dict = [
 exo_graph_dict = ExerciseFunction(
     graph_dict, inputs_graph_dict,
     nb_examples=1,
-    layout_args=(10, 40, 40),
+    result_renderer=PPrintRenderer(width=40),
 )
 
 

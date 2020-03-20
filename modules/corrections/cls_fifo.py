@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0103
 
-from nbautoeval.exercise_class import ExerciseClass, ClassScenario
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseClass, ClassScenario
 
 # @BEG@ name=fifo
 class Fifo:

@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 
 # @BEG@ name=two_sum
@@ -68,5 +67,6 @@ exo_two_sum = ExerciseFunction(
     two_sum,
     inputs,
     nb_examples=0,
-    layout_args=(50, 15, 15),
+    call_renderer=PPrintCallRenderer(width=40),
+    font_size='x-small',
 )

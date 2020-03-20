@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 
 # @BEG@ name=longest_gap
@@ -22,8 +21,7 @@ inputs = [
 ]
 
 exo_longest_gap = ExerciseFunction(
-    longest_gap,
-    inputs,
+    longest_gap, inputs,
     nb_examples=0,
-    layout_args=(50, 5, 5),
+    call_renderer=PPrintCallRenderer(width=45),
 )

@@ -1,13 +1,10 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0103
 
 from functools import reduce
 from itertools import count, zip_longest, repeat, product
 
-from nbautoeval.exercise_class import (
-    ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
-from nbautoeval.args import Args
+from nbautoeval import (
+    Args, ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
 
 # @BEG@ name=polynomial latex_size=footnotesize
 class Polynomial:
@@ -180,10 +177,9 @@ polynomial_scenarios = [
 
 exo_polynomial = ExerciseClass(
     Polynomial, polynomial_scenarios,
-    layout='pprint',
     nb_examples=0,
-    layout_args=(),
     obj_name='P',
+    header_font_size='small',
 )
 
 

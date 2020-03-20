@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 
 ##############################
@@ -49,7 +47,7 @@ inputs_carre = [
 exo_carre = ExerciseFunction(
     carre, inputs_carre,
     nb_examples=0,
-    layout_args = (40, 20, 20)
+    call_renderer=PPrintCallRenderer(show_function=False, width=40)
     )
 
 

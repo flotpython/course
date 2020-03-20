@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable=c0111, c0103
 
-from nbautoeval.exercise_class import (
-    ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
-from nbautoeval.args import Args
+from nbautoeval import (
+    Args, ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
 
 # @BEG@ name=temperature
 class Temperature:
@@ -108,9 +105,7 @@ temperature_scenarios = [
 
 exo_temperature = ExerciseClass(
     Temperature, temperature_scenarios,
-    layout='pprint',
     nb_examples=0,
-    layout_args=(),
     obj_name='temp',
 )
 

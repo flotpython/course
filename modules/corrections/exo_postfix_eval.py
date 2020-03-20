@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction
 
 
 # @BEG@ name=postfix_eval latex_size=footnotesize
@@ -130,7 +129,6 @@ exo_postfix_eval = ExerciseFunction(
     postfix_eval,
     inputs,
     nb_examples=8,
-    layout_args=(50, 15, 15),
 )
 
 
@@ -197,6 +195,5 @@ exo_postfix_eval_typed = ExerciseFunction(
     postfix_eval_typed,
     inputs_typed,
     nb_examples=3,
-    layout_args=(50, 50, 50),
-    layout='pprint',
+    font_size='x-small',
 )

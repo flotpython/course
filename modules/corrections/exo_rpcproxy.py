@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # @BEG@ name=RPCProxy week=6 sequence=2 latex_size=footnotesize no_validation=skip
 # une troisième implémentation de RPCProxy
 
@@ -44,3 +42,4 @@ class RPCProxy:
         """
         return Forwarder(self, methodname)
 # @END@
+A

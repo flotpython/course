@@ -1,4 +1,4 @@
-from nbautoeval import ExerciseGenerator, GeneratorArgs
+from nbautoeval import ExerciseGenerator, GeneratorArgs, PPrintRenderer
 
 
 # @BEG@ name=primes
@@ -42,6 +42,7 @@ primes_args = [
 exo_primes = ExerciseGenerator(
     primes, primes_args, max_iterations=501,
     nb_examples=0,
+    result_renderer=PPrintRenderer(width=30),
 )
 
 primes_ko = itertools.count
@@ -78,6 +79,7 @@ prime_squares_args = [
 exo_prime_squares = ExerciseGenerator(
     prime_squares, prime_squares_args,
     max_iterations=100,
+    result_renderer=PPrintRenderer(width=30),
 )
 
 
@@ -125,6 +127,7 @@ exo_prime_legos = ExerciseGenerator(
     prime_legos, args_prime_legos,
     max_iterations=101,
     nb_examples=0,
+    result_renderer=PPrintRenderer(width=30),
 )
 
 def prime_legos_ko():
@@ -178,7 +181,7 @@ def prime_th_primes_bis():
         # the amount of times we must iterate on primes2
         offset = next_index - current_index
         # move primes2 forward that many times
-        for _ in range(next_index-current_index):
+        for _ in range(offset):
             output = next(primes2)
         # we have a winner
         yield output
@@ -195,6 +198,7 @@ args_prime_th_primes = [
 exo_prime_th_primes = ExerciseGenerator(
     prime_th_primes, args_prime_th_primes,
     max_iterations=50,
+    result_renderer=PPrintRenderer(width=30),
 )
 
 def prime_th_primes_ko(): 
@@ -226,6 +230,7 @@ differential_args = [
 exo_differential = ExerciseGenerator(
     differential, differential_args,
     max_iterations=200,
+    result_renderer=PPrintRenderer(width=30),
 )
 
 differential_ko = lambda : (2*n+1 for n in itertools.count())

@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, CallRenderer
 
 
 # @BEG@ name=doubler_premier
@@ -56,9 +54,7 @@ doubler_premier_inputs.insert(3, Args(distance, 2.0, 4., 4., 4.))
 exo_doubler_premier = ExerciseFunction(
     doubler_premier, doubler_premier_inputs,
     nb_examples=4,
-    render_name=False,
-    layout_args=(40,10,10),
-    call_layout='truncate'
+    call_renderer=CallRenderer(show_function=False),
 )
 
 

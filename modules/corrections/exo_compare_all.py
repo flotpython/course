@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, CallRenderer
 
 from functools import reduce
 
@@ -42,8 +40,8 @@ compare_all_inputs.append(Args(broken_fact, factorial, fact_inputs))
 exo_compare_all = ExerciseFunction(
     compare_all, compare_all_inputs,
     nb_examples = 2,
-    call_layout='truncate',
-    layout_args=(50, 8, 8))
+    call_renderer=CallRenderer(show_function=False),
+)
 
 
 def compare_all_ko(*args):

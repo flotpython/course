@@ -1,13 +1,6 @@
-# -*- coding: utf-8 -*-
-
-### cannot remember why this one file is unicode but there was a good reason
-# I expect some parts of the file make it to the platform itself, or something
-# in any case there is a hack in corriges.py to take care of that
-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
-
 import os
+
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer, MultilineRenderer
 
 ####################
 # the function as it is specified does not fit in the 'exercice' framework
@@ -156,8 +149,10 @@ class ExoComptage(ExerciseFunction):
 
 exo_comptage = ExoComptage(
     comptage, comptage_args,
-    layout='text_backslash_n',
-    layout_args=(None, 'xx-small', 'xx-small'),
-    call_layout='void',
-    font_size='x-small', header_font_size='small',
+#    layout='text_backslash_n',
+#    layout_args=(None, 'xx-small', 'xx-small'),
+#    call_layout='void',
+    font_size='xx-small', 
+    call_renderer=PPrintCallRenderer(width=20),
+    result_renderer=MultilineRenderer(),
 )

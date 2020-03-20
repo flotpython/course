@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer, PPrintRenderer
 
 
 # @BEG@ name=multi_tri
@@ -26,7 +24,9 @@ inputs_multi_tri = [
 
 exo_multi_tri = ExerciseFunction(
     multi_tri, inputs_multi_tri,
-    layout_args=(20, 20, 20),
+    call_renderer=PPrintCallRenderer(width=30),
+    result_renderer=PPrintRenderer(width=20),
+#    layout_args=(20, 20, 20),
 )
                                
 

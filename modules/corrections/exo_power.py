@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintRenderer, PPrintCallRenderer
 
 
 # @BEG@ name=power
@@ -66,5 +64,6 @@ inputs_power += [
 exo_power = ExerciseFunction(
     power, inputs_power,
     nb_examples = 4,
-    layout_args = (30, 30, 30),
+    call_renderer=PPrintCallRenderer(width=30),
+    result_renderer=PPrintRenderer(width=40),
 )

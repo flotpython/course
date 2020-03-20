@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
-
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer, PPrintRenderer
 
 # @BEG@ name=liste_P
 def P(x):
@@ -36,6 +33,8 @@ inputs_liste_P = [
 exo_liste_P = ExerciseFunction(
     liste_P,
     inputs_liste_P,
+    call_renderer=PPrintCallRenderer(width=40, show_function=False),
+    result_renderer=PPrintRenderer(width=25),
 )
 
 

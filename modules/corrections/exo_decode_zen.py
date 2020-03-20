@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, MultilineRenderer
 
 
 # @BEG@ name=decode_zen no_example=skip
@@ -69,10 +67,11 @@ class ExoDecodeZen(ExerciseFunction):
 exo_decode_zen = ExoDecodeZen(
     decode_zen, "inputs_gets_overridden",
     copy_mode='none',
-    layout='text', layout_args=(None, 'xx-small', 'xx-small'),
-    call_layout='void', render_name=False,
-    font_size='x-small', header_font_size='small',
-    )
+    result_renderer=MultilineRenderer(),
+#    layout='text', layout_args=(None, 'xx-small', 'xx-small'),
+#    call_layout='void', render_name=False,
+    font_size='xx-small',
+)
 
 
 

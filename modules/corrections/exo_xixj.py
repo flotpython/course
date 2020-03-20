@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunctionNumpy
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunctionNumpy
 
 
 # @BEG@ name=xixj

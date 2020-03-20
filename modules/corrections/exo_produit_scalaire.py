@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer, PPrintRenderer
 
 
 # @BEG@ name=produit_scalaire
@@ -85,6 +83,8 @@ inputs_produit_scalaire = [
 exo_produit_scalaire = ExerciseFunction(
     produit_scalaire,
     inputs_produit_scalaire,
+    call_renderer=PPrintCallRenderer(width=25),
+    result_renderer=PPrintRenderer(width=25),
 )
 
 

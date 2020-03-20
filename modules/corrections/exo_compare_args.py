@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, CallRenderer
 
 
 # @BEG@ name=compare_args
@@ -64,10 +62,9 @@ compare_args_inputs.append(Args(add, plus, add_inputs))
 #################### the exercise instance
 exo_compare_args = ExerciseFunction(
     compare_args, compare_args_inputs,
-    call_layout='truncate',
-    layout_args=(50, 8, 8),
-    render_name=False,
     nb_examples=2,
+    call_renderer=CallRenderer(show_function=False),
+    font_size='x-small',
 )
 
 

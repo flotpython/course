@@ -1,5 +1,4 @@
-from nbautoeval.exercise_function import ExerciseFunction
-from nbautoeval.args import Args
+from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 
 
 # @BEG@ name=meeting
@@ -22,11 +21,15 @@ inputs = [
 exo_meeting = ExerciseFunction(
     meeting,
     inputs,
+    call_renderer=PPrintCallRenderer(width=40),
+    font_size='xx-small',
 #    nb_examples=0,
+#    layout_args=(40, 40, 20),
 #    layout_args=(40, 40 , 25),
 #    layout='truncate', 
-    #layout='pprint', 
-    #layout='text', 
+#    layout='pprint', 
+#    layout='text', 
     #layout='text_backslash_n', 
-    #layout_args=(10, 'xx-small', 'xx-small'),
+#    layout='raw',
+#    layout_args=(10, 'xx-small', 'xx-small'),
 )
