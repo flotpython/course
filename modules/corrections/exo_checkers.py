@@ -1,7 +1,7 @@
 # pylint: disable=c0111
 import numpy as np
 
-from nbautoeval import Args, ExerciseFunctionNumpy, NumpyArrayAsImageRenderer
+from nbautoeval import Args, ExerciseFunctionNumpy
 
 
 # @BEG@ name=checkers
@@ -91,5 +91,4 @@ exo_checkers = ExerciseFunctionNumpy(
     checkers,
     checkers_inputs,
     nb_examples=2,
-    result_renderer=NumpyArrayAsImageRenderer(),
 )
