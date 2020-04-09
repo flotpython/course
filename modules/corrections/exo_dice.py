@@ -118,5 +118,4 @@ exo_dice = ExerciseFunctionNumpy(
     dice,
     dice_inputs,
     nb_examples=5,
-#    layout_args=(50, 10, 10),
-    )
+)

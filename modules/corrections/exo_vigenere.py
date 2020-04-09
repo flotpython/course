@@ -145,7 +145,6 @@ for c in 'aNz':
 exo_cesar = ExerciseFunction(
     cesar, inputs_cesar,
     nb_examples = 6,
-#    layout_args=(50, 10, 10),
 )
 
 def cesar_ko(*args, **kwds):

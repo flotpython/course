@@ -68,8 +68,6 @@ exo_decode_zen = ExoDecodeZen(
     decode_zen, "inputs_gets_overridden",
     copy_mode='none',
     result_renderer=MultilineRenderer(),
-#    layout='text', layout_args=(None, 'xx-small', 'xx-small'),
-#    call_layout='void', render_name=False,
     font_size='xx-small',
 )
 

@@ -31,7 +31,7 @@
 ### exo_liste_racines = ExerciceFunction(
 ###     liste_racines,
 ###     inputs_liste_racines,
-###     layout_args=(18, 30, 30))
+### )
 
 
 
@@ -82,6 +82,5 @@
 ### 
 ### exo_affichage = ExerciceFunction(
 ###     affichage, inputs_affichage,
-###     layout_args=(40, 40, 40),
 ###     exemple_how_many=4)
 

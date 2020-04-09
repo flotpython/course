@@ -26,7 +26,6 @@ exo_multi_tri = ExerciseFunction(
     multi_tri, inputs_multi_tri,
     call_renderer=PPrintCallRenderer(width=30),
     result_renderer=PPrintRenderer(width=20),
-#    layout_args=(20, 20, 20),
 )
                                
 

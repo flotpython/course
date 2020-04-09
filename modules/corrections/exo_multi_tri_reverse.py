@@ -38,5 +38,4 @@ exo_multi_tri_reverse = ExerciseFunction(
     nb_examples=2,
     call_renderer=PPrintCallRenderer(width=24),
     result_renderer=PPrintRenderer(width=24),
-#    layout_args=(24, 24, 24),
 )

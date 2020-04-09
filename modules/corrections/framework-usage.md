@@ -7,7 +7,7 @@ Running
     cd corriges
     make validation
     
-will create a notebook `modules/corrections/validation.ipynb` that has all the exos present with a sample of the correction layout.
+will create a notebook `modules/corrections/validation.ipynb` that has all the exos present, so one can check how they show up.
 
 To visualize this
 
@@ -36,31 +36,5 @@ As of iteration 1, all exos used the `ExerciseFunction` class. Their implementat
 
 * ...
 
-## Layouts
-
-* default layout is `pprint` with columns `(24, 28, 28)`
-
-* `multi_tri` : changes columns to (20, 20, 20)
-* `multi_tri_reverse` : changes columns to (24, 24, 24)
-* `decode_zen` 
-  * hides call: `layout=void` at the Arg level (together with render_name=False, useful?)
-  * `layout=text` at the exo level
-  * layout_args=(None, 'x-small', 'x-small')
-
-* `dispatch2`: chanes default columns to 50, 30, 30
-
-* `comptage`
-  * hides call : set `layout=void` at the Arg level
-  * exo sets `layout=text_backslash_n`
-  * layout_args=(None, 'x-small', 'x-small')
-
-* `numbers` changes default columns to 30, 25, 25
-
-The following need `truncate` because some args are function objects (add, mul, etc..) and we want these to show by **their names** and **not** the `<function ...>` string that `pprint` would give us otherwise
-
-* `compare`, `compare_args`, `doubler_premier`  and `doubler_premier_kwds` use
-  *  `layout=pprint` 
-  *  `call_layout=truncate`
-  *  `render_name=False`
 
 

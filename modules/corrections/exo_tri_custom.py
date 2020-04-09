@@ -1,4 +1,4 @@
-from nbautoeval import Args, ExerciseFunction
+from nbautoeval import Args, ExerciseFunction, PPrintRenderer, PPrintCallRenderer
 
 
 # @BEG@ name=tri_custom
@@ -181,8 +181,9 @@ inputs_tri_custom = [
 
 exo_tri_custom = ExerciseFunction(
     tri_custom, inputs_tri_custom,
-    layout_args=(60, 60, 60),
-    font_size='x-small', header_font_size='small',    
+    call_renderer=PPrintCallRenderer(width=24),
+    result_renderer=PPrintRenderer(width=30),
+    font_size='small',
 )
                                
 

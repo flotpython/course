@@ -149,9 +149,6 @@ class ExoComptage(ExerciseFunction):
 
 exo_comptage = ExoComptage(
     comptage, comptage_args,
-#    layout='text_backslash_n',
-#    layout_args=(None, 'xx-small', 'xx-small'),
-#    call_layout='void',
     font_size='xx-small', 
     call_renderer=PPrintCallRenderer(width=20),
     result_renderer=MultilineRenderer(),
