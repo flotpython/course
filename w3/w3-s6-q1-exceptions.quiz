@@ -10,13 +10,13 @@ Cochez la ou les affirmations exactes.
 [x] On peut capturer une exception et déclencher une action pour corriger le problème notifié.
 
 [explanation]
-Une exception capturée ne va pas provoquer l'arrêt du programme. Il existe également des exceptions (comme StopIteration) qui sont automatiquement capturées (par exemple, par une boucle for) sans provoquer d'arrêt du programme. 
+Une exception capturée ne va pas provoquer l'arrêt du programme. Il existe également des exceptions (comme StopIteration) qui sont automatiquement capturées (par exemple, par une boucle for) sans provoquer d'arrêt du programme.
 
-Une exception non capturée n'est jamais perdue, elle remonte la pile d'exécution jusqu'au moment où le programme s'arrête.
+Une exception non capturée n'est jamais perdue, elle remonte la pile d'exécution jusqu'au moment où elle provoque l'arrêt du programme.
 
 Les exceptions sont très efficaces en Python et sont utilisées de manière standard pour communiquer à l'intérieur d'un programme.
 
-Avec une instruction <code>try except</code>, on peut capturer une exception et faire une action corrective. 
+Avec une instruction <code>try except</code>, on peut capturer une exception et faire une action corrective.
 [explanation]
 
 
@@ -24,16 +24,16 @@ Avec une instruction <code>try except</code>, on peut capturer une exception et 
 Exceptions (2)
 =====
 
-On a du code qui peut produire une exception <code>TypeError</code>. Cochez les affirmations qui sont correctes : 
+On a du code qui peut produire une exception <code>TypeError</code>. Cochez les affirmations qui sont correctes :
 
-[ ] Il vaut mieux capturer <code>Exception</code> plutôt que <code>TypeError</code>, ainsi notre code sera plus robuste.
+[ ] Il vaut mieux capturer avec une instruction <code>except Exception</code>, plutôt que <code>except TypeError</code>, ainsi notre code sera plus robuste.
 [x] On peut capturer l'exception n'importe où le long de la pile d'exécution.
 [x] Il vaut mieux capturer l'exception au plus proche de là où elle est produite.
 
 
 
 [explanation]
-On doit capturer les exceptions qui sont prévisibles et donc on doit éviter de capturer <code>Exception</code> qui permet de capturer toutes les exceptions d'un coup et qui donc peut cacher une exception que nous n'avions pas prévue et pour laquelle on n'a implémenté aucun comportement spécifique. 
+Le langage permet en effet de capturer toutes les exceptions d'un coup avec <code>except Exception:</code>; toutefois cette pratique est peu recommandée, dans notre cas de figure le mieux est d'attraper seulement les exceptions de la classe <code>TypeError</code>, mais de laisser passer toutes les autres, qui pourront être traitées par l'appelant; si on capturait <code>Exception</code>, on se mettrait alors en position d'étouffer des erreurs graves, qui ne seront plus du tout notifiées à l'appelant.
 
-Une exception peut se capturer n'importe où dans la pile d'exécution, mais on recommande en général de capturer l'exception au plus près de là où elle est produite. 
+Une exception peut se capturer n'importe où dans la pile d'exécution, mais on recommande en général de capturer l'exception au plus près de là où elle est produite.
 [explanation]
