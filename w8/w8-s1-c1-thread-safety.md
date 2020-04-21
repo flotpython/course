@@ -14,7 +14,7 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
-  notebookname: sections critiques
+  notebookname: thread safety
   version: '1.0'
 ---
 
