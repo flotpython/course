@@ -245,7 +245,7 @@ Dans ce contexte, le cas des programmes Python est un peu spécial; ce n'est pas
 Et il se trouve que l'interpréteur Python est un exemple de programme qui pourrait être sensible au type de problèmes que nous venons d'étudier. 
 
 
-Voyons exemple pour vous faire entrevoir la complexité du sujet. 
+Voyons un exemple pour vous faire entrevoir la complexité du sujet. 
 Vous vous souvenez qu'on a parlé de garbage collection, et de compteur de références. 
 Voyons comment le fait de maintenir un compteur de références crée le besoin d'**écrire** dans la mémoire, alors qu'en lisant le code Python on ne voit que des **accès en lecture**.
 
