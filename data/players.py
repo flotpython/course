@@ -20,9 +20,12 @@ class Player:
         # durer indéfiniment
         self.cycles = cycles
 
+    def __repr__(self):
+        return f"{self.name}: {self.cycles}x{self.period}s"
+
     async def run(self):
         counter = 0
-        while counter <= self.cycles:
+        while counter < self.cycles:
             counter += 1
             duration = self.period * random.random()
             direction = random.choice(self.directions)
@@ -33,6 +36,9 @@ class Player:
 class Players:
     def __init__(self, *players):
         self.players = list(players)
+
+    def __repr__(self):
+        return f"[Players {' + '.join(repr(p) for p in self.players)}]"
 
     async def run(self):
         jobs = [

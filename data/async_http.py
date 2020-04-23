@@ -26,7 +26,7 @@ $ async_http.py http://google.com http://facebook.com http://google.com http://f
 
 ##########
 # contrairement au notebook, il nous faudra flusher les impressions
-# sus sys.stdout, qui sinon sont bufferisées
+# sur sys.stdout, qui sinon sont bufferisées
 import sys
 
 import time
