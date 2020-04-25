@@ -43,7 +43,7 @@ items2 = [
 items3 = items1 + items2
 
 """
-to generate the actual inputs 
+to generate the actual inputs
 import random
 
 inputs = []
@@ -53,7 +53,7 @@ for i in range(3):
         random.shuffle(input)
         inputs.append(input)
 
-inputs        
+inputs
 """
 
 inputs = [[{'n': 'Dupont', 'p': 'Laura', 'p2': 'Marie'},
@@ -185,7 +185,7 @@ exo_tri_custom = ExerciseFunction(
     result_renderer=PPrintRenderer(width=30),
     font_size='small',
 )
-                               
+
 
 def tri_custom_ko(liste):
     sort(liste)
