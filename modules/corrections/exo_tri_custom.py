@@ -14,6 +14,16 @@ def tri_custom(liste):
     return liste
 # @END@
 
+# @BEG@ name=tri_custom more=bis
+def tri_custom_bis(liste):
+    """
+    tri avec une fonction lambda et une expression conditionnelle
+    """
+    liste.sort(key=lambda d: (d['p'], d['n'], d['p2']) if 'p2' in d
+                else (d['p'], d['n']))
+    return liste
+# @END@
+
 
 items1 = [
     dict(n='Martin', p='Jean'),
