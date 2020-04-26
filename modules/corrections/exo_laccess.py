@@ -34,10 +34,12 @@ def laccess_bis(liste):
 inputs_laccess = [
     Args([]),
     Args([1]),
-    Args(['spam', 2]),
-    Args(['spam', 2, 'bacon']),
-    Args([1, 2, 3, 4]),
-    Args([1, 2, 3, 4, 5]),
+    Args(['spam', 100]),
+    Args(['spam', 100, 'bacon']),
+    Args([1, 2, 3, 100]),
+    Args([1, 2, 100, 4, 5]),
+    Args(['si', 'pair', 'alors', 'dernier']),
+    Args(['retourne', 'le', 'milieu', 'si', 'impair']),
 ]
 
 
