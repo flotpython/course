@@ -24,6 +24,15 @@ def tri_custom_bis(liste):
     return liste
 # @END@
 
+# @BEG@ name=tri_custom more=ter
+def tri_custom_ter(liste):
+    """
+    tri avec une fonction lambda et une compréhension de tuple
+    """
+    keys = ('p', 'n', 'p2')
+    liste.sort(key=lambda d: tuple(d[k] for k in keys if k in d))
+    return liste
+# @END@
 
 items1 = [
     dict(n='Martin', p='Jean'),
