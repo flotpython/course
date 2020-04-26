@@ -14,6 +14,25 @@ def tri_custom(liste):
     return liste
 # @END@
 
+# @BEG@ name=tri_custom more=bis
+def tri_custom_bis(liste):
+    """
+    tri avec une fonction lambda et une expression conditionnelle
+    """
+    liste.sort(key=lambda d: (d['p'], d['n'], d['p2']) if 'p2' in d
+                else (d['p'], d['n']))
+    return liste
+# @END@
+
+# @BEG@ name=tri_custom more=ter
+def tri_custom_ter(liste):
+    """
+    tri avec une fonction lambda et une compréhension de tuple
+    """
+    keys = ('p', 'n', 'p2')
+    liste.sort(key=lambda d: tuple(d[k] for k in keys if k in d))
+    return liste
+# @END@
 
 items1 = [
     dict(n='Martin', p='Jean'),
@@ -43,7 +62,7 @@ items2 = [
 items3 = items1 + items2
 
 """
-to generate the actual inputs 
+to generate the actual inputs
 import random
 
 inputs = []
@@ -53,7 +72,7 @@ for i in range(3):
         random.shuffle(input)
         inputs.append(input)
 
-inputs        
+inputs
 """
 
 inputs = [[{'n': 'Dupont', 'p': 'Laura', 'p2': 'Marie'},
@@ -185,7 +204,7 @@ exo_tri_custom = ExerciseFunction(
     result_renderer=PPrintRenderer(width=30),
     font_size='small',
 )
-                               
+
 
 def tri_custom_ko(liste):
     sort(liste)
