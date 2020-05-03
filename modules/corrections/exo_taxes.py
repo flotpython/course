@@ -106,7 +106,7 @@ taxes_values = [ 0, 50_000, 12_500, 5_000,
 
 taxes_inputs = [Args(v) for v in taxes_values]
 
-exo_taxes = ExerciseFunction(taxes, taxes_inputs, nb_examples=2)
+exo_taxes = ExerciseFunction(taxes, taxes_inputs, nb_examples=3)
 
 if __name__ == '__main__':
     for value in taxes_values:
