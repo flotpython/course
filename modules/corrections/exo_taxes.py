@@ -5,24 +5,24 @@ from nbautoeval import Args, ExerciseFunction
 # une solution très élégante proposée par adrienollier
 
 # les tranches en ordre décroissant
-TaxRate = (
+bareme = (
     (150_000, 45),
-    (45_000, 40),
-    (11_500, 20),
+    (50_000, 40),
+    (12_500, 20),
     (0, 0),
 )
 
-def taxes(income):
+def taxes(revenu):
     """
     U.K. income taxes calculator
     https://www.gov.uk/income-tax-rates
     """
-    due = 0
-    for floor, rate in TaxRate:
-        if income > floor:
-            due += (income - floor) * rate / 100
-            income = floor
-    return int(due)
+    montant = 0
+    for seuil, taux in bareme:
+        if revenu > seuil:
+            montant += (revenu - seuil) * taux // 100
+            revenu = seuil
+    return montant
 # @END@
 
 
@@ -36,10 +36,10 @@ def taxes(income):
 bands = [
     # à partir de 0. le taux est nul
     (0, 0.),
-    # jusqu'à 11 500 où il devient de 20%
-    (11_500, 20/100),
+    # jusqu'à 12 500 où il devient de 20%
+    (12_500, 20/100),
     # etc.
-    (45_000, 40/100),
+    (50_000, 40/100),
     (150_000, 45/100),
 ]
 
@@ -81,9 +81,9 @@ def taxes_bis(income):
 import math
 
 TaxRate2 = (
-    (0, 11_500, 0),
-    (11_501, 45_000, 20),
-    (45_001, 150_000, 40),
+    (0, 12_500, 0),
+    (12_501, 50_000, 20),
+    (50_001, 150_000, 40),
     (150_001, math.inf, 45),
 )
 
@@ -97,11 +97,11 @@ def taxes_ter(income):
 
 
 def taxes_ko(income):
-    return (income - 11_500) * 20/100
+    return (income - 12_500) * 20/100
 
 
-taxes_values = [ 0, 45_000, 11_500, 5_000,
-                 16_500, 30_000, 100_000, 150_000, 200_000, 11_504
+taxes_values = [ 0, 50_000, 12_500, 5_000,
+                 16_500, 30_000, 100_000, 150_000, 200_000, 12_504
 ]
 
 taxes_inputs = [Args(v) for v in taxes_values]
