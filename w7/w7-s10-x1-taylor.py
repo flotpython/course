@@ -186,7 +186,7 @@ sinus_animator.interact(sinus_widget)
 # ### cosinus
 
 # %% [markdown]
-# La même chose avec cosinus nous donne ceci :
+# La même chose avec cosinus nous donnerait ceci :
 
 # %% {"scrolled": false}
 # allows to select a degree
@@ -200,16 +200,16 @@ sinus_animator.display((-1.5, 1.5))
 sinus_animator.interact(sinus_widget)
 
 # %% [markdown]
-# ### exponential
+# ### exponentielle
 
 # %% {"scrolled": false}
 # allows to select a degree
-exp_widget = IntSlider(min=0, max=11,
+exp_widget = IntSlider(min=0, max=17,
    layout=Layout(width='100%'))
 
 ### ready to go
-exp_animator = Taylor(np.exp, np.linspace(-4, 4, 200))
-exp_animator.display((-10, 60))
+exp_animator = Taylor(np.exp, np.linspace(-5, 10, 200))
+exp_animator.display((-15_000, 25000))
 exp_animator.interact(exp_widget)
 
 # %% [markdown]
@@ -275,14 +275,14 @@ class MyTaylor:
         # et la courbe approchée avec disons n=0 (donc y=f(0))
         ...
     def _update(self, n):
-        # modifier la courbe approximative avec Taylor à l'order n
+        # modifier la courbe approximative avec Taylor à l'ordre n
         # je vous recommande de créer cette méthode privée
         # pour pouvoir l'appeler dans interact()
         ...
     def interact(self, widget):
         # là clairement il va y avoir un appel à 
         # interact() de ipywidgets
-        ...    
+        print("inactive for now")
 
 
 # %%
@@ -293,6 +293,6 @@ sinus_widget = IntSlider(
    layout=Layout(width='100%'))
 
 ### ready to go
-sinus_animator = MyTailor(np.cos, DOMAIN)
+sinus_animator = MyTaylor(np.cos, DOMAIN)
 sinus_animator.display((-1.5, 1.5))
 sinus_animator.interact(sinus_widget)
