@@ -66,12 +66,14 @@ def tracks(coursedir):
 	    coursedir,
             name="mooc",
             description='Compléments du MOOC Python 3',
-            notebooks=notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.ipynb"),
+            notebooks=(notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.ipynb")
+                       +notebooks_by_pattern(coursedir, f"w?/w*-s*-[cx]*.py")),
             directory_labels=WEEK_NAMES),
         track_by_directory(
             coursedir,
             name="exos",
             description='Exercices extraits du MOOC Python 3',
-            notebooks=notebooks_by_pattern(coursedir, "w?/w*-s*-x*.ipynb"),
+            notebooks=(notebooks_by_pattern(coursedir, f"w?/w*-s*-x*.ipynb")
+                       +notebooks_by_pattern(coursedir, f"w?/w*-s*-x*.py")),
             directory_labels=WEEK_NAMES)
     ]
