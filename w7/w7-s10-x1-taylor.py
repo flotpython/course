@@ -13,7 +13,7 @@
 #     display_name: Python 3
 #     language: python
 #     name: python3
-#   notebookname: 'Application: Taylor'
+#   notebookname: 'Exercice: Taylor'
 #   version: '1.0'
 # ---
 

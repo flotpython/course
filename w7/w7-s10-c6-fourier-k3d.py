@@ -12,7 +12,7 @@
 #     display_name: Python 3
 #     language: python
 #     name: python3
-#   notebookname: Fourier
+#   notebookname: App: Fourier (K3D + bokeh)
 # ---
 
 # %% [markdown]
