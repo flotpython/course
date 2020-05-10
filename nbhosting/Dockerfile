@@ -8,13 +8,13 @@ FROM nbhosting/scipy-notebook
 # look in the console in a jupyter that has it enabled
 RUN jupyter nbextension enable splitcell/splitcell
 
-# --------
-# install plotly for w7
+### w7 comes with quite a few extra deps
 RUN pip install plotly==3.10.0
-
-# for w7 as well
-RUN pip install k3d
+# for Taylor 
 RUN pip install autograd
+RUN jupyter nbextension enable hide_input/main
+# Fourier
+RUN pip install k3d
 
 # nbautoeval is in the core images but we often need 
 # the very latest version, that core images cannot
