@@ -14,6 +14,7 @@ RUN pip install plotly==3.10.0
 
 # for w7 as well
 RUN pip install k3d
+RUN pip install autograd
 
 # nbautoeval is in the core images but we often need 
 # the very latest version, that core images cannot
