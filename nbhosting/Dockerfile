@@ -12,6 +12,9 @@ RUN jupyter nbextension enable splitcell/splitcell
 # install plotly for w7
 RUN pip install plotly==3.10.0
 
+# for w7 as well
+RUN pip install k3d
+
 # nbautoeval is in the core images but we often need 
 # the very latest version, that core images cannot
 # always afford to follow very closely
