@@ -242,19 +242,25 @@
 # Au delà de cette première utilité, `setup.py` sert à configurer plein d'aspects de votre application; lorsque votre projet va gagner en maturité, il sera exécuté lorsque vous préparez le packaging, lorsque vous uploadez le package, et au moment d'installer (comme on vient de le voir).  
 
 # %% [markdown]
-# Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici, que j'essaie de mettre dans l'ordre chronologique, quelques ajouts très fréquents; [reportez-vous à la doc](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) pour une liste complète :
+# Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici, que j'essaie de mettre dans l'ordre chronologique, quelques ajouts très fréquents; [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
 #
 # * `name` est le nom sous lequel votre projet sera rangé dans PyPI
 #
 # * `packages` est une liste de noms de packages; tel qu'on l'a écrit cela sera calculé à partir du contenu de votre dépôt; dans notre cas on aurait pu aussi bien écrire en dur `['bidule']`;  
 #   dans les cas les plus simples on a `packages == [ name ]`
 #
-# * `version` est bien entendu important dès que vous commencez à publier sur PyPI (et même avant) pour que PyPI puisse servir la version la plus récente, et/ou satisfaire des exigences précises (les applis qui vous utilisent peuvent par exemple préciser une version minimale, etc...)
+#
+# * `version` est bien entendu important dès que vous commencez à publier sur PyPI (et même avant) pour que PyPI puisse servir la version la plus récente, et/ou satisfaire des exigences précises (les applis qui vous utilisent peuvent par exemple préciser une version minimale, etc...)  
+#   cette chaine devrait être [compatible avec semver (semantic versioning)](https://semver.org/)  
+#   i.e. qu'un numéro de version usuel contient 3 parties (major, minor, patch), comme par ex. "2.1.3"  
+#   le terme `semantic` signifie ici que **toute rupture de compatibilité** doit se traduire par une incrémentation du numéro majeur (sauf s'il vaut `0`, on a le droit de tâtonner avec une 0.x; d'où l'importance de la version 1.0)
 #
 # * `install_requires` : si votre package a besoin d'une librairie non-standard, disons par exemple `numpy`, il est **très utile** de le préciser ici; de cette façon, lorsqu'un de vos utilisateurs installera votre appli avec `pip install bidule`, `pip` pourra **gérer les dépendances** et s'assurer que `numpy` est installé également; 
 #   bien sûr on n'en est pas là, mais je vous recommande de maintenir **dès le début** la liste de vos dépendances ici;
-#   
-# * informatifs : `author`, `author_email`, `description`, `keywords`, `url` pour affichage sur PyPI;  
+#
+#
+#
+# * informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI;  
 #   une mention spéciale à propos de `description_long`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
 #   
 #   ```
@@ -264,6 +270,8 @@
 #      long_description_content_type = "text/markdown",
 #      ...
 #   ```
+#   
+# * etc… beaucoup d'autres réglages et subtilités autour de `setup.py`; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
 
 # %% [markdown]
 # ## publier sur PyPI
