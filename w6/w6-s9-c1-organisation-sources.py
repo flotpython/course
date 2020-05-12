@@ -336,7 +336,7 @@
 # qui du coup va définir le symbole `Machine` directement dans l'objet package.
 
 # %% [markdown]
-# ## virtual environments
+# ## environnements virtuels 
 
 # %% [markdown]
 # Terminons ce tour d'horizon pour dire un mot des environnements virtuels.
@@ -350,7 +350,28 @@
 # et le seul avantage, c'est que tous les utilisateurs de l'ordi peuvent partager l'installation; sauf que, plus de 99 fois sur 100, il n'y a qu'un utilisateur pour un ordi ! bref, c'est une pratique totalement dépassée.
 
 # %% [markdown]
-# La création et la gestion d'environnements virtuels est très facile aujourd'hui; par contre il reste le choix entre plusieurs outils, que j'essaie de lister ici :
+# La création et la gestion d'environnements virtuels est **très facile** aujourd'hui. Aussi c'est une **pratique recommandée** de se créer **un virtualenv par projet**. C'est tellement pratique qu'on n'hésite pas une seconde à repartir d'un environnement vide à la moindre occasion, par exemple lorsqu'on a un doute sur les dépendances.
+#
+# Le seul point sur lequel il faut être attentif, c'est de trouver un moyen de **savoir en permanence** dans quel environnement on se trouve. Notamment :
+#
+# * une pratique très répandue consiste à s'arranger pour que **le prompt dans le terminal** indique cela,
+# * dans vs-code, dans la bannière inférieure on nous montre toujours l'environnement courant
+
+# %% [markdown] cell_style="center"
+# ![](../media/venv-terminal.png)
+#
+# **figure :** le prompt dans le terminal nous montre le venv courant
+
+# %% [markdown] cell_style="center"
+# ![](../media/venv-vscode.png)
+#
+# **figure :** vs-code nous montre le venv courant et nous permet de le changer
+
+# %% [markdown]
+# ### les outils
+
+# %% [markdown]
+# Par contre il reste le choix entre plusieurs outils, que j'essaie de lister ici :
 #
 # * [`venv`](https://docs.python.org/3/library/venv.html) un module de la librairie standard
 #
