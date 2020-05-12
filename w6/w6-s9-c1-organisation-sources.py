@@ -281,7 +281,7 @@
 #
 # * préparer le packaging  
 #   `python setup.py sdist bdist_wheel`
-# * pousser sur PyPI
+# * pousser sur PyPI  
 #   `twine upload dist/*`
 #   
 # Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org` utile quand on ne veut pas polluer l'index officiel.
