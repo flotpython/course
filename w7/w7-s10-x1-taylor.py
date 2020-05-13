@@ -81,60 +81,85 @@ output_notebook()
 # <span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
 
 # %% {"hide_input": true}
+# @BEG@ name=taylor
 class Taylor:
     """
     provides an animated view of Taylor approximation
     where one can change the degree interactively
-    
-    built from a vectorized function and the X (linspace) domain
-    
+        
     derivatives are computed on X=0, translate as needed
     """
     def __init__(self, function, domain):
         """
-        initialized from an autograd-friendly vectorized function
-        and the X domain
+        initialized from
+        
+        Parameters:
+          function: an autograd-friendly vectorized function
+          domain: the X domain (typically a linspace)
         """
         self.function = function
         self.domain = domain
         self.regular_y = function(self.domain)
         
-    # we need to set a fixed y_range for smooth transitions
     def display(self, y_range):
         """
         create initial drawing with degree=0
         
-        expects constant Y range as a 2-tuple
+        Parameters:
+          y_range: there is a need to display all degrees with a fixed 
+            range on the y-axis for smooth transitions; 
+            pass this as a (ymin, ymax) tuple
         """
         x_range = (self.domain[0], self.domain[-1])
         self.figure = figure(title=self.function.__name__,
                              x_range=x_range, y_range=y_range)
+        # each of the 2 curves is a bokeh line object
         self.line_exact = self.figure.line(
             self.domain, self.regular_y, color='green')
         self.line_approx = self.figure.line(
             self.domain, self._approximated(0), color='red', line_width=2)
+        # that's what allows for smooth updates down the road
         self.handle = show(self.figure, notebook_handle=True)
+# @END@
+
+# @BEG@ name=taylor continued=true
         
     def _approximated(self, degree):
-        # degree 0
+        """
+        Computes and returns the Y array, the images of the domain
+        through Taylor approximation
+        
+        Parameters:
+          degree: the degree for Taylor approximation
+        """
+        # initialize with a constant f(0)
+        # 0 * self.domain allows to create an array
+        # with the right length
         result = (0*self.domain + 1) * self.function(0.)
+        # f'
         derivative = autograd.grad(self.function)
         for n in range(1, degree+1):
             # the term in f(n)(x)/n!
             result += derivative(0.)/factorial(n) * self.domain**n
+            # higher-orders derivatives
             derivative = autograd.grad(derivative)
         return result
 
     def _update(self, degree):
+        # update the second curve only, of course
         self.line_approx.data_source.data['y'] = self._approximated(degree)
         push_notebook(handle=self.handle)
         
     def interact(self, degree_widget):
         """
-        displays a widget that interatively changes current degree
+        displays a widget for interatively modifying degree
+        
+        Parameters:
+          degree_widget: a ipywidget, typically an IntSlider
+            styled at your convenience
         """
         interact(lambda degree: self._update(degree), degree=degree_widget)
-
+# @END@
 
 # %% [markdown]
 # <span style='background-color: #9EBC9E; padding:5px;'>↑↑↑↑↑ ↑↑↑↑↑ assurez-vous de **bien évaluer la cellule cachée** ici ↑↑↑↑↑ ↑↑↑↑↑</span>
