@@ -274,6 +274,44 @@
 # * etc… beaucoup d'autres réglages et subtilités autour de `setup.py` ; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
 
 # %% [markdown]
+# ### Packager un point d'entrée
+
+# %% [markdown]
+# Assez fréquemment on package des **librairies**; dans ce cas on se soucie d'installer uniquement des modules Python.
+#
+#
+# Mais imaginez maintenant que votre package contient aussi un **point d'entrée** - c'est-à-dire en fin de compte une **commande** que vos utilisateurs vont vouloir lancer **depuis le terminal**. Ce cas de figure change un peu la donne; il faut maintenant installer des choses à d'autres endroits du système (pensez par exemple, sur linux/macos, à quelque chose comme `/usr/bin`).
+#
+# Dans ce cas **surtout n'essayez pas de le faire vous-même**; c'est beaucoup trop compliqué à faire correctement !
+#
+# Pour illustrer la bonne façon de faire dans ce cas, je vous renvoie pour les détails à un exemple réel, mais pour l'essentiel :
+#
+# * je vous conseille d'écrire tout le code en question dans une classe habituelle, que vous rangez normalement avec les autres ;  
+# * cette classe expose typiquement une méthode `main()`, qui retourne, pour suivre les conventions usuelles :
+#   * `0` si tout s'est bien passé
+#   * `1` sinon
+# * vous créez un module `__main__.py` qui se contente de créer une instance et de lui envoyer la méthode `main` - voir l'exemple
+# * vous déclarez cela dans `setup.py` qui se chargera de tout :-)  
+#
+# Voici tout ceci illustré sur un exemple réel.
+# Dans  cet exemple, le package (PyPI) s'appelle `apssh`, la commande qu'on veut exposer s'appelle `apssh`, du coup on a
+#  * un dossier `apssh` pour matérialiser le package
+#  * un module `apssh/apssh.py`, qui définit
+#  * une classe `Apssh`, qui expose une méthode `main()`
+#
+# Voici les différents codes; le détail de la classe elle-même n'est pas pertinent (c'est très long), c'est pour vous montrer un système de nommage, disons habituel :
+#
+# * [la définition de `entry_points` dans `setup.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/setup.py#L52-L55)  
+#   ici après installation avec `pip`, nos utilisateurs pourront utiliser la commande `apssh`,  
+#   qui est de cette façon associée au module `__main__.py`  
+#   (les termes `entry_points` et `console_scripts` ne doivent pas être modifiés);
+#
+# * [ le module `__main__.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/apssh/__main__.py);
+#
+# * la classe `Apssh` qui fait le travail se trouve [ dans un module usuel, ici `apssh.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/apssh/apssh.py).
+#
+
+# %% [markdown]
 # ## Publier sur PyPI
 
 # %% [markdown]
