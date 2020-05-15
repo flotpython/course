@@ -147,6 +147,48 @@ len(france_data)
 # Selon votre envie, toutes les variantes sont possibles, pour simplifier (commencez sans dashboard), ou complexifier, comme vous le sentez. Pour revenir sur le dashboard de CSSE, on pourrait penser à utiliser un package comme `folium` pour afficher les résultats sur une carte du Monde; cela dit je vous recommande de bien réfléchir avant de vous lancer là-dedans, car c'est facile de se perdre, et en plus la valeur ajoutée n'est pas forcément majeure…
 
 # %% [markdown]
+# ### un mot par rapport à pandas
+
+# %% [markdown]
+# Il y a plein d'approches possibles, et toutes raisonnables :
+#
+# * si vous êtes à l'aise avec `pandas`, vous allez avoir le réflexe de construire immédiatement une grosse dataframe avec toutes ces données, et utiliser la puissance de `pandas` pour faire tous les traitements de type tris, assemblages, moyennes, roulements, etc.. et les affichages (et si vous êtes dans ce cas, vous préférerez l'exercice #2);
+# * si au contraire vous êtes réfractaire à pandas, vous pouvez absolument tout faire sans aucune dataframe;
+# * entre ces deux extrêmes, on peut facilement imaginer des hybrides, où on construit des dataframes de manière opportuniste selon les traitements.
+#
+# La courbe d'apprentissage de pandas est parfois jugée un peu raide; c'est à vous de voir ce qui vous convient le mieux. Ce qui est clair c'est que quand on maitrise bien, et une fois qu'on a construit une grosse dataframe avec toutes les données, on dispose avec d'un outil surpuissant pour faire plein de choses en très peu de lignes. 
+#
+# Mais pour bien maitriser il faut avoir l'occasion de pratiquer fréquemment, ce n'est pas forcément le cas de tout le monde (ce n'est pas le mien par exemple), donc à chacun de choisir son approche.
+
+# %% [markdown]
+# Pour illustrer une approche disons hybride, voici ce qui pourrait être un début de mise en forme des données pour un pays et une caractéristique (parmi les 3 exposées dans ce jeu de donnéees)
+
+# %%
+import numpy as np
+import pandas as pd
+
+def extract_last_days(countryname, value, days):
+    country = decoded[countryname]
+    cropped = country[-(days):]
+    dates = np.array([chunk['date'] for chunk in cropped])
+    # take one more than requested for computing deltas including
+    # for the first day (we need the value the day before the first day)
+    cropped = country[-(days+1):]
+    values = np.array([chunk[value] for chunk in cropped])
+    # shift one day so we get the value from the day before
+    shifted = np.roll(values, 1)
+    # the daily increase; ignore first value which is wrong
+    deltas = (values - shifted)[1:]
+    relevant = values[1:]
+    # all 3 arrays dates, deltas and relevant have the same shape
+    data = {'dates': dates, value: relevant, 'daily': deltas}
+    return pd.DataFrame(data=data)
+    
+
+df1 = extract_last_days('France', 'deaths', 45)
+df1.plot();
+
+# %% [markdown]
 # ## Exercice 2: idem mais à partir d'un autre jeu de données
 
 # %% [markdown]
