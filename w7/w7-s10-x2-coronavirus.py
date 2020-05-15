@@ -274,6 +274,9 @@ fig1.show()
 # ## Comment partager ?
 
 # %% [markdown]
+# Je ne publie pas de corrigés pour cet exercice.
+
+# %% [markdown]
 # J'invite ceux d'entre vous qui le souhaitent à nous faire passer leur code; 
 # le plus simple étant de les ajouter dans le repo github dit de récréation, à cet endroit
 # https://github.com/flotpython/recreation/tree/master/corona-dashboards.
