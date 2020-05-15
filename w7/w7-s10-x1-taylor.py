@@ -37,7 +37,7 @@
 # Le théorème de Taylor nous dit que la suite de fonctions $(f_n)$ converge vers $f$. 
 
 # %% [markdown]
-# On pourrait penser - c'était mon cas la première fois que j'ai entendu parler de ce théorème - que l'approximation esy valable **au voisinage de 0** seulement; si on pense en particulier à **sinus**, on peut accepter l'idée que ça va nous donner une période autour de 0 peut-être.
+# On pourrait penser - c'était mon cas la première fois que j'ai entendu parler de ce théorème - que l'approximation est valable **au voisinage de 0** seulement; si on pense en particulier à **sinus**, on peut accepter l'idée que ça va nous donner une période autour de 0 peut-être.
 #
 # En fait, c'est réellement bluffant de voir que ça marche vraiment incroyablement bien et loin. 
 
@@ -183,7 +183,7 @@ DOMAIN = np.linspace(-4*np.pi, 4*np.pi, 250)
 sinus_animator = Taylor(np.sin, DOMAIN)
 
 # %% [markdown]
-# **Remarquez bien** qu'ici la fonction que je passe au constructeur est **en réalité `autograd.numpy.sin`** et non pas `numpy.sin`, vu la façon dont on a défini notre symbole `np` lors des imports (et ça ne marcherait pas du tout avec `sumpy.sin`).
+# **Remarquez bien** qu'ici la fonction que je passe au constructeur est **en réalité `autograd.numpy.sin`** et non pas `numpy.sin`, vu la façon dont on a défini notre symbole `np` lors des imports (et ça ne marcherait pas du tout avec `numpy.sin`).
 
 # %% [markdown]
 # Ensuite on crée un `ipywidget` qui va nous permettre de choisir le degré $n$; dans le cas de sinus, qui est impaire, les degrés intéressants sont impairs (vous pouvez vérifier que les coefficients de Taylor pairs sont nuls lorsque $f$ est impaire).
