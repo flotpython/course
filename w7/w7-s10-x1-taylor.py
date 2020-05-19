@@ -135,7 +135,7 @@ class Taylor:
         # initialize with a constant f(0)
         # 0 * self.domain allows to create an array
         # with the right length
-        result = (0*self.domain + 1) * self.function(0.)
+        result = 0 * self.domain + self.function(0.)
         # f'
         derivative = autograd.grad(self.function)
         for n in range(1, degree+1):
