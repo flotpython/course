@@ -404,12 +404,12 @@
 # * dans vs-code, dans la bannière inférieure, on nous montre toujours l'environnement courant.
 
 # %% [markdown] cell_style="center"
-# ![](../media/venv-terminal.png)
+# ![](media/venv-terminal.png)
 #
 # **figure :** le prompt dans le terminal nous montre le venv courant
 
 # %% [markdown] cell_style="center"
-# ![](../media/venv-vscode.png)
+# ![](media/venv-vscode.png)
 #
 # **figure :** vs-code nous montre le venv courant et nous permet de le changer
 
