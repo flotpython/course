@@ -2,7 +2,8 @@ jupyterlab
 numpy
 matplotlib
 pandas
-plotly==3.10.0
+plotly
+chart-studio
 bokeh
 ipywidgets
 jupyter-contrib-nbextensions

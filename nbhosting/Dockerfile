@@ -9,7 +9,7 @@ FROM nbhosting/scipy-notebook
 RUN jupyter nbextension enable splitcell/splitcell
 
 ### w7 comes with quite a few extra deps
-RUN pip install plotly==3.10.0
+RUN pip install plotly chart-studio
 # for Taylor 
 RUN pip install autograd
 RUN jupyter nbextension enable hide_input/main
