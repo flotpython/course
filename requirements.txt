@@ -1,9 +1,10 @@
 jupyterlab
+ipywidgets
+jupyter-contrib-nbextensions
 numpy
 matplotlib
 pandas
 plotly
 chart-studio
 bokeh
-ipywidgets
-jupyter-contrib-nbextensions
+seaborn
