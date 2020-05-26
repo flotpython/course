@@ -1,1 +1,441 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="761px" height="271px" version="1.1"><defs/><g transform="translate(0.5,0.5)"><rect x="0" y="90" width="120" height="40" rx="6" ry="6" fill="#66b2ff" stroke="#ffffff" pointer-events="none"/><g transform="translate(6.5,98.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="106" height="22" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 108px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 20px">LOAD MEM</font></div></div></foreignObject><text x="53" y="17" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="160" y="0" width="120" height="40" fill="#e6e6e6" stroke="#ffffff" pointer-events="none"/><path d="M 172 0 L 172 40 M 268 0 L 268 40" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(206.5,6.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">10</font></div></div></foreignObject><text x="13" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="160" y="90" width="120" height="40" fill="#e6e6e6" stroke="#ffffff" pointer-events="none"/><path d="M 172 90 L 172 130 M 268 90 L 268 130" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(206.5,96.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">10</font></div></div></foreignObject><text x="13" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="310" y="90" width="120" height="40" fill="#d4e1f5" stroke="#ffffff" pointer-events="none"/><path d="M 322 90 L 322 130 M 418 90 L 418 130" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(356.5,96.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">10</font></div></div></foreignObject><text x="13" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="0" y="160" width="120" height="40" rx="6" ry="6" fill="#66b2ff" stroke="#ffffff" pointer-events="none"/><g transform="translate(30.5,168.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="58" height="22" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 60px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 20px">ADD 1</font></div></div></foreignObject><text x="29" y="17" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="160" y="160" width="120" height="40" fill="#e6e6e6" stroke="#ffffff" pointer-events="none"/><path d="M 172 160 L 172 200 M 268 160 L 268 200" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(206.5,166.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">10</font></div></div></foreignObject><text x="13" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="310" y="160" width="120" height="40" fill="#d4e1f5" stroke="#ffffff" pointer-events="none"/><path d="M 322 160 L 322 200 M 418 160 L 418 200" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(357.5,166.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="24" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 26px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">11</font></div></div></foreignObject><text x="12" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 280 110 L 303.63 110" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 308.88 110 L 301.88 113.5 L 303.63 110 L 301.88 106.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 436.37 160 L 450 160 Q 460 160 460 170 L 460 188 Q 460 198 450 198 L 438.37 198" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 431.12 160 L 438.12 156.5 L 436.37 160 L 438.12 163.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 433.12 198 L 440.12 194.5 L 438.37 198 L 440.12 201.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><rect x="0" y="230" width="120" height="40" rx="6" ry="6" fill="#66b2ff" stroke="#ffffff" pointer-events="none"/><g transform="translate(13.5,238.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="92" height="22" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 94px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 20px">STO MEM</font></div></div></foreignObject><text x="46" y="17" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="160" y="230" width="120" height="40" fill="#e6e6e6" stroke="#ffffff" pointer-events="none"/><path d="M 172 230 L 172 270 M 268 230 L 268 270" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(207.5,236.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="24" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 26px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">11</font></div></div></foreignObject><text x="12" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><rect x="310" y="230" width="120" height="40" fill="#d4e1f5" stroke="#ffffff" pointer-events="none"/><path d="M 322 230 L 322 270 M 418 230 L 418 270" fill="none" stroke="#ffffff" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(357.5,236.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="24" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(77, 77, 77); line-height: 1.2; vertical-align: top; width: 26px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">11</font></div></div></foreignObject><text x="12" y="19" fill="#4D4D4D" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 310 250 L 286.37 250" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 281.12 250 L 288.12 246.5 L 286.37 250 L 288.12 253.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(522.5,0.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="234" height="38" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 236px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><div style="text-align: left"><span style="font-size: 17px ; font-family: &quot;courier new&quot; ; letter-spacing: 0px"># en entrée, </span></div><div style="text-align: left"><font face="Courier New" style="font-size: 17px"># la variable a vaut 10</font></div></div></div></foreignObject><text x="117" y="25" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(528.5,170.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="92" height="18" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 92px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><div style="text-align: left"><font face="courier new"><span style="font-size: 17px">a = a + 1</span></font></div></div></div></foreignObject><text x="46" y="15" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 500 90 L 495 90 Q 490 90 490 100 L 490 170 Q 490 180 485 180 L 482.5 180 Q 480 180 485 180 L 487.5 180 Q 490 180 490 190 L 490 260 Q 490 270 495 270 L 500 270" fill="none" stroke="#000000" stroke-miterlimit="10" transform="rotate(180,490,180)" pointer-events="none"/><g transform="translate(522.5,230.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="234" height="38" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 236px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><div style="text-align: left"><span style="font-size: 17px ; font-family: &quot;courier new&quot; ; letter-spacing: 0px"># en sortie, </span></div><div style="text-align: left"><font face="Courier New" style="font-size: 17px"># la variable a vaut <b>11</b></font></div></div></div></foreignObject><text x="117" y="25" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(166.5,55.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="106" height="28" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 106px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 24px">variable <font face="Courier New" style="font-size: 24px">a</font></font></div></div></foreignObject><text x="53" y="20" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(329.5,56.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="80" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 82px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><span style="font-size: 24px">register</span></div></div></foreignObject><text x="40" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(24.5,56.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="90" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 90px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><span style="font-size: 24px">program</span></div></div></foreignObject><text x="45" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="thread-safety-1.svg"
+   id="svg350"
+   version="1.1"
+   height="271px"
+   width="761px">
+  <metadata
+     id="metadata354">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="g348"
+     inkscape:window-maximized="0"
+     inkscape:window-y="126"
+     inkscape:window-x="117"
+     inkscape:cy="257.95032"
+     inkscape:cx="622.93519"
+     inkscape:zoom="1.21682"
+     showgrid="false"
+     id="namedview352"
+     inkscape:window-height="1200"
+     inkscape:window-width="2274"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs200">
+    <rect
+       x="-274.16414"
+       y="-59.670625"
+       width="157.78833"
+       height="221.88984"
+       id="rect229" />
+    <rect
+       id="rect362"
+       height="59.170626"
+       width="70.676026"
+       y="-159.93197"
+       x="218.92441" />
+  </defs>
+  <g
+     id="g348"
+     transform="translate(0.5,0.5)">
+    <rect
+       id="rect202"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="90"
+       x="0" />
+    <rect
+       id="rect210"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="0"
+       x="160" />
+    <path
+       id="path212"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="M 172,0 V 40 M 268,0 v 40" />
+    <rect
+       id="rect220"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="90"
+       x="160" />
+    <path
+       id="path222"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,90 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect230"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="90"
+       x="310" />
+    <path
+       id="path232"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,90 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect240"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="160"
+       x="0" />
+    <rect
+       id="rect248"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="160"
+       x="160" />
+    <path
+       id="path250"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,160 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect258"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="160"
+       x="310" />
+    <path
+       id="path260"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,160 v 40 m 96,-40 v 40" />
+    <path
+       id="path268"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="m 280,110 h 23.63" />
+    <path
+       id="path270"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 308.88,110 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+    <path
+       id="path272"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="M 436.37,160 H 450 q 10,0 10,10 v 18 q 0,10 -10,10 h -11.63" />
+    <path
+       id="path274"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 431.12,160 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <path
+       id="path276"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 433.12,198 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <rect
+       id="rect278"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="230"
+       x="0" />
+    <rect
+       id="rect286"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="230"
+       x="160" />
+    <path
+       id="path288"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,230 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect296"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="230"
+       x="310" />
+    <path
+       id="path298"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,230 v 40 m 96,-40 v 40" />
+    <path
+       id="path306"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="M 310,250 H 286.37" />
+    <path
+       id="path308"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 281.12,250 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <path
+       id="path322"
+       pointer-events="none"
+       transform="rotate(180,490,180)"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="m 500,90 h -5 q -5,0 -5,10 v 70 q 0,10 -5,10 h -2.5 q -2.5,0 2.5,0 h 2.5 q 2.5,0 2.5,10 v 70 q 0,10 5,10 h 5" />
+    <text
+       id="text368"
+       y="29.085314"
+       x="204.95357"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="29.085314"
+         x="204.95357"
+         id="tspan366"
+         sodipodi:role="line">10</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="207.13322"
+       y="118.33708"
+       id="text368-2"><tspan
+         sodipodi:role="line"
+         id="tspan366-4"
+         x="207.13322"
+         y="118.33708">10</tspan></text>
+    <text
+       id="text368-2-7"
+       y="117.49367"
+       x="350.42047"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="117.49367"
+         x="350.42047"
+         id="tspan366-4-0"
+         sodipodi:role="line">10</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="207.10406"
+       y="190.67186"
+       id="text368-2-7-4"><tspan
+         sodipodi:role="line"
+         id="tspan366-4-0-8"
+         x="207.10406"
+         y="190.67186">10</tspan></text>
+    <text
+       id="text368-2-7-4-5"
+       y="190.67186"
+       x="353.10406"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="190.67186"
+         x="353.10406"
+         id="tspan366-4-0-8-5"
+         sodipodi:role="line">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="208.12244"
+       y="261.71396"
+       id="text368-2-7-4-5-0"><tspan
+         sodipodi:role="line"
+         id="tspan366-4-0-8-5-9"
+         x="208.12244"
+         y="261.71396">11</tspan></text>
+    <text
+       id="text368-2-7-4-5-0-9"
+       y="261.71396"
+       x="354.12244"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="261.71396"
+         x="354.12244"
+         id="tspan366-4-0-8-5-9-2"
+         sodipodi:role="line">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="2.3801212"
+       y="118.44492"
+       id="text205"><tspan
+         sodipodi:role="line"
+         id="tspan203"
+         x="2.3801212"
+         y="118.44492">LOAD MEM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="29.085304"
+       y="187.69547"
+       id="text209"><tspan
+         sodipodi:role="line"
+         id="tspan207"
+         x="29.085304"
+         y="187.69547">ADD 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="11.005394"
+       y="258.37149"
+       id="text213"><tspan
+         sodipodi:role="line"
+         id="tspan211"
+         x="11.005394"
+         y="258.37149">STO MEM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       x="9.3617725"
+       y="75.106911"
+       id="text225"><tspan
+         sodipodi:role="line"
+         id="tspan223"
+         x="9.3617725"
+         y="75.106911">program</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       x="163.86284"
+       y="75.106918"
+       id="text235"><tspan
+         sodipodi:role="line"
+         id="tspan233"
+         x="163.86284"
+         y="75.106918">variable a</tspan></text>
+    <text
+       id="text235-7"
+       y="75.961281"
+       x="325.47009"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       xml:space="preserve"><tspan
+         y="75.961281"
+         x="325.47009"
+         id="tspan233-7"
+         sodipodi:role="line">register</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="503.27213"
+       y="17.579914"
+       id="text257"><tspan
+         sodipodi:role="line"
+         id="tspan255"
+         x="503.27213"
+         y="17.579914"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"># en entrée, la </tspan><tspan
+         sodipodi:role="line"
+         x="503.27213"
+         y="44.24654"
+         id="tspan259"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"># variable a vaut 10</tspan></text>
+    <text
+       id="text257-1"
+       y="239.02478"
+       x="499.10944"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33330000000000126px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan282"
+         x="499.10944"
+         y="239.02478"># en sortie, la </tspan><tspan
+         sodipodi:role="line"
+         id="tspan284"
+         x="499.10944"
+         y="265.69141"># variable a vaut <tspan
+   id="tspan2842"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">11</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="507.05948"
+       y="184.80453"
+       id="text257-1-7"><tspan
+         sodipodi:role="line"
+         id="tspan307"
+         x="507.05948"
+         y="184.80453">a = a + 1</tspan></text>
+  </g>
+</svg>
