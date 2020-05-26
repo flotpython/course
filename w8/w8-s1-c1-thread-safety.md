@@ -3,13 +3,13 @@
 jupyter:
   jupytext:
     cell_metadata_filter: all
+    cell_metadata_json: true
     formats: md
     notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
   kernelspec:
     display_name: Python 3
     language: python
@@ -99,7 +99,8 @@ Il se trouve qu'en pratique cette opération se décompose en réalité en 3 op�
 ***
 ![](media/thread-safety-1.svg)
 
-<span style="font-size: larger;">**Figure 1 :** une instruction du genre de `a = a + 1` dans un langage compilé, avec un seul thread</span>    
+<span style="font-size: larger;">**Figure 1 :** une instruction du genre de `a = a + 1` dans un langage compilé, avec un seul thread</span>
+
 ***
 
 
@@ -127,6 +128,7 @@ Voyons d'abord un scénario qui se passe bien; le scheduler qui, donc, donne la 
 ![](media/thread-safety-2.svg)
 
 <span style="font-size: larger">**Figure 2 :** deux threads, un processeur, dans un scénario favorable</span>
+
 ***
 
 
@@ -149,6 +151,7 @@ Imaginons du coup un scénario moins favorable que le précédent, dans lequel l
 ![](media/thread-safety-3.svg)
 
 <span style="font-size: larger">**Figure 3 :** deux threads, un processeur, mais un choix de scheduling malheureux</span>
+
 ***
 
 
