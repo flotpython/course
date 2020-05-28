@@ -373,7 +373,7 @@
 #
 # C'est très bien, mais dès que le contenu va grossir, je vais couper mon code en de plus en plus de modules. Ce n'est pas tellement aux utilisateur de devoir suivre ce genre de détails. Donc si je veux pouvoir changer mon découpage interne sans impacter les utilisateurs, je vais vouloir qu'on puisse faire plutôt, simplement
 #
-#     from bidule.machine import Machine
+#     from bidule import Machine
 #     
 # pour y arriver il me suffit d'ajouter cette ligne dans le `__init__.py` du package `bidule` :
 #
