@@ -6,6 +6,11 @@ def tri_custom(liste):
     """
     trie une liste en fonction du critère de l'énoncé
     """
+    # pour le critère de tri on s'appuie sur l'ordre dans les tuples
+    # c'est-à-dire
+    # ((1, 2) <= (1, 2, 0) <= (1, 3) <= (2, 0)) == True
+    # du coup il suffit que la fonction critère renvoie
+    # selon la présence de p2, un tuple de 2 ou 3 éléments
     def custom_key(item):
         if 'p2' in item:
             return (item['p'], item['n'], item['p2'])
@@ -19,8 +24,12 @@ def tri_custom_bis(liste):
     """
     tri avec une fonction lambda et une expression conditionnelle
     """
-    liste.sort(key=lambda d: (d['p'], d['n'], d['p2']) if 'p2' in d
-                else (d['p'], d['n']))
+    # la même chose avec une lambda
+    # l'expression conditionnelle est nécessaire ici, car
+    # dans une lambda on est limité à des expressions
+    liste.sort(key=lambda d: (d['p'], d['n'], d['p2']) 
+                              if 'p2' in d
+                              else (d['p'], d['n']))
     return liste
 # @END@
 
@@ -29,6 +38,8 @@ def tri_custom_ter(liste):
     """
     tri avec une fonction lambda et une compréhension de tuple
     """
+    # sous cette forme, tout devient plus simple si on devait 
+    # avoir d'autres colonnes à prendre en compte
     keys = ('p', 'n', 'p2')
     liste.sort(key=lambda d: tuple(d[k] for k in keys if k in d))
     return liste
