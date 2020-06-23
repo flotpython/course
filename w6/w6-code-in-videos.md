@@ -2,11 +2,11 @@
 # w6s1. Classes, instances et méthodes
 -------------
 
-> Faire : File -> New file ou ctl-N
+> Faire : *File → New file* ou Control-N
 
     class Phrase:
         ma_phrase = 'je fais un mooc sur python'
-> Faire : File -> save as Phrase.py puis F5
+> Faire : *File → save as* `Phrase.py` puis F5
 
     Phrase
     p = Phrase()
@@ -23,13 +23,14 @@
     vars(Phrase)
     vars(p)
 
-> Reprendre Phrase.py
+> Reprendre `Phrase.py`
 
     s = 'je fais un mooc sur python'
     class Phrase:
         def initia(self, ma_phrase):
             self.ma_phrase = ma_phrase
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase()
     p.initia(s)
@@ -42,47 +43,56 @@
 # w6s2. Méthodes spéciales
 -------------
 
-> Reprendre Phrase.py et ajouter dans la classe Phrase:
+> Reprendre `Phrase.py` et ajouter dans la classe `Phrase`:
 
         def nb_lettres(self):
             return len(self.ma_phrase)
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase()
+
 > Reprendre Phrase.py et remplacer dans la classe Phrase le nom initia par:
 
     __init__
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
-> Reprendre Phrase.py et dans la méthode \__init__
+> Reprendre Phrase.py et dans la méthode `__init__`
 
             self.mots = ma_phrase.split()
+
 > puis dans la classe Phrase :
 
         def __len__(self):
             return len(self.mots)
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
     len(p)
     'mooc' in p
-> Reprendre Phrase.py et dans  la classe Phrase:
+
+> Reprendre `Phrase.py` et dans la classe `Phrase`:
 
         def __contains__(self, mot):
              return mot in self.mots
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
     len(p)
     'moon' in p
     'mooc' in p
     print(p)
-> Reprendre Phrase.py et dans  la classe Phrase:
+
+> Reprendre `Phrase.py` et dans la classe `Phrase`:
 
         def __str__(self):
             return "\n".join(self.mots)
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
     len(p)
@@ -92,34 +102,40 @@
 # w6s3. Héritage
 -------------
 
-> Reprendre Phrase.py et modifier  s:
+> Reprendre `Phrase.py` et modifier `s`:
 
     s = 'Je fais un MOOC sur Python'
-> et après la classe Phrase:
+
+> et après la classe `Phrase`:
 
     class PhraseSansCasse(Phrase):
         pass
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p_no = PhraseSansCasse(s)
     isinstance(p_no, Phrase)
     isinstance(p_no, PhraseSansCasse)
     p_no
-> Rajouter dans  la classe PhraseSansCasse:
+
+> Rajouter dans la classe `PhraseSansCasse`:
 
         def __init__(self, ma_phrase):
             Phrase.__init__(self, ma_phrase)
             self.mots_lower = {m.lower() for m
                                in self.mots}
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p_no = PhraseSansCasse(s)
     p_no.mots_lower
+
 > Rajouter dans  la classe PhraseSansCasse:
 
         def __contains__(self, mot):
             return mot.lower() in self.mots_lower
-> Faire Ctl-s puis F5
+
+> Faire Control-s puis F5
 
     p_no = PhraseSansCasse(s)
     'Mooc' in p_no
@@ -175,7 +191,7 @@
     f()
     ins = C()
     print(a)
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     # fichier spam.py
     a = 1
@@ -188,7 +204,7 @@
     ins = C()
     ins.f()
         
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     # fichier spam.py
     a = 1
@@ -214,7 +230,7 @@
                 raise StopIteration
             return self.mots.pop(0)
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase(s)
     [m for m in p]
@@ -238,7 +254,7 @@
                 raise StopIteration
             return self.mots.pop(0)
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase(s)
     [m for m in p]
@@ -250,7 +266,7 @@
             for m in self.mots:
                 yield m
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase(s)
     [m for m in p]
@@ -271,7 +287,7 @@
                 raise PhraseVideError()
 
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase(s)
     p.mots
@@ -282,7 +298,7 @@
                 raise PhraseVideError('phrase vide', 18)
 
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase('')
 
@@ -294,7 +310,7 @@
         print(e.args)
 
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase('')
     
@@ -322,11 +338,11 @@
         sum(x**2 for x in range(10_000_000))
 
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
 > Ajouter après print(t)
 
         1/0
 
 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5

@@ -13,7 +13,7 @@
 	dir(math)
 	help(math.ceil)
 
-> Faire : File -> New file ou ctl-N
+> Faire : *File → New file* ou Control-N
 
 	# un commentaire
 	def factoriel(n):
@@ -22,7 +22,7 @@
 	        return 1
 	    else:
 	        return n * factoriel(n-1)
-> Faire : File -> save as factoriel.py
+> Faire : *File → save as* `factoriel.py`
 
 	polynome(10)
 	factoriel(10)

@@ -39,7 +39,7 @@
     def image(f): 
         for x in range(10): 
             print(f"{f(x)}: {x}") 
-> Faire Ctl-s puis F5 
+> Faire Control-s puis F5 
 
     image 
     image(lambda x: x**2 - 1)
@@ -48,7 +48,7 @@
 
     def carre(x): 
         return x**2 - 1 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     image 
     carre 
@@ -86,7 +86,7 @@
 # w5s4. Expressions et fonctions génératrices  
 -------------
 
-## Video 1
+## Vidéo 1
 
     carre = [x**2 for x in range(1000)]
     sum(carre)
@@ -102,13 +102,13 @@
     palin
     list(palin)
      
-## Video 2
+## Vidéo 2
 
 > Prendre léditeur IDLE 
 
     def gen(): 
         yield 10 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     gen 
     gen() 
@@ -121,7 +121,7 @@
         yield x 
         x = x + 1 
         yield x 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     g = gen(10) 
     g 
@@ -133,7 +133,7 @@
     def carre(a, b): 
         for i in range(a, b): 
             yield i ** 2 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     c = carre(1, 10) 
     list(c) 
@@ -144,7 +144,7 @@
             if (isinstance(i, (str, int)) and 
                 str(i) == str(i)[::-1]): 
                 yield i 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = palin([121, 10, 12321, 'abc', 'abba']) 
     list(p) 
@@ -158,9 +158,9 @@
     x = 1 
     def f(): 
         print(x) 
-> Faire: File -> save as spam.py
+> Faire: *File → save as* `spam.py`
 
-> Faire de nouveau Ctl-n
+> Faire de nouveau Control-n
 
     import spam 
     x = 2 
@@ -170,7 +170,7 @@
     f() 
     spam.f() 
     print(spam.x) 
-> Faire: File -> save as egg.py
+> Faire: *File → save as* `egg.py`
 
 > Ouvrir une invite de commande (cmd) sous windows ou bash sous unix, puis taper :
 
@@ -191,13 +191,13 @@
 > Prendre léditeur IDLE, ouvrir le fichier spam.py
 
     x = 1 
-> Faire Ctl-s
+> Faire Control-s
 
 > Ouvrir le fichier egg.py
 
     import spam 
     x = 2 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
 > Ouvrir une invite de commande (cmd) sous windows ou bash sous unix, puis taper :
 
@@ -211,16 +211,16 @@
 
     print(x) 
     print(spam.x) 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
 > Ajouter dans egg.py:
 
     spam.x = 3 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     spam.y = 4 
     print(spam.y) 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
 > Reprendre le fichier egg.py:
 
@@ -228,4 +228,4 @@
     print(x) 
     x = 3 
     print(x) 
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5

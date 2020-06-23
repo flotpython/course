@@ -2,7 +2,7 @@
 # w3s1. Les fichiers
 -------------
 
-## Video 1
+## Vidéo 1
 
     f = open(r'C:\temp\spam.txt', 'w', encoding= 'utf8')
     for i in range(100):
@@ -20,7 +20,7 @@
     !type C:\temp\spam.txt
     !type C:\temp\spam2.txt
 
-## Video 2
+## Vidéo 2
 
     with open(r'C:\temp\spam.txt', 'r', encoding= 'utf8') as f:
     for line in f:
@@ -187,7 +187,7 @@
 # w3s8. Introduction aux classes
 -------------
 
-> Faire : File -> New file ou Ctl-N
+> Faire : *File → New file* ou Control-N
 
     class C:
         pass
@@ -197,14 +197,14 @@
     class Phrase:
           def __init__(self, phrase):
           self.mots = phrase.split()
-> Faire : File -> save as w3s8.py puis F5
+> Faire : *File → save as* `w3s8.py` puis F5
 
     p = Phrase('je fais un mooc sur python')
     p.mots
 
     def upper(self):
         self.mots = [m.upper() for m in self.mots]
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
     p.mots
@@ -213,7 +213,7 @@
 
     def __str__(self):
         return "\n".join(self.mots)
->Faire Ctl-s puis F5
+>Faire Control-s puis F5
 
     
     p = Phrase('je fais un mooc sur python')

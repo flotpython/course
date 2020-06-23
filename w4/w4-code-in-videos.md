@@ -59,37 +59,37 @@
         print("Au revoir !")
     else:
         print("mais encore...")
-> Faire : File -> save as pour sauver le programme  dans jeu.py par ex. puis F5
+> Faire : *File → save as* pour sauver le programme dans `jeu.py` par ex. puis F5
 
 # w4s3. Vidéo - Boucle while
 -------------
 
-> Faire : File -> New file ou ctl-N
+> Faire : *File → New file* ou Control-N
 
     a = list(range(1, 10))
     while a:
         a.pop()
         print(a)
-> Faire : File -> save as w4s3.py puis F5
+> Faire : *File → save as* `w4s3.py` puis F5
 
 > Dans le programme «w4s3.py», rajouter: 
 
     if len(a) == 5:
         continue
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
 > Dans le programme «w4s3.py», remplacer continue par: 
 
         break
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
-> Reprendre «w4s3.py», ou en prendre un nouveau par ctl-n: 
+> Reprendre «w4s3.py», ou en prendre un nouveau par Control-n: 
 
     while True:
         s = input('Quelle est votre question ?\n')
         if 'aucune' in s:
             break
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     bonjour
     rien
@@ -109,7 +109,7 @@
         else:
             print("mais encore...")
         s = input()
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     bonjour
     bien
@@ -141,13 +141,13 @@
 # w4s5. Vidéo - Modification de la portée avec global et nonlocal
 -------------
 
-> Faire: File -> New file ou ctl-N
+> Faire: *File → New file* ou Control-N
 
     a = 'a globale'
     def f():
         a = 'a dans f'
         print(a)
-> Faire: File -> save as w4s5.py  puis F5
+> Faire: *File → save as* `w4s5.py` puis F5
 
     print(a)
     f()
@@ -156,7 +156,7 @@
 > Rajouter la ligne (sous def f()
 
     global a
-> Ctl-s puis F5
+> Control-s puis F5
 
     print(a)
     f()
@@ -167,7 +167,7 @@
     def f():
         global a
         a = a + 10
-> Ctl-s puis F5
+> Control-s puis F5
 
     print(a)
     f()
@@ -179,7 +179,7 @@
 
     def add_10(n):
         return n + 10
-> Ctl-s puis F5
+> Control-s puis F5
 
     note = add_10(note)
     note
@@ -198,31 +198,31 @@
 
     f()
     print(a)
-> Ctl-s puis F5
+> Control-s puis F5
 
 > Rajouter dans g() la ligne:
 
         nonlocal a
-> Ctl-s puis F5
+> Control-s puis F5
 
 # w4s6. Vidéo - Passage des arguments et appel de fonctions
 -------------
 
-> Faire: File -> New file ou ctl-N
+> Faire: *File → New file* ou Control-N
 
     def agenda(nom, prenom, tel):
         return {'nom': nom, 'prenom': prenom,
                 'tel': tel}
-> Faire: File -> save as w4s6.py puis F5
+> Faire: *File → save as* `w4s6.py` puis F5
 
     agenda('idle', 'eric', '07070707')
     agenda(tel='070707707', nom='idle', prenom='eric')
-> Faire: File -> save as w4s6.py puis F5
+> Faire: *File → save as* `w4s6.py` puis F5
 
 > Dans la fonction rajouter après tel
 
     ='?'
-> Ctl-s puis F5
+> Control-s puis F5
 
     agenda('idle', 'eric')
     agenda('idle', 'eric', '07070707')
@@ -231,7 +231,7 @@
 
     def f(*t):
         print(t)
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     f()
     f(1)
@@ -239,7 +239,7 @@
 
     def f(**d):
         print(d)
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     f()
     f(nom='idle', prenom='eric')
@@ -250,7 +250,7 @@
 
     def f(a, b):
         print(a, b)
-> Faire Ctl-s puis F5
+> Faire Control-s puis F5
 
     L = [1, 2]
     f(L[0], L[1])

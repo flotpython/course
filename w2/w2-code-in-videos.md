@@ -2,7 +2,7 @@
 # w2s2. Les chaînes de caractères
 -------------
 
-## Video 1
+## Vidéo 1
 
     'spam'
     "spam"
@@ -20,7 +20,7 @@
     "{} a {} ans".format(n, age)
     f"{n} a {age} ans"
 
-## Video 2
+## Vidéo 2
 
     "noël, été"
     "\u03a6"
