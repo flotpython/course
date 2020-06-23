@@ -1,0 +1,86 @@
+<h1>w4s5. Vidéo - Modification de la portée avec global et nonlocal</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Faire: <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code>a = 'a globale'
+def f():
+    a = 'a dans f'
+    print(a)
+</code></pre>
+<blockquote>
+<p>Faire: <em>File → save as</em> <code>w4s5.py</code> puis F5</p>
+</blockquote>
+<pre><code>print(a)
+f()
+print(a)
+</code></pre>
+<blockquote>
+<p>Rajouter la ligne (sous def f()</p>
+</blockquote>
+<pre><code>global a
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>
+<pre><code>print(a)
+f()
+print(a)
+
+a = 10
+
+def f():
+    global a
+    a = a + 10
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>
+<pre><code>print(a)
+f()
+print(a)
+</code></pre>
+<blockquote>
+<p>Modifier la fonction</p>
+</blockquote>
+<pre><code>note = 10
+
+def add_10(n):
+    return n + 10
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>
+<pre><code>note = add_10(note)
+note
+</code></pre>
+<blockquote>
+<p>Modifier la fonction</p>
+</blockquote>
+<pre><code>a = 'a globale'
+
+def f():
+    a = 'a de f'
+    def g():
+        a = 'a de g'
+        print(a)
+    g()
+    print(a)
+
+f()
+print(a)
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Rajouter dans g() la ligne:</p>
+</blockquote>
+<pre><code>    nonlocal a
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>

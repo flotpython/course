@@ -1,0 +1,56 @@
+<h1>w6s3. Héritage</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Reprendre <code>Phrase.py</code> et modifier <code>s</code>:</p>
+</blockquote>
+<pre><code>s = 'Je fais un MOOC sur Python'
+</code></pre>
+<blockquote>
+<p>et après la classe <code>Phrase</code>:</p>
+</blockquote>
+<pre><code>class PhraseSansCasse(Phrase):
+    pass
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p_no = PhraseSansCasse(s)
+isinstance(p_no, Phrase)
+isinstance(p_no, PhraseSansCasse)
+p_no
+</code></pre>
+<blockquote>
+<p>Rajouter dans la classe <code>PhraseSansCasse</code>:</p>
+</blockquote>
+<pre><code>    def __init__(self, ma_phrase):
+        Phrase.__init__(self, ma_phrase)
+        self.mots_lower = {m.lower() for m
+                           in self.mots}
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p_no = PhraseSansCasse(s)
+p_no.mots_lower
+</code></pre>
+<blockquote>
+<p>Rajouter dans  la classe PhraseSansCasse:</p>
+</blockquote>
+<pre><code>    def __contains__(self, mot):
+        return mot.lower() in self.mots_lower
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p_no = PhraseSansCasse(s)
+'Mooc' in p_no
+p = Phrase(s)
+p_no = PhraseSansCasse(s)
+'mooc' in p
+'mooc' in p_no
+p.nb_lettres()
+p_no.nb_lettres()
+</code></pre>

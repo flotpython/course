@@ -1,0 +1,68 @@
+<h1>w5s7. Importation des modules et des espaces de nommage</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Prendre léditeur IDLE, ouvrir le fichier spam.py</p>
+</blockquote>
+<pre><code>x = 1 
+</code></pre>
+<blockquote>
+<p>Faire Control-s</p>
+</blockquote>
+<blockquote>
+<p>Ouvrir le fichier egg.py</p>
+</blockquote>
+<pre><code>import spam 
+x = 2 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Ouvrir une invite de commande (cmd) sous windows ou bash sous unix, puis taper :</p>
+</blockquote>
+<pre><code>python egg.py 
+</code></pre>
+<blockquote>
+<p>Pour voir lespace de nommage de ces modules, dans la console python, après avoir fait F5 sur un module,  utiliser les instructions</p>
+</blockquote>
+<pre><code>vars() # ou globals() 
+vars(spam) 
+dir(spam) 
+</code></pre>
+<blockquote>
+<p>Ajouter dans egg.py:</p>
+</blockquote>
+<pre><code>print(x) 
+print(spam.x) 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Ajouter dans egg.py:</p>
+</blockquote>
+<pre><code>spam.x = 3 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>spam.y = 4 
+print(spam.y) 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Reprendre le fichier egg.py:</p>
+</blockquote>
+<pre><code>from spam import x 
+print(x) 
+x = 3 
+print(x) 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>

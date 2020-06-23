@@ -1,0 +1,29 @@
+<h1>w3s5: Les ensembles</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>s = set()
+type(s)
+s = {1, 2, 3, 'a', True}
+a = [1, 2, 4, 1, 18, 30, 4, 1]
+set(a)
+len(s)
+1 in s
+'b' in s
+s.add('alice')
+s
+s.update([1, 2, 3, 4, 5, 6, 7])
+s
+s1 = {1, 2, 3}
+s2 = {3, 4, 5}
+s1 - s2
+s1 | s2
+s1 &amp; s2
+
+a = [0]
+s = set(a)
+
+%timeit -n 50 0 in a
+%timeit -n 50 0 in s
+</code></pre>

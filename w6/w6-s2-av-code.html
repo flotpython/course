@@ -1,0 +1,73 @@
+<h1>w6s2. Méthodes spéciales</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Reprendre <code>Phrase.py</code> et ajouter dans la classe <code>Phrase</code>:</p>
+</blockquote>
+<pre><code>    def nb_lettres(self):
+        return len(self.ma_phrase)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+</code></pre>
+<blockquote>
+<p>Reprendre Phrase.py et remplacer dans la classe Phrase le nom initia par:</p>
+</blockquote>
+<pre><code>__init__
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+</code></pre>
+<blockquote>
+<p>Reprendre Phrase.py et dans la méthode <code>__init__</code></p>
+</blockquote>
+<pre><code>        self.mots = ma_phrase.split()
+</code></pre>
+<blockquote>
+<p>puis dans la classe Phrase :</p>
+</blockquote>
+<pre><code>    def __len__(self):
+        return len(self.mots)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+len(p)
+'mooc' in p
+</code></pre>
+<blockquote>
+<p>Reprendre <code>Phrase.py</code> et dans la classe <code>Phrase</code>:</p>
+</blockquote>
+<pre><code>    def __contains__(self, mot):
+         return mot in self.mots
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+len(p)
+'moon' in p
+'mooc' in p
+print(p)
+</code></pre>
+<blockquote>
+<p>Reprendre <code>Phrase.py</code> et dans la classe <code>Phrase</code>:</p>
+</blockquote>
+<pre><code>    def __str__(self):
+        return &quot;\n&quot;.join(self.mots)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+len(p)
+'mooc' in p
+print(p)
+</code></pre>

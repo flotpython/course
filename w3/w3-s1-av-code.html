@@ -1,0 +1,30 @@
+<h1>w3s1. Les fichiers</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<h2>Vidéo 1</h2>
+<pre><code>f = open(r'C:\temp\spam.txt', 'w', encoding= 'utf8')
+for i in range(100):
+    f.write(f&quot;ligne {i+1}\n&quot;)
+f.close()
+!type C:\temp\spam.txt
+f = open(r'C:\temp\spam.txt', 'r', encoding= 'utf8')
+f2 = open(r'C:\temp\spam2.txt', 'w', encoding= 'utf8')
+for line in f:
+    line = line.split()
+    line[0] = line[0].upper()
+    f2.write(&quot;,&quot;.join(line) + &quot;\n&quot;)
+f.close()
+f2.close()
+!type C:\temp\spam.txt
+!type C:\temp\spam2.txt
+</code></pre>
+<h2>Vidéo 2</h2>
+<pre><code>with open(r'C:\temp\spam.txt', 'r', encoding= 'utf8') as f:
+for line in f:
+        print(line)
+with open(r'C:\temp\spam.bin', 'bw') as f:
+    for i in range(100):
+        f.write(b'\x3d')
+</code></pre>

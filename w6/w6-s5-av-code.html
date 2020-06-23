@@ -1,0 +1,48 @@
+<h1>w6s5. Variables et attributs</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Reprendre Phrase.py</p>
+</blockquote>
+<pre><code># fichier spam.py
+a = 1
+
+def f():
+    a = 2
+
+class C():
+    a = 3
+f()
+ins = C()
+print(a)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code># fichier spam.py
+a = 1
+class C:
+    a = 2
+    def f(self):
+        print(a)
+        print(C.a)
+        
+ins = C()
+ins.f()
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code># fichier spam.py
+a = 1
+class A:
+    a = 2
+    class B:
+        def f(self):
+            print(a)
+        
+ins = A.B()
+ins.f()
+</code></pre>

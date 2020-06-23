@@ -1,0 +1,31 @@
+<h1>w6s4. Héritage multiple et ordre de résolution des attributs</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>class C:
+    pass
+c = C()
+c.__class__
+C.__bases__
+print(c)
+print(C)
+C.mro()
+
+class SuperA:
+    pass
+class SuperB:
+    pass
+class C(SuperA, SuperB):
+    pass
+C.mro()
+class C(SuperB, SuperA):
+    pass
+C.mro()
+
+class A: pass
+class B(A): pass
+class C(A): pass
+class D(B, C): pass
+D.mro()
+</code></pre>

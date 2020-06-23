@@ -1,0 +1,66 @@
+<h1>w6s6. Conception d'itérateurs</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Reprendre Phrase.py</p>
+</blockquote>
+<pre><code>    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self.mots:
+            raise StopIteration
+        return self.mots.pop(0)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase(s)
+[m for m in p]
+[m for m in p]
+next(p)
+</code></pre>
+<blockquote>
+<p>Dans la méthode _<em>iter</em>_</p>
+</blockquote>
+<pre><code>        return IterPhrase(self.mots)
+</code></pre>
+<blockquote>
+<p>Une nouvelle classe</p>
+</blockquote>
+<pre><code>class IterPhrase:
+    def __init__(self, mots):
+        self.mots = mots[:]
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if not self.mots:
+            raise StopIteration
+        return self.mots.pop(0)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase(s)
+[m for m in p]
+[m for m in p]
+iter(p)
+iter(p)
+</code></pre>
+<blockquote>
+<p>Dans la méthode _<em>iter</em>_</p>
+</blockquote>
+<pre><code>        for m in self.mots:
+            yield m
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase(s)
+[m for m in p]
+[m for m in p]
+</code></pre>

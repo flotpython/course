@@ -1,0 +1,41 @@
+<h1>w5s2. Objet fonction, fonction lambda, map et filter</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>lambda x: x**2 - 1 
+carre = lambda x: x**2 - 1
+carre(1)
+</code></pre>
+<blockquote>
+<p>Prendre léditeur de IDLE (ou pas :))</p>
+</blockquote>
+<pre><code>def image(f): 
+    for x in range(10): 
+        print(f&quot;{f(x)}: {x}&quot;) 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>image 
+image(lambda x: x**2 - 1)
+</code></pre>
+<blockquote>
+<p>Reprendre léditeur</p>
+</blockquote>
+<pre><code>def carre(x): 
+    return x**2 - 1 
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>image 
+carre 
+image(carre) 
+ 
+m = map(carre, range(10)) 
+list(m) 
+filter(lambda x: x%2 == 0, range(10)) 
+f = filter(lambda x: x%2 == 0, range(10)) 
+list(f)
+</code></pre>

@@ -1,0 +1,48 @@
+<h1>w6s1. Classes, instances et méthodes</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Faire : <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code>class Phrase:
+    ma_phrase = 'je fais un mooc sur python'
+</code></pre>
+<blockquote>
+<p>Faire : <em>File → save as</em> <code>Phrase.py</code> puis F5</p>
+</blockquote>
+<pre><code>Phrase
+p = Phrase()
+p
+Phrase.__dict__
+vars(Phrase)
+vars(p)
+p.ma_phrase
+Phrase.ma_phrase
+Phrase.mots = Phrase.ma_phrase.split()
+Phrase.mots
+vars(p)
+p.mots
+vars(Phrase)
+vars(p)
+</code></pre>
+<blockquote>
+<p>Reprendre <code>Phrase.py</code></p>
+</blockquote>
+<pre><code>s = 'je fais un mooc sur python'
+class Phrase:
+    def initia(self, ma_phrase):
+        self.ma_phrase = ma_phrase
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+p.initia(s)
+vars(p)
+Phrase.initia
+p.initia
+p.initia(s)
+Phrase.initia(p, s)
+</code></pre>

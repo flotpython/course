@@ -1,0 +1,35 @@
+<h1>w5s5. Modules et espaces de nommage</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Prendre léditeur IDLE</p>
+</blockquote>
+<pre><code>x = 1 
+def f(): 
+    print(x) 
+</code></pre>
+<blockquote>
+<p>Faire: <em>File → save as</em> <code>spam.py</code></p>
+</blockquote>
+<blockquote>
+<p>Faire de nouveau Control-n</p>
+</blockquote>
+<pre><code>import spam 
+x = 2 
+def f(): 
+    print(x) 
+ 
+f() 
+spam.f() 
+print(spam.x) 
+</code></pre>
+<blockquote>
+<p>Faire: <em>File → save as</em> <code>egg.py</code></p>
+</blockquote>
+<blockquote>
+<p>Ouvrir une invite de commande (cmd) sous windows ou bash sous unix, puis taper :</p>
+</blockquote>
+<pre><code>python egg.py 
+</code></pre>

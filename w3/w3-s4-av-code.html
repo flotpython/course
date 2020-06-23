@@ -1,0 +1,33 @@
+<h1>w3s4. Les dictionnaires</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>age = {}
+type(age)
+age = {'ana':35, 'eve':30, 'bob':38}
+age['ana']
+a = [('ana', 35), ('eve', 30), ('bob', 38)]
+age = dict(a)
+age['bob']
+age['bob'] = 45
+age
+del age['bob']
+age
+len(age)
+'ana' in age
+'bob' in age
+age.keys()
+age.values()
+age.items()
+k = age.keys()
+k
+age['bob'] = 25
+k
+'ana' in k
+'bill' in k
+for k, v in age.items():
+    print(f&quot;{k} {v}&quot;)
+for k in age:
+    print(k)
+</code></pre>

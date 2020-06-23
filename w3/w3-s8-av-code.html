@@ -1,0 +1,43 @@
+<h1>w3s8. Introduction aux classes</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Faire : <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code>class C:
+    pass
+C()
+c1 = C()
+c2 = C()
+class Phrase:
+      def __init__(self, phrase):
+      self.mots = phrase.split()
+</code></pre>
+<blockquote>
+<p>Faire : <em>File → save as</em> <code>w3s8.py</code> puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+p.mots
+
+def upper(self):
+    self.mots = [m.upper() for m in self.mots]
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+p.mots
+p.upper()
+p.mots
+
+def __str__(self):
+    return &quot;\n&quot;.join(self.mots)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('je fais un mooc sur python')
+print(p)
+</code></pre>

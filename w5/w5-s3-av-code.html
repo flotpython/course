@@ -1,0 +1,25 @@
+<h1>w5s3. Compréhension des listes, sets et dictionnaires</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>prenoms = ['ana', 'eve', 'ALICE', 'Anne', 'bob'] 
+prenoms 
+a_prenoms = [p.lower() for p in prenoms if p.lower().startswith('a')] 
+a_prenoms 
+prenoms.extend(prenoms) 
+prenoms 
+a_prenoms = [p.lower() for p in prenoms if p.lower().startswith('a')] 
+a_prenoms 
+set(a_prenoms) 
+prenoms 
+a_prenoms = {p.lower() for p in prenoms if p.lower().startswith('a')} 
+a_prenoms 
+ages = {('ana', 20), ('EVE', 30), ('bob', 40)} 
+ages = dict(ages) 
+ages 
+ages_fix = {p.lower():a for p, a in ages.items()} 
+ages_fix 
+ages_fix = {p.lower():a for p, a in ages.items() if a &lt; 40} 
+ages_fix 
+</code></pre>

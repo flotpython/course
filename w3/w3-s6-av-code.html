@@ -1,0 +1,30 @@
+<h1>w3s6. Les exceptions</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>def div(a, b) :
+    print(a/b)
+div(1, 2)
+div(1, 0)
+
+def div(a, b) :
+    try:
+        print(a/b)
+    except ZeroDivisionError:
+        print(&quot;attention, division par 0&quot;)
+print(&quot;Continuons&quot;)
+
+
+def div(a, b) :
+    try:
+        print(a/b)
+    except ZeroDivisionError:
+        print(&quot;attention, division par 0&quot;)
+    except TypeError:
+        print(&quot;il faut des int&quot;)
+    print(&quot;Continuons&quot;)
+
+def div(a, b) :
+    print(a / b)
+</code></pre>

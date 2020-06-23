@@ -1,0 +1,25 @@
+<h1>w3s7. Les références partagées</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>a = 3
+b = a
+a = 'spam'
+a = [1, 2]
+b = a
+a[0] = 'spam'
+a = [1, 2]
+b = a[:]
+a[0] = 'spam'
+
+a = [1, [2]]
+b = a[:]
+a[0] = 'spam'
+a[1][0] = 'spam'
+
+a = [1, [2]]
+import copy
+b = copy.deepcopy(a)
+a[1][0] = 'spam'
+</code></pre>

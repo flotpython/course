@@ -1,0 +1,72 @@
+<h1>w4s3. Vidéo - Boucle while</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Faire : <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code>a = list(range(1, 10))
+while a:
+    a.pop()
+    print(a)
+</code></pre>
+<blockquote>
+<p>Faire : <em>File → save as</em> <code>w4s3.py</code> puis F5</p>
+</blockquote>
+<blockquote>
+<p>Dans le programme «w4s3.py», rajouter:</p>
+</blockquote>
+<pre><code>if len(a) == 5:
+    continue
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Dans le programme «w4s3.py», remplacer continue par:</p>
+</blockquote>
+<pre><code>    break
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Reprendre «w4s3.py», ou en prendre un nouveau par Control-n:</p>
+</blockquote>
+<pre><code>while True:
+    s = input('Quelle est votre question ?\n')
+    if 'aucune' in s:
+        break
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>bonjour
+rien
+aucune
+</code></pre>
+<blockquote>
+<p>Reprendre le programme jeu.py</p>
+</blockquote>
+<pre><code>s = input(&quot;Quelle est votre question\n&quot;)
+while True:
+    if s.startswith('bonjour'):
+        print(&quot;bonjour, comment allez-vous?&quot;)
+    elif &quot;bien&quot; in s:
+        print(&quot;c'est super !&quot;)
+    elif &quot;bye&quot; in s:
+        print(&quot;Au revoir !&quot;)
+        break
+    else:
+        print(&quot;mais encore...&quot;)
+    s = input()
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>bonjour
+bien
+ça va
+bye
+</code></pre>

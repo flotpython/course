@@ -1,0 +1,47 @@
+<h1>w6s7. Conception d'exceptions généralisées</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Reprendre Phrase.py</p>
+</blockquote>
+<pre><code>class PhraseVideError(Exception):
+    pass
+</code></pre>
+<blockquote>
+<p>Dans la méthode _<em>init</em>_ de la classe Phrase:</p>
+</blockquote>
+<pre><code>        if not ma_phrase:
+            raise PhraseVideError()
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase(s)
+p.mots
+p = Phrase('')
+</code></pre>
+<blockquote>
+<p>Dans la méthode _<em>init</em>_ de la classe Phrase:</p>
+</blockquote>
+<pre><code>            raise PhraseVideError('phrase vide', 18)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('')
+</code></pre>
+<blockquote>
+<p>Ajouter dans Phrase.py</p>
+</blockquote>
+<pre><code>try:
+    phrase('')
+except PhraseVideError as e:
+    print(e.args)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase('')
+</code></pre>

@@ -1,0 +1,36 @@
+<h1>w6s8. Conception de context manager</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>import time
+class Timer:
+    def __enter__(self):
+        self.start = time.time()
+        return self
+    
+    def __exit__(self, *args):
+        duree = time.time() - self.start
+        print(f&quot;{duree}s&quot;)
+        return False
+
+    def __str__(self):
+        duree = time.time() - self.start
+        return f&quot;intermédiaire: {duree}s&quot;
+        
+with Timer() as t:
+    sum(x for x in range(10_000_000))
+    print(t)
+    sum(x**2 for x in range(10_000_000))
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Ajouter après print(t)</p>
+</blockquote>
+<pre><code>    1/0
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>

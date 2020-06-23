@@ -1,0 +1,36 @@
+<h1>w3s2. Les tuples</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>t = ()
+type(t)
+t = (4,)
+t
+t = (True, 3.4, 18)
+t
+t = True, 3.4, 18
+t
+3.4 in t
+t[1]
+t[:2]
+a = list(t)
+a
+a[0] = False
+t = tuple(a)
+t
+(a, b) = [3, 4]
+a
+b
+a, b = 3, 4
+a
+b
+a = list(range(10))
+a
+x, *y = a
+x
+y
+*x, y = a
+x
+y
+</code></pre>

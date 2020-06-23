@@ -1,0 +1,74 @@
+<h1>w4s6. Vidéo - Passage des arguments et appel de fonctions</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<blockquote>
+<p>Faire: <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code>def agenda(nom, prenom, tel):
+    return {'nom': nom, 'prenom': prenom,
+            'tel': tel}
+</code></pre>
+<blockquote>
+<p>Faire: <em>File → save as</em> <code>w4s6.py</code> puis F5</p>
+</blockquote>
+<pre><code>agenda('idle', 'eric', '07070707')
+agenda(tel='070707707', nom='idle', prenom='eric')
+</code></pre>
+<blockquote>
+<p>Faire: <em>File → save as</em> <code>w4s6.py</code> puis F5</p>
+</blockquote>
+<blockquote>
+<p>Dans la fonction rajouter après tel</p>
+</blockquote>
+<pre><code>='?'
+</code></pre>
+<blockquote>
+<p>Control-s puis F5</p>
+</blockquote>
+<pre><code>agenda('idle', 'eric')
+agenda('idle', 'eric', '07070707')
+</code></pre>
+<blockquote>
+<p>Reprendre le programme ou bien prendre un nouveau</p>
+</blockquote>
+<pre><code>def f(*t):
+    print(t)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>f()
+f(1)
+f(1, 2, 3, 4)
+
+def f(**d):
+    print(d)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>f()
+f(nom='idle', prenom='eric')
+print(1)
+print(1, 2, 3, 4)
+</code></pre>
+<blockquote>
+<p>Reprendre le programme ou bien prendre un nouveau</p>
+</blockquote>
+<pre><code>def f(a, b):
+    print(a, b)
+</code></pre>
+<blockquote>
+<p>Faire Control-s puis F5</p>
+</blockquote>
+<pre><code>L = [1, 2]
+f(L[0], L[1])
+f(*L)
+d ={'a': 1, 'b': 2}
+f(**d)
+print(1, 2, sep=';', end='FIN')
+pp = {'sep':';', 'end':'FIN'}
+print(1, 2, **pp)
+</code></pre>

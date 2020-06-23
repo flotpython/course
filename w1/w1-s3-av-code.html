@@ -1,0 +1,53 @@
+<h1>w1s3. Interpréteur et IDLE</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>20 * 30
+a = 10
+print(a)
+def polynome(x):
+	return 2*x**2 + 4*x + 10
+polynome(10)
+polynom(10)
+import math
+dir(math)
+help(math.ceil)
+</code></pre>
+<blockquote>
+<p>Faire : <em>File → New file</em> ou Control-N</p>
+</blockquote>
+<pre><code># un commentaire
+def factoriel(n):
+    &quot;&quot;&quot; le factoriel &quot;&quot;&quot;
+    if n &lt;= 1:
+        return 1
+    else:
+        return n * factoriel(n-1)
+</code></pre>
+<blockquote>
+<p>Faire : <em>File → save as</em> <code>factoriel.py</code></p>
+</blockquote>
+<pre><code>polynome(10)
+factoriel(10)
+</code></pre>
+<blockquote>
+<p>dans le programme factoriel.py, rajouter :</p>
+</blockquote>
+<pre><code>print(factoriel(100))
+</code></pre>
+<blockquote>
+<p>dans un terminal (cmd pour windows) :</p>
+</blockquote>
+<pre><code>python -V
+python factoriel.py
+ipython
+?
+
+def fibonacci(n):
+     return 1 if n &lt;=1 else fibonacci(n-1) + fibonacci(n-2)
+fibonacci(10)
+import math
+math.ceil?
+math.ceil(10)
+</code></pre>

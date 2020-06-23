@@ -1,0 +1,22 @@
+<h1>w2s7. Introduction aux compréhensions des listes</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>a = [1, 4, 18, 29, 13]
+import math
+b = []
+for i in a:
+    b.append(math.log(i))
+b
+b = [math.log(i) for i in a]
+b
+a.append(-1)
+a
+b = [math.log(i) for i in a if i &gt; 0]
+b
+prenom = ['Alice', 'evE', 'sonia', 'BOB']
+prenom
+prenom = [p.lower() for p in prenom]
+prenom
+</code></pre>

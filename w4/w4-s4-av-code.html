@@ -1,0 +1,24 @@
+<h1>w4s4. Vidéo - Portée des variables - règle LEGB</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>a, b, c = 1, 1, 1
+def g():
+     b, c = 2, 4
+     b = b + 10
+     def h():
+         c = 5
+         print(a, b, c)
+     h()
+g()
+print(a, b, c)
+import builtins
+dir(builtins)
+print(1)
+print = 10
+print(1)
+x = 1
+print = builtins.print
+print(1)
+</code></pre>

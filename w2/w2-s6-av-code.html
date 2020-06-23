@@ -1,0 +1,32 @@
+<h1>w2s6. Introduction aux tests if et à la syntaxe</h1>
+<p style="border: 1px solid black; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier coller le code de la vidéo</i></b>
+</p>
+<hr />
+<pre><code>print(1**2)
+print(2**2)
+print(3**2)
+for i in range(10):
+    print(i**2)
+for i in ['a', 3.5, True]:
+    print(i)
+a = [1, 2, 5, 8, 9]
+for i in a:
+    print(i**2)
+b = [3.6, 18, 12, 25]
+for i in b:
+    print(i**2)
+def carre(a):
+    for i in a:
+        print(i**2)
+carre(a)
+carre(b)
+def carre(a):
+    L = []
+    for i in a:
+        L.append(i**2)
+    return L
+carre(b)
+b = carre(b)
+b
+</code></pre>
