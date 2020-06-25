@@ -153,7 +153,7 @@
     f()
     print(a)
 
-> Rajouter la ligne (sous def f()
+> Rajouter la ligne (sous def f())
 
         global a
 > Control-s puis F5
