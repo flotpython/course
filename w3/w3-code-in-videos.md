@@ -23,7 +23,7 @@
 ## Vidéo 2
 
     with open(r'C:\temp\spam.txt', 'r', encoding= 'utf8') as f:
-    for line in f:
+        for line in f:
             print(line)
     with open(r'C:\temp\spam.bin', 'bw') as f:
         for i in range(100):
@@ -73,7 +73,7 @@
     t = [1, 2]
     t[0]
     t = [18, 35]
-    t['alice']
+    t['alice'] = 35
 
 # w3s4. Les dictionnaires
 -------------
@@ -146,8 +146,11 @@
             print(a/b)
         except ZeroDivisionError:
             print("attention, division par 0")
-    print("Continuons")
+        print("Continuons")
 
+    div(1, 2)
+    div(1, 0)
+    div(1, '0')
 
     def div(a, b) :
         try:
@@ -157,9 +160,29 @@
         except TypeError:
             print("il faut des int")
         print("Continuons")
+        
+    div(1, 2)
+    div(1, 0)
+    div(1, '0')
+    
+    def div(a, b) :
+        try:
+            print(a/b)
+        except:
+            print("attention, division par 0")
+        print("Continuons")
+
+    div(1, 0)
+    div(1, '0')
 
     def div(a, b) :
         print(a / b)
+        
+    def f(x):
+        div(1, x)
+
+    f(1)
+    f(0)
 
 # w3s7. Les références partagées
 -------------
@@ -197,10 +220,13 @@
     class Phrase:
           def __init__(self, phrase):
           self.mots = phrase.split()
+          
 > Faire : *File → save as* `w3s8.py` puis F5
 
     p = Phrase('je fais un mooc sur python')
     p.mots
+
+> Reprendre `w3s8.py` 
 
     def upper(self):
         self.mots = [m.upper() for m in self.mots]
@@ -211,9 +237,11 @@
     p.upper()
     p.mots
 
+> Reprendre `w3s8.py` 
+
     def __str__(self):
         return "\n".join(self.mots)
->Faire Control-s puis F5
+> Faire Control-s puis F5
 
     
     p = Phrase('je fais un mooc sur python')
