@@ -34,7 +34,7 @@
     carre = lambda x: x**2 - 1
     carre(1)
 
-> Prendre léditeur de IDLE (ou pas :))
+> Prendre l'éditeur de IDLE (ou pas :))
 
     def image(f): 
         for x in range(10): 
@@ -44,7 +44,7 @@
     image 
     image(lambda x: x**2 - 1)
 
-> Reprendre léditeur
+> Reprendre l'éditeur
 
     def carre(x): 
         return x**2 - 1 
@@ -55,6 +55,7 @@
     image(carre) 
      
     m = map(carre, range(10)) 
+    m
     list(m) 
     filter(lambda x: x%2 == 0, range(10)) 
     f = filter(lambda x: x%2 == 0, range(10)) 
@@ -75,7 +76,7 @@
     prenoms 
     a_prenoms = {p.lower() for p in prenoms if p.lower().startswith('a')} 
     a_prenoms 
-    ages = {('ana', 20), ('EVE', 30), ('bob', 40)} 
+    ages = [('ana', 20), ('EVE', 30), ('bob', 40)] 
     ages = dict(ages) 
     ages 
     ages_fix = {p.lower():a for p, a in ages.items()} 
@@ -104,7 +105,7 @@
      
 ## Vidéo 2
 
-> Prendre léditeur IDLE 
+> Prendre l'éditeur IDLE 
 
     def gen(): 
         yield 10 
@@ -115,7 +116,7 @@
     g = gen() 
     next(g) 
     next(g) 
-> Prendre léditeur IDLE
+> Prendre l'éditeur IDLE
 
     def gen(x): 
         yield x 
@@ -128,7 +129,7 @@
     next(g) 
     next(g) 
     next(g) 
-> Prendre léditeur IDLE
+> Prendre l'éditeur IDLE
 
     def carre(a, b): 
         for i in range(a, b): 
@@ -137,7 +138,7 @@
 
     c = carre(1, 10) 
     list(c) 
-> Prendre léditeur IDLE
+> Prendre l'éditeur IDLE
 
     def palin(it): 
         for i in it: 
@@ -153,7 +154,7 @@
 # w5s5. Modules et espaces de nommage   
 -------------
 
-> Prendre léditeur IDLE
+> Prendre l'éditeur IDLE
 
     x = 1 
     def f(): 
@@ -188,7 +189,7 @@
 # w5s7. Importation des modules et des espaces de nommage 
 -------------
 
-> Prendre léditeur IDLE, ouvrir le fichier spam.py
+> Prendre l'éditeur IDLE, ouvrir le fichier spam.py
 
     x = 1 
 > Faire Control-s
@@ -202,7 +203,7 @@
 > Ouvrir une invite de commande (cmd) sous windows ou bash sous unix, puis taper :
 
     python egg.py 
-> Pour voir lespace de nommage de ces modules, dans la console python, après avoir fait F5 sur un module,  utiliser les instructions
+> Pour voir l'espace de nommage de ces modules, dans la console python, après avoir fait F5 sur un module,  utiliser les instructions
 
     vars() # ou globals() 
     vars(spam) 
