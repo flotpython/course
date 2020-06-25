@@ -59,6 +59,8 @@
 > Faire Control-s puis F5
 
     p = Phrase('je fais un mooc sur python')
+    p.ma_phrase
+    
 > Reprendre Phrase.py et dans la méthode `__init__`
 
             self.mots = ma_phrase.split()
@@ -178,7 +180,7 @@
 # w6s5. Variables et attributs
 -------------
 
-> Reprendre Phrase.py
+> Reprendre spam.py
 
     # fichier spam.py
     a = 1
@@ -305,14 +307,13 @@
 > Ajouter dans Phrase.py
 
     try:
-        phrase('')
+        Phrase('')
     except PhraseVideError as e:
         print(e.args)
 
 
 > Faire Control-s puis F5
 
-    p = Phrase('')
     
 # w6s8. Conception de context manager
 -------------
