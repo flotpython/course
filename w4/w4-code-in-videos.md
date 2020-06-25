@@ -74,13 +74,13 @@
 
 > Dans le programme «w4s3.py», rajouter: 
 
-    if len(a) == 5:
-        continue
+        if len(a) == 5:
+            continue
 > Faire Control-s puis F5
 
 > Dans le programme «w4s3.py», remplacer continue par: 
 
-        break
+            break
 > Faire Control-s puis F5
 
 > Reprendre «w4s3.py», ou en prendre un nouveau par Control-n: 
@@ -155,12 +155,14 @@
 
 > Rajouter la ligne (sous def f()
 
-    global a
+        global a
 > Control-s puis F5
 
     print(a)
     f()
     print(a)
+
+> Reprendre `w4s5.py`
 
     a = 10
 
@@ -173,7 +175,7 @@
     f()
     print(a)
 
-> Modifier la fonction
+> Reprendre `w4s5.py` et modifier la fonction
 
     note = 10
 
@@ -202,7 +204,7 @@
 
 > Rajouter dans g() la ligne:
 
-        nonlocal a
+            nonlocal a
 > Control-s puis F5
 
 # w4s6. Vidéo - Passage des arguments et appel de fonctions
@@ -217,9 +219,8 @@
 
     agenda('idle', 'eric', '07070707')
     agenda(tel='070707707', nom='idle', prenom='eric')
-> Faire: *File → save as* `w4s6.py` puis F5
 
-> Dans la fonction rajouter après tel
+> Dans la fonction agenda rajouter après le paramètre tel
 
     ='?'
 > Control-s puis F5
