@@ -136,10 +136,17 @@
 # w3s6. Les exceptions
 -------------
 
+> Faire : File -> New file ou ctl-N
+
     def div(a, b) :
         print(a/b)
+       
+> Faire : File -> save as w3s6.py ou bien Ctl-s puis F5
+
     div(1, 2)
     div(1, 0)
+       
+> Reprendre le programme
 
     def div(a, b) :
         try:
@@ -147,39 +154,43 @@
         except ZeroDivisionError:
             print("attention, division par 0")
         print("Continuons")
+
+> Faire Ctl-s puis F5
 
     div(1, 2)
     div(1, 0)
     div(1, '0')
+    
+> Reprendre le programme et ajouter
 
-    def div(a, b) :
-        try:
-            print(a/b)
-        except ZeroDivisionError:
-            print("attention, division par 0")
         except TypeError:
             print("il faut des int")
-        print("Continuons")
+
+> Faire Ctl-s puis F5
         
     div(1, 2)
     div(1, 0)
     div(1, '0')
     
-    def div(a, b) :
-        try:
-            print(a/b)
+> Reprendre le programme et remplacer toutes les clauses except par:
+    
         except:
             print("attention, division par 0")
-        print("Continuons")
+
+> Faire Ctl-s puis F5
 
     div(1, 0)
     div(1, '0')
+    
+> Reprendre le programme
 
     def div(a, b) :
         print(a / b)
         
     def f(x):
         div(1, x)
+
+> Faire Ctl-s puis F5
 
     f(1)
     f(0)
