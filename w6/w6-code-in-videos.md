@@ -314,7 +314,6 @@
 
 > Faire Control-s puis F5
 
-    
 # w6s8. Conception de context manager
 -------------
 
