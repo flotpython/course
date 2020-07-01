@@ -7,29 +7,73 @@
 <b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
 </h3>
 <hr />
+<blockquote>
+<p>Faire : File -&gt; New file ou ctl-N</p>
+</blockquote>
 <pre><code>def div(a, b) :
     print(a/b)
-div(1, 2)
+</code></pre>
+<blockquote>
+<p>Faire : File -&gt; save as w3s6.py ou bien Ctl-s puis F5</p>
+</blockquote>
+<pre><code>div(1, 2)
 div(1, 0)
-
-def div(a, b) :
+</code></pre>
+<blockquote>
+<p>Reprendre le programme</p>
+</blockquote>
+<pre><code>def div(a, b) :
     try:
         print(a/b)
     except ZeroDivisionError:
         print(&quot;attention, division par 0&quot;)
-print(&quot;Continuons&quot;)
-
-
-def div(a, b) :
-    try:
-        print(a/b)
-    except ZeroDivisionError:
-        print(&quot;attention, division par 0&quot;)
-    except TypeError:
-        print(&quot;il faut des int&quot;)
     print(&quot;Continuons&quot;)
-
-def div(a, b) :
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>div(1, 2)
+div(1, 0)
+div(1, '0')
+</code></pre>
+<blockquote>
+<p>Reprendre le programme et ajouter</p>
+</blockquote>
+<pre><code>    except TypeError:
+        print(&quot;il faut des int&quot;)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>div(1, 2)
+div(1, 0)
+div(1, '0')
+</code></pre>
+<blockquote>
+<p>Reprendre le programme et remplacer toutes les clauses except par:</p>
+</blockquote>
+<pre><code>    except:
+        print(&quot;attention, division par 0&quot;)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>div(1, 0)
+div(1, '0')
+</code></pre>
+<blockquote>
+<p>Reprendre le programme</p>
+</blockquote>
+<pre><code>def div(a, b) :
     print(a / b)
+    
+def f(x):
+    div(1, x)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>f(1)
+f(0)
 </code></pre>
 </div>

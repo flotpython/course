@@ -19,7 +19,7 @@ set(a_prenoms)
 prenoms 
 a_prenoms = {p.lower() for p in prenoms if p.lower().startswith('a')} 
 a_prenoms 
-ages = {('ana', 20), ('EVE', 30), ('bob', 40)} 
+ages = [('ana', 20), ('EVE', 30), ('bob', 40)] 
 ages = dict(ages) 
 ages 
 ages_fix = {p.lower():a for p, a in ages.items()} 
