@@ -2,7 +2,7 @@
 # w7s1. Présentation générale
 -------------
 
-> Ouvrir un notebook (par ex dans la page de complément ci-après)
+> Ouvrir un notebook (par ex. dans la page de complément ci-après)
 
 > ou bien aller sur l'url https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb
 
@@ -10,7 +10,7 @@
 
 
 
-	# Video
+	# Vidéo
 	import numpy as np
 	import pandas as pd
 	import seaborn as sns
@@ -441,3 +441,51 @@
 	ti.pivot_table('survived', aggfunc=np.mean,
 	               index='class', columns='sex')
 	 
+
+
+# w7s9. Pandas : gestion des dates et des séries temporelles
+-------------
+
+> Ouvrir un notebook
+
+	import numpy as np
+	import pandas as pd
+
+	np.datetime64('2018-06-30')
+
+	np.datetime64('2018-06-30 08:35:23')
+
+	np.datetime64('2018-06-30 08:35:23', 'ns')
+
+	np.datetime64('2018-06-30 08:35:23') - np.datetime64('2018-06-20 08:37:23')
+
+	pd.to_datetime('10 june 1973 8h30')
+
+	pd.to_datetime(['10 june 1973 8h30', '22-JUNE-1973'])
+
+	index = pd.date_range('1 jan 2018', periods=1000, freq='D')
+
+	index
+
+	index = pd.date_range('1 jan 2018', periods=1000, freq='43h36min')
+
+	index = pd.date_range('1 jan 2018', periods=1000, freq='43h36t')
+
+	index
+
+	s = pd.Series(np.random.randint(100, size=1000), index=index)
+
+	s
+
+	s['2018']
+
+	s['dec2018']
+
+	s['dec 2018':'3 jan 2019']
+
+	s.resample('M').mean()
+
+	s.resample('W-WED').mean()
+
+	s.resample?
+		 		 
