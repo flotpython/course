@@ -6,7 +6,7 @@
 
 > ou bien aller sur l'url https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb
 
-> et faire File -> New Notebook -> Python 3
+> attendre d'avoir la page jupyter et faire File -> New Notebook -> Python 3
 
 
 
