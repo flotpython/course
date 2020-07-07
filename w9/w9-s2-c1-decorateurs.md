@@ -1,16 +1,15 @@
 ---
-jupyter:
-  jupytext:
-    cell_metadata_filter: all
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  cell_metadata_filter: all
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 <div class="licence">
@@ -19,12 +18,15 @@ jupyter:
 <span><img src="media/both-logos-small-alpha.png" /></span>
 </div>
 
++++
 
 # Décorateurs
 
++++
 
 ## Complément - niveau (très) avancé
 
++++
 
 Le mécanisme des décorateurs - qui rappelle un peu, pour ceux qui connaissent, les macros Lisp - est un mécanisme très puissant. Sa portée va bien au delà de simplement rajouter du code avant et après une fonction, comme dans le cas de `NbAppels` que nous avons vu dans la vidéo.
 
@@ -32,13 +34,15 @@ Par exemple, les notions de méthodes de classe (`@classmethod`) et de méthodes
 
 Nous allons voir en détail quelques-uns de ces exemples.
 
++++
 
 ### Un décorateur implémenté comme une classe
 
++++
 
 Dans la vidéo on a vu `NbAppels` pour compter le nombre de fois qu'on appelle une fonction. Pour mémoire on avait écrit :
 
-```python
+```{code-cell}
 # un rappel du code montré dans la vidéo
 class NbAppels:
     def __init__(self, f):
@@ -50,7 +54,7 @@ class NbAppels:
         return self.f(*args)
 ```
 
-```python
+```{code-cell}
 # nous utilisons ici une implémentation en log(n)
 # de la fonction de fibonacci
 
@@ -70,22 +74,22 @@ def fibo_log(n):
     return fibo_aux(n)[0]
 ```
 
-```python
+```{code-cell}
 # pour se convaincre que nous sommes bien en log2(n)
 from math import log
 ```
 
-```python
+```{code-cell}
 n1 = 100
 
 log(n1)/log(2)
 ```
 
-```python
+```{code-cell}
 fibo_log(n1)
 ```
 
-```python
+```{code-cell}
 # on multiplie par 2**4 = 16,
 # donc on doit voir 4 appels de plus
 n2 = 1600
@@ -93,21 +97,23 @@ n2 = 1600
 log(n2)/log(2)
 ```
 
-```python
+```{code-cell}
 fibo_log(n2)
 ```
 
 ### `memoize` implémenté comme une fonction
 
++++
 
 Ici nous allons implémenter `memoize`, un décorateur qui permet de mémoriser les résultats d'une fonction, et de les cacher pour ne pas avoir à les recalculer la fois suivante.
 
 Alors que `NbAppels` était **implémenté comme une classe**, pour varier un peu, nous allons implémenter cette fois **`memoize` comme une vraie fonction**, pour vous montrer les deux alternatives que l'on a quand on veut implémenter un décorateur : une vraie fonction ou une classe de callables.
 
++++
 
 ##### Le code du décorateur
 
-```python
+```{code-cell}
 # une première implémentation de memoize
 
 # un décorateur de fonction
@@ -143,10 +149,11 @@ def memoize(a_decorer):
 
 ##### Comment l'utiliser
 
++++
 
 Avant de rentrer dans le détail du code, voyons comment cela s'utiliserait ; il n'y a pas de changement de ce point de vue par rapport à l'option développée dans la vidéo :
 
-```python
+```{code-cell}
 # créer une fonction décorée
 @memoize
 def fibo_cache(n):
@@ -163,7 +170,7 @@ En effet, si vous y réfléchissez une minute, vous verrez qu'avec le cache, lor
 
 On peut calculer par exemple :
 
-```python
+```{code-cell}
 fibo_cache(300)
 ```
 
@@ -171,16 +178,18 @@ qu'il serait hors de question de calculer sans le caching.
 
 On peut naturellement inspecter le cache, qui est rangé dans l'attribut `cache` de l'objet fonction lui-même :
 
-```python
+```{code-cell}
 len(fibo_cache.cache)
 ```
 
 et voir que, comme on aurait pu le prédire, on a calculé et mémorisé les 301 premiers résultats, pour n allant de 0 à 300.
 
++++
 
 ##### Comment ça marche ?
 
-<!-- #region -->
++++
+
 On l'a vu dans la vidéo avec `NbAppels`, tout se passe exactement comme si on avait écrit :
 
 ```python
@@ -189,10 +198,12 @@ def fibo_cache(n):
 
 fibo_cache = memoize(fibo_cache)
 ```
-<!-- #endregion -->
+
++++
 
 Donc `memoize` est une fonction qui prend en argument une fonction `a_decorer` qui ici vaut `fibo_cache`, et retourne une autre fonction, `decoree` ; on s'arrange naturellement pour que `decoree` retourne le même résultat que `a_decorer`, avec seulement des choses supplémentaires.
 
++++
 
 Les points clés de l'implémentation sont les suivants :
 
@@ -201,6 +212,7 @@ Les points clés de l'implémentation sont les suivants :
 * Si on ne trouve pas les arguments dans le cache, on reçoit l'exception `KeyError`, dans ce cas on calcule le résultat, et on le retourne après l'avoir rangé dans le cache.
 * Vous remarquerez aussi qu'on initialise l'attribut `cache` dans l'objet `decoree` à l'appel du décorateur (une seule fois, juste après avoir défini la fonction), et non pas dans le code de `decoree` qui lui est évalué à chaque appel.
 
++++
 
 Cette implémentation, sans être parfaite, est tout à fait utilisable dans un environnement réel, modulo les remarques de bon sens suivantes :
 
@@ -208,28 +220,30 @@ Cette implémentation, sans être parfaite, est tout à fait utilisable dans un 
 * tout aussi évidemment, la consommation mémoire peut être importante si on applique le caching sans discrimination ;
 * enfin en l'état la fonction décorée ne peut pas être appelée avec des arguments nommés ; en effet on utilise le tuple `args` comme clé pour retrouver dans le cache la valeur associée aux arguments.
 
++++
 
 ### Décorateurs, *docstring* et `help`
 
++++
 
 En fait, avec cette implémentation, il reste aussi un petit souci :
 
-```python
+```{code-cell}
 help(fibo_cache)
 ```
 
-<!-- #region -->
 Et ce n'est pas exactement ce qu'on veut ; ce qui se passe ici c'est que `help` utilise les attributs `__doc__` et `__name__` de l'objet qu'on lui passe. Et dans notre cas `fibo_cache` est une fonction qui a été créée par l'instruction :
 
 ```python
 def decoree(*args):
     # etc.
 ```
-<!-- #endregion -->
+
++++
 
 Pour arranger ça et faire en sorte que `help` nous affiche ce qu'on veut, il faut s'occuper de ces deux attributs. Et plutôt que de faire ça à la main, il existe [un utilitaire `functools.wraps`](https://docs.python.org/3/library/functools.html#functools.wraps), qui fait tout le travail nécessaire. Ce qui nous donne une deuxième version de ce décorateur, avec deux lignes supplémentaires signalées par des `+++` :
 
-```python
+```{code-cell}
 # une deuxième implémentation de memoize, avec la doc
 
 import functools                                 # +++
@@ -268,7 +282,7 @@ def memoize(a_decorer):
     return decoree
 ```
 
-```python
+```{code-cell}
 # créer une fonction décorée
 @memoize
 def fibo_cache2(n):
@@ -281,21 +295,24 @@ def fibo_cache2(n):
 
 Et on obtient à présent une aide en ligne cohérente :
 
-```python
+```{code-cell}
 help(fibo_cache2)
 ```
 
 ### On peut décorer les classes aussi
 
++++
 
 De la même façon qu'on peut décorer une fonction, on peut décorer une classe.
 
 Pour ne pas alourdir le complément, et aussi parce que le mécanisme de métaclasse offre une autre alternative qui est souvent plus pertinente, nous ne donnons pas d'exemple ici, cela vous est laissé à titre d'exercice si vous êtes intéressé.
 
++++
 
 ### Un décorateur peut lui-même avoir des arguments
 
-<!-- #region -->
++++
+
 Reprenons l'exemple de `memoize`, mais imaginons qu'on veuille ajouter un trait de "durée de validité du cache". Le code du décorateur a besoin de connaître la durée pendant laquelle on doit garder les résultats dans le cache.
 
 On veut pouvoir préciser ce paramètre, appelons le `cache_timeout`,  pour chaque fonction ; par exemple on voudrait écrire quelque chose comme :
@@ -309,9 +326,9 @@ def resolve_host(hostname):
 def network_neighbours(hostname):
     …
 ```
-<!-- #endregion -->
 
-<!-- #region -->
++++
+
 Ceci est possible également avec les décorateurs, avec cette syntaxe précisément. Le modèle qu'il faut avoir à l'esprit pour bien comprendre le code qui suit est le suivant et se base sur deux objets :
 
 * le premier objet, `memoize_expire`, est ce qu'on appelle une *factory* à décorateurs, c'est-à-dire que l'interpréteur va d'abord appeler `memoize_expire(600)` qui doit retourner un décorateur ;
@@ -329,11 +346,12 @@ Ou encore si vous préférez :
 memoize = memoize_expire(600)
 resolve_host = memoize(resolve_host)
 ```
-<!-- #endregion -->
+
++++
 
 Ce qui nous mène au code suivant :
 
-```python
+```{code-cell}
 import time
 
 # comme pour memoize, on est limité ici et on ne peut pas
@@ -379,22 +397,23 @@ def memoize_expire(timeout):
     return memoize
 ```
 
-```python
+```{code-cell}
 @memoize_expire(0.5)
 def fibo_cache_expire(n):
     return n if n<=1 else fibo_cache_expire(n-2)+fibo_cache_expire(n-1)
 ```
 
-```python
+```{code-cell}
 fibo_cache_expire(300)
 ```
 
-```python
+```{code-cell}
 fibo_cache_expire.cache[(200,)]
 ```
 
 ##### Remarquez la clôture
 
++++
 
 Pour conclure sur cet exemple, vous remarquez que dans le code de `decoree` on accède à la variable `timeout`. Ça peut paraître un peu étonnant, si vous pensez que `decoree` est appelée **bien après** que la fonction `memoize_expire` a fini son travail. En effet, `memoize_expire` est évaluée **une fois** juste après **la définition** de `fibo_cache`. Et donc on pourrait penser que la valeur de `timeout` ne serait plus disponible dans le contexte de `decoree`.
 
@@ -402,10 +421,12 @@ Pour comprendre ce qui se passe, il faut se souvenir que Python est un langage �
 
 Ce type de construction s'appelle [une **clôture**](http://fr.wikipedia.org/wiki/Fermeture_%28informatique%29), en référence au lambda calcul : on parle de terme clos lorsqu'il n'y a plus de référence non résolue dans une expression. C'est une technique de programmation très répandue notamment dans les applications réactives, où on programme beaucoup avec des *callbacks* ; par exemple il est presque impossible de programmer en JavaScript sans écrire une clôture.
 
++++
 
 ### On peut chaîner les décorateurs
 
-<!-- #region -->
++++
+
 Pour revenir à notre sujet, signalons enfin que l'on peut aussi "chaîner les décorateurs" ; imaginons par exemple qu'on dispose d'un décorateur `add_field` qui ajoute dans une classe un *getter* et un *setter* basés sur un nom d'attribut.
 
 C'est-à-dire que :
@@ -417,9 +438,9 @@ class Foo:
 ```
 
 donnerait pour `Foo` une classe qui dispose des méthodes `get_name` et `set_name` (exercice pour les courageux : écrire `add_field`).
-<!-- #endregion -->
 
-<!-- #region -->
++++
+
 Alors la syntaxe des décorateurs vous permet de faire quelque chose comme :
 
 ```python
@@ -428,9 +449,9 @@ Alors la syntaxe des décorateurs vous permet de faire quelque chose comme :
 class Foo:
     pass
 ```
-<!-- #endregion -->
 
-<!-- #region -->
++++
+
 Ce qui revient à faire :
 
 ```python
@@ -438,10 +459,12 @@ class Foo: pass
 Foo = (add_field('address'))(Foo)
 Foo = (add_field('name'))(Foo)
 ```
-<!-- #endregion -->
+
++++
 
 ### Discussion
 
++++
 
 Dans la pratique, écrire un décorateur est un exercice assez délicat. Le vrai problème est bien souvent la création d'objets supplémentaires : on n'appelle plus la fonction de départ mais un wrapper autour de la fonction de départ.
 
@@ -456,8 +479,10 @@ De manière plus générale, il y a des gens pour trouver des défauts à ce sys
 
 Ce qui est clair toutefois est que la technique des décorateurs est quelque chose qui peut être très  utile, mais dont il ne faut pas abuser. En particulier de notre point de vue, la possibilité de combiner les décorateurs, si elle existe bien dans le langage d'un point de vue syntaxique, est dans la pratique à utiliser avec la plus extrême prudence.
 
++++
 
 ### Pour en savoir plus
 
++++
 
 Maintenant que vous savez presque tout sur les décorateurs, vous pouvez retourner lire ce [recueil de décorateurs](https://wiki.python.org/moin/PythonDecoratorLibrary) mais plus en détails.
