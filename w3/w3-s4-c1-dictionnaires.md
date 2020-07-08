@@ -1,0 +1,418 @@
+---
+jupytext:
+  cell_metadata_filter: all
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+<div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat &amp; Arnaud Legout</span>
+<span><img src="media/both-logos-small-alpha.png" /></span>
+</div>
+
++++
+
+# Dictionnaires
+
++++
+
+## Complément - niveau basique
+
++++
+
+Ce document résume les opérations courantes disponibles sur le type `dict`. On rappelle que le type `dict` est un type **mutable**.
+
++++
+
+### Création en extension
+
++++
+
+On l'a vu, la méthode la plus directe pour créer un dictionnaire est en extension comme ceci :
+
+```{code-cell}
+annuaire = {'marc': 35, 'alice': 30, 'eric': 38}
+print(annuaire)
+```
+
+### Création - la fonction dict
+
++++
+
+Comme pour les fonctions `int` ou `list`, la fonction `dict` est une fonction de construction de dictionnaire - on dit un constructeur. On a vu aussi dans la vidéo qu'on peut utiliser ce constructeur à base d'une liste de tuples (`clé`, `valeur`)
+
+```{code-cell}
+# le paramètre de la fonction dict est
+# une liste de couples (clé, valeur)
+annuaire = dict([('marc', 35), ('alice', 30), ('eric', 38)])
+print(annuaire)
+```
+
+Remarquons qu'on peut aussi utiliser cette autre forme d'appel à `dict` pour un résultat équivalent :
+
+```{code-cell}
+annuaire = dict(marc=35, alice=30, eric=38)
+print(annuaire)
+```
+
+Remarquez ci-dessus l'absence de quotes autour des clés comme `marc`. Il s'agit d'un cas particulier de passage d'arguments que nous expliciterons plus longuement en fin de semaine 4.
+
++++
+
+### Accès atomique
+
++++
+
+Pour accéder à la valeur associée à une clé, on utilise la notation à base de crochets `[]` :
+
+```{code-cell}
+print('la valeur pour marc est', annuaire['marc'])
+```
+
+Cette forme d'accès ne fonctionne que si la clé est effectivement présente dans le dictionnaire. Dans le cas contraire, une exception `KeyError` est levée. Aussi si vous n'êtes pas sûr que la clé soit présente, vous pouvez utiliser la méthode `get` qui accepte une valeur par défaut :
+
+```{code-cell}
+print('valeur pour marc', annuaire.get('marc', 0))
+print('valeur pour inconnu', annuaire.get('inconnu', 0))
+```
+
+Le dictionnaire est un type **mutable**, et donc on peut **modifier la valeur** associée à une clé :
+
+```{code-cell}
+annuaire['eric'] = 39
+print(annuaire)
+```
+
+Ou encore, exactement de la même façon, **ajouter une entrée** :
+
+```{code-cell}
+annuaire['bob'] = 42
+print(annuaire)
+```
+
+Enfin pour **détruire une entrée**, on peut utiliser l'instruction `del` comme ceci :
+
+```{code-cell}
+# pour supprimer la clé 'marc' et donc sa valeur aussi
+del annuaire['marc']
+print(annuaire)
+```
+
+Pour savoir si une clé est présente ou non, il est conseillé d'utiliser l'opérateur d'appartenance `in` comme ceci :
+
+```{code-cell}
+# forme recommandée
+print('john' in annuaire)
+```
+
+### Parcourir toutes les entrées
+
++++
+
+La méthode la plus fréquente pour parcourir tout un dictionnaire est à base de la méthode `items` ; voici par exemple comment on pourrait afficher le contenu :
+
+```{code-cell}
+for nom, age in annuaire.items():
+    print(f"{nom}, age {age}")
+```
+
+On remarque d'abord que les entrées sont listées dans le désordre, plus précisément, il n'y a pas de notion d'ordre dans un dictionnaire ; ceci est dû à l'action de la fonction de hachage, que nous avons vue dans la vidéo précédente.
+
++++
+
+On peut obtenir séparément la liste des clés et des valeurs avec :
+
+```{code-cell}
+for cle in annuaire.keys():
+    print(cle)
+```
+
+```{code-cell}
+for valeur in annuaire.values():
+    print(valeur)
+```
+
+### La fonction `len`
+
++++
+
+On peut comme d'habitude obtenir la taille d'un dictionnaire avec la fonction `len` :
+
+```{code-cell}
+print(f"{len(annuaire)} entrées dans annuaire")
+```
+
+### Pour en savoir plus sur le type `dict`
+
++++
+
+Pour une liste exhaustive reportez-vous à la page de la documentation Python ici :
+
+<https://docs.python.org/3/library/stdtypes.html#mapping-types-dict>
+
++++
+
+**********
+
++++
+
+## Complément - niveau intermédiaire
+
++++
+
+### La méthode `update`
+
++++
+
+On peut également modifier un dictionnaire avec le contenu d'un autre dictionnaire avec la méthode `update` :
+
+```{code-cell}
+print(f"avant: {list(annuaire.items())}")
+```
+
+```{code-cell}
+annuaire.update({'jean':25, 'eric':70})
+list(annuaire.items())
+```
+
+### `collections.OrderedDict` : dictionnaire et ordre d'insertion
+
++++
+
+**Attention** : un dictionnaire est **non ordonné !** Il ne se souvient pas de l'ordre dans lequel les éléments ont été insérés. C'était particulièrement visible dans les versions de Python jusque 3.5 :
+
+```{code-cell}
+%%python2
+# coding: utf-8
+
+# cette cellule utilise python-2.7 pour illustrer le fait
+# que les dictionnaires ne sont pas ordonnés
+
+d = {'c' : 3, 'b' : 1, 'a' : 2}
+for k, v in d.items():
+    print k, v
+```
+
+En réalité, et depuis la version 3.6 de Python, il se trouve qu'**incidemment** l'implémentation CPython (la plus répandue donc) a été modifiée, et maintenant on peut avoir l'**impression** que les dictionnaires sont ordonnés :
+
+```{code-cell}
+d = {'c' : 3, 'b' : 1, 'a' : 2}
+for k, v in d.items():
+    print(k, v)
+```
+
+Il faut insister sur le fait qu'il s'agit d'un **détail d'implémentation**, et que vous ne devez pas écrire du code qui suppose que les dictionnaires sont ordonnés.
+
++++
+
+Si vous avez besoin de dictionnaires qui sont **garantis** ordonnés, voyez dans [le module `collections`](https://docs.python.org/3/library/collections.html) la classe [`OrderedDict`](https://docs.python.org/3/library/collections.html#collections.OrderedDict), qui est une personnalisation (une sous-classe) du type `dict`, qui cette fois possède cette bonne propriété :
+
+```{code-cell}
+from collections import OrderedDict
+d = OrderedDict()
+for i in ['a', 7, 3, 'x']:
+    d[i] = i
+for k, v in d.items():
+    print('OrderedDict', k, v)
+```
+
+### `collections.defaultdict` : initialisation automatique
+
++++
+
+Imaginons que vous devez gérer un dictionnaire dont les valeurs sont des listes, et que votre programme ajoute des valeurs au fur et à mesure dans ces listes.
+
+Avec un dictionnaire de base, cela peut vous amener à écrire un code qui ressemble à ceci :
+
+```{code-cell}
+# imaginons qu'on a lu dans un fichier des couples (x, y)
+tuples = [
+    (1, 2),
+    (2, 1),
+    (1, 3),
+    (2, 4),
+]
+```
+
+```{code-cell}
+# et on veut construire un dictionnaire
+# x -> [liste de tous les y connectés à x]
+resultat = {}
+
+for x, y in tuples:
+    if x not in resultat:
+        resultat[x] = []
+    resultat[x].append(y)
+
+for key, value in resultat.items():
+    print(key, value)
+```
+
+Cela fonctionne, mais n'est pas très élégant. Pour simplifier ce type de traitement, vous pouvez utiliser `defaultdict`, une sous-classe de `dict` dans le module `collections` :
+
+```{code-cell}
+from collections import defaultdict
+
+# on indique que les valeurs doivent être créées à la volée
+# en utilisant la fonction list
+resultat = defaultdict(list)
+
+# du coup plus besoin de vérifier la présence de la clé
+for x, y in tuples:
+    resultat[x].append(y)
+
+for key, value in resultat.items():
+    print(key, value)
+```
+
+Cela fonctionne aussi avec le type `int`, lorsque vous voulez par exemple compter des occurrences :
+
+```{code-cell}
+compteurs = defaultdict(int)
+
+phrase = "une phrase dans laquelle on veut compter les caractères"
+
+for c in phrase:
+    compteurs[c] += 1
+
+sorted(compteurs.items())
+```
+
+Signalons enfin une fonctionnalité un peu analogue, quoiqu'un peu moins élégante à mon humble avis, mais qui est présente avec les dictionnaires `dict` standard. Il s'agit de [la méthode `setdefault`](https://docs.python.org/3/library/stdtypes.html#dict.setdefault) qui permet, en un seul appel, de retourner la valeur associée à une clé et de créer cette clé au besoin, c'est-à-dire si elle n'est pas encore présente :
+
+```{code-cell}
+# avant
+annuaire
+```
+
+```{code-cell}
+# ceci sera sans effet car eric est déjà présent
+annuaire.setdefault('eric', 50)
+```
+
+```{code-cell}
+# par contre ceci va insérer une entrée dans le dictionnaire
+annuaire.setdefault('inconnu', 50)
+```
+
+```{code-cell}
+# comme on le voit
+annuaire
+```
+
+Notez bien que `setdefault` peut éventuellement créer une entrée mais ne **modifie jamais** la valeur associée à une clé déjà présente dans le dictionnaire, comme le nom le suggère d'ailleurs.
+
++++
+
+## Complément - niveau avancé
+
++++
+
+Pour bien appréhender les dictionnaires, il nous faut souligner certaines particularités, à propos de la valeur de retour des méthodes comme `items()`, `keys()` et `values()`.
+
++++
+
+#### Ce sont des objets itérables
+
++++
+
+Les méthodes `items()`, `keys()` et `values()` ne retournent pas des listes (comme c'était le cas en Python 2), mais des **objets itérables** :
+
+```{code-cell}
+d = {'a' : 1, 'b' : 2}
+keys = d.keys()
+keys
+```
+
+Comme ce sont des itérables, on peut naturellement faire un `for` avec, on l'a vu :
+
+```{code-cell}
+for key in keys:
+    print(key)
+```
+
+Et un test d'appartenance avec `in` :
+
+```{code-cell}
+print('a' in keys)
+```
+
+```{code-cell}
+print('x' in keys)
+```
+
+#### Mais **ce ne sont pas des listes**
+
+```{code-cell}
+isinstance(keys, list)
+```
+
+Ce qui signifie qu'on n'a **pas alloué de mémoire** pour stocker toutes les clés, mais seulement un objet qui ne prend pas de place, ni de temps à construire :
+
+```{code-cell}
+# construisons un dictionnaire
+# pour anticiper un peu sur la compréhension de dictionnaire
+
+big_dict = {k : k**2 for k in range(1_000_000)}
+```
+
+```{code-cell}
+%%timeit -n 10000
+# créer un objet vue est très rapide
+big_keys = big_dict.keys()
+```
+
+```{code-cell}
+# on répète ici car timeit travaille dans un espace qui lui est propre
+# et donc on n'a pas défini big_keys pour notre interpréteur
+big_keys = big_dict.keys()
+```
+
+```{code-cell}
+%%timeit -n 20
+# si on devait vraiment construire la liste ce serait beaucoup plus long
+big_lkeys = list(big_keys)
+```
+
+#### En fait ce sont des *vues*
+
++++
+
+Une autre propriété un peu inattendue de ces objets, c'est que **ce sont des vues** ; ce qu'on veut dire par là (pour ceux qui connaissent, cela fait fait référence à la notion de vue dans les bases de données) c'est que la vue *voit* les changements fait sur l'objet dictionnaire *même après sa création* :
+
+```{code-cell}
+d = {'a' : 1, 'b' : 2}
+keys = d.keys()
+```
+
+```{code-cell}
+# sans surprise, il y a deux clés dans keys
+for k in keys:
+    print(k)
+```
+
+```{code-cell}
+# mais si maintenant j'ajoute un objet au dictionnaire
+d['c'] = 3
+# alors on va 'voir' cette nouvelle clé à partir
+# de l'objet keys qui pourtant est inchangé
+for k in keys:
+    print(k)
+```
+
+Reportez vous à [la section sur les vues de dictionnaires](https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects) pour plus de détails.
+
++++
+
+#### Python 2
+
++++
+
+Ceci est naturellement en fort contraste avec tout ce qui se passait en Python 2, où l'on avait des méthodes distinctes, par exemple `keys()`, `iterkeys()` et `viewkeys()`, selon le type d'objets que l'on souhaitait construire.
