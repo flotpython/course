@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: "exercice - g\xE9n\xE9rateur de nombres premiers"
+notebookname: 'exercice: nombres premiers'
 version: '3.0'
 ---
 

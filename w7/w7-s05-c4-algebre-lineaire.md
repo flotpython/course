@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: "Alg\xE8bre lin\xE9aire"
+version: '3.0'
 ---
 
 +++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}

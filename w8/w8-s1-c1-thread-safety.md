@@ -14,7 +14,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: thread safety
-version: '1.0'
+version: '3.0'
 ---
 
 <div class="licence">
@@ -90,7 +90,7 @@ Mais pour ce qui nous intéresse, nous n'allons retenir que ces caractéristique
 
 +++
 
-### *context switches* 
+### *context switches*
 
 +++
 
@@ -285,7 +285,7 @@ Nous verrons que la situation est très différente avec le paradigme `async/awa
 
 Dans ce contexte, le cas des programmes Python est un peu spécial; ce n'est pas un langage compilé, ce qui signifie que du point de vue de l'OS et du scheduler, le processus qui tourne est en fait l'interpréteur Python.
 
-Et il se trouve que l'interpréteur Python est un exemple de programme qui pourrait être sensible au type de problèmes que nous venons d'étudier. 
+Et il se trouve que l'interpréteur Python est un exemple de programme qui pourrait être sensible au type de problèmes que nous venons d'étudier.
 
 +++
 

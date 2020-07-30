@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: La clause `import as`
+version: '3.0'
 ---
 
 <div class="licence">

@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: Animations interactives avec matplotlib
+version: '3.0'
 ---
 
 <div class="licence">

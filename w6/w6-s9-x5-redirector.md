@@ -9,7 +9,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: "exercice - niveau avanc\xE9"
+notebookname: 'exercice: redirector'
 version: '3.0'
 ---
 

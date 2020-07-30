@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: Limite de la boucle for
+version: '3.0'
 ---
 
 <div class="licence">

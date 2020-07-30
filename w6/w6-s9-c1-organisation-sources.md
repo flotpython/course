@@ -11,7 +11,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: Organiser les sources de votre projet
+notebookname: Organiser les sources
+version: '3.0'
 ---
 
 # Comment organiser les sources de votre projet Python

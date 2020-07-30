@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: Surcharge op. (1)
+version: '3.0'
 ---
 
 <div class="licence">

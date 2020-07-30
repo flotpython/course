@@ -25,7 +25,7 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: un exemple
+notebookname: 'Un exemple: players'
 version: '3.0'
 ---
 

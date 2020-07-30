@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: "Les mots-cl\xE9s"
+version: '3.0'
 ---
 
 <div class="licence">

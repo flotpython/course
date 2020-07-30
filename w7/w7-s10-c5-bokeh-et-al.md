@@ -26,7 +26,7 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: bokeh et al.
+notebookname: 'App: Fourier (K3D + bokeh)'
 version: '3.0'
 ---
 

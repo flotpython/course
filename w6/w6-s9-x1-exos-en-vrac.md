@@ -16,7 +16,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: Exercices en vrac
+notebookname: exercices en vrac
 version: '3.0'
 ---
 
