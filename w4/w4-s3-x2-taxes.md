@@ -35,7 +35,7 @@ On se propose d'écrire une fonction `taxes` qui calcule le montant de l'impôt 
 
 +++
 
-Le barème est [publié ici par le gouvernement anglais](https://www.gov.uk/income-tax-rates), voici les données de 2018 qui sont utilisées pour l'exercice :
+Le barème est [publié ici par le gouvernement anglais](https://www.gov.uk/income-tax-rates), voici les données de 2020 qui sont utilisées pour l'exercice :
 
 +++
 
