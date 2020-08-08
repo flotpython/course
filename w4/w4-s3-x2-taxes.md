@@ -25,6 +25,9 @@ version: '3.0'
 
 +++
 
+Cet exercice, comme tous les autres, a pour but de vous faire travailler les notions vues dans la partie courante, mais aussi dans les cours précédents.
+Ainsi, même si le chapitre en cours concerne les boucles while, vous n'êtes pas tenu.e.s d'utiliser une boucle while pour résoudre le problème proposé ci-dessous.
+
 ## Niveau basique
 
 ```{code-cell}
