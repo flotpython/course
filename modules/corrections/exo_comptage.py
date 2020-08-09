@@ -112,8 +112,8 @@ def comptage_ter(in_filename, out_filename):
 # @END@
 
 @exercice_compliant
-# @BEG@ name=comptage more=quatre
-def comptage_quatre(in_filename, out_filename):
+# @BEG@ name=comptage more=quater
+def comptage_quater(in_filename, out_filename):
     """
     si on est sûr que les séparateurs restent tous identiques,
     on peut écrire cette fonction en utilisant la méthode join
