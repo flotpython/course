@@ -44,7 +44,7 @@ def agenda(nom, prenom, tel='na'):
 ## la valeur par défaut du paramètre qui est utilisée.
 print(agenda('idle', 'eric'))
 
-## sinon c'est l'argument que l'on passe. 
+## sinon c'est l'argument que l'on passe.
 print(agenda('idle', 'eric', '0720202020'))
 
 ## lorsque dans la déclaration de notre fonction on a des paramètres
@@ -56,5 +56,3 @@ print(agenda('idle', 'eric', '0720202020'))
 ## fonction : paramètres ordonnés et paramètres par défaut; et deux
 ## manières d'appeler une fonction, arguments ordonnés et arguments
 ## nommés.
-
-

@@ -27,7 +27,7 @@ gen_carre = (x**2 for x in range(1000))
 ## donc parcourir qu'une seule fois, mais l'avantage est que je ne
 ## crée à aucune moment une liste temporaire. Notons également que
 ## comme range() ne crée pas de liste, cette expression génératrice ne
-## crée aucune structure de donnée temporaire. 
+## crée aucune structure de donnée temporaire.
 
 sum(gen_carre) # affiche 285332833500
 
@@ -54,7 +54,7 @@ palin = (x for x in gen_carre if str(x) == str(x)[::-1])
 
 ## pour afficher le résultat, je peux mettre ce résultat dans une
 ## liste, on voit donc ici que je ne crée ma liste qu'au dernier
-## moment, uniquement lorsque j'en ai besoin. 
+## moment, uniquement lorsque j'en ai besoin.
 list(palin)
 
 

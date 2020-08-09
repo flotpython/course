@@ -4,13 +4,13 @@
 ### # restes de l'itération 1 - trop abscons
 ### # @BEG@ week=2 sequence=7 name=liste_racines
 ### from math import e, pi
-### 
+###
 ### def liste_racines(p):
 ###     "retourne la liste des racines p-ièmes de l'unité"
 ###     # une simple compréhension fait l'affaire
 ###     # souvenez vous que 1j c'est notre 'i' complexe
 ###     return [e**((2j*pi*n)/p) for n in range(p)]
-### 
+###
 ### # Il est tout à fait possible aussi de construire les racines pas à pas
 ### # C'est un peu moins élégant mais ça fonctionne très bien aussi
 ### def liste_racines_bis(p):
@@ -25,9 +25,9 @@
 ###     # et on retourne le résultat
 ###     return resultat
 ### # @END@
-### 
-### inputs_liste_racines = [Args(2), Args(3), Args(4)] 
-### 
+###
+### inputs_liste_racines = [Args(2), Args(3), Args(4)]
+###
 ### exo_liste_racines = ExerciceFunction(
 ###     liste_racines,
 ###     inputs_liste_racines,
@@ -47,10 +47,10 @@
 ### # service pour la correction en ligne, et vous laisse
 ### # le soin de l'améliorer si vous le souhaitez
 ### def affichage(s):
-###     # pour ignorer les espaces et les tabulations 
+###     # pour ignorer les espaces et les tabulations
 ###     # le plus simple est de les enlever
 ###     s=s.replace(' ', '').replace('\t','')
-###     # la liste des mots séparés par une virgule 
+###     # la liste des mots séparés par une virgule
 ###     # nous est donnée par un simple appel à split
 ###     mots = s.split(',')
 ###     # si on n'a même pas deux mots, on retourne None
@@ -69,18 +69,17 @@
 ###     # il ne reste plus qu'à formater
 ###     return "N:>{}< P:>{}< A:>{}<".format(nom, prenom, age)
 ### # @END@
-### 
+###
 ### inputs_affichage = [
 ###     Args("Joseph, Dupont"),
 ###     Args("Jules , Durand, G123, 21"),
-###     Args("Jean"), 
+###     Args("Jean"),
 ###     Args("Ted, Mosby, F321, "),
 ###     Args(" Jacques , Martin, L119, \t24 ,"),
 ###     Args("Sheldon, Cooper ,"),
 ###     Args("\t Sam, Does\t, F321, 23"),
 ### ]
-### 
+###
 ### exo_affichage = ExerciceFunction(
 ###     affichage, inputs_affichage,
 ###     exemple_how_many=4)
-

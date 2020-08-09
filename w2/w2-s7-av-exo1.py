@@ -15,7 +15,7 @@ for i in my_list:
 ## chaque élément d'une liste et de retourner une nouvelle liste qui
 ## contient le résultat. Pour cette raison, Python propose un
 ## mécanisme spécifique, plus rapide à écrire et plus efficace qu'une
-## boucle for, la compréhension de liste  
+## boucle for, la compréhension de liste
 
 ## La syntaxe de la compréhension de listes est simple et intuitive
 ## puisqu'elle est proche du langage naturel.  Mais elle est également
@@ -51,4 +51,3 @@ log_list = [math.log(x) for x in my_list if x > 1]
 
 nom = ['alice', 'bob', 'ana', 'bill']
 a_nom = [len(n) for n in nom if n.startswith('a')]
-

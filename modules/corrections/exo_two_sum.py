@@ -4,7 +4,7 @@ from nbautoeval import Args, ExerciseFunction, PPrintCallRenderer
 # @BEG@ name=two_sum
 def two_sum(liste, target):
     """
-    retourne un tuple de deux indices de deux nombres 
+    retourne un tuple de deux indices de deux nombres
     dans la liste dont la somme fait target
     """
     for i, item1 in enumerate(liste):

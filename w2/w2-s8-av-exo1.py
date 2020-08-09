@@ -21,7 +21,7 @@ help(random)
 
 ## Cependant, on utilise rarement help directement sur un module,
 ## parce que ça produit beaucoup de texte dans lequel il est difficile
-## de naviguer. On préfère en général l'aide en ligne sur le Web. 
+## de naviguer. On préfère en général l'aide en ligne sur le Web.
 
 ## Par contre, help est tout à faire adapté pour accéder à l'aide
 ## d'une méthode dans un module. Pour accéder à l'attribut d'un
@@ -33,4 +33,3 @@ help(random.randint)
 random.randint?
 
 random.randint(1, 10) # retourne un nombre aléatoire dans [1, 10]
-

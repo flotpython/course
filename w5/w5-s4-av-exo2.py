@@ -56,7 +56,7 @@ list(carre(1, 10))
 
 ## un exemple aussi simple est plus facile à écrire sous forme d'une
 ## expression génératrice. Regardons alors un exemple plus sophistiqué
-## qui illustre bien l'usage d'une fonction génératrice. Faisons 
+## qui illustre bien l'usage d'une fonction génératrice. Faisons
 ## une fonction génératrice qui accepte un itérable et retourne un
 ## itérateur sur les palindromes d'entier ou de chaînes de caractères.
 
@@ -74,7 +74,7 @@ list(palindromes([121, 10, 12321, 'abc', 'abba']))
 ## si au lieu de lui passer une liste, je lui passe un itérateur,
 ## comme par exemple, un fichier. Notre générateur sera ainsi capable
 ## de retourner tous les palindromes d'un fichier à la volée sans
-## structure de données temporaire. 
+## structure de données temporaire.
 
 ## voici un dernier exemple pour trouver les palindromes dans les
 ## carrés de 0 à 999 sans créer aucune structure intermériaire autre
@@ -86,4 +86,3 @@ list(palindromes(x**2 for x in range(1000))) ## dans l'appel d'une
                                              ## l'expression
                                              ## génératrice sont
                                              ## facultatives
-

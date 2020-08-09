@@ -81,4 +81,4 @@ print = builtins.print
 print('spam')
 
 ## nous reviendrons sur ce dernier point lorsque nous parlerons des
-## espaces de nommage et des modules. 
+## espaces de nommage et des modules.

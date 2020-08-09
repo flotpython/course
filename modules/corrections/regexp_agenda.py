@@ -19,13 +19,13 @@ agenda_strings = [
 # sinon par exemple avec la cinquième entrée le nom 'Du Pré'
 # sera reconnu partiellement comme simplement 'Du'
 # au lieu d'être rejeté à cause de l'espace
-# 
+#
 # du coup pensez à bien toujours définir
 # vos regexps avec des raw-strings
 #
 # remarquez sinon l'utilisation à la fin de :? pour signifier qu'on peut
-# mettre ou non un deuxième séparateur ':' 
-#   
+# mettre ou non un deuxième séparateur ':'
+#
 agenda = r"\A(?P<prenom>[-\w]*):(?P<nom>[-\w]+):?\Z"
 # @END@
 

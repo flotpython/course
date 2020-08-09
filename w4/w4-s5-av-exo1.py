@@ -143,6 +143,6 @@ a global
 
 ## nonlocal favorise comme global les modifications implicite, mais
 ## elle trouve quelques usages importants dans des concepts avancés
-## comme les décorateurs que nous aborderons dans une prochaine vidéo. 
+## comme les décorateurs que nous aborderons dans une prochaine vidéo.
 
 ################################### 8m00 #######################

@@ -13,14 +13,14 @@ a * b
 c = np.array([5])
 a * c
 
-# on obtient le même résultat. En fait, numpy a fait une opération de broadcasting. 
-# broadcast veut dire diffusion, on peut voir cette opération comme si numpy 
+# on obtient le même résultat. En fait, numpy a fait une opération de broadcasting.
+# broadcast veut dire diffusion, on peut voir cette opération comme si numpy
 # avait diffusée la valeur 5 sur 3 case d'un tableau pour que le tableau c ait la même
-# taille que le tableau a. 
+# taille que le tableau a.
 
-# Un clef du broadcasting est que c'est fait sans  créer un nouveau tableau pour c, 
-# c'est donc économe en memoire, et c'est fait en faisant de la vectorisation, 
-# c'est donc rapide. 
+# Un clef du broadcasting est que c'est fait sans  créer un nouveau tableau pour c,
+# c'est donc économe en memoire, et c'est fait en faisant de la vectorisation,
+# c'est donc rapide.
 
 # Dans le cas que l'on vient de voir, il n'est pas nécessaire de créer un tableau
 # pour une seule valeur, on peut directement faire l'opération avec un nombre

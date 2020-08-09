@@ -12,7 +12,7 @@ import os
 
 print(os)
 
-## mais c'est également un nom de fichier, le fichier os.py. 
+## mais c'est également un nom de fichier, le fichier os.py.
 
 ## Regardons maintenant le processus d'importation. Ce processus se
 ## déroule en trois étapes.
@@ -61,4 +61,3 @@ print(sys.path)
 ## créé à l'import séquentiel du module. Par contre, le code contenu
 ## dans le bloc de code de la fonction ne sera exécuté qu'a l'appel de
 ## la fonction.
-

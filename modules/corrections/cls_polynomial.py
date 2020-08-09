@@ -9,8 +9,8 @@ from nbautoeval import (
 # @BEG@ name=polynomial latex_size=footnotesize
 class Polynomial:
     """
-    a class that models polynomials 
-    
+    a class that models polynomials
+
     example:
        >>> f = Polynomial(3, 2, 1)
        3Xˆ2 + 2X +1
@@ -33,9 +33,9 @@ class Polynomial:
         else:
             return f"{coef}X^{degre}"
 
-    
+
     def __init__(self, *high_first):
-        # internal structure is a tuple of coeficients, 
+        # internal structure is a tuple of coeficients,
         # index 0 being the constant part
         # so we reverse the incoming parameters
         def skip_first_nulls(coefs):
@@ -53,7 +53,7 @@ class Polynomial:
             return '0'
         return " + ".join(reversed(
             [self.repr_monomial(d, c) for (d, c) in enumerate(self.coefs) if c]))
-# @END@ 
+# @END@
 
 # @BEG@ name=polynomial latex_size=footnotesize continued=true
     def _get_degree(self):
@@ -71,7 +71,7 @@ class Polynomial:
         # so that our resulting Polynomial has a degree that is the max
         # of the degrees of our operands
         # also note the use of a so-called splat operator
-        # beause we need to call e.g. Polynomial(1, 2, 3) and 
+        # beause we need to call e.g. Polynomial(1, 2, 3) and
         # not Polynomial( [1, 2, 3])
         return Polynomial(
             *(c1+c2 for (c1, c2) in zip_longest(self.coefs, other.coefs,
@@ -89,7 +89,7 @@ class Polynomial:
                 enumerate(self.coefs), enumerate(other.coefs)):
             result_coefs[i+j] += c*d
         return Polynomial(*reversed(result_coefs))
-# @END@ 
+# @END@
 
 
 # @BEG@ name=polynomial latex_size=footnotesize continued=true
@@ -97,15 +97,15 @@ class Polynomial:
         """make instances callable"""
         # this is an interesting idiom
         # reduce allows to apply a 2-argument function
-        # on an iterable from left to right 
+        # on an iterable from left to right
         # that is to say for example
         # reduce(foo, [1, 2, 3, 4]) -> foo(1, foo(2, foo(3, 4))
-        # in this code the function object created 
+        # in this code the function object created
         # with the lambda expression is called a closure
         # it 'captures' the 'param' parameter in a function
         # that takes 2 arguments
         return reduce(lambda a, b: a*param + b, self.coefs[::-1])
-    
+
 
     def derivative(self):
         """
@@ -128,7 +128,7 @@ class Polynomial:
 polynomial_scenarios = [
     # build and display an instance
     ClassScenario(
-        Args(), 
+        Args(),
         ClassExpression("INSTANCE.degree"),
     ),
     ClassScenario(
@@ -184,9 +184,9 @@ exo_polynomial = ExerciseClass(
 
 
 class Polynomial_ko:
-    
+
     def __init__(self, *args):
         self.coefs = args[::-1]
-        
+
     def repr(self):
         return " + ".join(f"{c}X{d}" for c, d in zip(self.coefs, count()))

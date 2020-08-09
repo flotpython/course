@@ -34,7 +34,7 @@ alternat_inputs = [
 
 
 exo_alternat = ExerciseFunction(
-    alternat, alternat_inputs, 
+    alternat, alternat_inputs,
     nb_examples=2,
     result_renderer=PPrintRenderer(width=16),
 )

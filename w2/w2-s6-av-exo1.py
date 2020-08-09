@@ -38,7 +38,7 @@ for i in range(11):
 ## faire une boucle for sur un chaîne de caractères par exemple
 for i in 'spam':
     print(i + ' ')
-    
+
 
 ## ou sur une liste d'éléments quelconques.
 truc = [1, 'spam', 3.2, True]

@@ -29,7 +29,7 @@ print(f"fibonacci({entier}) = {fibonacci(entier)}")
 
 # Vous pouvez donc à présent exécuter ce script
 # avec simplement l'interpréteur Python comme ceci :
-# 
+#
 # $ python3 fibonacci.py 56
-# 
+#
 # (et sans taper le signe $ qui indique simplement le prompt du terminal)

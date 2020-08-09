@@ -28,7 +28,7 @@ class Temperature:
             return
         raise TemperatureError()
 
-    
+
 class Maison:
     def __init__(self, t):
         self.temperature = t
@@ -43,4 +43,3 @@ print(f"il fait {m.temperature} chez moi")
 m.temperature = 24
 
 #3m30s
-

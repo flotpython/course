@@ -3,9 +3,9 @@
 ## reprenons notre classe Phrase de la précédente vidéo, n'hésiter à
 ## mettre cette vidéo en pause pour retrouver ou taper le code de
 ## cette classe
-    
+
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
@@ -15,13 +15,13 @@ class Phrase:
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot in self.mots
-    
-    def __str__(self):               
+
+    def __str__(self):
         return "\n".join(self.mots)
 
-    
+
 
 ## J'aimerais maintenant faire une nouvelle classe qui se comporte
 ## comme une classe Phrase, mais qui ne prend pas en compte la casse
@@ -41,7 +41,7 @@ class PhraseSansCasse(Phrase):
 ## Ça veut dire que si je crée une instance de
 ## PhraseSansCasse elle va être initialisée avec le __init__ de Phrase,
 ## ou si je fais un print sur cette instance, elle va utiliser la
-## méthode __str__ de Phrase. 
+## méthode __str__ de Phrase.
 
 p_no = PhraseSansCasse("nouvelle phrase")
 ## je peux vérifier que p_no est bien une instance de Phrase avec
@@ -74,14 +74,14 @@ class PhraseSansCasse(Phrase):
     def __init__(self, ma_phrase):
         Phrase.__init__(self, ma_phrase)  # je commence par appeler
                                           # __init__ de Phrase
-        self.mots_lower = set(m.lower()    
+        self.mots_lower = set(m.lower()
                               for m in self.mots)  # je crée un
                                                    # attribut
                                                    # mots_lower
-                                                   
+
 ## et je surcharge __contains__ pour faire un test d'appartenance sans
 ## prendre en compte la casse
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot.lower() in self.mots_lower
 
 
@@ -93,7 +93,7 @@ class PhraseSansCasse(Phrase):
 s = "je fais un MOOC sur Python"
 p = Phrase(s)
 p_no = PhraseSansCasse(s)
-    
+
 'mooc' in p
 'mooc' in p_no
 p_no.nb_upper()

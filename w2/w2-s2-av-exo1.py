@@ -65,7 +65,7 @@ s.endswith('ans')
 
 ############################################################# 1m45
 
-## Regardons maintenant comment formater 
+## Regardons maintenant comment formater
 ## caractères
 
 nom = 'sonia'
@@ -81,4 +81,3 @@ s = f"{nom} a {age} ans" # f-string, les f-strings n'existent que
 ## pour gérer l'alignement d'un affichage en colonne ou l'affichage de
 ## nombre décimaux en contrôlant, par exemple, le nombre de chiffres
 ## après la virgule
-

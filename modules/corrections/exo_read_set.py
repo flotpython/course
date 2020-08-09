@@ -89,5 +89,5 @@ search_in_set_inputs = [
 exo_search_in_set = ExerciseFunction(
     search_in_set, search_in_set_inputs,
     call_renderer=PPrintCallRenderer(width=25),
-    result_renderer=PPrintRenderer(width=25),    
+    result_renderer=PPrintRenderer(width=25),
 )

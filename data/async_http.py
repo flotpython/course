@@ -20,7 +20,7 @@ en l'exécutant sur votre ordinateur
 Vous pouvez utiliser une autre liste d'URLs en les passant sur la ligne de commande
 e.g.:
 
-$ async_http.py http://google.com http://facebook.com http://google.com http://facebook.com 
+$ async_http.py http://google.com http://facebook.com http://google.com http://facebook.com
 
 """
 
@@ -39,19 +39,19 @@ def sequential(urls):
     for url in urls:
         req = requests.get(url)
         print(f"{url} returned {len(req.text)} chars")
-    
 
-#################### la version parallèle / asynchrone        
+
+#################### la version parallèle / asynchrone
 import asyncio
 import aiohttp
 
 
 # la première version, qui imprime simplement la fin de chaque url
 async def fetch(url):
-    
+
     async with aiohttp.ClientSession() as session:
         print(f"fetching {url}")
-        
+
         async with session.get(url) as response:
             print(f"{url} response status {response.status}")
             raw = await response.read()
@@ -64,7 +64,7 @@ async def fetch2(url, i):
         async with session.get(url) as response:
             print(f"{url} response status {response.status}")
             # avec ici une itération asynchrone
-            async for line in response.content: 
+            async for line in response.content:
                 print(f'{i}', end='')
                 sys.stdout.flush()
     # dans la vidéo il y a ce return, c'est une différence
@@ -88,14 +88,14 @@ default_urls = [
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("urls", nargs='*', 
+    parser.add_argument("urls", nargs='*',
                         default=default_urls,
                         help="URL's to be fetched")
     parser.add_argument("-s", "--sequential", default=False, action='store_true',
                         help="run sequentially")
     parser.add_argument("-d", "--details", default=False, action='store_true',
                         help="show details of lines as they show up (using fetch2)")
-                        
+
     args = parser.parse_args()
     urls = args.urls
 
@@ -110,7 +110,7 @@ def main():
 
     # mode asynchrone
     else:
-        
+
         # sans option on utilise juste fetch
         if (not args.details):
             print(f"Running simple mode (fetch) on {len(urls)} URLs")

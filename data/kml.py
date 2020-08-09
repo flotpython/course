@@ -29,9 +29,9 @@ class KML():
 
     def _normalize(self, name):
         """
-        We use ship names in XML ids - e.g. for linking the ship's 
+        We use ship names in XML ids - e.g. for linking the ship's
         trajectory and its related style/color object
-        But the XML syntax does not accept '&' 
+        But the XML syntax does not accept '&'
         that we found in some ship names
         """
         # xxx a more robust version would need to be more thorough
@@ -40,7 +40,7 @@ class KML():
     def _random_color(self):
         """
         https://developers.google.com/kml/documentation/kmlreference#color
-        a KML color is aabbggrr 
+        a KML color is aabbggrr
         essentially the exact opposite of what you would expect
         we set alpha = 80 (128) and compute the other 3 in the 10-245 range
         """

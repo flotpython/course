@@ -27,10 +27,10 @@ iter(a)
 ## conséquent, comme un objet fichier est un itérateur, il ne peut
 ## parcourir le fichier qu'un seule fois, mais il ne crée aucune
 ## structure de donnée temporaire qui pourrait être très couteuse en
-## mémoire et longue à créer si le fichier est grand. 
+## mémoire et longue à créer si le fichier est grand.
 
 ## Un autre exemple est la fonction built-in zip qui combine deux
-## listes ensemble. 
+## listes ensemble.
 
 a = [1, 2]
 b = [3, 4]
@@ -53,7 +53,7 @@ z is iter(z)
 ## itérateur (c'est très rare) vous pouvez passer l'itérateur au
 ## constructeur d'un itérable comme une liste ou un set. Mais
 ## attention, en Python on préfère toujours travailler avec des
-## itérateurs plutôt que des itérables quand c'est possible. 
+## itérateurs plutôt que des itérables quand c'est possible.
 
 z = zip(a, b)
 

@@ -37,7 +37,7 @@ f = open(r'C:\tmp\spam.txt', 'w', encoding='utf8') # expliquer chaque
 ## raison de faire autrement.
 
 for i in range(100):
-    f.write(f"ligne {i+1}\n")  # écrit la chaine line dans le fichier 
+    f.write(f"ligne {i+1}\n")  # écrit la chaine line dans le fichier
 
 ## il faut ensuite obligatoirement fermer le fichier avec un close()
 
@@ -63,7 +63,7 @@ f2 = open(r"C:\tmp\spam2.txt", 'w', encoding='utf8')
 ## parcourir dans une boucle for, chaque tour de la boucle retourne
 ## une nouvelle ligne de fichier. Regarder comme il est facile
 ## d'ouvrir un fichier, de la parcourir, de changer une colonne
-## et de changer le format. 
+## et de changer le format.
 for line in f:
     l = line.split()
     l[0] = l[0].upper()
@@ -78,11 +78,8 @@ f2.close()
 ## une dernière subtilité sur laquelle nous reviendrons lorsque nous
 ## parlerons des itérateurs, un fichier ne peut être parcouru qu'une
 ## seule fois dans une boucle for. Pour le parcourir de nouveau du
-## début, le plus simple est de le fermer puis le reouvrir. 
+## début, le plus simple est de le fermer puis le reouvrir.
 
 ## nous verrons dans la suite de cette vidéo pourquoi on doit fermer
 ## les fichiers avec close, comment remplacer close avec un contexte
 ## manager et comment ouvrir des fichiers binaires.
-
-
-

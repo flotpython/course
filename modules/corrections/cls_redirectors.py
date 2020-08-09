@@ -26,19 +26,19 @@ class Redirector1:
     """
     def __repr__(self):
         return "redirector"
-    
+
     # desired behaviour is obtained by a simple
-    # invokation of __getattr__ 
+    # invokation of __getattr__
     # that is invoked each time an attribute is read
     # but is found missing in the local namespace
     def __getattr__(self, attribute_name):
         return attribute_name.lower().replace('_', '-')
-# @END@ 
+# @END@
 
 redirector1_scenarios = [
     # build and display an instance
     ClassScenario(
-        Args(), 
+        Args(),
         ClassExpression("INSTANCE.foo"),
     ),
     ClassScenario(
@@ -62,11 +62,11 @@ exo_redirector1 = ExerciseClass(
 
 
 class Redirector1_ko:
-    
+
     def __init__(self):
         self.foo = 'foo'
         self.Foo_Bar = 'foo-bar'
-                
+
     def __repr__(self):
         return "redirector"
 
@@ -92,7 +92,7 @@ class Redirector2:
     # in this version, we rely on the same special method
     # but this time __getattr__ needs to return a method
     # that accepts one argument
-    
+
     def __getattr__(self, methodname):
         # doit retourner une 'bound method'
         # du coup on ne recevra pas `self` comme premier paramètre
@@ -107,7 +107,7 @@ class Redirector2:
 redirector2_scenarios = [
     # build and display an instance
     ClassScenario(
-        Args(1), 
+        Args(1),
         ClassExpression("INSTANCE.foo(10)"),
     ),
     ClassScenario(
@@ -131,12 +131,12 @@ exo_redirector2 = ExerciseClass(
 
 
 class Redirector2_ko:
-    
+
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
         return f"Redirector2({self.name})"
-        
+
     def foo(self, argument):
         return f"{self.name} -> foo({argument})"

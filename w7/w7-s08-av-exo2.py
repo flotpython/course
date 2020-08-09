@@ -14,8 +14,8 @@ ti = sns.load_dataset('titanic').loc[:,['survived', 'sex', 'class']]
 ti.head()
 ti.shape
 
-# Nous avons déjà vu que je peux accéder à la colonne survived 
-# de la manière suivante 
+# Nous avons déjà vu que je peux accéder à la colonne survived
+# de la manière suivante
 ti.loc[:, 'survived']
 
 # et calculer une moyenne sur cette colonne avec
@@ -34,14 +34,14 @@ ti.groupby('class').mean()
 
 # vous noterez que la colonne sex a disparue. groupby a un concept
 # qui s'appelle *nuisance colonne*. Si une opération ne peux pas être appliquée
-# à une colonne (et calculer une moyenne sur la colonne sex n'aurait pas de sens), 
+# à une colonne (et calculer une moyenne sur la colonne sex n'aurait pas de sens),
 # cette colonne est automatiquement écartée du résultat
 
 # Il est important de comprendre que groupby me retourne un nouvel objet
 
 ti.groupby('class')
 
-# qui permet d'accéder aux différents groupes et d'appliquer une opération d'aggregation, 
+# qui permet d'accéder aux différents groupes et d'appliquer une opération d'aggregation,
 # de filtrage ou de transformation à chaque groupe. On creusera dans le complément les
 # différentes opérations qu'on peut  faire directement sur un object groupby
 

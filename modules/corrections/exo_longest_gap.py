@@ -11,7 +11,7 @@ def longest_gap(liste):
         else:
             result = max(result, index - begins[item])
     return result
-# @END@ 
+# @END@
 
 
 inputs = [

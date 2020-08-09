@@ -68,7 +68,7 @@ class Phrase:
     def upper(self):
         self.mots = [m.upper() for m in self.mots]
 
-        
+
 ## On aimerait maintenant pouvoir appeler print sur une Phrase pour
 ## voir le contenu des mots. Si vous faites print() sur une instance
 ## de Phrase, vous allez voir le nom et l'adresse de l'objet, mais pas
@@ -96,6 +96,3 @@ p = Phrase("je fais un mooc sur python")
 print(p)
 p.upper()
 print(p)
-
-
-

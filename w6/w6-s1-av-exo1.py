@@ -5,7 +5,7 @@
 ## Comme pour une fonction, le nom de la classe est une variable
 ## qui pointe vers l'objet classe qui est créé.
 
-## commençons par créer une classe simpliste que l'on appelle Phrase. 
+## commençons par créer une classe simpliste que l'on appelle Phrase.
 
 class Phrase:
     ma_phrase = "je fais un mooc sur python"
@@ -45,7 +45,7 @@ print(vars(p))
 
 ## La relation d'héritage permet à une instance d'accéder
 ## automatiquement à l'espace de nommage de sa classe si un attribut
-## n'est pas trouvé localement.  
+## n'est pas trouvé localement.
 
 print(Phrase.ma_phrase)
 print(p.ma_phrase)
@@ -100,7 +100,7 @@ print(vars(Phrase))
 ## instance, une référence de l'instance est automatiquement passée à
 ## cette méthode. Ça permet ainsi d'avoir des méthodes définies dans
 ## une classe qui peuvent travailler sur les attributs, c'est-à-dire
-## l'espace de nommage, de l'instance. 
+## l'espace de nommage, de l'instance.
 
 ## Regardons un exemple. Plutôt que d'avoir la même phrase pour toutes
 ## les instances, je vais créer une méthode dans la classe qui va
@@ -115,7 +115,7 @@ class Phrase:
 ## le premier argument de la méthode va recevoir une référence de
 ## l'instance qui appelle la méthode. Traditionnellement, on appelle
 ## cet argument self.
-        
+
 p = Phrase()
 p.initialisation("je fais un mooc sur python")
 
@@ -141,7 +141,7 @@ p.initialisation
 
 p.initialisation("python")
 
-## va être équivalent à 
+## va être équivalent à
 
 Phrase.initialisation(p, "python")
 

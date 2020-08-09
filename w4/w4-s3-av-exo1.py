@@ -6,11 +6,11 @@
 ## fonction, d'un opérateur de test booléen (and, or, not)
 ## ou directement un type built-in qui vaut faux lorsque
 ## c'est 0, None, ou un objet vide (liste vide, set vide)
-## et True dans tous les autres cas. 
+## et True dans tous les autres cas.
 
 ## Tant que le test est vrai, le while répète le
 ## bloc d'instruction sous le while, lorsque le
-## test est faux, on sort du while. 
+## test est faux, on sort du while.
 
 ## commençons par créer une liste de 9 entiers allant de 1 à 9. On
 ## utilise pour cela range(1, 10) qui retourne un objet de type range,
@@ -27,7 +27,7 @@ while a:
 ## Regardons cela
 
 a = list(range(1, 10))
-while a:   
+while a:
     a.pop()
     if len(a) == 5:
         continue
@@ -38,12 +38,12 @@ while a:
 
 
 a = list(range(1, 10))
-while a:   
+while a:
     a.pop()
     if len(a) == 5:
         break
     print(a)
-    
+
 ## on voit maintenant que l'on est directement sorti du while lorsque
 ## la liste avait 5 éléments
 
@@ -54,7 +54,7 @@ while a:
 ## alors que l'on ne connait pas au départ le nombre de
 ## répétition. C'est un usage fréquent, par exemple, lorsque l'on a un
 ## programme qui répond à des entrées utilisateur.
-    
+
 while True:
     s = input('Quelle est votre question\n')
     if 'aucune' in s:
@@ -81,9 +81,9 @@ else:
 ####################### RESUME SUR IDLE ############################
 
 ## voici le code que l'on avait, n'hésitez pas à faire une pause sur
-## la vidéo si vous voulez un peu de temps pour le taper. 
+## la vidéo si vous voulez un peu de temps pour le taper.
 
-s = input("Quelle est votre question\n")  ## new 
+s = input("Quelle est votre question\n")  ## new
 while True:
     if s.startswith('bonjour'):
         print("bonjour, comment allez vous ?")

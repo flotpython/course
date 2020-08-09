@@ -8,7 +8,7 @@ class Node:
 
 class Graph:
     """
-    
+
     """
     def __init__(self):
         self.nodes = set()
@@ -19,4 +19,3 @@ class Graph:
         self.n1.neighbours.add(n2)
 
     def parse_file(self, filename):
-        

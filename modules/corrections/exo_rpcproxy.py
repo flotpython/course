@@ -34,7 +34,7 @@ class RPCProxy:
         self.url = url
         self.login = login
         self.password = password
-        
+
     def __getattr__ (self, methodname):
         """
         Crée à la volée une instance de Forwarder

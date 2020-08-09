@@ -12,7 +12,7 @@ class Maison:
 
     def get_temperature(self):
         return self._temperature
-    
+
     def set_temperature(self, t):
         if 5 < t and t < 25:
             self._temperature = t
@@ -23,7 +23,7 @@ class Maison:
 class TemperatureError(Exception):
     pass
 
-    
+
 m = Maison(10)
 print(f"il fait {m.get_temperature()} chez moi")
 m.set_temperature(80)
@@ -43,17 +43,17 @@ m.set_temperature(80)
 class Maison:
     def __init__(self, t):
         self.temperature = t
-    
+
     def get_temperature(self):
         return self._temperature
-    
+
     def set_temperature(self, t):
         if 5 < t and t < 25:
             self._temperature = t
             return
         raise TemperatureError()
 
-    temperature = property(get_temperature,    # new 
+    temperature = property(get_temperature,    # new
                            set_temperature)    # new
 
 ## Attention, le nom de la propriété temperature doit être différent
@@ -63,10 +63,10 @@ class Maison:
 
 ## on peut cependant directement utiliser temperature dans la méthode
 ## __init__ pour bénéficier de la validation lors de la création de notre instance.
-    
+
 class TemperatureError(Exception):
     pass
- 
+
 m = Maison(10)                                  # new
 print(f"il fait {m.temperature} chez moi")      #new
 m.temperature = 79                              # new
@@ -77,5 +77,3 @@ m.temperature = 79                              # new
 ## property pour l'attribut concerné.
 
 #6m00
-
-

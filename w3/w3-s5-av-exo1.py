@@ -5,13 +5,13 @@
 s = set()
 
 ## Pour initialiser un set avec des élements, on peut utiliser la
-## notation accolade 
+## notation accolade
 
 s = {1, 2, 3, 4, 4, 4, 5} # noter que ça ne garde que les éléments
                           # uniques
 
 ## Attention cependant que les accolades vides crées un dictionnaire
-## vide et non un set vide. 
+## vide et non un set vide.
 
 ## on peut également passer une liste ou un tuple comme argument de la fonction
 ## set
@@ -78,13 +78,13 @@ s = set(a)
 
 ## le temps pour faire un test d'appartenance sur un set est de
 ## l'ordre de grandeur de l'accès à un élément d'une liste. C'est
-## extrêment rapide. 
+## extrêment rapide.
 
 ## En résumé quelque soit le nombre d'élément dans votre set il faudra
 ## de l'ordre de 40 ns (sur ma machine) pour faire un test
 ## d'appartenance. Le même test d'appartenance sur une liste sera
 ## égale au temps d'accès d'un élément dans la liste, soit de l'ordre
-## de 40 ns également, fois le nombre d'élément dans la liste. 
+## de 40 ns également, fois le nombre d'élément dans la liste.
 
 a = list(range(100))
 s = set(a)
