@@ -111,6 +111,22 @@ def comptage_ter(in_filename, out_filename):
                            f"{len(line)}:{line}")
 # @END@
 
+@exercice_compliant
+# @BEG@ name=comptage more=quatre
+def comptage_quatre(in_filename, out_filename):
+    """
+    si on est sûr que les séparateurs restent tous identiques,
+    on peut écrire cette fonction en utilisant la méthode join
+    en conjonction avec un tuple qui est un itérable
+    pour ne pas répéter le séparateur
+    """
+    with open(in_filename, encoding="UTF-8") as in_file, \
+         open(out_filename, mode='w', encoding="UTF-8") as out_file:
+        for line_no, line in enumerate(in_file, 1):
+            out_file.write(":".join((str(line_no), str(len(line.split())),
+              str(len(line)), line)))
+# @END@
+
 
 
 def comptage_ko(in_filename, out_filename):
@@ -149,7 +165,7 @@ class ExoComptage(ExerciseFunction):
 
 exo_comptage = ExoComptage(
     comptage, comptage_args,
-    font_size='xx-small', 
+    font_size='xx-small',
     call_renderer=PPrintCallRenderer(width=20),
     result_renderer=MultilineRenderer(),
 )
