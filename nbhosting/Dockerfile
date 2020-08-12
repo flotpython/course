@@ -17,7 +17,4 @@ RUN true \
     # Fourier \
  && pip install k3d \
     # section on pandas \
- && pip install seaborn \
-    # an attempt to speed up jupyter lab startup
- && jupyter lab build
-
+ && pip install seaborn 
