@@ -1,4 +1,5 @@
-from nbautoeval import Args, ExerciseGenerator, GeneratorArgs
+from nbautoeval import (
+    Args, ExerciseGenerator, GeneratorArgs, PPrintRenderer)
 
 # @BEG@ name=npsearch
 import numpy as np
@@ -39,6 +40,10 @@ def npsearch_ko(world, needle):
         if np.all(world[i:i+n, j:j+m] == needle):
             yield i, j
 
+z = np.arange(12).reshape(4, 3)
+yz0 = np.array([[3, 4], [6, 7]])
+nz0 = np.array([[0, 0], [0, 0]])
+
 a = np.array(3*[[1, 1, 1, 0, 0, 0]] + 3*[[0, 0, 0, 1, 1, 1]])
 
 ya0 = np.array(4*[[1]]).reshape((2, 2))
@@ -55,11 +60,13 @@ yb2 = np.array([13, 14, 0, 18, 19, 0, 23, 24, 0]).reshape((3, 3))
 yn1 = np.array([13, 14, 18, 19, 23, 24]).reshape((3, 2))
 
 inputs_npsearch = [
+    GeneratorArgs(z, yz0),
+    GeneratorArgs(z, nz0),
     GeneratorArgs(a, ya0),
     GeneratorArgs(a, ya1),
-    GeneratorArgs(a, na1),
     GeneratorArgs(a, ya2),
     GeneratorArgs(a, ya3),
+    GeneratorArgs(a, na1),
     GeneratorArgs(b, yb1),
     GeneratorArgs(b, yb2),
     GeneratorArgs(b, yn1),
@@ -68,4 +75,7 @@ inputs_npsearch = [
 exo_npsearch = ExerciseGenerator(
     npsearch, inputs_npsearch,
     nb_examples = 3,
+    result_renderer=PPrintRenderer(width=15),
+    header_font_size='150%',
+    font_size='120%',
 )

@@ -62,7 +62,7 @@ exo_npsearch.correction(npsearch)
 * essayez par exemple 
   * de définir une condition nécessaire sur `world[i, j]` lorsque `(i, j)` fait partie des solutions
   * et c'est peut-être l'occasion [de jeter un coup d'oeil à `numpy.argwhere`](https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html)
-* méfiez-vous aussi des expressions du genre `taleau_a == tableau_b` en ce sens que, si les deux tailles ne coincident pas, `numpy` va essayer de faire du broadcasting pour réconcilier les deux tailles, et ici ce n'est clairement pas ce qu'on veut...
+* méfiez-vous aussi des expressions du genre `tableau_a == tableau_b` en ce sens que, si les deux tailles ne coincident pas, `numpy` va **essayer de faire du broadcasting** pour réconcilier les deux tailles, et ici clairement, ce **n'est pas ce qu'on veut**...
 
 ```{code-cell} ipython3
 # enfin pour transformer une ligne en tableau 2D on a le choix entre 
