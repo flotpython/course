@@ -21,15 +21,13 @@ version: '3.0'
 
 +++
 
-# Exercice - niveau basique
+# Exercice - niveau intermédiaire
 
-```{code-cell}
-import numpy as np
-```
++++
 
-```{code-cell}
-from corrections.exo_hundreds import exo_hundreds
-```
+## construire un tableau $100 * i + 10 * j$
+
++++
 
 On vous demande d'écrire une fonction `hundreds` qui crée un tableau `numpy`.
 
@@ -42,16 +40,19 @@ Le résultat doit être un tableau de taille `lines` x `columns`, composé d'ent
 
 $$result[i, j] = 100 * i + 10 * j + offset$$
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: fragment
 ---
+import numpy as np
+from corrections.exo_hundreds import exo_hundreds
+
 # voici deux exemples pour la fonction hundreds
 exo_hundreds.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: hundreds=exo_hundreds.solution
 :latex:hidden-silent: true
 
@@ -60,7 +61,7 @@ def hundreds(lines, columns, offset):
     return "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_hundreds.correction(hundreds)
 ```

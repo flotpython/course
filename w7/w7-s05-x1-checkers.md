@@ -23,13 +23,11 @@ version: '3.0'
 
 # Exercice - niveau basique
 
-```{code-cell}
-import numpy as np
-```
++++
 
-```{code-cell}
-from corrections.exo_checkers import exo_checkers
-```
+## construire un tableau en damier
+
++++
 
 On vous demande d'écrire une fonction `checkers` qui crée un tableau `numpy`.
 
@@ -42,16 +40,16 @@ Elle construit et retourne alors un tableau carré de taille `size` x `size`, qu
 
 On rappelle par ailleurs que `False == 0` et `True == 1`.
 
-```{code-cell}
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell} ipython3
+import numpy as np
+
+from corrections.exo_checkers import exo_checkers
+
 # voici deux exemples pour la fonction checkers
 exo_checkers.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: checkers=exo_checkers.solution
 :latex:hidden-silent: true
 
@@ -60,14 +58,14 @@ def checkers(size, corner_0_0=True):
     return "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_checkers.correction(checkers)
 ```
 
 ### Visualisation
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.ion()
@@ -75,13 +73,13 @@ plt.ion()
 
 L'exercice est terminé, mais si vous avez réussi et que vous voulez visualisez le résultat, voici comment vous pouvez aussi voir ce type de tableau :
 
-```{code-cell}
+```{code-cell} ipython3
 checkerboard = checkers(8, False)
 ```
 
 Pour le voir comme une image:
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: fragment

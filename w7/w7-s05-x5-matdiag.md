@@ -19,16 +19,15 @@ version: '3.0'
 <span><img src="media/both-logos-small-alpha.png" /></span>
 </div>
 
-```{code-cell}
-%load_ext autoreload
-%autoreload 2
-```
++++
 
-# construire une matrice diagonale
+# Exercice - niveau intermédiaire
 
-```{code-cell}
-import numpy as np
-```
++++
+
+## construire une matrice diagonale
+
++++
 
 On vous demande d'écrire une fonction `matdiag` qui 
 
@@ -48,7 +47,9 @@ Quelques précisions :
 * vous n'avez pas besoin de vérifier que l'appelant passe au moins un paramètre,
   ou dit autrement, les jeux de tests n'essaient pas d'appeler la fonction sans argument.
 
-```{code-cell}
+```{code-cell} ipython3
+import numpy as np
+
 # c'est ce qu'on voit sur cet exemple
 
 from corrections.exo_matdiag import exo_matdiag
@@ -56,13 +57,13 @@ from corrections.exo_matdiag import exo_matdiag
 exo_matdiag.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def matdiag(liste):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_matdiag.correction(matdiag)
 ```
 

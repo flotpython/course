@@ -21,11 +21,13 @@ version: '3.0'
 
 +++
 
-# remplir une matrice : m(i, j) = xi * xj
+# Exercice - niveau intermédiaire
 
-```{code-cell}
-import numpy as np
-```
++++
+
+## remplir une matrice : $m(i, j) = xi * xj$ 
+
++++
 
 On vous demande d'écrire une fonction `xixj` qui 
 
@@ -38,7 +40,9 @@ $$
 
 Vous n'avez pas besoin de vérifier que l'appelant passe au moins un paramètre, ou dit autrement, les jeux de tests n'essaient pas d'appeler la fonction sans argument.
 
-```{code-cell}
+```{code-cell} ipython3
+import numpy as np
+
 # c'est ce qu'on voit sur cet exemple
 
 from corrections.exo_xixj import exo_xixj
@@ -46,14 +50,14 @@ from corrections.exo_xixj import exo_xixj
 exo_xixj.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 # n'oubliez pas de déclarer les paramètres de votre fonction
 def xixj():
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_xixj.correction(xixj)
 ```
 
@@ -63,11 +67,11 @@ Vous trouverez dans les solutions 3 façons d'implémenter cette fonction; elles
 l'opérateur `@`, la méthode `array.dot()`, le broadcasting.  
 Souvenez vous que la transposée d'une matrice peut être obtenue en numpy avec l'attribut `.T` :
 
-```{code-cell}
+```{code-cell} ipython3
 ligne = np.array([1, 2, 3])
 ligne.reshape(3, 1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ligne.T
 ```

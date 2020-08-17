@@ -23,13 +23,11 @@ version: '3.0'
 
 # Exercice - niveau avancé
 
-```{code-cell}
-import numpy as np
-```
++++
 
-```{code-cell}
-from corrections.exo_dice import exo_dice
-```
+## construire un tableau en dimension variable
+
++++
 
 On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
 
@@ -60,11 +58,11 @@ On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habi
 
 Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
 
-```{code-cell}
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell} ipython3
+import numpy as np
+
+from corrections.exo_dice import exo_dice
+
 # voici quelques exemples pour la fonction dice
 exo_dice.example()
 ```
@@ -76,7 +74,7 @@ Pour devancer les remarques sur le forum de discussion:
 * ce n'est pas parce cette semaine on étudie numpy que vous devez vous sentir obligé de le faire en numpy. 
 * vous pouvez même vous donner comme objectif de le faire deux fois, avec et sans numpy :)
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: dice=exo_dice.solution
 :latex:hidden-silent: true
 
@@ -85,7 +83,7 @@ def dice(target, nb_dice=2, sides=6):
     return "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_dice.correction(dice)
 ```

@@ -21,11 +21,13 @@ version: '3.0'
 
 +++
 
-# chercher une sous-matrice
+# Exercice - niveau intermédiaire 
 
-```{code-cell} ipython3
-import numpy as np
-```
++++
+
+## chercher une sous-matrice
+
++++
 
 On vous demande d'écrire une fonction `npsearch`
 
@@ -35,6 +37,8 @@ On vous demande d'écrire une fonction `npsearch`
 1. `npsearch` est un générateur (i.e. une fonction génératrice), il doit énumérer tous les tuples d'indices `(i, j)` correspondant aux endroits de `world` qui coincident avec `needle`
 
 ```{code-cell} ipython3
+import numpy as np
+
 # c'est ce qu'on voit sur cet exemple
 
 from corrections.exo_npsearch import exo_npsearch
