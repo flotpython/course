@@ -38,7 +38,7 @@ with Timer() as t:
     sum(x**2 for x in range(10_000_000))
 
 ## Regardons maintenant le cas d'une exception
-    
+
 with Timer() as t:
     sum(x for x in range(10_000_000))
     print(t)

@@ -12,10 +12,10 @@ class Temperature:
         print("desc __get__")
         return inst._temperature
 
-    def __set__(self, inst, t):   
+    def __set__(self, inst, t):
         print(f"desc __set__ {t}")
         inst._temperature = t
-    
+
 class Maison:
     def __init__(self, t):
         self.temperature = t
@@ -23,7 +23,7 @@ class Maison:
     def __getattribute__(self, a):
         print(f"__getattribute__: {a}")
         return object.__getattribute__(self,a)
-    
+
     def __setattr__(self, a, v):
         print(f"__setattr__: {a} = {v}")
         return object.__setattr__(self, a, v)
@@ -86,14 +86,14 @@ m.temperature = 20
 ## __getattribute__ si on désactive l'appel de object.__setattr__ on
 ## n'a plus de descripteur et plus d'affectation. On a également le
 ## problème d'appel récursif si on essaie d'affecter directement sur
-## l'instance. 
+## l'instance.
 
 ## regardons maintenant les appels si on accède à un attribut qui
 ## n'est pas un descripteur
 
 m.x
 
-## on passe par __getattribute__ puis on a une exception. 
+## on passe par __getattribute__ puis on a une exception.
 
 m.x = 10
 
@@ -103,8 +103,8 @@ m.x
 
 ## on passe par __getattribute__
 
-[[TP: moi perso j'enlèverais ça aussi, même remarque sur le rapport 
-lourdeur/valeur ajoutée]] 
+[[TP: moi perso j'enlèverais ça aussi, même remarque sur le rapport
+lourdeur/valeur ajoutée]]
 [[AL: REMOVE BEGIN]]
 ## Les appels implicites des méthodes spéciales ne passent pas par
 ## __getattribute__, c'est un détail d'implémentation mais qui a un
@@ -114,7 +114,7 @@ lourdeur/valeur ajoutée]]
 ## de la méthode spéciale.
 
 ## Il s'agit d'une optimisation qui a un impact sur la performance,
-## ouvrons un interpréteur ipython pour regarder cela. 
+## ouvrons un interpréteur ipython pour regarder cela.
 
 a = [1]
 
@@ -127,5 +127,5 @@ a = [1]
 ## l'arbre d'héritage). C'est ce qui permet de définir
 ## __getattribute__ sur une classe et que la référence d'un attribut
 ## sur cette classe passe par le __getattribute__ de la métaclasse
-## type et non par le __getattribute__ définis pour la classe. 
+## type et non par le __getattribute__ définis pour la classe.
 [[AL: REMOVE END]]

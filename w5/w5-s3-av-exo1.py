@@ -37,7 +37,7 @@ set(a_prenoms)
 ## les crochets par des accolades et on a directement un compréhension
 ## de set. En effet, la compréhension de set supporte la même syntaxe
 ## qu'une compréhension de liste, la seul différence est le symbole
-## qui entoure la compréhension. 
+## qui entoure la compréhension.
 
 a_prenoms = {p.lower() for p in prenoms if p.lower().startswith('a')}
 
@@ -71,4 +71,3 @@ d = {p.lower():a for p, a in ages if a <40}
 d2 = {a:p for p, a in d.items()}
 
 d2[20]
-

@@ -14,7 +14,7 @@ def power(x, n):
         return root * root
     else:
         return x * power(x, n-1)
-    
+
 # @END@
 
 # pour ne pas se contenter de x**n
@@ -41,7 +41,7 @@ class Number:
 def power_ko(x, n):
     return x ** n
 
-   
+
 inputs_power = [
     Args(2, 1),
     Args(2, 10),
@@ -53,7 +53,7 @@ powers = (2, 3, 1024, 1025)
 
 inputs_power += [
     Args(3, n) for n in powers
-] 
+]
 
 i_powers = (2*128, 2**128+1, 2*128-1)
 

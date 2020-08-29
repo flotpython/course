@@ -12,15 +12,15 @@
 # ## Complément - niveau basique
 
 # Voici un premier exemple de code qui tourne.
-# 
+#
 # Nous allons commencer par le faire tourner dans ce notebook. Nous verrons en fin de séance comment le faire fonctionner localement sur votre ordinateur.
 
 # Le but de ce programme est de calculer la [suite de Fibonacci](https://fr.wikipedia.org/wiki/Suite_de_Fibonacci), qui est définie comme ceci&nbsp;:
-# 
+#
 # * $u_0 = 0$
 # * $u_1 = 1$
 # * $\forall n >= 2, u_n = u_{n-1} + u_{n-2}$
-# 
+#
 # Ce qui donne pour les premières valeurs :
 
 # | n  | fibonacci(n)  |
@@ -73,7 +73,7 @@ print(f"fibonacci({entier}) = {fibonacci(entier)}")
 # ### Exercice
 
 # Vous pouvez donc à présent&nbsp;:
-# 
+#
 # * exécuter le code dans ce notebook
 # * télécharger ce code sur votre disque comme un fichier `fibonacci_prompt.py`
 #   * utiliser pour cela le menu *"File -> Download as -> Python"*
@@ -82,7 +82,7 @@ print(f"fibonacci({entier}) = {fibonacci(entier)}")
 # * le modifier, par exemple pour afficher les résultats intermédiaires
 #   * on a laissé exprès une fonction `print` en commentaire que vous pouvez réactiver simplement
 # * l'exécuter avec l'interpréteur Python comme ceci :
-# 
+#
 # ```bash
 # $ python3 fibonacci_prompt.py
 # ```

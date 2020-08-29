@@ -20,7 +20,7 @@ class Phrase:
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
 
     def nb_lettres(self):
@@ -48,7 +48,7 @@ print(p.ma_phrase)
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()  # new
 
@@ -70,7 +70,7 @@ len(p)
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
@@ -100,7 +100,7 @@ print(p)
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
@@ -110,12 +110,12 @@ class Phrase:
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot in self.mots
 
     def __str__(self):               # new (doit retourner une str)
         return "\n".join(self.mots)  # new
-    
+
 p = Phrase("je fais un mooc sur python")
 
 print(p)

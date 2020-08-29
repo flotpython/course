@@ -29,7 +29,7 @@ def meeting(string):
         first, last = person_string.split(':')
         # il faut 2 niveaux de parenthèse car on insére un tuples
         persons.append((last, first))
-    # on s'appuie sur le tri des tuples qui fait justement 
+    # on s'appuie sur le tri des tuples qui fait justement
     # ce qu'on veut
     persons.sort()
     return "".join(f"({last}, {first})" for last, first in persons)

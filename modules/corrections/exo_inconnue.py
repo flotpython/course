@@ -23,7 +23,7 @@ inconnue_inputs = [
 # or ici x vaut len(connue)
 def inconnue(composite, connue):
     return composite[ len(connue) : -len(connue) ]
-# @END@ 
+# @END@
 
 
 # @BEG@ name=inconnue more=bis

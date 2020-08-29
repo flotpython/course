@@ -3,11 +3,11 @@
 ## < commencer avec le code ci dessous déjà dans IDLE >
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
-        
+
 ## Reprenons notre classe Phrase et supposons que vous souhaitions
 ## lever une exception quand la phrase est vide. On va créer pour cela
 ## une nouvelle exception.
@@ -28,7 +28,7 @@ class PhraseVideError(Exception):
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         if not ma_phrase:                  # new
             raise PhraseVideError()        # new
@@ -48,12 +48,12 @@ Phrase('')
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         if not ma_phrase:
             raise PhraseVideError('phrase vide', 18) # message et code d'erreur
         self.mots = ma_phrase.split()
-        
+
 ## on peut ensuite capturer cette exception et utiliser les arguments
 ## passés
 
@@ -61,5 +61,3 @@ try:
     Phrase("")
 except PhraseVideError as e:
     print(e.args)
-
-

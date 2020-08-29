@@ -43,7 +43,7 @@ add_1(L)
 print(L)
 
 L = [1, 2]
-add_1(L[:]) # par contre, pas de retour de la fonction, donc aucun effet. 
+add_1(L[:]) # par contre, pas de retour de la fonction, donc aucun effet.
 
 ## une référence vers la liste L a été passé à la fonction add_1, la
 ## fonction a modifié en place la liste, donc en sortie de la fonction
@@ -99,7 +99,7 @@ def f(a):
 
 print(f) # on a bien un objet fonction
 #f(1)   # mais on a une exception lors de l'appel puisque func
-        # n'existe pas encore. 
+        # n'existe pas encore.
 
 def g(a):
     print(a)

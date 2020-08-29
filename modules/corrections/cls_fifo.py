@@ -8,12 +8,12 @@ class Fifo:
     Une classe FIFO implémentée avec une simple liste
     """
 
-    # dans cette première version on utilise 
+    # dans cette première version on utilise
     # un object 'list' standard
-    # on ajoute à la fin avec    queue.append(x), 
+    # on ajoute à la fin avec    queue.append(x),
     # et on enlève au début avec queue.pop(0)
-    # 
-    # remarquez qu'on pourrait aussi 
+    #
+    # remarquez qu'on pourrait aussi
     # ajouter au début avec queue.insert(0, x)
     # enlever à la fin avec queue.pop()
 
@@ -47,19 +47,19 @@ class FifoBis:
     """
     une alternative en utilisant exactement la même stratégie
     mais avec un objet de type collections.deque
-    en effet, l'objet 'list' standard est optimisé pour 
+    en effet, l'objet 'list' standard est optimisé pour
     ajouter/enlever **à la fin** de la liste
     et on a vu dans la première version du code qu'il nous faut
     travailler sur les deux cotés de la pile, quel que soit le sens
     qu'on choisit pour implémenter la pile
     donc si la pile a des chances d'être longue de plusieurs milliers
-    d'objets, il est utile de prendre un 'deque' 
-    'deque' vient de 'double-entry queue', et est optimisée 
+    d'objets, il est utile de prendre un 'deque'
+    'deque' vient de 'double-entry queue', et est optimisée
     pour les accès depuis le début et/ou la fin de la liste
     """
     def __init__(self):
         self.queue = deque()
-        
+
     # ici pour faire bon poids on utilise la stratégie inverse
     # de la première version de la pile, on insère au début et on
     # enlève de la fin

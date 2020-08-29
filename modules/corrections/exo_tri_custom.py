@@ -27,7 +27,7 @@ def tri_custom_bis(liste):
     # la même chose avec une lambda
     # l'expression conditionnelle est nécessaire ici, car
     # dans une lambda on est limité à des expressions
-    liste.sort(key=lambda d: (d['p'], d['n'], d['p2']) 
+    liste.sort(key=lambda d: (d['p'], d['n'], d['p2'])
                               if 'p2' in d
                               else (d['p'], d['n']))
     return liste
@@ -38,7 +38,7 @@ def tri_custom_ter(liste):
     """
     tri avec une fonction lambda et une compréhension de tuple
     """
-    # sous cette forme, tout devient plus simple si on devait 
+    # sous cette forme, tout devient plus simple si on devait
     # avoir d'autres colonnes à prendre en compte
     keys = ('p', 'n', 'p2')
     liste.sort(key=lambda d: tuple(d[k] for k in keys if k in d))

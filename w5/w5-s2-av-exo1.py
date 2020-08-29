@@ -29,7 +29,7 @@ print(d['carre'](10), d['cube'](10))
 
 ## comme les fonctions en python sont des objets, on peut les passer
 ## en paramètres à d'autres fonctions; c'est la base de ce qu'on
-## appelle la programmation fonctionnelle 
+## appelle la programmation fonctionnelle
 
 ## par exemple je peux écrire
 
@@ -83,7 +83,7 @@ image(carre)
 ## La fonction map prend comme argument une fonction et un objet
 ## itérable, et retourne un itérateur qui applique la fonction à
 ## chaque élément de l'itérable. Je vous rappelle qu'un itérateur ne
-## peut être parcouru qu'une fois. 
+## peut être parcouru qu'une fois.
 
 m = map(carre, range(10))
 list(m)
@@ -93,7 +93,7 @@ list(m)
 ## est aussi plus facile à lire pour ceux habitués
 ## à la syntaxe des fonctions lambda, mais plus difficile
 ## à lire pour les débutants. On s'habitue cependant vite
-## aux fonctions lambda. 
+## aux fonctions lambda.
 
 m = map(lambda x: x**2 -3, range(10))
 list(m)

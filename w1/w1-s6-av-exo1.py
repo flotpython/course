@@ -5,7 +5,7 @@
 ## ce type est déterminé à l'exécution. Ça simplifie beaucoup l'écriture
 ## des programmes.
 
-## Commençons par le type int qui représente les entiers. 
+## Commençons par le type int qui représente les entiers.
 ## Pour entrer un entier, on n'a rien d'autre à faire que d'écrire
 ## cet entier
 1
@@ -24,7 +24,7 @@ i = 5 + 3
 
 ## Comment connait-on le type d'un objet en Python ?
 ## On utilise la fonction built-in type() qui accepte comme
-## argument une variable ou un objet. 
+## argument une variable ou un objet.
 
 type(i)
 
@@ -40,13 +40,13 @@ f = 4.3
 
 ## Pour finir on a les nombres complexes qui sont
 ## construits comme deux nombre décimaux. Ils ont donc
-## les mêmes limitations de précision. 
+## les mêmes limitations de précision.
 
 c = 1 + 3j
 
 c.real, c.imag
 
-## On peut 'mélanger' les types numériques dans une expression, 
+## On peut 'mélanger' les types numériques dans une expression,
 ## par exemple en ajoutant un entier et un flottant.
 ## Par contre on peut perdre en précision.
 ## Un int et un float donnent toujours un float.
@@ -71,7 +71,7 @@ complex(10)
 5 + 3
 5 - 3
 -3
-5 / 3     # division usuelle 
+5 / 3     # division usuelle
 5 // 3    # quotient de la division entière
 5 % 3     # reste de la division entière
 2 ** 32   # puissances

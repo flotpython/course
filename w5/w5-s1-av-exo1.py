@@ -6,7 +6,7 @@
 
 s = {1, 2, 3, 'a'}
 for i in s:
-    print(i) 
+    print(i)
 
 [x for x in s if type(x) is int]
 
@@ -25,7 +25,7 @@ print(it)
 ## de l'objet. Lorsqu'on a parcouru tous les éléments de l'objet, la
 ## méthode next retourne une exception qui s'appelle
 ## StopIteration. Cette exception est le signal que l'itération est
-## terminée. 
+## terminée.
 
 print(next(it))
 print(next(it))
@@ -46,5 +46,3 @@ print(next(it))
 ## itérateurs permet une implémentation optimisée des mécanismes
 ## d'itération et le protocole d'itération est parmi ce qui a été le
 ## plus optimisé en Python.
-
-

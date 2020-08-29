@@ -47,7 +47,7 @@ def div(a, b):
     print('continuons...')
 
 # 3m45
-    
+
 ## Vous avez remarqué que je faisais toujours suivre une clause except
 ## d'un nom d'exception. Ça n'est pas une obligation, je peux avoir
 ## une clause except sans nom d'exception, et dans ce cas, ma clause
@@ -79,7 +79,7 @@ def div(a, b):
 
 def f(x):
     div(1, x)
-    
+
 f(0)
 
 

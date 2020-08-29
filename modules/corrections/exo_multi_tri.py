@@ -27,7 +27,7 @@ exo_multi_tri = ExerciseFunction(
     call_renderer=PPrintCallRenderer(width=30),
     result_renderer=PPrintRenderer(width=20),
 )
-                               
+
 
 def multi_tri_ko(listes):
     return listes

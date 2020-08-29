@@ -1,6 +1,6 @@
 """
 Ce module est conçu pour illustrer le mécanisme de
-chargement / rechargement 
+chargement / rechargement
 """
 
 print("chargement de", __name__)

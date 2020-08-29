@@ -6,7 +6,7 @@ def P(x):
 
 def liste_P(liste_x):
     """
-    retourne la liste des valeurs de P 
+    retourne la liste des valeurs de P
     sur les entrées figurant dans liste_x
     """
     return [P(x) for x in liste_x]
@@ -40,5 +40,3 @@ exo_liste_P = ExerciseFunction(
 
 def liste_P_ko(liste):
     return [P(liste[0])]
-
-

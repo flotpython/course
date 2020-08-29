@@ -7,11 +7,11 @@ import numpy as np
 def matdiag(liste):
     """
     si les arguments sont x1, x2, .. xn
-    retourne une matrice carrée n x n 
+    retourne une matrice carrée n x n
     dont les éléments valent
     m[i, j] = xi si i == j
     m[i, j] = 0 sinon
-    
+
     """
     # on initialise avec des zéros
     n = len(liste)
@@ -43,7 +43,7 @@ def matdiag_ter(liste):
     """
     même propos mais cette fois avec du slicing
     """
-    # 
+    #
     # on initialise un tableau de la bonne taille n x n
     # mais tout à plat, avec des zéros
     n = len(liste)
@@ -52,7 +52,7 @@ def matdiag_ter(liste):
     # dans cette représentation là la diagonale correspond
     # à un slice qui commence à 1 avec un pas de n+1
     plat[0 : : n+1] = liste
-    # 
+    #
     # maintenant on peut remettre
     # dans une forme n x n avec reshape
     #
@@ -63,7 +63,7 @@ def matdiag_ter(liste):
 def matdiag_quater(liste):
     """
     bon maintenant qu'on s'est bien creusé les méninges
-    pour le faire à la main, il se trouve qu'il y a 
+    pour le faire à la main, il se trouve qu'il y a
     - bien sûr - une fonction pour ça dans numpy
     """
     return np.diag(liste)

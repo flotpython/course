@@ -15,4 +15,3 @@ def temoin(x):
         for j in (1,):
             print(20*'-', 'locals - boucles for:')
             display_env(locals())
-            

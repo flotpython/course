@@ -40,7 +40,7 @@ with open(r'C:\tmp\spam.bin', 'bw') as f: # pas d'encodage
     for i in range(100):
         f.write(b"\x3d")  # \x3d est le signe =. attention au b devant la
                           # chaine pour forcer le type bytes
-                          # écrit la chaine line dans le fichier 
+                          # écrit la chaine line dans le fichier
 
 [[TP: peut-être signaler rapidement ce que ça veut
   dire d'itérer sur un fichier binaire ouvert en lecture
@@ -51,11 +51,9 @@ with open(r'C:\tmp\spam.bin', 'bw') as f: # pas d'encodage
 dis, c'est un peu merdique et pour moi plus un effet de bord d'un
 choix d'implémentation que un comportement souhaité. Je propose de
   discuter plutôt de ça dans un complément]]
-  
+
   ## Pour résumer, lorsqu'un fichier est ouvert en mode texte, on doit
   ## controller l'encodage et on peut lire ou écrire directement des
   ## chaines de type str. Quand le fichier est ouvert en mode binaire,
   ## il n'y a pas d'encodage et on lit ou écrit directement des chaines
   ## de type bytes.
-  
-  

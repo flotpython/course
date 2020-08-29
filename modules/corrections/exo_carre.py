@@ -8,8 +8,8 @@ def carre(line):
     line = line.replace(' ', '').replace('\t','')
     # la ligne suivante fait le plus gros du travail
     # d'abord on appelle split() pour découper selon les ';'
-    # dans le cas où on a des ';' en trop, on obtient dans le 
-    #    résultat du split un 'token' vide, que l'on ignore 
+    # dans le cas où on a des ';' en trop, on obtient dans le
+    #    résultat du split un 'token' vide, que l'on ignore
     #    ici avec la clause 'if token'
     # enfin on convertit tous les tokens restants en entiers avec int()
     entiers = [int(token) for token in line.split(";")

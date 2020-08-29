@@ -14,7 +14,7 @@ class Phrase:
 Phrase()
 Phrase()
 ## je peux évidemment accéder à l'attribut de la
-## classe directement. 
+## classe directement.
 print Phrase.nb_i
 
 ## Mais comment faire une méthode sur la classe qui me retourne cet
@@ -64,7 +64,7 @@ class Phrase:
     nb_i = 0
     def __init__(self):
         Phrase.nb_i  = Phrase.nb_i + 1
-        
+
     @staticmethod
     def num():
         return Phrase.nb_i
@@ -94,7 +94,7 @@ class PhraseSansCasse(Phrase):
         return f'PhraseSansCasse {Phrase.nb_i}'
 
 # 5m00s
-    
+
 ## Vous remarquez cependant un problème, que j'ai une instance de
 ## Phrase ou de PhraseSansCasse, j'ai un unique compteur dans Phrase qui
 ## est incrémenté.
@@ -124,17 +124,17 @@ class Phrase:
     nb_i = 0
     def __init__(self):
         Phrase.nb_i = Phrase.nb_i + 1
-        
+
     @classmethod
     def num(cls):                 # new
         return cls.nb_i           # new
 
-    
+
 class PhraseSansCasse(Phrase):
-    nb_i = 0                                          
+    nb_i = 0
     def __init__(self):
         PhraseSansCasse.nb_i  = PhraseSansCasse.nb_i + 1
-        
+
     @classmethod
     def num(cls):
         return f'PhraseSansCasse {cls.nb_i}'

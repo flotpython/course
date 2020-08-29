@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-## Commençons par un exemple simple. 
+## Commençons par un exemple simple.
 
 class C:
     pass

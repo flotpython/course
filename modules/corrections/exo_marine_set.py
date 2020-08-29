@@ -184,7 +184,7 @@ class ExoDiff(ExerciseFunction):
 
 exo_diff = ExoDiff(
     diff, "inputs_gets_overridden",
-    font_size='x-small', 
+    font_size='x-small',
     call_renderer=PPrintCallRenderer(width=20),
     result_renderer=PPrintRenderer(width=30),
 )

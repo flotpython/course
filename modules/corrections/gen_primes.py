@@ -12,7 +12,7 @@ def primes():
     # the set of primes we have found so far
     # so we avoid divisions by non-primes
     cache_primes = set()
-    
+
     for n in itertools.count(2):
         for i in range(2, int(math.sqrt(n))+1):
             # no need to try to divide by non-primes
@@ -21,7 +21,7 @@ def primes():
             # not a prime, go to n+1
             if n % i == 0:
                 break
-        # remember that a 'for' statement 
+        # remember that a 'for' statement
         # can be attached an 'else' which
         # gets executed when no 'break' statement has triggered
         # in our case, we run this 'else' part when n is prime
@@ -29,7 +29,7 @@ def primes():
             # n is prime, remember it for the rest of the enumeration
             cache_primes.add(n)
             yield n
-# @END@ 
+# @END@
 
 primes_args = [
     GeneratorArgs(islice=(20,)),
@@ -58,7 +58,7 @@ def prime_squares():
     """
     # a generator expression is the most obvious way that springs to mind
     return (prime**2 for prime in primes())
-# @END@ 
+# @END@
 
 
 # @BEG@ name=prime_squares more=bis
@@ -69,7 +69,7 @@ def prime_squares_bis():
     # a generator expression is the most obvious way that springs to mind
     for prime in primes():
         yield prime**2
-# @END@ 
+# @END@
 
 
 prime_squares_args = [
@@ -97,7 +97,7 @@ def prime_legos():
     part1 = itertools.chain(itertools.repeat(1, 5), primes())
     part2 = (prime**2 for prime in primes())
     return zip(part1, part2)
-# @END@ 
+# @END@
 
 
 # @BEG@ name=prime_legos more=bis
@@ -115,7 +115,7 @@ def prime_legos_bis():
     part1 = itertools.chain(itertools.repeat(1, 5), primes1)
     part2 = (prime**2 for prime in primes2)
     return zip(part1, part2)
-# @END@ 
+# @END@
 
 
 args_prime_legos = [
@@ -141,13 +141,13 @@ def prime_legos_ko():
 def prime_th_primes():
     """
     iterate the n-th prime number, with n it self being prime
-    
+
     given that primes() emits 2, 3, 5
     then prime_th_primes() starts with 5 which has index 2 in that enumeration
     """
     primes1 = primes()
     primes2 = primes()
-    
+
     # current will scan all prime numbers
     current = next(primes1)
     # index will scan all integers
@@ -156,17 +156,17 @@ def prime_th_primes():
         if index == current:
             yield prime
             current = next(primes1)
-# @END@ 
+# @END@
 
 
 # @BEG@ name=prime_th_primes more=bis
 def prime_th_primes_bis():
     """
     same purpose
-    
+
     this approach is a little more manual
-    as we do our own calls to next() 
-    
+    as we do our own calls to next()
+
     """
     primes1 = primes()
     primes2 = primes()
@@ -174,7 +174,7 @@ def prime_th_primes_bis():
     # and, as opposed with usual indexing that starts at 0
     # to get item at index 0 we need to do ONE next()
     current_index = -1
-    
+
     while True:
         # what's the next prime index
         next_index = next(primes1)
@@ -187,7 +187,7 @@ def prime_th_primes_bis():
         yield output
         # this is where we are, so we can compute the next hop
         current_index = next_index
-# @END@ 
+# @END@
 
 
 args_prime_th_primes = [
@@ -201,13 +201,13 @@ exo_prime_th_primes = ExerciseGenerator(
     result_renderer=PPrintRenderer(width=30),
 )
 
-def prime_th_primes_ko(): 
+def prime_th_primes_ko():
     return itertools.islice(prime_th_primes(), 1, None)
 
 
 
 
-### 
+###
 # not yet operational
 # requires nbautoeval features that are not yet ready
 # 0.6.1 was badly broken
@@ -234,6 +234,3 @@ exo_differential = ExerciseGenerator(
 )
 
 differential_ko = lambda : (2*n+1 for n in itertools.count())
-
-
-

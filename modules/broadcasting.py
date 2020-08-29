@@ -6,20 +6,20 @@ import numpy as np
 
 """
 Une fonction `compatible` (en deux versions)
-qui permet de vérifier si deux dimensions 
-de tableaux numpy sont ou non compatibles 
+qui permet de vérifier si deux dimensions
+de tableaux numpy sont ou non compatibles
 pour le broadcasting
 """
 
 
-#################### 
+####################
 # v1: la version qui triche
 # on fait faire le travail à numpy et on
 # regarde comment ça se passe
 def compatible(t1, t2):
     """
-    Une fonction qui indique si deux tableaux numpy 
-    de formes (shapes) t1 et t2 
+    Une fonction qui indique si deux tableaux numpy
+    de formes (shapes) t1 et t2
     sont compatibles par broadcasting
     Si oui, retourne la forme commune
     Si non, retourne False
@@ -58,7 +58,7 @@ def dmax(d1, d2):
 
 def compatible_bool(t1, t2):
     """
-    calcule un booléen, ne retourne pas la dimension 
+    calcule un booléen, ne retourne pas la dimension
     du broadcasting
     """
     # on renverse les deux dimensions
@@ -71,7 +71,7 @@ def compatible_bool(t1, t2):
 
 def compatible2(t1, t2):
     """
-    même comportement que compatible, 
+    même comportement que compatible,
     mais calculé plutôt qu'en essayant
     """
     rev_dmaxes = [

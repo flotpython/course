@@ -6,7 +6,7 @@
 ## Donc lorsque je connais le numéro de séquence
 ## d'un élément, la vitesse d'accès, de modification,
 ## et d'effacement est indépendante de la position
-## de l'élément dans la séquence. 
+## de l'élément dans la séquence.
 ##
 ## Mais comment se comporte une séquence avec
 ## le test d'appartenance...
@@ -48,4 +48,3 @@ a = []
 ## structure, et qui, de plus, permet d'avoir des indices
 ## d'un type immuable quelconque, c'est la table de hash.
 ## regardons comment fonctionne une table de hash
-

@@ -6,20 +6,20 @@
 
 ## Reprenons notre classe Phrase et augmentons la pour qu'elle
 ## deviennent un itérateur. N'hésitez pas à mettre la vidéo en pause
-## pour avoir le temps de retrouver la class Phrase. 
+## pour avoir le temps de retrouver la class Phrase.
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot in self.mots
-    
-    def __str__(self):               
+
+    def __str__(self):
         return "\n".join(self.mots)
 
     ## mon objet est son propre itérateur
@@ -47,17 +47,17 @@ p = Phrase("je fais un mooc sur python")
 ## rendre Phrase itérable.
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot in self.mots
-    
-    def __str__(self):               
+
+    def __str__(self):
         return "\n".join(self.mots)
 
     ## mon objet est son propre itérateur
@@ -70,16 +70,16 @@ class IterPhrase():                                #new
 
     def __iter__(self):
         return self
-    
+
     def __next__(self):
         if not self.mots:
             raise StopIteration
         return self.mots.pop(0)
 
-    
+
 p = Phrase("je fais un mooc sur python")
 [m for m in p]
-[m for m in p]      #il y a de multiples itérateurs 
+[m for m in p]      #il y a de multiples itérateurs
 
 
 #5m22
@@ -94,21 +94,21 @@ p = Phrase("je fais un mooc sur python")
 ## lorsqu'on l'appelle crée automatiquement un nouvel objet
 ## itérateur. Par conséquent, si on implémente la méthode __iter__
 ## comme une fonction génératrice, on aura automatiquement un objet
-## itérable. Regardons cela. 
+## itérable. Regardons cela.
 
 
 class Phrase:
-    def __init__(self, ma_phrase):  
+    def __init__(self, ma_phrase):
         self.ma_phrase = ma_phrase
         self.mots = ma_phrase.split()
 
     def __len__(self):
         return len(self.mots)
 
-    def __contains__(self, mot):                             
+    def __contains__(self, mot):
         return mot in self.mots
-    
-    def __str__(self):               
+
+    def __str__(self):
         return "\n".join(self.mots)
 
     ## La fonction génératrice produit un nouvel itérateur à chaque
@@ -117,10 +117,10 @@ class Phrase:
         for m in self.mots:                        #new
             yield m                                #new
 
-    
+
 p = Phrase("je fais un mooc sur python")
 [m for m in p]
-[m for m in p]      #il y a de multiples itérateurs 
+[m for m in p]      #il y a de multiples itérateurs
 
 
 # 7m45s

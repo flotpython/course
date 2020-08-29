@@ -2,7 +2,7 @@ from datetime import datetime
 
 import asyncio
 
-# low-level API 
+# low-level API
 def _start_timer():
     return datetime.now()
 
@@ -30,9 +30,7 @@ async def sequence(*messages, delay=1):
     show_timer(">>>", *messages)
     await asyncio.sleep(delay)
     show_timer("<<<", *messages)
-    
+
 ##########
 def reset_loop():
     asyncio.set_event_loop(asyncio.new_event_loop())
-
-

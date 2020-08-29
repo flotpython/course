@@ -36,7 +36,7 @@ f(nom='idle', prenom='eric', tel='0720202020')
 ## On peut combiner les 4 déclarations d'arguments, cependant, il ne
 ## faut pas que ça nuise à la clareté, c'est pourquoi on recommande
 ## d'éviter de mélanger plus de deux manières. Vous verrez dans les
-## compléments les règles à suivre pour mélanger ces arguments. 
+## compléments les règles à suivre pour mélanger ces arguments.
 
 ## Vous pouvez vous demander dans quel cas on souhaite avoir une
 ## fonction qui accepte un nombre quelconque d'arguments. Un exemple
@@ -97,7 +97,7 @@ print(*phrase, **pp)
 ## donner une idée de cela. Imaginez que je veuille créer une fonction
 ## qui s'appelle comme la fonction print, mais qui affiche une ligne
 ## de dièse, puis appelle print, puis affiche une ligne de dièse. La
-## difficulté ici est d'écrire une fonction qui a les mêmes paramètres 
+## difficulté ici est d'écrire une fonction qui a les mêmes paramètres
 ## que print. La bonne solution est d'écrire un wrapper qui prend
 ## comme argument une forme * et **. Comme la forme * accepte
 ## n'importe quel argument ordonnés et que la forme ** accepte
@@ -113,4 +113,3 @@ def my_print(*t, **d):
 
 
 my_print(1, 2, 3, sep='_')
- 

@@ -6,7 +6,7 @@ y = 3
 def incremente(x):
     return x + y
 
-## y est une variable globale, donc incremente n'est pas un terme clôt. 
+## y est une variable globale, donc incremente n'est pas un terme clôt.
 
 ## regardons maintenant ce deuxième exemple
 

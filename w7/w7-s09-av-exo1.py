@@ -77,7 +77,7 @@ s.loc['2018-12': '2019-01-25']
 
 s.resample('M').mean()
 
-# resample est une méthode très puissante, par exemple, je peux rééchantilloné 
+# resample est une méthode très puissante, par exemple, je peux rééchantilloné
 # avec une fréquence de la semaine qui démarre le mercredi et calculer la somme
 # de chaque groupe.
 

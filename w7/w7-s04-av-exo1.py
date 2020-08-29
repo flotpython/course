@@ -43,7 +43,7 @@ np.all(a**2 == [x**2 for x in a])
 # vectorisée. On appelle ces fonctions vectorisées des ufuncs
 # ou fonctions universelles. Ce sont des fonctions qui travaillent
 # élément par élément et qui sont généralement implémentée
-# en C. 
+# en C.
 
 # Par exemple l'opérateur ** est associé à la fonction np.power()
 # et l'opérateur + à la fonction np.add()
@@ -57,7 +57,7 @@ np.all(a**2 == np.power(a, 2))
 # Notons qu'il existe un grand nombre  de fonctions
 # universelles qui ne sont pas lié à un opérateur, comme les
 # fonction trigonométrique ou les fonctions logarithmes.
-# On en reparlera dans les compléments. 
+# On en reparlera dans les compléments.
 
 #3m30
 

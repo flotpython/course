@@ -41,4 +41,3 @@ exo_wc = ExerciseFunction(
     wc, wc_inputs,
     call_renderer=PPrintCallRenderer(max_width=40, show_function=True),
     result_renderer=PPrintRenderer(width=15))
-                          

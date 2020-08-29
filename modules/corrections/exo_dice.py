@@ -84,7 +84,7 @@ def dice_ter(target, nb_dice=2, sides=6):
 # @BEG@ name=dice more=quat
 def dice_quat(target, nb_dice=2, sides=6):
     """
-    Cette version semble un peu plus rapide 
+    Cette version semble un peu plus rapide
     que les deux  précédentes avec product,
     mais toujours beaucoup plus lente que la version numpy
     """

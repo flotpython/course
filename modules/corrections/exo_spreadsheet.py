@@ -3,7 +3,7 @@ from nbautoeval import Args, ExerciseFunction
 # @BEG@ name=spreadsheet
 def int_to_char(n):
     """
-    traduit un entier entre 1 et 26 
+    traduit un entier entre 1 et 26
     en un caractère entre 'A' et 'Z'
     """
     # si index était compris entre 0 et 25, on pourrait obtenir
@@ -22,11 +22,11 @@ def spreadsheet(index):
     1 -> A; 26 -> Z; 27 -> AA; 28 -> AB; etc..
     """
     # index peut être supérieur à 26
-    # en remarquant que la dernière lettre s'incrémente à chaque fois 
-    # qu'index augmente, et repasse à 'A' de manière cyclique, 
-    # on voit qu'on peut utiliser notre version cyclique de `int_to_char` 
+    # en remarquant que la dernière lettre s'incrémente à chaque fois
+    # qu'index augmente, et repasse à 'A' de manière cyclique,
+    # on voit qu'on peut utiliser notre version cyclique de `int_to_char`
     # pour calculer la lettre la plus à droite dans le résultat.
-    # et pour les autres lettres, il suffit de recommencer sur le quotient 
+    # et pour les autres lettres, il suffit de recommencer sur le quotient
 
     result = int_to_char(index)
     while index > 26:
@@ -71,11 +71,11 @@ def spreadsheet_ter(index):
     """
     def int_to_char(n):
         """
-        traduit un entier entre 1 et 26 
+        traduit un entier entre 1 et 26
         en un caractère entre 'A' et 'Z'
         """
         return chr(ord('A') + (n - 1) % 26)
-    
+
     if not isinstance(index, int):
         raise TypeError("index must be an integer!")
     elif index < 1:

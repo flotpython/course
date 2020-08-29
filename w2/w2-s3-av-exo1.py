@@ -61,7 +61,7 @@ print('-'*30)
 ## fonctionne
 
 [[TP: je te suggère d'utiliser une astuce visuelle qui je trouve marche pas mal;
-  c'est de montrer - je dessine en l'air avec mes doigts - que les bornes 
+  c'est de montrer - je dessine en l'air avec mes doigts - que les bornes
   de la slice sont prises comme ceci [ [,
   pour illustrer que la borne à gauche est incluse et la borne à droite est exclue
 
@@ -74,8 +74,3 @@ print('-'*30)
   bcp de travail, je me rends pas compte avec ppt, en keynote ça a été simple à faire..
 ]]
 [[AL: je verrai si j'ai le temps quand j'aurai tout fini]]
-
-
-
-
-
