@@ -238,7 +238,7 @@ De retour aux *f-strings* et à la fonction `format`, il arrive qu'on ait besoin
 ![f-string](media/f-string.svg)
 
 * à gauche du `:` vous pouvez mettre **n'importe quelle expression** (opérations arithmétiques, appels de fonctions, …); bien sûr s'il n'y a pas de `:` tout ce qui est entre les `{}` constitue l'expression à évaluer;
-* à droite du `:` vous pouvez préciser **un format**, onus allons en voir quelques exemples.
+* à droite du `:` vous pouvez préciser **un format**, nous allons en voir quelques exemples.
 
 +++
 
