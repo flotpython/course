@@ -1,4 +1,5 @@
 *.pyc
+w[0-9]*.py
 semainex-a-ranger/
 w0-teaser/
 *.comment.py
