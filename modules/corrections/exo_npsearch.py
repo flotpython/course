@@ -6,19 +6,19 @@ import numpy as np
 
 def npsearch(world, needle):
     """
-    world est la "grande" matrice dans laquelle 
+    world est la "grande" matrice dans laquelle
     on cherche les occurrences de needle
     qui peut être une matrice 2d ou une simple ligne
 
     npsearch est une fonction génératrice qui énumère
-    les tuples (i, j) correspondant à une occurrence de 
+    les tuples (i, j) correspondant à une occurrence de
     needle dans world
     """
     if len(needle.shape) == 1:
         needle = needle[np.newaxis, :]
     n, m = needle.shape
     # pas la peine de faire une grande boucle sur tout le tableau
-    # s'il y a égalité c'est nécessairement que 
+    # s'il y a égalité c'est nécessairement que
     # le world[i, j] == needle[0, 0]
     for i, j in np.argwhere(world == needle[0][0]):
         # c'est ici le point délicat
@@ -31,7 +31,7 @@ def npsearch(world, needle):
 # @END@
 
 
-# une version qui ne MARCHE PAS 
+# une version qui ne MARCHE PAS
 def npsearch_ko(world, needle):
     if len(needle.shape) == 1:
         needle = needle[np.newaxis, :]

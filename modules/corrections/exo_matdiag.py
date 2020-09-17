@@ -1,5 +1,9 @@
 from nbautoeval import Args, ExerciseFunctionNumpy
 
+# xxx JeF29
+def matdiag(liste):
+    return np.eye(len(liste), dtype=np.float64) * liste
+
 
 # @BEG@ name=matdiag
 import numpy as np
@@ -12,44 +16,33 @@ def matdiag(liste):
     m[i, j] = xi si i == j
     m[i, j] = 0 sinon
 
+    credit: JeF29
     """
-    # on initialise avec des zéros
-    n = len(liste)
-    resultat = np.zeros((n, n))
-    # la première méthode est naive
-    # ce n'est pas la meilleure façon de faire
-    # mais c'est simple à écrire et à comprendre
-    for i in range(n):
-        resultat[i, i] = liste[i]
-    return resultat
+    # on crée une matrice diagonale unité avec np.eye
+    # (car I se prononce comme eye en anglais)
+    # et on la multiplie par broadcasting avec un vecteur
+    # composé de nos arguments
+    # on la crée de type `int64` de façon à obtenir
+    # pour le résultat final un type entier, flottant
+    # ou complexe, selon les valeurs dans liste
+    return np.eye(len(liste), dtype=np.int64) * liste
 # @END@
 
-# @BEG@ name=matdiag more=bis
-def matdiag_bis(liste):
-    """
-    pareil mais un peu plus subtil
-    """
-    # on initialise avec des zéros
-    n = len(liste)
-    resultat = np.zeros((n, n))
-    for i, item in enumerate(liste):
-        resultat[i, i] = item
-    return resultat
-# @END@
-
-
-# @BEG@ name=matdiag more=ter
-def matdiag_ter(liste):
+# @BEG@ name=matdiag more=2
+def matdiag_2(liste):
     """
     même propos mais cette fois avec du slicing
     """
     #
     # on initialise un tableau de la bonne taille n x n
     # mais tout à plat, avec des zéros
+    # ici si on veut que ça marche avec des complexes,
+    # il faut alors créer tout de suite le tableau de type
+    # complexe, sinon on n'a pas la place
     n = len(liste)
-    plat = np.zeros((n * n,))
+    plat = np.zeros((n * n,), dtype=np.complex)
     #
-    # dans cette représentation là la diagonale correspond
+    # dans cette représentation là, la diagonale correspond
     # à un slice qui commence à 1 avec un pas de n+1
     plat[0 : : n+1] = liste
     #
@@ -59,8 +52,8 @@ def matdiag_ter(liste):
     return plat.reshape((n, n))
 # @END@
 
-# @BEG@ name=matdiag more=quater
-def matdiag_quater(liste):
+# @BEG@ name=matdiag more=3
+def matdiag_3(liste):
     """
     bon maintenant qu'on s'est bien creusé les méninges
     pour le faire à la main, il se trouve qu'il y a
@@ -76,8 +69,8 @@ def matdiag_ko(liste):
 
 inputs_matdiag = [
     Args([1]),
-    Args([1, 2]),
-    Args([1, 2, 4]),
+    Args([1, 2j]),
+    Args([1, 2.5, 4]),
     Args([0, 1, 2, 4, 8]),
 ]
 
