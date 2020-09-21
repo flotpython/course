@@ -1,0 +1,52 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Ouvrir un notebook (par ex. dans la page de complément ci-après)</p>
+</blockquote>
+<blockquote>
+<p>ou bien aller sur l'url https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb</p>
+</blockquote>
+<blockquote>
+<p>attendre d'avoir la page jupyter et faire File -&gt; New Notebook -&gt; Python 3</p>
+</blockquote>
+<pre><code># Vidéo
+import numpy as np
+import pandas as pd
+import seaborn as sns
+</code></pre>
+<blockquote>
+<p>Exécuter la cellule par Shift-Entrée</p>
+</blockquote>
+<blockquote>
+<p>Insérer une cellule après avec b (une fois la cellule bleue avec esc)
+ou bien avant avec a</p>
+</blockquote>
+<pre><code>L = list(range(1000))
+
+a = np.array(L)
+
+%timeit [x**2 for x in L]
+
+%timeit [x**2 for x in a]
+
+%timeit a**2
+
+tit = sns.load_dataset('titanic')
+
+tit.head()
+
+t = tit.pivot_table('survived',
+                    aggfunc = np.mean,
+                    index = 'class',
+                    columns = 'sex')
+
+ t.plot(kind='bar')
+</code></pre>
+</div>

@@ -1,0 +1,51 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Ouvrir un notebook</p>
+</blockquote>
+<pre><code>import numpy as np
+
+a = np.arange(1000)
+
+%timeit [x**2 + 2*x - 1 for x in a]
+
+%timeit a**2 + 2*a - 1
+
+a = np.arange(1, 1_000_000, dtype=np.float64)
+%timeit -r 1 -n 1 np.sqrt(a)
+
+%timeit -r 1 -n 1 np.sqrt(a, out=a)
+
+a
+
+a[:5]
+
+a = np.arange(1, 10).reshape(3, 3)
+a
+
+np.sum(a)
+
+np.sum(a, axis=0)
+
+np.sum(a, axis=1)
+
+a = np.arange(1, 10, dtype=np.float64).reshape(3, 3)
+a
+
+a[1, 1] = np.nan
+a
+
+np.mean(a)
+
+np.nanmean(a)
+
+np.nanmax(a)
+</code></pre>
+</div>

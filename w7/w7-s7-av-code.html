@@ -1,0 +1,82 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Ouvrir un notebook</p>
+</blockquote>
+<pre><code>import numpy as np
+import pandas as pd
+
+prenoms = ['liz', 'bob', 'bill', 'eve']
+age = pd.Series([25, 30, 35, 40], index = prenoms)
+taille = pd.Series([160, 175, 170, 180], index = prenoms)
+sexe = pd.Series(list('fhhf'), index = prenoms)
+
+df = pd.DataFrame({'age': age, 'taille': taille, 'sexe': sexe})
+
+df
+
+df.index
+
+df.columns
+
+df.values
+
+df.head(2)
+
+df.tail(2)
+
+df.describe()
+
+df.loc['liz']
+
+df.loc['liz', 'age']
+
+df.loc[:,'taille']
+
+df.loc[df.loc[:,'age']&lt;32 ]
+
+df
+
+df = df.reset_index()
+df
+
+df = df.rename(columns={'index': 'prenom'})
+df
+
+df = df.set_index('age')
+df
+
+# Réinitialisation de df
+df = pd.DataFrame({'age': age, 'taille': taille, 'sexe': sexe})
+df
+
+df = (df.reset_index()
+        .rename(columns={'index': 'nom'})
+        .set_index('age'))
+df
+
+df1 = pd.DataFrame(np.ones((2, 2)), index=list('ab'), columns=list('xy'))
+df1
+
+df2 = pd.DataFrame(np.ones((2, 2)), index=list('ac'), columns=list('xz'))
+df2
+
+df1 + df2
+
+df1.add(df2, fill_value=0)
+
+df = df1.add(df2, fill_value=0)
+df
+
+df.fillna(-1)
+
+df.dropna()
+</code></pre>
+</div>

@@ -1,0 +1,79 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre une console python</p>
+</blockquote>
+<pre><code>class C:
+    pass
+
+t = C.__bases__
+t
+
+t[0].__bases__
+
+object.__bases__
+
+int.__bases__
+
+dict.__bases__
+
+str.__bases__
+
+i = C()
+type(i)
+
+type(C)
+
+type(1)
+
+type(int)
+
+class C:
+    pass
+
+class D(C):
+    pass
+
+type(object)
+
+type(C)
+
+type(D)
+</code></pre>
+<blockquote>
+<p>Prendre l’éditeur IDLE</p>
+</blockquote>
+<pre><code>class LowerAttrMetaclass(type):
+    def __new__(cls, clsname, bases, dct):
+        lowercase_attr = {}
+        for name, val in dct.items():
+            if not name.startswith('__'):
+                lowercase_attr[name.lower()] = val
+            lowercase_attr[name] = val
+        bases = (BaseOfAll,)
+        return type.__new__(cls, clsname, bases, lowercase_attr)
+
+class BaseOfAll:
+    def common_func(self):
+        return &quot;in commun_func&quot;
+    
+class C(metaclass=LowerAttrMetaclass):
+    def funC_bAd_CAP(self):
+        return &quot;in func_bad_cap&quot;
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>c = C()
+c.func_bad_cap()
+
+c.common_func()
+</code></pre>
+</div>

@@ -1,0 +1,150 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre un nouveau fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<pre><code>from datetime import datetime
+import asyncio
+import time
+
+####################################################################
+#
+#  pour remplacer 'from asynchelpers import start_timer, show_timer' 
+#
+####################################################################
+
+# low-level API
+def _start_timer():
+    return datetime.now()
+
+
+def _show_timer(start, *args):
+    delta = datetime.now() - start
+    duration = f&quot;{delta.seconds}s + {delta.microseconds // 1000:03d}ms&quot;
+    print(duration, *args)
+
+
+####################
+# Use a module global to keep things simple
+
+glo_start = None
+
+
+def start_timer():
+    global glo_start
+    print(&quot;---------- zero&quot;)
+    glo_start = _start_timer()
+
+
+def show_timer(*args):
+    global glo_start
+    _show_timer(glo_start, *args)
+
+
+##############################
+async def sequence(*messages, delay=1):
+    show_timer(&quot;&gt;&gt;&gt;&quot;, *messages)
+    await asyncio.sleep(delay)
+    show_timer(&quot;&lt;&lt;&lt;&quot;, *messages)
+
+
+##########
+def reset_loop():
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
+
+####################################################################
+#
+# fin de pour remplacer 'from asynchelpers import start_timer... 
+#
+####################################################################
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w8s8 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>asyncio.Queue?
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier sous IDLE ou votre éditeur python et ajouter</p>
+</blockquote>
+<pre><code>queue = asyncio.Queue(maxsize=1)
+
+async def producer(queue):
+    count = 1
+    while True:
+        await queue.put(f'tick{count}')
+        count += 1
+        await asyncio.sleep(1)
+
+async def consumer(queue):
+    while True:
+        received = await queue.get()
+        show_timer(f&quot;got {received}&quot;)
+
+# on ajoute les coroutines dans la boucle
+asyncio.ensure_future(producer(queue))
+asyncio.ensure_future(consumer(queue))        
+
+start_timer()
+
+# interrompre avec la touche 'i' 
+# plusieurs fois si nécessaire
+
+try:
+    asyncio.get_event_loop().run_forever()
+except KeyboardInterrupt as e:
+    print(&quot;bye&quot;)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Pour interrompre la boucle &quot;sans fin&quot;, taper Ctl-c</p>
+</blockquote>
+<blockquote>
+<p>Réinitialisation de la boucle</p>
+</blockquote>
+<pre><code>asyncio.set_event_loop(asyncio.new_event_loop())
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier et remplacer (après l'utilitaire) par</p>
+</blockquote>
+<pre><code>#limiter le parallèlisme avec Queue
+
+window = asyncio.Queue(maxsize = 4)
+
+async def job(i):
+    # prendre un jeton dans la queue
+    await window.put(None)
+    # pas tout le monde la même durée
+    duration = (i % 3) + 1
+    message = f&quot;job{i} - duration {duration}&quot;
+    show_timer(&quot;&gt;&gt;&gt;&quot;, message)
+    await asyncio.sleep(duration)
+    show_timer(&quot;&lt;&lt;&lt;&quot;, message)
+    # libérer le jeton
+    await window.get()
+
+for i in range(8):
+    asyncio.ensure_future(job(i))
+
+start_timer()
+try:
+    asyncio.get_event_loop().run_forever()
+except:
+    print('bye')
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Pour interrompre la boucle &quot;sans fin&quot;, taper Ctl-c</p>
+</blockquote>
+</div>

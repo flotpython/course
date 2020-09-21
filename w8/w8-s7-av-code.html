@@ -1,0 +1,41 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre un nouveau fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<pre><code>from asyncio import (
+    get_event_loop, ensure_future, Task )
+
+async def foo():
+    pass
+
+task = ensure_future(foo())
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w8s7 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>task
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<pre><code># attention : retourne un set
+tasks = Task.all_tasks()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>tasks
+task in tasks
+
+# et comme on n'est pas dans la  boucle
+print(task.current_task())
+</code></pre>
+</div>

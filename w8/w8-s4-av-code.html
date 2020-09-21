@@ -1,0 +1,82 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre un notebook ou un éditeur python</p>
+</blockquote>
+<pre><code>import time
+
+urls = [&quot;https://www.irs.gov/pub/irs-pdf/f1040.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040es.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040c.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040esn.pdf&quot;,
+		]
+
+import requests
+
+beg = time.time()
+
+for url in urls:
+    req = requests.get(url)
+    print(f&quot;{url} returned {len(req.text)} chars&quot;)
+    
+print(f&quot;duration = {time.time() - beg}s&quot;)    
+</code></pre>
+<blockquote>
+<p>Prendre l'éditeur IDLE sur votre machine, après avoir installé aiohttp (pip install aiohttp)</p>
+</blockquote>
+<pre><code>import asyncio
+import aiohttp
+import time
+
+urls = [&quot;https://www.irs.gov/pub/irs-pdf/f1040.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040es.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040c.pdf&quot;,
+		&quot;https://www.irs.gov/pub/irs-pdf/f1040esn.pdf&quot;,
+		]
+
+
+async def fetch(url):
+
+    async with aiohttp.ClientSession() as session:
+        print(f&quot;fetching {url}&quot;)
+
+        async with session.get(url) as response:
+            raw = await response.read()
+            print(f&quot;{url} returned {len(raw)} bytes&quot;)
+
+async def fetch_urls():
+    await asyncio.gather(*(fetch(url) for url in urls))
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>loop = asyncio.get_event_loop()
+
+beg = time.time()
+loop.run_until_complete(fetch_urls())
+print(f&quot;duration = {time.time() - beg}s&quot;)
+</code></pre>
+<blockquote>
+<p>Reprendre l'éditeur python sur votre machine et ajouter</p>
+</blockquote>
+<pre><code>async def fetch2(url, i):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            # avec ici une itération asynchrone
+            async for line in response.content:
+                print(f&quot;{i}&quot;, end=&quot;&quot;)
+    return url
+
+
+asyncio.get_event_loop().run_until_complete(
+    asyncio.gather(*(fetch2(url, i) for i, url in enumerate(urls)))
+)
+</code></pre>
+</div>

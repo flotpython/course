@@ -1,0 +1,190 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Écueils classiques</p>
+</blockquote>
+<blockquote>
+<p>Prendre un nouveau fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<blockquote>
+<p>Écueil n°1 : fonction coroutine vs coroutine</p>
+</blockquote>
+<p>import asyncio</p>
+<pre><code># une fonction coroutine
+async def foo(delay):
+    await asyncio.sleep(1)
+    print(&quot;foo&quot;)
+
+# renvoie un objet coroutine
+# si on l'appelle normalement
+# il ne se passe rien
+foo(4)
+
+# c'est exactement comme 
+# une fonction génératrice
+def squares(scope):
+    for i in scope:
+        print(i)
+        yield i**2
+
+# qui retourne un
+# itérateur, et là encore
+# il ne se passe rien
+squares(4)
+</code></pre>
+<blockquote>
+<p>tous les scénarios</p>
+</blockquote>
+<blockquote>
+<p>Reprendre le fichier et remplacer par</p>
+</blockquote>
+<pre><code>def synchro():
+    pass
+
+async def asynchro():
+    pass
+
+
+def foo(): 
+    synchro()        # 1 # OK
+    asynchro()       # 2 # ** ATTENTION **
+    await synchro()  # 3 # SyntaxError
+    await asynchro   # 4 # SyntaxError
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier et ajouter</p>
+</blockquote>
+<pre><code>async def afoo():
+    synchro()        # 5 # OK
+    await asynchro() # 6 # OK
+    asynchro()       # 7 # ** ATTENTION **
+    await synchro()  # 8 # ** ATTENTION **    
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>cas n°2 une fonction appelle une coroutine sans await ➠ avertissement
+contenu de call2.py</p>
+</blockquote>
+<pre><code>import asyncio
+
+async def coro():
+    # totalement légal
+    print(&quot;dans coro&quot;)
+
+def main():
+    # par contre ici il
+    # manque un await !
+    coro()
+
+main()  
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>cas n°7 une coroutine appelle une autre coroutine sans await idem : avertissement
+contenu de call7.py</p>
+</blockquote>
+<p>import asyncio</p>
+<pre><code>async def coro():
+    print(&quot;dans coro&quot;)
+
+async def amain():
+    # pareil mais depuis
+    # une coroutine
+    coro()
+
+asyncio.get_event_loop().\
+   run_until_complete(amain())
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>cas n°8</p>
+</blockquote>
+<pre><code>def synchro():
+    pass
+
+async def asynchro():
+    await synchro()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>import inspect
+inspect.isawaitable(synchro())
+</code></pre>
+<blockquote>
+<p>Écueil n°2 : code trop bloquant</p>
+</blockquote>
+<blockquote>
+<p>Reprendre le fichier et ajouter</p>
+</blockquote>
+<pre><code>async def countdown(n, period):
+    while n &gt;= 0:
+        print('.', end='', flush=True)
+        await asyncio.sleep(period)
+        n -= 1
+
+import time
+async def compute(n, period):
+    for i in range(n):
+        # on simule un calcul
+        time.sleep(period)
+        print('x', end='', flush=True)
+
+
+asyncio.set_event_loop(asyncio.new_event_loop())
+asyncio.get_event_loop().run_until_complete(
+    asyncio.gather(countdown(10, .05), compute(10, .05)))
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Faites respirer votre code</p>
+</blockquote>
+<blockquote>
+<p>Reprendre le fichier et remplacer le fonction compute() par</p>
+</blockquote>
+<pre><code>async def compute(n, period):
+    for i in range(n):
+        # on simule un calcul
+        time.sleep(period)
+        print('x', end='', flush=True)
+        # await None n'est pas valide
+        await asyncio.sleep(0)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Reprendre le fichier ou bien en prendre un nouveau</p>
+</blockquote>
+<pre><code>import asyncio
+
+async def boom(n):
+    return 1/n
+
+asyncio.ensure_future(boom(1))
+asyncio.ensure_future(boom(0))
+
+try:
+    asyncio.get_event_loop().run_forever()
+except KeyboardInterrupt:
+    print('bye')
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+</div>

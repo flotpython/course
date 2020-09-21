@@ -1,0 +1,40 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE et faire nouveau fichier</p>
+</blockquote>
+<pre><code>class NbAppels:
+    def __init__(self, f):
+        self.appels = 0
+        self.f = f
+    def __call__(self, *t, **d):
+        self.appels += 1
+        s = f&quot;{self.f.__name__} : {self.appels}&quot;
+        print(s)
+        return self.f(*t, **d)
+
+@NbAppels
+def f(a, b):
+    print(a, b)
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w9s2 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>f(1, 2)
+
+f(3, 'a')
+
+@NbAppels
+def g(a, b, c):
+    print(a, b, c)
+    
+g(1, 2, 3)
+</code></pre>
+</div>

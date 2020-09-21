@@ -1,0 +1,71 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE et faire nouveau fichier</p>
+</blockquote>
+<pre><code>import asyncio
+
+async def morceaux(message):
+    # On appelle le code synchrone normalement
+    print(message, &quot;début&quot;)
+    # avec await on rend la main
+    await asyncio.sleep(0.5)
+    
+    print(message, &quot;milieu&quot;)
+    await asyncio.sleep(1)
+    
+    print(message, &quot;fin&quot;)
+    return f'{message} par morceaux'
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w8s2 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>morceaux
+
+morceaux(&quot;run&quot;)
+
+loop = asyncio.get_event_loop()
+
+loop.run_until_complete(morceaux(&quot;run&quot;))
+
+loop.run_until_complete(
+    asyncio.gather(morceaux(&quot;run1&quot;),
+                   morceaux(&quot;run2&quot;)))
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter</p>
+</blockquote>
+<pre><code>import time
+
+
+# Exemple de ce qu'il ne faut pas faire
+async def famine(message):
+    
+    print(message, &quot;début&quot;)
+    # avec await on rend la main
+    await asyncio.sleep(0.5)
+    
+    print(message, &quot;milieu&quot;)
+    # on garde la main au lieu de la rendre
+    time.sleep(1)
+    
+    print(message, &quot;fin&quot;)
+    return f'{message} par famine'
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>loop = asyncio.get_event_loop()
+
+loop.run_until_complete(
+    asyncio.gather(famine(&quot;run1&quot;),
+                   famine(&quot;run2&quot;)))
+</code></pre>
+</div>

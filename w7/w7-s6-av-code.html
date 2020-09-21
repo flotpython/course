@@ -1,0 +1,66 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Ouvrir un notebook
+ou bien un interpréteur python si vous avez installé pandas</p>
+</blockquote>
+<pre><code>import pandas as pd
+
+s = pd.Series([20, 30, 40, 50], index=['eve', 'bill', 'liz', 'bob'])
+s
+
+s.values
+
+s.index
+
+s.loc['eve']
+
+s['eve']
+
+s.loc['eve':'liz']
+
+s = pd.Series([20, 30, 40, 50], index=['eve', 'liz', 'bill', 'bob'])
+s.loc['eve':'liz']
+
+animaux = ['chien', 'chat', 'chat', 'chien', 'poissson']
+proprio = ['eve',   'bob',  'eve',  'bill',  'liz']
+
+s = pd.Series(animaux, index=proprio)
+s
+
+s = s.sort_index()
+s.loc['eve':'liz']
+
+s
+
+s.iloc[0]
+
+s.iloc[4]
+
+s.iloc[1:3]
+
+s.loc[s =='chien']
+
+s.loc[(s =='chien') | (s == 'poisson')]
+
+s.loc[(s =='chien') | (s == 'poisson')] = 'autre'
+s
+
+s1 = pd.Series([1, 2, 3], index=list('abc'))
+s2 = pd.Series([5, 6, 7], index=list('acd'))
+s1
+
+s2
+
+s1 + s2
+
+s1.add(s2, fill_value=50)
+</code></pre>
+</div>

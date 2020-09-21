@@ -1,0 +1,131 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE et faire nouveau fichier</p>
+</blockquote>
+<pre><code>class Phrase:
+    nb_i = 0
+    def __init__(self):
+        Phrase.nb_i += 1
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w9s1 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>Phrase()
+
+Phrase()
+
+Phrase.nb_i
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter</p>
+</blockquote>
+<pre><code>    def num():
+        return Phrase.nb_i
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>Phrase()
+
+Phrase()
+
+Phrase.num()
+
+Phrase.num
+
+p = Phrase()
+p.num()
+
+p.num
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter</p>
+</blockquote>
+<pre><code>    @staticmethod
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+Phrase.num()
+
+p.num()
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter</p>
+</blockquote>
+<pre><code>class PhraseSansCasse(Phrase):
+    pass
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+Phrase.num()
+
+PhraseSansCasse.num()
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter à la classe PhraseSansCasse</p>
+</blockquote>
+<pre><code>    @staticmethod
+    def num():
+        return f&quot;PhraseSansCasse {Phrase.nb_i}&quot;
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+Phrase.num()
+
+PhraseSansCasse.num()
+</code></pre>
+<blockquote>
+<p>Reprendre sous IDLE le fichier python et ajouter à la classe PhraseSansCasse</p>
+</blockquote>
+<pre><code>    nb_i = 0
+    def __init__(self):
+        PhraseSansCasse.nb_i += 1
+</code></pre>
+<blockquote>
+<p>Dans la classe Phrase, remplacer par:</p>
+</blockquote>
+<pre><code>    @classmethod
+    def num(cls):
+        return cls.nb_i
+</code></pre>
+<blockquote>
+<p>Et dans la classe PhraseSansCasse:</p>
+</blockquote>
+<pre><code>    @classmethod
+    def num(cls):
+        return f&quot;PhraseSansCasse {Phrase.nb_i}&quot;
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>p = Phrase()
+Phrase()
+
+p_no = PhraseSansCasse()
+p.num()
+
+Phrase.num()
+
+Phrase.num
+
+p.num
+
+p_no.num()
+
+PhraseSansCasse.num()
+</code></pre>
+</div>

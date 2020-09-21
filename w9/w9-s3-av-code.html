@@ -1,0 +1,117 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE et faire nouveau fichier</p>
+</blockquote>
+<pre><code>def plus_n(y):
+    def incremente(x):
+        return x + y
+    return incremente
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w9s3 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code>plus3 = plus_n(3)
+plus3(10)
+
+plus3.__closure__
+
+plus3.__closure__[0].cell_contents
+</code></pre>
+<blockquote>
+<p>Reprendre l’éditeur IDLE et prendre un nouveau fichier (ou pas)</p>
+</blockquote>
+<pre><code>import time
+def timer(f):
+    def wrapper(*args, **dargs):
+        start = time.time()
+        res = f(*args, **dargs)
+        print('{:.2} s'.format(time.time() - start))
+        return res
+    return wrapper
+
+@timer
+def sum_poly5(n):
+    return sum(x**5 for x in range(n))
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>sum_poly5(1_000_000)
+</code></pre>
+<blockquote>
+<p>Reprendre l’éditeur IDLE et prendre un nouveau fichier (ou pas)</p>
+</blockquote>
+<pre><code>def trace_call(f):
+    called = 0
+    def wrapper(*args, **dargs):
+        nonlocal called
+        called += 1
+        print(f'{called} appels de {f.__name__}')
+        return f(*args, **dargs)
+    return wrapper
+
+@trace_call
+def my_func():
+    pass
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>my_func()
+my_func()
+</code></pre>
+<blockquote>
+<p>Reprendre l’éditeur IDLE et prendre un nouveau fichier (ou pas)</p>
+</blockquote>
+<pre><code>def trace_call(f):
+    def wrapper(*args, **dargs):
+        wrapper.called += 1
+        print(f'{wrapper.called} appels de {f.__name__}')
+        return f(*args, **dargs)
+    wrapper.called = 0
+    return wrapper
+
+@trace_call
+def my_func():
+    pass
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>my_func()
+my_func()
+</code></pre>
+<blockquote>
+<p>Reprendre la fonction my_func et ajouter</p>
+</blockquote>
+<pre><code>    'documentation pour my_func'
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>help(my_func)
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier et ajouter</p>
+</blockquote>
+<pre><code>from functools import wraps
+</code></pre>
+<blockquote>
+<p>Ajouter à la foncton trace_call</p>
+</blockquote>
+<pre><code>    @wraps(f)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>help(my_func)
+</code></pre>
+</div>

@@ -1,0 +1,155 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre un nouveau fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<pre><code>from datetime import datetime
+import asyncio
+import time
+
+###############################################################################
+#
+#  pour remplacer 'from asynchelpers import start_timer, show_timer' 
+#
+###############################################################################
+
+# low-level API
+def _start_timer():
+    return datetime.now()
+
+
+def _show_timer(start, *args):
+    delta = datetime.now() - start
+    duration = f&quot;{delta.seconds}s + {delta.microseconds // 1000:03d}ms&quot;
+    print(duration, *args)
+
+
+####################
+# Use a module global to keep things simple
+
+glo_start = None
+
+
+def start_timer():
+    global glo_start
+    print(&quot;---------- zero&quot;)
+    glo_start = _start_timer()
+
+
+def show_timer(*args):
+    global glo_start
+    _show_timer(glo_start, *args)
+
+
+##############################
+async def sequence(*messages, delay=1):
+    show_timer(&quot;&gt;&gt;&gt;&quot;, *messages)
+    await asyncio.sleep(delay)
+    show_timer(&quot;&lt;&lt;&lt;&quot;, *messages)
+
+
+##########
+def reset_loop():
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
+###############################################################################
+#
+#   fin de 'pour remplacer from asynchelpers import start_timer, show_timer'
+#
+###############################################################################
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w8s6 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code># pour démonstration de l'utilitaire
+start_timer()
+
+time.sleep(1)
+
+show_timer('message')
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier sous IDLE ou votre éditeur python</p>
+</blockquote>
+<pre><code>async def c1():
+    show_timer(&quot;&gt;&gt;&gt; c1&quot;)
+    await asyncio.sleep(1)
+    show_timer(&quot;forking&quot;)
+    # fork
+    asyncio.ensure_future(c2())
+    await asyncio.sleep(1)
+    show_timer(&quot;&lt;&lt;&lt; c1&quot;)
+    
+# sera forkée par c1() après une seconde
+
+async def c2():
+    show_timer(&quot;&gt;&gt;&gt; c2&quot;)
+    await asyncio.sleep(2)
+    show_timer(&quot;&lt;&lt;&lt; c2&quot;)
+
+asyncio.ensure_future(c1())
+
+start_timer()
+
+# interrompre après 2s
+try:
+    asyncio.get_event_loop().run_forever()
+except KeyboardInterrupt:
+    print(&quot;bye&quot;)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5
+Pour interrompre la boucle &quot;sans fin&quot;, taper Ctl-c</p>
+</blockquote>
+<blockquote>
+<p>réinitialisation de la boucle</p>
+</blockquote>
+<pre><code>asyncio.set_event_loop(asyncio.new_event_loop())
+</code></pre>
+<blockquote>
+<p>Reprendre le fichier sous IDLE ou votre éditeur python
+et remplacer (après l'utilitaire) par</p>
+</blockquote>
+<pre><code>async def c1_stop():
+    show_timer(&quot;&gt;&gt;&gt; c1&quot;)
+    await asyncio.sleep(1)
+    show_timer(&quot;forking&quot;)
+    # fork
+    asyncio.ensure_future(c2_stop())
+    await asyncio.sleep(1)
+    show_timer(&quot;&lt;&lt;&lt; c1&quot;)
+
+# sera forkée par c1_stop() après une seconde
+async def c2_stop():
+    show_timer(&quot;&gt;&gt;&gt; c2&quot;)
+    await asyncio.sleep(2)
+    show_timer(&quot;&lt;&lt;&lt; c2&quot;)
+    # attention c'est une méthode bloquante
+    asyncio.get_event_loop().stop()    
+
+asyncio.ensure_future(c1_stop())
+
+start_timer()
+
+# s'arrête tout seul
+try:
+    asyncio.get_event_loop().run_forever()
+except KeyboardInterrupt:
+    print(&quot;bye&quot;)
+    
+print(&quot;done&quot;)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<blockquote>
+<p>Pour interrompre la boucle &quot;sans fin&quot;, taper Ctl-c</p>
+</blockquote>
+</div>

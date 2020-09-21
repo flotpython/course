@@ -1,0 +1,162 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p><strong>await</strong> renvoie un itérateur
+Prendre sous IDLE un nouveau fichier python</p>
+</blockquote>
+<pre><code>class Awaitable():
+    def __await__(self):
+        print(&quot;in Awaitable&quot;)
+        yield &quot;yielded&quot;
+
+# Il nous faut au moins une coroutine pour pouvoir faire await
+async def main():
+    await Awaitable()
+</code></pre>
+<blockquote>
+<p>Faire Save As &quot;w8s5 Vidéo.py&quot; puis F5</p>
+</blockquote>
+<pre><code># l'objet coroutine	
+coro = main()
+
+coro.send(None)   
+</code></pre>
+<blockquote>
+<p>un peu moins simple
+Reprendre sous IDLE le fichier python</p>
+</blockquote>
+<pre><code># itérateur à deux coups
+class Awaitable2():
+    def __await__(self):
+        print(&quot;step1&quot;)
+        yield &quot;yield1&quot;        
+        print(&quot;step2&quot;)
+        yield &quot;yield2&quot;        
+        return &quot;returned&quot;
+
+# boilerplate
+async def main():
+    await Awaitable2()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code># l'objet coroutine
+coro = main()
+
+coro.send(None)
+
+coro.send(None)
+
+try:
+    coro.send(None)
+except Exception as e:
+    x = e
+    print('oops', type(e), e.value)
+</code></pre>
+<blockquote>
+<p>plusieurs travaux en même temps
+Toujours sous le shell python</p>
+</blockquote>
+<pre><code>coro1 = main()
+
+coro2 = main()
+
+coro1.send(None)
+
+coro2.send(None)
+
+coro1.send(None)
+
+coro2.send(None)
+
+try:
+    coro1.send(None)
+except Exception as e:
+    x = e
+    print('oops', type(e), e.value)
+
+try:
+    coro2.send(None)
+except Exception as e:
+    x = e
+    print('oops', type(e), e.value)
+</code></pre>
+<blockquote>
+<p>pile, await et yield
+Reprendre sous IDLE le fichier python</p>
+</blockquote>
+<pre><code>class w1:
+
+    def __init__(self, marker):
+        self.marker = marker
+    
+    def __await__(self):
+        # redonner la main à la boucle
+        yield f&quot;yield {self.marker}&quot;
+        # retourné à await
+        return 1
+
+async def w2():
+    return await w1('first') + await w1('second')
+
+async def w3():
+    return await w2() + 1
+
+async def w4():
+    return await w3() + 1
+
+coro = w4()    
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>coro.send(None)
+
+coro.send(None)
+
+try:
+    coro.send(None)
+except Exception as e:
+    x = e
+    print('OOPS', type(e), e.value)
+</code></pre>
+<blockquote>
+<p>dans les deux sens
+Reprendre sous IDLE le fichier python</p>
+</blockquote>
+<pre><code>class BothWays():
+    def __await__(self):
+        print(&quot;step1&quot;)
+        received1 = yield &quot;yielded1&quot;
+        print(&quot;received1&quot;, received1)
+        print(&quot;step2&quot;)
+        received2 = yield &quot;yielded2&quot;
+        print(&quot;received2&quot;, received2)
+        return &quot;returned&quot;
+
+# boilerplate
+async def main():
+    return await BothWays()
+</code></pre>
+<blockquote>
+<p>À la place de coro = w4() taper</p>
+</blockquote>
+<pre><code># l'objet coroutine
+coro = main()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>coro.send(None)
+
+coro.send(&quot;message&quot;)            
+</code></pre>
+</div>

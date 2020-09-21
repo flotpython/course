@@ -1,0 +1,63 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Ouvrir un notebook</p>
+</blockquote>
+<pre><code>import numpy as np
+
+a = np.random.randint(1, 10, size=(3, 3))
+a
+
+a[1:, 2:]
+
+b = a[1:, :2]
+b
+
+a[1, 1] = 35
+a
+
+b
+
+a = np.random.randint(1, 10, size=(4, 4))
+a
+
+b = a.reshape(8, 2)
+b
+
+mars = np.random.randint(-5, 20, size=31)
+mars
+
+mars &gt; 0
+
+mars == 0
+
+np.sum(mars &gt; 0)
+
+np.any(mars == 20)
+
+np.all(mars &gt; 0)
+
+jours_mars = np.arange(1, mars.size + 1, dtype=np.int8)
+jours_mars
+
+np.sum((mars &gt; 10) &amp; (jours_mars &gt;= 15))
+
+mars[mars &gt; 10]
+
+mars[(mars &gt; 10) &amp; (jours_mars &gt;= 15)]
+
+moy = np.mean(mars[mars &gt; 0])
+mars[mars &lt; 0] = moy
+mars
+
+countries = np.array(['fr', 'us', 'jp'])
+countries[[0, 0, 1, 2, 0]]
+</code></pre>
+</div>

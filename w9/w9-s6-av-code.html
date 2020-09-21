@@ -1,0 +1,56 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE</p>
+</blockquote>
+<pre><code>class Temperature:
+    def __get__(self, inst, insttype):
+    	print(&quot;desc __get__&quot;)
+        return inst._temperature
+    
+    def __set__(self, inst, t):
+    	print(&quot;desc __set__ {t}&quot;)
+        inst_temperature = t
+        
+class Maison:
+    def __init__(self, t):
+        self.temperature = t
+
+	def __getattribute__(self, a):
+	    print(&quot;__getattribute__ : {a}&quot;)
+	    return object.__getattribute__(self, a)
+
+	def __setattr__(self, a, v):
+	    print(&quot;__setatt__ : {a} - {v}&quot;)
+	    return object.__setattr__(self, a, v)
+
+	temperature = Temperature()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>m = Maison(18)
+
+m.temp
+</code></pre>
+<blockquote>
+<p>Taper tab pour la complétion</p>
+</blockquote>
+<pre><code>m.temperature
+
+m.temperature = 22
+
+m.x
+
+m.x = 10
+
+m.x
+</code></pre>
+</div>

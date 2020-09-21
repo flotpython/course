@@ -1,0 +1,89 @@
+<div class='clipboard'><style>
+.clipboard {
+    font-size: 11px;
+}
+</style>
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<blockquote>
+<p>Prendre l’éditeur IDLE</p>
+</blockquote>
+<pre><code>class Maison:
+    def __init__(self, t):
+        self._temperature = t
+        
+    def get_temperature(self):
+        return self._temperature
+    
+    def set_temperature(self, t):
+        if 5 &lt; t and t &lt; 25:
+            self._temperature = t
+            return
+        raise TemperatureError()
+        
+class TemperatureError(Exception):
+    pass
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>m = Maison(18)
+print(m.get_temperature())
+
+m.set_temperature(22)
+print(m.get_temperature())
+
+m.set_temperature(28)
+</code></pre>
+<blockquote>
+<p>Reprendre l’éditeur IDLE et ajouter à la classe Maison:</p>
+</blockquote>
+<pre><code>    temperature = property(get_temperature, set_temperature)
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>m = Maison(18)
+m.temperature
+
+m.temperature = 22
+m.temperature
+
+m.temperature = 28
+</code></pre>
+<blockquote>
+<p>Reprendre l’éditeur IDLE</p>
+</blockquote>
+<pre><code>class Temperature:
+    def __get__(self, inst, insttype):
+        return inst._temperature
+    
+    def __set__(self, inst, t):
+        if 5 &lt; t and t &lt; 25:
+            inst_temperature = t
+            return
+        raise TemperatureError()
+        
+class TemperatureError(Exception):
+    pass
+
+class Maison:
+    def __init__(self, t):
+        self.temperature = t
+
+    temperature = Temperature()
+</code></pre>
+<blockquote>
+<p>Faire Ctl-s puis F5</p>
+</blockquote>
+<pre><code>m = Maison(18)
+m.temperature
+
+m.temperature = 22
+m.temperature
+
+m.temperature = 28
+</code></pre>
+</div>
