@@ -6,7 +6,7 @@ FROM nbhosting/scipy-notebook
 RUN true \
     # latest release of nbautoeval \
  && pip install -U nbautoeval \
-    # we use the splitcell exntension a lot \
+    # we use the splitcell extension a lot \
  && jupyter nbextension enable splitcell/splitcell \
     # this one for some exercises \
  && jupyter nbextension enable hide_input/main \
@@ -17,4 +17,7 @@ RUN true \
     # Fourier \
  && pip install k3d \
     # section on pandas \
- && pip install seaborn 
+ && pip install seaborn \
+    # w8 \
+ && pip install aiohttp \
+ && true

@@ -8,3 +8,4 @@ plotly
 chart-studio
 bokeh
 seaborn
+aiohttp
