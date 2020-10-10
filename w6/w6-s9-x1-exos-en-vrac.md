@@ -30,7 +30,7 @@ version: '3.0'
 
 # Quelques sujets d'exercice en vrac
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci permet de recharger les modules
 # lorsqu'ils ont été modifiés en dehors du notebook
 
@@ -70,14 +70,14 @@ Hypothèses : on admet (pas besoin de le vérifier donc) que les entrées sont 
 
 Unicité : n'importe quelle solution est valable en cas de solutions multiples ; toutefois pour des raisons techniques, la correction automatique ne teste votre code que sur des entrées où la solution est unique.
 
-```{code-cell}
+```{code-cell} ipython3
 # charger l'exercice et afficher un exemple
 
 from corrections.exo_two_sum import exo_two_sum
 exo_two_sum.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # indice : il y a peut-être des choses utiles dans ce module
 # import itertools
 
@@ -85,7 +85,7 @@ def two_sum(data, target):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_two_sum.correction(two_sum)
 ```
 
@@ -105,19 +105,19 @@ exo_two_sum.correction(two_sum)
 * en sortie : un entier qui décrit la plus grande distance (en termes d'indices) entre deux occurrences du même objet dans la liste ;  
   si aucun objet n'est présent en double, retournez 0.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_longest_gap import exo_longest_gap
 
 exo_longest_gap.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 def longest_gap(liste):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_longest_gap.correction(longest_gap)
 ```
 
@@ -135,7 +135,7 @@ Je vous invite à lire l'énoncé directement sur codewars.
 **Rappel sur la concaténation des chaines**
 remarquez aussi l'usage qu'on fait ici, pour la présentation, de la concaténation de chaines :
 
-```{code-cell}
+```{code-cell} ipython3
 # rappel sur la concaténation des chaines
 # grâce à la parenthèse on peut 
 # se passer des \ qui sont assez vilains
@@ -144,87 +144,23 @@ x = ("une chaine unique "
      "parce qu'elle est très longue")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 x
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_meeting import exo_meeting
 
 exo_meeting.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def meeting(string):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_meeting.correction(meeting)
-```
-
-****
-
-+++
-
-## Évaluateur d'expression postfix (6 kyu)
-
-+++
-
-Une fonction `postfix_eval` prend en entrée une chaîne qui décrit une opération à faire sur des entiers, en utilisant **la notation polonaise postfixée**, où on écrit par exemple `10 20 +` pour ajouter 10 et 20 ; cette notation est aussi appelée la *notation polonaise inverse*.
-
-Les opérandes sont tous des entiers ; on demande de supporter les 4 opérations `+` `-` `*` et `/` (division entière), la calculatrice ne manipule donc que des entiers.
-
-Lorsque la chaine est mal formée, vous devez renvoyer une des trois chaines suivantes :
-
-* `error-syntax` si on ne peut pas comprendre l'entrée,
-* `error-empty-stack`, si on essaie de faire une opération mais que l'on n'a pas les deux opérandes nécessaires,
-* `error-unfinished`, si on détecte des opérandes non utilisés.
-
-```{code-cell}
-# charger l'exercice et afficher un exemple
-from corrections.exo_postfix_eval import exo_postfix_eval
-exo_postfix_eval.example()
-```
-
-```{code-cell}
-def postfix_eval(chaine):
-    ...
-```
-
-```{code-cell}
-exo_postfix_eval.correction(postfix_eval)
-```
-
-****
-
-+++
-
-## Évaluateur d'expression postfix typé (5 kyu)
-
-```{code-cell}
-from fractions import Fraction
-```
-
-Écrire une variante de `postfix_eval` qui accepte en deuxième argument un type de nombre parmi `int`, `float`, ou `Fraction`, de sorte que la calculette utilise ce type pour faire ses calculs.
-
-**indice :** attention au cas de la division, qui doit se comporter selon le type comme une division entière (comme dans `postfix_eval`), ou comme une division usuelle si le type le permet.
-
-```{code-cell}
-# charger l'exercice et afficher un exemple
-
-from corrections.exo_postfix_eval import exo_postfix_eval_typed
-exo_postfix_eval_typed.example()
-```
-
-```{code-cell}
-# votre code
-def postfix_eval_typed(chaine, result_type):
-    ...
-```
-
-```{code-cell}
-exo_postfix_eval_typed.correction(postfix_eval_typed)
 ```
 
 ****
