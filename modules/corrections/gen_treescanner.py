@@ -61,6 +61,3 @@ exo_treescanner = ExerciseGenerator(
     result_renderer=PPrintRenderer(width=40),
     call_renderer=PPrintCallRenderer(width=40),
 )
-
-print(tree(100, 2, 3))
-print(tree(100, 3, 2))
