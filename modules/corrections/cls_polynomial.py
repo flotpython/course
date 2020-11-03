@@ -12,10 +12,10 @@ class Polynomial:
     a class that models polynomials
 
     example:
-       >>> f = Polynomial(3, 2, 1)
-       3Xˆ2 + 2X +1
-       >>> f(10)
-       321
+        >>> f = Polynomial(3, 2, 1)
+        3Xˆ2 + 2X +1
+        >>> f(10)
+        321
     """
 
 
