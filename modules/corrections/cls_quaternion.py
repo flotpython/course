@@ -10,6 +10,8 @@ def number_str(x):
 
 class Quaternion:
 
+    # possible enhancement: we could also have decided to
+    # accept a single parameter, if int or float or complex
     def __init__(self, a, b, c, d):
         self.implem = (a, b, c, d)
 
@@ -26,16 +28,26 @@ class Quaternion:
 
         # si c'est vide c'est que self est nul
         return full if full != "" else "0"
+# @END@
 
 
-    # c'est la partie intéressante
+# @BEG@ name=quaternion latex_size=footnotesize continued=true
+    # possible enhancement: accept other
+    # of builtin number types
     def __add__(self, other):
-        """defines q1 + q2)"""
-        return Quaternion(*(x+y for x, y in zip(self.implem, other.implem)))
+        """
+        implements q1 + q2
+        """
+        return Quaternion(
+            *(x+y for x, y in zip(self.implem, other.implem)))
 
 
+    # ditto: possible enhancement: accept other
+    # of builtin number types
     def __mul__(self, other):
-        """defines q1 * q2"""
+        """
+        implements q1 * q2
+        """
         a1, b1, c1, d1 = self.implem
         a2, b2, c2, d2 = other.implem
         a = a1 * a2 - b1 * b2 - c1 * c2 - d1 * d2
@@ -46,7 +58,12 @@ class Quaternion:
 
 
     def __eq__(self, other):
-        """implements q1 == q2"""
+        """
+        implements q1 == q2
+
+        here we have decided to allow for comparison
+        with a regular number
+        """
         if isinstance(other, (bool, int, float)):
             return self == Quaternion(other, 0, 0, 0)
         elif isinstance(other, complex):
