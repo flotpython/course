@@ -44,7 +44,7 @@ Pour les cas de débordement (par exemple si on ajoute 2000 et 2500),
 on choisit de représenter le résultat par 
 
 * la valeur flottante `math.nan` (not a number)
-* la représentation textuelle 'N'
+* la représentation textuelle `'N'`
 
 **Notes importantes**
 
