@@ -104,6 +104,8 @@ class Roman:
         return(Roman(self.integer - other.integer))
     def __eq__(self, other):
         return self.integer == other.integer
+    def __int__(self):
+        return self.integer
 # @END@
 
 roman_scenarios = [
@@ -128,6 +130,10 @@ roman_scenarios = [
         Args(2500),
         ClassExpression("INSTANCE + CLASS(2500)== CLASS(5000)"),
     ),
+    ClassScenario(
+        Args(1500),
+        ClassExpression("int(INSTANCE) + 4500 == 6000")
+    )
 ]
 
 exo_roman = ExerciseClass(
