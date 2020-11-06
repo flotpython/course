@@ -27,7 +27,7 @@ class Polynomial:
         elif degre == 0:
             return str(coef)
         elif degre == 1:
-            return f"{coef}X"
+            return f"{coef}X" if coef != 1 else "X"
         elif coef == 1:
             return f"X^{degre}"
         else:
@@ -73,9 +73,10 @@ class Polynomial:
         # also note the use of a so-called splat operator
         # beause we need to call e.g. Polynomial(1, 2, 3) and
         # not Polynomial( [1, 2, 3])
-        return Polynomial(
-            *(c1+c2 for (c1, c2) in zip_longest(self.coefs, other.coefs,
-                                                fillvalue=0)))
+        small_first = [c1+c2
+                       for (c1, c2) in zip_longest(
+                               self.coefs, other.coefs, fillvalue=0)]
+        return Polynomial(*reversed(small_first))
 
 
     def __mul__(self, other):
@@ -165,6 +166,11 @@ polynomial_scenarios = [
         Args(1, 2, 3),
         ClassExpression("INSTANCE + CLASS(3, 2, 1) == CLASS(0, 4, 4, 4)"),
         ClassExpression("CLASS() * INSTANCE"),
+    ),
+    ClassScenario(
+        Args(1, 2, 3),
+        ClassExpression("INSTANCE + CLASS(1, 2, 3, 4) == CLASS(1, 3, 5, 7)"),
+        ClassExpression("INSTANCE + CLASS(4, 3, 2, 1) == CLASS(4, 4, 4, 4)"),
     ),
     # (3x2 + 2x + 1) * (x+2) = 3x3 + 8x2 + 5x + 2
     ClassScenario(
