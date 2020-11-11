@@ -29,3 +29,4 @@ Here is a link to a binder instance, that in principle should be ready for playi
 Of course, you can also run them locally if you install jupyter locally.
 
 We might also be able to give you access to the `nbhosting` instance, if you get in touch with us directly. 
+
