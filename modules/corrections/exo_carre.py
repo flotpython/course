@@ -36,6 +36,18 @@ def carre_bis(line):
 # @END@
 
 
+# @BEG@ name=carre more=ter
+def carre_ter(ligne):
+    # On extrait toutes les valeurs séparées par des points-
+    # virgules, on les nettoie avec la méthode strip
+    # et on stocke le résultat dans une liste
+    liste_valeurs = [t.strip() for t in ligne.split(';')]
+    # Il ne reste plus qu'à calculer les carrés pour les
+    # valeurs valides (non vides) et les remettre dans une str
+    return ":".join([str(int(v)**2) for v in liste_valeurs if v])
+# @END@
+
+
 inputs_carre = [
     Args("1;2;3"),
     Args(" 2 ;  5;6;"),
