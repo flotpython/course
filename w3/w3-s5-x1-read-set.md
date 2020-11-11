@@ -27,14 +27,14 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 # charger l'exercice
 from corrections.exo_read_set import exo_read_set
 ```
 
 On se propose d'écrire une fonction `read_set` qui construit un ensemble à partir du contenu d'un fichier. Voici par exemple un fichier d'entrée :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 !cat data/setref1.txt
@@ -42,17 +42,17 @@ On se propose d'écrire une fonction `read_set` qui construit un ensemble à par
 
 `read_set` va prendre en argument un nom de fichier (vous pouvez supposer qu'il existe), enlever les espaces éventuelles au début et à la fin de chaque ligne, et construire un ensemble de toutes les lignes ; par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 exo_read_set.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici
 def read_set(filename):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vérifiez votre code ici
 exo_read_set.correction(read_set)
 ```
@@ -63,7 +63,7 @@ exo_read_set.correction(read_set)
 
 ## Deuxième partie - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 # la définition de l'exercice
 from corrections.exo_read_set import exo_search_in_set
 ```
@@ -73,36 +73,36 @@ Ceci étant acquis, on veut écrire une deuxième fonction `search_in_set` qui p
 * `filename_reference` est le nom d'un fichier contenant des mots de référence ;
 * `filename` est le nom d'un fichier contenant des mots, dont on veut savoir s'ils sont ou non dans les références.
 
-Pour cela `search_in_set` doit retourner une liste, contenant pour chaque ligne du fichier `filename` un tuple avec :
+Pour cela `search_in_set` doit retourner une liste contenant, pour chaque ligne du fichier `filename`, et **dans cet ordre**, un tuple avec :
 
 * la ligne (sans les espaces de début et de fin, ni la fin de ligne) ;
 * un booléen qui indique si ce mot est présent dans les références ou pas.
 
 Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 !cat data/setref1.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 !cat data/setsample1.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_search_in_set.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous
 def search_in_set(filename_reference, filename):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vérifiez
 exo_search_in_set.correction(search_in_set)
 ```
