@@ -2,8 +2,11 @@ from nbautoeval import (
     Args, ExerciseClass, ClassScenario, ClassExpression, ClassStatement)
 
 # @BEG@ name=roman latex_size=footnotesize
+import functools
 from math import nan, isnan
 
+
+@functools.total_ordering
 class Roman:
     """
     a class to implement limited arithmetics on roman numerals
@@ -19,93 +22,116 @@ class Roman:
     """
 
     def __init__(self, letters_or_integer):
-        if isinstance(letters_or_integer, str):
-            self.letters = letters_or_integer.upper()
-            # compute self.integer
-            self.letters_to_integer()
-        elif isinstance(letters_or_integer, int):
-            self.integer = letters_or_integer
-            self.integer_to_letters()
-        elif isnan(letters_or_integer):
-            self.letters = 'N'
-            self.integer = nan
-        else:
-            raise ValueError(
-                f"cannot initialize Roman from {letters_or_integer}")
-
-
-    def __repr__(self):
-        return f"{self.letters}={self.integer}"
-# @END@
-
-# @BEG@ name=roman latex_size=footnotesize continued=true
-    def letters_to_integer(self):
-        """
-        return integer conversion
-        """
-        codes = {
-            'M': 1000,
-            'D': 500,
-            'C': 100,
-            'L': 50,
-            'X': 10,
-            'V': 5,
-            'I': 1,
-            'N': nan,
-        }
-        self.integer = 0
-        # we scan letters in reverse order
-        # and keep track of the last one seen
-        previous = 0
-
-        for roman in self.letters[::-1]:
-            n = codes[roman]
-            # regular order: add
-            if n >= previous:
-                self.integer += n
+        if isinstance(letters_or_integer, (int, str)):
+            try:
+                integer = int(letters_or_integer)
+            except ValueError:
+                letters = letters_or_integer.upper()
+                self._decimal = Roman.roman_to_decimal(letters)
+                self._roman = 'N' if isnan(self._decimal) else letters
             else:
-                self.integer -= n
-            previous = n
+                self._roman = Roman.decimal_to_roman(integer)
+                self._decimal = nan if self._roman == 'N' else integer
+        elif isnan(letters_or_integer):
+            self._decimal = nan
+            self._roman = 'N'
+        else:
+            raise TypeError(
+              f"Cannot initialize Roman from {letters_or_integer}")
 # @END@
 
 # @BEG@ name=roman latex_size=footnotesize continued=true
-    def integer_to_letters(self):
-        codes = {
-            1000: 'M',
-            900: 'CM',
-            500: 'D',
-            400: 'CD',
-            100: 'C',
-            90: 'XC',
-            50: 'L',
-            40: 'XL',
-            10: 'X',
-            9: 'IX',
-            5: 'V',
-            4: 'IV',
-            1: 'I',
-        }
-        if self.integer <= 0 or self.integer >= 4000:
-            self.integer = nan
-            self.letters = 'N'
-            return
-        n = self.integer
-        self.letters = ''
-        while n:
-            for code, letter in codes.items():
-                if n >= code:
-                    self.letters += letter
-                    n -= code
-                    break
+    def __repr__(self):
+        return f"{self._roman}={self._decimal}"
+
+    def __str__(self):
+        return f"{self._roman}"
+
+    def __eq__(self, other):
+        return self._decimal == other._decimal
+
+    def __lt__(self, other):
+        return self._decimal < other._decimal
 
     def __add__(self, other):
-        return(Roman(self.integer + other.integer))
+        return Roman(self._decimal + other._decimal)
+
     def __sub__(self, other):
-        return(Roman(self.integer - other.integer))
-    def __eq__(self, other):
-        return self.integer == other.integer
+        return Roman(self._decimal - other._decimal)
+
     def __int__(self):
-        return self.integer
+        return self._decimal
+# @END@
+
+# @BEG@ name=roman latex_size=footnotesize continued=true
+    symbols = {
+        1: 'I',
+        5: 'V',
+        10: 'X',
+        50: 'L',
+        100: 'C',
+        500: 'D',
+        1000: 'M'
+    }
+
+    @staticmethod
+    def decimal_to_roman(decimal: int) ->str:
+        """
+        Conversion from decimal number to roman number.
+        """
+        if decimal <= 0:
+            return 'N'
+
+        roman = ""
+        tens = 0
+
+        try:
+            while decimal:
+                unit = decimal % 10
+                if unit in (1, 2, 3):
+                    roman = Roman.symbols[10 ** tens] * unit + roman
+                elif 4 <= unit <= 8:
+                    roman = (Roman.symbols[10 ** tens] * (5 - unit)
+                             + Roman.symbols[5 * 10 ** tens]
+                             + Roman.symbols[10 ** tens] * (unit - 5)
+                             + roman)
+                elif unit == 9:
+                    roman = (Roman.symbols[10 ** tens]
+                             + Roman.symbols[10 ** (tens + 1)]
+                             + roman)
+                tens += 1
+                decimal //= 10
+        except KeyError:
+            return 'N'
+        else:
+            return roman
+# @END@
+
+# @BEG@ name=roman latex_size=footnotesize continued=true
+    # inverted symbols
+    isymbols = {v: k for k, v in symbols.items()}
+
+    @staticmethod
+    def roman_to_decimal(roman: str) ->int:
+        """
+        Conversion from roman number to decimal number
+        """
+        if not roman:
+            return nan
+
+        decimal = 0
+        previous = None
+
+        try:
+            for r in roman:
+                if previous and Roman.isymbols[previous] < Roman.isymbols[r]:
+                    decimal -= 2 * Roman.isymbols[previous]
+                decimal += Roman.isymbols[r]
+                previous = r
+        except KeyError:
+            return nan
+        else:
+            return decimal
 # @END@
 
 roman_scenarios = [
