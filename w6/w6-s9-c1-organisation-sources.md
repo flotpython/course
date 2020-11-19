@@ -184,7 +184,6 @@ ModuleNotFoundError: No module named 'bidule'```
 ```
 
 on va chercher du coup un module `bidule` à partir du répertoire du point d'entrée qui est le dossier `bidule/`, donc on ne trouve pas. 
-```
 
 +++
 
@@ -225,8 +224,6 @@ setup(
 +++
 
 ### Installation en mode developpeur : `pip install -e .`
-
-+++
 
 Avec ce fichier en place, et toujours à la racine de mon repo, je peux maintenant faire la formule magique (toujours dans le terminal)
 
