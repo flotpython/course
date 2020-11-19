@@ -190,8 +190,6 @@ on va chercher du coup un module `bidule` à partir du répertoire du point d'en
 
 ### Le mauvais réflexe
 
-+++
-
 Du coup naturellement, on se dit, ça n'est pas grave, je vais tirer profit de la variable `PYTHONPATH`.  
 Alors disons-le tout net : **Ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue. 
 
@@ -203,13 +201,9 @@ Bref, il ne **faut pas faire comme ça !!**
 
 ## Le bon réflexe : `setup.py`
 
-+++
-
 Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait une *installation en mode développeur*. Voyons cela :
 
 Je commence donc par créer un fichier `setup.py` à la racine de mon repo git, dans lequel je mets, pour commencer, le minimum :
-
-+++
 
 ```
 # minimal setup.py to install in develop mode
