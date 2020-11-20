@@ -41,11 +41,17 @@ Le [corps des quaternions](https://fr.wikipedia.org/wiki/Quaternion) est une ext
 * les trois éléments $i, j, k$ sont tels que  
   $$i^2 = j^2 = k^2 = ijk = -1$$  
 
++++
+
 **attention** : l'addition est bien commutative,  
 mais à nouveau **la multiplication n'est pas commutative**  
 ainsi par exemple $ij = k$ mais $ji = -k$
 
-*** 
+les règles indiquées ci-dessus impliquent (on vous laisse vous en assurer) que la table de multiplication est la suivante
+
+![](media/quaternion-table.png)
+
++++
 
 On se propose ici d'écrire une classe pour représenter les quaternions.
 
