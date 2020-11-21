@@ -45,7 +45,7 @@ class Roman:
         return f"{self._roman}={self._decimal}"
 
     def __str__(self):
-        return f"{self._roman}"
+        return self._roman
 
     def __eq__(self, other):
         return self._decimal == other._decimal
