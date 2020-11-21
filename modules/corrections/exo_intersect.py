@@ -34,6 +34,13 @@ def intersect(tuples_a, tuples_b):
          | {val_b for key, val_b in tuples_b if key in common_keys}
 # @END@
 
+# @BEG@ name=intersect more=bis
+def intersect_bis(A, B):
+    A, B = dict(A), dict(B)
+    keys = set(A) & set(B)
+    return {A[k] for k in keys} | {B[k] for k in keys}
+# @END@
+
 
 def intersect_ko(A, B):
     A_vals = { v for k, v in A }
