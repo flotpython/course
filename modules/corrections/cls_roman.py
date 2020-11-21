@@ -37,7 +37,7 @@ class Roman:
             self._roman = 'N'
         else:
             raise TypeError(
-              f"Cannot initialize Roman from {letters_or_integer}")
+              f"Cannot initialize Roman from type {type(letters_or_integer)}")
 # @END@
 
 # @BEG@ name=roman latex_size=footnotesize continued=true
