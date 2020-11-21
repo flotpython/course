@@ -24,11 +24,16 @@ class Roman:
     def __init__(self, letters_or_integer):
         if isinstance(letters_or_integer, (int, str)):
             try:
+                # pour gérer les chaînes de caractères
+                # représentant un nombre entier
+                # ex. : convertir '123' en l'entier 123
                 integer = int(letters_or_integer)
+            # si la conversion échoue, c'est qu'on a affaire à une str
             except ValueError:
                 letters = letters_or_integer.upper()
                 self._decimal = Roman.roman_to_decimal(letters)
                 self._roman = 'N' if isnan(self._decimal) else letters
+            # sinon c'est que c'est bien un entier
             else:
                 self._roman = Roman.decimal_to_roman(integer)
                 self._decimal = nan if self._roman == 'N' else integer
@@ -64,6 +69,8 @@ class Roman:
 # @END@
 
 # @BEG@ name=roman latex_size=footnotesize continued=true
+    # table de correspondance des nombres décimaux et
+    # des nombres romains clés
     symbols = {
         1: 'I',
         5: 'V',
@@ -82,20 +89,29 @@ class Roman:
         if decimal <= 0:
             return 'N'
 
+        # la chaîne de caractères résultante, construite étape par étape
         roman = ""
+        # les puissances de 10 successives
         tens = 0
 
         try:
             while decimal:
                 unit = decimal % 10
                 if unit in (1, 2, 3):
+                    # mettre unit fois le symbole de
+                    # la puissance de 10 correspondante
                     roman = Roman.symbols[10 ** tens] * unit + roman
                 elif 4 <= unit <= 8:
+                    # mettre le symbole de 5 fois la puissance de 10
+                    # correspondante précédé ou suivi du symbole de la
+                    # puissance de 10 correspondante
                     roman = (Roman.symbols[10 ** tens] * (5 - unit)
                              + Roman.symbols[5 * 10 ** tens]
                              + Roman.symbols[10 ** tens] * (unit - 5)
                              + roman)
                 elif unit == 9:
+                    # le symbole de la puissance de 10 correspondante
+                    # suivi de la puissance de 10 suivante
                     roman = (Roman.symbols[10 ** tens]
                              + Roman.symbols[10 ** (tens + 1)]
                              + roman)
@@ -108,7 +124,8 @@ class Roman:
 # @END@
 
 # @BEG@ name=roman latex_size=footnotesize continued=true
-    # inverted symbols
+    # table de correspondance inversée
+    # isymbols = inverted symbols
     isymbols = {v: k for k, v in symbols.items()}
 
     @staticmethod
@@ -119,11 +136,19 @@ class Roman:
         if not roman:
             return nan
 
+        # la valeur décimale résultante, construite petit à petit
         decimal = 0
+        # pour stocker le caractère précédent
         previous = None
 
         try:
             for r in roman:
+                # Si le symbole précédent a une valeur moins grande,
+                # il faut l'enlever une fois parce qu'on l'a compté
+                # au coup précédent alors qu'il ne fallait pas,
+                # et l'enlever une seconde fois parce qu'il faut
+                # le soustraire à la valeur du symbole courant.
+                # C'est ainsi que fonctionne le système numérique romain.
                 if previous and Roman.isymbols[previous] < Roman.isymbols[r]:
                     decimal -= 2 * Roman.isymbols[previous]
                 decimal += Roman.isymbols[r]
