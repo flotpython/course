@@ -141,9 +141,9 @@ roman_scenarios = [
         ClassExpression("INSTANCE == CLASS(2020)"),
     ),
     ClassScenario(
-        Args('MMIXX'),
+        Args('MMXIX'),
         ClassExpression("INSTANCE + CLASS(19) == CLASS(2038)"),
-        ClassExpression("INSTANCE - CLASS('MIM') == CLASS(20)"),
+        ClassExpression("INSTANCE - CLASS('MCMXCIX') == CLASS(20)"),
     ),
     ClassScenario(
         Args(5000),
