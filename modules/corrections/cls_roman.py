@@ -187,6 +187,77 @@ roman_scenarios = [
     )
 ]
 
+# peut-être utile pour debugger ?
+raw = """
+MCMXXXIX=1939
+MCMXL=1940
+MCMXLI=1941
+MCMXLII=1942
+MCMXLIII=1943
+MCMXLIV=1944
+MCMXLV=1945
+MCMXLVI=1946
+MCMXLVII=1947
+MCMXLVIII=1948
+MCMXLIX=1949
+MCML=1950
+MCMLI=1951
+MCMLII=1952
+MCMLIII=1953
+MCMLIV=1954
+MCMLV=1955
+MCMLVI=1956
+MCMLVII=1957
+MCMLVIII=1958
+MCMLIX=1959
+MCMLX=1960
+MCMLXI=1961
+MCMXCVIII=1998
+MCMXCIX=1999
+MM=2000
+MMI=2001
+MMII=2002
+MMIII=2003
+MMIV=2004
+MMV=2005
+MMVI=2006
+MMVII=2007
+MMVIII=2008
+MMIX=2009
+MMX=2010
+MMXI=2011
+MMXII=2012
+MMXIII=2013
+MMXIV=2014
+MMXV=2015
+MMXVI=2016
+MMXVII=2017
+MMXVIII=2018
+MMXIX=2019
+MMXX=2020
+MMXXI=2021
+MMXXII=2022
+MMXXIII=2023
+MMXXIV=2024
+MMXXV=2025
+MMXXVI=2026
+MMXXVII=2027
+MMXXVIII=2028
+"""
+
+for line in raw.split():
+    letters, number = line.split('=')
+    roman_scenarios.append(
+        ClassScenario(
+            Args(letters),
+            ClassExpression(f"INSTANCE == CLASS({number})"),
+        ))
+    roman_scenarios.append(
+        ClassScenario(
+            Args(number),
+            ClassExpression(f"INSTANCE == CLASS('{letters}')"),
+        ))
+
 exo_roman = ExerciseClass(
     Roman, roman_scenarios,
     nb_examples=0,
