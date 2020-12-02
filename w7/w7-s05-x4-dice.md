@@ -42,7 +42,7 @@ Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on const
 | *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
 | *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
 
-Imaginons que vous êtes étes étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
+Imaginons que vous êtes étes étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `nb_sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
 
 Vous voulez vérifer votre formule, en appliquant une méthode de force brute.
 
@@ -52,9 +52,9 @@ C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend 
 
 * `target` : la somme cible à atteindre,
 * `nb_dice` : le nombre de dés,
-* `sides`: le nombre de faces sur chaque dé.
+* `nb_sides`: le nombre de faces sur chaque dé.
 
-On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habituel.
+On convient que par défaut `nb_dice`=2 et `nb_sides`=6, qui correspond au cas habituel.
 
 Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
 
@@ -79,7 +79,7 @@ Pour devancer les remarques sur le forum de discussion:
 :latex:hidden-silent: true
 
 # à vous de jouer
-def dice(target, nb_dice=2, sides=6):
+def dice(target, nb_dice=2, nb_sides=6):
     return "votre code"
 ```
 
