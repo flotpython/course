@@ -31,7 +31,7 @@ version: '3.0'
 
 On vous demande d'écrire une fonction `matdiag` qui 
 
-1. accepte un paramètre qui est une liste de flottants [$x_1$, $x_2$, …, $x_n$] 
+1. accepte un paramètre qui est une liste de nombres [$x_1$, $x_2$, …, $x_n$] 
 1. retourne une matrice carrée diagonale dont les éléments valent
 
 $$
