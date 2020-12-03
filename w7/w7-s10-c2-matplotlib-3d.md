@@ -27,7 +27,7 @@ version: '3.0'
 
 Nous poursuivons notre introduction à `matplotlib` avec les visualisations en 3 dimensions. Comme pour la première partie sur les fonctions en 2 dimensions, nous allons seulement paraphraser [le tutoriel en ligne](https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html), avec l'avantage toutefois que nous procurent les notebooks.
 
-```{code-cell}
+```{code-cell} ipython3
 # la ration habituelle d'imports
 import matplotlib.pyplot as plt
 # et aussi numpy, même si ça n'est pas strictement nécessaire
@@ -36,7 +36,7 @@ import numpy as np
 
 Pour pouvoir faire des visualisations en 3D, il vous faut importer ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # même si l'on n'utilise pas explicitement
 # d'attributs du module Axes3D
 # cet import est nécessaire pour faire
@@ -46,7 +46,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 Dans ce notebook nous allons utiliser un mode de visualisation un peu plus élaboré, mieux intégré à l'environnement des notebooks :
 
-```{code-cell}
+```{code-cell} ipython3
 # ce mode d'interaction va nous permettre de nous déplacer
 # dans l'espace pour voir les courbes en 3D
 # depuis plusieurs points de vue
@@ -70,7 +70,7 @@ Commençons par le premier exemple du tutorial, qui nous montre comment dessiner
   * la méthode `plot` qu'on avait déjà vue pour la dimension 2 (c'est ce que l'on fait dans ce premier exemple) ;
   * des méthodes spécifiques à la 3D, que l'on voit dans les exemples suivants.
 
-```{code-cell}
+```{code-cell} ipython3
 # je choisis une taille raisonnable compte tenu de l'espace
 # disponible dans fun-mooc
 fig = plt.figure(figsize=(6, 3))
@@ -140,7 +140,7 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `scatter3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ==============
 3D scatterplot
@@ -154,7 +154,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 
 def randrange(n, vmin, vmax):
@@ -194,11 +194,11 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `wire3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import axes3d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 
 ax = fig.add_subplot(111, projection='3d')
@@ -225,7 +225,7 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `surface3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ======================
 3D surface (color map)
@@ -245,7 +245,7 @@ from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 
 ax = fig.gca(projection='3d')
@@ -274,7 +274,7 @@ plt.show()
 
 `surface3d_demo2.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ========================
 3D surface (solid color)
@@ -288,7 +288,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.add_subplot(111, projection='3d')
 
@@ -307,7 +307,7 @@ plt.show()
 
 `surface3d_demo3.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 =========================
 3D surface (checkerboard)
@@ -323,7 +323,7 @@ from matplotlib.ticker import LinearLocator
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 
@@ -368,7 +368,7 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `trisurf3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ======================
 Triangular 3D surfaces
@@ -382,7 +382,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 
@@ -414,7 +414,7 @@ plt.show()
 
 `trisurf3d_demo2.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ===========================
 More triangular 3D surfaces
@@ -433,7 +433,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.tri as mtri
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(6, 3))
 
 #============
@@ -511,13 +511,13 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `contour3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 from matplotlib import cm
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.add_subplot(111, projection='3d')
 X, Y, Z = axes3d.get_test_data(0.05)
@@ -529,13 +529,13 @@ plt.show()
 
 `contour3d_demo2.py`
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 from matplotlib import cm
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 X, Y, Z = axes3d.get_test_data(0.05)
@@ -547,13 +547,13 @@ plt.show()
 
 `contour3d_demo3.py`
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 from matplotlib import cm
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 X, Y, Z = axes3d.get_test_data(0.05)
@@ -586,13 +586,13 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `contourf3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 from matplotlib import cm
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 X, Y, Z = axes3d.get_test_data(0.05)
@@ -604,7 +604,7 @@ plt.show()
 
 `contourf3d_demo2.py`
 
-```{code-cell}
+```{code-cell} ipython3
 """
 .. versionadded:: 1.1.0
    This demo depends on new features added to contourf3d.
@@ -615,7 +615,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 X, Y, Z = axes3d.get_test_data(0.05)
@@ -644,7 +644,7 @@ Pour afficher des polygones.
 
 Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html#polygon-plots>.
 
-```{code-cell}
+```{code-cell} ipython3
 """
 =============================================
 Generate polygons to fill under 3D line graph
@@ -662,7 +662,7 @@ from matplotlib import colors as mcolors
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 
@@ -706,7 +706,7 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `bars3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 """
 ========================================
 Create 2D bar graphs in different planes
@@ -721,7 +721,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.add_subplot(111, projection='3d')
 for c, z in zip(['r', 'g', 'b', 'y'], [30, 20, 10, 0]):
@@ -755,7 +755,7 @@ Tutoriel original : <https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 `quiver3d_demo.py`
 
-```{code-cell}
+```{code-cell} ipython3
 '''
 ==============
 3D quiver plot
@@ -769,7 +769,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fig = plt.figure(figsize=(4, 4))
 ax = fig.gca(projection='3d')
 

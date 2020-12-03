@@ -92,24 +92,14 @@ Pour le contenu des notebooks :
 
 ### Courbes
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
 Comme on l'a déjà vu plein de fois, la bonne façon de créer un graphique matplotlib c'est avec la formule magique suivante :
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 # ça c'est pour choisir la sortie 'notebook' 
 %matplotlib notebook
 
@@ -127,7 +117,7 @@ Avec ces réglages - enfin surtout le premier - il y a pas mal de possibilités 
 
 À titre d'exercice, sur cette courbe le nombre d'or correspond à une des racines du polynôme, à vous de trouver sa valeur avec une précision de
 
-```{code-cell}
+```{code-cell} ipython3
 X = np.linspace(-2, 2)
 ZERO = X * 0
 def golden(x):
@@ -165,25 +155,22 @@ je vous invite à le faire marcher localement à partir [de la version sur githu
 
 Pour refaire de notre coté quelque chose d'analogue, nous allons commencer par animer la fonction sinus, avec un bouton pour régler la fréquence. Pour cela nous allons utiliser la fonction `interact` ; à nouveau c'est un utilitaire qui fait partie de l'écosystème des notebooks, et plus précisément du module `ipywidgets` :
 
-```{code-cell}
+```{code-cell} ipython3
 # dans cette partie on a besoin de 
 # revenir dans un mode plus usuel
 %matplotlib inline
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from ipywidgets import interact
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "-"}}
++++ {"slideshow": {"slide_type": "-"}}
 
 Dans un premier temps, j'écris une fonction qui prend en paramètre la fréquence, et qui dessine la fonction sinus sur un intervalle fixe de 0. à $4\pi$ :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---
@@ -193,52 +180,34 @@ def sinus(freq):
     plt.plot(X, Y)
 ```
 
-```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
+:cell_style: split
+
 sinus(1)
 ```
 
-```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
+:cell_style: split
+
 sinus(0.5)
 ```
 
 Maintenant, plutôt que de tracer individuellement les courbes une à une, j'utilise `interact` qui va m'afficher une réglette pour changer le paramètre `freq`. Ça se présente comme ceci :
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 # je change maintenant la taille des visualisations
-plt.figure(figsize=(12, 4));
+plt.rcParams["figure.figsize"] = (12, 4)
 ```
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 interact(sinus, freq=(0.5, 10., 0.25));
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Mécanisme d'`interact`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 La fonction `interact` s'attend à recevoir :
 
@@ -251,7 +220,7 @@ Comme dans mon cas la fonction `sinus` attend un paramètre nommé `freq`, le de
 
 ### Les objets `Slider`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Chacun des arguments à `interact` (en plus de la fonction) correspond à un objet de type `Slider` (dans la ménagerie de `ipywidget`). Ici en passant juste le tuple `(0.5, 10., 0.25)` j'utilise un raccourci pour dire que je veux pouvoir régler le paramètre `freq` sur une plage allant de `0.5` à `10` avec un pas de `0.25`.
 
@@ -259,11 +228,11 @@ Chacun des arguments à `interact` (en plus de la fonction) correspond à un obj
 
 Mon premier exemple avec `interact` est en réalité équivalent à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 from ipywidgets import FloatSlider
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # exactement équivalent à la version ci-dessus
 interact(sinus, freq=FloatSlider(min=0.5, max=10., step=0.25));
 ```
@@ -273,7 +242,7 @@ Mais en utilisant la forme bavarde, je peux choisir davantage d'options, comme n
 * mettre `continuous_update = False` ; l'effet de ce réglage, c'est que l'on met à jour la figure seulement lorsque je lâche la réglette ; c'est utile lorsque les calculs sont un peu lents, comme ici avec l'infrastructure notebook qui est à distance ;
 * mettre `value=1.` pour choisir la valeur initiale :
 
-```{code-cell}
+```{code-cell} ipython3
 # exactement équivalent à la version ci-dessus
 # sauf qu'on ne redessine que lorsque la réglette
 # est relâchée
@@ -288,7 +257,7 @@ interact(sinus, freq=FloatSlider(min=0.5, max=10.,
 
 Voyons tout de suite un exemple avec deux paramètres, je vais écrire maintenant une fonction qui me permet de changer aussi la phase :
 
-```{code-cell}
+```{code-cell} ipython3
 def sinus2(freq, phase):
     X = np.linspace(0., 4*np.pi, 200)
     Y = np.sin(freq*(X+phase))
@@ -297,7 +266,7 @@ def sinus2(freq, phase):
 
 Et donc maintenant je passe à `interact` un troisième paramètre :
 
-```{code-cell}
+```{code-cell} ipython3
 interact(sinus2,
          freq=FloatSlider(min=0.5, max=10., step=0.5,
                           continuous_update=False),
@@ -306,24 +275,19 @@ interact(sinus2,
         );
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Bouche-trou : `fixed`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Si j'ai une fonction qui prend plus de paramètres que je ne veux montrer de réglettes, je peux fixer un des paramètres  par exemple comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 from ipywidgets import fixed
 ```
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 # avec une fonction à deux argument,
 # je peux en fixer un, et n'avoir qu'une réglette
 # pour fixer celui qui est libre
@@ -332,11 +296,11 @@ interact(sinus2, freq=fixed(1.),
         );
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ## Widgets
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Il existe toute une famille de widgets, dont `FloatSlider` est l'exemple le plus courant, mais vous pouvez aussi :
 
@@ -348,11 +312,8 @@ Bref, vous pouvez créer une mini interface-utilisateur avec des objets graphiqu
 
 Voyez [les détails complets sur `readthedocs.io`](http://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html)
 
-```{code-cell}
+```{code-cell} ipython3
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---
@@ -361,7 +322,7 @@ slideshow:
 interact(sinus, freq={'rapide': 10., 'moyenne': 1., 'lente': 0.1});
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Voyez la [liste complète des widgets ici](http://ipywidgets.readthedocs.io/en/latest/examples/Widget%20List.html).
 
@@ -377,7 +338,7 @@ Lorsqu'on a besoin de faire une interface un peu plus soignée, on peut créer s
 
 Voici un exemple de dashboard, uniquement pour vous donner une meilleure idée, qui pour changer agit sur une visualisation réalisée avec plot.ly plutôt que matplotlib :
 
-```{code-cell}
+```{code-cell} ipython3
 ###
 # EDIT - juillet 2019 - 
 ###
@@ -400,13 +361,13 @@ import plotly
 plotly.__version__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on importe la bibliothèque plot.ly
 import chart_studio.plotly as py
 import plotly.graph_objs as go
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # il est impératif d'utiliser plot.ly en mode 'offline' 
 # pour in mode interactif, 
 # car sinon les affichages sont beaucoup trop lents
@@ -415,14 +376,14 @@ import plotly.offline as pyoff
 pyoff.init_notebook_mode()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # les widgets pour construire le tableau de bord
 from ipywidgets import (interactive_output,
                         IntSlider, Dropdown, Layout, HBox, VBox, Text)
 from IPython.display import display
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction sinus à 4 réglages
 # qu'on réalise pour changer avec plot.ly
 # et non pas avec matplotlib
@@ -444,13 +405,9 @@ def sinus4(freq, phase, amplitude, domain):
     pyoff.iplot(figure)
 ```
 
-```{code-cell}
----
-cell_style: center
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
+:cell_style: center
+
 def my_dashboard():
     """
     create and display a dashboard
@@ -490,12 +447,7 @@ def my_dashboard():
 *****
 Avec tout ceci en place on peut montrer un dialogue interactif pour changer tous les paramètres de sinus4.
 
-```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
+```{code-cell} ipython3
 # interactively call sinus4
 # attention il reste un bug:
 # au tout début rien ne s'affiche,
