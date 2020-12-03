@@ -22,7 +22,7 @@ version: '3.0'
 Où on va voir que :
 * c'est bien de grouper son code dans un package
 * mais à première vue ça casse tout, cependant pas de panique !
-* il ne **FAUT PAS** tripoter la variable **`PYTHONPATH`** 
+* il ne **FAUT PAS** tripoter la variable **`PYTHONPATH`**
 * il faut au contraire créer un `setup.py`, et ensuite lancer une fois  
   `pip install -e .`  
   pour pouvoir utiliser le code en mode développeur
@@ -33,7 +33,7 @@ Où on va voir que :
 
 +++
 
-Vous venez d'écrire un super algorithme qui simule le climat de l'an 2100, et vous voulez le publier ? Nous allons voir ici comment organiser les sources de votre projet, pour que ce soit à la fois 
+Vous venez d'écrire un super algorithme qui simule le climat de l'an 2100, et vous voulez le publier ? Nous allons voir ici comment organiser les sources de votre projet, pour que ce soit à la fois
 
 * pratique pour vous de tester votre travail pendant le développement
 * facile de publier le code pour que d'autres puissent l'installer et l'utiliser
@@ -57,7 +57,7 @@ Optionnellement, sachez qu'il existe également des infrastructures pour les deu
 * [readthedocs](https://readthedocs.io) est une infra qui permet d'exposer la documentation
 * [travis](https://travis-ci.com) est - parmi plein d'autres - une infrastructure permettant d'exécuter une suite de tests
 
-S'agissant de ces deux derniers points : souvent on s'arrange pour que tout soit **automatique** ; quand tout est en place, il **suffit de pousser un nouveau commit** auprès de github (par exemple) pour que 
+S'agissant de ces deux derniers points : souvent on s'arrange pour que tout soit **automatique** ; quand tout est en place, il **suffit de pousser un nouveau commit** auprès de github (par exemple) pour que
 
 * tous les **tests** soient **repassés** (d'où le terme de **CI*** = *Continuous Integration*) ; du coup on sait en permanence si tel ou tel commit a cassé ou non l'intégrité du code ;
 * la **documentation** soit **mise à jour**, exposée à tout le monde, et navigable par numéro de version.
@@ -127,7 +127,7 @@ Donc je remplace les importations partout ; ce qui avant aurait été simplement
 
     from machine import Machine
 
-devient 
+devient
 
     from bidule.machine import Machine
 
@@ -138,11 +138,11 @@ devient
 Lorsqu'un fichier a besoin d'en importer **dans le même package**, on a le choix ; par exemple ici, `machine.py` a besoin d'importer la fonction `helper` du fichier `helpers.py`, il peut faire
 
     from bidule.helpers import helper
-    
+
 mais aussi plus simplement avec un **import relatif** :
 
     from .helpers import helper
-    
+
 remarquez le `.` dans `.helpers`, qui signifie *dans le même package que moi*.
 
 +++
@@ -180,17 +180,17 @@ $ python bidule/main.py
 Traceback (most recent call last):
   File "bidule/main.py", line 1, in <module>
     from bidule.machine import Machine
-ModuleNotFoundError: No module named 'bidule'```
+ModuleNotFoundError: No module named 'bidule'
 ```
 
-on va chercher du coup un module `bidule` à partir du répertoire du point d'entrée qui est le dossier `bidule/`, donc on ne trouve pas. 
+on va chercher du coup un module `bidule` à partir du répertoire du point d'entrée qui est le dossier `bidule/`, donc on ne trouve pas.
 
 +++
 
 ### Le mauvais réflexe
 
 Du coup naturellement, on se dit, ça n'est pas grave, je vais tirer profit de la variable `PYTHONPATH`.  
-Alors disons-le tout net : **Ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue. 
+Alors disons-le tout net : **Ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue.
 
 Le fait de modifier une variable d'environnement est un processus tarabiscoté, même sans parler de Windows, et cette approche est une bonne façon de se tirer une balle dans le pied ; un jour ou l'autre la variable ne sera pas positionnée comme il faut, c'est sûr.
 
@@ -239,7 +239,7 @@ Installing collected packages: bidule
 Successfully installed bidule
 ```
 
-L'effet de cette commande est de modifier mon environnement pour que le répertoire courant 
+L'effet de cette commande est de modifier mon environnement pour que le répertoire courant
 (le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules. Ça signifie que
 je peux maintenant lancer mon programme sans souci :
 
@@ -247,7 +247,7 @@ je peux maintenant lancer mon programme sans souci :
   $ python bidule/main.py
   ... déroulement normal
   ```
-  
+
 Et je peux modifier mon code dans le répertoire courant, ce sera bien ce code-là qui sera utilisé ; cette précision pour ceux qui penseraient que, comme on fait une installation, cela pourrait être fait par copie, mais ce n'est pas le cas, donc sauf gros changement dans le contenu, on n'a **plus besoin de refaire** le `pip install -e .`
 
 +++
@@ -273,22 +273,22 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
   i.e. qu'un numéro de version usuel contient 3 parties (major, minor, patch), comme par ex. "2.1.3"  
   le terme `semantic` signifie ici que **toute rupture de compatibilité** doit se traduire par une incrémentation du numéro majeur (sauf s'il vaut `0`, on a le droit de tâtonner avec une 0.x; d'où l'importance de la version 1.0)
 
-* `install_requires` : si votre package a besoin d'une librairie non-standard, disons par exemple `numpy`, il est **très utile** de le préciser ici ; de cette façon, lorsqu'un de vos utilisateurs installera votre appli avec `pip install bidule`, `pip` pourra **gérer les dépendances** et s'assurer que `numpy` est installé également ; 
+* `install_requires` : si votre package a besoin d'une librairie non-standard, disons par exemple `numpy`, il est **très utile** de le préciser ici ; de cette façon, lorsqu'un de vos utilisateurs installera votre appli avec `pip install bidule`, `pip` pourra **gérer les dépendances** et s'assurer que `numpy` est installé également ;
   bien sûr on n'en est pas là, mais je vous recommande de maintenir **dès le début** la liste de vos dépendances ici
 
 
 
 * informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;  
   une mention spéciale à propos de `description_long`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
-  
+
   ```
-  setup( 
+  setup(
      ...
      long_description=open('README.md').read(),
      long_description_content_type = "text/markdown",
      ...
   ```
-  
+
 * etc… beaucoup d'autres réglages et subtilités autour de `setup.py` ; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
 
 +++
@@ -350,7 +350,7 @@ Ensuite à chaque version, une fois que les tests sont passés et tout :
   `python setup.py sdist bdist_wheel`
 * pousser sur PyPI  
   `twine upload dist/*`
-  
+
 Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org` utile quand on ne veut pas polluer l'index officiel.
 
 +++
@@ -362,8 +362,8 @@ Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org
 Ensuite une fois que c'est fait, le monde entier peut profiter de votre magnifique contribution en faisant bien sûr  
 `pip install bidule`  
 
-Remarquez que l'on conseille parfois, pour éviter d'éventuels soucis de divergence entre les commandes `python`/`python3` et `pip`/`pip3`, 
-* de remplacer tous les appels à `pip` 
+Remarquez que l'on conseille parfois, pour éviter d'éventuels soucis de divergence entre les commandes `python`/`python3` et `pip`/`pip3`,
+* de remplacer tous les appels à `pip`
 * par plutôt `python -m pip`, qui permet d'être sûr qu'on installe dans le bon environnement.
 
 D'autres formes utiles de `pip` :
@@ -399,11 +399,11 @@ Dans notre repo de démonstration, nous avons une classe `Machine` définie dans
 C'est très bien, mais dès que le contenu va grossir, je vais couper mon code en de plus en plus de modules. Ce n'est pas tellement aux utilisateur de devoir suivre ce genre de détails. Donc si je veux pouvoir changer mon découpage interne sans impacter les utilisateurs, je vais vouloir qu'on puisse faire plutôt, simplement
 
     from bidule import Machine
-    
+
 pour y arriver il me suffit d'ajouter cette ligne dans le `__init__.py` du package `bidule` :
 
     import Machine from .machine
-    
+
 qui du coup va définir le symbole `Machine` directement dans l'objet package.
 
 +++
@@ -539,7 +539,7 @@ Python 3.8.2
 
 +++
 
-##### sortir 
+##### sortir
 ```
 [demo-py38] ~ $ conda deactivate
 [base] ~ $
