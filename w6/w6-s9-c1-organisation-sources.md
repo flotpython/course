@@ -180,7 +180,7 @@ $ python bidule/main.py
 Traceback (most recent call last):
   File "bidule/main.py", line 1, in <module>
     from bidule.machine import Machine
-ModuleNotFoundError: No module named 'bidule'```
+ModuleNotFoundError: No module named 'bidule'
 ```
 
 on va chercher du coup un module `bidule` à partir du répertoire du point d'entrée qui est le dossier `bidule/`, donc on ne trouve pas. 
