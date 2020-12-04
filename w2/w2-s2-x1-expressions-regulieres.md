@@ -112,7 +112,7 @@ Plus précisément, on cherche les chaînes qui :
 
 * commencent par une suite - possiblement vide - de caractères alphanumériques (vous pouvez utiliser `\w`) ou tiret haut (`-`) qui constitue le prénom ;
 * contiennent ensuite comme séparateur le caractère 'deux-points' `:` ;
-* contiennent ensuite une suite - cette fois jamais vide - de caractères alphanumériques, qui constitue le nom ;
+* contiennent ensuite une suite - cette fois jamais vide - de caractères alphanumériques ou tiret haut, qui constitue le nom ;
 * et enfin contiennent un deuxième caractère `:` mais optionnellement seulement.
 
 +++
