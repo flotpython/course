@@ -64,6 +64,17 @@ class Position(object):
         only used when merger.py is run in verbose mode
         """
         return f"<{self.lat_str()} {self.lon_str()} @ {self.timestamp}>"
+
+    # required to be stored in a set
+    # see https://docs.python.org/3/reference/datamodel.html#object.__hash__
+    def __hash__(self):
+        return hash((self.latitude, self.longitude, self.timestamp))
+
+    # a hashable shall override this special method
+    def __eq__(self, other):
+        return self.latitude == other.latitude\
+               and self.longitude == other.longitude\
+               and self.timestamp == other.timestamp
 # @END@
 
 # @BEG@ name=shipdict more=suite
@@ -96,9 +107,11 @@ class Ship(object):
 
     def sort_positions(self):
         """
-        sort list of positions by chronological order
+        sort of positions made unique thanks to the set by chronological order
+        for this to work, a Position shall be hashable
         """
-        self.positions.sort(key=lambda position: position.timestamp)
+        self.positions = sorted(set(self.positions),
+                                key=lambda position: position.timestamp)
 # @END@
 
 # @BEG@ name=shipdict more=suite
