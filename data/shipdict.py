@@ -130,7 +130,8 @@ class ShipDict(dict):
     def __repr__(self):
         return f"<ShipDict instance with {len(self)} ships>"
 
-    def is_abbreviated(self, chunk):
+    @staticmethod
+    def is_abbreviated(chunk):
         """
         depending on the size of the incoming data chunk,
         guess if it is an abbreviated or extended data
@@ -172,7 +173,7 @@ class ShipDict(dict):
         based on the result of is_abbreviated(),
         gets sent to add_extended or add_abbreviated
         """
-        if self.is_abbreviated(chunk):
+        if ShipDict.is_abbreviated(chunk):
             self.add_abbreviated(chunk)
         else:
             self.add_extended(chunk)
