@@ -268,7 +268,7 @@ Ma classe `Taylor` s'inspire très exactement de la technique décrite dans le C
 
 +++
 
-### calcule de dérivées avec `autograd`
+### calcul de dérivées avec `autograd`
 
 +++
 
