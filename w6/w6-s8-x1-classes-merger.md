@@ -261,10 +261,9 @@ Comparing ALL_SHIPS.kml and ALL_SHIPS.kml.ref -> OK
 À noter que dans le mode bavard toutes les positions sont listées dans le résumé au format texte, ce qui le rend beaucoup plus bavard comme vous pouvez le voir en inspectant la taille des deux fichiers de référence :
 
 ```python
-$ ls -l ALL_SHIPS*txt.ref v2.0
--rw-r--r--  1 parmentelat  staff  1438681 Dec  4 16:20 ALL_SHIPS-v.txt.ref
--rw-r--r--  1 parmentelat  staff    15331 Dec  4 16:20 ALL_SHIPS.txt.ref
--rw-r--r--  1 parmentelat  staff        0 Dec  4 16:21 v2.0
+$ ls -l ALL_SHIPS*txt.ref
+-rw-r--r--  1 parmentelat  staff  1433373 Dec  4 16:20 ALL_SHIPS-v.txt.ref
+-rw-r--r--  1 parmentelat  staff    15273 Dec  4 16:20 ALL_SHIPS.txt.ref
 ```
 
 +++
