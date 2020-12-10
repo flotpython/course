@@ -186,9 +186,7 @@ class Merger(object):
                 output_name = self.args.ship_name
 
             # sort ships once and for good
-            # we can't sort these objects inline as they are
-            # typically dict_values objects
-            ships = sorted(ships, key=lambda ship: ship.name)
+            ships.sort(key=lambda ship: ship.name)
 
             # create summary file
             summary_filename = self.write_ships_summary(ships, output_name)

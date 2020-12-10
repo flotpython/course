@@ -222,6 +222,6 @@ class ShipDict(dict):
         # we need to create an actual list because it
         # may need to be sorted later on, and so
         # a raw dict_values object won't be good enough
-        return self.values()
+        return list(self.values())
 
 # @END@
