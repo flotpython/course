@@ -224,7 +224,7 @@ Il utilise trois modules annexes, qui sont :
 
 Lorsque le programme est complet et qu'il fonctionne correctement, on le lance comme ceci :
 
-```bash
+```
 $ python3 merger.py json/*
 Opening ALL_SHIPS.txt for listing all named ships
 Opening ALL_SHIPS.kml for ship ALL_SHIPS
@@ -245,7 +245,7 @@ qui comme on le voit produit :
 
 On peut également lancer l'application avec l'option `--verbose` ou simplement `-v` sur la ligne de commande, ce qui donne un résultat plus détaillé. Le code KML généré reste inchangé, mais la sortie sur le terminal et le fichier de résumé sont plus étoffés :
 
-```python
+```
 $ python3 merger.py --verbose json/*.json
 Opening json/2013-10-01-00-00--t=10--ext.json for parsing JSON
 Opening json/2013-10-01-00-10--t=10.json for parsing JSON
@@ -260,7 +260,7 @@ Comparing ALL_SHIPS.kml and ALL_SHIPS.kml.ref -> OK
 
 À noter que dans le mode bavard toutes les positions sont listées dans le résumé au format texte, ce qui le rend beaucoup plus bavard comme vous pouvez le voir en inspectant la taille des deux fichiers de référence :
 
-```python
+```
 $ ls -l ALL_SHIPS*txt.ref
 -rw-r--r--  1 parmentelat  staff  1433373 Dec  4 16:20 ALL_SHIPS-v.txt.ref
 -rw-r--r--  1 parmentelat  staff    15273 Dec  4 16:20 ALL_SHIPS.txt.ref
@@ -272,7 +272,7 @@ $ ls -l ALL_SHIPS*txt.ref
 
 +++
 
-```bash
+```
 $ merger.py --help
 usage: merger.py [-h] [-v] [-s SHIP_NAME] [-z] [inputs [inputs ...]]
 
@@ -359,7 +359,7 @@ En **niveau avancé**, l'énoncé pourrait s'arrêter là ; vous lisez le code 
 
 Vous pouvez considérer que vous avez achevé l'exercice lorsque les deux appels suivants affichent les deux dernières lignes avec OK :
 
-```python
+```
 $ python3 merger.py json/*.json
 ...
 Comparing ALL_SHIPS.txt and ALL_SHIPS.txt.ref -> OK
