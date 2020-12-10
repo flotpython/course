@@ -50,9 +50,9 @@ version: '3.0'
 
 +++
 
-Maintenant que vous avez un bagage qui couvre toutes les bases du langage, cette semaine nous ne ferons qu'un seul exercice de taille un peu plus réaliste. Vous devez écrire quelques classes, que vous intégrez ensuite dans un code écrit pas nos soins. 
+Maintenant que vous avez un bagage qui couvre toutes les bases du langage, cette semaine nous ne ferons qu'un seul exercice de taille un peu plus réaliste. Vous devez écrire quelques classes, que vous intégrez ensuite dans un code écrit pas nos soins.
 
-L'exercice comporte donc à la fois une part lecture et une part écriture. 
+L'exercice comporte donc à la fois une part lecture et une part écriture.
 
 Par ailleurs, cette fois-ci l'exercice n'est plus à faire dans un notebook ; vous êtes donc également incités à améliorer autant que possible l'environnement de travail sur votre propre ordinateur.
 
@@ -69,7 +69,7 @@ Dans le prolongement des exercices de la semaine 3 sur les données maritimes, l
 * et produire en sortie :
   * un fichier texte qui liste par ordre alphabétique les bateaux concernés, et le nombre de positions trouvées pour chacun ;
   * et un fichier KML, pour exposer les trajectoires trouvées à Google Earth, Google Maps ou autre outil similaire.
-   
+
 Les données générées dans ces deux fichiers sont triées dans l'ordre alphabétique, de façon à permettre une comparaison des résultats sous forme textuelle. Plus précisément, on trie les bateaux selon le critère suivant :
 
  * ordre alphabétique sur le nom des bateaux ;
@@ -87,7 +87,7 @@ Voici à quoi ressemble le fichier KML obtenu avec les données que nous fournis
 
 +++
 
-En particulier, dans cet exercice nous allons voir comment on peut gérer des données sous forme d'instances de classes plutôt que de types de base. Cela résonne avec la discussion commencée en Semaine 3, Séquence "Les dictionnaires", dans le complément "record-et-dictionnaire". 
+En particulier, dans cet exercice nous allons voir comment on peut gérer des données sous forme d'instances de classes plutôt que de types de base. Cela résonne avec la discussion commencée en Semaine 3, Séquence "Les dictionnaires", dans le complément "record-et-dictionnaire".
 
 Dans les exercices de cette semaine-là nous avions uniquement utilisé des types "standard" comme listes, tuples et dictionnaires pour modéliser les données, cette semaine nous allons faire le choix inverse et utiliser plus souvent des (instances de) classes.
 
@@ -105,7 +105,7 @@ On a écrit une application complète, constituée de 4 modules ; on vous donne
 
 +++
 
-Tout d'abord nous fournissons un jeu de données d'entrées. De plus, l'application vient avec son propre système de vérification, qui est très rustique. Il consiste à comparer, une fois les sorties produites, leur contenu avec les sorties de référence, qui ont été obtenues avec notre version de l'application. 
+Tout d'abord nous fournissons un jeu de données d'entrées. De plus, l'application vient avec son propre système de vérification, qui est très rustique. Il consiste à comparer, une fois les sorties produites, leur contenu avec les sorties de référence, qui ont été obtenues avec notre version de l'application.
 
 Du coup, le fait de disposer de Google Earth sur votre ordinateur n'est pas strictement nécessaire, on ne s'en sert pas à proprement parler pour l'exercice.
 
@@ -180,7 +180,7 @@ Vous pouvez à présent aller chercher les 3 modules suivants :
 * [`merger.py`](data/merger.py)
 * [`compare.py`](data/compare.py)
 * [`kml.py`](data/kml.py)
- 
+
 et les sauver dans le même répertoire.
 
 Vous remarquerez que le code est cette fois entièrement rédigé en anglais, ce que nous vous conseillons de faire aussi souvent que possible.
@@ -230,11 +230,11 @@ Opening ALL_SHIPS.txt for listing all named ships
 Opening ALL_SHIPS.kml for ship ALL_SHIPS
 Comparing ALL_SHIPS.txt and ALL_SHIPS.txt.ref -> OK
 Comparing ALL_SHIPS.kml and ALL_SHIPS.kml.ref -> OK
-```    
+```
 
 qui comme on le voit produit :
 
-* `ALL_SHIPS.txt` qui résume, par ordre alphabétique les bateaux qu'on a trouvés et le nombre de positions pour chacun, et 
+* `ALL_SHIPS.txt` qui résume, par ordre alphabétique les bateaux qu'on a trouvés et le nombre de positions pour chacun, et
 * `ALL_SHIPS.kml` qui est le fichier au format `KML` qui contient toutes les trajectoires.
 
 +++
@@ -278,7 +278,7 @@ usage: merger.py [-h] [-v] [-s SHIP_NAME] [-z] [inputs [inputs ...]]
 
 positional arguments:
   inputs
-    
+
 optional arguments:
   -h, --help            show this help message and exit
   -v, --verbose         Verbose mode
@@ -323,7 +323,7 @@ c'est-à-dire :
 
 +++
 
-Il y a unicité des `id` bien entendu (deux relevés qui portent le même `id` concernent le même bateau). 
+Il y a unicité des `id` bien entendu (deux relevés qui portent le même `id` concernent le même bateau).
 
 **Note historique** Dans une première version de cet exercice, on avait laissé des doublons, c'est-à-dire des bateaux différents mais de même nom. Afin de rendre l'exercice plus facile à corriger (notamment parce que la comparaison des résultats repose sur l'ordre alphabétique), dans la présente version ces doublons ont été enlevés. Sachez toutefois que cette unicité est artificielle, aussi efforcez-vous de ne pas écrire de code qui reposerait sur cette hypothèse.
 
@@ -393,18 +393,18 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 ```python
     Help on class Position in module shipdict:
-    
+
     class Position(__builtin__.object)
      |  a position atom with timestamp attached
-     |  
+     |
      |  Methods defined here:
-     |  
+     |
      |  __init__(self, latitude, longitude, timestamp)
      |      constructor
-     |  
+     |
      |  __repr__(self)
      |      only used when merger.py is run in verbose mode
-     |  
+     |
 ```
 
 +++
@@ -422,24 +422,24 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 ```python
     Help on class Ship in module shipdict:
-    
+
     class Ship(__builtin__.object)
-     |  a ship object, that requires a ship id, 
+     |  a ship object, that requires a ship id,
      |  and optionally a ship name and country
      |  which can also be set later on
-     |  
+     |
      |  this object also manages a list of known positions
-     |  
+     |
      |  Methods defined here:
-     |  
+     |
      |  __init__(self, id, name=None, country=None)
      |      constructor
-     |  
+     |
      |  add_position(self, position)
      |      insert a position relating to this ship
-     |      positions are not kept in order so you need 
+     |      positions are not kept in order so you need
      |      to call `sort_positions` once you're done
-     |  
+     |
      |  sort_positions(self)
      |      sort list of positions by chronological order
 ```
@@ -452,52 +452,52 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 ```python
     Help on class ShipDict in module shipdict:
-    
+
     class ShipDict(__builtin__.dict)
      |  a repository for storing all ships that we know about
      |  indexed by their id
-     |  
+     |
      |  Method resolution order:
      |      ShipDict
      |      __builtin__.dict
      |      __builtin__.object
-     |  
+     |
      |  Methods defined here:
-     |  
+     |
      |  __init__(self)
      |      constructor
-     |  
+     |
      |  __repr__(self)
-     |  
+     |
      |  add_abbreviated(self, chunk)
      |      adds an abbreviated data chunk to the repository
-     |  
+     |
      |  add_chunk(self, chunk)
      |      chunk is a plain list coming from the JSON data
      |      and be either extended or abbreviated
-     |      
-     |      based on the result of is_abbreviated(), 
+     |
+     |      based on the result of is_abbreviated(),
      |      gets sent to add_extended or add_abbreviated
-     |  
+     |
      |  add_extended(self, chunk)
      |      adds an extended data chunk to the repository
-     |  
+     |
      |  all_ships(self)
      |      returns a list of all ships known to us
-     |  
+     |
      |  clean_unnamed(self)
      |      Because we enter abbreviated and extended data
      |      in no particular order, and for any time period,
      |      we might have ship instances with no name attached
      |      This method removes such entries from the dict
-     |  
+     |
      |  is_abbreviated(self, chunk)
-     |      depending on the size of the incoming data chunk, 
+     |      depending on the size of the incoming data chunk,
      |      guess if it is an abbreviated or extended data
-     |  
+     |
      |  ships_by_name(self, name)
      |      returns a list of all known ships with name <name>
-     |  
+     |
      |  sort(self)
      |      makes sure all the ships have their positions
      |      sorted in chronological order
@@ -516,7 +516,7 @@ Pour éviter de la confusion, voici le code que nous utilisons pour transformer 
 ```python
     def d_m_s(f):
         """
-        makes a float readable; e.g. transforms 2.5 into 2.30'00'' 
+        makes a float readable; e.g. transforms 2.5 into 2.30'00''
         we avoid using ° to keep things simple
         input is assumed positive
         """
