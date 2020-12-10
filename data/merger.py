@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Version : 3.0
-
 # standard library imports
-import gzip
 import json
 import glob
 from argparse import ArgumentParser
 #
 
 # application imports
+import file_manager
 from shipdict import ShipDict
 from kml import KML
 from compare import Compare
@@ -49,6 +47,12 @@ class Merger(object):
         self.args.json_filenames = json_filenames
 
         self.ship_dict = ShipDict()
+
+        # file manager
+        if self.args.gzip:
+            self.fm = file_manager.GzipFileManager()
+        else:
+            self.fm = file_manager.TextFileManager()
 
     def merge(self, json_filenames):
         """
@@ -95,7 +99,8 @@ class Merger(object):
 
         print(f"Opening {filename} for listing ships")
 
-        with open(filename, 'w', newline="\n") as summary:
+        tfm = file_manager.TextFileManager()
+        with tfm.open(filename, tfm.WRITE) as summary:
             # one line to say how many ships we have seen
             summary.write(f"Found {len(ships)} ships\n")
             # ships are expected to be sorted already
@@ -131,8 +136,7 @@ class Merger(object):
         # message
         print(f"Opening {kml_filename} for ship {out_name}")
         # open a plain file or compressed file as requested
-        with gzip.open(kml_filename, 'w', newline="\n") if self.args.gzip \
-                else open(kml_filename, 'w', newline="\n") as out:
+        with self.fm.open(kml_filename, mode=self.fm.WRITE) as out:
             out.write(contents)
         # return filename
         return kml_filename
@@ -199,8 +203,13 @@ class Merger(object):
             else:
                 # for each of the 2 files, compare contents with the reference
                 # that is expected to be in this directory with a .ref extension
-                ok_summary = Compare(summary_filename).compare_and_print()
-                ok_kml = Compare(kml_filename).compare_and_print()
+                tfm = file_manager.TextFileManager()
+                ok_summary = Compare.compare_and_print(
+                  (summary_filename, tfm),
+                  (None, tfm))
+                ok_kml = Compare.compare_and_print(
+                  (kml_filename, self.fm),
+                  ("ALL_SHIPS.kml.ref", tfm))
                 # is everything fine ?
                 ok = ok_summary and ok_kml
             # if so return 0 otherwise 1

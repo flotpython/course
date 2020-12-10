@@ -97,7 +97,7 @@ Dans les exercices de cette semaine-là nous avions uniquement utilisé des type
 
 +++
 
-On a écrit une application complète, constituée de 4 modules ; on vous donne le code de trois de ces modules et vous devez écrire le module manquant.
+On a écrit une application complète, constituée de 5 modules ; on vous donne le code de quatre de ces modules et vous devez écrire le module manquant.
 
 +++
 
@@ -175,11 +175,12 @@ Quel que soit le format choisi, une fois installé ceci doit vous donner trois f
 
 +++
 
-Vous pouvez à présent aller chercher les 3 modules suivants :
+Vous pouvez à présent aller chercher les 4 modules suivants :
 
 * [`merger.py`](data/merger.py)
 * [`compare.py`](data/compare.py)
 * [`kml.py`](data/kml.py)
+* [`file_manager.py`](data/file_manager.py)
 
 et les sauver dans le même répertoire.
 
@@ -203,7 +204,7 @@ Votre but dans cet exercice est d'écrire le module manquant `shipdict.py` qui p
 
 Le point d'entrée s'appelle `merger.py`
 
-Il utilise trois modules annexes, qui sont :
+Il utilise quatre modules annexes, qui sont :
 
 * `shipdict.py`, qui implémente les classes
   * `Position` qui contient une latitude, une longitude, et un timestamp
@@ -215,6 +216,10 @@ Il utilise trois modules annexes, qui sont :
 
 * `kml.py` qui implémente
   * la classe `KML` dans laquelle sont concentrées les fonctions liées à la génération de KML ; c'est notamment en fonction de nos objectifs pédagogiques que ce choix a été fait.
+
+* `file_manager.py` qui implémente
+  * la classe `TextFileManager` qui gère l'ouverture de simples fichiers texte
+  * la classe `GzipFileManager` qui gère l'ouverture de fichiers texte compressés avec le logiciel gzip
 
 +++
 
