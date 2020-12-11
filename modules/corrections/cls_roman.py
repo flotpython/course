@@ -150,7 +150,10 @@ class Roman:
                 # le soustraire à la valeur du symbole courant.
                 # C'est ainsi que fonctionne le système numérique romain.
                 if previous and Roman.isymbols[previous] < Roman.isymbols[r]:
-                    decimal -= 2 * Roman.isymbols[previous]
+                    if Roman.isymbols[r] // Roman.isymbols[previous] in (5, 10):
+                        decimal -= 2 * Roman.isymbols[previous]
+                    else:
+                        return nan
                 decimal += Roman.isymbols[r]
                 previous = r
         except KeyError:
