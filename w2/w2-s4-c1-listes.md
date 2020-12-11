@@ -148,7 +148,7 @@ Comme on le voit, après une addition, les deux termes de l'addition sont inchan
 %load_ext ipythontutor
 ```
 
-**Note** : une fois que vous avez évalué la cellule avec `%%ipythontutor`, vous devez cliquer sur le bouton `Forward` pour voir pas à pas le comportement du programme.
+**Note** : une fois que vous avez évalué la cellule avec `%%ipythontutor`, vous devez cliquer sur le bouton `Next` pour voir pas à pas le comportement du programme.
 
 ```{code-cell}
 %%ipythontutor height=230 ratio=0.7

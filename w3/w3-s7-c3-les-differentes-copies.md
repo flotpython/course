@@ -69,7 +69,7 @@ Nous allons voir le résultat des deux formes de copie sur un même sujet de dé
 
 +++
 
-N'oubliez pas de cliquer le bouton `Forward` dans la fenêtre pythontutor :
+N'oubliez pas de cliquer le bouton `Next` dans la fenêtre pythontutor :
 
 ```{code-cell}
 %%ipythontutor height=410 curInstr=6

@@ -41,7 +41,7 @@ Voici un exemple d'un fragment de code qui illustre le caractère immuable des c
 %load_ext ipythontutor
 ```
 
-**Note** : une fois que vous avez évalué la cellule avec `%%ipythontutor`, vous devez cliquer sur le bouton `Forward` pour voir pas à pas le comportement du programme.
+**Note** : une fois que vous avez évalué la cellule avec `%%ipythontutor`, vous devez cliquer sur le bouton `Next` pour voir pas à pas le comportement du programme.
 
 +++
 
@@ -56,7 +56,7 @@ s1 = 'abc'
 s2 = s1
 # on essaie de modifier l'objet
 s1 += 'def'
-# pensez à cliquer sur `Forward`
+# pensez à cliquer sur `Next`
 ```
 
 ```{code-cell}
@@ -81,7 +81,7 @@ liste1 = ['a', 'b', 'c']
 liste2 = liste1
 # on modifie l'objet
 liste1 += ['d', 'e', 'f']
-# pensez à cliquer sur `Forward`
+# pensez à cliquer sur `Next`
 ```
 
 ```{code-cell}

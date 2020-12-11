@@ -56,7 +56,7 @@ Naturellement, l'objet obtenu est difficile à imprimer de manière convaincante
 
 Voici la même séquence exécutée sous [http://pythontutor.com](http://pythontutor.com) ; il s'agit d'un site très utile pour comprendre comment python implémente les objets, les références et les partages.
 
-Cliquez sur le bouton `Forward` pour avancer dans l'exécution de la séquence. À la fin de la séquence vous verrez - ce n'est pas forcément clair - la seule cellule de la liste à se référencer elle-même :
+Cliquez sur le bouton `Next` pour avancer dans l'exécution de la séquence. À la fin de la séquence vous verrez - ce n'est pas forcément clair - la seule cellule de la liste à se référencer elle-même :
 
 ```{code-cell}
 %%ipythontutor height=230
