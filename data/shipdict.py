@@ -72,9 +72,9 @@ class Position(object):
 
     # a hashable shall override this special method
     def __eq__(self, other):
-        return self.latitude == other.latitude\
-               and self.longitude == other.longitude\
-               and self.timestamp == other.timestamp
+        return (self.latitude == other.latitude
+                and self.longitude == other.longitude
+                and self.timestamp == other.timestamp)
 # @END@
 
 # @BEG@ name=shipdict more=suite
@@ -108,7 +108,7 @@ class Ship(object):
     def sort_positions(self):
         """
         sort of positions made unique thanks to the set by chronological order
-        for this to work, a Position shall be hashable
+        for this to work, a Position must be hashable
         """
         self.positions = sorted(set(self.positions),
                                 key=lambda position: position.timestamp)
@@ -173,6 +173,11 @@ class ShipDict(dict):
         based on the result of is_abbreviated(),
         gets sent to add_extended or add_abbreviated
         """
+        # here we retrieve the static method through the class
+        # this form outlines the fact that we're calling a static method
+        # note that
+        # self.is_abbreviated(chunk)
+        # would work fine just as well
         if ShipDict.is_abbreviated(chunk):
             self.add_abbreviated(chunk)
         else:
