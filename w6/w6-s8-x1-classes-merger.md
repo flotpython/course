@@ -404,11 +404,21 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
      |
      |  Methods defined here:
      |
+     |  __eq__(self, other)
+     |      Return self==value.
+     |
+     |  __hash__(self)
+     |      Return hash(self).
+     |
      |  __init__(self, latitude, longitude, timestamp)
      |      constructor
      |
      |  __repr__(self)
      |      only used when merger.py is run in verbose mode
+     |
+     |  lat_str(self)
+     |
+     |  lon_str(self)
      |
 ```
 
@@ -446,7 +456,8 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
      |      to call `sort_positions` once you're done
      |
      |  sort_positions(self)
-     |      sort list of positions by chronological order
+     |      sort of positions made unique thanks to the set by chronological order
+     |      for this to work, a Position must be hashable
 ```
 
 +++
@@ -496,16 +507,20 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
      |      we might have ship instances with no name attached
      |      This method removes such entries from the dict
      |
-     |  is_abbreviated(self, chunk)
-     |      depending on the size of the incoming data chunk,
-     |      guess if it is an abbreviated or extended data
-     |
      |  ships_by_name(self, name)
      |      returns a list of all known ships with name <name>
      |
      |  sort(self)
      |      makes sure all the ships have their positions
      |      sorted in chronological order
+     |
+     |  ----------------------------------------------------------------
+     |  Static methods defined here:
+     |
+     |  is_abbreviated(chunk)
+     |      depending on the size of the incoming data chunk,
+     |      guess if it is an abbreviated or extended data
+     |
 ```
 
 +++
