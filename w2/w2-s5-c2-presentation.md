@@ -193,7 +193,7 @@ show_module_html(pprint,
                  lineno_width=3)
 ```
 
-Dans ce fragment au contraire, vous voyez en ligne 521 qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre en ligne 522.
+Dans ce fragment au contraire, vous voyez en ligne 535 qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre en ligne 536.
 
 +++
 
