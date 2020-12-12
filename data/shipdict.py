@@ -64,6 +64,17 @@ class Position(object):
         only used when merger.py is run in verbose mode
         """
         return f"<{self.lat_str()} {self.lon_str()} @ {self.timestamp}>"
+
+    # required to be stored in a set
+    # see https://docs.python.org/3/reference/datamodel.html#object.__hash__
+    def __hash__(self):
+        return hash((self.latitude, self.longitude, self.timestamp))
+
+    # a hashable shall override this special method
+    def __eq__(self, other):
+        return (self.latitude == other.latitude
+                and self.longitude == other.longitude
+                and self.timestamp == other.timestamp)
 # @END@
 
 # @BEG@ name=shipdict more=suite
@@ -96,9 +107,11 @@ class Ship(object):
 
     def sort_positions(self):
         """
-        sort list of positions by chronological order
+        sort of positions made unique thanks to the set by chronological order
+        for this to work, a Position must be hashable
         """
-        self.positions.sort(key=lambda position: position.timestamp)
+        self.positions = sorted(set(self.positions),
+                                key=lambda position: position.timestamp)
 # @END@
 
 # @BEG@ name=shipdict more=suite
@@ -117,7 +130,8 @@ class ShipDict(dict):
     def __repr__(self):
         return f"<ShipDict instance with {len(self)} ships>"
 
-    def is_abbreviated(self, chunk):
+    @staticmethod
+    def is_abbreviated(chunk):
         """
         depending on the size of the incoming data chunk,
         guess if it is an abbreviated or extended data
@@ -159,7 +173,12 @@ class ShipDict(dict):
         based on the result of is_abbreviated(),
         gets sent to add_extended or add_abbreviated
         """
-        if self.is_abbreviated(chunk):
+        # here we retrieve the static method through the class
+        # this form outlines the fact that we're calling a static method
+        # note that
+        # self.is_abbreviated(chunk)
+        # would work fine just as well
+        if ShipDict.is_abbreviated(chunk):
             self.add_abbreviated(chunk)
         else:
             self.add_extended(chunk)
