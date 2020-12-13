@@ -396,7 +396,7 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 +++
 
-```python
+```
     Help on class Position in module shipdict:
 
     class Position(__builtin__.object)
@@ -425,7 +425,7 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 +++
 
-```python
+```
     Help on class Ship in module shipdict:
 
     class Ship(__builtin__.object)
@@ -455,7 +455,7 @@ En **niveau intermédiaire**, nous vous donnons ci-dessous un extrait de ce que 
 
 +++
 
-```python
+```
     Help on class ShipDict in module shipdict:
 
     class ShipDict(__builtin__.dict)
