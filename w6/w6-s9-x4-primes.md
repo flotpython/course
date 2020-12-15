@@ -28,7 +28,8 @@ version: '3.0'
 
 ## itérateurs et générateurs
 
-Tous les exercices de ce notebook vous demandent d'écrire des fonctions qui construisent des itérateurs.
+**Tous les exercices** de ce notebook vous demandent d'écrire
+des fonctions qui **construisent des itérateurs**.
 
 ```{code-cell}
 import itertools
