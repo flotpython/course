@@ -107,7 +107,7 @@ Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jo
 +++
 
 Le nom est libre, pour toute la suite **je choisis `bidule` comme mon nom de package**.
-Vous trouverez dans ce repo git <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
+Vous trouverez dans ce dépôt git <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
 
 +++
 
@@ -165,7 +165,7 @@ En effet, comme on l'a vu dans le complément sur le chargement des modules, Pyt
 Et donc si vous m'avez suivi, vous devez avoir quelque chose comme
 
 ```
-mon-repo-git/
+mon-depot-git/
              bidule/
                     main.py
                     machine.py
@@ -201,7 +201,7 @@ Bref, il ne **faut pas faire comme ça !!**
 
 Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait une *installation en mode développeur*. Voyons cela :
 
-Je commence donc par créer un fichier `setup.py` à la racine de mon repo git, dans lequel je mets, pour commencer, le minimum :
+Je commence donc par créer un fichier `setup.py` à la racine de mon dépôt git, dans lequel je mets, pour commencer, le minimum :
 
 ```python
 # minimal setup.py to install in develop mode
@@ -224,11 +224,11 @@ setup(
 
 ### Installation en mode developpeur : `pip install -e .`
 
-Avec ce fichier en place, et toujours à la racine de mon repo, je peux maintenant faire la formule magique (toujours dans le terminal)
+Avec ce fichier en place, et toujours à la racine de mon dépôt, je peux maintenant faire la formule magique (toujours dans le terminal)
 
 ```
 $ pip install -e .
-Obtaining file:///Users/tparment/git/flotpython-course/w6/mon-repo-git
+Obtaining file:///Users/tparment/git/flotpython-course/w6/mon-depot-git
 Installing collected packages: bidule
   Attempting uninstall: bidule
     Found existing installation: bidule 0.0.0
@@ -391,7 +391,7 @@ Un usage particulièrement fréquent consiste à "remonter" au niveau du package
 
 +++
 
-Dans notre repo de démonstration, nous avons une classe `Machine` définie dans le module `bidule.machine`. Donc de l'extérieur pour me servir de cette classe je dois faire
+Dans notre dépôt de démonstration, nous avons une classe `Machine` définie dans le module `bidule.machine`. Donc de l'extérieur pour me servir de cette classe je dois faire
 
     from bidule.machine import Machine
 
