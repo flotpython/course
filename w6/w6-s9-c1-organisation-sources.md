@@ -58,12 +58,12 @@ Optionnellement, sachez qu'il existe également des infrastructures pour les deu
 
 S'agissant de ces deux derniers points : souvent on s'arrange pour que tout soit **automatique** ; quand tout est en place, il **suffit de pousser un nouveau commit** auprès de github (par exemple) pour que
 
-* tous les **tests** soient **repassés** (d'où le terme de **CI*** = *Continuous Integration*) ; du coup on sait en permanence si tel ou tel commit a cassé ou non l'intégrité du code ;
+* tous les **tests** soient **repassés** (d'où le terme de **CI** = *Continuous Integration*) ; du coup on sait en permanence si tel ou tel commit a cassé ou non l'intégrité du code ;
 * la **documentation** soit **mise à jour**, exposée à tout le monde, et navigable par numéro de version.
 
 +++
 
-Alors bon bien sûr ça c'est le monde idéal ; on ne passe pas d'un seul coup, d'un bout de code qui tient dans un seul module `bidule.py`, à un projet qui utilise tout ceci ; on on n'a **pas forcément besoin** non plus d'utiliser **toutes** ces ressources (et bien entendu, aucun de ces trucs n'est obligatoire).
+Alors bon bien sûr ça c'est le monde idéal ; on ne passe pas d'un seul coup, d'un bout de code qui tient dans un seul module `bidule.py`, à un projet qui utilise tout ceci ; on n'a **pas forcément besoin** non plus d'utiliser **toutes** ces ressources (et bien entendu, aucun de ces trucs n'est obligatoire).
 
 Aussi nous allons commencer par le commencement.
 
@@ -100,7 +100,7 @@ C'est pourquoi je **recommande**, à ce stade, de s'assurer de prendre un nom qu
 
 +++
 
-Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Vous pouvez soit chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule), ou bien utiliser `pip`
+Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Vous pouvez soit chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule), ou bien utiliser `pip` :
 
     pip search bidule
 
@@ -154,7 +154,7 @@ Je recommande toutefois de ne pas se précipiter avec ces imports relatifs, et n
 
 +++
 
-À ce stade précisément, vous constatez .. que **plus rien ne marche** !
+À ce stade précisément, vous constatez... que **plus rien ne marche** !
 
 En effet, comme on l'a vu dans le complément sur le chargement des modules, Python recherche vos modules dans l'ordre
 
@@ -199,7 +199,7 @@ Bref, il ne **faut pas faire comme ça !!**
 
 ## Le bon réflexe : `setup.py`
 
-Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait une *installation en mode développeur*. Voyons cela :
+Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait appeler une *installation en mode développeur*. Voyons cela :
 
 Je commence donc par créer un fichier `setup.py` à la racine de mon dépôt git, dans lequel je mets, pour commencer, le minimum :
 
@@ -238,9 +238,8 @@ Installing collected packages: bidule
 Successfully installed bidule
 ```
 
-L'effet de cette commande est de modifier mon environnement pour que le répertoire courant
-(le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules. Ça signifie que
-je peux maintenant lancer mon programme sans souci :
+L'effet de cette commande est de modifier mon environnement pour que le répertoire courant (le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules.
+Ça signifie que je peux maintenant lancer mon programme sans souci :
 
   ```
   $ python bidule/main.py
@@ -259,7 +258,7 @@ Au delà de cette première utilité, `setup.py` sert à configurer plein d'aspe
 
 +++
 
-Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici, que j'essaie de mettre dans l'ordre chronologique, quelques ajouts très fréquents [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
+Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici quelques ajouts très fréquents que j'essaie de mettre dans l'ordre chronologique [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
 
 * `name` est le nom sous lequel votre projet sera rangé dans PyPI
 
@@ -286,6 +285,7 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
      long_description=open('README.md').read(),
      long_description_content_type = "text/markdown",
      ...
+  )
   ```
 
 * etc… beaucoup d'autres réglages et subtilités autour de `setup.py` ; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
@@ -296,12 +296,12 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 
 +++
 
-Assez fréquemment on package des **librairies**; dans ce cas on se soucie d'installer uniquement des modules Python.
+Assez fréquemment on package des **librairies** ; dans ce cas on se soucie d'installer uniquement des modules Python.
 
 
 Mais imaginez maintenant que votre package contient aussi un **point d'entrée** - c'est-à-dire en fin de compte une **commande** que vos utilisateurs vont vouloir lancer **depuis le terminal**. Ce cas de figure change un peu la donne; il faut maintenant installer des choses à d'autres endroits du système (pensez par exemple, sur linux/macos, à quelque chose comme `/usr/bin`).
 
-Dans ce cas **surtout n'essayez pas de le faire vous-même**; c'est beaucoup trop compliqué à faire correctement !
+Dans ce cas **surtout n'essayez pas de le faire vous-même**, c'est beaucoup trop compliqué à faire correctement !
 
 Pour illustrer la bonne façon de faire dans ce cas, je vous renvoie pour les détails à un exemple réel, mais pour l'essentiel :
 
@@ -417,13 +417,13 @@ Par le passé, on installait python une seule fois dans le système ; en 2020, c
 
 * quand on travaille sur plusieurs projets, on peut avoir besoin de Python-3.6 sur l'un et Python-3.8 sur un autre ;
 * ou alors on peut avoir un projet qui a besoin de `Django==2.2` et un autre qui ne marche qu'avec `Django>=3.0` ;
-* en plus par dessus le marché, dans certains cas il faut être super utilisateur pour modifier l'installation ; typiquement on passe son temps à faire `sudo pip` au lieu de `pip`…
+* en plus par-dessus le marché, dans certains cas il faut être super utilisateur pour modifier l'installation ; typiquement on passe son temps à faire `sudo pip` au lieu de `pip`…
 
 et le seul avantage, c'est que tous les utilisateurs de l'ordi peuvent partager l'installation ; sauf que, plus de 99 fois sur 100, il n'y a qu'un utilisateur pour un ordi ! Bref, c'est une pratique totalement dépassée.
 
 +++
 
-La création et la gestion d'environnements virtuels sont **très facilee** aujourd'hui. Aussi c'est une **pratique recommandée** de se créer **un virtualenv par projet**. C'est tellement pratique qu'on n'hésite pas une seconde à repartir d'un environnement vide à la moindre occasion, par exemple lorsqu'on a un doute sur les dépendances.
+La création et la gestion d'environnements virtuels sont **très faciles** aujourd'hui. Aussi c'est une **pratique recommandée** de se créer **un virtualenv par projet**. C'est tellement pratique qu'on n'hésite pas une seconde à repartir d'un environnement vide à la moindre occasion, par exemple lorsqu'on a un doute sur les dépendances.
 
 Le seul point sur lequel il faut être attentif, c'est de trouver un moyen de **savoir en permanence** dans quel environnement on se trouve. Notamment :
 
