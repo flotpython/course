@@ -164,7 +164,7 @@ En effet, comme on l'a vu dans le complément sur le chargement des modules, Pyt
 
 Et donc si vous m'avez suivi, vous devez avoir quelque chose comme
 
-```bash
+```
 mon-repo-git/
              bidule/
                     main.py
@@ -174,7 +174,7 @@ mon-repo-git/
 
 mais alors quand vous faites 
 
-```bash
+```
 $ python bidule/main.py
 Traceback (most recent call last):
   File "bidule/main.py", line 1, in <module>
@@ -203,7 +203,7 @@ Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser 
 
 Je commence donc par créer un fichier `setup.py` à la racine de mon repo git, dans lequel je mets, pour commencer, le minimum :
 
-```
+```python
 # minimal setup.py to install in develop mode
 
 from setuptools import setup, find_packages
@@ -226,7 +226,7 @@ setup(
 
 Avec ce fichier en place, et toujours à la racine de mon repo, je peux maintenant faire la formule magique (toujours dans le terminal)
 
-```bash
+```
 $ pip install -e .
 Obtaining file:///Users/tparment/git/flotpython-course/w6/mon-repo-git
 Installing collected packages: bidule
@@ -242,7 +242,7 @@ L'effet de cette commande est de modifier mon environnement pour que le réperto
 (le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules. Ça signifie que
 je peux maintenant lancer mon programme sans souci :
 
-  ```bash
+  ```
   $ python bidule/main.py
   ... déroulement normal
   ```
@@ -280,7 +280,7 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 * informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;
   une mention spéciale à propos de `description_long`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
 
-  ```
+  ```python
   setup(
      ...
      long_description=open('README.md').read(),
