@@ -45,7 +45,7 @@ Par exemple, il vaut mieux écrire ce qui suit, qui est équivalent mais plus li
 (2 * 30) + (10 * 5)
 ```
 
-Attention, en Python la division `/` est une division naturelle :
+Attention, en Python3 la division `/` est la division usuelle, qui renvoie un flottant :
 
 ```{code-cell}
 48 / 5
