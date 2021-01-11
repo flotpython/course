@@ -66,6 +66,8 @@ $ dir *.txt
 
 (ou `ls *.txt` sur linux ou mac), vous utilisez l'expression régulière `*.txt` qui désigne tous les fichiers dont le nom se termine par `.txt`. On dit que l'expression régulière *filtre* toutes les chaînes qui se terminent par `.txt` (l'expression anglaise consacrée est le *pattern matching*).
 
+Attention toutefois, la syntaxe des expressions régulières en Python est plus complexe que les expressions de *globbing* utilisées dans les lignes de commande, mais permet en contrepartie de faire bien plus de choses. Notamment, le *globbing* `*.txt` que nous avons utilisé plus haut deviendrait `.*\.txt` dans une expression régulière Python (le point `.` et l'astérisque `*` ayant des significations particulières et différentes de celles du *globbing*).
+
 +++
 
 Le langage Perl a été le premier à populariser l'utilisation des expressions régulières en les supportant nativement dans le langage, et non au travers d'une librairie. En python, les expressions régulières sont disponibles de manière plus traditionnelle, via le module `re` (regular expressions) de la librairie standard.
