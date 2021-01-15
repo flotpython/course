@@ -8,7 +8,7 @@ import re
 
 class Compare(object):
     """
-    An object for comparing a file with its reference version
+    A class for comparing a file with its reference version
     that is expected to be found in <filename>.ref
     """
 
@@ -17,15 +17,8 @@ class Compare(object):
         re.compile("<color>[0-9a-f]+</color>"),
     ]
 
-    def __init__(self, filename, ref_name=None):
-        """
-        create object from its filename
-        compute reference filename if not specified
-        """
-        self.filename = filename
-        self.ref_name = ref_name or f"{self.filename}.ref"
-
-    def _bool_compare(self):
+    @staticmethod
+    def _bool_compare(fn_fm, fnref_fm):
         """
         returns True if both files match - modulo ignored portions
         - and False otherwise
@@ -37,28 +30,37 @@ class Compare(object):
         # contents[1] for the reference version
         contents = [None, None]
 
-        for i, name in enumerate((self.filename, self.ref_name)):
+        for i, (name, fm) in enumerate((fn_fm, fnref_fm)):
             try:
-                with open(name, "r", newline="\n") as input:
+                with fm.open(name, mode=fm.READ) as input:
                     full = input.read()
-                    # remove ignored portions
-                    for ignore in self.ignore_regexps:
-                        full = re.sub(ignore, '', full)
+                # remove ignored portions
+                for ignore in Compare.ignore_regexps:
+                    full = ignore.sub('', full)
                 contents[i] = full
             # if anything goes wrong we just return False
             except Exception as e:
                 print(f"Could not read output {name}")
                 return False
-            # result is True iff both contents match
+            # result is True if both contents match
         return contents[0] == contents[1]
 
-    def compare_and_print(self):
+    @staticmethod
+    def compare_and_print(fn_fm, fnref_fm):
         """
         Checks for equality and prints a one-liner
         returns a boolean that says if both files indeed are equal
+
+        Args:
+            fn_fm: tuple of filename to test and filemanager
+            fnref_fm: tuple of filename of reference and filemanager
         """
-        bool_result = self._bool_compare()
+        filename, _ = fn_fm
+        ref_name, fm = fnref_fm
+        # compute reference filename if not specified
+        ref_name = ref_name or f"{filename}.ref"
+        bool_result = Compare._bool_compare(fn_fm, (ref_name, fm))
         status = "OK" if bool_result else "KO"
-        message = f"Comparing {self.filename} and {self.ref_name} -> {status}"
+        message = f"Comparing {filename} and {ref_name} -> {status}"
         print(message)
         return bool_result
