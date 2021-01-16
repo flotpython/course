@@ -35,11 +35,6 @@ version: '3.0'
 
 ### Produit scalaire
 
-```{code-cell}
-# Pour charger l'exercice
-from corrections.exo_produit_scalaire import exo_produit_scalaire
-```
-
 On veut écrire une fonction qui retourne le produit scalaire de deux vecteurs. Pour ceci on va matérialiser les deux vecteurs en entrée par deux listes que l'on suppose de même taille.
 
 On rappelle que le produit de X et Y vaut $\sum_{i} X_i * Y_i$.
@@ -52,20 +47,21 @@ Naturellement puisque le sujet de la séquence est les expressions génératrice
 
 **NOTE** remarquez bien qu'on a dit **expression** génératrice et pas nécessairement **fonction génératrice**.
 
-```{code-cell}
+```{code-cell} ipython3
 # un petit exemple
+from corrections.exo_produit_scalaire import exo_produit_scalaire
 exo_produit_scalaire.example()
 ```
 
 Vous devez donc écrire :
 
-```{code-cell}
+```{code-cell} ipython3
 def produit_scalaire(X, Y): 
     """retourne le produit scalaire de deux listes de même taille"""
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_produit_scalaire.correction(produit_scalaire)
 ```

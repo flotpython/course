@@ -27,11 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau avancé
 
-```{code-cell}
-# Pour charger l'exercice
-from corrections.exo_compare_all import exo_compare_all
-```
-
 À présent nous allons écrire une version très simplifiée de l'outil qui est utilisé dans ce cours pour corriger les exercices. Vous aurez sans doute remarqué que les fonctions de correction prennent en argument la fonction à corriger.
 
 Par exemple un peu plus bas, la cellule de correction fait
@@ -60,30 +55,26 @@ Pour information dans cet exercice :
  * `factorial` correspond à `math.factorial`
  * `fact` et `broken_fact` sont des fonctions implémentées par nos soins, la première est correcte alors que la seconde retourne 0 au lieu de 1 pour l'entrée 0.
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple
+from corrections.exo_compare_all import exo_compare_all
 exo_compare_all.example()
 ```
 
 Ce qui, dit autrement, veut tout simplement dire que `fact` et `factorial` coïncident sur les entrées 0, 1 et 5, alors que `broken_fact` et `factorial` ne renvoient pas la même valeur avec l'entrée `0`.
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est à vous
 def compare_all(f, g, entrees):
     "<votre code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_compare_all.correction(compare_all)
 ```
 
 ## Exercice optionnel - niveau avancé
-
-```{code-cell}
-# Pour charger l'exercice
-from corrections.exo_compare_args import exo_compare_args
-```
 
 ### `compare` revisitée
 
@@ -109,16 +100,17 @@ Pour information, dans tout cet exercice :
  * `add` correspond à l'addition binaire `operator.add` ;
  * `plus` et `broken_plus` sont des additions binaires que nous avons écrites, l'une étant correcte et l'autre étant fausse lorsque le premier argument est nul.
 
-```{code-cell}
+```{code-cell} ipython3
+from corrections.exo_compare_args import exo_compare_args
 exo_compare_args.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def compare_args(votre, signature):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_compare_args.correction(compare_args)
 ```
