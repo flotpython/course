@@ -22,8 +22,8 @@ Où on va voir que :
 * c'est bien de grouper son code dans un package
 * mais à première vue ça casse tout, cependant pas de panique !
 * il ne **FAUT PAS** tripoter la variable **`PYTHONPATH`**
-* il faut au contraire créer un `setup.py`, et ensuite lancer une fois  
-  `pip install -e .`  
+* il faut au contraire créer un `setup.py`, et ensuite lancer une fois
+  `pip install -e .`
   pour pouvoir utiliser le code en mode développeur
 
 +++
@@ -58,12 +58,12 @@ Optionnellement, sachez qu'il existe également des infrastructures pour les deu
 
 S'agissant de ces deux derniers points : souvent on s'arrange pour que tout soit **automatique** ; quand tout est en place, il **suffit de pousser un nouveau commit** auprès de github (par exemple) pour que
 
-* tous les **tests** soient **repassés** (d'où le terme de **CI*** = *Continuous Integration*) ; du coup on sait en permanence si tel ou tel commit a cassé ou non l'intégrité du code ;
+* tous les **tests** soient **repassés** (d'où le terme de **CI** = *Continuous Integration*) ; du coup on sait en permanence si tel ou tel commit a cassé ou non l'intégrité du code ;
 * la **documentation** soit **mise à jour**, exposée à tout le monde, et navigable par numéro de version.
 
 +++
 
-Alors bon bien sûr ça c'est le monde idéal ; on ne passe pas d'un seul coup, d'un bout de code qui tient dans un seul module `bidule.py`, à un projet qui utilise tout ceci ; on on n'a **pas forcément besoin** non plus d'utiliser **toutes** ces ressources (et bien entendu, aucun de ces trucs n'est obligatoire).
+Alors bon bien sûr ça c'est le monde idéal ; on ne passe pas d'un seul coup, d'un bout de code qui tient dans un seul module `bidule.py`, à un projet qui utilise tout ceci ; on n'a **pas forcément besoin** non plus d'utiliser **toutes** ces ressources (et bien entendu, aucun de ces trucs n'est obligatoire).
 
 Aussi nous allons commencer par le commencement.
 
@@ -75,7 +75,7 @@ Aussi nous allons commencer par le commencement.
 
 Le commencement, ça consiste à se **préparer à coexister** avec d'autres librairies.
 
-Si votre code expose disons une classe `Machine` dans le fichier/module `machine.py`, la première chose consiste à  trouver un nom unique ; rien ne vous permet de penser qu'il n'y a pas une autre bibliothèque qui expose un module qui s'appelle aussi `machine` (il y a même fort à parier qu'il y en a plein !).  
+Si votre code expose disons une classe `Machine` dans le fichier/module `machine.py`, la première chose consiste à  trouver un nom unique ; rien ne vous permet de penser qu'il n'y a pas une autre bibliothèque qui expose un module qui s'appelle aussi `machine` (il y a même fort à parier qu'il y en a plein !).
 Aussi ce qu'on va commencer par faire c'est d'installer tout notre code **dans un package**.
 
 Concrètement ça va signifier se mettre dans un sous-dossier, mais surtout d'un point de vue des utilisateurs potentiels de la classe, ça veut dire qu'au lieu de faire juste :
@@ -94,20 +94,20 @@ et de cette façon tous les noms qui sont propres à notre code ne sont accessib
 
 +++
 
-Bien sûr ceci ne fonctionne que si je peux **être sûr que `bidule` est à moi**, de sorte que **personne** demain ne publie une librairie qui utilise **le même nom**.  
+Bien sûr ceci ne fonctionne que si je peux **être sûr que `bidule` est à moi**, de sorte que **personne** demain ne publie une librairie qui utilise **le même nom**.
 
 C'est pourquoi je **recommande**, à ce stade, de s'assurer de prendre un nom qui n'est **pas déjà pris** ; en toute rigueur c'est optionnel, tant que vous ne prévoyez pas de publier votre appli sur pypi (car bien sûr c'est optionnel de publier sur pypi), mais ça coûte moins cher de le faire très tôt, ça évite des renommages fastidieux plus tard.
 
 +++
 
-Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Vous pouvez soit chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule), ou bien utiliser `pip`
+Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Vous pouvez soit chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule), ou bien utiliser `pip` :
 
     pip search bidule
 
 +++
 
-Le nom est libre, pour toute la suite **je choisis `bidule` comme mon nom de package**.  
-Vous trouverez dans ce repo git <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
+Le nom est libre, pour toute la suite **je choisis `bidule` comme mon nom de package**.
+Vous trouverez dans ce dépôt git <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
 
 +++
 
@@ -154,7 +154,7 @@ Je recommande toutefois de ne pas se précipiter avec ces imports relatifs, et n
 
 +++
 
-À ce stade précisément, vous constatez .. que **plus rien ne marche** !
+À ce stade précisément, vous constatez... que **plus rien ne marche** !
 
 En effet, comme on l'a vu dans le complément sur le chargement des modules, Python recherche vos modules dans l'ordre
 
@@ -164,8 +164,8 @@ En effet, comme on l'a vu dans le complément sur le chargement des modules, Pyt
 
 Et donc si vous m'avez suivi, vous devez avoir quelque chose comme
 
-```bash
-mon-repo-git/
+```
+mon-depot-git/
              bidule/
                     main.py
                     machine.py
@@ -174,7 +174,7 @@ mon-repo-git/
 
 mais alors quand vous faites 
 
-```bash
+```
 $ python bidule/main.py
 Traceback (most recent call last):
   File "bidule/main.py", line 1, in <module>
@@ -188,7 +188,7 @@ on va chercher du coup un module `bidule` à partir du répertoire du point d'en
 
 ### Le mauvais réflexe
 
-Du coup naturellement, on se dit, ça n'est pas grave, je vais tirer profit de la variable `PYTHONPATH`.  
+Du coup naturellement, on se dit, ça n'est pas grave, je vais tirer profit de la variable `PYTHONPATH`.
 Alors disons-le tout net : **Ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue.
 
 Le fait de modifier une variable d'environnement est un processus tarabiscoté, même sans parler de Windows, et cette approche est une bonne façon de se tirer une balle dans le pied ; un jour ou l'autre la variable ne sera pas positionnée comme il faut, c'est sûr.
@@ -199,11 +199,11 @@ Bref, il ne **faut pas faire comme ça !!**
 
 ## Le bon réflexe : `setup.py`
 
-Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait une *installation en mode développeur*. Voyons cela :
+Non, le bon reflexe ici c'est d'écrire un fichier `setup.py`, et de l'utiliser pour faire ce qu'on pourrait appeler une *installation en mode développeur*. Voyons cela :
 
-Je commence donc par créer un fichier `setup.py` à la racine de mon repo git, dans lequel je mets, pour commencer, le minimum :
+Je commence donc par créer un fichier `setup.py` à la racine de mon dépôt git, dans lequel je mets, pour commencer, le minimum :
 
-```
+```python
 # minimal setup.py to install in develop mode
 
 from setuptools import setup, find_packages
@@ -224,11 +224,11 @@ setup(
 
 ### Installation en mode developpeur : `pip install -e .`
 
-Avec ce fichier en place, et toujours à la racine de mon repo, je peux maintenant faire la formule magique (toujours dans le terminal)
+Avec ce fichier en place, et toujours à la racine de mon dépôt, je peux maintenant faire la formule magique (toujours dans le terminal)
 
-```bash
+```
 $ pip install -e .
-Obtaining file:///Users/tparment/git/flotpython-course/w6/mon-repo-git
+Obtaining file:///Users/tparment/git/flotpython-course/w6/mon-depot-git
 Installing collected packages: bidule
   Attempting uninstall: bidule
     Found existing installation: bidule 0.0.0
@@ -238,11 +238,10 @@ Installing collected packages: bidule
 Successfully installed bidule
 ```
 
-L'effet de cette commande est de modifier mon environnement pour que le répertoire courant
-(le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules. Ça signifie que
-je peux maintenant lancer mon programme sans souci :
+L'effet de cette commande est de modifier mon environnement pour que le répertoire courant (le `.` dans `pip install -e .`) soit utilisé pour la recherche des modules.
+Ça signifie que je peux maintenant lancer mon programme sans souci :
 
-  ```bash
+  ```
   $ python bidule/main.py
   ... déroulement normal
   ```
@@ -259,17 +258,17 @@ Au delà de cette première utilité, `setup.py` sert à configurer plein d'aspe
 
 +++
 
-Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici, que j'essaie de mettre dans l'ordre chronologique, quelques ajouts très fréquents [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
+Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici quelques ajouts très fréquents que j'essaie de mettre dans l'ordre chronologique [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
 
 * `name` est le nom sous lequel votre projet sera rangé dans PyPI
 
-* `packages` est une liste de noms de packages ; tel qu'on l'a écrit, cela sera calculé à partir du contenu de votre dépôt ; dans notre cas on aurait pu aussi bien écrire en dur `['bidule']`;  
+* `packages` est une liste de noms de packages ; tel qu'on l'a écrit, cela sera calculé à partir du contenu de votre dépôt ; dans notre cas on aurait pu aussi bien écrire en dur `['bidule']`;
   dans les cas les plus simples on a `packages == [ name ]`
 
 
-* `version` est bien entendu important dès que vous commencez à publier sur PyPI (et même avant) pour que PyPI puisse servir la version la plus récente, et/ou satisfaire des exigences précises (les applis qui vous utilisent peuvent par exemple préciser une version minimale, etc...)  
-  Cette chaine devrait être [compatible avec semver (semantic versioning)](https://semver.org/)  
-  i.e. qu'un numéro de version usuel contient 3 parties (major, minor, patch), comme par ex. "2.1.3"  
+* `version` est bien entendu important dès que vous commencez à publier sur PyPI (et même avant) pour que PyPI puisse servir la version la plus récente, et/ou satisfaire des exigences précises (les applis qui vous utilisent peuvent par exemple préciser une version minimale, etc...)
+  Cette chaine devrait être [compatible avec semver (semantic versioning)](https://semver.org/)
+  i.e. qu'un numéro de version usuel contient 3 parties (major, minor, patch), comme par ex. "2.1.3"
   le terme `semantic` signifie ici que **toute rupture de compatibilité** doit se traduire par une incrémentation du numéro majeur (sauf s'il vaut `0`, on a le droit de tâtonner avec une 0.x; d'où l'importance de la version 1.0)
 
 * `install_requires` : si votre package a besoin d'une librairie non-standard, disons par exemple `numpy`, il est **très utile** de le préciser ici ; de cette façon, lorsqu'un de vos utilisateurs installera votre appli avec `pip install bidule`, `pip` pourra **gérer les dépendances** et s'assurer que `numpy` est installé également ;
@@ -277,15 +276,16 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 
 
 
-* informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;  
+* informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;
   une mention spéciale à propos de `description_long`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
 
-  ```
+  ```python
   setup(
      ...
      long_description=open('README.md').read(),
      long_description_content_type = "text/markdown",
      ...
+  )
   ```
 
 * etc… beaucoup d'autres réglages et subtilités autour de `setup.py` ; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
@@ -296,21 +296,21 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 
 +++
 
-Assez fréquemment on package des **librairies**; dans ce cas on se soucie d'installer uniquement des modules Python.
+Assez fréquemment on package des **librairies** ; dans ce cas on se soucie d'installer uniquement des modules Python.
 
 
 Mais imaginez maintenant que votre package contient aussi un **point d'entrée** - c'est-à-dire en fin de compte une **commande** que vos utilisateurs vont vouloir lancer **depuis le terminal**. Ce cas de figure change un peu la donne; il faut maintenant installer des choses à d'autres endroits du système (pensez par exemple, sur linux/macos, à quelque chose comme `/usr/bin`).
 
-Dans ce cas **surtout n'essayez pas de le faire vous-même**; c'est beaucoup trop compliqué à faire correctement !
+Dans ce cas **surtout n'essayez pas de le faire vous-même**, c'est beaucoup trop compliqué à faire correctement !
 
 Pour illustrer la bonne façon de faire dans ce cas, je vous renvoie pour les détails à un exemple réel, mais pour l'essentiel :
 
-* je vous conseille d'écrire tout le code en question dans une classe habituelle, que vous rangez normalement avec les autres ;  
+* je vous conseille d'écrire tout le code en question dans une classe habituelle, que vous rangez normalement avec les autres ;
 * cette classe expose typiquement une méthode `main()`, qui retourne, pour suivre les conventions usuelles :
   * `0` si tout s'est bien passé
   * `1` sinon
 * vous créez un module `__main__.py` qui se contente de créer une instance et de lui envoyer la méthode `main` - voir l'exemple
-* vous déclarez cela dans `setup.py` qui se chargera de tout :-)  
+* vous déclarez cela dans `setup.py` qui se chargera de tout :-)
 
 Voici tout ceci illustré sur un exemple réel.
 Dans  cet exemple, le package (PyPI) s'appelle `apssh`, la commande qu'on veut exposer s'appelle `apssh`, du coup on a
@@ -320,9 +320,9 @@ Dans  cet exemple, le package (PyPI) s'appelle `apssh`, la commande qu'on veut e
 
 Voici les différents codes; le détail de la classe elle-même n'est pas pertinent (c'est très long), c'est pour vous montrer un système de nommage, disons habituel :
 
-* [la définition de `entry_points` dans `setup.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/setup.py#L52-L55)  
-  ici après installation avec `pip`, nos utilisateurs pourront utiliser la commande `apssh`,  
-  qui est de cette façon associée au module `__main__.py`  
+* [la définition de `entry_points` dans `setup.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/setup.py#L52-L55)
+  ici après installation avec `pip`, nos utilisateurs pourront utiliser la commande `apssh`,
+  qui est de cette façon associée au module `__main__.py`
   (les termes `entry_points` et `console_scripts` ne doivent pas être modifiés);
 
 * [ le module `__main__.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/apssh/__main__.py);
@@ -338,16 +338,16 @@ Voici les différents codes; le détail de la classe elle-même n'est pas pertin
 Pour publier votre application sur PyPI, rien de plus simple :
 
 * il faut naturellement obtenir un login/password
-* avant de pouvoir utiliser le nom `bidule`, il faut l'enregistrer :  
+* avant de pouvoir utiliser le nom `bidule`, il faut l'enregistrer :
   `python setup.py register`
-* aussi il vous faudra installer `twine`  
+* aussi il vous faudra installer `twine`
   `pip install twine`
 
 Ensuite à chaque version, une fois que les tests sont passés et tout :
 
-* préparer le packaging  
+* préparer le packaging
   `python setup.py sdist bdist_wheel`
-* pousser sur PyPI  
+* pousser sur PyPI
   `twine upload dist/*`
 
 Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org` utile quand on ne veut pas polluer l'index officiel.
@@ -358,8 +358,8 @@ Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org
 
 +++
 
-Ensuite une fois que c'est fait, le monde entier peut profiter de votre magnifique contribution en faisant bien sûr  
-`pip install bidule`  
+Ensuite une fois que c'est fait, le monde entier peut profiter de votre magnifique contribution en faisant bien sûr
+`pip install bidule`
 
 Remarquez que l'on conseille parfois, pour éviter d'éventuels soucis de divergence entre les commandes `python`/`python3` et `pip`/`pip3`,
 * de remplacer tous les appels à `pip`
@@ -369,7 +369,7 @@ D'autres formes utiles de `pip` :
 
 * `pip show bidule` : pour avoir des détails sur un module précis
 * `pip freeze` : pour une liste complète des modules installés dans l'environnement, avec leur numéro de version
-* `pip list` : sans grand intérêt, si ce n'est dans sa forme  
+* `pip list` : sans grand intérêt, si ce n'est dans sa forme
   `pip list -o` qui permet de lister les modules qui pourraient être mis à jour
 * `pip install -r requirements.txt` : pour installer les modules dont la liste est dans le fichier `requirements.txt`
 
@@ -391,7 +391,7 @@ Un usage particulièrement fréquent consiste à "remonter" au niveau du package
 
 +++
 
-Dans notre repo de démonstration, nous avons une classe `Machine` définie dans le module `bidule.machine`. Donc de l'extérieur pour me servir de cette classe je dois faire
+Dans notre dépôt de démonstration, nous avons une classe `Machine` définie dans le module `bidule.machine`. Donc de l'extérieur pour me servir de cette classe je dois faire
 
     from bidule.machine import Machine
 
@@ -417,13 +417,13 @@ Par le passé, on installait python une seule fois dans le système ; en 2020, c
 
 * quand on travaille sur plusieurs projets, on peut avoir besoin de Python-3.6 sur l'un et Python-3.8 sur un autre ;
 * ou alors on peut avoir un projet qui a besoin de `Django==2.2` et un autre qui ne marche qu'avec `Django>=3.0` ;
-* en plus par dessus le marché, dans certains cas il faut être super utilisateur pour modifier l'installation ; typiquement on passe son temps à faire `sudo pip` au lieu de `pip`…
+* en plus par-dessus le marché, dans certains cas il faut être super utilisateur pour modifier l'installation ; typiquement on passe son temps à faire `sudo pip` au lieu de `pip`…
 
 et le seul avantage, c'est que tous les utilisateurs de l'ordi peuvent partager l'installation ; sauf que, plus de 99 fois sur 100, il n'y a qu'un utilisateur pour un ordi ! Bref, c'est une pratique totalement dépassée.
 
 +++
 
-La création et la gestion d'environnements virtuels sont **très facilee** aujourd'hui. Aussi c'est une **pratique recommandée** de se créer **un virtualenv par projet**. C'est tellement pratique qu'on n'hésite pas une seconde à repartir d'un environnement vide à la moindre occasion, par exemple lorsqu'on a un doute sur les dépendances.
+La création et la gestion d'environnements virtuels sont **très faciles** aujourd'hui. Aussi c'est une **pratique recommandée** de se créer **un virtualenv par projet**. C'est tellement pratique qu'on n'hésite pas une seconde à repartir d'un environnement vide à la moindre occasion, par exemple lorsqu'on a un doute sur les dépendances.
 
 Le seul point sur lequel il faut être attentif, c'est de trouver un moyen de **savoir en permanence** dans quel environnement on se trouve. Notamment :
 
@@ -458,8 +458,8 @@ Par contre il reste le choix entre plusieurs outils, que j'essaie de lister ici�
 
 +++
 
-Actuellement j'utilise quant à moi `miniconda`.  
-Voici à titre indicatif une session sous MacOS en guise de rapide introduction.  
+Actuellement j'utilise quant à moi `miniconda`.
+Voici à titre indicatif une session sous MacOS en guise de rapide introduction.
 Vous remarquerez comme le *prompt* reflète **l'environnement dans lequel on se trouve**, ça semble relativement impératif si on ne veut pas s'emmêler les pinceaux.
 
 +++
