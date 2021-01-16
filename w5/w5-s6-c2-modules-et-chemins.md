@@ -53,7 +53,7 @@ Pour rappel, le point d'entrée c'est le nom du fichier que vous passez à l'int
 Lorsque vous lancez l'interpréteur **en mode interactif** (sans lui donner de point d'entrée), c'est **le répertoire courant** qui sert alors d'emplacement par défaut pour votre code. 
 Le répertoire courant, c'est celui où vous vous trouvez quand vous lancez la commande python. Si vous n'êtes pas sûr de cet emplacement vous pouvez le savoir en faisant :
 
-```{code-cell}
+```{code-cell} ipython3
 from pathlib import Path
 Path.cwd()
 ```
@@ -141,58 +141,11 @@ C'est-à-dire que :
 
 +++
 
-La [variable d'environnement](http://en.wikipedia.org/wiki/Environment_variable) PYTHONPATH est définie de façon à donner la possibilité d'étendre ces listes depuis l'extérieur, et sans recompiler l'interpréteur, ni modifier les sources. Cette possibilité s'adresse donc à l'utilisateur final - ou à son administrateur système - plutôt qu'au programmeur.
+La [variable d'environnement](http://en.wikipedia.org/wiki/Environment_variable) PYTHONPATH est définie de façon à donner la possibilité d'étendre ces listes depuis l'extérieur, et sans recompiler l'interpréteur, ni modifier les sources. Cette possibilité s'adresse donc à l'utilisateur final - ou à son administrateur système - plutôt qu'au programmeur. Je vous recommande du coup de **ne pas utiliser cette *feature***, qu'il faut réserver à des cas bien précis.
 
 +++
 
-En tant que programmeur par contre, vous avez la possibilité d'étendre `sys.path` avant de faire vos `import`.
-
-Imaginons par exemple que vous avez écrit un petit outil utilitaire qui se compose d'un point d'entrée `main.py`, et de plusieurs modules `spam.py` et `eggs.py`. Vous n'avez pas le temps de packager proprement cet outil, vous voudriez pouvoir distribuer un *tar* avec ces trois fichiers python, qui puissent s'installer n'importe où (pourvu qu'ils soient tous les trois au même endroit), et que le point d'entrée trouve ses deux modules sans que l'utilisateur ait à s'en soucier.
-
-Imaginons donc ces trois fichiers installés sur machine de l'utilisateur dans :
-
-+++
-
-```bash
-/usr/share/utilitaire/
-                      main.py
-                      spam.py
-                      eggs.py
-```
-
-+++
-
-Si vous ne faites rien de particulier, c'est-à-dire que `main.py` contient juste
-
-+++
-
-```python
-import spam, eggs
-```
-
-+++
-
-Alors le programme ne fonctionnera **que s'il est lancé depuis `/usr/share/utilitaire`**, ce qui n'est pas du tout pratique.
-
-+++
-
-Pour contourner cela on peut écrire dans `main.py` quelque chose comme :
-
-+++
-
-```python
-# on récupère le répertoire où est installé le point d'entrée
-from pathlib import Path
-
-directory_installation = Path(__file__).parent
-    
-# et on l'ajoute au chemin de recherche des modules
-import sys
-sys.path.append(directory_installation)
-    
-# maintenant on peut importer spam et eggs de n'importe où
-import spam, eggs
-```
+En tant que programmeur, vous avez aussi la possibilité d'étendre `sys.path` avant de faire vos `import`. Ici encore, ce n'est **pas une pratique** très courante, ni **très recommandée**.
 
 +++
 
@@ -200,9 +153,7 @@ import spam, eggs
 
 +++
 
-Notez bien que l'exemple précédent est **uniquement donné à titre d'illustration** pour décortiquer la mécanique d'utilisation de `sys.path`. 
-
-Ce n'est pas une technique recommandée dans le cas général. On préfère en effet de beaucoup diffuser une application python, ou une librairie, sous forme de packaging en utilisant le [module setuptools](https://pypi.python.org/pypi/setuptools). Il s'agit d'un outil qui **ne fait pas partie de la librairie standard**, et qui supplante `distutils` qui lui, fait partie de la distribution standard mais qui est tombé en déshérence au fil du temps.
+On préfère en effet de beaucoup diffuser une application python, ou une librairie, sous forme de packaging en utilisant le [module setuptools](https://pypi.python.org/pypi/setuptools). Il s'agit d'un outil qui **ne fait pas partie de la librairie standard**, et qui supplante `distutils` qui lui, fait partie de la distribution standard mais qui est tombé en déshérence au fil du temps.
 
 +++
 
@@ -220,3 +171,7 @@ Pour installer `setuptools`, comme d'habitude vous pouvez faire simplement :
 ```bash
 pip3 install setuptools
 ```
+
++++
+
+On reviendra en Semaine 6 sur les bonnes pratiques pour organiser l'arborescence des sources de votre projet, et notamment sur les techniques qui permettent de manière sûre de se passer de tout tripotage intempestif de `PYTHONPATH` et/ou `sys.path`.
