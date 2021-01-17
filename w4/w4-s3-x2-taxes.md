@@ -30,10 +30,6 @@ Ainsi, même si le chapitre en cours concerne les boucles while, vous n'êtes pa
 
 ## Niveau basique
 
-```{code-cell}
-from corrections.exo_taxes import exo_taxes
-```
-
 On se propose d'écrire une fonction `taxes` qui calcule le montant de l'impôt sur le revenu au Royaume-Uni.
 
 +++
@@ -53,7 +49,8 @@ Le barème est [publié ici par le gouvernement anglais](https://www.gov.uk/inco
 
 Donc naturellement il s'agit d'écrire une fonction qui prend en argument le revenu imposable, et retourne le montant de l'impôt, **arrondi à l'entier inférieur**.
 
-```{code-cell}
+```{code-cell} ipython3
+from corrections.exo_taxes import exo_taxes
 exo_taxes.example()
 ```
 
@@ -62,13 +59,13 @@ exo_taxes.example()
 * évidemment on parle ici d'une fonction continue ;
 * aussi en termes de programmation, je vous encourage à séparer la définition des tranches de la fonction en elle-même.
 
-```{code-cell}
+```{code-cell} ipython3
 def taxes(income):
     # ce n'est pas la bonne réponse
     return (income-11_500) * (20/100)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_taxes.correction(taxes)
 ```
 
@@ -78,23 +75,23 @@ exo_taxes.correction(taxes)
 
 Comme d'habitude vous pouvez voir la représentation graphique de votre fonction :
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %matplotlib inline
 plt.ion()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 X = np.linspace(0, 200_000)
 Y = [taxes(x) for x in X]
 plt.plot(X, Y);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour changer la taille de la figure
 plt.figure(figsize=(10, 8))
 plt.plot(X, Y);

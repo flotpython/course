@@ -31,11 +31,6 @@ version: '3.0'
 
 ### Analyse et mise en forme
 
-```{code-cell}
-# Pour charger l'exercice
-from corrections.exo_libelle import exo_libelle
-```
-
 Un fichier contient, dans chaque ligne, des informations (champs) séparées par des virgules. Les espaces et tabulations présentes dans la ligne ne sont pas significatives et doivent être ignorées. 
 
 Dans cet exercice de niveau basique, on suppose que chaque ligne a exactement 3 champs, qui représentent respectivement le prénom, le nom, et le rang d'une personne dans un classement. Une fois les espaces et tabulations ignorées, on ne fait pas de vérification sur le contenu des 3 champs. 
@@ -56,18 +51,19 @@ Nom.Prenom (message)
 
 le *message* étant lui-même le *rang* mis en forme pour afficher '1er', '2nd' ou '*n*-ème' selon le cas. Voici quelques exemples
 
-```{code-cell}
+```{code-cell} ipython3
 # voici quelques exemples de ce qui est attendu
+from corrections.exo_libelle import exo_libelle
 exo_libelle.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici
 def libelle(ligne):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour le vérifier
 exo_libelle.correction(libelle)
 ```

@@ -31,11 +31,6 @@ version: '3.0'
 
 ### Répartiteur (1)
 
-```{code-cell}
-# on charge l'exercice
-from corrections.exo_dispatch import exo_dispatch1
-```
-
 On vous demande d'écrire une fonction `dispatch1`, qui prend en argument deux entiers `a` et `b`, et qui renvoie selon les cas :
 
 $$
@@ -48,17 +43,18 @@ b\ impair & a*(b-1)& a^2-b^2\\
 \end{array}
 $$
 
-```{code-cell}
+```{code-cell} ipython3
 # un petit exemple
+from corrections.exo_dispatch import exo_dispatch1
 exo_dispatch1.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def dispatch1(a, b):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_dispatch1.correction(dispatch1)
 ```
@@ -69,10 +65,7 @@ exo_dispatch1.correction(dispatch1)
 
 ### Répartiteur (2)
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_dispatch import exo_dispatch2
-```
++++
 
 Dans une seconde version de cet exercice, on vous demande d'écrire une fonction `dispatch2` qui prend en arguments :
 
@@ -91,12 +84,19 @@ b\notin B & a*(b-1)& a^2+b^2\\
 \end{array}
 $$
 
-```{code-cell}
+```{code-cell} ipython3
+# un exemple
+from corrections.exo_dispatch import exo_dispatch2
+exo_dispatch2.example()
+```
+
+```{code-cell} ipython3
+# à vous
 def dispatch2(a, b, A, B):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_dispatch2.correction(dispatch2)
 ```

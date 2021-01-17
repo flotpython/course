@@ -27,10 +27,6 @@ Merci à Adrien Ollier d'avoir proposé cet exercice
 
 ## exercice - niveau basique
 
-```{code-cell}
-from corrections.exo_spreadsheet import exo_spreadsheet
-```
-
 Le but de l'exercice est d'écrire la fonction `spreadsheet` 
 
 * qui prend en entrée un entier - disons `index`
@@ -40,8 +36,9 @@ Pour rappel dans un tableur les colonnes sont appelées d'abord `A` jusque `Z`, 
 
 La valeur d'entrée index = 0 est considérée comme non valide.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici quelques exemples charnière
+from corrections.exo_spreadsheet import exo_spreadsheet
 exo_spreadsheet.example()
 ```
 
@@ -63,13 +60,13 @@ On vous invite également à envisager la progression suivante :
 
 1. À partir de la fonction précédente, écrire la fonction spreadsheet() pour les indices commençant à 1 et allant au-delà de 26.
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici'
 def spreadsheet(index):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et validez-le ici
 exo_spreadsheet.correction(spreadsheet)
 ```

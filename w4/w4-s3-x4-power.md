@@ -27,11 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau intermédiaire
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_power import exo_power
-```
-
 On vous demande d'écrire une fonction qui met un objet x à la puissance entière n.
 
 Le paramètre `x` doit pouvoir être multiplié par lui même, et le paramètre `n` est un entier `>=1` (pas la peine de vérifier).
@@ -61,7 +56,8 @@ $ n = 2 * (2 * 2 * (2*2 + 1) + 1) $
 
 $ x^{42} = ((((x.x)^2*x)^2)^2 . x)^2$ soit 7 multiplications
 
-```{code-cell}
+```{code-cell} ipython3
+from corrections.exo_power import exo_power
 exo_power.example()
 ```
 
@@ -75,13 +71,13 @@ exo_power.example()
 
 * on peut être tenté d'écrire une boucle `while` sur la variable $n$, mais pour commencer une formulation récursive est une approche qui peut sembler beaucoup plus commode à implémenter.
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def power(x, n):
     "<votre code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_power.correction(power)
 ```
