@@ -31,23 +31,28 @@ version: '3.0'
 
 ### Fonction de divisibilité
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_divisible import exo_divisible
-```
++++
 
 L'exercice consiste à écrire une fonction baptisée `divisible` qui retourne une valeur booléenne, qui indique si un des deux arguments est divisible par l'autre.
 
 Vous pouvez supposer les entrées `a` et `b` entiers et non nuls, mais pas forcément positifs.
 
-```{code-cell}
+```{code-cell} ipython3
+:tags: []
+
+# par exemple
+from corrections.exo_divisible import exo_divisible
+exo_divisible.example()
+```
+
+```{code-cell} ipython3
 def divisible(a, b):
     "<votre_code>"
 ```
 
 Vous pouvez à présent tester votre code en évaluant ceci, qui écrira un message d'erreur si un des jeux de test ne donne pas le résultat attendu.
 
-```{code-cell}
+```{code-cell} ipython3
 # tester votre code
 exo_divisible.correction(divisible)
 ```
@@ -57,11 +62,6 @@ exo_divisible.correction(divisible)
 +++
 
 ##### Fonction définie par morceaux
-
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_morceaux import exo_morceaux
-```
 
 On veut définir en Python une fonction qui est définie par morceaux :
 
@@ -77,19 +77,20 @@ f: x \longrightarrow \left\{
 \right.
 $$
 
-```{code-cell}
+```{code-cell} ipython3
 # donc par exemple
+from corrections.exo_morceaux import exo_morceaux
 exo_morceaux.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 
 def morceaux(x):
     return 0 # "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_morceaux.correction(morceaux)
 ```
@@ -107,13 +108,13 @@ Voici ce qui est attendu comme courbe pour `morceaux` (image fixe) :
 
 En partant de votre code, vous pouvez produire votre propre courbe en utilisant `numpy` et `matplotlib` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # on importe les bibliothèques
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # un échantillon des X entre -10 et 20
 X = np.linspace(-10, 20)
 
@@ -121,7 +122,7 @@ X = np.linspace(-10, 20)
 Y = np.vectorize(morceaux)(X)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on n'a plus qu'à dessiner
 plt.plot(X, Y)
 plt.show()

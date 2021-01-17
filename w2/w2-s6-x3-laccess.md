@@ -27,10 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
-from corrections.exo_laccess import exo_laccess
-```
-
 Vous devez écrire une fonction `laccess` qui prend en argument une liste, et qui retourne :
 
 * `None` si la liste est vide ;
@@ -38,6 +34,7 @@ Vous devez écrire une fonction `laccess` qui prend en argument une liste, et qu
 * et sinon l'élément du milieu.
 
 ```{code-cell}
+from corrections.exo_laccess import exo_laccess
 exo_laccess.example()
 ```
 
@@ -56,8 +53,5 @@ Une fois que votre code fonctionne, vous pouvez regarder si par hasard il marche
 
 ```{code-cell}
 from corrections.exo_laccess import exo_laccess_strings
-```
-
-```{code-cell}
 exo_laccess_strings.correction(laccess)
 ```

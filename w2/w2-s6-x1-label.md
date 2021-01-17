@@ -27,11 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
-# charger l'exercice
-from corrections.exo_label import exo_label
-```
-
 Vous devez écrire une fonction qui prend deux arguments :
 
 * une chaîne de caractères qui désigne le prénom d'un élève ;
@@ -45,17 +40,18 @@ Elle devra retourner une chaîne de caractères selon que la note est
 
 comme on le voit sur les exemples :
 
-```{code-cell}
+```{code-cell} ipython3
+from corrections.exo_label import exo_label
 exo_label.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def label(prenom, note):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger
 exo_label.correction(label)
 ```

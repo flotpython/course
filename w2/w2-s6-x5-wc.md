@@ -45,13 +45,9 @@ L'exercice consiste à écrire une fonction nommée *wc* qui prendra en argument
 2. le nombre de mots (un mot étant séparé par des espaces) ;
 3. le nombre de caractères (on utilisera uniquement le jeu de caractères ASCII).
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_wc import exo_wc
-```
-
-```{code-cell}
+```{code-cell} ipython3
 # exemple
+from corrections.exo_wc import exo_wc
 exo_wc.example()
 ```
 
@@ -63,14 +59,14 @@ exo_wc.example()
 
 À vous de jouer :
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction à implémenter
 def wc(string):
     # remplacer pass par votre code
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: fragment

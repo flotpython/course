@@ -31,28 +31,24 @@ version: '3.0'
 
 ### Mise au carré
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_carre import exo_carre
-```
-
 On vous demande à présent d'écrire une fonction dans le même esprit que la fonction polynomiale du notebook précédent.
 Cette fois, chaque ligne contient, séparés par des points-virgules, une liste d'entiers, et on veut obtenir une nouvelle chaîne avec les carrés de ces entiers, séparés par des deux-points.
 
 À nouveau les lignes peuvent être remplies de manière approximative, avec des espaces, des tabulations, ou même des points-virgules en trop, que ce soit au début, à la fin, ou au milieu d'une ligne.
 
-```{code-cell}
+```{code-cell} ipython3
 # exemples
+from corrections.exo_carre import exo_carre
 exo_carre.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici
 def carre(ligne):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger
 exo_carre.correction(carre)
 ```
