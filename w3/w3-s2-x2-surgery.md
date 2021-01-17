@@ -27,29 +27,25 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
-# chargeons l'exercice
-from corrections.exo_surgery import exo_surgery
-```
-
 Cet exercice consiste à écrire une fonction `surgery`, qui prend en argument une liste, et qui retourne la **même** liste **modifiée** comme suit :
 
 * si la liste est de taille 0 ou 1, elle n'est pas modifiée ;
 * si la liste est de taille paire, on intervertit les deux premiers éléments de la liste ;
 * si elle est de taille impaire, on intervertit les deux derniers éléments.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici quelques exemples de ce qui est attendu
+from corrections.exo_surgery import exo_surgery
 exo_surgery.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code
 def surgery(liste):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour le vérifier, évaluez cette cellule
 exo_surgery.correction(surgery)
 ```

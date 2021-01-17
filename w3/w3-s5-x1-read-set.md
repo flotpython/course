@@ -27,11 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell} ipython3
-# charger l'exercice
-from corrections.exo_read_set import exo_read_set
-```
-
 On se propose d'écrire une fonction `read_set` qui construit un ensemble à partir du contenu d'un fichier. Voici par exemple un fichier d'entrée :
 
 ```{code-cell} ipython3
@@ -43,6 +38,7 @@ On se propose d'écrire une fonction `read_set` qui construit un ensemble à par
 `read_set` va prendre en argument un nom de fichier (vous pouvez supposer qu'il existe), enlever les espaces éventuelles au début et à la fin de chaque ligne, et construire un ensemble de toutes les lignes ; par exemple :
 
 ```{code-cell} ipython3
+from corrections.exo_read_set import exo_read_set
 exo_read_set.example()
 ```
 

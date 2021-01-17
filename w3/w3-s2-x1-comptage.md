@@ -31,11 +31,6 @@ version: '3.0'
 
 ### Calcul du nombre de lignes, de mots et de caractères
 
-```{code-cell}
-# chargement de l'exercice
-from corrections.exo_comptage import exo_comptage
-```
-
 On se propose d'écrire une *moulinette* qui annote un fichier avec des nombres de lignes, de mots et de caractères.
 
 Le but de l'exercice est d'écrire une fonction `comptage` :
@@ -45,12 +40,13 @@ Le but de l'exercice est d'écrire une fonction `comptage` :
  * le fichier d'entrée est laissé intact ;
  * pour chaque ligne en entrée, le fichier de sortie comporte une ligne qui donne le numéro de ligne, le nombre de mots (**séparés par des espaces**), le nombre de caractères (y compris la fin de ligne), et la ligne d'origine.
 
-```{code-cell}
+```{code-cell} ipython3
 # un exemple de ce qui est attendu
+from corrections.exo_comptage import exo_comptage
 exo_comptage.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 def comptage(in_filename, out_filename):
    "votre code"
@@ -58,7 +54,7 @@ def comptage(in_filename, out_filename):
 
 **N'oubliez pas de vérifier** que vous ajoutez bien les **fins de ligne**, car la vérification automatique est pointilleuse (elle utilise l'opérateur `==`), et rejettera votre code si vous ne produisez pas une sortie rigoureusement similaire à ce qui est attendu.
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 # voyez aussi un peu plus bas, une cellule d'aide au debugging
 
@@ -67,7 +63,7 @@ exo_comptage.correction(comptage)
 
 La méthode `debug` applique votre fonction au premier fichier d'entrée, et affiche le résultat comme dans l'exemple ci-dessus :
 
-```{code-cell}
+```{code-cell} ipython3
 # debugging
 exo_comptage.debug(comptage)
 ```

@@ -27,11 +27,6 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
-# charger l'exercice
-from corrections.cls_fifo import exo_fifo
-```
-
 On veut implémenter une classe pour manipuler une queue d'événements. La logique de cette classe est que :
 
 * on la crée sans argument ;
@@ -42,12 +37,13 @@ Cette classe s'appelle `Fifo` pour *First In, First Out*, c'est-à-dire que les 
 
 La méthode `outgoing` retourne `None` lorsqu'on l'appelle sur une pile vide.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici un exemple de scénario
+from corrections.cls_fifo import exo_fifo
 exo_fifo.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vous pouvez définir votre classe ici
 class Fifo:
     def __init__(self):
@@ -58,7 +54,7 @@ class Fifo:
         "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et la vérifier ici
 exo_fifo.correction(Fifo)
 ```

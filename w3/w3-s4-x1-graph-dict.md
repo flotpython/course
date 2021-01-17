@@ -27,13 +27,9 @@ version: '3.0'
 
 ## Exercice - niveau basique
 
-```{code-cell}
-from corrections.exo_graph_dict import exo_graph_dict
-```
-
 On veut implémenter un petit modèle de graphes. Comme on a les données dans des fichiers, on veut analyser des fichiers d'entrée qui ressemblent à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 !cat data/graph1.txt
@@ -58,8 +54,9 @@ Dans cet exercice on choisit :
 * de modéliser le graphe comme un dictionnaire indexé sur les (noms de) sommets ;
 * et chaque valeur est une liste de tuples de la forme (*suivant*, *longueur*), dans l'ordre d'apparition dans le fichier d'entrée.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici ce qu'on obtiendrait par exemple avec les données ci-dessus
+from corrections.exo_graph_dict import exo_graph_dict
 exo_graph_dict.example()
 ```
 
@@ -68,7 +65,7 @@ exo_graph_dict.example()
 * Vous remarquerez que l'exemple ci-dessus retourne un dictionnaire standard; une solution qui utiliserait `defaultdict` est acceptable également;
 * Notez bien également que dans le résultat, la longueur d'un arc est attendue comme un **`int`**.
 
-```{code-cell}
+```{code-cell} ipython3
 # n'oubliez pas d'importer si nécessaire
 
 # à vous de jouer
@@ -76,6 +73,6 @@ def graph_dict(filename):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_graph_dict.correction(graph_dict)
 ```
