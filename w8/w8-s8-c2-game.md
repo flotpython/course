@@ -128,6 +128,9 @@ class Scheduler:
         self.counter = 1
         # combien de processus sont actifs
         self.running = 0
+        # nombre de processus à executer et nombre de processus terminés
+        self.to_be_run = len(script)
+        self.finished = 0
 
 
     async def run(self):
@@ -200,11 +203,14 @@ class Scheduler:
         
         # le process est terminé
         self.running -= 1
+        self.finished += 1
         print(8 * '<', f"worker {worker} - exit code {retcod}"
               f" - {self.running} still running")
         
         # si c'était le dernier on sort de la boucle principale
-        if self.running == 0:
+        # if self.running == 0:
+        # Plus de processus en cours d'execution ET tous les processus executés
+        if self.running == 0 and self.finished == self.to_be_run:
             print("no process left - bye")
             asyncio.get_event_loop().stop()
         # sinon on retourne le code de retour
@@ -261,6 +267,8 @@ class Scheduler:
             print(f"{line} doit être entre 1 et 4 {type(e)} - {e}")
             return
         asyncio.ensure_future(self.fork_players(predef))
+        # Un nouveau processus à executer
+        self.to_be_run += 1
 ```
 
 À ce stade on a déjà le cœur de la logique du *scheduler*, et aussi du multiplexer. Il ne nous manque plus que l'horloge :
@@ -305,9 +313,10 @@ Et maintenant je peux lancer une session simple ; pour ne pas être noyé par l
 * 1 seconde après le début une instance de `players.py 2`
 
 ```{code-cell}
-# nous allons juxtaposer 2 instances de players.py
-# et donc avoir 4 joueurs dans le jeu
-game = Game( [(0.5, 1), (1., 2)])
+# nous allons juxtaposer 3 instances de players.py
+# et donc avoir 6 joueurs dans le jeu
+# La dernière instance se déroulera alors que les 2 premières sont terminées
+game = Game( [(0.5, 1), (1., 2), (6., 3])
 ```
 
 ```{code-cell}
