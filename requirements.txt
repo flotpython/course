@@ -1,3 +1,4 @@
+jupytext[myst]
 jupyterlab
 ipywidgets
 jupyter-contrib-nbextensions
