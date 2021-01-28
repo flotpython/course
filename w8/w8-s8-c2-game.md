@@ -128,8 +128,9 @@ class Scheduler:
         self.counter = 1
         # combien de processus sont actifs
         self.running = 0
-        # nombre de processus à executer
+        # nombre de processus à executer et nombre de processus terminés
         self.to_be_run = len(script)
+        self.finished = 0
 
 
     async def run(self):
@@ -202,6 +203,7 @@ class Scheduler:
         
         # le process est terminé
         self.running -= 1
+        self.finished += 1
         print(8 * '<', f"worker {worker} - exit code {retcod}"
               f" - {self.running} still running")
         
