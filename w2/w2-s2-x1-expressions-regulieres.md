@@ -118,7 +118,7 @@ Dans la correction - et ce sera pareil pour tous les exercices de regexp où on 
 # il faudra la faire terminer par \Z
 # regardez ce qui se passe si vous ne le faites pas
 
-regexp_agenda = r"(?P<prenom>)(?P<prenom>)\Z"
+regexp_agenda = r"votre regexp\Z"
 ```
 
 ```{code-cell} ipython3
@@ -147,7 +147,7 @@ exo_phone.example()
 ```{code-cell} ipython3
 # votre regexp
 # à nouveau il faut terminer la regexp par \Z
-regexp_phone = r"(0|\+(?P<intl>33))(?P<number>[0-9]{9})\Z"
+regexp_phone = r"votre regexp\Z"
 ```
 
 ```{code-cell} ipython3
@@ -228,7 +228,7 @@ exo_url.example()
 ```{code-cell} ipython3
 # n'hésitez pas à construire votre regexp petit à petit
 
-regexp_url = "<votre_regexp>"
+regexp_url = "votre_regexp"
 ```
 
 ```{code-cell} ipython3
