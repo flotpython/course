@@ -360,4 +360,4 @@ Vous pourrez consulter :
 
 * <https://www.python.org/dev/peps/pep-0328/> qui date du passage de 2.4 à 2.5, dans lequel on décide que tous les imports sans `.` sont absolus - ce n'était pas le cas au préalable.
 * <https://www.python.org/dev/peps/pep-0366/> qui introduit la possibilité de définir `__package__` pour contourner les problèmes liés aux imports relatifs dans un script.
-* <http://sametmax.com/un-gros-guide-bien-gras-sur-les-tests-unitaires-en-python-partie-1/> qui parle des tests unitaires qui est un tout autre et vaste sujet.
+* <https://sametmax.com/un-gros-guide-bien-gras-sur-les-tests-unitaires-en-python-partie-1/> qui parle des tests unitaires qui est un tout autre et vaste sujet.
