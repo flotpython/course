@@ -111,13 +111,14 @@ plt.ion()
 Avec ces réglages - enfin surtout le premier - il y a pas mal de possibilités qui sont très pratiques :
 
 * pour commencer on peut changer la taille de la courbe en cliquant sur le petit coin visible en bas à droite de la figure ![](media/matplotlib-resize.png)
-* les courbes apparaissent avec un barre d'outils en dessous; entraînez-vous à utiliser par exemple l'outil de zoom, pour agrandir et vous déplacer dans la courbe ![](media/matplotlib-navigate.png)
+* les courbes apparaissent avec un barre d'outils en dessous; entraînez-vous à utiliser par exemple **l'outil de zoom**, pour agrandir et vous déplacer dans la courbe ![](media/matplotlib-navigate.png)
 
 +++
 
 À titre d'exercice, sur cette courbe le nombre d'or correspond à une des racines du polynôme, à vous de trouver sa valeur avec une précision de
 
 ```{code-cell} ipython3
+plt.figure(figsize=(2, 2))
 X = np.linspace(-2, 2)
 ZERO = X * 0
 def golden(x):
@@ -130,7 +131,7 @@ Voici à quoi je suis arrivé de mon côté (je ne dis pas que c'est forcément 
 Mais tous les outils de visualisation décents vons proposer des mécanismes analogues, soyez-y attentifs car ça fait parfois gagner beaucoup de temps.
 
 
-<img src="media/matplotlib-zoomed.png" width=400px>
+<img src="media/matplotlib-zoomed.png" width=600px>
 
 +++
 
@@ -339,24 +340,6 @@ Lorsqu'on a besoin de faire une interface un peu plus soignée, on peut créer s
 Voici un exemple de dashboard, uniquement pour vous donner une meilleure idée, qui pour changer agit sur une visualisation réalisée avec plot.ly plutôt que matplotlib :
 
 ```{code-cell} ipython3
-###
-# EDIT - juillet 2019 - 
-###
-# en faisant simplement
-# pip install plotly
-# j'obtiens la version 4.0.0 de plotly
-# qui de toute évidence a changé depuis 
-# la rédaction initiale de ce document
-#
-# c'est pourquoi je m'arrange pour charger plotly-3.10.0
-# dont je sais qu'elle fonctionne avec ce code:
-# pip install plotly==3.10.0
-#
-# si quelqu'un sait faire marcher la nouvelle version
-# je suis intéressé pour l'intégrer, n'hésitez pas à 
-# m'envoyer un pull request
-# 
-
 import plotly
 plotly.__version__
 ```
