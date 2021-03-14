@@ -9,7 +9,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: "Usage avan\xE7\xE9s de `import`"
+notebookname: "Usages avanc\xE9s de `import`"
 version: '3.0'
 ---
 
@@ -21,7 +21,7 @@ version: '3.0'
 
 +++
 
-# Usage avancés de `import`
+# Usages avancés de `import`
 
 +++
 
@@ -36,11 +36,11 @@ from modtools import show_module, find_on_disk
 
 +++
 
-Les objets de type module possèdent des attributs spéciaux ; on les reconnaît facilement car leur nom est en *`__truc__`*, c'est une convention générale dans tous le langage : on en a déjà vu plusieurs exemples avec par exemple les méthodes `__iter__()`.
+Les objets de type module possèdent des attributs spéciaux ; on les reconnaît facilement car leur nom est en *`__truc__`*, c'est une convention générale dans tout le langage : on en a déjà vu plusieurs exemples, comme la méthode `__iter__()`.
 
 +++
 
-Voici pour commencer les attributs spéciaux les plus utilisées ; pour cela nous reprenons le package d'un notebook précédent :
+Voici pour commencer les attributs spéciaux les plus utilisés ; pour cela nous reprenons le package d'un notebook précédent :
 
 ```{code-cell}
 import package_jouet
@@ -64,7 +64,7 @@ package_jouet.module_jouet.__name__
 
 +++
 
-L'emplacement du fichier duquel a été chargé le module ; pour un package ceci dénote un fichier `__init__.py` :
+L'emplacement du fichier duquel a été chargé le module ; pour un package ceci dénote un fichier `__init__.py` :
 
 ```{code-cell}
 package_jouet.__file__
@@ -78,7 +78,7 @@ package_jouet.module_jouet.__file__
 
 +++
 
-Il est possible de redéfinir dans un module la variable `__all__`, de façon à définir les symboles qui sont réellement concernés par un `import *`, [comme c'est décrit ici](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package). 
+Il est possible de redéfinir dans un module la variable `__all__`, de façon à définir les symboles qui sont réellement concernés par un `import *`, [comme c'est décrit ici](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package).
 
 Je rappelle toutefois que l'usage de `import *` est fortement déconseillé dans du code de production.
 
@@ -88,7 +88,7 @@ Je rappelle toutefois que l'usage de `import *` est fortement déconseillé dans
 
 +++
 
-La mécanique des imports telle qu'on l'a vue jusqu'ici est ce qui s'appelle un *import* absolu qui est depuis python-2.5 le mécanisme par défaut : le module importé est systématiquement cherché à partir de `sys.path`.
+La mécanique des imports telle qu'on l'a vue jusqu'ici est ce qui s'appelle un *import* absolu qui est depuis python-2.5 le mécanisme par défaut : le module importé est systématiquement cherché à partir de `sys.path`.
 
 Dans ce mode de fonctionnement, si on trouve dans le même répertoire deux fichiers `foo.py` et `bar.py`, et que dans le premier on fait :
 
@@ -96,7 +96,7 @@ Dans ce mode de fonctionnement, si on trouve dans le même répertoire deux fich
 import bar
 ```
 
-eh bien alors, malgré le fait qu'il existe ici même un fichier `bar.py`, l'import ne réussit pas (sauf si le répertoire courant est dans `sys.path`; en général ce n'est pas le cas).
+eh bien, alors qu'il existe ici même un fichier `bar.py`, l'import ne réussit pas (sauf si le répertoire courant est dans `sys.path` ; en général ce n'est pas le cas).
 
 +++
 
@@ -104,7 +104,9 @@ eh bien alors, malgré le fait qu'il existe ici même un fichier `bar.py`, l'imp
 
 +++
 
-Ce mécanisme d'import absolu a l'avantage d'éviter qu'un module local, par exemple `random.py`, ne vienne cacher le module `random` de la bibliothèque standard. Mais comment peut-on faire alors pour charger le module `random.py` local ? C'est à cela que sert l'import relatif.
+Ce mécanisme d'import absolu a l'avantage d'éviter qu'un module local, par exemple `random.py`, ne vienne cacher le module `random` de la bibliothèque standard.
+Mais comment peut-on faire alors pour charger le module `random.py` local ?
+C'est à cela que sert l'import relatif.
 
 Voyons cela sur un exemple qui repose sur la hiérarchie suivante :
 
@@ -159,7 +161,8 @@ print(package_relatif.main.alea())
 
 +++
 
-Il faut savoir également qu'on peut "remonter" dans l'arborescence de fichiers en utilisant plusieurs points `.` consécutifs. Voici un exemple fonctionnel, on part du même contenu que ci-dessus avec un sous-package, comme ceci :
+Il faut savoir également qu'on peut "remonter" dans l'arborescence de fichiers en utilisant plusieurs points `.` consécutifs.
+Voici un exemple fonctionnel, on part du même contenu que ci-dessus avec un sous-package, comme ceci :
 
 +++
 
@@ -202,13 +205,13 @@ Sur cet exemple, on montre comment un import relatif permet à un module d'impor
 
 +++
 
-Bien sûr ici on aurait pu faire 
+Bien sûr ici on aurait pu faire
 
 ```python
 import package_relatif.random
 ```
 
-au lieu de 
+au lieu de
 
 ```python
 from . import random
@@ -232,7 +235,8 @@ Dit autrement, lorsque deux modules sont situés dans le même répertoire, il s
 
 +++
 
-Toutefois, l'import relatif ne fonctionne pas toujours comme on pourrait s'y attendre. Le point important à garder en tête est que lors d'un import relatif, **c'est l'attribut `__name__`** qui sert à déterminer le point de départ.
+Toutefois, l'import relatif ne fonctionne pas toujours comme on pourrait s'y attendre.
+Le point important à garder en tête est que lors d'un import relatif, **c'est l'attribut `__name__`** qui sert à déterminer le point de départ.
 
 +++
 
@@ -270,7 +274,8 @@ from package_relatif.random import run
 
 +++
 
-Par contre **l'attribut `__file__` n'est pas utilisé** : ce n'est pas parce que deux fichiers python sont dans le même répertoire que l'import relatif va toujours fonctionner. Avant de voir cela sur un exemple, il nous faut revenir sur l'attribut `__name__`.
+Par contre **l'attribut `__file__` n'est pas utilisé** : ce n'est pas parce que deux fichiers python sont dans le même répertoire que l'import relatif va toujours fonctionner.
+Avant de voir cela sur un exemple, il nous faut revenir sur l'attribut `__name__`.
 
 +++
 
@@ -290,7 +295,7 @@ alors la valeur observée dans l'attribut `__name__` n'est pas `"tests.montest"`
 
 +++
 
-C'est pourquoi d'ailleurs [(et c'est également expliqué ici)](https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts) vous trouverez  parfois à la fin d'un fichier source une phrase comme celle-ci :
+C'est pourquoi d'ailleurs [(et c'est également expliqué ici)](https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts) vous trouverez parfois à la fin d'un fichier source une phrase comme celle-ci :
 
 +++
 
@@ -304,7 +309,7 @@ if __name__ == "__main__":
 
 Cet idiome très répandu permet d'insérer à la fin d'un module du code - souvent un code de test - qui :
 
-* va être exécuté quand on le passe directement à l'interpréteur python, mais 
+* va être exécuté quand on le passe directement à l'interpréteur python, mais
 * qui n'**est pas exécuté** lorsqu'on importe le module.
 
 +++
@@ -322,7 +327,7 @@ Pour résumer :
 
 Du coup, par construction, il n'est quasiment pas possible d'utiliser les imports relatifs à partir du script de lancement.
 
-Pour pallier à ce type d'inconvénients, il a été introduit ultérieurment (voir PEP 366 ci-dessous) la possibilité pour un module de définir (écrire) l'attribut `__package__`, pour contourner cette difficulté.
+Pour pallier à ce type d'inconvénients, il a été introduit ultérieurement (voir PEP 366 ci-dessous) la possibilité pour un module de définir (écrire) l'attribut `__package__`, pour contourner cette difficulté.
 
 +++
 
@@ -330,18 +335,20 @@ Pour pallier à ce type d'inconvénients, il a été introduit ultérieurment (v
 
 +++
 
-On voit que tout ceci est rapidement assez scabreux. Cela explique sans doute l'usage relativement peu répandu des imports relatifs. 
+On voit que tout ceci est rapidement assez scabreux.
+Cela explique sans doute l'usage relativement peu répandu des imports relatifs.
 
 De manière générale, une bonne pratique consiste à :
 
-* considérer votre ou vos points d'entrée comme des accessoires ; un point d'entrée typiquement se contente d'importer une classe d'un module, de créer une instance et de lui envoyer une méthode ;
-* toujours placer ces points d'entrée dans un répertoire séparé ;
+* considérer votre ou vos points d'entrée comme des accessoires ; un point d'entrée se contente typiquement d'importer une classe d'un module, de créer une instance et de lui envoyer une méthode ;
+* toujours placer ces points d'entrée dans un répertoire séparé ;
 * notamment si vous utilisez `setuptools` pour distribuer votre application via `pypi.org`, vous verrez que ces points d'entrée sont complètement pris en charge par les outils d'installation.
 
-S'agissant des tests: 
+S'agissant des tests :
 
-* la technique qu'on a vue rapidement - de tester si `__name__` vaut `"__main__"` - est extrêmement basique et limitée. Le mieux est de ne pas l'utiliser en fait, en dehors de micro-maquettes.
-* en pratique on écrit les tests dans un répertoire séparé - souvent appelé `tests` - et en tirant profit de la librairie `unittest`. 
+* la technique qu'on a vue rapidement - de tester si `__name__` vaut `"__main__"` - est extrêmement basique et limitée.
+Le mieux est de ne pas l'utiliser en fait, en dehors de micro-maquettes.
+* en pratique on écrit les tests dans un répertoire séparé - souvent appelé `tests` - et en tirant profit de la librairie `unittest`.
 * du coup les tests sont toujours exécutés avec une phrase comme
 
 ```bash
