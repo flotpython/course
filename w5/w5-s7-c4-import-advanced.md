@@ -9,7 +9,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: "Usage avan\xE7\xE9s de `import`"
+notebookname: "Usages avanc\xE9s de `import`"
 version: '3.0'
 ---
 
@@ -21,7 +21,7 @@ version: '3.0'
 
 +++
 
-# Usage avancés de `import`
+# Usages avancés de `import`
 
 +++
 
