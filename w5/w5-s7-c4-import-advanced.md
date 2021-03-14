@@ -36,7 +36,7 @@ from modtools import show_module, find_on_disk
 
 +++
 
-Les objets de type module possèdent des attributs spéciaux ; on les reconnaît facilement car leur nom est en *`__truc__`*, c'est une convention générale dans tous le langage : on en a déjà vu plusieurs exemples avec par exemple les méthodes `__iter__()`.
+Les objets de type module possèdent des attributs spéciaux ; on les reconnaît facilement car leur nom est en *`__truc__`*, c'est une convention générale dans tout le langage : on en a déjà vu plusieurs exemples, comme la méthode `__iter__()`.
 
 +++
 
@@ -96,7 +96,7 @@ Dans ce mode de fonctionnement, si on trouve dans le même répertoire deux fich
 import bar
 ```
 
-eh bien alors, malgré le fait qu'il existe ici même un fichier `bar.py`, l'import ne réussit pas (sauf si le répertoire courant est dans `sys.path`; en général ce n'est pas le cas).
+eh bien, alors qu'il existe ici même un fichier `bar.py`, l'import ne réussit pas (sauf si le répertoire courant est dans `sys.path` ; en général ce n'est pas le cas).
 
 +++
 
