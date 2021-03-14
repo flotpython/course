@@ -327,7 +327,7 @@ Pour résumer :
 
 Du coup, par construction, il n'est quasiment pas possible d'utiliser les imports relatifs à partir du script de lancement.
 
-Pour pallier à ce type d'inconvénients, il a été introduit ultérieurment (voir PEP 366 ci-dessous) la possibilité pour un module de définir (écrire) l'attribut `__package__`, pour contourner cette difficulté.
+Pour pallier à ce type d'inconvénients, il a été introduit ultérieurement (voir PEP 366 ci-dessous) la possibilité pour un module de définir (écrire) l'attribut `__package__`, pour contourner cette difficulté.
 
 +++
 
