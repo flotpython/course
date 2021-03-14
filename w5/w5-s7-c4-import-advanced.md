@@ -78,7 +78,7 @@ package_jouet.module_jouet.__file__
 
 +++
 
-Il est possible de redéfinir dans un module la variable `__all__`, de façon à définir les symboles qui sont réellement concernés par un `import *`, [comme c'est décrit ici](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package). 
+Il est possible de redéfinir dans un module la variable `__all__`, de façon à définir les symboles qui sont réellement concernés par un `import *`, [comme c'est décrit ici](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package).
 
 Je rappelle toutefois que l'usage de `import *` est fortement déconseillé dans du code de production.
 
@@ -202,13 +202,13 @@ Sur cet exemple, on montre comment un import relatif permet à un module d'impor
 
 +++
 
-Bien sûr ici on aurait pu faire 
+Bien sûr ici on aurait pu faire
 
 ```python
 import package_relatif.random
 ```
 
-au lieu de 
+au lieu de
 
 ```python
 from . import random
@@ -304,7 +304,7 @@ if __name__ == "__main__":
 
 Cet idiome très répandu permet d'insérer à la fin d'un module du code - souvent un code de test - qui :
 
-* va être exécuté quand on le passe directement à l'interpréteur python, mais 
+* va être exécuté quand on le passe directement à l'interpréteur python, mais
 * qui n'**est pas exécuté** lorsqu'on importe le module.
 
 +++
@@ -330,7 +330,7 @@ Pour pallier à ce type d'inconvénients, il a été introduit ultérieurment (v
 
 +++
 
-On voit que tout ceci est rapidement assez scabreux. Cela explique sans doute l'usage relativement peu répandu des imports relatifs. 
+On voit que tout ceci est rapidement assez scabreux. Cela explique sans doute l'usage relativement peu répandu des imports relatifs.
 
 De manière générale, une bonne pratique consiste à :
 
@@ -338,10 +338,10 @@ De manière générale, une bonne pratique consiste à :
 * toujours placer ces points d'entrée dans un répertoire séparé ;
 * notamment si vous utilisez `setuptools` pour distribuer votre application via `pypi.org`, vous verrez que ces points d'entrée sont complètement pris en charge par les outils d'installation.
 
-S'agissant des tests: 
+S'agissant des tests:
 
 * la technique qu'on a vue rapidement - de tester si `__name__` vaut `"__main__"` - est extrêmement basique et limitée. Le mieux est de ne pas l'utiliser en fait, en dehors de micro-maquettes.
-* en pratique on écrit les tests dans un répertoire séparé - souvent appelé `tests` - et en tirant profit de la librairie `unittest`. 
+* en pratique on écrit les tests dans un répertoire séparé - souvent appelé `tests` - et en tirant profit de la librairie `unittest`.
 * du coup les tests sont toujours exécutés avec une phrase comme
 
 ```bash
