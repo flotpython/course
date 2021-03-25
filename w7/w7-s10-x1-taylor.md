@@ -1,7 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
-  cell_metadata_json: true
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   encoding: '# -*- coding: utf-8 -*-'
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
@@ -11,8 +10,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: 'Exercice: taylor'
-version: '3.0'
+nbhosting:
+  title: Exercice: Taylor
 ---
 
 # Le théorème de Taylor illustré
@@ -93,43 +92,38 @@ class Taylor:
     provides an animated view of Taylor approximation
     where one can change the degree interactively
         
-    derivatives are computed on X=0, translate as needed
+    Taylor is applied on X=0, translate as needed
     """
+
     def __init__(self, function, domain):
-        """
-        initialized from
-        
-        Parameters:
-          function: an autograd-friendly vectorized function
-          domain: the X domain (typically a linspace)
-        """
         self.function = function
         self.domain = domain
-        self.regular_y = function(self.domain)
         
     def display(self, y_range):
         """
         create initial drawing with degree=0
         
         Parameters:
-          y_range: there is a need to display all degrees with a fixed 
-            range on the y-axis for smooth transitions; 
-            pass this as a (ymin, ymax) tuple
+          y_range: a (ymin, ymax) tuple
+            for the animation to run smoothly, we need to display
+            all Taylor degrees with a fixed y-axis range
         """
+        # create figure
         x_range = (self.domain[0], self.domain[-1])
         self.figure = figure(title=self.function.__name__,
                              x_range=x_range, y_range=y_range)
+
         # each of the 2 curves is a bokeh line object
-        self.line_exact = self.figure.line(
-            self.domain, self.regular_y, color='green')
+        self.figure.line(self.domain, self.function(self.domain), color='green')
+        # store this in an attribute so _update can do its job
         self.line_approx = self.figure.line(
             self.domain, self._approximated(0), color='red', line_width=2)
-        # that's what allows for smooth updates down the road
+
+        # needed so that push_notebook can do its job down the road
         self.handle = show(self.figure, notebook_handle=True)
 # @END@
 
 # @BEG@ name=taylor continued=true
-        
     def _approximated(self, degree):
         """
         Computes and returns the Y array, the images of the domain
@@ -147,19 +141,18 @@ class Taylor:
         for n in range(1, degree+1):
             # the term in f(n)(x)/n!
             result += derivative(0.)/factorial(n) * self.domain**n
-            # higher-orders derivatives
+            # next-order derivative
             derivative = autograd.grad(derivative)
         return result
 
     def _update(self, degree):
         # update the second curve only, of course
+        # the 2 magic lines for bokeh updates
         self.line_approx.data_source.data['y'] = self._approximated(degree)
         push_notebook(handle=self.handle)
         
     def interact(self, degree_widget):
         """
-        displays a widget for interatively modifying degree
-        
         Parameters:
           degree_widget: a ipywidget, typically an IntSlider
             styled at your convenience
