@@ -1,5 +1,5 @@
 jupytext[myst]
-jupyterlab
+# jupyterlab
 ipywidgets
 jupyter-contrib-nbextensions
 numpy
