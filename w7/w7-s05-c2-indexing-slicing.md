@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,9 +29,6 @@ version: '3.0'
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -54,11 +51,6 @@ Il est temps maintenant de voir que l'on peut *aussi* manipuler les tableaux `nu
 La façon la plus naturelle d'utiliser un tableau est habituellement à l'aide des indices. On peut aussi bien sûr accéder aux éléments d'un tableau `numpy` par des indices :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # une fonction qui crée un tableau
 # tab[i, j] = i + 10 * j
 def background(n):
@@ -68,53 +60,28 @@ def background(n):
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a5 = background(5)
 print(a5)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 Avec un seul index on obtient naturellement une ligne :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a5[1]
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # que l'on peut à nouveau indexer
 a5[1][2]
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # ou plus simplement indexer par un tuple
 a5[1, 2]
 ```
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---
@@ -126,11 +93,6 @@ print(a5)
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # ou toute une ligne
 a5[1] = np.arange(100, 105)
 print(a5)
@@ -143,41 +105,26 @@ a5[4] = 400
 print(a5)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 # Slicing
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Grâce au slicing on peut aussi référencer une colonne :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a5 = background(5)
 print(a5)
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a5[:, 3]
 ```
 
 C'est un tableau à une dimension, mais vous pouvez tout de même modifier la colonne par une affectation :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a5[:, 3] = range(300, 305)
 print(a5)
 ```
@@ -196,26 +143,14 @@ a5[:, 4] += 400
 print(a5)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 Les slices peuvent prendre une forme générale :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 a8 = background(8)
 print(a8)
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # toutes les lignes de rang 1, 4, 7
 a8[1::3]
 ```
@@ -226,26 +161,16 @@ a8[:, 1::4]
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # et on peut bien sûr les modifier
 a8[:, 1::4] = 0
 print(a8)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Du coup, le slicing peut servir à extraire des blocs :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # un bloc au hasard dans a8
 print(a8[5:8, 2:5])
 ```
@@ -258,9 +183,6 @@ On peut utiliser également le symbole spécial `np.newaxis` en conjonction avec
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---

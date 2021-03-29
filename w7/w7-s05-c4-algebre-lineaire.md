@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -13,7 +13,7 @@ notebookname: "Alg\xE8bre lin\xE9aire"
 version: '3.0'
 ---
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
@@ -21,7 +21,7 @@ version: '3.0'
 <span><img src="media/both-logos-small-alpha.png" /></span>
 </div>
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 # Algèbre linéaire
 
@@ -30,89 +30,57 @@ version: '3.0'
 ## Complément - niveau basique
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.ion()
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 Un aspect important de l'utilisation de `numpy` consiste à manipuler des matrices et vecteurs. Voici une rapide introduction à ces fonctionnalités.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Produit matriciel - `np.dot`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 **Rappel** : On a déjà vu que `*` entre deux tableaux faisait une multiplication terme à terme.
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 ligne = 1 + np.arange(3)
 print(ligne)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 colonne = 1 + np.arange(3).reshape(3, 1)
 print(colonne)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 ##### Ce n'est pas ce que l'on veut ici !
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # avec le broadcasting, numpy me laisse écrire ceci
 # mais **ce n'est pas** un produit matriciel
 print(ligne * colonne)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 L'opération de produit matriciel s'appelle `np.dot` :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 m1 = np.array([[1, 1],
                [2, 2]])
 print(m1)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 m2 = np.array([[10, 20],
                [30, 40]])
 print(m2)
@@ -121,9 +89,6 @@ print(m2)
 ```{code-cell}
 ---
 cell_style: split
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -162,7 +127,7 @@ for x, y in ( (10, 20), (10., 20.), ([10], [20]), ((10,), (20,))):
         print(f"OOPS - {type(e)} - {e}")
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Produit scalaire - `np.dot` ou `@`
 
@@ -171,23 +136,15 @@ for x, y in ( (10, 20), (10., 20.), ([10], [20]), ((10,), (20,))):
 Ici encore, vous pouvez utiliser `dot` qui va intelligemment transposer le second argument :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 v1 = np.array([1, 2, 3])
 print(v1)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 v2 = np.array([4, 5, 6])
 print(v2)
 ```
@@ -195,9 +152,6 @@ print(v2)
 ```{code-cell}
 ---
 cell_style: split
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -216,40 +170,28 @@ v1 @ v2
 
 Vous pouvez accéder à une matrice transposée de deux façons :
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 * soit sous la forme d'un attribut `m.T` :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 m = np.arange(4).reshape(2, 2)
 print(m)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(m.T)
 ```
 
 * soit par la méthode `transpose()` :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(m)
 ```
 
@@ -277,9 +219,6 @@ Avec `np.diag`, vous pouvez dans les deux sens :
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---
@@ -288,23 +227,15 @@ print(M)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 D = np.diag(M)
 print(D)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 M2 = np.diag(D)
 print(M2)
 ```
@@ -427,7 +358,7 @@ Z
 
 En résumé, ce qu'on vient de voir :
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 | outil             | propos                             |
 |:------------------|:-----------------------------------|

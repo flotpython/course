@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -37,7 +37,7 @@ L'exercice consiste à écrire une fonction baptisée `divisible` qui retourne u
 
 Vous pouvez supposer les entrées `a` et `b` entiers et non nuls, mais pas forcément positifs.
 
-```{code-cell} ipython3
+```{code-cell}
 :tags: []
 
 # par exemple
@@ -45,14 +45,14 @@ from corrections.exo_divisible import exo_divisible
 exo_divisible.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def divisible(a, b):
     "<votre_code>"
 ```
 
 Vous pouvez à présent tester votre code en évaluant ceci, qui écrira un message d'erreur si un des jeux de test ne donne pas le résultat attendu.
 
-```{code-cell} ipython3
+```{code-cell}
 # tester votre code
 exo_divisible.correction(divisible)
 ```
@@ -77,20 +77,20 @@ f: x \longrightarrow \left\{
 \right.
 $$
 
-```{code-cell} ipython3
+```{code-cell}
 # donc par exemple
 from corrections.exo_morceaux import exo_morceaux
 exo_morceaux.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 
 def morceaux(x):
     return 0 # "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger votre code
 exo_morceaux.correction(morceaux)
 ```
@@ -108,13 +108,13 @@ Voici ce qui est attendu comme courbe pour `morceaux` (image fixe) :
 
 En partant de votre code, vous pouvez produire votre propre courbe en utilisant `numpy` et `matplotlib` comme ceci :
 
-```{code-cell} ipython3
+```{code-cell}
 # on importe les bibliothèques
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # un échantillon des X entre -10 et 20
 X = np.linspace(-10, 20)
 
@@ -122,7 +122,7 @@ X = np.linspace(-10, 20)
 Y = np.vectorize(morceaux)(X)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # on n'a plus qu'à dessiner
 plt.plot(X, Y)
 plt.show()

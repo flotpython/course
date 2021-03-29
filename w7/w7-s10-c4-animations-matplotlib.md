@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -55,13 +55,13 @@ Pour fabriquer cela nous aurons besoin principalement :
 * de la librairie d'animation de matplotlib, et spécifiquement le sous-package `animation`,
 * et des widgets du module `ipywidgets`.
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from IPython.display import display as display_widget
 from ipywidgets import IntSlider
 ```
@@ -96,7 +96,7 @@ Cette version est inspirée du [tutorial matplotlib sur les animations](https://
 
 Mais avant tout choisissons ce mode de rendu :
 
-```{code-cell} ipython3
+```{code-cell}
 %matplotlib notebook
 ```
 
@@ -113,7 +113,7 @@ Dans notre cas, nous allons créer une instance unique d'un objet `plot`; cette 
 
 ##### Version basique dite *tout-en-un*
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -158,7 +158,7 @@ plt.show()
 
 ### Séparation calcul et affichage
 
-```{code-cell} ipython3
+```{code-cell}
 plt.ion()
 ```
 
@@ -187,7 +187,7 @@ Cette constatation nous amène à une deuxième version, en concevant un **gén�
 
 ##### Version non interactive, mais avec séparation calcul / affichage
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -245,7 +245,7 @@ Pour rendre ceci interactif, nous allons simplement ajouter un widget qui nous p
 
 ##### Version interactive avec widget pour choisir la vitesse
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation

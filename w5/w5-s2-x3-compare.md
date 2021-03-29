@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -55,7 +55,7 @@ Pour information dans cet exercice :
  * `factorial` correspond à `math.factorial`
  * `fact` et `broken_fact` sont des fonctions implémentées par nos soins, la première est correcte alors que la seconde retourne 0 au lieu de 1 pour l'entrée 0.
 
-```{code-cell} ipython3
+```{code-cell}
 # par exemple
 from corrections.exo_compare_all import exo_compare_all
 exo_compare_all.example()
@@ -63,13 +63,13 @@ exo_compare_all.example()
 
 Ce qui, dit autrement, veut tout simplement dire que `fact` et `factorial` coïncident sur les entrées 0, 1 et 5, alors que `broken_fact` et `factorial` ne renvoient pas la même valeur avec l'entrée `0`.
 
-```{code-cell} ipython3
+```{code-cell}
 # c'est à vous
 def compare_all(f, g, entrees):
     "<votre code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_compare_all.correction(compare_all)
 ```
@@ -100,17 +100,17 @@ Pour information, dans tout cet exercice :
  * `add` correspond à l'addition binaire `operator.add` ;
  * `plus` et `broken_plus` sont des additions binaires que nous avons écrites, l'une étant correcte et l'autre étant fausse lorsque le premier argument est nul.
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_compare_args import exo_compare_args
 exo_compare_args.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def compare_args(votre, signature):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_compare_args.correction(compare_args)
 ```

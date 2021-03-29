@@ -6,7 +6,7 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -53,7 +53,7 @@ Pour rappel, le point d'entrée c'est le nom du fichier que vous passez à l'int
 Lorsque vous lancez l'interpréteur **en mode interactif** (sans lui donner de point d'entrée), c'est **le répertoire courant** qui sert alors d'emplacement par défaut pour votre code. 
 Le répertoire courant, c'est celui où vous vous trouvez quand vous lancez la commande python. Si vous n'êtes pas sûr de cet emplacement vous pouvez le savoir en faisant :
 
-```{code-cell} ipython3
+```{code-cell}
 from pathlib import Path
 Path.cwd()
 ```

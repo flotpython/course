@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -40,7 +40,7 @@ Elle construit et retourne alors un tableau carré de taille `size` x `size`, qu
 
 On rappelle par ailleurs que `False == 0` et `True == 1`.
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 
 from corrections.exo_checkers import exo_checkers
@@ -49,7 +49,7 @@ from corrections.exo_checkers import exo_checkers
 exo_checkers.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:hidden-code-instead: checkers=exo_checkers.solution
 :latex:hidden-silent: true
 
@@ -58,14 +58,14 @@ def checkers(size, corner_0_0=True):
     return "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger votre code
 exo_checkers.correction(checkers)
 ```
 
 ### Visualisation
 
-```{code-cell} ipython3
+```{code-cell}
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.ion()
@@ -73,13 +73,13 @@ plt.ion()
 
 L'exercice est terminé, mais si vous avez réussi et que vous voulez visualisez le résultat, voici comment vous pouvez aussi voir ce type de tableau :
 
-```{code-cell} ipython3
+```{code-cell}
 checkerboard = checkers(8, False)
 ```
 
 Pour le voir comme une image:
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: fragment

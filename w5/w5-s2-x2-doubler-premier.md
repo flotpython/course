@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -45,29 +45,29 @@ Voici d'abord quelques exemples de ce qui est attendu. Pour cela on va utiliser 
 
 $distance$ ($x_1$, ..., $x_n$) = $\sqrt{\sum x_i^2}$
 
-```{code-cell} ipython3
+```{code-cell}
 # rappel sur la fonction distance:
 from corrections.exo_distance import distance
 distance(3.0, 4.0)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 distance(4.0, 4.0, 4.0, 4.0)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # voici donc quelques exemples de ce qui est attendu.
 from corrections.exo_doubler_premier import exo_doubler_premier
 exo_doubler_premier.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def doubler_premier(votre, signature):
     return "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_doubler_premier.correction(doubler_premier)
 ```
 
@@ -77,7 +77,7 @@ Vous devez maintenant écrire une deuxième version qui peut fonctionner avec un
 
 La fonction `doubler_premier_kwds` que l'on vous demande d'écrire maintenant prend donc un premier argument `f` qui est une fonction, un second argument positionnel qui est le premier argument de `f` (et donc qu'il faut doubler), et le reste des arguments de f, qui donc, à nouveau, peuvent être nommés ou non.
 
-```{code-cell} ipython3
+```{code-cell}
 # avec ces deux fonctions
 
 def add3(x, y=0, z=0):
@@ -87,7 +87,7 @@ def mul3(x=1, y=1, z=1):
     return x * y * z
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # voici des exemples de ce qui est attendu
 from corrections.exo_doubler_premier_kwds import exo_doubler_premier_kwds
 exo_doubler_premier_kwds.example()
@@ -101,12 +101,12 @@ doubler_premier_kwds (muln, x=1, y=1)
    
 que l'on ne demande pas de supporter puisqu'il est bien précisé que doubler_premier a deux arguments positionnels.
 
-```{code-cell} ipython3
+```{code-cell}
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def doubler_premier_kwds(votre, signature):
     "<votre code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_doubler_premier_kwds.correction(doubler_premier_kwds)
 ```

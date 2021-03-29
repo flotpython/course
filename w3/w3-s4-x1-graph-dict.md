@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ version: '3.0'
 
 On veut implémenter un petit modèle de graphes. Comme on a les données dans des fichiers, on veut analyser des fichiers d'entrée qui ressemblent à ceci :
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 !cat data/graph1.txt
@@ -54,7 +54,7 @@ Dans cet exercice on choisit :
 * de modéliser le graphe comme un dictionnaire indexé sur les (noms de) sommets ;
 * et chaque valeur est une liste de tuples de la forme (*suivant*, *longueur*), dans l'ordre d'apparition dans le fichier d'entrée.
 
-```{code-cell} ipython3
+```{code-cell}
 # voici ce qu'on obtiendrait par exemple avec les données ci-dessus
 from corrections.exo_graph_dict import exo_graph_dict
 exo_graph_dict.example()
@@ -65,7 +65,7 @@ exo_graph_dict.example()
 * Vous remarquerez que l'exemple ci-dessus retourne un dictionnaire standard; une solution qui utiliserait `defaultdict` est acceptable également;
 * Notez bien également que dans le résultat, la longueur d'un arc est attendue comme un **`int`**.
 
-```{code-cell} ipython3
+```{code-cell}
 # n'oubliez pas d'importer si nécessaire
 
 # à vous de jouer
@@ -73,6 +73,6 @@ def graph_dict(filename):
     "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_graph_dict.correction(graph_dict)
 ```

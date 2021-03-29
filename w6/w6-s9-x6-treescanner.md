@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ On veut écrire **une fonction génératrice** qui énumère tous les noeuds d'u
 
 Pour simplifier l'exercice au maximum, nous ne considérons que des entrées constituées de listes et d'entiers.
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.gen_treescanner import exo_treescanner
 exo_treescanner.example()
 ```
@@ -40,13 +40,13 @@ la présentation de l'exemple peut laisser penser qu'il faut retourner une liste
 mais ce n'est pas ce qui est demandé !  
 **attention** à bien implémenter **une fonction génératrice**
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 def treescanner(tree):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour le corriger
 
 exo_treescanner.correction(treescanner)

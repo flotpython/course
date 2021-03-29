@@ -6,7 +6,7 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -52,7 +52,7 @@ on choisit de représenter le résultat par
 
 * le système de correction automatique a besoin également que votre classe définisse son comportement vis-à-vis de `repr()` ; regardez les exemples pour voir la représentation choisie
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: center
 
 # ATTENTION à ceci !!
@@ -64,7 +64,7 @@ from math import nan
 nan == nan
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # pour tester si quelque chose est indéfini
@@ -75,7 +75,7 @@ from math import isnan
 isnan(nan)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # enfin pour info (on n'en a pas besoin ici)
@@ -86,14 +86,14 @@ import numpy as np
 np.isnan(nan), isnan(np.nan)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.cls_roman import exo_roman
 exo_roman.example()
 ```
 
 *****
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
 
 class Roman:
@@ -102,14 +102,14 @@ class Roman:
         ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # correction
 exo_roman.correction(Roman)
 ```
 
 *****
 
-```{code-cell} ipython3
+```{code-cell}
 # peut-être utile pour debugger ?
 raw = """
 MCMXXXIX=1939
@@ -168,7 +168,7 @@ MMXXVII=2027
 MMXXVIII=2028"""
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 for line in raw.split():
     l, n = line.split('=')
     if Roman(l) != Roman(n):

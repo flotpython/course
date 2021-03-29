@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -58,7 +58,7 @@ On convient que par défaut `nb_dice`=2 et `nb_sides`=6, qui correspond au cas h
 
 Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 
 from corrections.exo_dice import exo_dice
@@ -74,7 +74,7 @@ Pour devancer les remarques sur le forum de discussion:
 * ce n'est pas parce cette semaine on étudie numpy que vous devez vous sentir obligé de le faire en numpy. 
 * vous pouvez même vous donner comme objectif de le faire deux fois, avec et sans numpy :)
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:hidden-code-instead: dice=exo_dice.solution
 :latex:hidden-silent: true
 
@@ -83,7 +83,7 @@ def dice(target, nb_dice=2, nb_sides=6):
     return "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger votre code
 exo_dice.correction(dice)
 ```

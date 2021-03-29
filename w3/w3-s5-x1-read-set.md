@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ version: '3.0'
 
 On se propose d'écrire une fonction `read_set` qui construit un ensemble à partir du contenu d'un fichier. Voici par exemple un fichier d'entrée :
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: center
 
 !cat data/setref1.txt
@@ -37,18 +37,18 @@ On se propose d'écrire une fonction `read_set` qui construit un ensemble à par
 
 `read_set` va prendre en argument un nom de fichier (vous pouvez supposer qu'il existe), enlever les espaces éventuelles au début et à la fin de chaque ligne, et construire un ensemble de toutes les lignes ; par exemple :
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_read_set import exo_read_set
 exo_read_set.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # écrivez votre code ici
 def read_set(filename):
     "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # vérifiez votre code ici
 exo_read_set.correction(read_set)
 ```
@@ -59,7 +59,7 @@ exo_read_set.correction(read_set)
 
 ## Deuxième partie - niveau basique
 
-```{code-cell} ipython3
+```{code-cell}
 # la définition de l'exercice
 from corrections.exo_read_set import exo_search_in_set
 ```
@@ -76,29 +76,29 @@ Pour cela `search_in_set` doit retourner une liste contenant, pour chaque ligne 
 
 Par exemple :
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 !cat data/setref1.txt
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 !cat data/setsample1.txt
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_search_in_set.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous
 def search_in_set(filename_reference, filename):
     "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # vérifiez
 exo_search_in_set.correction(search_in_set)
 ```

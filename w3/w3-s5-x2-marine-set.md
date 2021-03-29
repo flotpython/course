@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -33,7 +33,7 @@ version: '3.0'
 
 Nous reprenons le même genre de données marines en provenance de MarineTraffic que nous avons vues dans l'exercice précédent.
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_marine_set import exo_diff
 from corrections.exo_marine_set import abbreviated, extended
 ```
@@ -45,17 +45,17 @@ from corrections.exo_marine_set import abbreviated, extended
     étendu: [id, latitude, longitude, date_heure, nom_bateau, code_pays...]
     abrégé: [id, latitude, longitude, date_heure]
 
-```{code-cell} ipython3
+```{code-cell}
 print(extended[0])
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 print(abbreviated[0])
 ```
 
 ### But de l'exercice
 
-```{code-cell} ipython3
+```{code-cell}
 # chargement de l'exercice
 from corrections.exo_marine_set import exo_diff
 ```
@@ -74,7 +74,7 @@ qui retourne un tuple à trois éléments :
 * l'ensemble des **noms** des bateaux présents dans `extended` et dans `abbreviated` ;
 * l'ensemble des **id** des bateaux présents dans `abbreviated` mais pas dans `extended` (par construction, les données ne nous permettent pas d'obtenir les noms de ces bateaux).
 
-```{code-cell} ipython3
+```{code-cell}
 # le résultat attendu
 result = exo_diff.resultat(extended, abbreviated)
 
@@ -98,7 +98,7 @@ show_result(extended, abbreviated, result)
 
 ### Votre code
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:hidden-code-instead: diff = exo_diff.solution
 :latex:hidden-silent: true
 
@@ -108,7 +108,7 @@ def diff(extended, abbreviated):
 
 ### Validation
 
-```{code-cell} ipython3
+```{code-cell}
 exo_diff.correction(diff, extended, abbreviated)
 ```
 
@@ -123,7 +123,7 @@ Comme pour l'exercice précédent, les données fournies ici sont très simplist
 
 Ce qui donnerait en Python :
 
-```{code-cell} ipython3
+```{code-cell}
 # load data from files
 import json
 
@@ -134,7 +134,7 @@ with open("data/marine-e2-abb.json", encoding="utf-8") as feed:
     abbreviated_full = json.load(feed)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # le résultat de votre fonction sur des données plus vastes
 # attention, show_result fait des hypothèses sur le type de votre résultat
 # aussi si vous essayez d'exécuter ceci avec comme fonction diff

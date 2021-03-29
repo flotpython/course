@@ -51,7 +51,7 @@ Pour calculer les dérivées successives j'utilise la librairie `autograd`.
 
 Ce code est relativement générique, vous pouvez visualiser l'approximation de Taylor avec une fonction que vous passez en paramètre - qui doit avoir tout de même la bonne propriété d'être vectorisée, et d'utiliser la couche `numpy` exposée par `autograd` :
 
-```{code-cell} ipython3
+```{code-cell}
 # to compute derivatives
 import autograd
 import autograd.numpy as np
@@ -59,13 +59,13 @@ import autograd.numpy as np
 
 Sinon pour les autres dépendances, j'ai utilisé les `ipywidgets` et `bokeh`
 
-```{code-cell} ipython3
+```{code-cell}
 from math import factorial
 
 from ipywidgets import interact, IntSlider, Layout
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from bokeh.plotting import figure, show
 from bokeh.io import push_notebook, output_notebook
 
@@ -82,7 +82,7 @@ J'ai défini une classe `Taylor`, je ne vous montre pas encore le code, je vais 
 
 <span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
 
-```{code-cell} ipython3
+```{code-cell}
 :hide_input: true
 
 # @BEG@ name=taylor
@@ -162,7 +162,7 @@ class Taylor:
 
 <span style='background-color: #9EBC9E; padding:5px;'>↑↑↑↑↑ ↑↑↑↑↑ assurez-vous de **bien évaluer la cellule cachée** ici ↑↑↑↑↑ ↑↑↑↑↑</span>
 
-```{code-cell} ipython3
+```{code-cell}
 # check the code was properly loaded
 help(Taylor)
 ```
@@ -174,7 +174,7 @@ help(Taylor)
 Ma classe `Taylor` s'utilise comme ceci : d'abord on crée une instance à partir d'une fonction
 et d'un domaine, i.e. l'intervalle des X qui nous intéresse.
 
-```{code-cell} ipython3
+```{code-cell}
 # between -4π and 4π
 DOMAIN = np.linspace(-4*np.pi, 4*np.pi, 250)
 
@@ -188,7 +188,7 @@ sinus_animator = Taylor(np.sin, DOMAIN)
 
 Ensuite on crée un `ipywidget` qui va nous permettre de choisir le degré $n$; dans le cas de sinus, qui est impaire, les degrés intéressants sont impairs (vous pouvez vérifier que les coefficients de Taylor pairs sont nuls lorsque $f$ est impaire).
 
-```{code-cell} ipython3
+```{code-cell}
 # the widget to select a degree
 sinus_widget = IntSlider(
    min=1, max=33, step=2,        # sinus being odd we skip even degrees
@@ -201,7 +201,7 @@ Pour lancer l'interaction, on n'a plus qu'à :
 
 puis lancer l'interaction en passant en paramètre le widget qui choisit le degré, ce qui donne :
 
-```{code-cell} ipython3
+```{code-cell}
 # fixed limits in Y
 sinus_animator.display((-1.5, 1.5))
 
@@ -214,7 +214,7 @@ sinus_animator.interact(sinus_widget)
 
 La même chose avec cosinus nous donnerait ceci :
 
-```{code-cell} ipython3
+```{code-cell}
 # allows to select a degree
 sinus_widget = IntSlider(
    min=0, max=34, step=2,      # only even degrees
@@ -228,7 +228,7 @@ sinus_animator.interact(sinus_widget)
 
 ### exponentielle
 
-```{code-cell} ipython3
+```{code-cell}
 # allows to select a degree
 exp_widget = IntSlider(min=0, max=17,
    layout=Layout(width='100%'))
@@ -265,18 +265,18 @@ Ma classe `Taylor` s'inspire très exactement de la technique décrite dans le C
 
 La seule fonction que j'ai utilisée de la bibliothèque `autograd` est `grad` :
 
-```{code-cell} ipython3
+```{code-cell}
 from autograd import grad
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # dans le cas de sinus par exemple
 # les dérivées successives en 0 se retrouvent comme ceci
 f = np.sin  # à nouveau cette fonction est autograd.numpy.sin
 f(0.)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # ordre 1
@@ -284,7 +284,7 @@ f1 = grad(f)
 f1(0.)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # ordre 2
@@ -302,7 +302,7 @@ Vous pouvez naturellement simplifier autant que vous le souhaitez, ou modifier l
 
 À titre indicatif ma classe `Taylor` fait environ 30 lignes de code utile, i.e. sans compter les lignes blanches, les docstrings et les commentaires.
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 
 class MyTaylor:
@@ -324,7 +324,7 @@ class MyTaylor:
         print("inactive for now")
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # testing MyTaylor on cosinus
 
 sinus_widget = IntSlider(

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -40,18 +40,18 @@ Elle devra retourner une chaîne de caractères selon que la note est
 
 comme on le voit sur les exemples :
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_label import exo_label
 exo_label.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 def label(prenom, note):
     "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger
 exo_label.correction(label)
 ```

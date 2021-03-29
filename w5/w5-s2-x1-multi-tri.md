@@ -6,7 +6,7 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -48,7 +48,7 @@ version: '3.0'
  * accepte en argument une liste de listes,
  * et qui retourne **la même liste**, mais avec toutes les sous-listes **triées en place**.
 
-```{code-cell} ipython3
+```{code-cell}
 # voici un exemple de ce qui est attendu
 from corrections.exo_multi_tri import exo_multi_tri
 exo_multi_tri.example()
@@ -56,12 +56,12 @@ exo_multi_tri.example()
 
 Écrivez votre code ici :
 
-```{code-cell} ipython3
+```{code-cell}
 def multi_tri(listes): 
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_multi_tri.correction(multi_tri)
 ```
@@ -72,7 +72,7 @@ exo_multi_tri.correction(multi_tri)
 
 ### Tri de plusieurs listes, dans des directions différentes
 
-```{code-cell} ipython3
+```{code-cell}
 # pour charger l'exercice
 from corrections.exo_multi_tri_reverse import exo_multi_tri_reverse
 ```
@@ -85,19 +85,19 @@ Comme tout à l'heure le premier argument est une liste de listes à trier.
 
 Comme dans l'exercice `multi_tri`, il s'agit de modifier en place les données en entrée, et de retourner la liste de départ.
 
-```{code-cell} ipython3
+```{code-cell}
 # Pour être un peu plus clair, voici à quoi on s'attend
 exo_multi_tri_reverse.example()
 ```
 
 À vous de jouer :
 
-```{code-cell} ipython3
+```{code-cell}
 def multi_tri_reverse(listes, reverses):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # et pour vérifier votre code
 exo_multi_tri_reverse.correction(multi_tri_reverse)
 ```
@@ -123,13 +123,13 @@ L'exercice consite à trier la liste en place, selon le critère suivant :
 * en cas de prénoms identiques, on trie selon les entrées concernées selon le nom
 * en cas d'homonymes pour le nom et le prénom, on retient d'abord les gens qui n'ont pas de deuxième prénom, et on trie les autres selons leur deuxième prénom.
 
-```{code-cell} ipython3
+```{code-cell}
 # voyons cela sur un premier exemple
 from corrections.exo_tri_custom import exo_tri_custom
 exo_tri_custom.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def tri_custom(liste):
     ... # votre code
     return liste
@@ -137,7 +137,7 @@ def tri_custom(liste):
 
 **Indice** on peut bien sûr utiliser `list.sort()` pour faire ce travail en quelques lignes; voyez notamment le paramètre `key`.
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger votre code
 exo_tri_custom.correction(tri_custom)
 ```

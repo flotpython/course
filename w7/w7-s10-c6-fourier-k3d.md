@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   encoding: '# -*- coding: utf-8 -*-'
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
@@ -31,21 +31,21 @@ En guise de bonus, on va en profiter pour représenter aussi la fonction complex
 
 Mais commençons par importer ce qui va nous servir.
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 # mostly we use bokeh in here, but the first glimpse is made with mpl
 import matplotlib.pyplot as plt
 %matplotlib notebook
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from bokeh.plotting import figure, show
 from bokeh.io import push_notebook, output_notebook
 
 output_notebook()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # install with - unsurprisingly (from the terminal)
 # pip install ipywidgets
 
@@ -53,7 +53,7 @@ from ipywidgets import interact, fixed
 from ipywidgets import SelectionSlider, IntSlider
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # ditto w/
 # pip install k3d
 
@@ -67,7 +67,7 @@ from k3d.plot import Plot
 
 On considère donc une fonction périodique, comme celle-ci :
 
-```{code-cell} ipython3
+```{code-cell}
 # a vectorized function is required here
 
 def my_periodic_2pi(t): 
@@ -77,7 +77,7 @@ def my_periodic_2pi(t):
 
 Pour un aperçu, on la plotte rapidement avec matplotlib
 
-```{code-cell} ipython3
+```{code-cell}
 def plot_functions(domain, title, *functions):
     plt.figure(figsize=(4, 2))
     for function in functions:
@@ -98,14 +98,14 @@ Comme on le voit, la période est de 2π, évidemment;
 pour nous simplifier la vie nous allons changer l'échelle des x, pour travailler avec une période entière, ce sera plus facile pour faire les calculs mentalement;  
 je choisis arbitrairement une période = 2 :
 
-```{code-cell} ipython3
+```{code-cell}
 # this one has a period of 2
 def my_periodic(t):
     "addition of 3 sinus - period = 2"
     return my_periodic_2pi(t*np.pi)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 D1 = np.linspace(0, 6, 200)
 
 plot_functions(D1, "now period=2", my_periodic)
@@ -115,7 +115,7 @@ plot_functions(D1, "now period=2", my_periodic)
 
 En ignorant la constante additive 2, on sait donc que notre fonction d'entrée est la superposition des 3 fonctions
 
-```{code-cell} ipython3
+```{code-cell}
 def H1(t):
     "fundamental"
     return 2*np.sin(t*np.pi)
@@ -143,7 +143,7 @@ La transformée de Fourier permet de retrouver ces 3 morceaux, donc par contruct
 
 Du coup on va avoir envie de s'intéresser à plusieurs plages de fréquence :
 
-```{code-cell} ipython3
+```{code-cell}
 from ipywidgets import FloatSlider, Dropdown, Layout
 # for building sliders
 full_width = Layout(width='100%')
@@ -204,7 +204,7 @@ Vous avez sans doute déjà remarqué que chaque librairie de visualisation s'at
 
 En tous cas notez que de manière opportuniste, la méthode centrale ici, à savoir `compute_dots_and_center()`, retourne ses données sous un format qui est propice pour `k3d` - qui aime les tableaux de `shape` $(n, 3)$, d'où l'appel à `np.stack()`.
 
-```{code-cell} ipython3
+```{code-cell}
 class FourierAnimator3D(Plot):
     
     DOTS_PER_UNIT = 50
@@ -257,7 +257,7 @@ class FourierAnimator3D(Plot):
         interact(lambda phi: self.update(phi), phi=phi_widget)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 a3d = FourierAnimator3D(my_periodic, phi=1.)
 display(a3d)
 a3d.interact(full_spectrum())
@@ -307,7 +307,7 @@ Ce qu'on observe sur cette première visualisation, - on va le voir encore mieux
 Il ne nous reste plus qu'à représenter la même chose, mais cette fois en 2D en regardant le long de l'axe des x;
 la logique est la même, sauf pour le format de retour de `compute_dots_and_center`, qui est adapté pour `bokeh` :
 
-```{code-cell} ipython3
+```{code-cell}
 DEFAULT_RANGE = (-6, 6)
 DEFAULT_DOMAIN = 100
 
@@ -360,7 +360,7 @@ class FourierAnimator2D:
         interact(lambda phi: self.update(phi), phi=phi_widget)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 a2d = FourierAnimator2D(my_periodic, FUNDAMENTAL)
 a2d.display()
 a2d.interact(full_spectrum())
@@ -368,7 +368,7 @@ a2d.interact(full_spectrum())
 
 On peut même zoomer autour des fréquences critiques :
 
-```{code-cell} ipython3
+```{code-cell}
 a2d.interact(closeup_around(FUNDAMENTAL))
 ```
 
@@ -385,7 +385,7 @@ C'est pour cela qu'on a l'illusion qu'au voisinage d'une fréquence sensible, le
 
 Par contre ce sont les vitesses de calcul qui vont commencer à nous limiter :
 
-```{code-cell} ipython3
+```{code-cell}
 # la discontinuité est plus forte qu'on ne pourrait le penser
 # mais pour le vois il faut augmenter le domaine
 # et donc les calculs sont plus lents

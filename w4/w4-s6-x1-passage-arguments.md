@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -34,19 +34,19 @@ $distance$ ($x_1$, ..., $x_n$) = $\sqrt{\sum x_i^2}$
 
 Par convention on fixe que $distance() = 0$
 
-```{code-cell} ipython3
+```{code-cell}
 # des exemples
 from corrections.exo_distance import exo_distance
 exo_distance.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def distance(votre, signature):
     return "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # la correction
 exo_distance.correction(distance)
 ```
@@ -66,7 +66,7 @@ de ses arguments.
 
 Si aucun argument n'est passé, `numbers` doit renvoyer un tuple contenant 3 entiers `0`.
 
-```{code-cell} ipython3
+```{code-cell}
 # par exemple
 from corrections.exo_numbers import exo_numbers
 exo_numbers.example()
@@ -74,13 +74,13 @@ exo_numbers.example()
 
 En guise d'indice, je vous invite à regarder les fonctions *built-in* [`sum`](https://docs.python.org/3/library/functions.html#sum), [`min`](https://docs.python.org/3/library/functions.html#min) et [`max`](https://docs.python.org/3/library/functions.html#max).
 
-```{code-cell} ipython3
+```{code-cell}
 # vous devez définir votre propre signature
 def numbers(votre, signature):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_numbers.correction(numbers)
 ```

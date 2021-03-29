@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -43,18 +43,18 @@ b\ impair & a*(b-1)& a^2-b^2\\
 \end{array}
 $$
 
-```{code-cell} ipython3
+```{code-cell}
 # un petit exemple
 from corrections.exo_dispatch import exo_dispatch1
 exo_dispatch1.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def dispatch1(a, b):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_dispatch1.correction(dispatch1)
 ```
@@ -84,19 +84,19 @@ b\notin B & a*(b-1)& a^2+b^2\\
 \end{array}
 $$
 
-```{code-cell} ipython3
+```{code-cell}
 # un exemple
 from corrections.exo_dispatch import exo_dispatch2
 exo_dispatch2.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous
 def dispatch2(a, b, A, B):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_dispatch2.correction(dispatch2)
 ```

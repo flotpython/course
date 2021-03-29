@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -36,19 +36,19 @@ Cette fois, chaque ligne contient, séparés par des points-virgules, une liste 
 
 À nouveau les lignes peuvent être remplies de manière approximative, avec des espaces, des tabulations, ou même des points-virgules en trop, que ce soit au début, à la fin, ou au milieu d'une ligne.
 
-```{code-cell} ipython3
+```{code-cell}
 # exemples
 from corrections.exo_carre import exo_carre
 exo_carre.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # écrivez votre code ici
 def carre(ligne):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger
 exo_carre.correction(carre)
 ```

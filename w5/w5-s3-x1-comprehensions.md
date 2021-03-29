@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,18 +29,18 @@ version: '3.0'
 
 Il vous est demandé d'écrire une fonction `aplatir` qui prend *un unique* argument `l_conteneurs` qui est une liste (ou plus généralement un itérable) de conteneurs (ou plus généralement d'itérables), et qui retourne la liste de tous les éléments de tous les conteneurs.
 
-```{code-cell} ipython3
+```{code-cell}
 # par exemple
 from corrections.exo_aplatir import exo_aplatir
 exo_aplatir.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def aplatir(conteneurs):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # vérifier votre code
 exo_aplatir.correction(aplatir)
 ```
@@ -49,7 +49,7 @@ exo_aplatir.correction(aplatir)
 
 À présent, on passe en argument deux conteneurs (deux itérables) `c1` et `c2` de même taille à la fonction `alternat`, qui doit construire une liste contenant les éléments pris alternativement dans `c1` et dans `c2`.
 
-```{code-cell} ipython3
+```{code-cell}
 # exemple
 from corrections.exo_alternat import exo_alternat
 exo_alternat.example()
@@ -57,12 +57,12 @@ exo_alternat.example()
 
 **Indice** pour cet exercice il peut être pertinent de recourir à la fonction *built-in* `zip`.
 
-```{code-cell} ipython3
+```{code-cell}
 def alternat(c1, c2):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_alternat.correction(alternat)
 ```
@@ -79,18 +79,18 @@ On se donne deux ensembles A et B de tuples de la forme
 
 On vous demande d'écrire une fonction `intersect` qui retourne l'ensemble des objets `valeur` associés (dans A ou dans B) à un entier qui soit présent dans (un tuple de) A *et* dans (un tuple de) B.
 
-```{code-cell} ipython3
+```{code-cell}
 # un exemple
 from corrections.exo_intersect import exo_intersect
 exo_intersect.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def intersect(A, B):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_intersect.correction(intersect)
 ```

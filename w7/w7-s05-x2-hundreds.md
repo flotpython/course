@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -40,7 +40,7 @@ Le résultat doit être un tableau de taille `lines` x `columns`, composé d'ent
 
 $$result[i, j] = 100 * i + 10 * j + offset$$
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: fragment
@@ -52,7 +52,7 @@ from corrections.exo_hundreds import exo_hundreds
 exo_hundreds.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:hidden-code-instead: hundreds=exo_hundreds.solution
 :latex:hidden-silent: true
 
@@ -61,7 +61,7 @@ def hundreds(lines, columns, offset):
     return "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour corriger votre code
 exo_hundreds.correction(hundreds)
 ```

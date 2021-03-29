@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -40,13 +40,13 @@ Le but de l'exercice est d'écrire une fonction `comptage` :
  * le fichier d'entrée est laissé intact ;
  * pour chaque ligne en entrée, le fichier de sortie comporte une ligne qui donne le numéro de ligne, le nombre de mots (**séparés par des espaces**), le nombre de caractères (y compris la fin de ligne), et la ligne d'origine.
 
-```{code-cell} ipython3
+```{code-cell}
 # un exemple de ce qui est attendu
 from corrections.exo_comptage import exo_comptage
 exo_comptage.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
 def comptage(in_filename, out_filename):
    "votre code"
@@ -54,7 +54,7 @@ def comptage(in_filename, out_filename):
 
 **N'oubliez pas de vérifier** que vous ajoutez bien les **fins de ligne**, car la vérification automatique est pointilleuse (elle utilise l'opérateur `==`), et rejettera votre code si vous ne produisez pas une sortie rigoureusement similaire à ce qui est attendu.
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 # voyez aussi un peu plus bas, une cellule d'aide au debugging
 
@@ -63,7 +63,7 @@ exo_comptage.correction(comptage)
 
 La méthode `debug` applique votre fonction au premier fichier d'entrée, et affiche le résultat comme dans l'exemple ci-dessus :
 
-```{code-cell} ipython3
+```{code-cell}
 # debugging
 exo_comptage.debug(comptage)
 ```

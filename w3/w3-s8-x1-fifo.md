@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -37,13 +37,13 @@ Cette classe s'appelle `Fifo` pour *First In, First Out*, c'est-à-dire que les 
 
 La méthode `outgoing` retourne `None` lorsqu'on l'appelle sur une pile vide.
 
-```{code-cell} ipython3
+```{code-cell}
 # voici un exemple de scénario
 from corrections.cls_fifo import exo_fifo
 exo_fifo.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # vous pouvez définir votre classe ici
 class Fifo:
     def __init__(self):
@@ -54,7 +54,7 @@ class Fifo:
         "votre code"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # et la vérifier ici
 exo_fifo.correction(Fifo)
 ```

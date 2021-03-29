@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -25,7 +25,7 @@ version: '3.0'
 
 +++
 
-## remplir une matrice : $m(i, j) = xi * xj$ 
+## remplir une matrice : $m(i, j) = xi * xj$
 
 +++
 
@@ -40,7 +40,7 @@ $$
 
 Vous n'avez pas besoin de vérifier que l'appelant passe au moins un paramètre, ou dit autrement, les jeux de tests n'essaient pas d'appeler la fonction sans argument.
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 
 # c'est ce qu'on voit sur cet exemple
@@ -50,14 +50,14 @@ from corrections.exo_xixj import exo_xixj
 exo_xixj.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 # n'oubliez pas de déclarer les paramètres de votre fonction
 def xixj():
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_xixj.correction(xixj)
 ```
 
@@ -67,11 +67,11 @@ Vous trouverez dans les solutions 3 façons d'implémenter cette fonction; elles
 l'opérateur `@`, la méthode `array.dot()`, le broadcasting.  
 Souvenez vous que la transposée d'une matrice peut être obtenue en numpy avec l'attribut `.T` :
 
-```{code-cell} ipython3
+```{code-cell}
 ligne = np.array([1, 2, 3])
 ligne.reshape(3, 1)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 ligne.T
 ```

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -47,7 +47,7 @@ Naturellement puisque le sujet de la séquence est les expressions génératrice
 
 **NOTE** remarquez bien qu'on a dit **expression** génératrice et pas nécessairement **fonction génératrice**.
 
-```{code-cell} ipython3
+```{code-cell}
 # un petit exemple
 from corrections.exo_produit_scalaire import exo_produit_scalaire
 exo_produit_scalaire.example()
@@ -55,13 +55,13 @@ exo_produit_scalaire.example()
 
 Vous devez donc écrire :
 
-```{code-cell} ipython3
+```{code-cell}
 def produit_scalaire(X, Y): 
     """retourne le produit scalaire de deux listes de même taille"""
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_produit_scalaire.correction(produit_scalaire)
 ```

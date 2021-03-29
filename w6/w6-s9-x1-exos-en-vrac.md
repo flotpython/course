@@ -6,7 +6,7 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ version: '3.0'
 
 # Quelques sujets d'exercice en vrac
 
-```{code-cell} ipython3
+```{code-cell}
 # ceci permet de recharger les modules
 # lorsqu'ils ont été modifiés en dehors du notebook
 
@@ -69,14 +69,14 @@ Hypothèses : on admet (pas besoin de le vérifier donc) que les entrées sont 
 
 Unicité : n'importe quelle solution est valable en cas de solutions multiples ; toutefois pour des raisons techniques, la correction automatique ne teste votre code que sur des entrées où la solution est unique.
 
-```{code-cell} ipython3
+```{code-cell}
 # charger l'exercice et afficher un exemple
 
 from corrections.exo_two_sum import exo_two_sum
 exo_two_sum.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # indice : il y a peut-être des choses utiles dans ce module
 # import itertools
 
@@ -84,7 +84,7 @@ def two_sum(data, target):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_two_sum.correction(two_sum)
 ```
 
@@ -104,19 +104,19 @@ exo_two_sum.correction(two_sum)
 * en sortie : un entier qui décrit la plus grande distance (en termes d'indices) entre deux occurrences du même objet dans la liste ;  
   si aucun objet n'est présent en double, retournez 0.
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_longest_gap import exo_longest_gap
 
 exo_longest_gap.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
 def longest_gap(liste):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_longest_gap.correction(longest_gap)
 ```
 
@@ -134,7 +134,7 @@ Je vous invite à lire l'énoncé directement sur codewars.
 **Rappel sur la concaténation des chaines**
 remarquez aussi l'usage qu'on fait ici, pour la présentation, de la concaténation de chaines :
 
-```{code-cell} ipython3
+```{code-cell}
 # rappel sur la concaténation des chaines
 # grâce à la parenthèse on peut 
 # se passer des \ qui sont assez vilains
@@ -143,22 +143,22 @@ x = ("une chaine unique "
      "parce qu'elle est très longue")
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 x
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_meeting import exo_meeting
 
 exo_meeting.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def meeting(string):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_meeting.correction(meeting)
 ```
 

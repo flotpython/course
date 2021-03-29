@@ -6,7 +6,7 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ version: '3.0'
 
 # calculette postfix
 
-```{code-cell} ipython3
+```{code-cell}
 # ceci permet de recharger les modules
 # lorsqu'ils ont été modifiés en dehors du notebook
 
@@ -57,18 +57,18 @@ Lorsque la chaine est mal formée, vous devez renvoyer une des trois chaines sui
 * `error-empty-stack`, si on essaie de faire une opération mais que l'on n'a pas les deux opérandes nécessaires,
 * `error-unfinished`, si on détecte des opérandes non utilisés.
 
-```{code-cell} ipython3
+```{code-cell}
 # charger l'exercice et afficher un exemple
 from corrections.exo_postfix_eval import exo_postfix_eval
 exo_postfix_eval.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 def postfix_eval(chaine):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_postfix_eval.correction(postfix_eval)
 ```
 
@@ -86,24 +86,24 @@ Une variante un peu plus difficile
 
 **indice :** attention au cas de la division, qui doit se comporter selon le type comme une division entière (comme dans `postfix_eval`), ou comme une division usuelle si le type le permet.
 
-```{code-cell} ipython3
+```{code-cell}
 from fractions import Fraction
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # charger l'exercice et afficher un exemple
 
 from corrections.exo_postfix_eval import exo_postfix_eval_typed
 exo_postfix_eval_typed.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
 def postfix_eval_typed(chaine, result_type):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 exo_postfix_eval_typed.correction(postfix_eval_typed)
 ```
 

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -29,7 +29,7 @@ import numpy as np
 
 ## Complément - niveau intermédiaire
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Lorsque l'on a parlé de programmation vectorielle, on a vu que l'on pouvait écrire quelque chose comme ceci :
 
@@ -38,21 +38,21 @@ X = np.linspace(0, 2 * np.pi)
 Y = np.cos(X) + np.sin(X) + 2
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Je vous fais remarquer que dans cette dernière ligne on combine :
 
 * deux tableaux de mêmes tailles - quand on ajoute `np.cos(X)` avec `np.sin(X)` ;
 * un tableau avec un scalaire - quand on ajoute `2` au résultat.
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 En fait, le *broadcasting* est ce qui permet :
 
 * d'unifier le sens de ces deux opérations ;
 * de donner du sens à des cas plus généraux, où on fait des opérations entre des tableaux qui ont des *tailles différentes*, mais assez semblables pour que l'on puisse tout de même les combiner.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ## Exemples en 2D
 
@@ -63,9 +63,6 @@ Nous allons commencer par quelques exemples simples, avant de généraliser le m
 ```{code-cell}
 ---
 cell_style: center
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -77,7 +74,7 @@ Je vais illustrer le broadcasting avec l'opération `+`, mais bien entendu ce m�
 
 Pour commencer, je vais donc ajouter à mon tableau de base un scalaire :
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Broadcasting entre les dimensions `(3, 5)` et `(1,)`
 
@@ -88,17 +85,11 @@ print(a)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 b = 3
 print(b)
 ```
-
-+++ {"run_control": {"frozen": false, "read_only": false}}
 
 ***
 
@@ -107,24 +98,16 @@ print(b)
 Lorsque j'ajoute ces deux tableaux, c'est comme si j'avais ajouté à `a` la différence :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 # pour élaborer c
 c = a + b
 print(c)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 # c'est comme si j'avais
 # ajouté à a ce terme-ci
 print(c - a)
@@ -140,7 +123,7 @@ Et c'est ce tableau, qui est maintenant de la même taille que `a`, qui est ajou
 
 Je précise que cette explication est du domaine du modèle pédagogique ; je ne dis pas que l'implémentation va réellement allouer un second tableau, bien évidemment on peut optimiser pour éviter cette construction inutile.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Broadcasting `(3, 5)` et `(5,)`
 
@@ -151,9 +134,6 @@ Voyons maintenant un cas un peu moins évident. Je peux ajouter à mon tableau d
 ```{code-cell}
 ---
 cell_style: split
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -161,12 +141,8 @@ print(a)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 b = np.arange(1, 6)
 print(b)
 ```
@@ -177,7 +153,7 @@ print(b)
 b.shape
 ```
 
-+++ {"cell_style": "center", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "center"}
 
 ****
 
@@ -186,12 +162,8 @@ b.shape
 Ici encore, je peux ajouter les deux termes :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 # je peux ici encore
 # ajouter les tableaux
 c = a + b
@@ -199,12 +171,8 @@ print(c)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 # et c'est comme si j'avais
 # ajouté à a ce terme-ci
 print(c - a)
@@ -236,7 +204,7 @@ print(c - a)
 
 Vous commencez à mieux voir comment ça fonctionne ; s'il existe une direction dans laquelle on peut "tirer" les données pour faire coincider les formes, on peut faire du broadcasting. Et ça marche dans toutes les directions, comme on va le voir tout de suite.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Broadcasting `(3, 5)` et `(3, 1)`
 
@@ -247,9 +215,6 @@ Au lieu d'ajouter à `a` une ligne, on peut lui ajouter une colonne, pourvu qu'e
 ```{code-cell}
 ---
 cell_style: split
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -257,17 +222,13 @@ print(a)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 b = np.arange(1, 4).reshape(3, 1)
 print(b)
 ```
 
-+++ {"cell_style": "center", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "center"}
 
 ****
 
@@ -276,23 +237,15 @@ print(b)
 Voyons comment se passe le broadcasting dans ce cas-là :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 c = a + b
 print(c)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(c - a)
 ```
 
@@ -320,7 +273,7 @@ print(b)
 print(c - a)
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Broadcasting `(3, 1)` et `(1, 5)`
 
@@ -329,12 +282,8 @@ print(c - a)
 Nous avons maintenant tous les éléments en main pour comprendre un exemple plus intéressant, où les deux tableaux ont des formes pas vraiment compatibles à première vue :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 col = np.arange(1, 4).reshape((3, 1))
 print(col)
 ```
@@ -342,9 +291,6 @@ print(col)
 ```{code-cell}
 ---
 cell_style: split
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -352,7 +298,7 @@ line = 100 * np.arange(1, 6)
 print(line)
 ```
 
-+++ {"cell_style": "center", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "center"}
 
 ****
 
@@ -361,17 +307,13 @@ print(line)
 Grâce au broadcasting, on peut additionner ces deux tableaux pour obtenir ceci :
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 m = col + line
 print(m)
 ```
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 Remarquez qu'ici les **deux** entrées ont été étirées pour atteindre une dimension commune.
 
@@ -421,19 +363,19 @@ print(line + np.zeros(3, dtype=np.int).reshape((3, 1)))
 
 avant d'additionner terme à terme ces deux tableaux 3 x 5.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ## En dimensions supérieures
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Pour savoir si deux tableaux peuvent être compatibles via *broadcasting*, il faut comparer leurs formes. Je commence par vous donner des exemples. Ici encore quand on mentionne l'addition, cela vaut pour n'importe quel opérateur binaire.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Exemples de dimensions compatibles
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 ```python
 A   15 x 3 x 5
@@ -441,7 +383,7 @@ B   15 x 1 x 5
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 Cas de l'ajout d'un scalaire :
 ```python
@@ -450,7 +392,7 @@ B            1
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 ```python
 A   15 x 3 x 5
@@ -458,7 +400,7 @@ B        3 x 5
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 ```python
 A   15 x 3 x 5
@@ -466,11 +408,11 @@ B        3 x 1
 A+B 15 x 3 x 5
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Exemples de dimensions **non compatibles**
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}}
++++ {"cell_style": "split"}
 
 Deux lignes de longueurs différentes :
 ```python
@@ -478,7 +420,7 @@ A  3
 B  4
 ```
 
-+++ {"cell_style": "split", "run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "-"}}
++++ {"cell_style": "split", "slideshow": {"slide_type": "-"}}
 
 Un cas plus douteux :
 ```python
@@ -486,7 +428,7 @@ A      2 x 1
 B  8 x 4 x 3
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Comme vous le voyez sur tous ces exemples :
 

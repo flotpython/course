@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -36,7 +36,7 @@ plt.ion()
 
 Pour finir notre introduction à `numpy`, nous allons survoler à très grande vitesse quelques traits plus annexes mais qui peuvent être utiles. Je vous laisse approfondir de votre côté les parties qui vous intéressent.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 # Utilisation de la mémoire
 
@@ -44,7 +44,7 @@ Pour finir notre introduction à `numpy`, nous allons survoler à très grande v
 
 ### Références croisées, vues, shallow et deep copies
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Pour résumer ce qu'on a vu jusqu'ici :
 
@@ -151,7 +151,7 @@ Si vous vous mettez à optimiser de cette façon, vous utiliserez par exemple `n
 
 # Types structurés pour les cellules
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Sans transition, jusqu'ici on a vu des tableaux *atomiques*, où chaque cellule est en gros **un seul nombre**.
 
@@ -159,16 +159,11 @@ En fait, on peut aussi se définir des types structurés, c'est-à-dire que chaq
 
 Pour cela, on peut se définir un `dtype` élaboré, qui va nous permettre de définir la structure de chacun de ces enregistrements.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Exemple
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 # un dtype structuré
 my_dtype = [
     # prenom est un string de taille 12
@@ -191,8 +186,6 @@ classe = np.array(
 classe
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
-
 Je peux avoir l'impression d'avoir créé un tableau de 4 lignes et 3 colonnes ; cependant pour `numpy` ce n'est pas comme ça que cela se présente :
 
 ```{code-cell}
@@ -207,11 +200,11 @@ Rien ne m'empêcherait de créer des tableaux de ce genre en dimensions supérie
 classe.reshape((2, 2))
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Comment définir `dtype` ?
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "-"}}
++++ {"slideshow": {"slide_type": "-"}}
 
 Il existe une grande variété de moyens pour se définir son propre `dtype`.
 
@@ -223,20 +216,17 @@ Pour la définition de types structurés, [voir la documentation complète ici](
 
 # Assemblages et découpages
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Enfin, toujours sans transition, et plus anecdotique : jusqu'ici nous avons vu des fonctions qui préservent la taille. Le *stacking* permet de créer un tableau plus grand en (juxta/super)posant plusieurs tableaux. Voici rapidement quelques fonctions qui permettent de faire des tableaux plus petits ou plus grands.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Assemblages : `hstack` et `vstack` (tableaux 2D)
 
 ```{code-cell}
 ---
 cell_style: center
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: '-'
 ---
@@ -245,146 +235,95 @@ print(a)
 ```
 
 ```{code-cell}
----
-cell_style: center
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: center
+
 b = 10 * np.arange(1, 7).reshape(2, 3)
 print(b)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(np.hstack((a, b)))
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(np.vstack((a, b)))
 ```
 
 ### Assemblages : `np.concatenate` (3D et au delà)
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 a = np.ones((2, 3, 4))
 print(a)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 b = np.zeros((2, 3, 2))
 print(b)
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 print(np.concatenate((a, b), axis = 2))
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 Pour conclure :
 
 * `hstack` et `vstack` utiles sur des tableaux 2D ;
 * au-delà, préférez `concatenate` qui a une sémantique plus claire.
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Répétitions : `np.tile`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Cette fonction permet de répéter un tableau dans toutes les directions :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 motif = np.array([[0, 1], [2, 10]])
 print(motif)
 ```
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 print(np.tile(motif, (2, 3)))
 ```
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Découpage : `np.split`
 
-+++ {"run_control": {"frozen": false, "read_only": false}}
++++
 
 Cette opération, inverse du *stacking*, consiste à découper un tableau en parties plus ou moins égales :
 
 ```{code-cell}
----
-run_control:
-  frozen: false
-  read_only: false
----
 complet = np.arange(24).reshape(4, 6); print(complet)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 h1, h2 = np.hsplit(complet, 2)
 print(h1)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(h2)
 ```
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
 ---
@@ -393,22 +332,14 @@ print(complet)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 v1, v2 = np.vsplit(complet, 2)
 print(v1)
 ```
 
 ```{code-cell}
----
-cell_style: split
-run_control:
-  frozen: false
-  read_only: false
----
+:cell_style: split
+
 print(v2)
 ```

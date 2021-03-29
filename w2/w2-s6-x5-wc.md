@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -45,7 +45,7 @@ L'exercice consiste à écrire une fonction nommée *wc* qui prendra en argument
 2. le nombre de mots (un mot étant séparé par des espaces) ;
 3. le nombre de caractères (on utilisera uniquement le jeu de caractères ASCII).
 
-```{code-cell} ipython3
+```{code-cell}
 # exemple
 from corrections.exo_wc import exo_wc
 exo_wc.example()
@@ -59,14 +59,14 @@ exo_wc.example()
 
 À vous de jouer :
 
-```{code-cell} ipython3
+```{code-cell}
 # la fonction à implémenter
 def wc(string):
     # remplacer pass par votre code
     pass
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: fragment

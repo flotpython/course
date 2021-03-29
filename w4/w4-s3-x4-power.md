@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -56,7 +56,7 @@ $ n = 2 * (2 * 2 * (2*2 + 1) + 1) $
 
 $ x^{42} = ((((x.x)^2*x)^2)^2 . x)^2$ soit 7 multiplications
 
-```{code-cell} ipython3
+```{code-cell}
 from corrections.exo_power import exo_power
 exo_power.example()
 ```
@@ -71,13 +71,13 @@ exo_power.example()
 
 * on peut être tenté d'écrire une boucle `while` sur la variable $n$, mais pour commencer une formulation récursive est une approche qui peut sembler beaucoup plus commode à implémenter.
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 def power(x, n):
     "<votre code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour vérifier votre code
 exo_power.correction(power)
 ```

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -36,7 +36,7 @@ Pour rappel dans un tableur les colonnes sont appelées d'abord `A` jusque `Z`, 
 
 La valeur d'entrée index = 0 est considérée comme non valide.
 
-```{code-cell} ipython3
+```{code-cell}
 # voici quelques exemples charnière
 from corrections.exo_spreadsheet import exo_spreadsheet
 exo_spreadsheet.example()
@@ -60,13 +60,13 @@ On vous invite également à envisager la progression suivante :
 
 1. À partir de la fonction précédente, écrire la fonction spreadsheet() pour les indices commençant à 1 et allant au-delà de 26.
 
-```{code-cell} ipython3
+```{code-cell}
 # écrivez votre code ici'
 def spreadsheet(index):
     ...
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # et validez-le ici
 exo_spreadsheet.correction(spreadsheet)
 ```

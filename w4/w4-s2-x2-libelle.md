@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -51,19 +51,19 @@ Nom.Prenom (message)
 
 le *message* étant lui-même le *rang* mis en forme pour afficher '1er', '2nd' ou '*n*-ème' selon le cas. Voici quelques exemples
 
-```{code-cell} ipython3
+```{code-cell}
 # voici quelques exemples de ce qui est attendu
 from corrections.exo_libelle import exo_libelle
 exo_libelle.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # écrivez votre code ici
 def libelle(ligne):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour le vérifier
 exo_libelle.correction(libelle)
 ```

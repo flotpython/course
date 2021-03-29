@@ -1,13 +1,12 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   cell_metadata_json: true
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
 kernelspec:
   display_name: Python 3
   language: python

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -39,7 +39,7 @@ Pour les plus curieux, l'instruction `import`  permet de charger dans votre prog
 
 Ici en particulier nous utilisons le module `string`.
 
-```{code-cell} ipython3
+```{code-cell}
 # nous allons tirer profit ici d'une 
 # constante définie dans le module string
 import string
@@ -55,13 +55,13 @@ Pour chacune des sous-chaînes ci-dessous, écrire une expression de slicing sur
 
 Par exemple, pour obtenir "def" :
 
-```{code-cell} ipython3
+```{code-cell}
 chaine[3:6] == "def"
 ```
 
 1) Écrivez une slice pour obtenir "vwx" (n'hésitez pas à utiliser les indices négatifs) :
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:skip-eval: true
 
 chaine[ <votre_code> ] == "vwx"
@@ -69,7 +69,7 @@ chaine[ <votre_code> ] == "vwx"
 
 2) Une slice pour obtenir "wxyz" (avec une seule constante) :
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:skip-eval: true
 
 chaine[ <votre_code> ] == "wxyz"
@@ -77,7 +77,7 @@ chaine[ <votre_code> ] == "wxyz"
 
 3) Une slice pour obtenir "dfhjlnprtvxz" (avec deux constantes) :
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:skip-eval: true
 
 chaine[ <votre_code> ] == "dfhjlnprtvxz"
@@ -85,7 +85,7 @@ chaine[ <votre_code> ] == "dfhjlnprtvxz"
 
 4) Une slice pour obtenir "xurolifc" (avec deux constantes) :
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:skip-eval: true
 
 chaine[ <votre_code> ] == "xurolifc"
@@ -97,7 +97,7 @@ chaine[ <votre_code> ] == "xurolifc"
 
 ### Longueur
 
-```{code-cell} ipython3
+```{code-cell}
 # il vous faut évaluer cette cellule magique
 # pour charger l'exercice qui suit
 # et autoévaluer votre réponse
@@ -129,11 +129,11 @@ L'exercice consiste à écrire une fonction qui retourne la valeur de `inconnue`
 
 Vous pouvez utiliser du *slicing*, et la fonction `len()`, qui retourne la longueur d'une chaîne :
 
-```{code-cell} ipython3
+```{code-cell}
 len('abcd')
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # à vous de jouer
 def inconnue(composite, connue):
     "votre code"
@@ -141,7 +141,7 @@ def inconnue(composite, connue):
 
 Une fois votre code évalué, vous pouvez évaluer la cellule suivante pour vérifier votre résultat.
 
-```{code-cell} ipython3
+```{code-cell}
 :latex:skip-eval: true
 
 # correction

@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -33,19 +33,19 @@ Cet exercice consiste à écrire une fonction `surgery`, qui prend en argument u
 * si la liste est de taille paire, on intervertit les deux premiers éléments de la liste ;
 * si elle est de taille impaire, on intervertit les deux derniers éléments.
 
-```{code-cell} ipython3
+```{code-cell}
 # voici quelques exemples de ce qui est attendu
 from corrections.exo_surgery import exo_surgery
 exo_surgery.example()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # écrivez votre code
 def surgery(liste):
     "<votre_code>"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # pour le vérifier, évaluez cette cellule
 exo_surgery.correction(surgery)
 ```
