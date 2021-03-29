@@ -1,7 +1,6 @@
 ---
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  encoding: '# -*- coding: utf-8 -*-'
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -11,7 +10,7 @@ kernelspec:
   language: python
   name: python3
 nbhosting:
-  title: Exercice: Taylor
+  title: "Exercice: Taylor"
 ---
 
 # Le théorème de Taylor illustré
