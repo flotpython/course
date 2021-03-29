@@ -10,7 +10,7 @@ kernelspec:
   language: python
   name: python3
 nbhosting:
-  title: "Exercice: Taylor"
+  title: 'Exercice: Taylor'
 ---
 
 # Le théorème de Taylor illustré
