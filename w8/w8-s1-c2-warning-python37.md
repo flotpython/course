@@ -45,7 +45,9 @@ version: '3.0'
 
 +++
 
-Puisque cette semaine est consacrée à **`asyncio`**, il faut savoir que cette brique technologique est **relativement récente**, et qu'elle est du coup, plus que d'autres aspects de Python, **sujette à des évolutions**.
+Puisque cette semaine est consacrée à **`asyncio`**, il faut savoir que cette brique
+technologique est **relativement récente**, et qu'elle est du coup, plus que d'autres
+aspects de Python, **sujette à des évolutions**.
 
 +++
 
@@ -53,15 +55,22 @@ Puisque cette semaine est consacrée à **`asyncio`**, il faut savoir que cette 
 
 +++
 
-Comme on l'a dit en préambule du cours, notre version de **référence** est **Python-3.6**. C'est la version utilisée  dans les vidéos. Par contre les notebooks sur FUN-MOOC utilisent à présent la version 3.7.
+Comme on l'a dit en préambule du cours, la version de **référence** lors du tournage était
+**Python-3.6**. Par contre les notebooks sur FUN-MOOC utilisent à présent une version plus
+récente.
 
-+++
+```{code-cell} ipython3
+import sys
+major, minor, *_ = sys.version_info
+print(f"les notebooks utilisent la version {major}.{minor}")
+```
 
 ## Un résumé des nouveautés
 
 +++
 
-Vous trouverez à la fin de la semaine, dans la séquence consacrée aux bonnes pratiques, un résumé des améliorations  apportées depuis la version 3.6.
+Vous trouverez à la fin de la semaine, dans la séquence consacrée aux bonnes pratiques, un
+résumé des améliorations  apportées depuis la version 3.6.
 
 +++
 
@@ -82,7 +91,9 @@ Cela étant dit, nos buts ici étaient principalement:
 
 +++
 
-Les plus grosses différences concernent la prise en main. Comme nous allons bientôt le voir, le "*hello world*" de `asyncio` était en Python-3.6 un peu *awkward*, cela nécessitait pas mal de circonlocutions.
+Les plus grosses différences concernent la prise en main. Comme nous allons bientôt le
+voir, le "*hello world*" de `asyncio` était en Python-3.6 un peu *awkward*, cela
+nécessitait pas mal de circonlocutions.
 
 C'est-à-dire que pour faire fonctionner la coroutine :
 
@@ -99,7 +110,8 @@ async def hello_world():
 
 +++
 
-Pour exécuter cette coroutine dans un interpréteur Python-3.6, la syntaxe est un peu lourdingue :
+Pour exécuter cette coroutine dans un interpréteur Python-3.6, la syntaxe est un peu
+lourdingue :
 
 ```python
 # pour exécuter uniquement cette coroutine en Python-3.6
@@ -122,7 +134,8 @@ asyncio.run(hello_world())
 
 ### Avec IPython 7
 
-Notez qu'avec IPython (et donc aussi dans les notebooks) c'est encore plus simple; en effet IPython s'est débrouillé pour autoriser la syntaxe suivante :
+Notez qu'avec IPython (et donc aussi dans les notebooks) c'est encore plus simple; en
+effet IPython s'est débrouillé pour autoriser la syntaxe suivante :
 
 ```{code-cell}
 # depuis ipython, ou dans un notebook, vous pouvez faire simplement
@@ -130,7 +143,10 @@ Notez qu'avec IPython (et donc aussi dans les notebooks) c'est encore plus simpl
 await hello_world()
 ```
 
-***Mise en garde*** attention toutefois, je vous mets en garde contre le fait que ceci est une **commodité** pour nous faciliter la vie, mais elle est **spécifique à IPython** et ne va pas fonctionner tel quel dans un programme exécuté directement par l'interpréteur Python standard.
+***Mise en garde*** attention toutefois, je vous mets en garde contre le fait que ceci est
+une **commodité** pour nous faciliter la vie, mais elle est **spécifique à IPython** et ne
+va pas fonctionner tel quel dans un programme exécuté directement par l'interpréteur
+Python standard.
 
 ```{code-cell}
 :cell_style: split
@@ -148,17 +164,21 @@ await hello_world()
 !python data/broken-await.py
 ```
 
-Nous avons choisi de ne pas utiliser ce trait dans les notebooks, car cela pourrait créer de la confusion, mais n'hésitez pas à l'utiliser de votre côté une fois que tout ceci est bien acquis.
+Nous avons choisi de ne pas utiliser ce trait dans les notebooks, car cela pourrait créer
+de la confusion, mais n'hésitez pas à l'utiliser de votre côté une fois que tout ceci est
+bien acquis.
 
 +++
 
 ### À propos de Python-3.8
 
-Avec Python 3.8 - pas encore disponible à l'heure où j'écris ceci en Avril 2020 - il y a peu de changements concernant `asyncio`, ils sont décrits ici :
+Avec Python 3.8 et 3.9 il y a peu de changements concernant `asyncio`, ils sont décrits ici :
 
 <https://docs.python.org/3/whatsnew/3.8.html#asyncio> 
+<https://docs.python.org/3/whatsnew/3.9.html#asyncio> 
 
-<span style="font-size: smaller">Notez toutefois l'apparition d'une REPL (read-eval-print-loop) qui supporte justement `await` au toplevel</span>
+<span style="font-size: smaller">Notez toutefois l'apparition en 3.8 d'une REPL
+(read-eval-print-loop) qui supporte justement `await` au toplevel</span>
 
 +++
 
@@ -166,4 +186,8 @@ Avec Python 3.8 - pas encore disponible à l'heure où j'écris ceci en Avril 20
 
 +++
 
-Pour conclure cet avertissement, ne vous formalisez pas si vous voyez dans le cours des pratiques qui sont dépassées. Les différences par rapport aux pratiques actuelles - même si on elles très visibles dans ce cours introductif - sont en réalité mineures au niveau de ce qu'il est important de comprendre quand on aborde d'un oeil neuf ce nouveau paradigme de programmation.
+Pour conclure cet avertissement, ne vous formalisez pas si vous voyez dans le cours des
+pratiques qui sont dépassées. Les différences par rapport aux pratiques actuelles - même
+si on elles très visibles dans ce cours introductif - sont en réalité mineures au niveau
+de ce qu'il est important de comprendre quand on aborde d'un oeil neuf ce nouveau
+paradigme de programmation.

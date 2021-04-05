@@ -29,9 +29,11 @@ version: '3.0'
 
 +++
 
-Comme on l'a signalé au début de la semaine, `asyncio` a subi quelques modifications dans Python-3.7, que nous allons rapidement illustrer dans ce complément.
+Comme on l'a signalé au début de la semaine, `asyncio` a subi quelques modifications dans
+Python-3.7, que nous allons rapidement illustrer dans ce complément.
 
-Nous verrons aussi par ailleurs une curiosité liée à la dernière version de IPython, qui vise à faciliter le débuggage et la mise au point de code asynchrone.
+Nous verrons aussi par ailleurs une curiosité liée à la dernière version de IPython, qui
+vise à faciliter le debug et la mise au point de code asynchrone.
 
 +++
 
@@ -43,13 +45,20 @@ Nous verrons aussi par ailleurs une curiosité liée à la dernière version de 
 
 +++
 
-L'évolution la plus radicale est une refonte totale de la documentation. 
+L'évolution la plus radicale est une refonte totale de la documentation.
 
-C'est une très bonne nouvelle, car de l'aveu même de Guido van Rossum, la documentation en place pour les versions 3.5 et 3.6 était particulièrement obscure; [voici comment il l'a annoncé](https://twitter.com/gvanrossum/status/1041889574052429826?lang=en) :
+C'est une très bonne nouvelle, car de l'aveu même de Guido van Rossum, la documentation en
+place pour les versions 3.5 et 3.6 était particulièrement obscure; [voici comment il l'a
+annoncé](https://twitter.com/gvanrossum/status/1041889574052429826?lang=en) :
 
 > Finally the asyncio docs are not an embarrassment to us all.
 
-Si vous avez déjà eu l'occasion de parcourir ces anciennes documentations, et que vous les avez trouvées indigestes, sachez que vous n'êtes pas seul dans ce cas ;) Dans tous les cas je vous invite à [parcourir la nouvelle version](https://docs.python.org/3/library/asyncio.html), qui a le mérite d'apporter plus de réponses qu'elle ne soulève d'interrogations. Ce qui n'était pas vraiment le cas avant, c'est donc un grand progrès :)
+Si vous avez déjà eu l'occasion de parcourir ces anciennes documentations, et que vous les
+avez trouvées indigestes, sachez que vous n'êtes pas seul dans ce cas ;) Dans tous les cas
+je vous invite à [parcourir la nouvelle
+version](https://docs.python.org/3/library/asyncio.html), qui a le mérite d'apporter plus
+de réponses qu'elle ne soulève d'interrogations. Ce qui n'était pas vraiment le cas avant,
+c'est donc un grand progrès :)
 
 +++
 
@@ -57,9 +66,11 @@ Si vous avez déjà eu l'occasion de parcourir ces anciennes documentations, et 
 
 +++
 
-Un certain nombre de changements ont été apportés à la librairie pour en rendre l'accès plus facile. 
+Un certain nombre de changements ont été apportés à la librairie pour en rendre l'accès
+plus facile.
 
-Notamment, comme on l'a évoqué en début de semaine, on peut maintenant faire fonctionner une simple coroutine à des fins pédagogiques en faisait plus simplement:
+Notamment, comme on l'a évoqué en début de semaine, on peut maintenant faire fonctionner
+une simple coroutine à des fins pédagogiques en faisait plus simplement:
 
 ```python
 >>> import asyncio
@@ -84,9 +95,13 @@ On a également créé des raccourcis, comme par exemple:
 
 +++
 
-Changement un peu plus profond, la fonction `asyncio.get_running_loop()` permet d'accéder à la boucle courante.
+Changement un peu plus profond, la fonction `asyncio.get_running_loop()` permet d'accéder
+à la boucle courante.
 
-Si vous avez lu du code `asyncio` plus ancien, vous avez peut-être remarqué une tendance prononcée à passer un objet loop en paramètre à peu près partout. Grâce à cette fonction, cela n'est plus nécessaire, on est garanti de pouvoir retrouver, à partir de n'importe quelle coroutine, l'objet boucle qui nous pilote.
+Si vous avez lu du code `asyncio` plus ancien, vous avez peut-être remarqué une tendance
+prononcée à passer un objet loop en paramètre à peu près partout. Grâce à cette fonction,
+cela n'est plus nécessaire, on est garanti de pouvoir retrouver, à partir de n'importe
+quelle coroutine, l'objet boucle qui nous pilote.
 
 De manière corollaire, une méthode `get_loop` a été ajoutée aux classes `Future` et `Task`.
 
@@ -114,9 +129,11 @@ VOus retrouverez tous les détails dans la page suivante :
 
 ### `await` dans ipython-7
 
-Cette section ne s'applique pas *stricto sensu* à Python-3.7, mais à la version 7 de IPython.
+Cette section ne s'applique pas *stricto sensu* à Python-3.7, mais à la version 7 de
+IPython.
 
-Le sujet, c'est ici encore de raccourcir le *boilerplate* nécessaire, lorsque vous avez écrit une coroutine et que vous voulez la tester.
+Le sujet, c'est ici encore de raccourcir le *boilerplate* nécessaire, lorsque vous avez
+écrit une coroutine et que vous voulez la tester.
 
 +++
 
@@ -148,7 +165,8 @@ hello world
 
 +++
 
-La syntaxe de Python nous interdit en effet d'utiliser `await` en dehors du code d'une coroutine, on l'a vu dans une des vidéos, et il nous faut faire appel à `asyncio.run()`.
+La syntaxe de Python nous interdit en effet d'utiliser `await` en dehors du code d'une
+coroutine, on l'a vu dans une des vidéos, et il nous faut faire appel à `asyncio.run()`.
 
 +++
 
@@ -156,7 +174,9 @@ La syntaxe de Python nous interdit en effet d'utiliser `await` en dehors du code
 
 +++
 
-Pour **simplifier encore** la mise en place de code asynchrone, depuis ipython-7, on peut carrément déclencher une coroutine en invoquant `await` dans la boucle principale de l'interpréteur :
+Pour **simplifier encore** la mise en place de code asynchrone, depuis ipython-7, on peut
+carrément déclencher une coroutine en invoquant `await` dans la boucle principale de
+l'interpréteur :
 
 +++
 
@@ -178,4 +198,5 @@ hello world
 
 +++
 
-Du coup, cette façon de faire fonctionnera aussi dans un notebook, si vous avez la bonne version de IPython en dessous de Jupyter.
+Du coup, cette façon de faire fonctionnera aussi dans un notebook, si vous avez la bonne
+version de IPython en dessous de Jupyter.
