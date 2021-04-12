@@ -45,7 +45,7 @@ def checkers_3(size, corner_0_0=True):
     Une autre approche complètement
     """
     # on part de zéro
-    result = np.zeros(shape=(size, size), dtype=int)
+    result = np.zeros(shape=(size, size), dtype=int_)
     # on remplit les cases à 1 en deux fois
     # avec un slicing astucieux; c'est le ::2 qui fait le travail
     result[1::2, 0::2] = 1

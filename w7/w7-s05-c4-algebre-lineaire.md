@@ -204,7 +204,7 @@ m.transpose()
 ### Matrice identité - `np.eye`
 
 ```{code-cell}
-np.eye(4, dtype=np.int)
+np.eye(4, dtype=np.int_)
 ```
 
 ### Matrices diagonales - `np.diag`

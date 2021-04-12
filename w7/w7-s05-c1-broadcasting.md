@@ -338,7 +338,7 @@ print(col)
 ```{code-cell}
 :cell_style: split
 
-print(col + np.zeros(5, dtype=np.int))
+print(col + np.zeros(5, dtype=np.int_))
 ```
 
 +++ {"cell_style": "split"}
@@ -358,7 +358,7 @@ print(line)
 ```{code-cell}
 :cell_style: split
 
-print(line + np.zeros(3, dtype=np.int).reshape((3, 1)))
+print(line + np.zeros(3, dtype=np.int_).reshape((3, 1)))
 ```
 
 avant d'additionner terme à terme ces deux tableaux 3 x 5.
