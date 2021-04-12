@@ -47,7 +47,7 @@ def hundreds_ter(lines, columns, offset):
     # à la Fortran; ça n'est pas forcément
     # la bonne approche ici bien sûr
     # mais si un élève a des envies de benchmarking...
-    result = np.zeros(shape=(lines, columns), dtype=int)
+    result = np.zeros(shape=(lines, columns), dtype=np.int_)
     for i in range(lines):
         for j in range(columns):
             result[i, j] = 100 * i + 10 * j + offset
