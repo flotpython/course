@@ -36,7 +36,7 @@ Plutôt que de récrire (encore) un tutorial sur `matplotlib`, je préfère util
 
 Je vais essentiellement utiliser des extraits tels quels. N'hésitez pas à consulter ces documents originaux pour davantage de précisions.
 
-```{code-cell}
+```{code-cell} ipython3
 # les imports habituels
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,7 +44,7 @@ import matplotlib.pyplot as plt
 
 Intentionnellement dans ce notebook, on ne va pas utiliser le mode automatique de `matplotlib` dans les notebooks (pour rappel, `plt.ion()`), car on veut justement apprendre à utiliser `matplotlib` dans un contexte normal.
 
-```{code-cell}
+```{code-cell} ipython3
 # pour changer la taille par défaut des figures matplotlib
 plt.rcParams["figure.figsize"] = (8, 3)
 ```
@@ -55,7 +55,7 @@ plt.rcParams["figure.figsize"] = (8, 3)
 
 Nous avons déjà vu plusieurs fois comment tracer une courbe avec `matplotlib`, avec la fonction `plot`. Si on donne seulement *une* liste de valeurs, elles sont considérées comme les *Y*, les *X* étant les entiers en nombre suffisant et en commençant à 0.
 
-```{code-cell}
+```{code-cell} ipython3
 # si je ne donne qu'une seule liste à plot
 # alors ce sont les Y
 plt.plot([10, 20, 25, 28])
@@ -70,7 +70,7 @@ On peut changer le style utilisé par `plot` pour tracer ; ce style est spécif
 
 Voyez [la documentation de référence de plot](https://matplotlib.org/2.0.2/api/pyplot_api.html#matplotlib.pyplot.plot) pour une liste complète.
 
-```{code-cell}
+```{code-cell} ipython3
 # mais le plus souvent on passe à plot
 # une liste de X ET une liste de Y
 plt.plot([1, 2, 3, 4, 5], [1, 4, 9, 16, 25], 'ro')
@@ -85,7 +85,7 @@ plt.show()
 
 On peut très simplement dessiner plusieurs fonctions dans la même zone :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut changer la taille d'une figure précise
 plt.figure(figsize=(4, 4))
 
@@ -100,7 +100,7 @@ plt.show()
 
 ### Plusieurs *subplots*
 
-```{code-cell}
+```{code-cell} ipython3
 # et ici c'est toujours la taille par défaut 
 # - celle fixée avec plt.rcParams - qui est utilisée 
 
@@ -152,7 +152,7 @@ on veut dire qu'on veut créer un quadrillage de 2 lignes de 1 colonne, et que l
 
 En fait, on peut créer plusieurs figures, et plusieurs *subplots* dans chaque figure. Dans l'exemple qui suit on illustre encore mieux cette notion de *statefulness*. Je commence par vous donner l'exemple du tutorial tel quel :
 
-```{code-cell}
+```{code-cell} ipython3
 plt.figure(1)                # the first figure
 plt.subplot(211)             # the first subplot in the first figure
 plt.axis([0, 2, 1, 3])
@@ -175,9 +175,9 @@ plt.show()
 
 Cette façon de faire est améliorable. D'abord c'est source d'erreurs, il faut se souvenir de ce qui précède, et du coup, si on change un tout petit peu la logique, ça risque de casser tout le reste. En outre selon les environnements, on peut obtenir un vilain avertissement.
 
-C'est pourquoi je vous conseille plutôt, pour faire la même chose que ci-dessus, d'utiliser `plt.subplots` qui vous retourne la figure avec ses *subplots*, que vous pouvez ranger dans des variables Python :
+C'est pourquoi **je vous conseille** plutôt, pour faire la même chose que ci-dessus, **d'utiliser `plt.subplots`** qui vous retourne la figure avec ses *subplots*, que vous pouvez ranger dans des variables Python :
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est assez déroutant au départ, mais
 # traditionnellement les subplots sont appelés 'axes'
 # c'est pourquoi ici on utilise ax1, ax2 et ax3 pour désigner
@@ -210,7 +210,7 @@ plt.show()
 
 S'agissant de la dimension 2, voici le dernier exemple que nous tirons du tutoriel `matplotlib`, surtout pour illustrer [`plt.hist`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html?highlight=matplotlib%20pyplot%20hist#matplotlib.pyplot.hist), mais qui montre aussi comment ajouter du texte :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour être reproductible, on fixe la graine
 # du générateur aléatoire
 np.random.seed(19680801)
@@ -237,7 +237,7 @@ plt.show()
 
 Je vous recommande aussi de regarder également la fonction [`plt.scatter`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html?highlight=matplotlib%20pyplot%20scatter#matplotlib.pyplot.scatter) qui permet de faire par exemple des choses comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour être reproductible, on fixe la graine
 # du générateur aléatoire
 np.random.seed(19680801)
@@ -258,18 +258,19 @@ plt.show()
 
 Avec [`boxplot`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html) vous obtenez des boîtes à moustache :
 
-```{code-cell}
-plt.subplot(121)
+```{code-cell} ipython3
+# la disposition des deux ssou-figures aka axes
+fig, (ax1, ax2) = plt.subplots(1, 2)
+
 # on peut passer à boxplot une liste de suites de nombres
 # chaque suite donne lieu à une boite à moustache
 # ici 3 suites
-plt.boxplot([[1, 2, 3, 4, 5, 13], [6, 7, 8, 10, 11, 12], [11, 12 ,13]])
-plt.ylim(0, 14)
+ax1.boxplot([[1, 2, 3, 4, 5, 13], [6, 7, 8, 10, 11, 12], [11, 12 ,13]])
+ax1.set_ylim(0, 14)
 
-plt.subplot(122)
 # on peut aussi comme toujours lui passer un ndarray numpy
 # attention c'est lu dans l'autre sens, ici aussi on a 3 suites de nombres
-plt.boxplot(np.array([[1, 6, 11],
+ax2.boxplot(np.array([[1, 6, 11],
                       [2, 7, 12],
                       [3, 8, 13],
                       [4, 10, 11],
