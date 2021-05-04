@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Versions de python
 version: '3.0'
 ---
@@ -47,7 +52,7 @@ Certaines précautions sont à prendre si vous utilisez une version plus ancienn
 
 Si vous préférez utiliser python-3.5, la différence la plus visible pour vous apparaitra avec les *f-strings* :
 
-```{code-cell}
+```{code-cell} ipython3
 age = 10
 
 # un exemple de f-string
@@ -68,7 +73,7 @@ SyntaxError: invalid syntax
 
 Dans ce cas vous devrez remplacer ce code avec la méthode `format` - que nous verrons en Semaine 2 avec les chaines de caractères - et dans le cas présent il faudrait remplacer par ceci&nbsp;:
 
-```{code-cell}
+```{code-cell} ipython3
 age = 10
 
 "Jean a {} ans".format(age)
@@ -105,7 +110,7 @@ Nous reviendrons en détail sur l'utilisation des notebooks dans une prochaine s
 * désigner avec la souris la cellule de code ; vous verrez alors apparaître une petite flèche à côté du mot `In `, en cliquant cette flèche vous exécutez le code ;
 * une autre méthode consiste à sélectionner la cellule de code avec la souris ; une fois que c'est fait vous pouvez cliquer sur le bouton `>| Run` dans la barre de menu (bleue claire) du notebook.
 
-```{code-cell}
+```{code-cell} ipython3
 # ce premier fragment de code affiche des détails sur la
 # version de python qui exécute tous les notebooks du cours
 import sys
