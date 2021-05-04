@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: while..else
 version: '3.0'
 ---
@@ -67,7 +72,7 @@ On peut utiliser dans une boucle `while` toutes les formes de conditions que l'o
 
 Dans le contexte de la boucle `while` on comprend mieux, toutefois, pourquoi le langage autorise d'écrire des conditions dont le résultat n'est **pas nécessairement un booléen**. Voyons cela sur un exemple simple :
 
-```{code-cell}
+```{code-cell} ipython3
 # une autre façon de parcourir une liste
 liste = ['a', 'b', 'c']
 
@@ -82,7 +87,7 @@ while liste:
 
 Signalons enfin que la boucle `while` - au même titre d'ailleurs que la boucle `for`, peut être assortie [d'une clause `else`](https://docs.python.org/3/reference/compound_stmts.html#the-while-statement), qui est exécutée à la fin de la boucle, **sauf dans le cas d'une sortie avec `break`**
 
-```{code-cell}
+```{code-cell} ipython3
 # Un exemple de while avec une clause else
 
 # si break_mode est vrai on va faire un break
@@ -100,7 +105,7 @@ def scan(liste, break_mode):
         print('else...')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # sortie de la boucle sans break
@@ -108,7 +113,7 @@ def scan(liste, break_mode):
 scan(['a'], False)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on sort de la boucle par le break

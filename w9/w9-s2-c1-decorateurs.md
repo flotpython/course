@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "D\xE9corateurs"
 version: '3.0'
 ---
@@ -43,7 +48,7 @@ Nous allons voir en détail quelques-uns de ces exemples.
 
 Dans la vidéo on a vu `NbAppels` pour compter le nombre de fois qu'on appelle une fonction. Pour mémoire on avait écrit :
 
-```{code-cell}
+```{code-cell} ipython3
 # un rappel du code montré dans la vidéo
 class NbAppels:
     def __init__(self, f):
@@ -55,7 +60,7 @@ class NbAppels:
         return self.f(*args)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # nous utilisons ici une implémentation en log(n)
 # de la fonction de fibonacci
 
@@ -75,22 +80,22 @@ def fibo_log(n):
     return fibo_aux(n)[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour se convaincre que nous sommes bien en log2(n)
 from math import log
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 n1 = 100
 
 log(n1)/log(2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fibo_log(n1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on multiplie par 2**4 = 16,
 # donc on doit voir 4 appels de plus
 n2 = 1600
@@ -98,7 +103,7 @@ n2 = 1600
 log(n2)/log(2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fibo_log(n2)
 ```
 
@@ -114,7 +119,7 @@ Alors que `NbAppels` était **implémenté comme une classe**, pour varier un pe
 
 ##### Le code du décorateur
 
-```{code-cell}
+```{code-cell} ipython3
 # une première implémentation de memoize
 
 # un décorateur de fonction
@@ -154,7 +159,7 @@ def memoize(a_decorer):
 
 Avant de rentrer dans le détail du code, voyons comment cela s'utiliserait ; il n'y a pas de changement de ce point de vue par rapport à l'option développée dans la vidéo :
 
-```{code-cell}
+```{code-cell} ipython3
 # créer une fonction décorée
 @memoize
 def fibo_cache(n):
@@ -171,7 +176,7 @@ En effet, si vous y réfléchissez une minute, vous verrez qu'avec le cache, lor
 
 On peut calculer par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 fibo_cache(300)
 ```
 
@@ -179,7 +184,7 @@ qu'il serait hors de question de calculer sans le caching.
 
 On peut naturellement inspecter le cache, qui est rangé dans l'attribut `cache` de l'objet fonction lui-même :
 
-```{code-cell}
+```{code-cell} ipython3
 len(fibo_cache.cache)
 ```
 
@@ -229,7 +234,7 @@ Cette implémentation, sans être parfaite, est tout à fait utilisable dans un 
 
 En fait, avec cette implémentation, il reste aussi un petit souci :
 
-```{code-cell}
+```{code-cell} ipython3
 help(fibo_cache)
 ```
 
@@ -244,7 +249,7 @@ def decoree(*args):
 
 Pour arranger ça et faire en sorte que `help` nous affiche ce qu'on veut, il faut s'occuper de ces deux attributs. Et plutôt que de faire ça à la main, il existe [un utilitaire `functools.wraps`](https://docs.python.org/3/library/functools.html#functools.wraps), qui fait tout le travail nécessaire. Ce qui nous donne une deuxième version de ce décorateur, avec deux lignes supplémentaires signalées par des `+++` :
 
-```{code-cell}
+```{code-cell} ipython3
 # une deuxième implémentation de memoize, avec la doc
 
 import functools                                 # +++
@@ -283,7 +288,7 @@ def memoize(a_decorer):
     return decoree
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # créer une fonction décorée
 @memoize
 def fibo_cache2(n):
@@ -296,7 +301,7 @@ def fibo_cache2(n):
 
 Et on obtient à présent une aide en ligne cohérente :
 
-```{code-cell}
+```{code-cell} ipython3
 help(fibo_cache2)
 ```
 
@@ -352,7 +357,7 @@ resolve_host = memoize(resolve_host)
 
 Ce qui nous mène au code suivant :
 
-```{code-cell}
+```{code-cell} ipython3
 import time
 
 # comme pour memoize, on est limité ici et on ne peut pas
@@ -398,17 +403,17 @@ def memoize_expire(timeout):
     return memoize
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 @memoize_expire(0.5)
 def fibo_cache_expire(n):
     return n if n<=1 else fibo_cache_expire(n-2)+fibo_cache_expire(n-1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fibo_cache_expire(300)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fibo_cache_expire.cache[(200,)]
 ```
 

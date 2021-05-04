@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -56,7 +61,7 @@ Voici quelques unes des méthodes disponibles sur le type `list`.
 
 Pour commencer, rappelons comment retrouver la liste des méthodes définies sur le type `list` :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 help(list)
@@ -74,7 +79,7 @@ Nous allons à présent décrire les autres, partiellement et brièvement. Un au
 
 Donnons-nous pour commencer une liste témoin :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [0, 1, 2, 3]
 print('liste', liste)
 ```
@@ -93,7 +98,7 @@ print('liste', liste)
 
 La méthode `append` permet d'ajouter **un élément** à la fin d'une liste :
 
-```{code-cell}
+```{code-cell} ipython3
 liste.append('ap')
 print('liste', liste)
 ```
@@ -104,7 +109,7 @@ print('liste', liste)
 
 La méthode `extend` réalise la même opération, mais avec **tous les éléments** de la liste qu'on lui passe en argument :
 
-```{code-cell}
+```{code-cell} ipython3
 liste2 = ['ex1', 'ex2']
 liste.extend(liste2)
 print('liste', liste)
@@ -116,7 +121,7 @@ print('liste', liste)
 
 Ces deux méthodes `append` et `extend` sont donc assez voisines ; avant de voir d'autres méthodes de `list`, prenons un peu le temps de comparer leur comportement avec l'addition `+` de liste. L'élément clé ici, on l'a déjà vu dans la vidéo, est que la liste est un objet **mutable**. `append` et `extend` **modifient** la liste sur laquelle elles travaillent, alors que l'addition **crée un nouvel objet**.
 
-```{code-cell}
+```{code-cell} ipython3
 # pour créer une liste avec les n premiers entiers, on utilise
 # la fonction built-in range(), que l'on convertit en liste
 # on aura l'occasion d'y revenir
@@ -124,17 +129,17 @@ a1 = list(range(3))
 print(a1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 a2 = list(range(10, 13))
 print(a2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le fait d'utiliser + crée une nouvelle liste
 a3 = a1 + a2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si bien que maintenant on a trois objets différents
 print('a1', a1)
 print('a2', a2)
@@ -143,13 +148,13 @@ print('a3', a3)
 
 Comme on le voit, après une addition, les deux termes de l'addition sont inchangés. Pour bien comprendre, voyons exactement le même scénario sous pythontutor :
 
-```{code-cell}
+```{code-cell} ipython3
 %load_ext ipythontutor
 ```
 
 **Note** : une fois que vous avez évalué la cellule avec `%%ipythontutor`, vous devez cliquer sur le bouton `Next` pour voir pas à pas le comportement du programme.
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=230 ratio=0.7
 a1 = list(range(3))
 a2 = list(range(10, 13))
@@ -158,7 +163,7 @@ a3 = a1 + a2
 
 Alors que si on avait utilisé `extend`, on aurait obtenu ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=200 ratio=0.75
 e1 = list(range(3))
 e2 = list(range(10, 13))
@@ -193,7 +198,7 @@ Et je signale pour finir, pour les curieux, que
 
 Ainsi notamment la commande magique `%timeit`, qui permet de faire des benchmarks et comparer finement des temps d'exécution, s'utilise comme ceci
 
-```{code-cell}
+```{code-cell} ipython3
 # avec un seul pourcent une commande magique concerne une seule ligne
 # un peu de patience, c'est un petit peu long à exécuter
 
@@ -202,14 +207,14 @@ Ainsi notamment la commande magique `%timeit`, qui permet de faire des benchmark
 L2 = list(range(1000))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %%timeit
 # avec deux pourcent, cela concerne toute la cellule
 L1 = list(range(1000))
 L2 = list(range(1000))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [raises-exception]
 
 # et comme vous le voyez ici il faut dans ce cas-là 
@@ -230,13 +235,13 @@ Vous remarquez surtout que `%timeit` exécute l'instuction un grand nombre de fo
 
 Mais reprenons notre inventaire des méthodes de `list`, et pour cela rappelons nous le contenu de la variable `liste` :
 
-```{code-cell}
+```{code-cell} ipython3
 liste
 ```
 
 La méthode `insert` permet, comme le nom le suggère, d'insérer un élément à une certaine position ; comme toujours les indices commencent à zéro et donc :
 
-```{code-cell}
+```{code-cell} ipython3
 # insérer à l'index 2
 liste.insert(2, '1 bis')
 print('liste', liste)
@@ -244,7 +249,7 @@ print('liste', liste)
 
 On peut remarquer qu'un résultat analogue peut être obtenu avec une affectation de slice ; par exemple pour insérer au rang 5 (i.e. avant `ap`), on pourrait aussi bien faire :
 
-```{code-cell}
+```{code-cell} ipython3
 liste[5:5] = ['3 bis']
 print('liste', liste)
 ```
@@ -255,7 +260,7 @@ print('liste', liste)
 
 La méthode `remove` détruit la **première occurrence** d'un objet dans la liste :
 
-```{code-cell}
+```{code-cell} ipython3
 liste.remove(3)
 print('liste', liste)
 ```
@@ -266,14 +271,14 @@ print('liste', liste)
 
 La méthode `pop` prend en argument un indice ; elle permet d'extraire l'élément à cet indice. En un seul appel on obtient la valeur de l'élément et on l'enlève de la liste :
 
-```{code-cell}
+```{code-cell} ipython3
 popped = liste.pop(0)
 print('popped', popped, 'liste', liste)
 ```
 
 Si l'indice n'est pas précisé, c'est le dernier élément de la liste qui est visé :
 
-```{code-cell}
+```{code-cell} ipython3
 popped = liste.pop()
 print('popped', popped, 'liste', liste)
 ```
@@ -284,14 +289,14 @@ print('popped', popped, 'liste', liste)
 
 Enfin `reverse` renverse la liste, le premier élément devient le dernier :
 
-```{code-cell}
+```{code-cell} ipython3
 liste.reverse()
 print('liste', liste)
 ```
 
 On peut remarquer ici que le résultat se rapproche de ce qu'on peut obtenir avec une opération de slicing comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 liste2 = liste[::-1]
 print('liste2', liste2)
 ```
@@ -318,12 +323,12 @@ print('liste2', liste2)
 
 Je vous signale en passant que dans un notebook vous pouvez obtenir de l'aide avec un point d'interrogation `?` inséré avant ou après un symbole. Par exemple pour obtenir des précisions sur la méthode `list.pop`, on peut faire soit :
 
-```{code-cell}
+```{code-cell} ipython3
 # fonctionne dans tous les environnements Python
 help(list.pop)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # spécifique aux notebooks
 # l'affichage obtenu est légèrement différent
 # tapez la touche 'Esc' - ou cliquez la petite croix
@@ -337,7 +342,7 @@ list.pop?
 
 Dans un notebook vous avez aussi la complétion ; si vous tapez, dans une cellule de code, le début d'un mot connu dans l'environnement, vous voyez apparaître un dialogue avec les noms connus qui commencent par ce mot ici `li`; utilisez les flèches pour choisir, et 'Return' pour sélectionner.
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # placez votre curseur à la fin de la ligne après 'li'

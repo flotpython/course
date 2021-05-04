@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Dimension 1
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Aussi, si vous utilisez une bibliothèque de calcul scientifique, la quasi total
 
 Dans cette première partie nous allons commencer avec des tableaux à une dimension, et voir comment les créer et les manipuler.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
@@ -53,14 +58,14 @@ import numpy as np
 
 On peut créer un tableau numpy à partir d'une liste - ou plus généralement un itérable - avec la fonction `np.array` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 array = np.array([12, 25, 32, 55])
 array
 ```
 
 **Attention** : une erreur commune au début consiste à faire ceci, qui ne marche pas :
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     array = np.array(1, 2, 3, 4)
 except Exception as e:
@@ -69,7 +74,7 @@ except Exception as e:
 
 Ça marche aussi à partir d'un itérable :
 
-```{code-cell}
+```{code-cell} ipython3
 builtin_range = np.array(range(10))
 builtin_range
 ```
@@ -84,14 +89,14 @@ builtin_range
 
 Sauf que dans ce cas précis on préfèrera utiliser directement la méthode `arange` de `numpy` :
 
-```{code-cell}
+```{code-cell} ipython3
 numpy_range = np.arange(10)
 numpy_range
 ```
 
 Avec l'avantage qu'avec cette méthode on peut donner des bornes et un pas d'incrément qui ne sont pas entiers :
 
-```{code-cell}
+```{code-cell} ipython3
 numpy_range_f = np.arange(1.0, 2.0, 0.1)
 numpy_range_f
 ```
@@ -102,20 +107,20 @@ numpy_range_f
 
 Aussi et surtout, lorsqu'on veut créer un intervalle dont on connaît les bornes, il est souvent plus facile d'utiliser `linspace`, qui crée un intervalle un peu comme `arange`, mais on lui précise un nombre de points plutôt qu'un pas :
 
-```{code-cell}
+```{code-cell} ipython3
 X = np.linspace(0., 10., 50)
 X
 ```
 
 Vous remarquez que les 50 points couvrent à intervalles réguliers l'espace compris entre 0 et 10 inclusivement. Notons que 50 est aussi le nombre de points par défaut. Cette fonction est très utilisée lorsqu'on veut dessiner une fonction entre deux bornes, on a déjà eu l'occasion de le faire :
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.ion()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # il est d'usage d'ajouter un point-virgule à la fin de la dernière ligne
 # si on ne le fait pas (essayez..), on obtient l'affichage d'une ligne
 # de bruit qui n'apporte rien
@@ -140,7 +145,7 @@ En fait en `numpy` on passe son temps à écrire des expressions dont les élém
 
 Ainsi pour tracer la fonction $x \longrightarrow cos^2(x) + sin^2(x) + 3$ on fera tout simplement :
 
-```{code-cell}
+```{code-cell} ipython3
 # l'énorme majorité du temps, on écrit avec numpy
 # des expressions qui impliquent des tableaux
 # exactement comme si c'était des nombres
@@ -187,7 +192,7 @@ Voyez notamment la liste des [fonctionnalités disponibles sous cette forme dans
 
 Je vous signale également un utilitaire qui permet, sous forme de décorateur, de passer d'une fonction scalaire à une `ufunc` :
 
-```{code-cell}
+```{code-cell} ipython3
 # le décorateur np.vectorize vous permet
 # de facilement transformer une opération scalaire
 # en opération vectorielle
@@ -197,7 +202,7 @@ def scalar_function(x):
     return x**2 + 2*x + (1 if x <=0 else 10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je choisis de prendre beaucoup de points
 # à cause de la discontinuité
 X = np.linspace(-5, 5, 1000)

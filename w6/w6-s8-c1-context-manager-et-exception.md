@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: '*Context managers* et exceptions'
 version: '3.0'
 ---
@@ -31,7 +36,7 @@ version: '3.0'
 
 On a vu jusqu'ici dans la vidéo comment écrire un context manager; on a vu notamment qu'il était bon pour la méthode `__exit__()` de retourner `False`, de façon à ce que l'exception soit propagée à l'instruction `with`:
 
-```{code-cell}
+```{code-cell} ipython3
 import time
 
 class Timer1:
@@ -51,7 +56,7 @@ class Timer1:
 
 Ainsi si le corps de l'instruction lève une exception, celle-ci est propagée :
 
-```{code-cell}
+```{code-cell} ipython3
 import time
 try:
     with Timer1():
@@ -86,7 +91,7 @@ def __exit__(self, exc_type, exc_value, traceback):
 
 Pour illustrer cela, écrivons une nouvelle version de `Timer` qui filtre, disons, l'exception `ZeroDivisionError` que je choisis au hasard, c'est uniquement pour illustrer le mécanisme.
 
-```{code-cell}
+```{code-cell} ipython3
 # une deuxième version de Timer
 # qui propage toutes les exceptions sauf 'OSError'
 
@@ -116,7 +121,7 @@ class Timer2:
                 # ce qui renverra None 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # commençons avec un code sans souci
 try:
     with Timer2():
@@ -126,7 +131,7 @@ except Exception as e:
     print(f"OOPS -> {type(e)}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec une exception filtrée
 try:
     with Timer2():
@@ -137,7 +142,7 @@ except Exception as e:
     print(f"OOPS -> {type(e)}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec une autre exception 
 try:
     with Timer2():
@@ -156,11 +161,11 @@ Je vous signale aussi [la bibliothèque `contextlib`](https://docs.python.org/3/
 
 Notamment, elle permet d'implémenter un context manager sous une forme compacte à l'aide d'une fonction génératrice - et du décorateur `contextmanager`:
 
-```{code-cell}
+```{code-cell} ipython3
 from contextlib import contextmanager
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # l'objet compact_timer est un context manager !
 @contextmanager
 def compact_timer(message):
@@ -169,7 +174,7 @@ def compact_timer(message):
     print(f"{message}: duration = {time.time() - start}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 with compact_timer("Squares sum"):
     print(sum(x**2 for x in range(10**5)))
 ```

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "It\xE9rateurs"
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Dans ce complément nous allons dire quelques mots du module `itertools` qui fou
 
 À ce stade, j'espère que vous savez trouver [la documentation du module](https://docs.python.org/3/library/itertools.html) que je vous invite à avoir sous la main.
 
-```{code-cell}
+```{code-cell} ipython3
 import itertools
 ```
 
@@ -59,26 +64,26 @@ Pour détailler un tout petit peu cette dernière famille, signalons :
 
  * `chain` qui permet de **concaténer** plusieurs itérables sous la forme d'un **itérateur** :
 
-```{code-cell}
+```{code-cell} ipython3
 for x in itertools.chain((1, 2), [3, 4]):
     print(x)
 ```
 
  * `islice` qui fournit un itérateur sur un slice d'un itérable. On peut le voir comme une généralisation de `range` qui parcourt n'importe quel itérable.
 
-```{code-cell}
+```{code-cell} ipython3
 import string
 support = string.ascii_lowercase
 print(f'support={support}')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # range
 for x in range(3, 8):
     print(x)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # islice
 for x in itertools.islice(support, 3, 8):
     print(x)

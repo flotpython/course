@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Exp. g\xE9n\xE9ratrices"
 version: '3.0'
 ---
@@ -39,13 +44,13 @@ Vous savez maintenant qu'en Python on favorise la notion d'itérateurs puisqu'il
 
 Comme les compréhensions de listes sont fréquemment utilisées en Python, mais qu'elles sont des itérables potentiellement gourmands en ressources mémoire, on souhaiterait pouvoir créer un itérateur directement à partir d'une compréhension de liste. C'est possible et très facile en Python. Il suffit de remplacer les crochets par des parenthèses, regardons cela.
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est une compréhension de liste
 comprehension = [x**2 for x in range(100) if x%17 == 0] 
 print(comprehension)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est une expression génératrice
 generator = (x**2 for x in range(100) if x%17 == 0) 
 print(generator)
@@ -53,11 +58,11 @@ print(generator)
 
 Ensuite pour utiliser une expression génératrice, c'est très simple, on l'utilise comme n'importe quel itérateur.
 
-```{code-cell}
+```{code-cell} ipython3
 generator is iter(generator) # generator est bien un itérateur
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # affiche les premiers carrés des multiples de 17
 for count, carre in enumerate(generator, 1):
     print(f'Contenu de generator après {count} itérations : {carre}')
@@ -65,7 +70,7 @@ for count, carre in enumerate(generator, 1):
 
 Avec une expression génératrice on n'est plus limité comme avec les compréhensions par le nombre d'éléments :
 
-```{code-cell}
+```{code-cell} ipython3
 # trop grand pour une compréhension,
 # mais on peut créer le générateur sans souci
 generator = (x**2 for x in range(10**18) if x%17==0) 
@@ -103,7 +108,7 @@ En Python 3, nous avons déjà rencontré la fonction `range` qui retourne les p
 
 Ou plutôt, c'est **comme si** elle retournait les premiers entiers lorsqu'on fait une boucle `for`
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut parcourir un range comme si c'était une liste
 for i in range(4):
     print(i)
@@ -111,12 +116,12 @@ for i in range(4):
 
 mais en réalité le résultat de `range` exhibe un comportement un peu étrange, en ce sens que :
 
-```{code-cell}
+```{code-cell} ipython3
 # mais en fait la fonction range ne renvoie PAS une liste (depuis Python 3)
 range(4)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et en effet ce n'est pas une liste
 isinstance(range(4), list)
 ```
@@ -135,7 +140,7 @@ Or dans les cas où, comme pour `range`, on n'a pas réellement besoin de cette 
 
 Voyons tout de suite sur un exemple à quoi cela ressemblerait.
 
-```{code-cell}
+```{code-cell} ipython3
 depart = (-5, -3, 0, 3, 5, 10)
 # dans le premier calcul de arrivee 
 # pour rappel, la compréhension est entre []
@@ -148,7 +153,7 @@ arrivee2
 
 Comme pour `range`, le résultat de l'expression génératrice ne se laisse pas regarder avec `print`, mais comme pour `range`, on peut itérer sur le résultat :
 
-```{code-cell}
+```{code-cell} ipython3
 for x, y in zip(depart, arrivee2):
     print(f"x={x} => y={y}")
 ```
@@ -159,7 +164,7 @@ Il n'est pas **toujours** possible de remplacer une compréhension par une expre
 
 Il faut juste un peu se méfier, car comme on parle ici d'itérateurs, comme toujours si on essaie de faire plusieurs fois une boucle sur le même itérateur, il ne se passe plus rien, car l'itérateur a été épuisé :
 
-```{code-cell}
+```{code-cell} ipython3
 for x, y in zip(depart, arrivee2):
     print(f"x={x} => y={y}")
 ```

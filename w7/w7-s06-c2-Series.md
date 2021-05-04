@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Series
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Un objet de type `Series` est un tableau `numpy` à une dimension avec un index, par conséquent, une `Series` a une certaine similarité avec un dictionnaire, et peut d'ailleurs être directement construite à partir de ce dictionnaire. Notons que, comme pour un dictionnaire, l'accès ou la modification est en $O(1)$, c'est-à-dire à temps constant indépendamment du nombre d'éléments dans la `Series`.
 
-```{code-cell}
+```{code-cell} ipython3
 # Regardons la construction d'une Series
 import numpy as np
 import pandas as pd
@@ -45,13 +50,13 @@ s = pd.Series([x**2 for x in range(10)])
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en contrôlant maintenant le type
 s = pd.Series([x**2 for x in range(10)], dtype='int8')
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en définissant un index, par défaut l'index est un rang démarrant à 0
 s = pd.Series([x**2 for x in range(10)],
               index=[x for x in 'abcdefghij'],
@@ -60,21 +65,21 @@ s = pd.Series([x**2 for x in range(10)],
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et directement à partir d'un dictionnaire,
 # les clefs forment l'index
 d = {k:v**2 for k, v in zip('abcdefghij', range(10))}
 print(d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 s = pd.Series(d, dtype='int8')
 print(s)
 ```
 
 Évidemment, l'intérêt d'un index est de pouvoir accéder à un élément par son index, comme nous aurons l'occasion de le revoir :
 
-```{code-cell}
+```{code-cell} ipython3
 print(s['f'])
 ```
 
@@ -84,7 +89,7 @@ print(s['f'])
 
 L'index d'une `Series` est un objet implémenté sous la forme d'un `ndarray` de `numpy`, mais qui ne peut contenir que des objets hashables (pour garantir la performance de l'accès).
 
-```{code-cell}
+```{code-cell} ipython3
 # pour accéder à l'index d'un objet Series
 # attention, index est un attribut, pas une fonction
 print(s.index)
@@ -96,7 +101,7 @@ L'index va également supporter un certain nombre de méthodes qui vont facilite
 
 L'autre moitié de l'objet `Series` est accessible via l'attribut `values`. **ATTENTION** à nouveau ici, c'est un **attribut** de l'objet et non pas une méthode, ce qui est très troublant par rapport à l'interface d'un dictionnaire.
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons les valeurs de ma Series
 # ATTENTION !! values est un attribut, pas une fonction
 print(s.values)
@@ -104,19 +109,19 @@ print(s.values)
 
 Mais une `Series` a également une interface de dictionnaire à laquelle on accède de la manière suivante :
 
-```{code-cell}
+```{code-cell} ipython3
 # les clefs correspondent à l'index
 k = s.keys() # attention ici c'est un appel de fonction !
 print(f"Les clefs: {k}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et les couples (clefs, valeurs) sous forme d'un objet zip
 for k,v in s.items(): # attention ici aussi c'est un appel de fonction !
     print(k, v)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour finir remarquons que le test d'appartenance est possible sur les index
 print(f"Est-ce que a est dans s ? {'a' in s}")
 print(f"Est-ce que z est dans s ? {'z' in s}")
@@ -132,13 +137,13 @@ Vous remarquez ici qu'alors que `values` et `index` sont des attributs de la `Se
 
 Avant d'aller plus loin, il faut faire attention à la gestion du type des objets contenus dans notre `Series` (on aura le même problème avec les `DataFrame`). Alors qu'un `ndarray` de `numpy` a un type qui ne change pas, une `Series` peut implicitement changer le type de ses valeurs lors d'opérations d'affectations.
 
-```{code-cell}
+```{code-cell} ipython3
 # créons une Series et regardons le type de ses valeurs
 s = pd.Series({k:v**2 for k, v in zip('abcdefghij', range(10))})
 print(s.values.dtype)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # On a déjà vu que l'on ne pouvait pas modifier lors d'une affectation le
 # type d'un ndarray numpy
 
@@ -148,7 +153,7 @@ except ValueError as e:
     print(f"On ne peut pas affecter une str à un ndarray de int64:\n{e}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Par contre, on peut le faire sur une Series
 s['c'] = 'spam'
 
@@ -158,17 +163,17 @@ print(s.values.dtype)
 
 C'est un point extrêment important puisque toutes les opérations vectorisées vont avoir leur performance impactée et le résultat obtenu peut même être faux. Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 s = pd.Series(range(10_000))
 print(s.values.dtype)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # combien de temps prend le calcul du carré des valeurs
 %timeit s**2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ajoutons 'spam' à la fin de la Series
 s[10_000] = 'spam'
 
@@ -179,7 +184,7 @@ del s[10_000]
 %timeit s**2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # que se passe-t-il, pourquoi le calcul est maintenant plus long
 s.values.dtype
 ```
@@ -188,13 +193,13 @@ Maintenant, les opérations vectorisées le sont sur des objets Python et non pl
 
 Et on peut même obtenir un résultat carrément faux. Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 # créons une series de trois entiers
 s = pd.Series([1, 2, 3])
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # puis ajoutons un nouvel élément, mais ici je me trompe, c'est une str
 # au lieu d'un entier
 s[3] = '4'
@@ -204,7 +209,7 @@ s[3] = '4'
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # seulement si j'additionne, les entiers sont additionnés,
 # mais les chaînes de caractères concaténées.
 print(s+s)
@@ -216,7 +221,7 @@ print(s+s)
 
 Un intérêt majeur de `pandas` est de faire de l'alignement d'index sur les objets que l'on manipule. Regardons un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 argent_poche_janvier = pd.Series([30, 35, 20],
                                  index=['alice', 'bob', 'julie'])
 argent_poche_février = pd.Series([30, 35, 20],
@@ -226,7 +231,7 @@ argent_poche_janvier + argent_poche_février
 
 On voit que les deux `Series` ont bien été alignées, mais on a un problème. Lorsqu'une valeur n'est pas définie, elle vaut `NaN` et si on ajoute `NaN` à une autre valeur, le résultat est `NaN`. On peut corriger ce problème avec un appel explicite de la fonction add qui accepte un argument `fill_value` qui sera la valeur par défaut en cas d'absence d'une valeur lors de l'opération.
 
-```{code-cell}
+```{code-cell} ipython3
 argent_poche_janvier.add(argent_poche_février, fill_value=0)
 ```
 
@@ -236,25 +241,25 @@ argent_poche_janvier.add(argent_poche_février, fill_value=0)
 
 Comme les `Series` sont basées sur des `ndarray` de `numpy`, elles supportent les opérations d'accès aux éléments des `ndarray`, notamment la notion de masque et les broadcasts, tout ça en conservant évidemment les index.
 
-```{code-cell}
+```{code-cell} ipython3
 s = pd.Series([30, 35, 20], index=['alice', 'bob', 'julie'])
 
 # qui a plus de 25 ans
 print(s[s>25])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons uniquement 'alice' et 'julie'
 print(s[['alice', 'julie']])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et affectons sur un masque
 s[s<=25] = np.NaN
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # notons également, que naturellement les opérations de broadcast
 # sont supportées
 s = s + 10
@@ -275,12 +280,12 @@ Nous allons détailler chacun de ces cas, mais sachez qu'il existe une solution 
 
 Regardons maintenant ces différents problèmes :
 
-```{code-cell}
+```{code-cell} ipython3
 s = pd.Series([30, 35, 20, 28], index=['alice', 'bob', 'julie', 'sonia'])
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut accéder directement à la valeur correspondant à alice
 print(s['alice'])
 
@@ -288,13 +293,13 @@ print(s['alice'])
 print(s[0])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # On peut faire un slice sur les labels, dans ce cas la borne
 # de droite est incluse
 s['alice':'julie']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et on peut faire un slice sur les positions, mais dans ce cas
 # la borne de droite est exclue, comme un slice normal en Python
 s[0:2]
@@ -308,13 +313,13 @@ C'est pour cette raison que les concepteurs de `pandas` ont préféré inclure l
 
 Regardons maintenant plus en détail cette notion d'ordre sur les index.
 
-```{code-cell}
+```{code-cell} ipython3
 # Regardons le slice sur un index avec un ordre particulier
 s = pd.Series([30, 35, 20, 28], index=['alice', 'bob', 'julie', 'sonia'])
 print(s['alice':'julie'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Si on change l'ordre de l'index, ça change la signification du slice
 s = pd.Series([30, 35, 20, 28], index=['alice', 'bob', 'sonia', 'julie'])
 print(s['alice':'julie'])
@@ -324,14 +329,14 @@ Vous devez peut-être vous demander si un slice sur l'index est toujours défini
 
 Donc la croissance monotonique n'est pas nécessaire tant qu'il n'y a pas de duplication de labels. Regardons cela.
 
-```{code-cell}
+```{code-cell} ipython3
 # mon index a des labels dupliqués, mais a une croissance monotonique
 s = pd.Series([30, 35, 20, 12], index=['a', 'a', 'b', 'c'])
 # le slice est défini
 s['a': 'b']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mon index a des labels dupliqués et n'a pas de croissance monotonique
 s = pd.Series([30, 35, 20, 12], index=['a', 'b', 'c', 'a'])
 # le slice n'est plus défini
@@ -347,7 +352,7 @@ Lorsque l'on va faire un slice, il va y avoir ambiguïté entre la position du l
 
 Encore une petite incohérence :
 
-```{code-cell}
+```{code-cell} ipython3
 s = pd.Series(['a', 'b', 'c'], index=[2, 0, 1])
 print(f"Si on accède directement à un élément, priorité au label : {s[0]}")
 print(f"Si on calcule un slice, priorité à la position : {s[0:1]}")
@@ -361,26 +366,26 @@ La solution à tous ces problèmes est de dire explicitement ce que l'on veut fa
 
 Pour utiliser les labels il faut utiliser `s.loc[]` et pour utiliser les positions if faut utiliser `s.iloc[]` (le `i` est pour localisation implicite, c'est-à-dire la position). Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # accès au label
 print(s.loc[0])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # accès à la position
 print(s.iloc[0])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # slice sur les labels, ATTENTION, il inclut la borne de droite
 print(s.loc[2:0])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # slice sur les positions, ATTENTION, il exclut la borne de droite
 print(s.iloc[0:2])
 ```

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Spreadsheet
 version: '3.0'
 ---
@@ -36,7 +41,7 @@ Pour rappel dans un tableur les colonnes sont appelées d'abord `A` jusque `Z`, 
 
 La valeur d'entrée index = 0 est considérée comme non valide.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici quelques exemples charnière
 from corrections.exo_spreadsheet import exo_spreadsheet
 exo_spreadsheet.example()
@@ -60,13 +65,13 @@ On vous invite également à envisager la progression suivante :
 
 1. À partir de la fonction précédente, écrire la fonction spreadsheet() pour les indices commençant à 1 et allant au-delà de 26.
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici'
 def spreadsheet(index):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et validez-le ici
 exo_spreadsheet.correction(spreadsheet)
 ```

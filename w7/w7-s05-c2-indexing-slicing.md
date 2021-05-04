@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Indexation et slices
 version: '3.0'
 ---
@@ -27,7 +32,7 @@ version: '3.0'
 
 ## Complément - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: '-'
@@ -50,7 +55,7 @@ Il est temps maintenant de voir que l'on peut *aussi* manipuler les tableaux `nu
 
 La façon la plus naturelle d'utiliser un tableau est habituellement à l'aide des indices. On peut aussi bien sûr accéder aux éléments d'un tableau `numpy` par des indices :
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui crée un tableau
 # tab[i, j] = i + 10 * j
 def background(n):
@@ -59,28 +64,28 @@ def background(n):
     return i + 10 * j
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 a5 = background(5)
 print(a5)
 ```
 
 Avec un seul index on obtient naturellement une ligne :
 
-```{code-cell}
+```{code-cell} ipython3
 a5[1]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # que l'on peut à nouveau indexer
 a5[1][2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou plus simplement indexer par un tuple
 a5[1, 2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -92,13 +97,13 @@ a5[3, 2] += 300
 print(a5)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou toute une ligne
 a5[1] = np.arange(100, 105)
 print(a5)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et on on peut aussi changer
 # toute une ligne par broadcasting
 a5[4] = 400
@@ -113,31 +118,31 @@ print(a5)
 
 Grâce au slicing on peut aussi référencer une colonne :
 
-```{code-cell}
+```{code-cell} ipython3
 a5 = background(5)
 print(a5)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 a5[:, 3]
 ```
 
 C'est un tableau à une dimension, mais vous pouvez tout de même modifier la colonne par une affectation :
 
-```{code-cell}
+```{code-cell} ipython3
 a5[:, 3] = range(300, 305)
 print(a5)
 ```
 
 Ou, ici également bien sûr, par broadcasting :
 
-```{code-cell}
+```{code-cell} ipython3
 # on affecte un scalaire à une colonne
 a5[:, 2] = 200
 print(a5)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou on ajoute un scalaire à une colonne
 a5[:, 4] += 400
 print(a5)
@@ -145,22 +150,22 @@ print(a5)
 
 Les slices peuvent prendre une forme générale :
 
-```{code-cell}
+```{code-cell} ipython3
 a8 = background(8)
 print(a8)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # toutes les lignes de rang 1, 4, 7
 a8[1::3]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # toutes les colonnes de rang 1, 5, 9
 a8[:, 1::4]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et on peut bien sûr les modifier
 a8[:, 1::4] = 0
 print(a8)
@@ -170,7 +175,7 @@ print(a8)
 
 Du coup, le slicing peut servir à extraire des blocs :
 
-```{code-cell}
+```{code-cell} ipython3
 # un bloc au hasard dans a8
 print(a8[5:8, 2:5])
 ```
@@ -181,7 +186,7 @@ print(a8[5:8, 2:5])
 
 On peut utiliser également le symbole spécial `np.newaxis` en conjonction avec un slice pour "décaler" les dimensions :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -190,47 +195,47 @@ X = np.arange(1, 7)
 print(X)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 X.shape
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 Y = X[:, np.newaxis]
 print(Y)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 Y.shape
 ```
 
 Et ainsi de suite :
 
-```{code-cell}
+```{code-cell} ipython3
 Z = Y[:, np.newaxis]
 Z
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 Z.shape
 ```
 
 De cette façon, par exemple, en combinant le slicing pour créer X et Y, et le broadcasting pour créer leur somme,  je peux créer facilement la table de tous les tirages de 2 dés à 6 faces :
 
-```{code-cell}
+```{code-cell} ipython3
 dice2 = X + Y
 print(dice2)
 ```
 
 Ou tous les tirages à trois dés :
 
-```{code-cell}
+```{code-cell} ipython3
 dice3 = X + Y + Z
 print(dice3)
 ```
 
 J'en profite pour introduire un utilitaire qui n'a rien à voir, mais avec `np.unique`, vous pourriez calculer le nombre d'occurrences dans le tableau, et ainsi calculer les probabilités d'apparition de tous les nombres entre 3 et 18 :
 
-```{code-cell}
+```{code-cell} ipython3
 np.unique(dice3, return_counts=True)
 ```
 
@@ -254,7 +259,7 @@ La taille d'un objet `numpy` est par définition constante ; cela signifie qu'o
 
 ##### Listes
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # on peut faire ceci
@@ -265,7 +270,7 @@ liste
 
 ##### Tableaux
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # on ne peut pas faire cela
@@ -284,13 +289,13 @@ Une slice sur un objet `numpy` renvoie une **vue** sur un extrait du tableau, et
 
 ##### Listes
 
-```{code-cell}
+```{code-cell} ipython3
 # une slice d'une liste est une shallow copy
 liste = [0, 1, 2]
 liste[1:2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en modifiant la slice,
 # on ne modifie pas la liste
 liste[1:2][0] = 999999
@@ -299,13 +304,13 @@ liste
 
 ##### Tableaux
 
-```{code-cell}
+```{code-cell} ipython3
 # une slice d'un tableau numpy est un extrait du tableau
 array = np.array([0, 1, 2])
 array[1:2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 array[1:2][0] = 100
 array
 ```

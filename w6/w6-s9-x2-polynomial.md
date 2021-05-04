@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: classe Polynomial
 version: '3.0'
 ---
@@ -56,14 +61,14 @@ On se propose d'écrire une classe pour représenter les polynômes :
 
 Le système de correction automatique a besoin également que votre classe définisse son comportement vis-à-vis de `repr()` ; regardez les exemples pour voir la représentation choisie.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_polynomial import exo_polynomial
 exo_polynomial.example()
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 
 class Polynomial:
@@ -72,14 +77,14 @@ class Polynomial:
         ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # correction
 exo_polynomial.correction(Polynomial)
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # peut-être utile pour debugger ?
 P00 = Polynomial()
 P0 = Polynomial(0)
@@ -89,17 +94,17 @@ Q = Polynomial(1, 2)
 R = Polynomial(3, 8, 5, 2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 P0 == P00 == P0 * P1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [raises-exception]
 
 P * Q == R
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [raises-exception]
 
 P(10)

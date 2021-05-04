@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 nbhosting:
   title: Notebooks Jupyter
   version: '3.0'
@@ -69,7 +74,7 @@ Nous avons vu dans la vidéo qu'un notebook est constitué d'une suite de cellul
 Pour commencer, sélectionnez cette cellule de code avec votre souris, et appuyez dans la barre de menu - en haut du notebook, donc - sur celui en forme de flèche triangulaire vers la droite (Play) :
 <img src="media/notebook-eval-button.png">
 
-```{code-cell}
+```{code-cell} ipython3
 20 * 30
 ```
 
@@ -94,7 +99,7 @@ Jupyter ajoute également un nombre entre les crochets pour afficher, par exempl
 
 Vous pouvez naturellement modifier ces cellules de code pour faire des essais ; ainsi vous pouvez vous servir du modèle ci-dessous pour calculer la racine carrée de 3, ou essayer la fonction sur un nombre négatif et voir comment est signalée l'erreur.
 
-```{code-cell}
+```{code-cell} ipython3
 # math.sqrt (pour square root) calcule la racine carrée
 import math
 math.sqrt(2)
@@ -116,17 +121,17 @@ En fait, évaluer un programme sous forme de notebook revient à le découper en
 
 On le voit sur cet exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 message = "Faites attention à l'ordre dans lequel vous évaluez les notebooks"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print(message)
 ```
 
 Si un peu plus loin dans le notebook on fait par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci a pour effet d'effacer la variable 'message'
 del message
 ```

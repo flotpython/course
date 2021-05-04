@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: yield from
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Dans ce notebook nous allons voir comment fabriquer une fonction génératrice q
 
 Commençons à nous définir une fonction génératrice ; par exemple ici nous listons les diviseurs d'un entier, en excluant 1 et l'entier lui-même :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 def divs(n, verbose=False):
@@ -52,7 +57,7 @@ def divs(n, verbose=False):
 
 Comme attendu, l'appel direct à cette fonction ne donne rien d'utile :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 divs(28)
@@ -60,7 +65,7 @@ divs(28)
 
 Mais lorsqu'on l'utilise dans une boucle `for`:
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 for d in divs(28):
@@ -81,7 +86,7 @@ Bien, jusqu'ici c'est clair. Maintenant supposons que je veuille écrire une fon
 
 Première idée naïve pour faire cela, mais qui ne marche pas :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def divdivs(n):
@@ -89,7 +94,7 @@ def divdivs(n):
         divs(i)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 try:
@@ -109,7 +114,7 @@ Ce qui se passe ici, c'est que `divdivs` est perçue comme une fonction normale,
 
 Si on utilise juste `yield`, ça ne fait pas du tout ce qu'on veut :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def divdivs(n):
@@ -117,7 +122,7 @@ def divdivs(n):
         yield divs(i)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 try:
@@ -137,7 +142,7 @@ En effet, c'est logique, chaque `yield` dans `divdivs()` correspond à une itér
 
 La construction du langage qui permet de faire ceci s'appelle `yield from`;
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def divdivs(n):
@@ -145,7 +150,7 @@ def divdivs(n):
         yield from divs(i, verbose=True)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 try:

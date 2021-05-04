@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Cr\xE9ation de tableaux"
 version: '3.0'
 ---
@@ -31,7 +36,7 @@ version: '3.0'
 
 Passons rapidement en revue quelques méthodes pour créer des tableaux `numpy`.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
@@ -41,7 +46,7 @@ import numpy as np
 
 La méthode la plus efficace pour créer un tableau `numpy` consiste à faire l'allocation de la mémoire mais sans l'initialiser :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 memory = np.empty(dtype=np.int8,
@@ -50,7 +55,7 @@ memory = np.empty(dtype=np.int8,
 
 J'en profite pour attirer votre attention sur l'impression des gros tableaux où l'on s'efforce de vous montrer les coins :
 
-```{code-cell}
+```{code-cell} ipython3
 print(memory)
 ```
 
@@ -64,12 +69,12 @@ Il se *peut* que vous voyiez ici des valeurs particulières ; selon votre OS, i
 
 On peut aussi créer et initialiser un tableau avec `np.zeros` et `np.ones` :
 
-```{code-cell}
+```{code-cell} ipython3
 zeros = np.zeros(dtype=np.complex128, shape=(1_000, 100))
 print(zeros)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fours = 4 * np.ones(dtype=float, shape=(8, 8))
 fours
 ```
@@ -80,13 +85,13 @@ fours
 
 En guise de rappel, avec `arange` on peut créer des tableaux de valeurs espacées d'une valeur constante. Ça ressemble donc un peu au `range` de Python natif :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 np.arange(4)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 np.arange(1, 5)
@@ -94,7 +99,7 @@ np.arange(1, 5)
 
 Sauf qu'on peut y passer un pas qui n'est pas entier :
 
-```{code-cell}
+```{code-cell} ipython3
 np.arange(5, 7, .5)
 ```
 
@@ -104,13 +109,13 @@ np.arange(5, 7, .5)
 
 Mais bien souvent, plutôt que de préciser *le pas* entre deux valeurs, on préfère préciser *le nombre* de points ; et aussi inclure la deuxième borne. C'est ce que fait `linspace`, c'est très utile pour modéliser une fonction sur un intervalle ; on a déjà vu des exemples de ce genre :
 
-```{code-cell}
+```{code-cell} ipython3
 %matplotlib inline
 import matplotlib.pyplot as plt
 plt.ion()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 X = np.linspace(-3., +3.)
@@ -119,7 +124,7 @@ Y = np.exp(X)
 plt.plot(X, Y);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # par défaut linspace crée 50 points
@@ -139,17 +144,17 @@ Pour des intervalles en progression géométrique, voyez `np.geomspace`.
 
 La méthode `np.indices` se comporte un peu comme `arange` mais pour plusieurs directions ; voyons ça sur un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 ix, iy = np.indices((3, 5))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 ix
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 iy
@@ -165,7 +170,7 @@ tab[i, j] = 200*i + 2*j + 50
 ```
 Vous n'avez qu'à faire :
 
-```{code-cell}
+```{code-cell} ipython3
 ix, iy = np.indices((2, 4))
 tab = 200*ix + 2*iy + 50
 tab
@@ -187,7 +192,7 @@ $x \in [-\pi, +\pi], y \in [3\pi, 5\pi]$
 
 Il vous faut donc créer un tableau, disons de 50 x 50 points, qui réalise un maillage uniforme de ce pavé, et pour ça vous pouvez utiliser `meshgrid`. Pour commencer :
 
-```{code-cell}
+```{code-cell} ipython3
 # on fabrique deux tableaux qui échantillonnent
 # de manière uniforme les intervalles en X et en Y
 # on prend un pas de 10 dans les deux sens, ça nous donnera
@@ -199,7 +204,7 @@ Xticks, Yticks = (np.linspace(-np.pi, np.pi, num=10),
 
 Avec meshgrid, on va créer deux tableaux, qui sont respectivement les (100) X et les (100) Y de notre maillage :
 
-```{code-cell}
+```{code-cell} ipython3
 # avec meshgrid on les croise
 # ça fait comme un produit cartésien, 
 # en extrayant les X et les Y du résultat
@@ -212,13 +217,13 @@ X.shape, Y.shape
 
 Que peut-on faire avec ça ? Eh bien, en fait, on a tout ce qu'il nous faut pour afficher notre fonction :
 
-```{code-cell}
+```{code-cell} ipython3
 # un tableau 10 x 10 qui contient les images de f()
 # sur les points de la grille
 Z = np.cos(X) + np.cos(Y)**2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')

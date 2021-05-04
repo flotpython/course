@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Data Science
 version: '3.0'
 ---
@@ -82,7 +87,7 @@ Vous le voyez, je ne suis pas très encourageant, pour faire de la data science 
 
 `pandas` est un projet qui évolue régulièrement, on vous recommande donc d'utiliser au moins `pandas` dans sa version 0.21. Voici les versions que l'on utilise ici.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 print(f"numpy version {np.__version__}")
 
@@ -104,7 +109,7 @@ Il y a deux structures de données principales en `pandas`, la classe `Series` e
 
 Vous pouvez bien sûr vous demander à quoi cela sert, alors regardons un petit exemple. Nous allons revenir sur les notions utilisées dans cet exemple, notre but ici est de vous montrer l'utilité de `pandas` sur un exemple.
 
-```{code-cell}
+```{code-cell} ipython3
 # seaborn est un module pour dessiner des courbes qui améliore
 # sensiblement matplotlib, mais ça n'est pas ce qui nous intéresse ici.
 # seaborn vient avec quelques jeux de données sur lesquels on peut jouer.
@@ -116,13 +121,13 @@ tips = sns.load_dataset('tips')
 
 `load_dataset` retourne une `DataFrame`.
 
-```{code-cell}
+```{code-cell} ipython3
 type(tips)
 ```
 
 Regardons maintenant à quoi ressemble une `DataFrame` :
 
-```{code-cell}
+```{code-cell} ipython3
 # voici à quoi ressemblent ces données. On a la note totale (total_bill),
 # le pourboire (tip), le sexe de la personne qui a donné le pourboire,
 # si la personne est fumeur ou non fumeur (smoker), le jour du repas,
@@ -132,22 +137,22 @@ tips.head()
 
 On voit donc un exemple de `DataFrame` qui représente des données indexées, à la fois par des labels sur les colonnes, et par un rang entier sur les lignes. C'est l'utilisation de ces index qui va nous permettre de faire des requêtes expressives sur ces données.
 
-```{code-cell}
+```{code-cell} ipython3
 # commençons par une rapide description statistique de ces données
 tips.describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # prenons la moyenne par sexe
 tips.groupby('sex').mean()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et maintenant la moyenne par jour
 tips.groupby('day').mean()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour finir la moyenne par moment du repas
 tips.groupby('time').mean()
 ```

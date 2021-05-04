@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Op\xE9rateur is"
 version: '3.0'
 ---
@@ -27,7 +32,7 @@ version: '3.0'
 
 ## Complément - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 %load_ext ipythontutor
 ```
 
@@ -44,7 +49,7 @@ Nous allons illustrer la différence entre ces deux opérateurs.
 
 ##### Scénario 1
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # deux listes identiques
@@ -55,7 +60,7 @@ b = [1, 2]
 print('==', a == b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais ce ne sont pas les mêmes objets
@@ -64,7 +69,7 @@ print('is', a is b)
 
 ##### Scénario 2
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # par contre ici il n'y a qu'une liste
@@ -78,7 +83,7 @@ b = a
 print('==', a == b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais elles désignent le même objet
@@ -91,7 +96,7 @@ print('is', a is b)
 
 ##### Scénario 1
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor curInstr=2
 a = [1, 2]
 b = [1, 2]
@@ -99,7 +104,7 @@ b = [1, 2]
 
 ##### Scénario 2
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor curInstr=1
 # équivalent à la forme ci-dessus
 # a = [1, 2]
@@ -117,7 +122,7 @@ La pratique usuelle est d'utiliser `is` lorsqu'on compare avec un objet qui est 
 
 Par exemple on préfèrera écrire :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 undef = None
@@ -130,7 +135,7 @@ if undef is None:
 
 Plutôt que :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if undef == None:
@@ -155,7 +160,7 @@ Notez aussi et surtout que `is` est **plus efficace** que `==`. En effet `is` pe
 
 Pour bien comprendre le fonctionnement de `is` nous allons voir la fonction `id` qui retourne un identificateur unique pour chaque objet ; un modèle mental acceptable est celui d'adresse mémoire.
 
-```{code-cell}
+```{code-cell} ipython3
 id(True)
 ```
 
@@ -171,7 +176,7 @@ Comme vous vous en doutez, l'opérateur `is` peut être décrit formellement à 
 
 Un singleton est un objet qui n'existe qu'en un seul exemplaire dans la mémoire. Un usage classique des singletons en Python est de minimiser le nombre d'objets immuables en mémoire. Voyons ce que cela nous donne avec des entiers :
 
-```{code-cell}
+```{code-cell} ipython3
 a = 3
 b = 3
 print('a', id(a), 'b', id(b))
@@ -179,7 +184,7 @@ print('a', id(a), 'b', id(b))
 
 Tiens, c'est curieux, nous avons ici deux objets, que l'on pourrait penser différents, mais en fait ce sont les mêmes ; `a` et `b` désignent **le même objet** python, et on a :
 
-```{code-cell}
+```{code-cell} ipython3
 a is b
 ```
 
@@ -189,7 +194,7 @@ Il se trouve que, dans le cas des petits entiers, python réalise une optimisati
 
 On trouve cette optimisation avec quelques autres objets python, comme par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 a = ""
 b = ""
 a is b
@@ -197,7 +202,7 @@ a is b
 
 Ou encore, plus surprenant :
 
-```{code-cell}
+```{code-cell} ipython3
 a = "foo"
 b = "foo"
 a is b

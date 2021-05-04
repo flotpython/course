@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Passage par r\xE9f\xE9rence"
 version: '3.0'
 ---
@@ -31,7 +36,7 @@ version: '3.0'
 
 Entre le code qui appelle une fonction et le code de la fonction elle-même
 
-```{code-cell}
+```{code-cell} ipython3
 def ma_fonction(dans_fonction):
     print(dans_fonction)
     
@@ -62,12 +67,12 @@ Si vous avez appris d'autres langages de programmation comme C ou C++, on a pu v
 
 Certains langages comme Pascal - et C++ si on veut - proposent ces deux modes. En Python, tous les passages de paramètres se font **par référence**.
 
-```{code-cell}
+```{code-cell} ipython3
 # chargeons la magie pour pythontutor
 %load_ext ipythontutor
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor curInstr=4
 def ma_fonction(dans_fonction):
     print(dans_fonction)
@@ -78,7 +83,7 @@ ma_fonction(dans_appelant)
 
 Ce qui signifie qu'on peut voir le code ci-dessus comme étant - pour simplifier - équivalent à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 dans_appelant = ["texte"]
 
 # ma_fonction (dans_appelant)
@@ -89,7 +94,7 @@ print(dans_fonction)
 
 On peut le voir encore d'une autre façon en instrumentant le code comme ceci -- on rappelle que la fonction built-in `id` retourne l'adresse mémoire d'un objet :
 
-```{code-cell}
+```{code-cell} ipython3
 def ma_fonction(dans_fonction):
     print('dans ma_fonction', dans_fonction , id(dans_fonction))
     
@@ -104,7 +109,7 @@ ma_fonction(dans_appelant)
 
 On voit donc que l'appel de fonction crée des références partagées, exactement comme l'affectation, et que tout ce que nous avons vu au sujet des références partagées s'applique exactement à l'identique :
 
-```{code-cell}
+```{code-cell} ipython3
 # on ne peut pas modifier un immuable dans une fonction
 def increment(n):
     n += 1
@@ -114,7 +119,7 @@ increment(compteur)
 print(compteur)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut par contre ajouter dans une liste
 def insert(liste, valeur):
     liste.append(valeur)

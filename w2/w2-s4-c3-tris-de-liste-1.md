@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Tris de listes (1)
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Python fournit une méthode standard pour trier une liste, qui s'appelle, sans g
 
 Voyons comment se comporte `sort` sur un exemple simple :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [8, 7, 4, 3, 2, 9, 1, 5, 6]
 print('avant tri', liste)
 liste.sort()
@@ -52,11 +57,11 @@ On retrouve ici, avec l'instruction `liste.sort()` un cas d'appel de méthode (i
 
 La première chose à remarquer est que la liste d'entrée a été modifiée, on dit "en place", ou encore "par effet de bord". Voyons cela sous pythontutor :
 
-```{code-cell}
+```{code-cell} ipython3
 %load_ext ipythontutor
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=200 ratio=0.8
 liste = [3, 2, 9, 1]
 liste.sort()
@@ -72,7 +77,7 @@ On aurait pu imaginer que la liste d'entrée soit restée inchangée, et que la 
 
 Si vous avez besoin de faire le tri sur une copie de votre liste, la fonction `sorted` vous permet de le faire :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=200 ratio=0.8
 liste1 = [3, 2, 9, 1]
 liste2 = sorted(liste1)
@@ -84,7 +89,7 @@ liste2 = sorted(liste1)
 
 Revenons à la méthode `sort` et aux tris *en place*. Par défaut la liste est triée par ordre croissant, si au contraire vous voulez l'ordre décroissant, faites comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [8, 7, 4, 3, 2, 9, 1, 5, 6]
 print('avant tri', liste)
 liste.sort(reverse=True)
@@ -101,7 +106,7 @@ Nous n'avons pas encore vu à quoi correspond cette formule `reverse=True` dans 
 
 Cette technique fonctionne très bien sur tous les types numériques (enfin, à l'exception des complexes ; en guise d'exercice, pourquoi ?), ainsi que sur les chaînes de caractères :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = ['spam', 'egg', 'bacon', 'beef']
 liste.sort()
 print('après tri', liste)
@@ -113,7 +118,7 @@ Comme on s'y attend, il s'agit cette fois d'un **tri lexicographique**, dérivé
 
 Ainsi par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # deux caractères minuscules se comparent
 # comme on s'y attend
 'a' < 'z'
@@ -121,7 +126,7 @@ Ainsi par exemple :
 
 Bon, mais par contre :
 
-```{code-cell}
+```{code-cell} ipython3
 # si l'un est en minuscule et l'autre en majuscule,
 # ce n'est plus le cas
 'Z' < 'a'
@@ -129,7 +134,7 @@ Bon, mais par contre :
 
 Ce qui à son tour explique ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # la conséquence de 'Z' < 'a', c'est que
 liste = ['abc', 'Zoo']
 liste.sort()
@@ -138,7 +143,7 @@ print(liste)
 
 Et lorsque les chaînes contiennent des espaces ou autres ponctuations, le résultat du tri peut paraître surprenant :
 
-```{code-cell}
+```{code-cell} ipython3
 # attention ici notre premiere chaîne commence par une espace
 # et le caractère 'Espace' est plus petit
 # que tous les autres caractères imprimables

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Format
 version: '3.0'
 ---
@@ -40,18 +45,18 @@ Elle devra retourner une chaîne de caractères selon que la note est
 
 comme on le voit sur les exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_label import exo_label
 exo_label.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def label(prenom, note):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger
 exo_label.correction(label)
 ```

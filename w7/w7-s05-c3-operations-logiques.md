@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Op\xE9rations logiques"
 version: '3.0'
 ---
@@ -31,7 +36,7 @@ version: '3.0'
 
 Même si les tableaux contiennent habituellement des nombres, on peut être amenés à faire des opérations logiques et du coup à manipuler des tableaux de booléens. Nous allons voir quelques éléments à ce sujet.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
@@ -45,14 +50,14 @@ On peut faire des opérations logiques entre tableaux exactement comme on fait d
 
 On va partir de deux tableaux presque identiques. J'en profite pour vous signaler qu'on peut copier un tableau avec, tout simplement, `np.copy` :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a = np.arange(25).reshape(5, 5)
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b = np.copy(a)
@@ -62,7 +67,7 @@ print(b)
 
 Dans la lignée de ce qu'on a vu jusqu'ici en matière de programmation vectorielle, une opération logique va ici aussi nous retourner un tableau de la même taille :
 
-```{code-cell}
+```{code-cell} ipython3
 # la comparaison par == ne nous
 # retourne pas directement un booléen
 # mais un tableau de la même taille que a et b
@@ -75,21 +80,21 @@ print(a == b)
 
 Si votre intention est de vérifier que les deux tableaux sont entièrement identiques, utilisez `np.all` - et non pas le *built-in* natif `all` de Python - qui va vérifier que tous les éléments du tableau sont vrais :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # oui
 np.all(a == a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # oui
 np.all(a == b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # oui
@@ -100,7 +105,7 @@ np.all(a == b)
 (a == a).all()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # par contre : non !
@@ -114,13 +119,13 @@ except Exception as e:
 
 C'est bien sûr la même chose pour `any` qui va vérifier qu'il y a au moins un élément vrai. Comme en Python natif, un nombre qui est nul est considéré comme faux :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 np.zeros(5).any()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 np.ones(5).any()
@@ -136,7 +141,7 @@ Mais en général, c'est rare qu'on ait besoin de consolider de la sorte un bool
 
 J'en profite pour introduire une fonction de `matplotlib` qui s'appelle `imshow` et qui permet d'afficher une image :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 import matplotlib.pyplot as plt
@@ -144,7 +149,7 @@ import matplotlib.pyplot as plt
 plt.ion()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # construisons un disque centré au milieu de l'image
 
 width = 128
@@ -158,7 +163,7 @@ plt.imshow(image, cmap='gray');
 
 Maintenant je peux créer un masque qui produise des rayures en diagonale, donc selon la valeur de `(i+j)`. Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour faire des rayures
@@ -167,7 +172,7 @@ rayures = (ix + iy) % 8 <= 5
 plt.imshow(rayures, cmap='gray');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # en fait c'est bien sûr
@@ -177,7 +182,7 @@ print(rayures)
 
 je vous montre aussi comment inverser un masque parce que c'est un peu abscons :
 
-```{code-cell}
+```{code-cell} ipython3
 # on ne peut pas faire 
 try:
     anti_rayures = not rayures
@@ -185,7 +190,7 @@ except Exception as e:
     print(f"OOPS - {type(e)} - {e}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on ne peut pas non plus faire
@@ -200,7 +205,7 @@ plt.imshow(anti_rayures,
            cmap='gray');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # lorsque vous avez de vrais 
@@ -214,25 +219,25 @@ plt.imshow(anti_rayures,
 
 Maintenant je peux utiliser le masque `rayures` pour faire des choses sur l'image. Par exemple simplement :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour effacer les rayures
 plt.imshow(image*rayures, cmap='gray');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou garder l'autre moitié
 plt.imshow(image*anti_rayures, cmap='gray');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 image
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 np.logical_not(image)
 ```
 
@@ -242,26 +247,26 @@ np.logical_not(image)
 
 Nous avons vu en Python natif l'expression conditionnelle :
 
-```{code-cell}
+```{code-cell} ipython3
 3 if True else 2
 ```
 
 Pour reproduire cette construction en `numpy` vous avez à votre disposition `np.where`. Pour l'illustrer nous allons construire deux images facilement discernables. Et, pour cela, on va utiliser `np.isclose`, qui est très utile pour comparer que deux nombres sont suffisamment proches, surtout pour les calculs flottants en fait, mais ça nous convient très bien ici aussi :
 
-```{code-cell}
+```{code-cell} ipython3
 np.isclose?
 ```
 
 Pour élaborer une image qui contient un grand cercle, je vais dire que la distance au centre (je rappelle que c'est le contenu de `image`) est suffisamment proche de $64^2$, ce que vaut `image` au milieu de chaque bord :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 big_circle = np.isclose(image, 64 **2, 10/100)
 plt.imshow(big_circle, cmap='gray');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 small_circle = np.isclose(image, 32 **2, 10/100)
@@ -273,7 +278,7 @@ En utilisant `np.where`, je peux simuler quelque chose comme ceci :
 mixed = big_circle if rayures else small_circle
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # sauf que ça se présente en fait comme ceci :
 mixed = np.where(rayures, big_circle, small_circle)
 plt.imshow(mixed, cmap='gray');
@@ -281,7 +286,7 @@ plt.imshow(mixed, cmap='gray');
 
 Remarquez enfin qu'on peut aussi faire la même chose en tirant profit que `True` == 1 et `False` == 0 :
 
-```{code-cell}
+```{code-cell} ipython3
 mixed2 = rayures * big_circle + (1-rayures) * small_circle
 plt.imshow(mixed2, cmap='gray');
 ```

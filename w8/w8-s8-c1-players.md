@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -95,7 +100,7 @@ Pour éviter de nous noyer dans des configurations compliquées, on a embarqué 
 
 Dans tous les cas **chacune de ces configurations crée deux joueurs**.
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple la config. prédéfinie # 1 
 # ressemble à ceci
 from data.players import predefined
@@ -114,7 +119,7 @@ La logique des deux joueurs est simplement juxtaposée, ou si on préfère super
 
 ![](media/players.png)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # je peux lancer un sous-processus
@@ -123,7 +128,7 @@ La logique des deux joueurs est simplement juxtaposée, ou si on préfère super
 !data/players.py
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou une autre configuration

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Pr\xE9cisions sur l'importation"
 version: '3.0'
 ---
@@ -41,20 +46,20 @@ De manière générale, à l'intérieur d'un interpréteur python, un module don
 
 Voyons cela sur un exemple simpliste, importons un module pour la première fois :
 
-```{code-cell}
+```{code-cell} ipython3
 import multiple_import
 ```
 
 Ce module est très simple, comme vous pouvez le voir
 
-```{code-cell}
+```{code-cell} ipython3
 from modtools import show_module
 show_module(multiple_import)
 ```
 
 Si on le charge une deuxième fois (peu importe où, dans le même module, un autre module, une fonction..), vous remarquez qu'il ne produit aucune impression
 
-```{code-cell}
+```{code-cell} ipython3
 import multiple_import 
 ```
 
@@ -64,12 +69,12 @@ Ce qui confirme que le module a déjà été chargé, donc cette instruction `im
 
 Une autre façon d'illustrer ce trait est d'importer plusieurs fois le module `this`
 
-```{code-cell}
+```{code-cell} ipython3
 # la première fois le chargement a vraiment lieu
 import this
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la deuxième fois il ne se passe plus rien
 import this
 ```
@@ -112,7 +117,7 @@ L'inconvénient majeur de cette stratégie de chargement unique est perceptible 
 
 Pour cette raison, python fournit dans le module `importlib` une fonction `reload`, qui permet comme son nom l'indique de forcer le rechargement d'un module, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 from importlib import reload
 reload(multiple_import)
 ```
@@ -131,12 +136,12 @@ Notez également que la fonction `importlib.reload` a été introduite en python
 
 À l'intérieur d'un notebook, vous [pouvez faire comme ceci](https://ipython.org/ipython-doc/3/config/extensions/autoreload.html) pour recharger le code importé automatiquement :
 
-```{code-cell}
+```{code-cell} ipython3
 # charger le magic 'autoreload'
 %load_ext autoreload
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # activer autoreload
 %autoreload 2
 ```
@@ -159,23 +164,23 @@ Revenons à python standard. Pour ceux qui sont intéressés par les détails, s
 
 L'interpréteur utilise cette variable pour conserver la trace des modules actuellement chargés.
 
-```{code-cell}
+```{code-cell} ipython3
 import sys
 'csv' in sys.modules
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import csv
 'csv' in sys.modules
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 csv is sys.modules['csv']
 ```
 
 La [documentation sur `sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules) indique qu'il est possible de forcer le rechargement d'un module en l'enlevant de cette variable `sys.modules`.
 
-```{code-cell}
+```{code-cell} ipython3
 del sys.modules['multiple_import']
 import multiple_import
 ```
@@ -186,7 +191,7 @@ import multiple_import
 
 Signalons enfin [la variable `sys.builtin_module_names`](https://docs.python.org/3/library/sys.html#sys.builtin_module_names) qui contient le nom des modules, comme par exemple le garbage collector `gc`, qui sont implémentés en C et font partie intégrante de l'interpréteur.
 
-```{code-cell}
+```{code-cell} ipython3
 'gc' in sys.builtin_module_names
 ```
 

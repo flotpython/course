@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: TimeSeries
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Lorsqu'il y a des erreurs de parsing des dates, pandas offre la possibilité de lancer une exception, ou de produire un objet `NaT` pour *Not a Time* qui se manipule ensuite comme un `NaN`.
 
-```{code-cell}
+```{code-cell} ipython3
 import pandas as pd
 date = '100/06/2018' # cette date ne peut pas être parsée
 
@@ -45,17 +50,17 @@ except ValueError as e:
     print(e)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # retourne l'input en cas d'erreur
 pd.to_datetime(date, errors='ignore')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # retourne NaT en cas d'erreur
 pd.to_datetime(date, errors='coerce')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la dernière date n'est pas valide
 d = pd.to_datetime(['jun 2018', '10/12/1980',
                     '25 january 2000', '100 june 1900'], 
@@ -63,7 +68,7 @@ d = pd.to_datetime(['jun 2018', '10/12/1980',
 print(d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut utiliser les méthodes pour les NaN directement sur un NaT
 d.fillna(pd.to_datetime('10 june 1980'))
 ```

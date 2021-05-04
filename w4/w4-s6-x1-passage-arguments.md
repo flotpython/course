@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Passage d'arguments
 version: '3.0'
 ---
@@ -34,19 +39,19 @@ $distance$ ($x_1$, ..., $x_n$) = $\sqrt{\sum x_i^2}$
 
 Par convention on fixe que $distance() = 0$
 
-```{code-cell}
+```{code-cell} ipython3
 # des exemples
 from corrections.exo_distance import exo_distance
 exo_distance.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def distance(votre, signature):
     return "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la correction
 exo_distance.correction(distance)
 ```
@@ -66,7 +71,7 @@ de ses arguments.
 
 Si aucun argument n'est passé, `numbers` doit renvoyer un tuple contenant 3 entiers `0`.
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple
 from corrections.exo_numbers import exo_numbers
 exo_numbers.example()
@@ -74,13 +79,13 @@ exo_numbers.example()
 
 En guise d'indice, je vous invite à regarder les fonctions *built-in* [`sum`](https://docs.python.org/3/library/functions.html#sum), [`min`](https://docs.python.org/3/library/functions.html#min) et [`max`](https://docs.python.org/3/library/functions.html#max).
 
-```{code-cell}
+```{code-cell} ipython3
 # vous devez définir votre propre signature
 def numbers(votre, signature):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_numbers.correction(numbers)
 ```

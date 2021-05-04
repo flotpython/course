@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "exercice: compr\xE9hensions(2)"
 version: '3.0'
 ---
@@ -36,19 +41,19 @@ Cette fois, chaque ligne contient, séparés par des points-virgules, une liste 
 
 À nouveau les lignes peuvent être remplies de manière approximative, avec des espaces, des tabulations, ou même des points-virgules en trop, que ce soit au début, à la fin, ou au milieu d'une ligne.
 
-```{code-cell}
+```{code-cell} ipython3
 # exemples
 from corrections.exo_carre import exo_carre
 exo_carre.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici
 def carre(ligne):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger
 exo_carre.correction(carre)
 ```

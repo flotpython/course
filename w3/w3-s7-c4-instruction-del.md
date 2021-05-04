@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Instruction del
 version: '3.0'
 ---
@@ -41,7 +46,7 @@ On peut annuler la définition d'une variable, avec `del`.
 
 Pour l'illustrer, nous utilisons un bloc `try … except …` pour attraper le cas échéant l'exception `NameError`, qui est produite lorsqu'on référence une variable qui n'est pas définie.
 
-```{code-cell}
+```{code-cell} ipython3
 # la variable a n'est pas définie
 try:
     print('a=', a)
@@ -49,7 +54,7 @@ except NameError as e:
     print("a n'est pas définie")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on la définit
 a = 10
 
@@ -60,7 +65,7 @@ except NameError as e:
     print("a n'est pas définie")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant on peut effacer la variable
 del a
 
@@ -78,13 +83,13 @@ except NameError as e:
 
 On peut enlever d'une liste les éléments qui correspondent à une *slice* :
 
-```{code-cell}
+```{code-cell} ipython3
 # on se donne une liste
 l = list(range(12))
 print(l)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on considère une slice dans cette liste
 print('slice=', l[2:10:3])
 
@@ -99,13 +104,13 @@ print("après del", l)
 
 Avec `del` on peut enlever une clé, et donc la valeur correspondante, d'un dictionnaire :
 
-```{code-cell}
+```{code-cell} ipython3
 # partons d'un dictionaire simple
 d = dict(foo='bar', spam='eggs', a='b')
 print(d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut enlever une clé avec del
 del d['a']
 print(d)
@@ -113,13 +118,13 @@ print(d)
 
 ### On peut passer plusieurs arguments à `del`
 
-```{code-cell}
+```{code-cell} ipython3
 # Voyons où en sont nos données
 print('l', l)
 print('d', d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut invoquer 'del' avec plusieurs expressions
 # séparées par une virgule
 del l[3:], d['spam']

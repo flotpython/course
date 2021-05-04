@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'exercice: ensembles(1)'
 version: '3.0'
 ---
@@ -29,7 +34,7 @@ version: '3.0'
 
 On se propose d'écrire une fonction `read_set` qui construit un ensemble à partir du contenu d'un fichier. Voici par exemple un fichier d'entrée :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 !cat data/setref1.txt
@@ -37,18 +42,18 @@ On se propose d'écrire une fonction `read_set` qui construit un ensemble à par
 
 `read_set` va prendre en argument un nom de fichier (vous pouvez supposer qu'il existe), enlever les espaces éventuelles au début et à la fin de chaque ligne, et construire un ensemble de toutes les lignes ; par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_read_set import exo_read_set
 exo_read_set.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code ici
 def read_set(filename):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vérifiez votre code ici
 exo_read_set.correction(read_set)
 ```
@@ -59,7 +64,7 @@ exo_read_set.correction(read_set)
 
 ## Deuxième partie - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 # la définition de l'exercice
 from corrections.exo_read_set import exo_search_in_set
 ```
@@ -76,29 +81,29 @@ Pour cela `search_in_set` doit retourner une liste contenant, pour chaque ligne 
 
 Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 !cat data/setref1.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 !cat data/setsample1.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_search_in_set.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous
 def search_in_set(filename_reference, filename):
     "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vérifiez
 exo_search_in_set.correction(search_in_set)
 ```

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Fibonacci (suite)
 version: '3.0'
 ---
@@ -49,13 +54,13 @@ Attention, cette version-ci **ne fonctionne pas dans ce notebook**, justement ca
 
 Cette fois nous importons le module `argparse`, c'est lui qui va nous permettre d'interpréter les arguments passés sur la ligne de commande.
 
-```{code-cell}
+```{code-cell} ipython3
 from argparse import ArgumentParser
 ```
 
 Puis nous répétons la fonction `fibonacci` :
 
-```{code-cell}
+```{code-cell} ipython3
 def fibonacci(n):
     "retourne le nombre de fibonacci pour l'entier n"
     # pour les deux premières valeurs de n, on peut renvoyer n
@@ -83,7 +88,7 @@ Certains d'entre vous auront évidemment remarqué que l'on aurait pu éviter de
 
 À présent, nous utilisons le module `argparse`, pour lui dire qu'on attend exactement un argument sur la ligne de commande, et qu'il doit être un entier. Ici encore, ne vous inquiétez pas si vous ne comprenez pas tout le code. L'objectif est de vous donner un morceau de code utilisable tout de suite, pour jouer avec votre interpréteur Python.
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: entier = 8
 
 # à nouveau : ceci n'est pas conçu pour être exécuté dans le notebook !
@@ -96,7 +101,7 @@ entier = input_args.entier
 
 Nous pouvons à présent afficher le résultat :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"fibonacci({entier}) = {fibonacci(entier)}")
 ```
 

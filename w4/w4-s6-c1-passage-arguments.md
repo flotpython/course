@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Passage d'arguments
 version: '3.0'
 ---
@@ -49,7 +54,7 @@ Voyons de quelles limitations il s'agit.
 
 Pour prendre un exemple aussi simple que possible, considérons la fonction `print`, qui nous l'avons vu, accepte un nombre quelconque d'arguments.
 
-```{code-cell}
+```{code-cell} ipython3
 print("la fonction", "print", "peut", "prendre", "plein", "d'arguments")
 ```
 
@@ -62,7 +67,7 @@ Se posent alors deux problèmes :
  
 On peut faire tout cela avec la notation en `*` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # accepter n'importe quel nombre d'arguments
 def error(*print_args):
     # et les repasser à l'identique à print en plus de la balise
@@ -85,7 +90,7 @@ Pour cela, on peut définir une signature (les paramètres de la fonction) qui
 * prévoit un argument traditionnel en première position, qui sera obligatoire lors de l'appel, 
 * et le tuple des arguments pour `print`, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # le premier argument est obligatoire
 def error1(error_code, *print_args):
     message = f"message d'erreur code {error_code}"
@@ -109,7 +114,7 @@ Remarquons que maintenant la fonction `error1` ne peut plus être appelée sans 
 
 Nous envisageons à présent le cas - tout à fait indépendant de ce qui précède - où vous avez écrit une librairie graphique, dans laquelle vous exposez une fonction `ligne` définie comme suit. Évidemment pour garder le code simple, nous imprimons seulement les coordonnées du segment :
 
-```{code-cell}
+```{code-cell} ipython3
 # première version de l'interface pour dessiner une ligne
 def ligne(x1, y1, x2, y2):
     "dessine la ligne (x1, y1) -> (x2, y2)"
@@ -134,7 +139,7 @@ alors tous les utilisateurs de la version 1 vont **devoir changer leur code** - 
 
 Vous pouvez éviter cet inconvénient en définissant la deuxième version de `ligne` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # deuxième version de l'interface pour dessiner une ligne
 def ligne(x1, y1, x2, y2, couleur="noir"):
     "dessine la ligne (x1, y1) -> (x2, y2) dans la couleur spécifiée"
@@ -144,7 +149,7 @@ def ligne(x1, y1, x2, y2, couleur="noir"):
 
 Avec cette nouvelle définition, on peut aussi bien
 
-```{code-cell}
+```{code-cell} ipython3
 # faire fonctionner du vieux code sans le modifier
 ligne(0, 0, 100, 100)
 # ou bien tirer profit du nouveau trait
@@ -193,7 +198,7 @@ def ligne(x1, y1, x2, y2, couleur="noir")
 
 Et à en déduire une implémentation de `ligne_rouge` comme ceci
 
-```{code-cell}
+```{code-cell} ipython3
 # la version naïve - non conseillée - de ligne_rouge
 def ligne_rouge(x1, y1, x2, y2):
     return ligne(x1, y1, x2, y2, couleur='rouge')
@@ -203,7 +208,7 @@ ligne_rouge(0, 0, 100, 100)
 
 Toutefois, avec cette implémentation, si la signature de `ligne` venait à changer, on serait vraisemblablement amené à changer **aussi** celle de `ligne_rouge`, sauf à perdre en fonctionnalité. Imaginons en effet que `ligne` devienne dans une version suivante
 
-```{code-cell}
+```{code-cell} ipython3
 # on ajoute encore une fonctionnalité à la fonction ligne
 def ligne(x1, y1, x2, y2, couleur="noir", epaisseur=2):
     print(f"la ligne ({x1}, {y1}) -> ({x2}, {y2})"
@@ -214,7 +219,7 @@ Alors le wrapper ne nous permet plus de profiter de la nouvelle fonctionnalité.
 De manière générale, on cherche au maximum à se prémunir contre de telles dépendances. 
 Aussi, il est de beaucoup préférable d'implémenter `ligne_rouge` comme suit, où vous remarquerez que **la seule hypothèse** faite sur `ligne` est qu'elle accepte un argument nommé `couleur`.
 
-```{code-cell}
+```{code-cell} ipython3
 def ligne_rouge(*arguments, **keywords):
     # c'est le seul endroit où on fait une hypothèse sur la fonction `ligne`
     # qui est qu'elle accepte un argument nommé 'couleur'
@@ -224,7 +229,7 @@ def ligne_rouge(*arguments, **keywords):
 
 Ce qui permet maintenant de faire
 
-```{code-cell}
+```{code-cell} ipython3
 ligne_rouge(0, 100, 100, 0, epaisseur=4)
 ```
 
@@ -254,18 +259,18 @@ L'idée est que pour faire cela, les arguments de l'appel ne sont pas pris dans 
 
 Voici un tout petit exemple pour vous donner une idée de la complexité de ce mécanisme lorsqu'on mélange toutes les 4 formes d'arguments à l'appel de la fonction (alors qu'on a défini la fonction avec 4 paramètres positionnels)
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui prend 4 paramètres simples
 def foo(a, b, c, d):
     print(a, b, c, d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut l'appeler par exemple comme ceci
 foo(1, c=3, *(2,), **{'d':4})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais pas comme cela
 try:
     foo (1, b=3, *(2,), **{'d':4})

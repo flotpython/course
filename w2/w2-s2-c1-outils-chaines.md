@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Les outils sur les cha\xEEnes"
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Même après des années de pratique, il est difficile de se souvenir de toutes les méthodes travaillant sur les chaînes de caractères. Aussi il est toujours utile de recourir à la documentation embarquée
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 help(str)
@@ -55,25 +60,25 @@ Les méthodes `split` et `join` permettent de découper une chaîne selon un sé
 
 `split` permet donc de découper :
 
-```{code-cell}
+```{code-cell} ipython3
 'abc=:=def=:=ghi=:=jkl'.split('=:=')
 ```
 
 Et à l'inverse :
 
-```{code-cell}
+```{code-cell} ipython3
 "=:=".join(['abc', 'def', 'ghi', 'jkl'])
 ```
 
 Attention toutefois si le séparateur est un terminateur, la liste résultat contient alors une dernière chaîne vide. En pratique, on utilisera la méthode `strip`, que nous allons voir ci-dessous, avant la méthode `split` pour éviter ce problème.
 
-```{code-cell}
+```{code-cell} ipython3
 'abc;def;ghi;jkl;'.split(';')
 ```
 
 Qui s'inverse correctement cependant :
 
-```{code-cell}
+```{code-cell} ipython3
 ";".join(['abc', 'def', 'ghi', 'jkl', ''])
 ```
 
@@ -83,17 +88,17 @@ Qui s'inverse correctement cependant :
 
 `replace` est très pratique pour remplacer une sous-chaîne par une autre, avec une limite éventuelle sur le nombre de remplacements :
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefabcdefabcdef".replace("abc", "zoo")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefabcdefabcdef".replace("abc", "zoo", 2)
 ```
 
 Plusieurs appels à `replace` peuvent être chaînés comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 "les [x] qui disent [y]".replace("[x]", "chevaliers").replace("[y]", "Ni")
 ```
 
@@ -103,19 +108,19 @@ Plusieurs appels à `replace` peuvent être chaînés comme ceci :
 
 On pourrait par exemple utiliser `replace` pour enlever les espaces dans une chaîne, ce qui peut être utile pour "nettoyer" comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 " abc:def:ghi ".replace(" ", "")
 ```
 
 Toutefois bien souvent on préfère utiliser `strip` qui ne s'occupe que du début et de la fin de la chaîne, et gère aussi les tabulations et autres retour à la ligne :
 
-```{code-cell}
+```{code-cell} ipython3
 " \tune chaîne avec des trucs qui dépassent \n".strip()
 ```
 
 On peut appliquer `strip` avant `split` pour éviter le problème du dernier élément vide :
 
-```{code-cell}
+```{code-cell} ipython3
 'abc;def;ghi;jkl;'.strip(';').split(';')
 ```
 
@@ -125,24 +130,24 @@ On peut appliquer `strip` avant `split` pour éviter le problème du dernier él
 
 Plusieurs outils permettent de chercher une sous-chaîne. Il existe `find` qui renvoie le plus petit index où on trouve la sous-chaîne :
 
-```{code-cell}
+```{code-cell} ipython3
 # l'indice du début de la première occurrence
 "abcdefcdefghefghijk".find("def")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou -1 si la chaîne n'est pas présente
 "abcdefcdefghefghijk".find("zoo")
 ```
 
 `rfind` fonctionne comme `find` mais en partant de la fin de la chaîne :
 
-```{code-cell}
+```{code-cell} ipython3
 # en partant de la fin
 "abcdefcdefghefghijk".rfind("fgh")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # notez que le résultat correspond
 # tout de même toujours au début de la chaîne
 
@@ -154,11 +159,11 @@ Plusieurs outils permettent de chercher une sous-chaîne. Il existe `find` qui r
 
 La méthode `index` se comporte comme `find`, mais en cas d'absence elle lève une **exception** (nous verrons ce concept plus tard) plutôt que de renvoyer `-1` :
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefcdefghefghijk".index("def")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     "abcdefcdefghefghijk".index("zoo")
 except Exception as e:
@@ -167,23 +172,23 @@ except Exception as e:
 
 Mais le plus simple pour chercher si une sous-chaîne est dans une autre chaîne est d'utiliser l'instruction `in` sur laquelle nous reviendrons lorsque nous parlerons des séquences :
 
-```{code-cell}
+```{code-cell} ipython3
 "def" in "abcdefcdefghefghijk"
 ```
 
 La méthode `count` compte le nombre d'occurrences d'une sous-chaîne :
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefcdefghefghijk".count("ef")
 ```
 
 Signalons enfin les méthodes de commodité suivantes :
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefcdefghefghijk".startswith("abcd")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "abcdefcdefghefghijk".endswith("ghijk")
 ```
 
@@ -207,23 +212,23 @@ On remarque ici la supériorité en terme d'expressivité des méthodes pythoniq
 
 Voici pour conclure quelques méthodes utiles qui parlent d'elles-mêmes :
 
-```{code-cell}
+```{code-cell} ipython3
 "monty PYTHON".upper()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "monty PYTHON".lower()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "monty PYTHON".swapcase()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "monty PYTHON".capitalize()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 "monty PYTHON".title()
 ```
 

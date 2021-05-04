@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Formats JSON et autres
 version: '3.0'
 ---
@@ -61,7 +66,7 @@ Sans trop nous attarder nous dirons que JSON est un encodage - en anglais [marsh
 
 La bibliothèque standard de Python contient [le module json](https://docs.python.org/3/library/json.html) que nous illustrons très rapidement ici :
 
-```{code-cell}
+```{code-cell} ipython3
 import json
 
 # En partant d'une donnée construite à partir de types de base
@@ -94,13 +99,13 @@ Certains types de base ne sont pas supportés par le format JSON (car ils ne son
 
 C'est ce qui explique ce qui suit :
 
-```{code-cell}
+```{code-cell} ipython3
 # le premier élément de data est intact,
 # comme si on avait fait une *deep copy* en fait
 print("première partie de data", data[0] == data2[0])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # par contre le `tuple` se fait encoder comme une `list`
 print("deuxième partie", "entrée", type(data[1]), "sortie", type(data2[1]))
 ```

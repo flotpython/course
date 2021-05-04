@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Les fichiers
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Voici quelques utilisations habituelles du type fichier en Python.
 
 Nous avons vu dans la vidéo les mécanismes de base sur les fichiers. Nous avons vu notamment qu'il est important de bien fermer un fichier après usage. On a vu aussi qu'il est recommandé de **toujours** utiliser l'instruction `with` et de contrôler son encodage. Il est donc recommandé de faire :
 
-```{code-cell}
+```{code-cell} ipython3
 # avec un `with' on garantit la fermeture du fichier
 with open("foo.txt", "w", encoding='utf-8') as sortie:
     for i in range(2):
@@ -60,14 +65,14 @@ Les modes d'ouverture les plus utilisés sont :
 
 Voici par exemple comment on pourrait ajouter deux lignes de texte dans le fichier `foo.txt` qui contient, à ce stade du notebook, deux entiers :
 
-```{code-cell}
+```{code-cell} ipython3
 # on ouvre le fichier en mode 'a' comme append (= ajouter)
 with open("foo.txt", "a", encoding='utf-8') as sortie:
     for i in range(100, 102):
         sortie.write(f"{i}\n")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant on regarde ce que contient le fichier
 # remarquez que sans 'mode', on ouvre en lecture seule
 with open("foo.txt", encoding='utf-8') as entree: 
@@ -95,18 +100,18 @@ Ces variantes sont décrites dans [la section sur la fonction built-in `open`](h
 
 Nous reparlerons des notions d'itérable et d'itérateur dans les semaines suivantes. Pour l'instant, on peut dire qu'un fichier - qui donc **est itérable** puisqu'on peut le lire par une boucle `for` - est aussi **son propre itérateur**. Cela implique que l'on ne peut le parcourir qu'une fois dans une boucle `for`. Pour le reparcourir, il faut le fermer et l'ouvrir de nouveau.
 
-```{code-cell}
+```{code-cell} ipython3
 # un fichier est son propre itérateur
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 with open("foo.txt", encoding='utf-8') as entree:
     print(entree.__iter__() is entree)
 ```
 
 Par conséquent, écrire deux boucles `for` imbriquées sur **le même objet fichier** ne **fonctionnerait pas** comme on pourrait s'y attendre.
 
-```{code-cell}
+```{code-cell} ipython3
 # Si l'on essaie d'écrire deux boucles imbriquées
 # sur le même objet fichier, le résultat est inattendu
 with open("foo.txt", encoding='utf-8') as entree:
@@ -137,19 +142,19 @@ Vous pouvez également accéder à des fonctions de beaucoup plus bas niveau, no
 
 Comme nous allons utiliser maintenant des outils d'assez bas niveau pour lire du texte, pour examiner ce texte nous allons utiliser la fonction `repr()`, et voici pourquoi :
 
-```{code-cell}
+```{code-cell} ipython3
 # construisons à la main une chaîne qui contient deux lignes
 lines = "abc" + "\n" + "def"  + "\n"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si on l'imprime on voit bien les retours à la ligne
 # d'ailleurs on sait qu'il n'est pas utile
 # d'ajouter un retour à la ligne à la fin
 print(lines, end="")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # vérifions que repr() nous permet de bien
 # voir le contenu de cette chaine
 print(repr(lines))
@@ -161,7 +166,7 @@ print(repr(lines))
 
 Revenons aux fichiers ; la méthode `read()` permet de lire dans le fichier un buffer d'une certaine taille :
 
-```{code-cell}
+```{code-cell} ipython3
 # read() retourne TOUT le contenu
 # ne pas utiliser avec de très gros fichiers bien sûr
 
@@ -171,7 +176,7 @@ with open("foo.txt", encoding='utf-8') as entree:
     print(f"Contenu complet\n{full_contents}", end="")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # lire dans le fichier deux blocs de quatre caractères
 with open("foo.txt", encoding='utf-8') as entree:
     for bloc in range(2):
@@ -207,7 +212,7 @@ De la même façon que le langage propose les deux types `str` et `bytes`, il es
 
 Les fichiers que nous avons vus jusqu'ici étaient ouverts en mode *textuel* (c'est le défaut), et c'est pourquoi nous avons interagi avec eux avec des objets de type `str` :
 
-```{code-cell}
+```{code-cell} ipython3
 # un fichier ouvert en mode textuel nous donne des str
 with open('foo.txt', encoding='utf-8') as strfile:
     for line in strfile:
@@ -225,7 +230,7 @@ Pour illustrer ce trait, nous allons :
 0. créer un fichier en mode texte, et y insérer du texte en UTF-8 ;
 0. relire le fichier en mode binaire, et retrouver le codage des différents caractères.
 
-```{code-cell}
+```{code-cell} ipython3
 # phase 1 : on écrit un fichier avec du texte en UTF-8
 # on ouvre donc le fichier en mode texte
 # en toute rigueur il faut préciser l'encodage,
@@ -235,7 +240,7 @@ with open('strbytes', 'w', encoding='utf-8') as output:
     output.write("déjà l'été\n")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # phase 2: on ouvre le fichier en mode binaire
 with open('strbytes', 'rb') as bytesfile:
     # on lit tout le contenu
@@ -255,7 +260,7 @@ Vous pouvez également consulter ce site qui visualise l'encodage UTF-8, avec no
 
 <https://mothereff.in/utf-8#d%C3%A9j%C3%A0%20l%27%C3%A9t%C3%A9%0A>
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut comparer le nombre d'octets et le nombre de caractères
 with open('strbytes', encoding='utf-8') as textfile:
     print(f"en mode texte, {len(textfile.read())} caractères")

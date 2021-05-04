@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Intro. classes
 version: '3.0'
 ---
@@ -50,7 +55,7 @@ $det (A) = a_{11}.a_{22} - a_{12}.a_{21}$
 
 Dans la pratique, on utiliserait la classe `matrix` de [`numpy`](http://www.numpy.org/) qui est une bibliothèque de calcul scientifique très populaire et largement utilisée. Mais comme premier exemple de classe, nous allons écrire **notre propre classe `Matrix2`** pour mettre en action les mécanismes de base des classes de python. Naturellement, il s'agit d'une  implémentation jouet.
 
-```{code-cell}
+```{code-cell} ipython3
 class Matrix2:
     "Une implémentation sommaire de matrice carrée 2x2"
 
@@ -76,7 +81,7 @@ class Matrix2:
 
 Pour commencer, vous remarquez qu'on peut attacher à cette classe un *docstring* comme pour les fonctions
 
-```{code-cell}
+```{code-cell} ipython3
 help(Matrix2)
 ```
 
@@ -90,7 +95,7 @@ La classe définit donc deux méthodes, nommées `__init__` et `determinant`.
 
 La méthode **`__init__`**, comme toutes celles qui ont un nom en `__`*nom*`__`, est une **méthode spéciale**. En l'occurrence, il s'agit de ce qu'on appelle le **constructeur** de la classe, c'est-à-dire le code qui va être appelé lorsqu'on crée une instance. Voyons cela tout de suite sur un exemple.
 
-```{code-cell}
+```{code-cell} ipython3
 matrice = Matrix2(1, 2, 2, 1)
 print(matrice)
 ```
@@ -115,7 +120,7 @@ C'est un cas extrêmement fréquent ; de manière générale, il est recommand�
 
 La classe définit aussi la méthode `determinant`, qu'on utiliserait comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 matrice.determinant()
 ```
 
@@ -128,7 +133,7 @@ Vous voyez aussi que, ici encore, la méthode définie dans la classe attend  **
 
 En fait on aurait pu aussi bien écrire, de manière parfaitement équivalente :
 
-```{code-cell}
+```{code-cell} ipython3
 Matrix2.determinant(matrice)
 ```
 
@@ -211,7 +216,7 @@ Nous revenons sur l'héritage dans une prochaine vidéo. Dans l'immédiat, nous 
 
 Pour une raison ou pour une autre, disons que l'on décide de remplacer les 4 attributs nommés `self.a11`, `self.a12`, etc., qui n'étaient pas très extensibles, par un seul attribut `a` qui regroupe tous les coefficients de la matrice dans un seul tuple.
 
-```{code-cell}
+```{code-cell} ipython3
 class Matrix2:
     """Une deuxième implémentation, tout aussi
     sommaire, mais différente, de matrice carrée 2x2"""
@@ -233,20 +238,20 @@ class Matrix2:
 
 Grâce à l'**encapsulation**, on peut continuer à utiliser la classe exactement de la même manière :
 
-```{code-cell}
+```{code-cell} ipython3
 matrice = Matrix2(1, 2, 2, 1)
 print("Determinant =", matrice.determinant())
 ```
 
 Et en prime, grâce à la **résolution dynamique de méthode**, et parce que dans cette seconde implémentation on a défini une autre méthode spéciale `__repr__`, nous avons maintenant une impression beaucoup plus lisible de l'objet `matrice` :
 
-```{code-cell}
+```{code-cell} ipython3
 print(matrice)
 ```
 
 Ce format d'impression reste d'ailleurs valable dans l'impression d'objets plus compliqués, comme par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # on profite de ce nouveau format d'impression même si on met
 # par exemple un objet Matrix2 à l'intérieur d'une liste
 composite = [matrice, None, Matrix2(1, 0, 0, 1)]

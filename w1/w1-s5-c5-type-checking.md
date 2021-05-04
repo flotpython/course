@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: type-checking
 version: '3.0'
 ---
@@ -113,7 +118,7 @@ Cela étant dit, le typage statique en C n'empêche pas le programmeur débutant
 
 Pour comprendre cette notion de typage dynamique, regardons la fonction suivante `somme`.
 
-```{code-cell}
+```{code-cell} ipython3
 def somme(*largs):
     "retourne la somme de tous ses arguments"
     if not largs:
@@ -126,11 +131,11 @@ def somme(*largs):
 
 Naturellement, vous n'êtes pas à ce stade en mesure de comprendre le fonctionnement intime de la fonction. Mais vous pouvez tout de même l'utiliser :
 
-```{code-cell}
+```{code-cell} ipython3
 somme(12, 14, 300)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 liste1 = ['a', 'b', 'c']
 liste2 = [0, 20, 30]
 liste3 = ['spam', 'eggs']
@@ -139,14 +144,14 @@ somme(liste1, liste2, liste3)
 
 Vous pouvez donc constater que `somme` peut fonctionner avec des objets de types différents. En fait, telle qu'elle est écrite, elle va fonctionner s'il est possible de faire `+` entre ses arguments. Ainsi, par exemple, on pourrait même faire :
 
-```{code-cell}
+```{code-cell} ipython3
 # Python sait faire + entre deux chaînes de caractères
 somme('abc', 'def')
 ```
 
 Mais par contre on ne pourrait pas faire
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: "try:\n    somme(12, [1, 2, 3])\nexcept:\n    print('OOPS')"
 
 # ceci va déclencher une exception à l'exécution

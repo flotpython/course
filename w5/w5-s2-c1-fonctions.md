@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Prog. fonctionnelle
 version: '3.0'
 ---
@@ -85,7 +90,7 @@ Par exemple voici - encore - une autre implémentation possible de la fonction `
 
 On utilise ici [le module `operator`](https://docs.python.org/3/library/operator.html), qui fournit sous forme de fonctions la plupart des opérateurs du langage, et notamment, dans notre cas, `operator.mul` ; cette fonction retourne tout simplement le produit de ses deux arguments.
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction reduce dans Python 3 n'est plus une built-in comme en Python 2
 # elle fait partie du module functools
 from functools import reduce
@@ -107,7 +112,7 @@ for i in range(5):
 
 Par commodité, Python fournit des fonctions built-in qui correspondent en fait à des `reduce` fréquents, comme la somme, et les opérations `min` et `max` :
 
-```{code-cell}
+```{code-cell} ipython3
 entrees = [8, 5, 12, 4, 45, 7]
 
 print('sum', sum(entrees))

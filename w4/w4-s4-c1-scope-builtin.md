@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Le scope builtin
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Nous avons vu déjà un certain nombre de **fonctions *built-in*** comme par exemple
 
-```{code-cell}
+```{code-cell} ipython3
 open, len, zip
 ```
 
@@ -55,7 +60,7 @@ sauf que cet import est implicite.
 
 Quoique ce soit une pratique déconseillée, il est tout à fait possible de redéfinir ces noms ; on peut faire par exemple
 
-```{code-cell}
+```{code-cell} ipython3
 # on réaffecte le nom open à un nouvel objet fonction
 def open(encoding='utf-8', *args):
     print("ma fonction open")
@@ -90,12 +95,12 @@ Il faut éviter de redéfinir un nom prédéfini dans le module `builtins` ; un 
 
 Sachez que vous pouvez toujours "retrouver" alors la fonction *built-in* en l'important explicitement du module `builtins`. Par exemple, pour réaliser notre ouverture de fichier, nous pouvons toujours faire :
 
-```{code-cell}
+```{code-cell} ipython3
 # nous ne pouvons pas utiliser open puisque
 open()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour être sûr d'utiliser la bonne fonction open
 
 import builtins 
@@ -106,7 +111,7 @@ with builtins.open("builtins.txt", "w", encoding="utf-8") as f:
 
 Ou encore, de manière équivalente :
 
-```{code-cell}
+```{code-cell} ipython3
 from builtins import open as builtins_open
 
 with builtins_open("builtins.txt", "r", encoding="utf-8") as f:
@@ -119,7 +124,7 @@ with builtins_open("builtins.txt", "r", encoding="utf-8") as f:
 
 Vous pouvez trouver la liste des fonctions prédéfinies ou *built-in* avec la fonction `dir` sur le module `builtins` comme ci-dessous (qui vous montre aussi les exceptions prédéfinies, qui commencent par une majuscule), ou dans la documentation sur [les fonctions prédéfinies](https://docs.python.org/3/library/functions.html#built-in-funcs) :
 
-```{code-cell}
+```{code-cell} ipython3
 dir(builtins)
 ```
 

@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Le code de Vigen\xE8re"
 version: '3.0'
 ---
@@ -95,7 +100,7 @@ Je rappelle par ailleurs l'existence en Python de deux fonctions qui peuvent êt
 * `ord()` qui projette les caractères vers les entiers (codepoints)
 * et `chr()` qui réalise l'opération inverse.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la fonction ord() retourne le codepoint
@@ -103,7 +108,7 @@ Je rappelle par ailleurs l'existence en Python de deux fonctions qui peuvent êt
 ord('a')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et réciproquement avec chr()
@@ -112,24 +117,24 @@ chr(97)
 
 Une fois qu'on a dit ça, il est intéressant de constater que les caractères minuscules et majuscules auxquels nous nous intéressons sont, fort heureusement, contigus dans l'espace des codepoints.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 import string
 string.ascii_letters
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 string.ascii_lowercase
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 COLUMNS = 7
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 for index, char in enumerate(string.ascii_uppercase, 1):
@@ -138,7 +143,7 @@ for index, char in enumerate(string.ascii_uppercase, 1):
         print()    
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 for index, char in enumerate(string.ascii_lowercase, 1):
@@ -168,18 +173,18 @@ La fonction en question doit :
 
 Voici ce que cela donnerait sur quelques exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_vigenere import exo_cesar
 exo_cesar.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer pour implémenter la fonction cesar
 def cesar(clear, key, encode=True):
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour vous corriger
 exo_cesar.correction(cesar)
 ```
@@ -233,7 +238,7 @@ cesar('e', 'c') → 'h'
 
 Voyons cet exemple sous forme de code :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_vigenere import exo_vigenere
 exo_vigenere.example()
 ```
@@ -247,13 +252,13 @@ exo_vigenere.example()
 * Par ailleurs, pour cet exercice je vous recommande d'aller voir ou revoir le module `itertools` qui contient des outils qui sont exactement adaptés à ce traitement.  
   C'est-à-dire, pour être encore plus explicite, qu'il est possible d'écrire cette fonction sans recourir à aucun indice entier sur le texte ni sur la clé.
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def vigenere(clear, key, encode=True):
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour corriger
 exo_vigenere.correction(vigenere)
 ```

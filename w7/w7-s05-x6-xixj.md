@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: m(i,j) = xi * xj
 version: '3.0'
 ---
@@ -40,7 +45,7 @@ $$
 
 Vous n'avez pas besoin de vérifier que l'appelant passe au moins un paramètre, ou dit autrement, les jeux de tests n'essaient pas d'appeler la fonction sans argument.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 
 # c'est ce qu'on voit sur cet exemple
@@ -50,14 +55,14 @@ from corrections.exo_xixj import exo_xixj
 exo_xixj.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 # n'oubliez pas de déclarer les paramètres de votre fonction
 def xixj():
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_xixj.correction(xixj)
 ```
 
@@ -67,11 +72,11 @@ Vous trouverez dans les solutions 3 façons d'implémenter cette fonction; elles
 l'opérateur `@`, la méthode `array.dot()`, le broadcasting.  
 Souvenez vous que la transposée d'une matrice peut être obtenue en numpy avec l'attribut `.T` :
 
-```{code-cell}
+```{code-cell} ipython3
 ligne = np.array([1, 2, 3])
 ligne.reshape(3, 1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ligne.T
 ```

@@ -1,8 +1,10 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -10,6 +12,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'Exercice: coronavirus'
 version: '3.0'
 ---
@@ -28,7 +33,7 @@ Bon honnêtement à ce stade je devrais m'arrêter là, et vous laisser vous dé
 
 Mais juste pour vous donner éventuellement des idées - voici des suggestions sur comment on peut s'y prendre.
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib notebook
 ```
@@ -39,7 +44,7 @@ import matplotlib.pyplot as plt
 
 Le département *Center for Systems Science and Engineering* (CSSE), de l'Université Johns Hopkins, publie dans un dépôt github <https://github.com/CSSEGISandData/COVID-19> les données dans un format assez brut. C'est très détaillé et touffu :
 
-```{code-cell}
+```{code-cell} ipython3
 # le repo github
 official_url = "https://github.com/CSSEGISandData/COVID-19"
 ```
@@ -59,13 +64,13 @@ Ce qu'on vous propose de faire, pour s'amuser, c'est quelque chose d'anologue - 
 
 Pour ma part j'ai préféré utiliser un dépôt de seconde main, qui consolide en fait les données du CSSE, pour les exposer dans un seul fichier au jormat JSON. Cela est disponible dans ce second dépôt github <https://github.com/pomber/covid19>; la sortie de ce processus est mise à jour quotidiennement - à l'heure où j'écris ce texte en Mai 2020 - et est disponible (voir le README) à cette URL <https://pomber.github.io/covid19/timeseries.json>.
 
-```{code-cell}
+```{code-cell} ipython3
 abridged_url = "https://pomber.github.io/covid19/timeseries.json"
 ```
 
 Comme c'est du JSON, on peut charger ces données en mémoire comme ceci
 
-```{code-cell}
+```{code-cell} ipython3
 # pour aller chercher l'URL
 import requests
 
@@ -73,7 +78,7 @@ import requests
 import json
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # allons-y
 req = requests.get(abridged_url)
 # en utilisant la property `text` on décode en Unicode
@@ -82,7 +87,7 @@ encoded = req.text
 decoded = json.loads(encoded)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ## un peu de vérification
 # si ceci n'est pas True, il y a un souci 
 # avec le réseau ou cette URL
@@ -91,14 +96,14 @@ req.ok
 
 ### Les données sont indexées par pays
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # voici ce qu'on obtient
 type(decoded)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une clé
@@ -107,20 +112,20 @@ list(decoded.keys())[0]
 
 Les données d'un pays sont dans un format très simple, une liste
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 france_data = decoded['France']
 type(france_data)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 france_data[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 france_data[-1]
@@ -134,31 +139,31 @@ Ce que j'ai constaté, et je suppose qu'on peut plus ou moins compter sur cette 
 * pour chaque pays on trouve un enregistrement par jour
 * tous les pays ont la même plage de temps - quitte à rajouter des enregistrements à 0, comme ci-dessus pour la France le 22 janvier
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 us_data = decoded['US']
 us_data[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 us_data[-1]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 len(france_data) == len(us_data)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # nombre de pays
 len(decoded)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # nombre de jours
@@ -200,7 +205,7 @@ Mais pour bien maitriser il faut avoir l'occasion de pratiquer fréquemment, ce 
 
 Pour illustrer une approche disons hybride, voici ce qui pourrait être un début de mise en forme des données pour un pays et une caractéristique (parmi les 3 exposées dans ce jeu de donnéees)
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 
@@ -232,19 +237,19 @@ df1.plot();
 
 Je vous signale une autre source de données, dans ce repo git <https://github.com/owid/covid-19-data/tree/master/public/data>; les données cette fois-ci sont au format excel, et publiées à cette adresse
 
-```{code-cell}
+```{code-cell} ipython3
 alt_url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 ```
 
 Dans ces cas-là il faut avoir le réflexe d'utiliser pandas; voici un aperçu (ayez de la patience pour le chargement)
 
-```{code-cell}
+```{code-cell} ipython3
 import pandas as pd
 
 df = pd.read_csv(alt_url)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 df.head(2)
 ```
 
@@ -266,44 +271,44 @@ Je vous propose ce second point de vue si vous souhaitez vous entraîner avec `p
 
 Voici quelques éléments sur la stucture de ces données :
 
-```{code-cell}
+```{code-cell} ipython3
 # beaucoup plus de détails
 df.columns
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la colonne iso_code représente le pays :
 df.iso_code.unique()[:5]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # rien que sur la france, on a ce nombre d'enregistrements
 df_france = df[df.iso_code == 'FRA']
 len(df_france)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # manifestement c'est un par jour
 df_france.head(2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 df_france.tail(2)
 ```
 
 Pour afficher, disons les décès par jour en France depuis le début de la pandémie, on pourrait faire :
 
-```{code-cell}
+```{code-cell} ipython3
 df_france.plot(x='date', y='new_deaths');
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # n'hésitez pas à installer des packages
 # supplémentaires au besoin
 !pip install plotly-express
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # plusieurs courbes en une
 # avec plotly express, pour changer un peu
 import plotly.express as px

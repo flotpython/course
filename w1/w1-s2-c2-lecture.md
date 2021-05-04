@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: De la lecture
 version: '3.0'
 ---
@@ -43,7 +48,7 @@ Le 12 Juillet 2018, Guido van Rossum [a annoncé qu'il quittait la fonction de B
 
 Vous pouvez lire le "Zen de Python", qui résume la philosophie du langage, en important le module `this` avec ce code&nbsp;: (pour exécuter ce code, cliquez dans la cellule de code, et faites au clavier "Majuscule/Entrée" ou "Shift/Enter")
 
-```{code-cell}
+```{code-cell} ipython3
 # le Zen de Python
 import this
 ```

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "M\xE9thodes sp\xE9ciales (3/3)"
 version: '3.0'
 ---
@@ -97,7 +102,7 @@ Cela n'est toutefois pas notre sujet ici, et nous nous contenterons, dans notre 
 
 Se pose donc la question de savoir quelle interface la classe `RPCProxy` doit offrir au reste du monde. Dans une première version naïve on pourrait écrire quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 # la version naïve de la classe RPCProxy
 
 class RPCProxy:
@@ -126,7 +131,7 @@ de la fonction {functionname} -- args= {args}""")
 
 Ainsi l'application utilise la classe de cette façon :
 
-```{code-cell}
+```{code-cell} ipython3
 # création d'une instance de RPCProxy
 
 rpc_proxy = RPCProxy(url='http://cloud.provider.com/JSONAPI', 
@@ -164,7 +169,7 @@ Quelques commentaires en vrac au sujet de cette approche :
 
 Pour obtenir une implémentation qui conserve toutes les qualités de la version naïve, mais sans la nécessité de définir une à une toutes les fonctions de l'API, on peut tirer profit de `__getattr__`, comme dans cette deuxième version :
 
-```{code-cell}
+```{code-cell} ipython3
 # une deuxième implémentation de RPCProxy
 
 class RPCProxy:
@@ -188,7 +193,7 @@ class RPCProxy:
 
 Qui est cette fois **totalement découplée** des détails de l'API, et qu'on peut utiliser exactement comme tout à l'heure :
 
-```{code-cell}
+```{code-cell} ipython3
 # création d'une instance de RPCProxy
 
 rpc_proxy = RPCProxy (url='http://cloud.provider.com/JSONAPI', 

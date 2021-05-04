@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "R\xE9f\xE9rences circulaires"
 version: '3.0'
 ---
@@ -27,7 +32,7 @@ version: '3.0'
 
 ## Complément - niveau intermédiaire
 
-```{code-cell}
+```{code-cell} ipython3
 %load_ext ipythontutor
 ```
 
@@ -37,13 +42,13 @@ Nous allons maintenant construire un objet un peu abscons. Cet exemple précis n
 
 Construisons une liste à un seul élément, peu importe quoi :
 
-```{code-cell}
+```{code-cell} ipython3
 infini_1 = [None]
 ```
 
 À présent nous allons remplacer le premier et seul élément de la liste par… la liste elle-même :
 
-```{code-cell}
+```{code-cell} ipython3
 infini_1[0] = infini_1
 print(infini_1)
 ```
@@ -58,7 +63,7 @@ Voici la même séquence exécutée sous [http://pythontutor.com](http://pythont
 
 Cliquez sur le bouton `Next` pour avancer dans l'exécution de la séquence. À la fin de la séquence vous verrez - ce n'est pas forcément clair - la seule cellule de la liste à se référencer elle-même :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=230
 infini_1 = [None]
 infini_1[0] = infini_1
@@ -66,19 +71,19 @@ infini_1[0] = infini_1
 
 Toutes les fonctions de python ne sont pas aussi intelligentes que `print`. Bien qu'on puisse comparer cette liste avec elle-même :
 
-```{code-cell}
+```{code-cell} ipython3
 infini_1 == infini_1
 ```
 
 il n'en est pas de même si on la compare avec un objet analogue mais pas identique :
 
-```{code-cell}
+```{code-cell} ipython3
 infini_2 = [None]
 infini_2[0] = infini_2
 print(infini_2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # attention, ceci provoque une erreur à l'exécution
@@ -92,7 +97,7 @@ infini_1 == infini_2
 
 On obtient un phénomène équivalent dès lors qu'un élément contenu dans un objet fait référence à l'objet lui-même. Voici par exemple comment on peut construire un dictionnaire qui contient une référence circulaire :
 
-```{code-cell}
+```{code-cell} ipython3
 collection_de_points = [
     {'x': 10,'y': 20},
     {'x': 30,'y': 50},
@@ -116,7 +121,7 @@ Cette technique est cette fois très utile et très utilisée dans la pratique, 
 
 À nouveau il peut être intéressant de voir le comportement de cet exemple avec <http://pythontutor.com> pour bien comprendre ce qui se passe, si cela ne vous semble pas clair à première vue :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor curInstr=7
 points = [
     {'x': 10,'y': 20},

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Usages avanc\xE9s de `import`"
 version: '3.0'
 ---
@@ -27,7 +32,7 @@ version: '3.0'
 
 ## Complément - niveau avancé
 
-```{code-cell}
+```{code-cell} ipython3
 # notre utilitaire pour afficher le code des modules
 from modtools import show_module, find_on_disk
 ```
@@ -42,7 +47,7 @@ Les objets de type module possèdent des attributs spéciaux ; on les reconnaî
 
 Voici pour commencer les attributs spéciaux les plus utilisés ; pour cela nous reprenons le package d'un notebook précédent :
 
-```{code-cell}
+```{code-cell} ipython3
 import package_jouet
 ```
 
@@ -52,11 +57,11 @@ import package_jouet
 
 Le nom canonique du module :
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.__name__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.module_jouet.__name__
 ```
 
@@ -66,11 +71,11 @@ package_jouet.module_jouet.__name__
 
 L'emplacement du fichier duquel a été chargé le module ; pour un package ceci dénote un fichier `__init__.py` :
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.__file__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.module_jouet.__file__
 ```
 
@@ -121,11 +126,11 @@ package_relatif/
 
 Le fichier `__init__.py` ici est vide, et voici le code des deux autres modules :
 
-```{code-cell}
+```{code-cell} ipython3
 import package_relatif
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le code de main.py
 code = find_on_disk(package_relatif, "main.py")
 !cat $code
@@ -141,7 +146,7 @@ Les deux clauses `as` sont bien sûr optionnelles, on les utilise ici uniquement
 
 Le module local `random.py` expose une fonction `alea` qui génére un string aléatoire en se basant sur le module standard `random` :
 
-```{code-cell}
+```{code-cell} ipython3
 # le code de random.py
 code = find_on_disk(package_relatif, "random.py")
 !cat $code
@@ -149,11 +154,11 @@ code = find_on_disk(package_relatif, "random.py")
 
 Cet exemple montre comment on peut importer un module local de nom `random` **et** le module `random` qui provient de la librairie standard :
 
-```{code-cell}
+```{code-cell} ipython3
 import package_relatif.main
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print(package_relatif.main.alea())
 ```
 
@@ -176,22 +181,22 @@ package_relatif/
                            submodule.py
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # voyons le code de submodule:
 import package_relatif.subpackage
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le code de submodule/submodule.py
 code = find_on_disk(package_relatif.subpackage, "submodule.py")
 !cat $code
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import package_relatif.subpackage.submodule
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print(package_relatif.subpackage.submodule.alea())
 ```
 

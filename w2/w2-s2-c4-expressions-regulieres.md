@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -73,7 +78,7 @@ Attention toutefois, la syntaxe des expressions régulières en Python est plus 
 Le langage Perl a été le premier à populariser l'utilisation des expressions régulières en les supportant nativement dans le langage, et non au travers d'une librairie. En python, les expressions régulières sont disponibles de manière plus traditionnelle, via le module `re` (regular expressions) de la librairie standard.
 Le propos de ce complément est de vous en donner une première introduction.
 
-```{code-cell}
+```{code-cell} ipython3
 import re
 ```
 
@@ -83,17 +88,17 @@ import re
 
 Pour ceux qui ne souhaitent pas approfondir, voici un premier exemple; on cherche à savoir si un objet `chaine` est ou non de la forme `*-*.txt`, et si oui, à calculer la partie de la chaine qui remplace le `*` :
 
-```{code-cell}
+```{code-cell} ipython3
 # un objet 'expression régulière' - on dit aussi "pattern"
 regexp = "(.*)-(.*)\.txt"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la chaine de départ
 chaine = "abcdef.txt"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction qui calcule si la chaine "matche" le pattern
 match = re.match(regexp, chaine)
 match is None
@@ -101,25 +106,25 @@ match is None
 
 Le fait que l'objet `match` vaut `None` indique que la chaine n'est pas de la bonne forme (il manque un `-` dans le nom); avec une autre chaine par contre :
 
-```{code-cell}
+```{code-cell} ipython3
 # la chaine de départ
 chaine = "abc-def.txt"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match = re.match(regexp, chaine)
 match is None
 ```
 
 Ici `match` est un objet, qui nous permet ensuite d'"extraire" les différentes parties, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 match[1]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 match[2]
@@ -180,14 +185,14 @@ Tant que vous exécutez ceci dans le notebook sur la plateforme, en principe tou
 
 On se donne deux exemples de chaînes
 
-```{code-cell}
+```{code-cell} ipython3
 sentences = ['Lacus a donec, vitae gravida proin sociis.', 
              'Neque ipsum! rhoncus cras quam.']
 ```
 
 On peut **chercher tous** les mots se terminant par `a` ou `m` dans une chaîne avec `findall`
 
-```{code-cell}
+```{code-cell} ipython3
 for sentence in sentences:
     print(f"---- dans >{sentence}<")
     print(re.findall(r"\w*[am]\W", sentence))
@@ -207,13 +212,13 @@ Pour anticiper un peu, signalons que cette façon de créer un chaine en la pré
 
 On voit tout de suite l'intérêt sur un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print("sans raw-string\nun newline")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(r"dans\nunraw-string")
@@ -231,7 +236,7 @@ Nous verrons tout à l'heure comment fabriquer des expressions régulières plus
  * `[am]` : immédiatement après, il nous faut trouver un caratère `a` ou `m`.
  * `\W` : et enfin, il nous faut un caractère qui ne soit **pas** alphanumérique. Ceci est important puisqu'on cherche les mots qui **se terminent** par un `a` ou un `m`, si on ne le mettait pas on obtiendrait ceci
 
-```{code-cell}
+```{code-cell} ipython3
 # le \W final est important
 # voici ce qu'on obtient si on l'omet
 for sentence in sentences:
@@ -248,7 +253,7 @@ for sentence in sentences:
 
 Une autre forme simple d'utilisation des regexps est `re.split`, qui fournit une fonctionnalité voisine de `str.split`, mais ou les séparateurs sont exprimés comme une expression régulière
 
-```{code-cell}
+```{code-cell} ipython3
 for sentence in sentences:
     print(f"---- dans >{sentence}<")
     print(re.split(r"\W+", sentence))
@@ -267,7 +272,7 @@ Nous avons donc là un moyen simple, et plus puissant que `str.split`, de couper
 
 Une troisième méthode utilitaire est `re.sub` qui permet de remplacer les occurrences d'une *regexp*, comme par exemple
 
-```{code-cell}
+```{code-cell} ipython3
 for sentence in sentences:
     print(f"---- dans >{sentence}<")
     print(re.sub(r"(\w+)", r"X\1Y", sentence))
@@ -286,7 +291,7 @@ Donc au final, l'effet de cet appel est d'entourer toutes les suites de caractè
 
 En guise de digression, il n'y a aucune obligation à utiliser un *raw-string*, d'ailleurs on rappelle qu'il n'y a pas de différence de nature entre un *raw-string* et une chaîne usuelle
 
-```{code-cell}
+```{code-cell} ipython3
 raw = r'abc'
 regular = 'abc'
 # comme on a pris une 'petite' chaîne ce sont les mêmes objets
@@ -311,7 +316,7 @@ Pour cela, supposons qu'on s'intéresse aux chaînes qui comportent 5 parties, u
 
 Pour cela on considère ces trois chaines en entrée
 
-```{code-cell}
+```{code-cell} ipython3
 samples = ['890hj000nnm890',    # cette entrée convient
           '123abc456def789',   # celle-ci aussi
           '8090abababab879',   # celle-ci non
@@ -324,13 +329,13 @@ samples = ['890hj000nnm890',    # cette entrée convient
 
 Pour commencer, voyons que l'on peut facilement **vérifier si une chaîne vérifie** ou non le critère.
 
-```{code-cell}
+```{code-cell} ipython3
 regexp1 = "[0-9]+[A-Za-z]+[0-9]+[A-Za-z]+[0-9]+"
 ```
 
 Si on applique cette expression régulière à toutes nos entrées
 
-```{code-cell}
+```{code-cell} ipython3
 for sample in samples:
     match = re.match(regexp1, sample)
     print(f"{sample:16} → {match}")
@@ -338,7 +343,7 @@ for sample in samples:
 
 Pour rendre ce résultat un peu plus lisible nous nous définissons une petite fonction de confort.
 
-```{code-cell}
+```{code-cell} ipython3
 # pour simplement visualiser si on a un match ou pas
 def nice(match):
     # le retour de re.match est soit None, soit un objet match
@@ -347,7 +352,7 @@ def nice(match):
 
 Avec quoi on peut refaire l'essai sur toutes nos entrées.
 
-```{code-cell}
+```{code-cell} ipython3
 # la même chose mais un peu moins encombrant
 print(f"REGEXP={regexp1}\n")
 for sample in samples:
@@ -366,7 +371,7 @@ Et comme tout à l'heure on a simplement juxtaposé les morceaux dans le bon ord
 
 ##### Nommer un morceau (un groupe)
 
-```{code-cell}
+```{code-cell} ipython3
 # on se concentre sur une entrée correcte
 haystack = samples[1]
 haystack
@@ -374,14 +379,14 @@ haystack
 
 Maintenant, on va même pouvoir **donner un nom** à un morceau de la regexp, ici on désigne par `needle` le groupe de chiffres du milieu.
 
-```{code-cell}
+```{code-cell} ipython3
 # la même regexp, mais on donne un nom au groupe de chiffres central
 regexp2 = "[0-9]+[A-Za-z]+(?P<needle>[0-9]+)[A-Za-z]+[0-9]+"
 ```
 
 Et une fois que c'est fait, on peut demander à l'outil de nous **retrouver la partie correspondante** dans la chaine initiale:
 
-```{code-cell}
+```{code-cell} ipython3
 print(re.match(regexp2, haystack).group('needle'))
 ```
 
@@ -398,13 +403,13 @@ Dans cette expression on a utilisé un **groupe nommé** `(?P<needle>[0-9]+)`, d
 
 Enfin, et c'est un trait qui n'est pas présent dans tous les langages, on peut restreindre un morceau de chaîne à être identique à un groupe déjà vu plus tôt dans la chaîne. Dans l'exemple ci-dessus, on pourrait ajouter comme contrainte que le premier et le dernier groupes de chiffres soient identiques, comme ceci
 
-```{code-cell}
+```{code-cell} ipython3
 regexp3 = "(?P<id>[0-9]+)[A-Za-z]+(?P<needle>[0-9]+)[A-Za-z]+(?P=id)"
 ```
 
 Si bien que maintenant, avec les mêmes entrées que tout à l'heure
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"REGEXP={regexp3}\n")
 for sample in samples:
     match = re.match(regexp3, sample)
@@ -449,7 +454,7 @@ Ces fonctions de commodité fonctionnent toutes sur le même principe&nbsp;:
 
 Donc à chaque fois qu'on utilise une fonction de commodité, on recompile la chaîne en automate, ce qui, dès qu'on a plus d'une chaîne à traiter, représente un surcoût.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # au lieu de faire comme ci-dessus:
@@ -460,7 +465,7 @@ for sample in samples:
     print(f"{sample:>16} → {nice(match)}")    
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # dans du vrai code on fera plutôt:
@@ -497,7 +502,7 @@ Pour résumer ce qu'on a déjà vu, les méthodes les plus utiles sur un objet `
 
 Les **méthodes** disponibles sur la classe **`re.MatchObject`** sont [documentées en détail ici](https://docs.python.org/3/library/re.html#match-objects). On en a déjà rencontré quelques-unes, en voici à nouveau un aperçu rapide.
 
-```{code-cell}
+```{code-cell} ipython3
 # exemple
 sample = "    Isaac Newton, physicist"
 match = re.search(r"(\w+) (?P<name>\w+)", sample)
@@ -505,33 +510,33 @@ match = re.search(r"(\w+) (?P<name>\w+)", sample)
 
 `re` et `string` pour retrouver les données d'entrée du match.
 
-```{code-cell}
+```{code-cell} ipython3
 match.string
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match.re
 ```
 
 `group`, `groups`, `groupdict` pour retrouver les morceaux de la chaîne d'entrée qui correspondent aux **groupes** de la regexp. On peut y accéder par rang, ou par nom (comme on l'a vu plus haut avec `needle`).
 
-```{code-cell}
+```{code-cell} ipython3
 match.groups()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match.group(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match.group('name')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match.group(2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match.groupdict()
 ```
 
@@ -539,14 +544,14 @@ match.groupdict()
  
  On peut aussi accéder au **groupe 0** comme étant la partie de la chaîne de départ qui a effectivement été filtrée par l'expression régulière - qui en général est une sous-chaine de la chaîne de départ :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la sous-chaine filtrée
 match.group(0)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la chaine de départ
@@ -555,13 +560,13 @@ sample
 
 `expand` permet de faire une espèce de `str.format` avec les valeurs des groupes.
 
-```{code-cell}
+```{code-cell} ipython3
 match.expand(r"last_name \g<name> first_name \1")
 ```
 
 `span` pour connaître les index dans la chaîne d'entrée pour un groupe donné.
 
-```{code-cell}
+```{code-cell} ipython3
 # NB: seq[i:j] est une opération de slicing que nous verrons plus tard
 # Elle retourne une séquence contenant les éléments de i à j-1 de seq
 begin, end = match.span('name')
@@ -588,12 +593,12 @@ Vous trouverez [une liste exhaustive de ces *flags* ici](https://docs.python.org
 
 Comme c'est souvent le cas, on doit passer à `re.compile` un **ou logique** (caractère `|`) des différents flags que l'on veut utiliser, c'est-à-dire qu'on fera par exemple
 
-```{code-cell}
+```{code-cell} ipython3
 regexp = "a*b+"
 re_obj = re.compile(regexp, flags=re.IGNORECASE | re.DEBUG)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on ignore la casse des caractères 
 print(regexp, "->", nice(re_obj.match("AabB")))
 ```
@@ -626,7 +631,7 @@ Au commencement il faut spécifier des caractères.
   * `\s` les caractères "blancs" - espace, tabulation, saut de ligne, etc., et `\S` (les autres),
   * `\d` pour les chiffres, et `\D` (les autres).
 
-```{code-cell}
+```{code-cell} ipython3
 sample = "abcd"
 
 for regexp in ['abcd', 'ab[cd][cd]', 'ab[a-z]d', r'abc.', r'abc\.']:
@@ -636,7 +641,7 @@ for regexp in ['abcd', 'ab[cd][cd]', 'ab[a-z]d', r'abc.', r'abc\.']:
 
 Pour ce dernier exemple, comme on a backslashé le `.` il faut que la chaîne en entrée contienne vraiment un `.`
 
-```{code-cell}
+```{code-cell} ipython3
 print(nice(re.match (r"abc\.", "abc.")))
 ```
 
@@ -652,7 +657,7 @@ Si je fais une analogie avec les montages électriques, jusqu'ici on a vu le mon
 
 mais c'est limité à **un seul** caractère. Si on veut reconnaitre deux mots qui n'ont pas grand-chose à voir comme `abc` **ou** `def`, il faut en quelque sorte mettre deux regexps en parallèle, et c'est ce que permet l'opérateur `|`
 
-```{code-cell}
+```{code-cell} ipython3
 regexp = "abc|def"
 
 for sample in ['abc', 'def', 'aef']:
@@ -675,7 +680,7 @@ Mais indépendamment de cela, il peut être intéressant de "coller" l'expressio
 
 Reportez-vous à la documentation pour le détails des différences. Attention aussi à entrer le `^` correctement, il vous faut le caractère ASCII et non un voisin dans la ménagerie Unicode.
 
-```{code-cell}
+```{code-cell} ipython3
 sample = 'abcd'
 
 for regexp in [ r'bc', r'\Aabc', r'^abc', 
@@ -697,7 +702,7 @@ On a en effet bien le pattern `bc` dans la chaine en entrée, mais il n'est ni a
 
 Pour pouvoir faire des montages élaborés, il faut pouvoir parenthéser.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une parenthése dans une RE 
@@ -712,7 +717,7 @@ regexp = "a(bc|de)f"
 
 <img src="media/re-serie-parallele.png">
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 for sample in ['abcf', 'adef',  'abef', 'abf']:
@@ -722,7 +727,7 @@ for sample in ['abcf', 'adef',  'abef', 'abf']:
 
 Les parenthèses jouent un rôle additionel de **groupe**, ce qui signifie qu'on **peut retrouver** le texte correspondant à l'expression régulière comprise dans les `()`. Par exemple, pour le premier match
 
-```{code-cell}
+```{code-cell} ipython3
 sample = 'abcf'
 match = re.match(regexp, sample)
 print(f"{sample}, {regexp} → {match.groups()}")
@@ -744,7 +749,7 @@ Vous disposez des opérateurs suivants&nbsp;:
  * `{n}` pour exactement n occurrences de `(ab)` - e.g. `(ab){3}` qui serait exactement équivalent à `ababab`,
  * `{m,n}` entre m et n fois inclusivement.
 
-```{code-cell}
+```{code-cell} ipython3
 # NB: la construction
 #   [op(elt) for elt in iterable] 
 # est une compréhension de liste que nous étudierons plus tard.
@@ -781,7 +786,7 @@ Nous avons déjà vu un exemple de groupe nommé (voir `needle` plus haut), les 
 
 Lorsqu'on stipule une répétition un nombre indéfini de fois, il se peut qu'il existe **plusieurs** façons de filtrer l'entrée avec l'expression régulière. Que ce soit avec `*`, ou `+`, ou `?`, l'algorithme va toujours essayer de trouver la **séquence la plus longue**, c'est pourquoi on qualifie l'approche de *greedy* - quelque chose comme glouton en français.
 
-```{code-cell}
+```{code-cell} ipython3
 # un fragment d'HTML 
 line='<h1>Title</h1>'
 
@@ -802,7 +807,7 @@ match.group(0)
  * `+?` : `+` mais *non-greedy*,
  * `??` : `?` mais *non-greedy*,
 
-```{code-cell}
+```{code-cell} ipython3
 # ici on va remplacer * par *? pour rendre l'opérateur * non-greedy
 re_non_greedy = re_greedy = '<.*?>'
 
@@ -822,7 +827,7 @@ Historiquement, les expressions régulières telles qu'on les trouve dans les li
 
 Le module `re` en garde des traces, puisque
 
-```{code-cell}
+```{code-cell} ipython3
 # un exemple de traitement des 'newlines' 
 sample = """une entrée
 sur
@@ -831,34 +836,34 @@ lignes
 """
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 match = re.compile("(.*)").match(sample)
 match.groups()
 ```
 
 Vous voyez donc que l'attrape-tout `'.'` en fait n'attrape pas le caractère de fin de ligne `\n`, puisque si c'était le cas et  compte tenu du coté *greedy* de l'algorithme on devrait voir ici tout le contenu de `sample`. Il existe un *flag* `re.DOTALL` qui permet de faire de `.` un vrai attrape-tout qui capture aussi les *newline*
 
-```{code-cell}
+```{code-cell} ipython3
 match = re.compile("(.*)", flags=re.DOTALL).match(sample)
 match.groups()
 ```
 
 Cela dit, le caractère *newline* est par ailleurs considéré comme un caractère comme un autre, on peut le mentionner **dans une regexp** comme les autres. Voici quelques exemples pour illustrer tout ceci
 
-```{code-cell}
+```{code-cell} ipython3
 # (depuis Python 3) sans mettre de flag, \w matche l'Unicode
 match = re.compile("([\w ]*)").match(sample)
 match.groups()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour matcher les caractères ASCII avec \w
 # il faut mentionner le flag ASCII re.A
 match = re.compile("([\w ]*)", flags=re.A).match(sample)
 match.groups()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si on ajoute \n à la liste des caractères attendus 
 # on obtient bien tout le contenu initial
 

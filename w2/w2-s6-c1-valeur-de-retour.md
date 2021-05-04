@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Valeurs de retour
 version: '3.0'
 ---
@@ -35,14 +40,14 @@ version: '3.0'
 
 Une procédure est une fonction qui se contente de dérouler des instructions. Voici un exemple d'une telle fonction :
 
-```{code-cell}
+```{code-cell} ipython3
 def affiche_carre(n):
     print("le carre de", n, "vaut", n*n)
 ```
 
 qui s'utiliserait comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 affiche_carre(12)
 ```
 
@@ -70,7 +75,7 @@ quitte à imprimer cette valeur ensuite si nécessaire. Jusqu'ici nous avons fai
 
 Voici comment on pourrait écrire une fonction `carre` qui **retourne** (on dit aussi **renvoie**) le carré de son argument :
 
-```{code-cell}
+```{code-cell} ipython3
 def carre(n):
     return n*n
 
@@ -92,12 +97,12 @@ Le terme même de fonction, si vous vous rappelez vos souvenirs de mathématique
 
 En fait **toutes** les fonctions retournent quelque chose. Lorsque le programmeur n'a pas prévu d'instruction `return`, Python retourne un objet spécial, baptisé `None`. Voici par exemple ce qu'on obtient si on essaie d'afficher la valeur de retour de notre première fonction, qui, on le rappelle, ne retourne rien :
 
-```{code-cell}
+```{code-cell} ipython3
 # ce premier appel provoque l'impression d'une ligne
 retour = affiche_carre(15)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # voyons ce qu'a retourné la fonction affiche_carre
 print('retour =', retour)
 ```
@@ -112,7 +117,7 @@ L'objet `None` est un singleton prédéfini par Python, un peu comme `True` et `
 
 Pour illustrer l'utilisation de `return` sur un exemple plus utile, voyons le code suivant :
 
-```{code-cell}
+```{code-cell} ipython3
 def premier(n):
     """
     Retourne un booléen selon que n est premier ou non
@@ -141,7 +146,7 @@ def premier(n):
 
 Cette fonction teste si un entier est premier ou non ; il s'agit naturellement d'une version d'école, il existe  d'autres méthodes beaucoup plus adaptées à cette tâche. On peut toutefois vérifier que cette version est fonctionnelle pour de petits entiers comme suit. On rappelle que `1` n'est pas considéré comme un nombre premier :
 
-```{code-cell}
+```{code-cell} ipython3
 for test in [-2, 1, 2, 4, 19, 35]:
     print(f"premier({test:2d}) = {premier(test)}")
 ```
@@ -166,7 +171,7 @@ Comme on peut s'en convaincre en instrumentant le code - ce que vous pouvez fair
 
 On aurait pu d'ailleurs tirer profit de cette propriété pour écrire la fonction de manière légèrement différente comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 def premier_sans_else(n):
     """
     Retourne un booléen selon que n est premier ou non
@@ -190,7 +195,7 @@ def premier_sans_else(n):
 
 C'est une question de style et de goût. En tout cas, les deux versions sont tout à fait équivalentes, comme on le voit ici :
 
-```{code-cell}
+```{code-cell} ipython3
 for test in [-2, 2, 4, 19, 35]:
     print(f"pour n = {test:2d} : premier → {premier(test)}\n"
           f"    premier_sans_else → {premier_sans_else(test)}\n")
@@ -202,7 +207,7 @@ for test in [-2, 2, 4, 19, 35]:
 
 Vous remarquerez dans cette dernière cellule, si vous regardez bien le paramètre de `print`,  qu'on peut accoler deux chaînes (ici deux *f-strings*) sans même les ajouter ; un petit détail pour éviter d'alourdir le code :
 
-```{code-cell}
+```{code-cell} ipython3
 # quand deux chaînes apparaissent immédiatement
 # l'une après l'autre sans opérateur, elles sont concaténées
 "abc" "def"

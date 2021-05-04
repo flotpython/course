@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: classe Roman
 version: '3.0'
 ---
@@ -52,7 +57,7 @@ on choisit de représenter le résultat par
 
 * le système de correction automatique a besoin également que votre classe définisse son comportement vis-à-vis de `repr()` ; regardez les exemples pour voir la représentation choisie
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # ATTENTION à ceci !!
@@ -64,7 +69,7 @@ from math import nan
 nan == nan
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour tester si quelque chose est indéfini
@@ -75,7 +80,7 @@ from math import isnan
 isnan(nan)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # enfin pour info (on n'en a pas besoin ici)
@@ -86,14 +91,14 @@ import numpy as np
 np.isnan(nan), isnan(np.nan)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_roman import exo_roman
 exo_roman.example()
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 
 class Roman:
@@ -102,14 +107,14 @@ class Roman:
         ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # correction
 exo_roman.correction(Roman)
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # peut-être utile pour debugger ?
 raw = """
 MCMXXXIX=1939
@@ -168,7 +173,7 @@ MMXXVII=2027
 MMXXVIII=2028"""
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for line in raw.split():
     l, n = line.split('=')
     if Roman(l) != Roman(n):

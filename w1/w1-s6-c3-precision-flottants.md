@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Calculs flottants
 version: '3.0'
 ---
@@ -39,13 +44,13 @@ Comme pour les entiers, les calculs sur les flottants sont, naturellement, réal
 
 Voyons tout d'abord comment se matérialise le problème :
 
-```{code-cell}
+```{code-cell} ipython3
 0.2 + 0.4
 ```
 
 Il faut retenir que lorsqu'on écrit un nombre flottant sous forme décimale, la valeur utilisée en mémoire pour représenter ce nombre, parce que cette valeur est codée en binaire, ne représente **pas toujours exactement** le nombre entré.
 
-```{code-cell}
+```{code-cell} ipython3
 # du coup cette expression est fausse, à cause de l'erreur d'arrondi
 0.3 - 0.1 == 0.2
 ```
@@ -72,7 +77,7 @@ Alors qu'il n'est pas possible d'écrire exactement $3/10$ en base 2, ni d'aille
 
 Python fournit en standard le module `fractions` qui permet de résoudre le problème. Voici comment on pourrait l'utiliser pour vérifier, cette fois avec succès, que $0.3 - 0.1$ vaut bien $0.2$. Ce code anticipe sur l'utilisation des modules et des classes en Python, ici nous créons des objets de type `Fraction` :
 
-```{code-cell}
+```{code-cell} ipython3
 # on importe le module fractions, qui lui-même définit le symbole Fraction
 from fractions import Fraction
 
@@ -82,7 +87,7 @@ Fraction(3, 10) - Fraction(1, 10) == Fraction(2, 10)
 
 Ou encore d'ailleurs, équivalent et plus lisible :
 
-```{code-cell}
+```{code-cell} ipython3
 Fraction('0.3') - Fraction('0.1') == Fraction('2/10')
 ```
 
@@ -96,7 +101,7 @@ Si par contre vous ne manipulez pas des nombres rationnels et que du coup la rep
 
 Pour reprendre l'exemple de départ, mais en utilisant le module decimal, on écrirait alors :
 
-```{code-cell}
+```{code-cell} ipython3
 from decimal import Decimal
 
 Decimal('0.3') - Decimal('0.1') == Decimal('0.2')

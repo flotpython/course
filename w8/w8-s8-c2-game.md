@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -97,12 +102,12 @@ On choisit de terminer le programme `game.py` lorsque le dernier sous-processus 
 
 C'est ce notebook qui va jouer pour nous le rôle du programme `game.py`.
 
-```{code-cell}
+```{code-cell} ipython3
 import asyncio
 import sys
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # cette constante est utile pour déclarer qu'on a l'intention
 # de lire les sorties (stout et stderr)
 # de nos sous-process par l'intermédiaire de pipes
@@ -115,7 +120,7 @@ script = [ (time, predef), ...]
 ```
 qui signifie de lancer, un délai de `time` secondes après le début du programme, le programme `players.py` dans la configuration `predef` - toujours de 1 à 4 donc.
 
-```{code-cell}
+```{code-cell} ipython3
 class Scheduler:
 
     def __init__(self, script):
@@ -273,7 +278,7 @@ class Scheduler:
 
 À ce stade on a déjà le cœur de la logique du *scheduler*, et aussi du multiplexer. Il ne nous manque plus que l'horloge :
 
-```{code-cell}
+```{code-cell} ipython3
 class Clock:
 
     def __init__(self):
@@ -288,7 +293,7 @@ class Clock:
 
 Et enfin pour mettre tous ces morceaux en route il nous faut une boucle d'événements :
 
-```{code-cell}
+```{code-cell} ipython3
 class Game:
 
     def __init__(self, script):
@@ -312,14 +317,14 @@ Et maintenant je peux lancer une session simple ; pour ne pas être noyé par l
 * 0.5 seconde après le début une instance de `players.py 1`
 * 1 seconde après le début une instance de `players.py 2`
 
-```{code-cell}
+```{code-cell} ipython3
 # nous allons juxtaposer 3 instances de players.py
 # et donc avoir 6 joueurs dans le jeu
 # La dernière instance se déroulera alors que les 2 premières sont terminées
 game = Game( [(0.5, 1), (1., 2), (6., 3])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 :tags: [raises-exception]
 

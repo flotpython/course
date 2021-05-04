@@ -1,9 +1,11 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   cell_metadata_json: true
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -11,6 +13,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: thread safety
 version: '3.0'
 ---
@@ -291,7 +296,7 @@ Voyons un exemple pour vous faire entrevoir la complexité du sujet.
 Vous vous souvenez qu'on a parlé de garbage collection, et de compteur de références. 
 Voyons comment le fait de maintenir un compteur de références crée le besoin d'**écrire** dans la mémoire, alors qu'en lisant le code Python on ne voit que des **accès en lecture**.
 
-```{code-cell}
+```{code-cell} ipython3
 # on est bien d'accord que ce code ne fait que lire
 # le contenu de x et ne modifie pas sa valeur
 
@@ -301,7 +306,7 @@ def foo(x,  max_depth, depth=1):
         foo(x, max_depth, depth+1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # j'exécute ce code sur un objet tout neuf
 a = []
 
@@ -309,7 +314,7 @@ a = []
 foo(a, 3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais en fait pendant toute l'exécution de ce code
 # il y a des changements qui sont faits dans l'objet a 
 # en tous cas dans sa représentation interne,

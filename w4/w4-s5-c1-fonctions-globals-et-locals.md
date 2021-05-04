@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: globals et locals
 version: '3.0'
 ---
@@ -37,20 +42,20 @@ python fournit un accès à la liste des noms et valeurs des variables visibles 
 
 Cela est fait grâce aux fonctions *built-in* `globals` et `locals`, que nous allons commencer par essayer sur quelques exemples. Nous avons pour cela écrit un module dédié :
 
-```{code-cell}
+```{code-cell} ipython3
 import env_locals_globals
 ```
 
 dont voici le code
 
-```{code-cell}
+```{code-cell} ipython3
 from modtools import show_module
 show_module(env_locals_globals)
 ```
 
 et voici ce qu'on obtient lorsqu'on appelle
 
-```{code-cell}
+```{code-cell} ipython3
 env_locals_globals.temoin(10)
 ```
 
@@ -64,16 +69,16 @@ Que nous montre cet exemple ?
 
 * D'autre part **`locals`** nous donne les variables locales qui sont accessibles **à cet endroit du code**, comme le montre ce second exemple qui se concentre sur `locals` à différents points d'une même fonction.
 
-```{code-cell}
+```{code-cell} ipython3
 import env_locals
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le code de ce module 
 show_module(env_locals)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 env_locals.temoin(10)
 ```
 
@@ -101,19 +106,19 @@ Les deux fonctions `locals` et `globals` ne sont pas d'une utilisation très fr�
 
 On peut utiliser `format` qui s'attend à quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 "{nom}".format(nom="Dupont")
 ```
 
 que l'on peut obtenir de manière équivalente, en anticipant sur la prochaine vidéo, avec le passage d'arguments en `**` :
 
-```{code-cell}
+```{code-cell} ipython3
 "{nom}".format(**{'nom': 'Dupont'})
 ```
 
 En versant la fonction `locals` dans cette formule on obtient une forme relativement élégante
 
-```{code-cell}
+```{code-cell} ipython3
 def format_et_locals(nom, prenom, civilite, telephone):
     return "{civilite} {prenom} {nom} : Poste {telephone}".format(**locals())
 
@@ -126,7 +131,7 @@ format_et_locals('Dupont', 'Jean', 'Mr', '7748')
 
 De manière similaire, avec l'opérateur `%` - dont nous rappelons qu'il est obsolète - on peut écrire
 
-```{code-cell}
+```{code-cell} ipython3
 def pourcent_et_locals(nom, prenom, civilite, telephone):
     return "%(civilite)s %(prenom)s %(nom)s : Poste %(telephone)s"%locals()
 
@@ -139,7 +144,7 @@ pourcent_et_locals('Dupont', 'Jean', 'Mr', '7748')
 
 Pour rappel si vous disposez de python 3.6, vous pouvez alors écrire simplement - et sans avoir recours, donc, à `locals()` ou autre :
 
-```{code-cell}
+```{code-cell} ipython3
 # attention ceci nécessite python-3.6
 def avec_f_string(nom, prenom, civilite, telephone):
     return f"{civilite} {prenom} {nom} : Poste {telephone}"

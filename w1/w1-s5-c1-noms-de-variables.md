@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Noms de variables
 version: '3.0'
 ---
@@ -35,13 +40,13 @@ Revenons sur les noms de variables autorisés ou non.
 
 Les noms les plus simples sont constitués de lettres. Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 factoriel = 1
 ```
 
 On peut utiliser aussi les majuscules, mais attention cela définit une variable différente. Ainsi :
 
-```{code-cell}
+```{code-cell} ipython3
 Factoriel = 100
 factoriel == Factoriel
 ```
@@ -63,25 +68,25 @@ Notons qu'il s'agit uniquement d'une convention, ceci n'est pas imposé par le l
 
 Pour des raisons de lisibilité, il est également possible d'utiliser le tiret bas `_` dans les noms de variables. On préfèrera ainsi :
 
-```{code-cell}
+```{code-cell} ipython3
 age_moyen = 75 # oui
 ```
 
 plutôt que ceci (bien qu'autorisé par le langage) :
 
-```{code-cell}
+```{code-cell} ipython3
 AgeMoyen = 75 # autorisé, mais non
 ```
 
 On peut également utiliser des chiffres dans les noms de variables comme par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 age_moyen_dept75 = 80
 ```
 
 avec la restriction toutefois que le premier caractère ne peut pas être un chiffre, cette affectation est donc refusée :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 75_age_moyen = 80 # erreur de syntaxe
@@ -93,13 +98,13 @@ avec la restriction toutefois que le premier caractère ne peut pas être un chi
 
 Il est par contre, possible de faire commencer un nom de variable par un tiret bas comme premier caractère&nbsp;; toutefois, à ce stade, nous vous déconseillons d'utiliser cette pratique qui est réservée à des conventions de nommage bien spécifiques.
 
-```{code-cell}
+```{code-cell} ipython3
 _autorise_mais_deconseille = 'Voir le PEP 008'
 ```
 
 Et en tout cas, il est **fortement déconseillé** d'utiliser des noms de la forme `__variable__` qui sont réservés au langage. Nous reviendrons sur ce point dans le futur, mais regardez par exemple cette variable que nous n'avons définie nulle part mais qui pourtant existe bel et bien :
 
-```{code-cell}
+```{code-cell} ipython3
 __name__  # ne définissez pas vous-même de variables de ce genre
 ```
 
@@ -109,7 +114,7 @@ __name__  # ne définissez pas vous-même de variables de ce genre
 
 Dans la plage des caractères ASCII, il n'est **pas possible** d'utiliser d'autres caractères que les caractères alphanumériques et le tiret bas. Notamment le tiret haut `-` est interprété comme l'opération de soustraction. Attention donc à cette erreur fréquente :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 age-moyen = 75  # erreur : en fait python l'interprète comme 'age - moyen = 75'
@@ -121,12 +126,12 @@ age-moyen = 75  # erreur : en fait python l'interprète comme 'age - moyen = 75'
 
 En Python 3, il est maintenant aussi possible d'utiliser des caractères Unicode dans les identificateurs :
 
-```{code-cell}
+```{code-cell} ipython3
 # les caractères accentués sont permis
 nom_élève = "Jules Maigret"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ainsi que l'alphabet grec
 from math import cos, pi as π
 θ = π / 4
@@ -135,7 +140,7 @@ cos(θ)
 
 Tous les caractères Unicode ne sont pas permis - heureusement car cela serait source de confusion. Nous citons dans les références les documents qui précisent quels sont exactement les caractères autorisés.
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-cell: true
 
 # ce caractère n'est pas autorisé, car il
@@ -143,7 +148,7 @@ Tous les caractères Unicode ne sont pas permis - heureusement car cela serait s
 ∏ = 10
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-cell: true
 
 # ce caractère est encore différent, c'est aussi

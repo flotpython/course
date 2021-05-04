@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'exercice: stairs'
 version: '3.0'
 ---
@@ -37,7 +42,7 @@ Aux quatre coins du tableau on trouve la valeur $0$. Dans la case centrale on tr
 
 Si vous partez de n'importe quelle case et que vous vous déplacez d'une case horizontalement ou verticalement vers une cas plus proche du centre, vous incrémentez la valeur du tableau de `1`.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 
 from corrections.exo_stairs import exo_stairs
@@ -46,7 +51,7 @@ from corrections.exo_stairs import exo_stairs
 exo_stairs.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: stairs=exo_stairs.solution
 :latex:hidden-silent: true
 
@@ -55,14 +60,14 @@ def stairs(taille):
     return "votre code"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_stairs.correction(stairs)
 ```
 
 ### Visualisation
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.ion()
@@ -70,13 +75,13 @@ plt.ion()
 
 L'exercice est terminé, voyons à nouveau notre résultat sous forme d'image :
 
-```{code-cell}
+```{code-cell} ipython3
 squares = stairs(100)
 ```
 
 Pour le voir comme une image avec un niveau de gris comme code de couleurs (noir = 0, blanc = maximum = 201 dans notre cas) :
 
-```{code-cell}
+```{code-cell} ipython3
 # convertir en flottant pour imshow
 squares = squares.astype(np.float)
 # afficher avec une colormap 'gray'

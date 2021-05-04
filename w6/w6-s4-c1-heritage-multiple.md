@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "H\xE9ritage multiple"
 version: '3.0'
 ---
@@ -35,11 +40,11 @@ version: '3.0'
 
 Le symbole `object` est une variable prédéfinie (qui donc fait partie du module `builtins`) :
 
-```{code-cell}
+```{code-cell} ipython3
 object
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import builtins
 
 builtins.object is object
@@ -47,7 +52,7 @@ builtins.object is object
 
 La classe `object` est une classe spéciale ; toutes les classes en Python héritent de la classe `object`, même lorsqu'aucun héritage n'est spécifié :
 
-```{code-cell}
+```{code-cell} ipython3
 class Foo:
     pass
 
@@ -60,7 +65,7 @@ L'attribut spécial `__bases__`, comme on le devine, nous permet d'accéder aux 
 
 En Python moderne, on n'a **jamais besoin de mentionner** `object` dans le code. La raison de sa présence dans les symboles prédéfinis est liée à l'histoire de Python, et à la distinction que faisait Python 2 entre classes *old-style* et classes *new-style*. Nous le mentionnons seulement car on rencontre encore parfois du code qui fait quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci est du vieux code, on n'a pas besoin
 # de faire hériter Bar de object
 class Bar(object):
@@ -159,7 +164,7 @@ En effet, dans certains cas on ne peut pas trouver un tel ordre, on le verra plu
 
 On se donne la hiérarchie suivante :
 
-```{code-cell}
+```{code-cell} ipython3
 class LeftTop:
     def attribut(self): 
         return "attribut(LeftTop)"
@@ -191,7 +196,7 @@ qui donne en version dessinée, avec deux points rouges pour représenter les de
 
 Les deux règles, telles que nous les avons énoncées en premier lieu (priorité à gauche, priorité au spécifique) sont un peu contradictoires ici. En fait, c'est la méthode de `LeftTop` qui est héritée dans `Class`, comme on le voit ici :
 
-```{code-cell}
+```{code-cell} ipython3
 instance.attribut() == 'attribut(LeftTop)'
 ```
 
@@ -205,7 +210,7 @@ instance.attribut() == 'attribut(LeftTop)'
 
 C'est une évidence, mais cela va peut-être mieux en le rappelant : si la méthode que vous obtenez "gratuitement" avec l'héritage n'est pas celle qui vous convient, vous avez naturellement toujours la possibilité de la redéfinir, et ainsi d'en **choisir** une autre. Dans notre exemple si on préfère la méthode implémentée dans `Right`, on définira plutôt la classe `Class` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Class(Left, Middle, Right):
     # en redéfinissant explicitement la méthode
     # attribut ici on court-circuite la mro
@@ -220,7 +225,7 @@ instance2.attribut()
 
 Ou encore bien entendu, si dans votre contexte vous devez appelez **les deux** méthodes dont vous pourriez hériter et les combiner, vous pouvez le faire aussi, par exemple comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Class(Left, Middle, Right):
     # pour faire un composite des deux méthodes
     # trouvées dans les classes mères
@@ -239,7 +244,7 @@ instance3.attribut()
 
 Voici un exemple, assez parlant, tiré de la deuxième référence (voir ci-dessous la dernière section, "Pour en savoir plus").
 
-```{code-cell}
+```{code-cell} ipython3
 O = object
 class F(O): pass
 class E(O): pass
@@ -281,7 +286,7 @@ Cette hiérarchie nous donne, en partant de A, l'ordre suivant :
 
 Que l'on peut calculer, sous l'interpréteur python, avec la méthode `mro` sur la classe de départ :
 
-```{code-cell}
+```{code-cell} ipython3
 A.mro()
 ```
 
@@ -293,7 +298,7 @@ Voici enfin un exemple de hiérarchie pour laquelle on ne **peut pas trouver d'o
 
 <img src="media/heritage-multiple02.png">
 
-```{code-cell}
+```{code-cell} ipython3
 # puis en version code
 class X: pass
 class Y: pass

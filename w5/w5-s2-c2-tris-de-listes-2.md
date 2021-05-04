@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Tri de listes (2)
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Nous avons vu durant une semaine précédente comment faire le tri simple d'une 
 
 Dans le cas général, on est souvent amené à trier des objets selon un critère propre à l'application. Imaginons par exemple que l'on dispose d'une liste de tuples à deux éléments, dont le premier est la latitude et le second la longitude :
 
-```{code-cell}
+```{code-cell} ipython3
 coordonnees = [(43, 7), (46, -7), (46, 0)]
 ```
 
@@ -47,7 +52,7 @@ Il est possible d'utiliser la méthode `sort` pour faire cela, mais il va falloi
 
 Voyons comment on pourrait procéder pour trier par longitude :
 
-```{code-cell}
+```{code-cell} ipython3
 def longitude(element): 
     return element[1]
 
@@ -63,7 +68,7 @@ Pour cela on passe à la méthode `sort` un argument `key` qui désigne **une fo
 
 On aurait pu utiliser de manière équivalente une fonction lambda ou la méthode `itemgetter` du module `operator`
 
-```{code-cell}
+```{code-cell} ipython3
 # fonction lambda 
 coordonnees = [(43, 7), (46, -7), (46, 0)]
 coordonnees.sort(key=lambda x: x[1])
@@ -82,7 +87,7 @@ print("coordonnées triées par longitude", coordonnees)
 
 On a vu que `sort` réalise le tri de la liste "en place". Pour les cas où une copie est nécessaire, python fournit également une fonction de commodité, qui permet précisément de renvoyer la **copie** triée d'une liste d'entrée. Cette fonction est baptisée `sorted`, elle s'utilise par exemple comme ceci, sachant que les arguments `reverse` et `key` peuvent être mentionnés comme avec `sort` :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [8, 7, 4, 3, 2, 9, 1, 5, 6]
 # on peut passer à sorted les mêmes arguments que pour sort
 triee = sorted(liste, reverse=True)
@@ -93,7 +98,7 @@ print('la liste initiale est intacte', liste)
 
 Nous avons qualifié `sorted` de fonction de commodité car il est très facile de s'en passer ; en effet on aurait pu écrire à la place du fragment précédent :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [8, 7, 4, 3, 2, 9, 1, 5, 6]
 # ce qu'on a fait dans la cellule précédente est équivalent à
 triee = liste[:]

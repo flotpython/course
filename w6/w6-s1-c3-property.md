@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: properties
 version: '3.0'
 ---
@@ -49,7 +54,7 @@ Pour être concret, on va parler d'une classe `Temperature`. Au lieu de proposer
 
 Je vais commencer par une implémentation naïve, qui ne tire pas profit des *properties* :
 
-```{code-cell}
+```{code-cell} ipython3
 # dans sa version la plus épurée, une classe
 # température pourrait ressembler à ça :
 
@@ -61,13 +66,13 @@ class Temperature1:
         return f"{self.kelvin}K"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # créons une instance
 t1 = Temperature1(20)
 t1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour accéder à la valeur numérique je peux faire
 t1.kelvin
 ```
@@ -84,7 +89,7 @@ Si vous avez été déjà exposés à des langages orientés objet comme C++, Ja
 
 C'est-à-dire que vous vous dites peut-être, ça ne devrait pas être fait comme ça, on devrait plutôt proposer une interface pour accéder à l'implémentation interne ; quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 class Temperature2:
     def __init__(self, kelvin):
         # au lieu d'écrire l'attribut il est plus sûr
@@ -108,14 +113,14 @@ class Temperature2:
 
 Bon c'est vrai que d'un coté, c'est mieux parce que je garantis un invariant, la température est toujours positive :
 
-```{code-cell}
+```{code-cell} ipython3
 t2 = Temperature2(-30)
 t2
 ```
 
 Mais par contre, d'un autre coté, c'est très lourd, parce que chaque fois que je veux utiliser mon objet, je dois faire pour y accéder :
 
-```{code-cell}
+```{code-cell} ipython3
 t2.get_kelvin()
 ```
 
@@ -131,7 +136,7 @@ La façon de s'en sortir ici consiste à définir une property. Comme on va le v
 
 Ça ressemblerait à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Temperature3:
     def __init__(self, kelvin):
         self.kelvin = kelvin
@@ -154,12 +159,12 @@ class Temperature3:
         return f"{self._kelvin}K"    
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 t3 = Temperature3(200)
 t3
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # par contre ici on va le mettre à zéro
 # à nouveau, une exception serait préférable sans doute
 t3.kelvin = -30
@@ -181,7 +186,7 @@ C'est pour cette raison que vous ne rencontrerez presque jamais en Python une bi
 
 À titre d'exemple d'utilisation, voici une dernière implémentation de `Temperature` qui donne l'illusion d'avoir 3 attributs (`kelvin`, `celsius` et `fahrenheit`), alors qu'en réalité le seul attribut de donnée est `_kelvin`.
 
-```{code-cell}
+```{code-cell} ipython3
 class Temperature:
 
     ## les constantes de conversion
@@ -253,27 +258,27 @@ class Temperature:
 
 Et voici ce qu'on peut en faire :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t = Temperature(celsius=0)
 t
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t.fahrenheit
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t.celsius += 100
 print(t)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 try:
@@ -292,7 +297,7 @@ Voir aussi [la documentation officielle](https://docs.python.org/3.6/library/fun
 
 Vous pouvez notamment aussi, en option, ajouter un *deleter* pour intercepter les instructions du type :
 
-```{code-cell}
+```{code-cell} ipython3
 # comme on n'a pas défini de deleter, on ne peut pas faire ceci
 try:
     del t.kelvin

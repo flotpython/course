@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Caract\xE8res accentu\xE9s"
 version: '3.1'
 ---
@@ -85,14 +90,14 @@ Cela étant dit, si vous devez vraiment mettre des accents dans vos sources, voi
 
 * S'il n'était **pas possible en Python 2** d'utiliser un caractère accentué dans un **nom de variable** (ou d'un identificateur au sens large), cela est à présent **permis en Python 3** :
 
-```{code-cell}
+```{code-cell} ipython3
 # pas recommandé, mais autorisé par le langage
 nb_élèves = 12
 ```
 
 * On peut même utiliser des symboles, comme par exemple
 
-```{code-cell}
+```{code-cell} ipython3
 from math import cos, pi as 𝞟
 θ = 𝞟 / 4
 cos(θ)

@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -51,7 +56,7 @@ Dans ce complément, nous approfondissons la notion de module, qui a été intro
 
 Pour ce notebook nous aurons besoin de deux utilitaires pour voir le code correspondant aux modules et packages que nous manipulons :
 
-```{code-cell}
+```{code-cell} ipython3
 from modtools import show_module
 ```
 
@@ -65,25 +70,25 @@ Nous avons vu dans la vidéo qu'on peut charger une bibliothèque, lorsqu'elle s
 
 Chargeons un module "jouet" :
 
-```{code-cell}
+```{code-cell} ipython3
 import module_simple
 ```
 
 Voyons à quoi ressemble ce module :
 
-```{code-cell}
+```{code-cell} ipython3
 show_module(module_simple)
 ```
 
 On a bien compris maintenant que le module joue le rôle d'**espace de nom**, dans le sens où :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut définir sans risque une variable globale 'spam'
 spam = 'eggs'
 print("spam globale", spam)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # qui est indépendante de celle définie dans le module
 print("spam du module", module_simple.spam)
 ```
@@ -115,17 +120,17 @@ package_jouet/
 
 On importe un package exactement comme un module :
 
-```{code-cell}
+```{code-cell} ipython3
 import package_jouet
 ```
 
 Voici le contenu de ces deux fichiers :
 
-```{code-cell}
+```{code-cell} ipython3
 show_module(package_jouet)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 show_module(package_jouet.module_jouet)
 ```
 
@@ -141,23 +146,23 @@ Comme on le voit, importer un package revient essentiellement à charger, lorsqu
 
 On a coutume de faire la différence entre package et module, mais en termes d'implémentation les deux objets sont en fait de même nature, ce sont des modules :
 
-```{code-cell}
+```{code-cell} ipython3
 type(package_jouet)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 type(package_jouet.module_jouet)
 ```
 
 Ainsi, le package se présente aussi comme un espace de nom, à présent on a une troisième variable `spam` qui est encore différente des deux autres :
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.spam
 ```
 
 L'espace de noms du package permet de référencer les packages ou modules qu'il contient, comme on l'a vu ci-dessus, le package référence le module au travers de son attribut `module_jouet` :
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.module_jouet
 ```
 
@@ -173,13 +178,13 @@ Cette technique correpond à un usage assez fréquent, où on veut exposer direc
 
 Avec le code ci-dessus, après avoir importé `package_jouet`, nous pouvons utiliser
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.jouet
 ```
 
 alors qu'en fait il faudrait écrire en toute rigueur
 
-```{code-cell}
+```{code-cell} ipython3
 package_jouet.module_jouet.jouet
 ```
 

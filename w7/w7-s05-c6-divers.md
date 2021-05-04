@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Divers
 version: '3.0'
 ---
@@ -27,7 +32,7 @@ version: '3.0'
 
 ## Complément - niveau avancé
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -57,19 +62,19 @@ Pour résumer ce qu'on a vu jusqu'ici :
 
 Et de plus :
 
-```{code-cell}
+```{code-cell} ipython3
 # un tableau de base
 a = np.arange(3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une vue
 v = a.view()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une slice
@@ -78,13 +83,13 @@ s = a[:]
 
 Les deux objets ne sont pas différentiables :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 v.base is a
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 s.base is a
@@ -100,17 +105,17 @@ Lorsque l'on fait du calcul vectoriel, on peut avoir tendance à créer de nombr
 
 Prenons l'exemple un peu factice suivant, ou on calcule $e^{sin(cos(x))}$ sur l'intervalle $[0, 2\pi]$ :
 
-```{code-cell}
+```{code-cell} ipython3
 # le domaine
 X = np.linspace(0, 2*np.pi)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 Y = np.exp(np.sin(np.cos(X)))
 plt.plot(X, Y);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # chaque fonction alloue un tableau pour ranger ses résultats,
 # et si je décompose, ce qui se passe en fait c'est ceci
 Y1 = np.cos(X)
@@ -120,7 +125,7 @@ Y3 = np.exp(Y2)
 plt.plot(X, Y3);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Mais moi je sais qu'en fait je n'ai besoin que de X et de Y
 # ce qui fait que je peux optimiser comme ceci :
 
@@ -163,7 +168,7 @@ Pour cela, on peut se définir un `dtype` élaboré, qui va nous permettre de d�
 
 ### Exemple
 
-```{code-cell}
+```{code-cell} ipython3
 # un dtype structuré
 my_dtype = [
     # prenom est un string de taille 12
@@ -188,13 +193,13 @@ classe
 
 Je peux avoir l'impression d'avoir créé un tableau de 4 lignes et 3 colonnes ; cependant pour `numpy` ce n'est pas comme ça que cela se présente :
 
-```{code-cell}
+```{code-cell} ipython3
 classe.shape
 ```
 
 Rien ne m'empêcherait de créer des tableaux de ce genre en dimensions supérieures, bien entendu :
 
-```{code-cell}
+```{code-cell} ipython3
 # ça n'a pas beaucoup d'intérêt ici, mais si on en a besoin
 # on peut bien sûr avoir plusieurs dimensions
 classe.reshape((2, 2))
@@ -224,7 +229,7 @@ Enfin, toujours sans transition, et plus anecdotique : jusqu'ici nous avons vu 
 
 ### Assemblages : `hstack` et `vstack` (tableaux 2D)
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -234,20 +239,20 @@ a = np.arange(1, 7).reshape(2, 3)
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 b = 10 * np.arange(1, 7).reshape(2, 3)
 print(b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(np.hstack((a, b)))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(np.vstack((a, b)))
@@ -255,21 +260,21 @@ print(np.vstack((a, b)))
 
 ### Assemblages : `np.concatenate` (3D et au delà)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a = np.ones((2, 3, 4))
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b = np.zeros((2, 3, 2))
 print(b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print(np.concatenate((a, b), axis = 2))
 ```
 
@@ -288,12 +293,12 @@ Pour conclure :
 
 Cette fonction permet de répéter un tableau dans toutes les directions :
 
-```{code-cell}
+```{code-cell} ipython3
 motif = np.array([[0, 1], [2, 10]])
 print(motif)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print(np.tile(motif, (2, 3)))
 ```
 
@@ -305,24 +310,24 @@ print(np.tile(motif, (2, 3)))
 
 Cette opération, inverse du *stacking*, consiste à découper un tableau en parties plus ou moins égales :
 
-```{code-cell}
+```{code-cell} ipython3
 complet = np.arange(24).reshape(4, 6); print(complet)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 h1, h2 = np.hsplit(complet, 2)
 print(h1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(h2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -331,14 +336,14 @@ complet = np.arange(24).reshape(4, 6)
 print(complet)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 v1, v2 = np.vsplit(complet, 2)
 print(v1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(v2)

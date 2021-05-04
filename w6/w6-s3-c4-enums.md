@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "\xC9num\xE9rations"
 version: '3.0'
 ---
@@ -43,11 +48,11 @@ On veut pouvoir utiliser des noms parlants dans les programmes qui gèrent ce ty
 
 La bibliothèque standard offre depuis Python-3.4 un module qui s'appelle sans grande surprise `enum`, et qui expose entre autres une classe `Enum`. On l'utiliserait comme ceci, dans un cas d'usage plus simple :
 
-```{code-cell}
+```{code-cell} ipython3
 from enum import Enum
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 class Flavour(Enum):
@@ -56,7 +61,7 @@ class Flavour(Enum):
     PEAR = 3
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 vanilla = Flavour.VANILLA
@@ -64,13 +69,13 @@ vanilla = Flavour.VANILLA
 
 Un premier avantage est que les représentations textuelles sont plus parlantes :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 str(vanilla)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 repr(vanilla)
@@ -78,14 +83,14 @@ repr(vanilla)
 
 Vous pouvez aussi retrouver une valeur par son nom :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 chocolate = Flavour['CHOCOLATE']
 chocolate
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 Flavour.CHOCOLATE
@@ -93,7 +98,7 @@ Flavour.CHOCOLATE
 
 Et réciproquement :
 
-```{code-cell}
+```{code-cell} ipython3
 chocolate.name
 ```
 
@@ -103,7 +108,7 @@ chocolate.name
 
 En fait, le plus souvent on préfère utiliser `IntEnum`, une sous-classe de `Enum` qui permet également de faire des comparaisons. Pour reprendre le cas des codes d'erreur HTTP :
 
-```{code-cell}
+```{code-cell} ipython3
 from enum import IntEnum
 
 class HttpError(IntEnum):
@@ -119,13 +124,13 @@ class HttpError(IntEnum):
         return 300 <= self.value <= 399
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 code = HttpError.REDIRECT_TMP
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 code.is_redirect()
@@ -137,7 +142,7 @@ code.is_redirect()
 
 Un des avantages de cette construction est qu'avec une énumération, l'objet **classe** (et non une instance) est un itérable :
 
-```{code-cell}
+```{code-cell} ipython3
 class Couleur(IntEnum):
     TREFLE = 0
     CARREAU = 1
@@ -154,7 +159,7 @@ class Couleur(IntEnum):
         return glyphs[self]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for couleur in Couleur:
     print(f"Couleur {couleur} -> {couleur.glyph()}")
 ```

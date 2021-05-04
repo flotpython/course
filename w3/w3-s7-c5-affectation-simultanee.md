@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Affectation simultan\xE9e"
 version: '3.0'
 ---
@@ -31,34 +36,34 @@ version: '3.0'
 
 Nous avons déjà parlé de l'affectation par *sequence unpacking* (en Semaine 3, séquence "Les tuples"), qui consiste à affecter à plusieurs variables des "morceaux" d'un objet, comme dans :
 
-```{code-cell}
+```{code-cell} ipython3
 x, y = ['spam', 'egg']
 ```
 
 Dans ce complément nous allons voir une autre forme de l'affectation, qui consiste à affecter **le même objet** à plusieurs variables. Commençons par un exemple simple :
 
-```{code-cell}
+```{code-cell} ipython3
 a = b = 1
 print('a', a, 'b', b)
 ```
 
 La raison pour laquelle nous abordons cette construction maintenant est qu'elle a une forte relation avec les références partagées ; pour bien le voir, nous allons utiliser une valeur mutable comme valeur à affecter :
 
-```{code-cell}
+```{code-cell} ipython3
 # on affecte a et b au même objet liste vide
 a = b = []
 ```
 
 Dès lors nous sommes dans le cas typique d'une référence partagée ; une modification de  `a` va se répercuter sur `b` puisque ces deux variables désignent **le même objet** :
 
-```{code-cell}
+```{code-cell} ipython3
 a.append(1)
 print('a', a, 'b', b)
 ```
 
 Ceci est à mettre en contraste avec plusieurs affectations séparées :
 
-```{code-cell}
+```{code-cell} ipython3
 # si on utilise deux affectations différentes
 a = []
 b = []

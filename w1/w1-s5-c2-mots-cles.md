@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Les mots-cl\xE9s"
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ Il existe en Python certains mots spéciaux, qu'on appelle des mots-clés, ou *k
 
 C'est le cas par exemple pour l'instruction `if`, que nous verrons prochainement, qui permet bien entendu d'exécuter tel ou tel code selon le résultat d'un test.
 
-```{code-cell}
+```{code-cell} ipython3
 variable = 15
 if variable <= 10:
     print("en dessous de la moyenne")
@@ -45,7 +50,7 @@ else:
 
 À cause de la présence de cette instruction dans le langage, il n'est pas autorisé d'appeler une variable `if`.
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # interdit, if est un mot-clé

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Le module datetime
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Notez que ce complément, bien qu'un peu digressif par rapport au sujet principa
 
 Pour les accès à l'horloge, python fournit un module `time` - très ancien ; il s'agit d'une interface de très bas niveau avec l'OS, qui s'utilise comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 import time
 
 # on obtient l'heure courante sous la forme d'un flottant
@@ -48,27 +53,27 @@ t_now = time.time()
 t_now
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour calculer l'heure qu'il sera dans trois heures on fait
 t_later = t_now + 3 * 3600
 ```
 
 Nous sommes donc ici clairement dans une approche non orientée objet ; on manipule des types de base, ici le type flottant :
 
-```{code-cell}
+```{code-cell} ipython3
 type(t_later)
 ```
 
 Et comme on le voit, les calculs se font sous une forme pas très lisible. Pour rendre ce nombre de secondes plus lisible, on utilise des conversions, pas vraiment explicites non plus ; voici par exemple un appel à `gmtime` qui convertit le flottant obtenu par la méthode `time()` en heure UTC (`gm` est pour Greenwich Meridian) :
 
-```{code-cell}
+```{code-cell} ipython3
 struct_later = time.gmtime(t_later)
 print(struct_later)
 ```
 
 Et on met en forme ce résultat en utilisant des méthodes comme, par exemple, `strftime()` pour afficher l'heure UTC dans 3 heures :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f'heure UTC dans trois heures '
       f'{time.strftime("%Y-%m-%d at %H:%M", struct_later)}')
 ```
@@ -91,7 +96,7 @@ La première remarque qu'on peut faire, c'est qu'avec le module `time` on manipu
 
 Le code ci-dessus s'écrirait alors, en utilisant le module `datetime` :
 
-```{code-cell}
+```{code-cell} ipython3
 from datetime import datetime, timedelta
 
 dt_now = datetime.now()
@@ -102,17 +107,17 @@ Vous remarquez que c'est déjà un peu plus expressif.
 
 Voyez aussi qu'on a déjà moins besoin de s'escrimer pour en avoir un aperçu lisible :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut imprimer simplement un objet date_time
 print(f'maintenant {dt_now}')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et si on veut un autre format, on peut toujours appeler strftime
 print(f'dans trois heures {dt_later.strftime("%Y-%m-%d at %H:%M")}')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais ce n'est même pas nécessaire, on peut passer le format directement
 print(f'dans trois heures {dt_later:%Y-%m-%d at %H:%M}')
 ```
@@ -177,7 +182,7 @@ Nous allons voir comment on peut échanger ces informations entre, disons, deux 
 
 Si on choisit de simplement manipuler un dictionnaire standard :
 
-```{code-cell}
+```{code-cell} ipython3
 bateau1 = {'name' : "Toccata", 'id' : 1000, 'country' : "France"}
 ```
 
@@ -187,7 +192,7 @@ alors on peut utiliser tels quels les mécanismes d'encodage et décodage de, di
 
 Si au contraire on choisit de manipuler les données sous forme d'une classe on pourrait avoir envie d'écrire quelque chose comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Bateau:
     def __init__(self, id, name, country):
         self.id = id
@@ -199,7 +204,7 @@ bateau2 = Bateau(1000, "Toccata", "FRA")
 
 Maintenant, si vous avez besoin d'échanger cet objet avec le reste du monde, en utilisant par exemple JSON, tout ce que vous allez pouvoir faire passer par ce médium, c'est la valeur des trois champs, dans un dictionnaire. Vous pouvez facilement obtenir le dictionnaire en question pour le passer à la couche d'encodage :
 
-```{code-cell}
+```{code-cell} ipython3
 vars(bateau2)
 ```
 
@@ -208,7 +213,7 @@ Mais à l'autre bout de la communication il va vous falloir :
 * déterminer d'une manière ou d'une autre que les données échangées sont en rapport avec la classe `Bateau` ;
 * construire vous même un objet de cette classe, par exemple avec un code comme :
 
-```{code-cell}
+```{code-cell} ipython3
 # du côté du récepteur de la donnée
 class Bateau:
     def __init__(self, *args):

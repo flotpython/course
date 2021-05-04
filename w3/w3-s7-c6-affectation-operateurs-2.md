@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "+= revisit\xE9"
 version: '3.0'
 ---
@@ -43,7 +48,7 @@ Ces constructions en Python s'inspirent clairement de C, aussi dans l'esprit ces
 
 Mais les types numériques en Python ne sont **pas mutables**, alors que les listes le sont. Du coup le comportement de `+=` est **différent** selon qu'on l'utilise sur un nombre ou sur une liste, ou plus généralement selon qu'on l'invoque sur un type mutable ou non. Voyons cela sur des exemples très simples :
 
-```{code-cell}
+```{code-cell} ipython3
 # Premier exemple avec un entier
 
 # on commence avec une référence partagée
@@ -51,7 +56,7 @@ a = b = 3
 a is b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on utilise += sur une des deux variables
 a += 1
 
@@ -63,7 +68,7 @@ print(b)
 print(a is b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Deuxième exemple, cette fois avec une liste
 
 # la même référence partagée
@@ -71,7 +76,7 @@ a = b = []
 a is b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pareil, on fait += sur une des variables
 a += [1]
 
@@ -110,7 +115,7 @@ x = x + y
 
 Au vu de ce qui précède, on voit que ce n'est **pas tout à fait exact**, puisque :
 
-```{code-cell}
+```{code-cell} ipython3
 # si on fait x += y sur une liste
 # on fait un effet de bord sur la liste
 # comme on vient de le voir
@@ -121,7 +126,7 @@ a += [1]
 print("après", id(a))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # alors que si on fait x = x + y sur une liste
 # on crée un nouvel objet liste
 

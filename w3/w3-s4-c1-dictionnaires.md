@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Dictionnaires
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Ce document résume les opérations courantes disponibles sur le type `dict`. On
 
 On l'a vu, la méthode la plus directe pour créer un dictionnaire est en extension comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 annuaire = {'marc': 35, 'alice': 30, 'eric': 38}
 print(annuaire)
 ```
@@ -50,7 +55,7 @@ print(annuaire)
 
 Comme pour les fonctions `int` ou `list`, la fonction `dict` est une fonction de construction de dictionnaire - on dit un constructeur. On a vu aussi dans la vidéo qu'on peut utiliser ce constructeur à base d'une liste de tuples (`clé`, `valeur`)
 
-```{code-cell}
+```{code-cell} ipython3
 # le paramètre de la fonction dict est
 # une liste de couples (clé, valeur)
 annuaire = dict([('marc', 35), ('alice', 30), ('eric', 38)])
@@ -59,7 +64,7 @@ print(annuaire)
 
 Remarquons qu'on peut aussi utiliser cette autre forme d'appel à `dict` pour un résultat équivalent :
 
-```{code-cell}
+```{code-cell} ipython3
 annuaire = dict(marc=35, alice=30, eric=38)
 print(annuaire)
 ```
@@ -74,34 +79,34 @@ Remarquez ci-dessus l'absence de quotes autour des clés comme `marc`. Il s'agit
 
 Pour accéder à la valeur associée à une clé, on utilise la notation à base de crochets `[]` :
 
-```{code-cell}
+```{code-cell} ipython3
 print('la valeur pour marc est', annuaire['marc'])
 ```
 
 Cette forme d'accès ne fonctionne que si la clé est effectivement présente dans le dictionnaire. Dans le cas contraire, une exception `KeyError` est levée. Aussi si vous n'êtes pas sûr que la clé soit présente, vous pouvez utiliser la méthode `get` qui accepte une valeur par défaut :
 
-```{code-cell}
+```{code-cell} ipython3
 print('valeur pour marc', annuaire.get('marc', 0))
 print('valeur pour inconnu', annuaire.get('inconnu', 0))
 ```
 
 Le dictionnaire est un type **mutable**, et donc on peut **modifier la valeur** associée à une clé :
 
-```{code-cell}
+```{code-cell} ipython3
 annuaire['eric'] = 39
 print(annuaire)
 ```
 
 Ou encore, exactement de la même façon, **ajouter une entrée** :
 
-```{code-cell}
+```{code-cell} ipython3
 annuaire['bob'] = 42
 print(annuaire)
 ```
 
 Enfin pour **détruire une entrée**, on peut utiliser l'instruction `del` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour supprimer la clé 'marc' et donc sa valeur aussi
 del annuaire['marc']
 print(annuaire)
@@ -109,7 +114,7 @@ print(annuaire)
 
 Pour savoir si une clé est présente ou non, il est conseillé d'utiliser l'opérateur d'appartenance `in` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # forme recommandée
 print('john' in annuaire)
 ```
@@ -120,7 +125,7 @@ print('john' in annuaire)
 
 La méthode la plus fréquente pour parcourir tout un dictionnaire est à base de la méthode `items` ; voici par exemple comment on pourrait afficher le contenu :
 
-```{code-cell}
+```{code-cell} ipython3
 for nom, age in annuaire.items():
     print(f"{nom}, age {age}")
 ```
@@ -131,12 +136,12 @@ On remarque d'abord que les entrées sont listées dans le désordre, plus préc
 
 On peut obtenir séparément la liste des clés et des valeurs avec :
 
-```{code-cell}
+```{code-cell} ipython3
 for cle in annuaire.keys():
     print(cle)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for valeur in annuaire.values():
     print(valeur)
 ```
@@ -147,7 +152,7 @@ for valeur in annuaire.values():
 
 On peut comme d'habitude obtenir la taille d'un dictionnaire avec la fonction `len` :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"{len(annuaire)} entrées dans annuaire")
 ```
 
@@ -175,11 +180,11 @@ Pour une liste exhaustive reportez-vous à la page de la documentation Python ic
 
 On peut également modifier un dictionnaire avec le contenu d'un autre dictionnaire avec la méthode `update` :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"avant: {list(annuaire.items())}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 annuaire.update({'jean':25, 'eric':70})
 list(annuaire.items())
 ```
@@ -190,7 +195,7 @@ list(annuaire.items())
 
 **Attention** : un dictionnaire est **non ordonné !** Il ne se souvient pas de l'ordre dans lequel les éléments ont été insérés. C'était particulièrement visible dans les versions de Python jusque 3.5 :
 
-```{code-cell}
+```{code-cell} ipython3
 %%python2
 # coding: utf-8
 
@@ -204,7 +209,7 @@ for k, v in d.items():
 
 En réalité, et depuis la version 3.6 de Python, il se trouve qu'**incidemment** l'implémentation CPython (la plus répandue donc) a été modifiée, et maintenant on peut avoir l'**impression** que les dictionnaires sont ordonnés :
 
-```{code-cell}
+```{code-cell} ipython3
 d = {'c' : 3, 'b' : 1, 'a' : 2}
 for k, v in d.items():
     print(k, v)
@@ -216,7 +221,7 @@ Il faut insister sur le fait qu'il s'agit d'un **détail d'implémentation**, et
 
 Si vous avez besoin de dictionnaires qui sont **garantis** ordonnés, voyez dans [le module `collections`](https://docs.python.org/3/library/collections.html) la classe [`OrderedDict`](https://docs.python.org/3/library/collections.html#collections.OrderedDict), qui est une personnalisation (une sous-classe) du type `dict`, qui cette fois possède cette bonne propriété :
 
-```{code-cell}
+```{code-cell} ipython3
 from collections import OrderedDict
 d = OrderedDict()
 for i in ['a', 7, 3, 'x']:
@@ -233,7 +238,7 @@ Imaginons que vous devez gérer un dictionnaire dont les valeurs sont des listes
 
 Avec un dictionnaire de base, cela peut vous amener à écrire un code qui ressemble à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # imaginons qu'on a lu dans un fichier des couples (x, y)
 tuples = [
     (1, 2),
@@ -243,7 +248,7 @@ tuples = [
 ]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et on veut construire un dictionnaire
 # x -> [liste de tous les y connectés à x]
 resultat = {}
@@ -259,7 +264,7 @@ for key, value in resultat.items():
 
 Cela fonctionne, mais n'est pas très élégant. Pour simplifier ce type de traitement, vous pouvez utiliser `defaultdict`, une sous-classe de `dict` dans le module `collections` :
 
-```{code-cell}
+```{code-cell} ipython3
 from collections import defaultdict
 
 # on indique que les valeurs doivent être créées à la volée
@@ -276,7 +281,7 @@ for key, value in resultat.items():
 
 Cela fonctionne aussi avec le type `int`, lorsque vous voulez par exemple compter des occurrences :
 
-```{code-cell}
+```{code-cell} ipython3
 compteurs = defaultdict(int)
 
 phrase = "une phrase dans laquelle on veut compter les caractères"
@@ -289,22 +294,22 @@ sorted(compteurs.items())
 
 Signalons enfin une fonctionnalité un peu analogue, quoiqu'un peu moins élégante à mon humble avis, mais qui est présente avec les dictionnaires `dict` standard. Il s'agit de [la méthode `setdefault`](https://docs.python.org/3/library/stdtypes.html#dict.setdefault) qui permet, en un seul appel, de retourner la valeur associée à une clé et de créer cette clé au besoin, c'est-à-dire si elle n'est pas encore présente :
 
-```{code-cell}
+```{code-cell} ipython3
 # avant
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci sera sans effet car eric est déjà présent
 annuaire.setdefault('eric', 50)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # par contre ceci va insérer une entrée dans le dictionnaire
 annuaire.setdefault('inconnu', 50)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # comme on le voit
 annuaire
 ```
@@ -327,7 +332,7 @@ Pour bien appréhender les dictionnaires, il nous faut souligner certaines parti
 
 Les méthodes `items()`, `keys()` et `values()` ne retournent pas des listes (comme c'était le cas en Python 2), mais des **objets itérables** :
 
-```{code-cell}
+```{code-cell} ipython3
 d = {'a' : 1, 'b' : 2}
 keys = d.keys()
 keys
@@ -335,49 +340,49 @@ keys
 
 Comme ce sont des itérables, on peut naturellement faire un `for` avec, on l'a vu :
 
-```{code-cell}
+```{code-cell} ipython3
 for key in keys:
     print(key)
 ```
 
 Et un test d'appartenance avec `in` :
 
-```{code-cell}
+```{code-cell} ipython3
 print('a' in keys)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print('x' in keys)
 ```
 
 #### Mais **ce ne sont pas des listes**
 
-```{code-cell}
+```{code-cell} ipython3
 isinstance(keys, list)
 ```
 
 Ce qui signifie qu'on n'a **pas alloué de mémoire** pour stocker toutes les clés, mais seulement un objet qui ne prend pas de place, ni de temps à construire :
 
-```{code-cell}
+```{code-cell} ipython3
 # construisons un dictionnaire
 # pour anticiper un peu sur la compréhension de dictionnaire
 
 big_dict = {k : k**2 for k in range(1_000_000)}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %%timeit -n 10000
 # créer un objet vue est très rapide
 big_keys = big_dict.keys()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on répète ici car timeit travaille dans un espace qui lui est propre
 # et donc on n'a pas défini big_keys pour notre interpréteur
 big_keys = big_dict.keys()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 %%timeit -n 20
 # si on devait vraiment construire la liste ce serait beaucoup plus long
 big_lkeys = list(big_keys)
@@ -389,18 +394,18 @@ big_lkeys = list(big_keys)
 
 Une autre propriété un peu inattendue de ces objets, c'est que **ce sont des vues** ; ce qu'on veut dire par là (pour ceux qui connaissent, cela fait fait référence à la notion de vue dans les bases de données) c'est que la vue *voit* les changements fait sur l'objet dictionnaire *même après sa création* :
 
-```{code-cell}
+```{code-cell} ipython3
 d = {'a' : 1, 'b' : 2}
 keys = d.keys()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # sans surprise, il y a deux clés dans keys
 for k in keys:
     print(k)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais si maintenant j'ajoute un objet au dictionnaire
 d['c'] = 3
 # alors on va 'voir' cette nouvelle clé à partir

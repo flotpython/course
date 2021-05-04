@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Conditions
 version: '3.0'
 ---
@@ -61,7 +66,7 @@ Ainsi parmi les notions que nous avons vues jusqu'ici, nous pouvons citer dans u
 
 Comme condition d'une instruction `if`, on peut mettre n'importe quelle expression. On l'a déjà signalé, il n'est pas nécessaire que cette expression retourne un booléen :
 
-```{code-cell}
+```{code-cell} ipython3
 # dans ce code le test 
 # if n % 3:
 # est équivalent à
@@ -91,12 +96,12 @@ Pour en avoir le cœur net, pensez à utiliser dans le terminal interactif la fo
 
 Si vous appelez `bool` sur un objet, la valeur de retour - qui est donc par construction une valeur booléenne - vous indique, cette fois sans ambiguïté - comment se comportera `if` avec cette entrée.
 
-```{code-cell}
+```{code-cell} ipython3
 def show_bool(x):
     print(f"condition {repr(x):>10} considérée comme {bool(x)}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for exp in [None, "", 'a', [], [1], (), (1, 2), {}, {'a': 1}, set(), {1}]:
     show_bool(exp)
 ```
@@ -107,14 +112,14 @@ for exp in [None, "", 'a', [], [1], (), (1, 2), {}, {'a': 1}, set(), {1}]:
 
 ##### Référence à une variable et dérivés
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a = list(range(4))
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if a:
@@ -127,13 +132,13 @@ if a[1]:
 
 ##### Appels de fonction ou de méthode
 
-```{code-cell}
+```{code-cell} ipython3
 chaine = "jean"
 if chaine.upper():
     print("la chaine mise en majuscule n'est pas vide")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on rappelle qu'une fonction qui ne fait pas 'return' retourne None
 def procedure(a, b, c):
     "cette fonction ne retourne rien"
@@ -151,7 +156,7 @@ else:
 
 Il découle de ce qui précède qu'on peut tout à fait mettre une compréhension comme condition, ce qui peut être utile pour savoir si au moins un élément remplit une condition, comme par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 inputs = [23, 65, 24]
 
 # y a-t-il dans inputs au moins un nombre 
@@ -196,11 +201,11 @@ Voici enfin quelques remarques sur ces opérateurs
 
 L'opérateur `==` ne fonctionne en général (sauf pour les nombres) que sur des objets de même type ; c'est-à-dire que notamment un tuple ne sera jamais égal à une liste :
 
-```{code-cell}
+```{code-cell} ipython3
 [] == ()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 [1, 2] == (1, 2)
 ```
 
@@ -242,35 +247,35 @@ Mais en fait, il est assez facile de s'emmêler dans ces priorités, et c'est po
 
 Remarquez aussi que les opérateurs logiques peuvent être appliqués à des valeurs qui ne sont pas booléennes :
 
-```{code-cell}
+```{code-cell} ipython3
 2 and [1, 2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 None or "abcde"
 ```
 
 Dans la logique de l'évaluation paresseuse qu'on a vue récemment, remarquez que lorsque l'évaluation d'un `and` ou d'un `or` ne peut pas être court-circuitée, le résultat est alors toujours le résultat de la dernière expression évaluée :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 1 and 2 and 3
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 1 and 2 and 3 and '' and 4
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 [] or "" or {}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 [] or "" or {} or 4 or set()
@@ -282,7 +287,7 @@ Dans la logique de l'évaluation paresseuse qu'on a vue récemment, remarquez qu
 
 En toute rigueur on peut aussi mettre un `<> if <> else <>` - donc une expression conditionnelle - comme condition dans une instruction `if`. Nous le signalons pour bien illustrer la logique du langage, mais cette pratique n'est bien sûr pas du tout conseillée.
 
-```{code-cell}
+```{code-cell} ipython3
 # cet exemple est volontairement tiré par les cheveux 
 # pour bien montrer qu'on peut mettre 
 # n'importe quelle expression comme condition

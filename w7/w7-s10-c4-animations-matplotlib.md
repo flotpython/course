@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Animations interactives avec matplotlib
 version: '3.0'
 ---
@@ -55,13 +60,13 @@ Pour fabriquer cela nous aurons besoin principalement :
 * de la librairie d'animation de matplotlib, et spécifiquement le sous-package `animation`,
 * et des widgets du module `ipywidgets`.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from IPython.display import display as display_widget
 from ipywidgets import IntSlider
 ```
@@ -96,7 +101,7 @@ Cette version est inspirée du [tutorial matplotlib sur les animations](https://
 
 Mais avant tout choisissons ce mode de rendu :
 
-```{code-cell}
+```{code-cell} ipython3
 %matplotlib notebook
 ```
 
@@ -113,7 +118,7 @@ Dans notre cas, nous allons créer une instance unique d'un objet `plot`; cette 
 
 ##### Version basique dite *tout-en-un*
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -158,7 +163,7 @@ plt.show()
 
 ### Séparation calcul et affichage
 
-```{code-cell}
+```{code-cell} ipython3
 plt.ion()
 ```
 
@@ -187,7 +192,7 @@ Cette constatation nous amène à une deuxième version, en concevant un **gén�
 
 ##### Version non interactive, mais avec séparation calcul / affichage
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -245,7 +250,7 @@ Pour rendre ceci interactif, nous allons simplement ajouter un widget qui nous p
 
 ##### Version interactive avec widget pour choisir la vitesse
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation

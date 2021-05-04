@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: calculette postfix
 version: '3.0'
 ---
@@ -29,7 +34,7 @@ version: '3.0'
 
 # calculette postfix
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci permet de recharger les modules
 # lorsqu'ils ont été modifiés en dehors du notebook
 
@@ -57,18 +62,18 @@ Lorsque la chaine est mal formée, vous devez renvoyer une des trois chaines sui
 * `error-empty-stack`, si on essaie de faire une opération mais que l'on n'a pas les deux opérandes nécessaires,
 * `error-unfinished`, si on détecte des opérandes non utilisés.
 
-```{code-cell}
+```{code-cell} ipython3
 # charger l'exercice et afficher un exemple
 from corrections.exo_postfix_eval import exo_postfix_eval
 exo_postfix_eval.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def postfix_eval(chaine):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_postfix_eval.correction(postfix_eval)
 ```
 
@@ -86,24 +91,24 @@ Une variante un peu plus difficile
 
 **indice :** attention au cas de la division, qui doit se comporter selon le type comme une division entière (comme dans `postfix_eval`), ou comme une division usuelle si le type le permet.
 
-```{code-cell}
+```{code-cell} ipython3
 from fractions import Fraction
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # charger l'exercice et afficher un exemple
 
 from corrections.exo_postfix_eval import exo_postfix_eval_typed
 exo_postfix_eval_typed.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 def postfix_eval_typed(chaine, result_type):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_postfix_eval_typed.correction(postfix_eval_typed)
 ```
 

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: '`if` comme expression'
 version: '3.0'
 ---
@@ -58,7 +63,7 @@ Imaginons maintenant qu'on veuille écrire quelque chose d'aussi simple que *"af
 
 Avec les notions introduites jusqu'ici, il nous faudrait écrire ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 x = True  # ou quoi que ce soit d'autre
 if x:
     y = 12
@@ -81,7 +86,7 @@ Il existe en Python une expression qui fait le même genre de test ; c'est la f
 
 Ainsi on pourrait écrire l'exemple ci-dessus de manière plus simple et plus concise comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 y = 12 if x else 35
 print(y)
 ```
@@ -100,7 +105,7 @@ Cette construction peut souvent rendre le style de programmation plus fonctionne
 
 Puisque cette forme est une expression, on peut l'utiliser dans une autre expression conditionnelle, comme ici :
 
-```{code-cell}
+```{code-cell} ipython3
 # on veut calculer en fonction d'une entrée x
 # une sortie qui vaudra
 # -1 si x < -10

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Op\xE9rations avanc\xE9es"
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Vous pouvez concaténer (`concat`) des `DataFrame`, faire des jointures (`merge`
 
 Nous allons dans la suite développer ces différentes techniques.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 ```
@@ -50,106 +55,106 @@ import pandas as pd
 
 `concat` est utilisé pour concaténer des `Series` ou des `DataFrame`. Regardons un exemple.
 
-```{code-cell}
+```{code-cell} ipython3
 s1 = pd.Series([30, 35], index=['alice', 'bob'])
 s2 = pd.Series([32, 22, 29], index=['bill', 'alice', 'jo'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 s1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 s2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 pd.concat([s1, s2])
 ```
 
 On remarque, cependant, que par défaut il n'y a pas de contrôle sur les labels d'index dupliqués. On peut corriger cela avec l'argument `verify_integrity`, qui va produire une exception s'il y a des labels d'index communs. Évidemment, cela a un coût de calcul supplémentaire, ça n'est donc à utiliser que si c'est nécessaire.
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     pd.concat([s1, s2], verify_integrity=True)
 except ValueError as e:
     print(f"erreur de concaténation:\n{e}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # créons deux Series avec les index sans recouvrement
 s1 = pd.Series(range(1000), index=[chr(x) for x in range(1000)])
 s2 = pd.Series(range(1000), index=[chr(x+2000) for x in range(1000)])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # temps de concaténation avec vérification des recouvrements
 %timeit pd.concat([s1, s2], verify_integrity=True)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # temps de concaténation sans vérification des recouvrements
 %timeit pd.concat([s1, s2])
 ```
 
 Par défaut, `concat` concatène les lignes, c'est-à-dire que `s2` sera sous `s1`, mais on peut changer ce comportement en utilisant l'argument `axis` :
 
-```{code-cell}
+```{code-cell} ipython3
 p1 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
                   columns=list('ab'), index=list('xy'))
 p2 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
                   columns=list('ab'), index=list('zt'))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 p1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 p2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # équivalent à pd.concat([p1, p2], axis=0)
 # concaténation des lignes
 pd.concat([p1, p2])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 p1 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
                   columns=list('ab'), index=list('xy'))
 p2 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
                   columns=list('cd'), index=list('xy'))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 p1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 p2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # concaténation des colonnes
 pd.concat([p1, p2], axis=1)
 ```
 
 Regardons maintenant ce cas :
 
-```{code-cell}
+```{code-cell} ipython3
 pd.concat([p1, p2])
 ```
 
@@ -159,7 +164,7 @@ Vous remarquez que lors de la concaténation, on prend l'union des tous les labe
 
 Par défaut (ce que l'on a fait ci-dessus), join utilise la stratégie dite `outer`, c'est-à-dire qu'on prend l'union des labels.
 
-```{code-cell}
+```{code-cell} ipython3
 # on concatène les lignes, l'argument join décide quels labels on garde
 # sur l'autre axe  (ici sur les colonnes).
 
@@ -170,18 +175,18 @@ pd.concat([p1, p2], join='inner')
 
 Avec `reindex`, on peut spécifier les labels qu'on veut garder dans l'index des lignes (`axis=0`, c'est la valeur par défaut) ou des colonnes (`axis=1`) :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut passer à reindex une liste de labels...
 pd.concat([p1, p2], axis=1).reindex(['x'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou un objet Index 
 # Pour les colonnes je spécifie un reindex avec axis=1
 pd.concat([p1, p2], axis=1).reindex(p2.columns, axis=1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 pd.concat([p1, p2], axis=1).reindex(['a', 'b'], axis=1)
 ```
 
@@ -199,20 +204,20 @@ Pour aller plus loin, voici la documentation officielle :
 
 `merge` est dans l'esprit similaire au `JOIN` en SQL. L'idée est de combiner deux `DataFrame` en fonction d'un critère d'égalité sur des colonnes. Regardons un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'employee': ['Bob', 'Lisa', 'Sue'],
                     'group': ['Accounting', 'Engineering', 'HR']})
 df2 = pd.DataFrame({'employee': ['Lisa', 'Bob', 'Sue'],
                     'hire_date': [2004, 2008, 2014]})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
@@ -220,7 +225,7 @@ df2
 
 On souhaite ici combiner `df1` et `df2` de manière à ce que les lignes contenant le même _employee_ soient alignées. Notre critère de merge est donc l'égalité des labels sur la colonne _employee_.
 
-```{code-cell}
+```{code-cell} ipython3
 pd.merge(df1, df2)
 ```
 
@@ -238,51 +243,51 @@ Il existe trois type de merges :
 
 D'une manière générale, gardez en tête que `pandas` fait essentiellement ce à quoi on s'attend. Regardons cela sur des exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'patient': ['Bob', 'Lisa', 'Sue'],
                     'repas': ['SS', 'SS', 'SSR']})
 df2 = pd.DataFrame({'repas': ['SS', 'SSR'],
                     'explication': ['sans sel', 'sans sucre']})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la colonne commune pour le merge est 'repas' et dans une des colonnes
 # (sur df1), il y a des labels dupliqués, on applique la stratégie many-to-one
 pd.merge(df1, df2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'patient': ['Bob', 'Lisa', 'Sue'],
                     'repas': ['SS', 'SS', 'SSR']})
 df2 = pd.DataFrame({'repas': ['SS', 'SS', 'SSR'],
                     'explication': ['sans sel', 'légumes', 'sans sucre']})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la colonne commune pour le merge est 'repas' et dans les deux colonnes
 # il y a des labels dupliqués, on applique la stratégie many-to-many
 pd.merge(df1,df2)
@@ -290,57 +295,57 @@ pd.merge(df1,df2)
 
 Dans un merge, on peut contrôler les colonnes à utiliser comme critère de merge. Regardons ces différents cas sur des exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'employee': ['Bob', 'Lisa', 'Sue'],
                     'group': ['Accounting', 'Engineering', 'HR']})
 df2 = pd.DataFrame({'employee': ['Lisa', 'Bob', 'Sue'],
                     'hire_date': [2004, 2008, 2014]})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on décide d'utiliser la colonne 'employee' comme critère de merge
 pd.merge(df1, df2, on='employee')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'employee': ['Bob', 'Lisa', 'Sue'],
                     'group': ['Accounting', 'Engineering', 'HR']})
 df2 = pd.DataFrame({'name': ['Lisa', 'Bob', 'Sue'],
                     'hire_date': [2004, 2008, 2014]})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais on peut également définir un nom de colonne différent
 # à gauche et à droite
 m = pd.merge(df1,df2, left_on='employee', right_on='name')
 m
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # dans ce cas, comme on garde les colonnes utilisées comme critère dans
 # le résultat du merge, on peut effacer la colonne inutile ainsi
 m.drop('name', axis=1)
@@ -348,26 +353,26 @@ m.drop('name', axis=1)
 
 `merge` permet également de contrôler la stratégie à appliquer lorsqu'il y a des valeurs dans une colonne utilisée comme critère de merge qui sont absentes dans l'autre colonne. C'est ce que l'on appelle jointure à gauche, jointure à droite, jointure interne (comportement par défaut) et jointure externe. Pour ceux qui ne sont pas familiers avec ces notions, regardons des exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 df1 = pd.DataFrame({'name': ['Bob', 'Lisa', 'Sue'],
                     'pulse': [70, 63, 81]})
 df2 = pd.DataFrame({'name': ['Eric', 'Bob', 'Marc'],
                     'weight': [60, 100, 70]})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 df2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la colonne 'name' est le critère de merge dans les deux DataFrame.
 # Seul Bob existe dans les deux colonnes. Dans un inner join
 # (le cas par défaut) on ne garde que les lignes pour lesquelles il y a une
@@ -375,18 +380,18 @@ df2
 pd.merge(df1, df2) # équivalent à pd.merge(df1, df2, how='inner')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le outer join va au contraire faire une union des lignes et compléter ce
 # qui manque avec NaN
 pd.merge(df1, df2, how='outer')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le left join ne garde que les valeurs de la colonne de gauche
 pd.merge(df1, df2, how='left')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et le right join ne garde que les valeurs de la colonne de droite
 pd.merge(df1, df2, how='right')
 ```
@@ -410,12 +415,12 @@ La logique derrière `groupby` est de créer des groupes dans une `DataFrame` en
 
 Regardons quelques exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 d = pd.DataFrame({'key': list('ABCABC'), 'val': range(6)})
 d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # utilisons comme colonne de groupement 'key'
 g = d.groupby('key')
 g
@@ -423,7 +428,7 @@ g
 
 `groupby` produit un nouvel objet, mais ne fait aucun calcul. Les calculs seront effectués lors de l'appel d'une fonction sur ce nouvel objet. Par exemple, calculons la somme pour chaque groupe.
 
-```{code-cell}
+```{code-cell} ipython3
 g.sum()
 ```
 
@@ -431,21 +436,21 @@ g.sum()
 
 Une particularité de `groupby` est que le critère de groupement devient un index dans le nouvel objet généré. L'avantage est que l'on a maintenant un accès optimisé sur ce critère, mais l'inconvénient est que sur certaines opérations qui détruisent l'index on peut perdre ce critère. On peut contrôler ce comportement avec `as_index`.
 
-```{code-cell}
+```{code-cell} ipython3
 g = d.groupby('key', as_index=False)
 g.sum()
 ```
 
 L'objet produit par `groupby` pemet de manipuler les groupes, regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 d = pd.DataFrame({'key': list('ABCABC'),
                   'val1': range(6),
                   'val2' : range(100, 106)})
 d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 g = d.groupby('key')
 
 # g.groups donne accès au dictionnaire des groupes,
@@ -455,25 +460,25 @@ g = d.groupby('key')
 g.groups
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour accéder directement au groupe, on peut utiliser get_group
 g.get_group('A')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut également filtrer un groupe par colonne
 # lors d'une opération
 g.sum()['val2']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou directement sur l'objet produit par groupby
 g['val2'].sum()
 ```
 
 On peut également itérer sur les groupes avec un boucle `for` classique :
 
-```{code-cell}
+```{code-cell} ipython3
 import seaborn as sns
 # on charge le fichier de données des pourboires
 tips = sns.load_dataset('tips')
@@ -482,7 +487,7 @@ tips = sns.load_dataset('tips')
 tips.head()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on groupe le DataFrame par jours
 g = tips.groupby('day')
 
@@ -493,7 +498,7 @@ for (group, index) in g:
 
 L'objet produit par `groupby` supporte ce que l'on appelle le _dispatch_ de méthodes. Si une méthode n'est pas directement définie sur l'objet produit par `groupby`, elle est appelée sur chaque groupe (il faut donc qu'elle soit définie sur les `DataFrame` ou les `Series`). Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 # on groupe par jour et on extrait uniquement la colonne 'total_bill'
 # pour chaque groupe
 g = tips.groupby('day')['total_bill']
@@ -507,7 +512,7 @@ pd.set_option('display.float_format', '{:.2f}'.format)
 g.describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Mais, il y a tout de même un grand nombre de méthodes
 # définies directement sur l'objet produit par le groupby
 
@@ -515,7 +520,7 @@ methods = [x for x in dir(g) if not x.startswith('_')]
 f"Le type {type(g).__name__} expose {len(methods)} méthodes."
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # profitons de la mise en page des dataframes
 # pour afficher ces méthodes sur plusieurs colonnes
 # on fait un peu de gymnastique
@@ -527,7 +532,7 @@ nb_pad = (columns - nb_methods % columns) % columns
 array = np.array(methods + nb_pad * ['']).reshape((columns, -1))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 pd.DataFrame(data=array.transpose())
 ```
 
@@ -535,18 +540,18 @@ Nous allons regarder la méthode `aggregate` (dont l'alias est `agg`). Cette mé
 
 Une subtilité de `aggregate` est que l'on peut passer soit un objet fonction, soit un nom de fonction sous forme d'une `str`. Pour que l'utilisation du nom de la fonction marche, il faut que la fonction soit définie sur l'objet produit par le `groupby` ou qu'elle soit définie sur les groupes (donc avec dispatching).
 
-```{code-cell}
+```{code-cell} ipython3
 # calculons la moyenne et la variance pour chaque groupe
 # et chaque colonne numérique
 tips.groupby('day').agg(['mean', 'std'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # de manière équivalente avec les objets fonctions
 tips.groupby('day').agg([np.mean, np.std])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en appliquant une fonction différente pour chaque colonne,
 # on passe alors un dictionnaire qui a pour clef le nom de la
 # colonne et pour valeur la fonction à appliquer à cette colonne
@@ -555,19 +560,19 @@ tips.groupby('day').agg({'tip': np.mean, 'total_bill': np.std})
 
 La méthode `filter` a pour but de filtrer les groupes en fonction d'un critère. Mais attention, `filter` retourne **un sous ensemble des données originales** dans lesquelles les éléments appartenant aux groupes filtrés ont été enlevés.
 
-```{code-cell}
+```{code-cell} ipython3
 d = pd.DataFrame({'key': list('ABCABC'), 
                   'val1': range(6),
                   'val2' : range(100, 106)})
 d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons la somme par groupe
 d.groupby('key').sum()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant gardons dans les données originales toutes les lignes
 # pour lesquelles la somme de leur groupe est supérieure à 3
 # (ici les groupes B et C)
@@ -578,18 +583,18 @@ La méthode `transform` a pour but de retourner **un sous ensemble des données 
 
 Attention, `transform` ne doit pas faire de modifications en place, sinon le résultat peut être faux. Faites donc bien attention de ne pas appliquer des fonctions qui font des modications en place.
 
-```{code-cell}
+```{code-cell} ipython3
 r = np.random.normal(0.5, 2, 4)
 d = pd.DataFrame({'key': list('ab'*2), 'data': r,'data2': r*2})
 d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je groupe sur la colonne 'key'
 g = d.groupby('key')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant je centre chaque groupe par rapport à sa moyenne
 g.transform(lambda x: x - x.mean())
 ```
@@ -610,16 +615,16 @@ Pour aller plus loin sur `groupby` vous pouvez lire la documentation :
 
 Un manière de voir la notion de pivot est de considérer qu'il s'agit d'une extension de `groupy` à deux dimensions. Pour illustrer cela, prenons un exemple en utilisant le jeu de données seaborn sur les passagers du Titanic.
 
-```{code-cell}
+```{code-cell} ipython3
 titanic = sns.load_dataset('titanic')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons le format de ce jeu de données
 titanic.head()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons maintenant le taux de survie par classe et par sex
 titanic.pivot_table('survived', index='class', columns='sex')
 ```

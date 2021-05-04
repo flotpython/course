@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Intro. sur les types
 version: '3.0'
 ---
@@ -39,13 +44,13 @@ Nous avons vu dans la vidéo que chaque objet possède un type. On peut très si
 
 On l'utilise tout simplement comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type('spam')
@@ -61,14 +66,14 @@ Cette fonction est assez peu utilisée par les programmeurs expérimentés, mais
 
 On a vu également que le type est attaché **à l'objet** et non à la variable.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 x = 1
 type(x)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la variable x peut référencer un objet de n'importe quel type
@@ -87,7 +92,7 @@ type(x)
 
 Une autre fonction prédéfinie, voisine de `type` mais plus utile dans la pratique, est la fonction `isinstance` qui permet de savoir si un objet est d'un type donné. Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 isinstance(23, int)
 ```
 

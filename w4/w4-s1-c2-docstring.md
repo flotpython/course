@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: docstring
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Pour rappel, il est recommandé de toujours documenter les fonctions en ajoutant une chaîne comme première instruction.
 
-```{code-cell}
+```{code-cell} ipython3
 def flatten(containers):
     "returns a list of the elements of the elements in containers"
     return [element for container in containers for element in container]
@@ -43,13 +48,13 @@ def flatten(containers):
 
 Cette information peut être consultée, soit interactivement :
 
-```{code-cell}
+```{code-cell} ipython3
 help(flatten)
 ```
 
 Soit programmativement :
 
-```{code-cell}
+```{code-cell} ipython3
 flatten.__doc__
 ```
 
@@ -63,7 +68,7 @@ L'usage est d'utiliser une chaîne simple (délimitée par « `"` » ou « `'
 
 Lorsque ce n'est pas le cas - et pour du vrai code, c'est rarement le cas - on utilise des chaînes multi-lignes (délimitées par « `"""` » ou « `'''` »). Dans ce cas le format est très flexible, car le *docstring* est normalisé, comme on le voit sur ces deux exemples, où le rendu final est identique :
 
-```{code-cell}
+```{code-cell} ipython3
 # un style de docstring multi-lignes
 def flatten(containers):
     """
@@ -76,7 +81,7 @@ returns a list of the items in these elements
 help(flatten)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # un autre style, qui donne le même résultat
 def flatten(containers):
     """

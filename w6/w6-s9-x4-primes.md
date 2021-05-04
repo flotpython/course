@@ -1,8 +1,10 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -10,6 +12,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'exercice: nombres premiers'
 version: '3.0'
 ---
@@ -31,7 +36,7 @@ version: '3.0'
 **Tous les exercices** de ce notebook vous demandent d'écrire
 des fonctions qui **construisent des itérateurs**.
 
-```{code-cell}
+```{code-cell} ipython3
 import itertools
 ```
 
@@ -43,7 +48,7 @@ On vous demande d'écrire un générateur qui énumère les nombres premiers.
 
 Naturellement il existe de nombreuses biliothèques pour cela, mais on vous demande ici d'écrire votre propre algorithme, même s'il est naïf.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.gen_primes import exo_primes
 exo_primes.example()
 ```
@@ -62,7 +67,7 @@ Ainsi par exemple le deuxième jeu de test, sous-titré `1 → 5 / 2`, va reteni
 * Si votre algorithme est très lent ou faux, vous pouvez *perdre* le *kernel* (en français noyau), c'est-à-dire qu'il calcule pendant très longtemps (ou pour toujours) ; dans ces cas-là, la marge gauche indique `In [*]:` et l'étoile n'est jamais remplacée par un chiffre.
   Il vous **faut alors interrompre** votre kernel ; pour cela utilisez le menu *Kernel* qui a des options pour interrompre ou redémarrer le kernel courant ; les raccourcis clavier `i i` et `0 0` permettent aussi d'interrompre et redémarrer le noyau.
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 
 def primes():
@@ -71,14 +76,14 @@ def primes():
     return itertools.count()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_primes.correction(primes)
 ```
 
 ##### zone de debug
 
-```{code-cell}
+```{code-cell} ipython3
 # à toutes fins utiles
 
 MAX = 10
@@ -103,19 +108,19 @@ On veut à présent énumérer les carrés des nombres premiers
 
 **NOTE** il y a au moins deux façons triviales de parvenir au résultat.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.gen_primes import exo_prime_squares
 exo_prime_squares.example() 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous
 
 def prime_squares():
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_prime_squares.correction(prime_squares)
 ```
 
@@ -140,19 +145,19 @@ On vous demande d'écrire un itérateur qui énumère des couples :
 **NOTE**  
 Il peut être tentant de créer deux instances de l'itérateur `primes()` ; toutefois c'est cet objet qui demande le plus de temps de calcul, aussi on vous suggère de réfléchir, en option, à une solution qui ne crée qu'un seul exemplaire de cet itérateur.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.gen_primes import exo_prime_legos
 exo_prime_legos.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 
 def prime_legos():
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_prime_legos.correction(prime_legos)
 ```
 
@@ -190,14 +195,14 @@ on veut que `prime_th_primes` retourne la suite
 | 2 | 13|
 | 3 | 19|
 
-```{code-cell}
+```{code-cell} ipython3
 # ce qui est illustré sur cet exemple calculé, qui va un peu plus loin
 
 from corrections.gen_primes import exo_prime_th_primes
 exo_prime_th_primes.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # À vous de jouer
 
 def prime_th_primes():
@@ -205,7 +210,7 @@ def prime_th_primes():
     return itertools.count()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger votre code
 exo_prime_th_primes.correction(prime_th_primes)
 ```

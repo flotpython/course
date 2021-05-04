@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: dataclasses
 version: '3.0'
 ---
@@ -38,7 +43,7 @@ La raison d'être de `dataclass` est de fournir - encore un - moyen de définir 
 
 Voici par exemple comment on pourrait définir une classe `Personne`:
 
-```{code-cell}
+```{code-cell} ipython3
 from dataclasses import dataclass
 
 @dataclass
@@ -48,7 +53,7 @@ class Personne:
     email: str = ""
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 personne = Personne(nom='jean', age=12)
 print(personne)
 ```
@@ -59,7 +64,7 @@ print(personne)
 
 Le décorateur `dataclass` accepte divers arguments pour choisir le comportement de certains aspects de la classe. Reportez-vous à la documentation pour une liste complète, mais voici un exemple qui utilise `frozen=True` et qui illustre la possibilité de créer des instances non mutables. Nous retrouvons ici le même scénario d'ensemble de points que nous avons déjà rencontré plusieurs fois :
 
-```{code-cell}
+```{code-cell} ipython3
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
@@ -74,20 +79,20 @@ class Point:
         return (11 * self.x + self.y) // 16
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 p1, p2, p3 = Point(1, 1), Point(1, 1), Point(1, 1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 s = {p1, p2}
 len(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 p3 in s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     p1.x = 10
 except Exception as e:

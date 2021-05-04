@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Indexation \xE9volu\xE9e"
 version: '3.0'
 ---
@@ -36,7 +41,7 @@ Nous allons maintenant voir qu'il est possible d'indexer un tableau `numpy` avec
 * indexation multiple (par un tuple) ;
 * indexation par un tableau de booléens.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -45,7 +50,7 @@ plt.ion()
 
 Pour illustrer ceci, on va réutiliser la fonction `background` que l'on avait vue pour les indexations simples :
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui crée un tableau
 # tab[i, j] = i + 10 * j
 def background(n):
@@ -60,25 +65,25 @@ def background(n):
 
 On peut indexer par une liste d'entiers, cela constitue une généralisation des slices.
 
-```{code-cell}
+```{code-cell} ipython3
 b = background(6)
 print(b)
 ```
 
 Si je veux référencer les lignes 1, 3 et 4, je ne peux pas utiliser un slice ; mais je peux utiliser une liste à la place :
 
-```{code-cell}
+```{code-cell} ipython3
 # il faut lire ceci comme
 # j'indexe b, avec comme indice la liste [1, 3, 4]
 b[[1, 3, 4]]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pareil pour les colonnes, en combinant avec un slice
 b[:, [1, 3, 4]]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et comme toujours on peut faire du broadcasting
 b[:, [1, 3, 4]] = np.arange(1000, 1006).reshape((6, 1))
 print(b)
@@ -97,20 +102,20 @@ On peut aussi indexer un tableau A … par un tableau ! Pour que cela ait un se
 
 #### Le cas simple : l'entrée et l'index sont de dimension 1.
 
-```{code-cell}
+```{code-cell} ipython3
 # le tableau qu'on va indexer
 cubes = np.arange(10) ** 3
 print(cubes)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et un index qui est un tableau numpy
 # doit contenir des entiers entre 0 et 9
 tab = np.array([1, 7, 2])
 print(cubes[tab])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # donne - logiquement - le même résultat que
 # si l'index était une liste Python
 lis = [1, 7, 2]
@@ -129,7 +134,7 @@ Dans le cas général, le résultat de `A[index]` :
 * où l'on a remplacé `i` par `A[i]` ;
 * qui peut donc être un tableau si `A` est de dimension > 1
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -139,7 +144,7 @@ A = np.array([[0, 'zero'], [1, 'un'], [2, 'deux'], [3, 'trois']])
 print(A)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -151,7 +156,7 @@ print(index)
 
 ![parts](media/index-parts.png)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 B = A[index]
@@ -162,7 +167,7 @@ print(B)
 
 ![result](media/index-result.png)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 B[1, 2, 1]
@@ -188,7 +193,7 @@ Alors :
 
  Ce que l'on vérifie ici :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -198,14 +203,14 @@ slideshow:
 print(A.shape)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # l'index
 print(index.shape)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le résultat
 print(A[index].shape)
 ```
@@ -218,18 +223,18 @@ Lorsque l'entrée `A` est de dimension 1, alors la sortie a **exactement** la m�
 
 C'est comme si `A` était une fonction que l'on applique aux indices dans `index`.
 
-```{code-cell}
+```{code-cell} ipython3
 print(cubes)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 i2 = np.array([[2, 4], [8, 9]])
 print(i2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(cubes[i2])
@@ -239,7 +244,7 @@ print(cubes[i2])
 
 #### Application au codage des couleurs dans une image
 
-```{code-cell}
+```{code-cell} ipython3
 # je crée une image avec 6 valeurs disposées en diagonale
 N = 32
 colors = 6
@@ -250,13 +255,13 @@ for i in range(N):
        image[i, j] = (i+j) % colors
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 plt.imshow(image, cmap='gray');
 ```
 
 Les couleurs ne sont pas significatives, ce sont des valeurs entières dans `range(colors)`. On voudrait pouvoir choisir la vraie couleur correspondant à chaque valeur. Pour cela on peut utiliser une simple indexation par tableau :
 
-```{code-cell}
+```{code-cell} ipython3
 # une palette de couleurs
 palette = np.array([
   [255, 255, 255], # 0 -> blanc
@@ -268,7 +273,7 @@ palette = np.array([
  ], dtype=np.uint8)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -278,11 +283,11 @@ plt.imshow(palette[image]);
 
 Remarquez que la forme générale n'a pas changé, mais le résultat de l'indexation a une dimension supplémentaire de 3 couleurs :
 
-```{code-cell}
+```{code-cell} ipython3
 image.shape
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 palette[image].shape
 ```
 
@@ -303,7 +308,7 @@ Ainsi, lorsque `index1` et `index2` ont la même forme :
 * où on a remplacé `i, j` par `A[i][j]`
 * qui peut donc être un tableau si `A` est de dimension > 2.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -314,7 +319,7 @@ A = 10 * ix + iy
 print(A)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # les deux tableaux d'indices sont carrés 2x2
 index1 = [[3, 1], [0, 1]]  # doivent être < 4
 index2 = [[2, 0], [0, 2]]  # doivent être < 3
@@ -343,12 +348,12 @@ Alors :
 
 Imaginons que vous avez des mesures pour plusieurs instants :
 
-```{code-cell}
+```{code-cell} ipython3
 times = np.linspace(1000, 5000, num=5, dtype=int)
 print(times)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on aurait 3 mesures à chaque instant
 series = np.array([
     [10, 25, 32, 23, 12],
@@ -359,20 +364,20 @@ print(series)
 
 Avec la fonction `np.argmax` on peut retrouver les indices des points maxima dans `series` :
 
-```{code-cell}
+```{code-cell} ipython3
 max_indices = np.argmax(series, axis=1)
 print(max_indices)
 ```
 
 Pour trouver les maxima en question, on peut faire :
 
-```{code-cell}
+```{code-cell} ipython3
 # les trois maxima, un par serie
 maxima = series[ range(series.shape[0]), max_indices ]
 print(maxima)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et ils correspondent à ces instants-ci
 times[max_indices]
 ```
@@ -385,24 +390,24 @@ times[max_indices]
 
 Une forme un peu spéciale d'indexation consiste à utiliser un tableau de booléens, qui agit comme un masque :
 
-```{code-cell}
+```{code-cell} ipython3
 suite = np.array([1, 2, 3, 4, 5, 4, 3, 2, 1])
 ```
 
 Je veux filtrer ce tableau et ne garder que les valeurs < 4 :
 
-```{code-cell}
+```{code-cell} ipython3
 # je construis un masque
 hauts = suite >= 4
 print(hauts)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je peux utiliser ce masque pour calculer les indices qui sont vrais
 suite[hauts]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et utiliser maintenant ceci par un index de tableau
 # par exemple pour annuler ces valeurs
 suite[hauts] = 0

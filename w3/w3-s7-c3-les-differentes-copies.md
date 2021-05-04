@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Les diff\xE9rentes copies"
 version: '3.0'
 ---
@@ -23,7 +28,7 @@ version: '3.0'
 
 # Les différentes copies
 
-```{code-cell}
+```{code-cell} ipython3
 %load_ext ipythontutor
 ```
 
@@ -51,7 +56,7 @@ Pour réaliser une copie, la méthode la plus simple, en ceci qu'elle fonctionne
 * `copy.copy` pour une copie superficielle ;
 * `copy.deepcopy` pour une copie en profondeur.
 
-```{code-cell}
+```{code-cell} ipython3
 import copy
 #help(copy.copy)
 #help(copy.deepcopy)
@@ -71,7 +76,7 @@ Nous allons voir le résultat des deux formes de copie sur un même sujet de dé
 
 N'oubliez pas de cliquer le bouton `Next` dans la fenêtre pythontutor :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=410 curInstr=6
 import copy
 # On se donne un objet de départ
@@ -107,7 +112,7 @@ shallow2 = source[:]
 
 Sur le même objet de départ, voici ce que fait la copie profonde :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor height=410 curInstr=6
 import copy
 # On se donne un objet de départ
@@ -135,7 +140,7 @@ On retrouve donc à nouveau l'optimisation qui est mise en place dans python pou
 
 ## Complément - niveau intermédiaire
 
-```{code-cell}
+```{code-cell} ipython3
 # on répète car le code précédent a seulement été exposé à pythontutor
 import copy
 source = [
@@ -155,7 +160,7 @@ deep_copy = copy.deepcopy(source)
 
 Bien sûr ces trois objets se ressemblent si on fait une comparaison *logique* avec `==` :
 
-```{code-cell}
+```{code-cell} ipython3
 print('source == shallow_copy:', source == shallow_copy)
 print('source == deep_copy:', source == deep_copy)
 ```
@@ -166,14 +171,14 @@ print('source == deep_copy:', source == deep_copy)
 
 Mais par contre si on compare **l'identité** des objets de premier niveau, on voit que `source` et `shallow_copy` partagent leurs objets :
 
-```{code-cell}
+```{code-cell} ipython3
 # voir la cellule ci-dessous si ceci vous parait peu clair
 for i, (source_item, copy_item) in enumerate(zip(source, shallow_copy)):
     compare = source_item is copy_item
     print(f"source[{i}] is shallow_copy[{i}] -> {compare}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # rappel au sujet de zip et enumerate
 # la cellule ci-dessous est essentiellement équivalente à
 for i in range(len(source)):
@@ -183,7 +188,7 @@ for i in range(len(source)):
 
 Alors que naturellement ce **n'est pas le cas** avec la copie en profondeur :
 
-```{code-cell}
+```{code-cell} ipython3
 for i, (source_item, deep_item) in enumerate(zip(source, deep_copy)):
     compare = source_item is deep_item
     print(f"source[{i}] is deep_copy[{i}] -> {compare}")
@@ -203,7 +208,7 @@ Il doit être clair à présent que, précisément parce que `deep_copy` est une
 
 S'agissant de `shallow_copy`, par contre, seuls les éléments de premier niveau ont été copiés. Aussi si on fait une modification par exemple **à l'intérieur** de la liste qui est le premier fils de `source`, cela sera **répercuté** dans `shallow_copy` :
 
-```{code-cell}
+```{code-cell} ipython3
 print("avant, source      ", source)
 print("avant, shallow_copy", shallow_copy)
 source[0].append(4)
@@ -213,7 +218,7 @@ print("après, shallow_copy", shallow_copy)
 
 Si par contre on remplace complètement un élément de premier niveau dans la source, cela ne sera pas répercuté dans la copie superficielle :
 
-```{code-cell}
+```{code-cell} ipython3
 print("avant, source      ", source)
 print("avant, shallow_copy", shallow_copy)
 source[0] = 'remplacement'
@@ -227,17 +232,17 @@ print("après, shallow_copy", shallow_copy)
 
  Le module `copy` est capable de copier - même en profondeur - des objets contenant des références circulaires.
 
-```{code-cell}
+```{code-cell} ipython3
 l = [None]
 l[0] = l
 l
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 copy.copy(l)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 copy.deepcopy(l)
 ```
 

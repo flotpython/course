@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: += et autres
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Il existe en Python toute une famille d'opérateurs dérivés de l'affectation q
 
 On peut facilement augmenter la valeur d'une variable numérique comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 entier = 10
 
 entier += 2
@@ -48,7 +53,7 @@ print('entier', entier)
 
 Comme on le devine peut-être, ceci est équivalent à :
 
-```{code-cell}
+```{code-cell} ipython3
 entier = 10
 
 entier = entier + 2
@@ -61,7 +66,7 @@ print('entier', entier)
 
 Cette forme, qui combine opération sur une variable et réaffectation du résultat à la même variable, est disponible avec tous les opérateurs courants :
 
-```{code-cell}
+```{code-cell} ipython3
 entier -= 4
 print('après décrément', entier)
 entier *= 2
@@ -76,7 +81,7 @@ print('mis à moitié', entier)
 
 En réalité cette construction est disponible sur tous les types qui supportent l'opérateur en question. Par exemple, les listes (que nous verrons bientôt) peuvent être additionnées entre elles :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [0, 3, 5]
 print('liste', liste)
 
@@ -94,7 +99,7 @@ Beaucoup de types supportent l'opérateur `+`, qui est sans doute de loin celui 
 
 Signalons enfin que l'on trouve aussi cette construction avec d'autres opérateurs moins fréquents, par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 entier = 2
 print('entier:', entier)
 entier **= 10
@@ -105,7 +110,7 @@ print('modulo 5:', entier)
 
 Et pour ceux qui connaissent déjà un peu Python, on peut même le faire avec des opérateurs de décalage, que nous verrons très bientôt :
 
-```{code-cell}
+```{code-cell} ipython3
 entier <<= 2
 print('double décalage gauche:', entier)
 ```

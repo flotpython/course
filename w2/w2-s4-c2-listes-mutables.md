@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Mutables / immuables
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Voici un exemple d'un fragment de code qui illustre le caractère immuable des chaînes de caractères. Nous l'exécutons sous [pythontutor](pythontutor.com), afin de bien illustrer les relations entre variables et objets.
 
-```{code-cell}
+```{code-cell} ipython3
 # il vous faut charger cette cellule
 # pour pouvoir utiliser les suivantes
 %load_ext ipythontutor
@@ -49,7 +54,7 @@ Le scénario est très simple, on crée deux variables `s1` et `s2` vers le mêm
 
 Comme l'objet est une chaîne, il est donc immuable, on ne **peut pas modifier l'objet** directement ; pour obtenir l'effet recherché (à savoir que `s1` s'allonge de `'def'`), Python **crée un deuxième objet**, comme on le voit bien sous pythontutor :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor heapPrimitives=true
 # deux variables vers le même objet
 s1 = 'abc'
@@ -59,7 +64,7 @@ s1 += 'def'
 # pensez à cliquer sur `Next`
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à se stade avec des chaines on observe
 s1 = 'abc'
 s2 = s1
@@ -74,7 +79,7 @@ print(s2)
 
 Voici ce qu'on obtient par contraste pour le même scénario mais qui cette fois utilise des listes, qui sont des objets mutables :
 
-```{code-cell}
+```{code-cell} ipython3
 %%ipythontutor heapPrimitives=true ratio=0.8
 # deux variables vers le même objet
 liste1 = ['a', 'b', 'c']
@@ -84,7 +89,7 @@ liste1 += ['d', 'e', 'f']
 # pensez à cliquer sur `Next`
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # alors qu'avec les listes on observe
 liste1 = ['a', 'b', 'c']
 liste2 = liste1

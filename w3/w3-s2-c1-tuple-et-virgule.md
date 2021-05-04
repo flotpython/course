@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Tuples
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Comme on l'a vu dans la vidéo, on peut construire un tuple à deux éléments - un couple - de quatre façons :
 
-```{code-cell}
+```{code-cell} ipython3
 # sans parenthèse ni virgule terminale
 couple1 = 1, 2
 # avec parenthèses
@@ -46,7 +51,7 @@ couple3 = 1, 2,
 couple4 = (1, 2,)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # toutes ces formes sont équivalentes ; par exemple
 couple1 == couple4
 ```
@@ -64,7 +69,7 @@ Comme on le voit :
 
 En général d'ailleurs, la forme avec parenthèses et virgule terminale est plus pratique. Considérez par exemple l'initialisation suivante ; on veut créer un tuple qui contient des listes (naturellement un tuple peut contenir n'importe quel objet Python), et comme c'est assez long on préfère mettre un élément du tuple par ligne :
 
-```{code-cell}
+```{code-cell} ipython3
 mon_tuple = ([1, 2, 3],
              [4, 5, 6],
              [7, 8, 9],
@@ -85,7 +90,7 @@ Signalons enfin que ceci n'est pas propre aux tuples. La virgule terminale est �
 
 Pour revenir à présent sur le cas des tuples à un seul élément, c'est un cas particulier, parmi les quatre syntaxes que l'on a vues ci-dessus, on obtiendrait dans ce cas :
 
-```{code-cell}
+```{code-cell} ipython3
 # ATTENTION : ces deux premières formes ne construisent pas un tuple !
 simple1 = 1
 simple2 = (1)
@@ -99,17 +104,17 @@ simple4 = (1,)
 
 Et en fait ces deux premières formes créent un entier simple :
 
-```{code-cell}
+```{code-cell} ipython3
 type(simple2)
 ```
 
 Les deux autres formes créent par contre toutes les deux un tuple à un élément comme on cherchait à le faire :
 
-```{code-cell}
+```{code-cell} ipython3
 type(simple3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 simple3 == simple4
 ```
 
@@ -123,14 +128,14 @@ Pour conclure, disons donc qu'il est conseillé de **toujours mentionner une vir
 
 Dans certains cas vous vous apercevrez que la parenthèse est obligatoire. Par exemple on peut écrire :
 
-```{code-cell}
+```{code-cell} ipython3
 x = (1,)
 (1,) == x
 ```
 
 Mais si on essaie d'écrire le même test sans les parenthèses :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # ceci provoque une SyntaxError
@@ -147,7 +152,7 @@ Python lève une erreur de syntaxe ; encore une bonne raison pour utiliser les 
 
 Bien que le type tuple soit immuable, il est tout à fait légal d'additionner deux tuples, et l'addition va produire un **nouveau** tuple :
 
-```{code-cell}
+```{code-cell} ipython3
 tuple1 = (1, 2,)
 tuple2 = (3, 4,)
 print('addition', tuple1 + tuple2)
@@ -155,7 +160,7 @@ print('addition', tuple1 + tuple2)
 
 Ainsi on peut également utiliser  l'opérateur `+=` avec un tuple qui va créer, comme précédemment, un nouvel objet tuple :
 
-```{code-cell}
+```{code-cell} ipython3
 tuple1 = (1, 2,)
 tuple1 += (3, 4,)
 print('apres ajout', tuple1)
@@ -171,7 +176,7 @@ Malgré la possibilité de procéder par additions successives, la construction 
 
 Une astuce utile consiste à penser aux fonctions de conversion, pour construire un tuple à partir de - par exemple - une liste. Ainsi on peut faire par exemple ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # on fabrique une liste pas à pas
 liste = list(range(10))
 liste[9] = 'Inconnu'
@@ -179,7 +184,7 @@ del liste [2:5]
 liste
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on convertit le résultat en tuple
 mon_tuple = tuple(liste)
 mon_tuple
@@ -193,14 +198,14 @@ mon_tuple
 
 Ces variables en effet sont des variables "comme les autres". Imaginez qu'on ait en fait deux tuples à construire comme ci-dessus, voici ce qu'on obtiendrait si on n'avait pas pris cette précaution :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = range(10)
 # ATTENTION : ceci redéfinit le symbole tuple
 tuple = tuple(liste)
 tuple
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # si bien que maintenant on ne peut plus faire ceci

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Espaces de nommage
 version: '3.0'
 ---
@@ -50,7 +55,7 @@ Un attribut est un symbole `x` utilisé dans la notation `obj.x` où `obj` est l
 
 L'**affectation** (explicite ou implicite) d'un attribut `x` sur un objet `obj` va créer (ou altérer) un symbole `x` **directement** dans l'espace de nommage de `obj`, symbole qui va référencer l'objet affecté, typiquement l'objet à droite du signe `=`
 
-```{code-cell}
+```{code-cell} ipython3
 class MaClasse:
     pass
 
@@ -85,7 +90,7 @@ Si la variable n'est toujours pas trouvée, elle est cherchée dans le module `b
 
 Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 var = 'dans le module'
 
 class A:
@@ -124,7 +129,7 @@ Oui, vous avez bien lu, la documentation officielle est fausse sur un point subt
 
 En effet, les classes se comportent différemment des fonctions :
 
-```{code-cell}
+```{code-cell} ipython3
 x = "x du module"
 class A():
     print("dans classe A: " + x)

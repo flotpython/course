@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: isinstance
 version: '3.0'
 ---
@@ -44,7 +49,7 @@ Avec la fonction prédéfinie `isinstance` - qui peut être par ailleurs utile d
 
 Voyons tout de suite sur un exemple simple comment on pourrait définir une fonction qui travaille sur un entier, mais qui par commodité peut aussi accepter un entier passé comme une chaîne de caractères, ou même une liste d'entiers (auquel cas on renvoie la liste des factorielles) :
 
-```{code-cell}
+```{code-cell} ipython3
 def factoriel(argument):
     # si on reçoit un entier
     if isinstance(argument, int):              # (*)
@@ -60,7 +65,7 @@ def factoriel(argument):
         raise TypeError(argument)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 print("entier", factoriel(4))
 print("chaine", factoriel("8"))
 print("tuple", factoriel((4, 8)))
@@ -80,19 +85,19 @@ Remarquez que la fonction `isinstance` **possède elle-même** une logique de ce
 
 Le module `types` définit un certain nombre de constantes qui peuvent être utiles dans ce contexte - vous trouverez une liste exhaustive à la fin de ce notebook. Par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 from types import FunctionType
 isinstance(factoriel, FunctionType)
 ```
 
 Mais méfiez-vous toutefois des fonctions *built-in*, qui sont de type `BuiltinFunctionType`
 
-```{code-cell}
+```{code-cell} ipython3
 from types import BuiltinFunctionType
 isinstance(len, BuiltinFunctionType)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # alors qu'on pourrait penser que
 isinstance(len, FunctionType)
 ```
@@ -109,7 +114,7 @@ Avec la programmation objet, vous pouvez définir vos propres types. On peut par
 
 En voici une implémentation très rudimentaire, uniquement pour illustrer le principe de l'héritage. Si ce qui suit vous semble difficile à comprendre, pas d'inquiétude, nous reviendrons sur ce sujet lorsque nous parlerons des classes.
 
-```{code-cell}
+```{code-cell} ipython3
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -121,7 +126,7 @@ class Mammifere(Animal):
 
 Ce qui nous intéresse dans l'immédiat c'est que `isinstance` permet dans ce contexte de faire des choses qu'on ne peut pas faire directement avec la fonction `type`, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour créer un objet de type `Animal` (méthode __init__)
 requin = Animal('requin')
 # idem pour un Mammifere
@@ -131,7 +136,7 @@ baleine = Mammifere('baleine')
 print("l'objet baleine est-il un mammifère ?", isinstance(baleine, Mammifere))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ici c'est moins évident, mais la réponse est 'True' aussi
 print("l'objet baleine est-il un animal ?", isinstance(baleine, Animal))
 ```
@@ -148,7 +153,7 @@ Ceci est motivé de la façon suivante : comme on l'a dit plus haut, tout ce qu
 
 Vous pouvez consulter [la documentation du module `types`](https://docs.python.org/3/library/types.html).
 
-```{code-cell}
+```{code-cell} ipython3
 # voici par ailleurs la liste de ses attributs
 import types 
 dir(types)

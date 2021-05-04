@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: classe Quaternion
 version: '3.0'
 ---
@@ -61,7 +66,7 @@ On se propose ici d'écrire une classe pour représenter les quaternions.
 
 * le système de correction automatique a besoin également que votre classe définisse son comportement vis-à-vis de `repr()` ; regardez les exemples pour voir la représentation choisie, et inspirez-vous de la fonction `number_str` comme suit :
 
-```{code-cell}
+```{code-cell} ipython3
 def number_str(x):
     """
     la fonction utilisée dans Quaternion.__repr__ 
@@ -73,14 +78,14 @@ def number_str(x):
         return f"{x:.1f}"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_quaternion import exo_quaternion
 exo_quaternion.example()
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 
 class Quaternion:
@@ -89,40 +94,40 @@ class Quaternion:
         ...        
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # correction
 exo_quaternion.correction(Quaternion)
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # peut-être utile pour debugger ?
 I = Quaternion(0, 1, 0, 0)
 J = Quaternion(0, 0, 1, 0)
 K = Quaternion(0, 0, 0, 1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 I*J == K
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 J*K == I
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 K*I == J
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 I*I == J*J == K*K == -1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 J*K == 1j
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 K*J == -1j
 ```

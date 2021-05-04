@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Fusionner des donn\xE9es"
 version: '3.0'
 ---
@@ -58,7 +63,7 @@ En effet, chaque bateau possède un identifiant unique qui est un entier, que l'
 
 Commençons par charger les données de l'exercice :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_marine_dict import extended, abbreviated
 ```
 
@@ -75,13 +80,13 @@ Chaque entrée à son tour est une liste qui contient :
 
 sachant que les entrées après le code pays dans le format étendu ne nous intéressent pas pour cet exercice.
 
-```{code-cell}
+```{code-cell} ipython3
 # une entrée étendue est une liste qui ressemble à ceci
 sample_extended_entry = extended[3]
 print(sample_extended_entry)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # une entrée abrégée ressemble à ceci
 sample_abbreviated_entry = abbreviated[0]
 print(sample_abbreviated_entry)
@@ -102,7 +107,7 @@ On précise également que les deux listes `extended` et `abbreviated` :
 
 ### Exercice - niveau basique
 
-```{code-cell}
+```{code-cell} ipython3
 # chargement de l'exercice
 from corrections.exo_marine_dict import exo_index
 ```
@@ -141,7 +146,7 @@ On doit obtenir comme résultat de `index` un dictionnaire :
 
 Bref, on veut pouvoir retrouver les différents éléments de la liste `extended` par accès direct, en ne faisant qu'une seule recherche dans l'index.
 
-```{code-cell}
+```{code-cell} ipython3
 # le résultat attendu
 result_index = exo_index.resultat(extended)
 
@@ -163,26 +168,26 @@ Remarquez ci-dessus l'utilisation d'un utilitaire parfois pratique : le [module
 
 ##### Votre code
 
-```{code-cell}
+```{code-cell} ipython3
 def index(extended):
     "<votre_code>"
 ```
 
 ##### Validation
 
-```{code-cell}
+```{code-cell} ipython3
 exo_index.correction(index, abbreviated)
 ```
 
 Vous remarquerez d'ailleurs que la seule chose que l'on utilise dans cet exercice, c'est que l'id des bateaux arrive en première position (dans la liste qui matérialise le bateau), aussi votre code doit marcher à l'identique avec les bateaux étendus :
 
-```{code-cell}
+```{code-cell} ipython3
 exo_index.correction(index, extended)
 ```
 
 ### Exercice - niveau intermédiaire
 
-```{code-cell}
+```{code-cell} ipython3
 # chargement de l'exercice
 from corrections.exo_marine_dict import exo_merge
 ```
@@ -207,7 +212,7 @@ dans lequel les deux objets `position` sont tous les deux des tuples de la forme
 
 Voici par exemple un couple clé-valeur dans le résultat attendu :
 
-```{code-cell}
+```{code-cell} ipython3
 # le résultat attendu
 result_merge = exo_merge.resultat(extended, abbreviated)
 
@@ -220,14 +225,14 @@ for key_value in result_merge.items():
 
 ##### Votre code
 
-```{code-cell}
+```{code-cell} ipython3
 def merge(extended, abbreviated):
     "votre code"
 ```
 
 ##### Validation
 
-```{code-cell}
+```{code-cell} ipython3
 exo_merge.correction(merge, extended, abbreviated)
 ```
 
@@ -244,7 +249,7 @@ Nous avons beaucoup simplifié les données d'entrée pour vous permettre une mi
   * [data/marine-e1-abb.json](data/marine-e1-abb.json)
 * pour charger ces fichiers, qui sont donc au [format JSON](http://en.wikipedia.org/wiki/JSON), la connaissance intime de ce format n'est pas nécessaire, on peut tout simplement utiliser le [module `json`](https://docs.python.org/3/library/json.html). Voici le code utilisé dans l'exercice pour charger ces JSON en mémoire ; il utilise des notions que nous verrons dans les semaines à venir :
 
-```{code-cell}
+```{code-cell} ipython3
 # load data from files
 import json
 
@@ -257,6 +262,6 @@ with open("data/marine-e1-abb.json", encoding="utf-8") as feed:
 
 Une fois que vous avez un code qui fonctionne vous pouvez le lancer sur ces données plus copieuses en faisant :
 
-```{code-cell}
+```{code-cell} ipython3
 exo_merge.correction(merge, extended_full, abbreviated_full)
 ```

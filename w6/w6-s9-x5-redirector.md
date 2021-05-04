@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'exercice: redirector'
 version: '3.0'
 ---
@@ -43,12 +48,12 @@ Et la valeur de l'attribut est dérivé de son nom en :
 * le mettant en minuscules, et 
 * en remplaçant les éventuels `_` par un signe `-`
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_redirectors import exo_redirector1
 exo_redirector1.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code pour la classe Redirector1
 class Redirector1:
 
@@ -58,7 +63,7 @@ class Redirector1:
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour la corriger
 # 
 exo_redirector1.correction(Redirector1)
@@ -84,12 +89,12 @@ Cette fois-ci on considère qu'un attribut manquant est une méthode ; pour fixe
 
 Ce mécanisme est illustré sur les exemples suivants, avec deux méthodes `foo` et `bar` ; par contre le test automatique exercera votre code avec des noms de méthodes aléatoires.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_redirectors import exo_redirector2
 exo_redirector2.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 class Redirector2:
     def __init__(self, id):
@@ -98,7 +103,7 @@ class Redirector2:
         return f"Redirector2({self.id})"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour corriger
 exo_redirector2.correction(Redirector2)
 ```

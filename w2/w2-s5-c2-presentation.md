@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Pr\xE9sentation du code"
 version: '3.0'
 ---
@@ -57,7 +62,7 @@ La fonction du module - le pretty printing - est évidemment accessoire ici, mai
  * les lignes qui restent dans une largeur "raisonnable" (79 caractères)
  * vous pouvez regarder notamment la façon de couper les lignes pour respecter cette limite en largeur.
 
-```{code-cell}
+```{code-cell} ipython3
 from modtools import show_module_html
 import pprint
 show_module_html(pprint)
@@ -133,7 +138,7 @@ Nous allons à présent zoomer dans ce module pour voir quelques exemples de cou
 
 ##### Coupure de ligne sans *backslash* (\\)
 
-```{code-cell}
+```{code-cell} ipython3
 show_module_html(pprint, 
                  beg="def pprint",
                  end="def pformat")
@@ -186,7 +191,7 @@ De l'automne"""
 
 Par contre il est des cas où le backslash est nécessaire:
 
-```{code-cell}
+```{code-cell} ipython3
 show_module_html(pprint, 
                  beg="components), readable, recursive", 
                  end="elif len(object) ", 

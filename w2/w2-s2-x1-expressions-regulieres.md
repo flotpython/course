@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -69,20 +74,20 @@ On vous demande d'écrire une expression régulière qui décrit les noms de var
 
 Il s'agit donc de reconnaître toutes les chaînes qui commencent par une lettre ou un `_`, suivi de lettres, chiffres ou `_`.
 
-```{code-cell}
+```{code-cell} ipython3
 # quelques exemples de résultat attendus
 from corrections.regexp_pythonid import exo_pythonid
 exo_pythonid.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer: écrivez ici
 # sous forme de chaîne votre expression régulière
 
 regexp_pythonid = r"votre_regexp"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # évaluez cette cellule pour valider votre code
 exo_pythonid.correction(regexp_pythonid)
 ```
@@ -95,7 +100,7 @@ exo_pythonid.correction(regexp_pythonid)
 
 On veut reconnaître dans un fichier toutes les lignes qui contiennent un nom et un prénom.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.regexp_agenda import exo_agenda
 exo_agenda.example()
 ```
@@ -113,7 +118,7 @@ On vous demande de construire une expression régulière qui définit les deux g
 
 Dans la correction - et ce sera pareil pour tous les exercices de regexp où on demande des groupes - la correction affiche **uniquement les groupes demandés**; ici on va vous montrer les groupes `nom` et `prenom`; vous avez parfaitement le droit d'utiliser des groupes supplémentaires, nommés ou pas d'ailleurs, dans votre propre regexp.
 
-```{code-cell}
+```{code-cell} ipython3
 # entrez votre regexp ici
 # il faudra la faire terminer par \Z
 # regardez ce qui se passe si vous ne le faites pas
@@ -121,7 +126,7 @@ Dans la correction - et ce sera pareil pour tous les exercices de regexp où on 
 regexp_agenda = r"votre regexp\Z"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # évaluez cette cellule pour valider votre code
 exo_agenda.correction(regexp_agenda)
 ```
@@ -139,18 +144,18 @@ Cette fois on veut reconnaître des numéros de téléphone français, qui peuve
 
 Dans tous les cas on veut trouver dans le groupe `number` les 9 chiffres vraiment significatifs, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.regexp_phone import exo_phone
 exo_phone.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre regexp
 # à nouveau il faut terminer la regexp par \Z
 regexp_phone = r"votre regexp\Z"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # évaluez cette cellule pour valider votre code
 exo_phone.correction(regexp_phone)
 ```
@@ -161,11 +166,11 @@ exo_phone.correction(regexp_phone)
 
 Vu comment sont conçus les exercices, vous ne pouvez pas passer à `re.compile` un drapeau comme `re.IGNORECASE` ou autre ; sachez cependant que vous pouvez ***embarquer* ces drapeaux dans la *regexp*** elle-même ; par exemple pour rendre la regexp insensible à la casse de caractères, au lieu d'appeler `re.compile` avec le flag `re.I`, vous pouvez utiliser `(?i)` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 import re
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut embarquer les flags comme IGNORECASE
 # directement dans la regexp
 # c'est équivalent de faire ceci
@@ -174,13 +179,13 @@ re_obj = re.compile("abc", flags=re.IGNORECASE)
 re_obj.match("ABC").group(0)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou cela
 
 re.match("(?i)abc","ABC").group(0)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # les flags comme (?i) doivent apparaître
 # en premier dans la regexp
 re.match("abc(?i)","ABC").group(0)
@@ -219,18 +224,18 @@ Voici les conventions que nous avons adoptées pour l'exercice :
 
 Enfin, vous devez définir les groupes `proto`, `user`, `password`, `hostname`, `port` et `path` qui sont utilisés pour vérifier votre résultat. Dans la case `Résultat attendu`, vous trouverez soit `None` si la regexp ne filtre pas l'intégralité de l'entrée, ou bien une liste ordonnée de tuples qui donnent la valeur de ces groupes ; vous n'avez rien à faire pour construire ces tuples, c'est l'exercice qui s'en occupe.
 
-```{code-cell}
+```{code-cell} ipython3
 # exemples du résultat attendu
 from corrections.regexp_url import exo_url
 exo_url.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # n'hésitez pas à construire votre regexp petit à petit
 
 regexp_url = "votre_regexp"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_url.correction(regexp_url)
 ```

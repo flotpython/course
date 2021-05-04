@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Fibonacci
 version: '3.0'
 ---
@@ -60,7 +65,7 @@ Ce qui donne pour les premières valeurs :
 
 On commence par définir la fonction `fibonacci` comme il suit. Naturellement vous n'avez pas encore tout le bagage pour lire ce code, ne vous inquiétez pas, nous allons vous expliquer tout ça dans les prochaines semaines. Le but est uniquement de vous montrer un fonctionnement de l'interpréteur Python et de IDLE.
 
-```{code-cell}
+```{code-cell} ipython3
 def fibonacci(n):
     "retourne le nombre de fibonacci pour l'entier n"
     # pour les deux petites valeurs de n, on peut retourner n
@@ -78,7 +83,7 @@ def fibonacci(n):
 
 Pour en faire un programme utilisable on va demander à l'utilisateur de rentrer un nombre&nbsp;; il faut le convertir en entier car `input` renvoie une chaîne de caractères :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:hidden-code-instead: entier = 12
 
 entier = int(input("Entrer un entier "))
@@ -86,7 +91,7 @@ entier = int(input("Entrer un entier "))
 
 On imprime le résultat :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"fibonacci({entier}) = {fibonacci(entier)}")
 ```
 

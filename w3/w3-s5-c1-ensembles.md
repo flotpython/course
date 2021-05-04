@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Ensembles
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Ce document résume les opérations courantes disponibles sur le type `set`. On 
 
 On crée un ensemble avec les accolades, comme les dictionnaires, mais sans utiliser le caractère `:`, et cela donne par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 heteroclite = {'marc', 12, 'pierre', (1, 2, 3), 'pierre'}
 print(heteroclite)
 ```
@@ -50,7 +55,7 @@ print(heteroclite)
 
 Il devrait être clair à ce stade que, le nom du type étant `set`, la fonction `set` est un constructeur d'ensemble. On aurait donc aussi bien pu faire :
 
-```{code-cell}
+```{code-cell} ipython3
 heteroclite2 = set(['marc', 12, 'pierre', (1, 2, 3), 'pierre'])
 print(heteroclite2)
 ```
@@ -61,7 +66,7 @@ print(heteroclite2)
 
 Il faut remarquer que l'on ne peut pas créer un ensemble vide en extension. En effet :
 
-```{code-cell}
+```{code-cell} ipython3
 type({})
 ```
 
@@ -71,14 +76,14 @@ Ceci est lié à des raisons historiques, les ensembles n'ayant fait leur appari
 
 Pour créer un ensemble vide, la pratique la plus courante est celle-ci :
 
-```{code-cell}
+```{code-cell} ipython3
 ensemble_vide = set()
 print(type(ensemble_vide))
 ```
 
 Ou également, moins élégant mais que l'on trouve parfois dans du vieux code :
 
-```{code-cell}
+```{code-cell} ipython3
 autre_ensemble_vide = set([])
 print(type(autre_ensemble_vide))
 ```
@@ -134,67 +139,67 @@ Parmi les fonctions exclues sur un `frozenset`, on peut citer :  `update`, `pop
 
 ### Opérations simples
 
-```{code-cell}
+```{code-cell} ipython3
 # pour rappel
 heteroclite
 ```
 
 ##### Test d'appartenance
 
-```{code-cell}
+```{code-cell} ipython3
 (1, 2, 3) in heteroclite
 ```
 
 ##### Cardinal
 
-```{code-cell}
+```{code-cell} ipython3
 len(heteroclite)
 ```
 
 ##### Manipulations
 
-```{code-cell}
+```{code-cell} ipython3
 ensemble = {1, 2, 1}
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour nettoyer
 ensemble.clear()
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ajouter un element
 ensemble.add(1)
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ajouter tous les elements d'un autre *ensemble*
 ensemble.update({2, (1, 2, 3), (1, 3, 5)})
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # enlever un element avec discard
 ensemble.discard((1, 3, 5))
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # discard fonctionne même si l'élément n'est pas présent
 ensemble.discard('foo')
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # enlever un élément avec remove
 ensemble.remove((1, 2, 3))
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # contrairement à discard, l'élément doit être présent,
 # sinon il y a une exception
 try:
@@ -205,7 +210,7 @@ except KeyError as e:
 
 La capture d'exception avec `try` et `except`  sert à capturer une erreur d'exécution du programme (que l'on appelle exception) pour continuer le programme. Le but de cet exemple est simplement de montrer (d'une manière plus élégante que de voir simplement le programme planter avec une exception non capturée) que l'expression `ensemble.remove('foo')` génère une exception. Si ce concept vous paraît obscur, pas d'inquiétude, nous l'aborderons cette semaine et nous y reviendrons en détail en semaine 6.
 
-```{code-cell}
+```{code-cell} ipython3
 # pop() ressemble à la méthode éponyme sur les listes
 # sauf qu'il n'y a pas d'ordre dans un ensemble
 while ensemble:
@@ -220,7 +225,7 @@ print("et bien sûr maintenant l'ensemble est vide", ensemble)
 
 Donnons-nous deux ensembles simples :
 
-```{code-cell}
+```{code-cell} ipython3
 A2 = set([0, 2, 4, 6])
 print('A2', A2)
 A3 = set([0, 6, 3])
@@ -240,23 +245,23 @@ N'oubliez pas que les ensembles, comme les dictionnaires, ne sont **pas ordonné
 
 ##### Union
 
-```{code-cell}
+```{code-cell} ipython3
 A2 | A3
 ```
 
 ##### Intersection
 
-```{code-cell}
+```{code-cell} ipython3
 A2 & A3
 ```
 
 ##### Différence
 
-```{code-cell}
+```{code-cell} ipython3
 A2 - A3
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 A3 - A2
 ```
 
@@ -266,7 +271,7 @@ A3 - A2
 
 On rappelle que $A \Delta B = (A - B) \cup (B - A)$
 
-```{code-cell}
+```{code-cell} ipython3
 A2 ^ A3
 ```
 
@@ -276,7 +281,7 @@ A2 ^ A3
 
 Ici encore on se donne deux ensembles :
 
-```{code-cell}
+```{code-cell} ipython3
 superset = {0, 1, 2, 3}
 print('superset', superset)
 subset =  {1, 3}
@@ -285,27 +290,27 @@ print('subset', subset)
 
 ##### Égalité
 
-```{code-cell}
+```{code-cell} ipython3
 heteroclite == heteroclite2
 ```
 
 ##### Inclusion
 
-```{code-cell}
+```{code-cell} ipython3
 subset <= superset
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 subset < superset
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 heteroclite < heteroclite2
 ```
 
 ##### Ensembles disjoints
 
-```{code-cell}
+```{code-cell} ipython3
 heteroclite.isdisjoint(A3)
 ```
 

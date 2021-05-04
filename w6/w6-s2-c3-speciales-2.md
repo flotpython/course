@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Surcharge op. (2)
 version: '3.0'
 ---
@@ -63,7 +68,7 @@ Nous allons illustrer ceci avec un exemple de classe, un peu artificiel, qui imp
 
 Clairement, cet exemple est à but uniquement pédagogique ; on veut montrer comment une implémentation qui repose sur deux listes séparées peut donner l'illusion d'une continuité, et se présenter comme un container unique. De plus cette implémentation ne fait aucun contrôle pour ne pas obscurcir le code.
 
-```{code-cell}
+```{code-cell} ipython3
 class DualQueue:
     """Une double file d'attente FIFO"""
 
@@ -103,7 +108,7 @@ class DualQueue:
         return self.outputs.pop()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on construit une instance pour nos essais
 queue = DualQueue()
 queue.add_input('zero')
@@ -122,7 +127,7 @@ print(queue)
 
 Avec cette première version de la classe `DualQueue` on peut utiliser `len` et le test d'appartenance :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f'len() = {len(queue)}')
 
 print(f"deux appartient-il ? {'deux' in queue}")
@@ -141,7 +146,7 @@ queue[1]
 
 **Pour ne pas répéter tout le code de la classe**, nous allons étendre `DualQueue` ; pour cela nous définissons une fonction, que nous affectons ensuite à `DualQueue.__getitem__`, comme nous avons déjà eu l'occasion de le faire :
 
-```{code-cell}
+```{code-cell} ipython3
 # une première version de DualQueue.__getitem__
 # pour uniquement l'accès par index
 
@@ -167,13 +172,13 @@ DualQueue.__getitem__ = dual_queue_getitem
 
 À présent, on peut **accéder** aux objets de la queue **séquentiellement** :
 
-```{code-cell}
+```{code-cell} ipython3
 print(queue[0])
 ```
 
 ce qui lève la même exception qu'avec une vraie liste si on utilise un mauvais index :
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     print(queue[5])
 except IndexError as e:
@@ -196,7 +201,7 @@ il nous faut modifier la méthode `__getitem__`.
 
 Le second argument de `__getitem__` correspond naturellement au contenu des crochets `[]`, on utilise donc `isinstance` pour écrire un code qui s'adapte au type d'indexation, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # une deuxième version de DualQueue.__getitem__
 # pour l'accès par index et/ou par slice
 
@@ -233,13 +238,13 @@ DualQueue.__getitem__ = dual_queue_getitem
 
 Maintenant on peut accéder par slice :
 
-```{code-cell}
+```{code-cell} ipython3
 queue[1:3]
 ```
 
 Et on reçoit bien une exception si on essaie d'accéder par clé :
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     queue['key']
 except KeyError as e:
@@ -252,7 +257,7 @@ except KeyError as e:
 
 Avec seulement `__getitem__`, on peut **faire une boucle** sur l'objet queue. On l'a mentionné rapidement dans la séquence sur les itérateurs, mais la **méthode `__iter__` n'est pas la seule façon** de rendre un objet itérable :
 
-```{code-cell}
+```{code-cell} ipython3
 # grâce à __getitem__ on a rendu les 
 # objets de type DualQueue itérables
 for item in queue:
@@ -265,13 +270,13 @@ for item in queue:
 
 De manière similaire, même sans la méthode `__bool__`, cette classe sait **faire des tests de manière correcte** grâce uniquement à la méthode `__len__` :
 
-```{code-cell}
+```{code-cell} ipython3
 # un test fait directement sur la queue
 if queue:
     print(f"La queue {queue} est considérée comme True")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # le même test sur une queue vide
 empty = DualQueue()
 
@@ -322,7 +327,7 @@ objet(arg1, arg2) ⟺ objet.__call__(arg1, arg2)
 
 Voyons cela sur un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 class PlusClosure:
     """Une classe callable qui permet de faire un peu comme la 
     fonction built-in sum mais en ajoutant une valeur initiale"""
@@ -335,17 +340,17 @@ class PlusClosure:
 plus2 = PlusClosure (2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut maintenant utiliser cet objet 
 # comme une fonction qui fait sum(*arg)+2
 plus2()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 plus2(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 plus2(1, 2)
 ```
 

@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: record et dict
 version: '3.0'
 ---
@@ -39,7 +44,7 @@ Imaginons qu'on veuille manipuler un ensemble de données concernant des personn
 
 Il est possible, et assez fréquent, d'utiliser le dictionnaire comme support pour modéliser ces données comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 personnes = [
     {'nom': 'Pierre',  'age': 25, 'email': 'pierre@example.com'},
     {'nom': 'Paul',    'age': 18, 'email': 'paul@example.com'},
@@ -51,13 +56,13 @@ Bon, très bien, nous avons nos données, il est facile de les utiliser.
 
 Par exemple, pour l'anniversaire de Pierre on fera :
 
-```{code-cell}
+```{code-cell} ipython3
 personnes[0]['age'] += 1
 ```
 
 Ce qui nous donne :
 
-```{code-cell}
+```{code-cell} ipython3
 for personne in personnes:
     print(10*"=")
     for info, valeur in personne.items():
@@ -74,14 +79,14 @@ Si on imagine qu'on a commencé par lire ces données séquentiellement dans un 
 
 C'est-à-dire, en anticipant un peu sur la construction de dictionnaires par compréhension :
 
-```{code-cell}
+```{code-cell} ipython3
 # on crée un index permettant de retrouver rapidement
 # une personne dans la liste
 index_par_nom = {personne['nom']: personne for personne in personnes}
 index_par_nom
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # du coup pour accéder à l'enregistrement pour Pierre
 index_par_nom['Pierre']
 ```
@@ -90,7 +95,7 @@ Attardons-nous un tout petit peu ; nous avons construit un dictionnaire par com
 
 Le résultat est donc un dictionnaire qu'on peut afficher comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 for nom, record in index_par_nom.items():
     print(f"Nom : {nom} -> enregistrement : {record}")
 ```
@@ -121,7 +126,7 @@ Je vais donner ici une implémentation du code ci-dessus, qui utilise une classe
 
 Pour commencer je définis la classe `Personne`, qui va me servir à modéliser chaque personne :
 
-```{code-cell}
+```{code-cell} ipython3
 class Personne:
 
     # le constructeur - vous ignorez le paramètre self,
@@ -140,7 +145,7 @@ class Personne:
 
 Pour construire ma liste de personnes, je fais alors :
 
-```{code-cell}
+```{code-cell} ipython3
 personnes2 = [
     Personne('Pierre',  25, 'pierre@example.com'),
     Personne('Paul',    18, 'paul@example.com'),
@@ -150,13 +155,13 @@ personnes2 = [
 
 Si je regarde un élément de la liste j'obtiens :
 
-```{code-cell}
+```{code-cell} ipython3
 personnes2[0]
 ```
 
 Je peux indexer tout ceci comme tout à l'heure, si j'ai besoin d'un accès rapide :
 
-```{code-cell}
+```{code-cell} ipython3
 # je dois utiliser cette fois personne.nom et non plus personne['nom']
 index2 = {personne.nom : personne for personne in personnes2}
 ```
@@ -165,7 +170,7 @@ Le principe ici est exactement identique à ce qu'on a fait avec le dictionnaire
 
 Et de cette façon :
 
-```{code-cell}
+```{code-cell} ipython3
 print(index2['Pierre'])
 ```
 

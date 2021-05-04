@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: variables de boucle
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Dans ce complément, nous allons beaucoup jouer avec le fait qu'une variable soit définie ou non. Pour nous simplifier la vie, et surtout rendre les cellules plus indépendantes les unes des autres si vous devez les rejouer, nous allons utiliser la formule un peu magique suivante :
 
-```{code-cell}
+```{code-cell} ipython3
 # on détruit la variable i si elle existe
 if 'i' in locals(): 
     del i      
@@ -51,7 +56,7 @@ qui repose d'une part sur l'instruction `del` que nous avons déjà vue, et sur 
 
 Une variable de boucle est définie (assignée) dans la boucle et **reste *visible*** une fois la boucle terminée. Le plus simple est de le voir sur un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # La variable 'i' n'est pas définie
 try:
     i
@@ -59,7 +64,7 @@ except NameError as e:
     print('OOPS', e)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si à présent on fait une boucle
 # avec i comme variable de boucle
 for i in [0]:
@@ -83,13 +88,13 @@ On peut être tenté de tirer profit de ce trait, en lisant la valeur de la vari
 
 Tout d'abord, il faut faire attention à ne pas écrire du code qui dépende de ce trait **si la boucle peut être vide**. En effet, si la boucle ne s'exécute pas du tout, la variable n'est **pas affectée** et donc elle n'est **pas définie**. C'est évident, mais ça peut l'être moins quand on lit du code réel, comme par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # on détruit la variable i si elle existe
 if 'i' in locals(): 
     del i   
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # une façon très scabreuse de calculer la longueur de l
 def length(l):
     for i, x in enumerate(l):
@@ -101,7 +106,7 @@ length([1, 2, 3])
 
 Ça a l'air correct, sauf que :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # ceci provoque une UnboundLocalError
@@ -126,7 +131,7 @@ Lors du premier appel, on passe une liste à la fonction, liste qui est parcouru
 
 La première voie consiste à déclarer une variable externe à la boucle et à l'affecter à l'intérieur de la boucle, c'est-à-dire :
 
-```{code-cell}
+```{code-cell} ipython3
 # on veut chercher le premier de ces nombres qui vérifie une condition
 candidates = [3, -15, 1, 8]
 
@@ -135,7 +140,7 @@ def checks(candidate):
     return candidate % 5 == 0
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # plutôt que de faire ceci
@@ -145,7 +150,7 @@ for item in candidates:
 print('trouvé solution', item)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # il vaut mieux faire ceci
@@ -164,7 +169,7 @@ print('trouvé solution', solution)
 
 Au minimum, si vous utilisez la variable de boucle après la boucle, il est vivement conseillé de l'**initialiser** explicitement **avant** la boucle, pour vous prémunir contre les boucles vides, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la fonction length de tout à l'heure
@@ -174,7 +179,7 @@ def length1(l):
     return i + 1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une version plus robuste 
@@ -188,7 +193,7 @@ def length2(l):
     return i + 1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 :latex:skip-eval: true
 
@@ -196,7 +201,7 @@ def length2(l):
 length1([])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 length2([])
@@ -208,18 +213,18 @@ length2([])
 
 Notez bien que par contre, les variables de compréhension **ne fuient pas** (contrairement à ce qui se passait en Python 2) :
 
-```{code-cell}
+```{code-cell} ipython3
 # on détruit la variable i si elle existe
 if 'i' in locals(): 
     del i   
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en Python 3, les variables de compréhension ne fuitent pas
 [i**2 for i in range(3)]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ici i est à nouveau indéfinie
 try:
     i

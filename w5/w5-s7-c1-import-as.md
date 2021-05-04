@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: La clause `import as`
 version: '3.0'
 ---
@@ -75,7 +80,7 @@ Pour mémoire, le langage permet de faire aussi des `import *`, qui est d'un usa
 
 Comme vous pouvez le voir, avec `import` on ne peut importer qu'un nom fixe. On ne peut pas calculer le nom d'un module, et le charger ensuite :
 
-```{code-cell}
+```{code-cell} ipython3
 # si on calcule un nom de module
 modulename = "ma" + "th" 
 ```
@@ -92,11 +97,11 @@ cherche un module dont le nom est "modulename"
 
 Sachez que vous pourriez utiliser dans ce cas la fonction `import_module` du module `importlib`, qui cette fois permet d'importer un module dont vous avez calculé le nom :
 
-```{code-cell}
+```{code-cell} ipython3
 from importlib import import_module
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 loaded = import_module(modulename)
@@ -105,7 +110,7 @@ type(loaded)
 
 Nous avons maintenant bien chargé le module `math`, et on l'a rangé dans la variable `loaded`
 
-```{code-cell}
+```{code-cell} ipython3
 # loaded référence le même objet module que si on avait fait 
 # import math
 import math
@@ -122,14 +127,14 @@ La fonction `import_module` n'est pas d'un usage très courant, dans la pratique
 
 Maintenant que nous savons ce que fait `import_module`, on peut récrire les deux formes d'`import`  de cette façon :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un import simple
 import math
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # peut se récrire
@@ -138,14 +143,14 @@ math = import_module('math')
 
 Et :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et un import from
 from pathlib import Path
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # est en gros équivalent à
@@ -238,24 +243,24 @@ J'ai écrit des modules jouets :
  
 Toutes ces fonctions se contentent d'écrire leur nom et leur module.
 
-```{code-cell}
+```{code-cell} ipython3
 # changer le nom du module importé
 import un_deux as one_two
 one_two.un()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # changer le nom d'un symbole importé du module
 from un_deux_trois import un as one
 one()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut mélanger tout ça
 from un_deux_trois_quatre import un as one, deux, trois as three
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 one()
 deux()
 three()

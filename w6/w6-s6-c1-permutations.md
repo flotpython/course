@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: permutations
 version: '3.0'
 ---
@@ -47,11 +52,11 @@ Un itérateur sur les permutations est disponible au travers du module standard 
 
 Pour illustrer le concept, voici à quoi ressemblent les 6 permutations d'un ensemble à trois éléments :
 
-```{code-cell}
+```{code-cell} ipython3
 from itertools import permutations
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 set = {1, 2, 3}
 
 for p in permutations(set):
@@ -64,7 +69,7 @@ for p in permutations(set):
 
 Voici une implémentation possible pour un itérateur de permutations :
 
-```{code-cell}
+```{code-cell} ipython3
 class Permutations:
     """
     Un itérateur qui énumère les permutations de n
@@ -184,7 +189,7 @@ C'est une erreur fréquente chez les débutants que de calculer une telle liste 
 
 On peut le voir sur un code qui n'utiliserait que les 20 premières valeurs de l'itérateur, vous constatez que ce code est immédiat :
 
-```{code-cell}
+```{code-cell} ipython3
 def show_first_items(iterable, nb_items):
     """
     montre les <nb_items> premiers items de iterable
@@ -197,7 +202,7 @@ def show_first_items(iterable, nb_items):
             break
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 show_first_items(Permutations(12), 20)
 ```
 
@@ -218,7 +223,7 @@ Dernières remarques, sur des améliorations possibles - mais tout à fait optio
 
 C'est ce qu'on a fait dans cette deuxième version ; après avoir enlevé la logorrhée de commentaires ça redevient presque lisible ;)
 
-```{code-cell}
+```{code-cell} ipython3
 import itertools
 
 class Permutations2:
@@ -264,7 +269,7 @@ class Permutations2:
         return math.factorial(self.n)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 show_first_items(Permutations2(5), 20)
 ```
 
@@ -279,7 +284,7 @@ Il me semble intéressant de montrer une autre façon, plus simple, d'écrire un
 
 On commence par une version très rustique qui fait des impressions :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour simplifier ici on suppose que l'entrée est une vraie liste
 # que l'on va ainsi pouvoir modifier par effets de bord
 def gen_perm1(subject, k=0):
@@ -295,13 +300,13 @@ def gen_perm1(subject, k=0):
             subject[k], subject[i] = subject[i], subject[k]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 gen_perm1(['a', 'b', 'c', 'd'])
 ```
 
 Très bien, mais on ne veut pas imprimer, on veut itérer. On pourrait se dire, il me suffit de remplacer `print` par `yield`. Essayons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour simplifier ici on suppose que l'entrée est une vraie liste
 # que l'on va ainsi pouvoir modifier par effets de bord
 def gen_perm2(subject, k=0):
@@ -317,14 +322,14 @@ def gen_perm2(subject, k=0):
             subject[k], subject[i] = subject[i], subject[k]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for perm in gen_perm2(['a', 'b', 'c', 'd']):
     print(perm)
 ```
 
 On est exactement dans le cas où il nous faut utiliser `yield from`. En effet lorsqu'on appelle `gen_perm(subject, k+1)` ici, ce qu'on obtient en retour c'est maintenant un objet générateur. Pour faire ce qu'on cherche à faire il nous faut bien utiliser cet objet générateur, et pour cela on utilise `yield from`.
 
-```{code-cell}
+```{code-cell} ipython3
 # pour simplifier ici on suppose que l'entrée est une vraie liste
 # que l'on va ainsi pouvoir modifier par effets de bord
 def gen_perm3(subject, k=0):
@@ -340,7 +345,7 @@ def gen_perm3(subject, k=0):
             subject[k], subject[i] = subject[i], subject[k]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for perm in gen_perm3(['a', 'b', 'c', 'd']):
     print(perm)
 ```

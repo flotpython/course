@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -64,7 +69,7 @@ Une instance de classe est par défaut un objet mutable. Malgré cela, le langag
 
 ### Hachage par défaut : basé sur `id()`
 
-```{code-cell}
+```{code-cell} ipython3
 # une classe Point
 class Point1:
     def __init__(self, x, y):
@@ -77,7 +82,7 @@ class Point1:
 
 Avec ce code, les instances de `Point` sont mutables :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # deux instances 
@@ -85,7 +90,7 @@ p1 = Point1(2, 2)
 p2 = Point1(2, 3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # objets mutables
@@ -96,14 +101,14 @@ Mais par contre soyez attentifs, car il faut savoir que pour la classe `Point1`,
 
 Ce qui, dit autrement, signifie que deux objets qui sont distincts au sens de `id()` sont considérés comme différents, et donc peuvent coexister dans un ensemble (ou dans un dictionnaire) :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # nos deux objets se ressemblent
 p1, p2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais peuvent coexister 
@@ -115,13 +120,13 @@ len(s)
 
 Si on recherche un de ces deux objets on le trouve :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 p1 in s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais pas un troisième
@@ -197,7 +202,7 @@ La subtilité étant bien entendu que ces deux méthodes doivent être cohérent
 
 Voyons cela sur une sous-classe de `Point1`, dans laquelle nous définissons ces deux méthodes :
 
-```{code-cell}
+```{code-cell} ipython3
 class Point2(Point1):
 
     # l'égalité va se baser naturellement sur x et y
@@ -212,27 +217,27 @@ class Point2(Point1):
 
 On peut vérifier que cette fois les choses fonctionnent correctement :
 
-```{code-cell}
+```{code-cell} ipython3
 q1 = Point2(2, 3)
 q2 = Point2(2, 3)
 ```
 
 Nos deux objets sont distincts pour `id()`/`is`, mais égaux pour `==` :
 
-```{code-cell}
+```{code-cell} ipython3
 print(f"is → {q1 is q2} \n== → {q1 == q2}")
 ```
 
 Et un ensemble contenant les deux points n'en contient qu'un :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 s = {q1, q2}
 len(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 q3 = Point2(2, 3)
@@ -241,7 +246,7 @@ q3 in s
 
 Comme les ensembles et les dictionnaires reposent sur le même mécanisme de table de hachage, on peut aussi indifféremment utiliser n'importe lequel de nos 3 points pour indexer un dictionnaire :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 d = {}
@@ -249,7 +254,7 @@ d[q1] = 1
 d[q2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # les clés q1, q2 et q3 sont
@@ -264,7 +269,7 @@ d
 
 Tout ceci semble très bien fonctionner; sauf qu'en fait, il y a une **grosse faille**, c'est que nos objets `Point2` sont **mutables**. Du coup on peut maintenant imaginer un scénario comme celui-ci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t1, t2 = Point2(10, 10), Point2(10, 10)
@@ -272,7 +277,7 @@ s = {t1, t2}
 s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t1 in s, t2 in s
@@ -280,25 +285,25 @@ t1 in s, t2 in s
 
 Mais si maintenant je change un des deux objets:
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t1.x = 100
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t1 in s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 t2 in s

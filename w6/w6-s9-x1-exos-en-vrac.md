@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: exercices en vrac
 version: '3.0'
 ---
@@ -29,7 +34,7 @@ version: '3.0'
 
 # Quelques sujets d'exercice en vrac
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci permet de recharger les modules
 # lorsqu'ils ont été modifiés en dehors du notebook
 
@@ -69,14 +74,14 @@ Hypothèses : on admet (pas besoin de le vérifier donc) que les entrées sont 
 
 Unicité : n'importe quelle solution est valable en cas de solutions multiples ; toutefois pour des raisons techniques, la correction automatique ne teste votre code que sur des entrées où la solution est unique.
 
-```{code-cell}
+```{code-cell} ipython3
 # charger l'exercice et afficher un exemple
 
 from corrections.exo_two_sum import exo_two_sum
 exo_two_sum.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # indice : il y a peut-être des choses utiles dans ce module
 # import itertools
 
@@ -84,7 +89,7 @@ def two_sum(data, target):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_two_sum.correction(two_sum)
 ```
 
@@ -104,19 +109,19 @@ exo_two_sum.correction(two_sum)
 * en sortie : un entier qui décrit la plus grande distance (en termes d'indices) entre deux occurrences du même objet dans la liste ;  
   si aucun objet n'est présent en double, retournez 0.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_longest_gap import exo_longest_gap
 
 exo_longest_gap.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 def longest_gap(liste):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_longest_gap.correction(longest_gap)
 ```
 
@@ -134,7 +139,7 @@ Je vous invite à lire l'énoncé directement sur codewars.
 **Rappel sur la concaténation des chaines**
 remarquez aussi l'usage qu'on fait ici, pour la présentation, de la concaténation de chaines :
 
-```{code-cell}
+```{code-cell} ipython3
 # rappel sur la concaténation des chaines
 # grâce à la parenthèse on peut 
 # se passer des \ qui sont assez vilains
@@ -143,22 +148,22 @@ x = ("une chaine unique "
      "parce qu'elle est très longue")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 x
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_meeting import exo_meeting
 
 exo_meeting.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def meeting(string):
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_meeting.correction(meeting)
 ```
 

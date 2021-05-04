@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Indentations
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Nous l'avons vu dans la vidéo, la pratique la plus courante est d'utiliser systématiquement une indentation de 4 espaces :
 
-```{code-cell}
+```{code-cell} ipython3
 # la convention la plus généralement utilisée
 # consiste à utiliser une indentation de 4 espaces
 if 'g' in 'egg':
@@ -46,7 +51,7 @@ else:
 
 Voyons tout de suite comment on pourrait écrire plusieurs tests imbriqués :
 
-```{code-cell}
+```{code-cell} ipython3
 entree = 'spam'
 
 # pour imbriquer il suffit d'indenter de 8 espaces
@@ -106,7 +111,7 @@ En version longue, il existe un code ASCII pour un caractère qui s'appelle *Tab
 
 Bernard utilise l'éditeur `vim` ; sous cet éditeur il lui est possible de mettre des tabulations dans son code, et de choisir la valeur de ces tabulations. Aussi il va dans les préférences de `vim`, choisit Tabulation=4, et écrit un programme qu'il voit comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 if 'a' in entree:
     if 'b' in entree:
         cas11 = True
@@ -188,7 +193,7 @@ La règle utilisée pour analyser votre code, c'est que toutes les instructions 
 
 Voyons quelques exemples. Tout d'abord le code suivant est **légal**, quoique, redisons-le pour la dernière fois, **pas du tout recommandé** :
 
-```{code-cell}
+```{code-cell} ipython3
 # code accepté mais pas du tout recommandé
 if 'a' in 'pas du tout recommande':
   succes = True
@@ -203,7 +208,7 @@ En effet, les deux blocs (après `if` et après `else`) sont des blocs distincts
 
 Par contre la construction ci-dessous n'est pas légale :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # ceci n'est pas correct et est rejeté par Python

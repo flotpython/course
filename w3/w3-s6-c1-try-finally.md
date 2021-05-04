@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: try..else..finally
 version: '3.0'
 ---
@@ -50,7 +55,7 @@ C'est sans doute `finally` qui est la plus utile de ces deux clauses, car elle p
 
 Et par exemple, comme avec les *context managers*, une fonction peut faire des choses même après un `return`.
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui fait des choses après un return
 def return_with_finally(number):
     try:
@@ -62,12 +67,12 @@ def return_with_finally(number):
         print("on passe ici même si on a vu un return")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # sans exception
 return_with_finally(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec exception
 return_with_finally(0)
 ```
@@ -90,7 +95,7 @@ Dit autrement, si le code dans la clause `else` lève une exception, celle-ci ne
 
 Voici un exemple rapide, en pratique on rencontre assez peu souvent une clause `else` dans un `try` :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour montrer la clause else dans un usage banal
 def function_with_else(number):
     try:
@@ -102,19 +107,19 @@ def function_with_else(number):
     return 'something else'
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # sans exception
 function_with_else(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec exception
 function_with_else(0)
 ```
 
 Remarquez que `else` ne présente pas cette particularité de "traverser" le `return`, que l'on a vue avec `finally` :
 
-```{code-cell}
+```{code-cell} ipython3
 # la clause else ne traverse pas les return
 def return_with_else(number):
     try:
@@ -126,12 +131,12 @@ def return_with_else(number):
         print("on ne passe jamais ici à cause des return")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # sans exception
 return_with_else(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec exception
 return_with_else(0)
 ```

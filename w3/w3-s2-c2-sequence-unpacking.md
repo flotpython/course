@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Sequence unpacking
 version: '3.0'
 ---
@@ -54,13 +59,13 @@ Nous allons dans ce complément décortiquer les mécanismes derrière cette phr
 
 Commençons par un exemple simple à base de tuple. Imaginons que l'on dispose d'un tuple `couple` dont on sait qu'il a deux éléments :
 
-```{code-cell}
+```{code-cell} ipython3
 couple = (100, 'spam')
 ```
 
 On souhaite à présent extraire les deux valeurs, et les affecter à deux variables distinctes. Une solution naïve consiste bien sûr à faire simplement :
 
-```{code-cell}
+```{code-cell} ipython3
 gauche = couple[0]
 droite = couple[1]
 print('gauche', gauche, 'droite', droite)
@@ -70,7 +75,7 @@ Cela fonctionne naturellement très bien, mais n'est pas très pythonique - comm
 
 On préfèrera la formulation équivalente suivante :
 
-```{code-cell}
+```{code-cell} ipython3
 (gauche, droite) = couple
 print('gauche', gauche, 'droite', droite)
 ```
@@ -79,7 +84,7 @@ La logique ici consiste à dire : affecter les deux variables de sorte que le tu
 
 Remarquons que les parenthèses ici sont optionnelles - comme lorsque l'on construit un tuple - et on peut tout aussi bien écrire, et c'est le cas d'usage le plus fréquent d'omission des parenthèses pour le tuple :
 
-```{code-cell}
+```{code-cell} ipython3
 gauche, droite = couple
 print('gauche', gauche, 'droite', droite)
 ```
@@ -93,7 +98,7 @@ Cette technique fonctionne aussi bien avec d'autres types. Par exemple, on peut 
 * une syntaxe de liste à gauche du `=` ;
 * une liste comme expression à droite du `=`.
 
-```{code-cell}
+```{code-cell} ipython3
 # comme ceci
 liste = [1, 2, 3]
 [gauche, milieu, droit] = liste
@@ -102,7 +107,7 @@ print('gauche', gauche, 'milieu', milieu, 'droit', droit)
 
 Et on n'est même pas obligés d'avoir le même type à gauche et à droite du signe `=`, comme ici :
 
-```{code-cell}
+```{code-cell} ipython3
 # membre droit: une liste
 liste = [1, 2, 3]
 # membre gauche : un tuple
@@ -128,7 +133,7 @@ La plupart du temps le terme de gauche est écrit comme un tuple. C'est pour cet
 
 Une caractéristique intéressante de l'affectation par *sequence unpacking* est qu'elle est sûre ; on n'a pas à se préoccuper d'un éventuel ordre d'évaluation, les valeurs **à droite** de l'affectation sont **toutes** évaluées en premier, et ainsi on peut par exemple échanger deux variables comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 a = 1
 b = 2
 a, b = b, a
@@ -141,7 +146,7 @@ print('a', a, 'b', b)
 
 Le *extended unpacking* a été introduit en Python 3 ; commençons par en voir un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 reference = [1, 2, 3, 4, 5]
 a, *b, c = reference
 print(f"a={a} b={b} c={c}")
@@ -151,7 +156,7 @@ Comme vous le voyez, le mécanisme ici est une extension de *sequence unpacking*
 
 Cette variable est interprétée comme une **liste de longueur quelconque** des éléments de `reference`. On aurait donc aussi bien pu écrire :
 
-```{code-cell}
+```{code-cell} ipython3
 reference = range(20)
 a, *b, c = reference
 print(f"a={a} b={b} c={c}")
@@ -159,7 +164,7 @@ print(f"a={a} b={b} c={c}")
 
 Ce trait peut s'avérer pratique, lorsque par exemple on s'intéresse seulement aux premiers éléments d'une structure :
 
-```{code-cell}
+```{code-cell} ipython3
 # si on sait que data contient prenom, nom, 
 # et un nombre inconnu d'autres informations
 data = [ 'Jean', 'Dupont', '061234567', '12', 'rue du four', '57000', 'METZ', ]
@@ -185,7 +190,7 @@ On a vu les principaux cas d'utilisation de la *sequence unpacking*, voyons à p
 
 On peut utiliser **plusieurs fois** la même variable dans la partie gauche de l'affectation :
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci en toute rigueur est légal
 # mais en pratique on évite de le faire
 entree = [1, 2, 3]
@@ -195,13 +200,13 @@ print(f"a = {a}")
 
 **Attention** toutefois, comme on le voit ici, Python **n'impose pas** que les différentes occurrences de `a` correspondent **à des valeurs identiques** (en langage savant, on dirait que cela ne permet pas de faire de l'unification). De manière beaucoup plus pragmatique, l'interpréteur se contente de faire comme s'il faisait l'affectation plusieurs fois de gauche à droite, c'est-à-dire comme s'il faisait :
 
-```{code-cell}
+```{code-cell} ipython3
 a = 1; a = 2; a = 3
 ```
 
 Cette technique n'est utilisée en pratique que pour les parties de la structure dont on n'a que faire dans le contexte. Dans ces cas-là, il arrive qu'on utilise le nom de variable `_`, dont on rappelle qu'il est légal, ou tout autre nom comme `ignored` pour manifester le fait que cette partie de la structure ne sera pas utilisée, par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 entree = [1, 2, 3]
 
 _, milieu, _ = entree
@@ -217,27 +222,27 @@ print('right', right)
 
 Le *sequence unpacking* ne se limite pas au premier niveau dans les structures, on peut extraire des données plus profondément imbriquées dans la structure de départ ; par exemple avec en entrée la liste :
 
-```{code-cell}
+```{code-cell} ipython3
 structure = ['abc', [(1, 2), ([3], 4)], 5]
 ```
 
 Si on souhaite extraire la valeur qui se trouve à l'emplacement du `3`, on peut écrire :
 
-```{code-cell}
+```{code-cell} ipython3
 (a, (b, ((trois,), c)), d) = structure
 print('trois', trois)
 ```
 
 Ou encore, sans doute un peu plus lisible :
 
-```{code-cell}
+```{code-cell} ipython3
 (a, (b, ([trois], c)), d) = structure
 print('trois', trois)
 ```
 
 Naturellement on aurait aussi bien pu écrire ici quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 trois = structure[1][1][0][0]
 print('trois', trois)
 ```
@@ -252,14 +257,14 @@ Affaire de goût évidemment. Mais n'oublions pas une des phrases du Zen de Pyth
 
 On peut naturellement ajouter de l'*extended unpacking* à n'importe quel étage d'un *unpacking* imbriqué :
 
-```{code-cell}
+```{code-cell} ipython3
 # un exemple très alambiqué 
 tree = [1, 2, [(3, 33, 'three', 'thirty-three')],
         ( [4, 44, ('forty', 'forty-four')])]
 tree
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # unpacking avec plusieurs variables *extended
 *_,  ((_, *x3, _),), (*_, x4) = tree
 print(f"x3={x3}, x4={x4}")

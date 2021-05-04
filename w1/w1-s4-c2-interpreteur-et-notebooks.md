@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Modes d'ex\xE9cution"
 version: '3.0'
 ---
@@ -143,7 +148,7 @@ Ce comportement peut paraître un peu déroutant au début, mais comme nous l'av
 
 Voici à présent le même programme dans un notebook :
 
-```{code-cell}
+```{code-cell} ipython3
 10 * 10
 20 * 20
 30 * 30
@@ -159,7 +164,7 @@ Lorsqu'on exécute cette cellule (rappel : sélectionner la cellule, et utilise
 
 Ainsi, pour afficher un résultat intermédiaire, on utilise l'instruction `print`. Nous verrons cette instruction en détail dans les semaines qui viennent, mais en guise d'introduction disons seulement que c'est une fonction comme les autres en Python 3.
 
-```{code-cell}
+```{code-cell} ipython3
 a = 10
 b = 20
 
@@ -168,11 +173,11 @@ print(a, b)
 
 On peut naturellement mélanger des objets de plusieurs types, et donc mélanger des chaînes de caractères et des nombres pour obtenir un résultat un peu plus lisible. En effet, lorsque le programme devient gros, il est important de savoir à quoi correspond une ligne dans le flot de toutes les impressions. Aussi on préfèrera quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 print("a =", a, "et b =", b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou encore, équivalente mais avec un f-string
 print(f"a = {a} et b = {b}")
 ```
@@ -189,7 +194,7 @@ Remarquons enfin que l'affectation à une variable ne retourne aucun résultat.
 
 C'est-à-dire, en pratique, que si on écrit :
 
-```{code-cell}
+```{code-cell} ipython3
 a = 100
 ```
 
@@ -199,7 +204,7 @@ même une fois l'expression évaluée par l'interpréteur, aucune ligne `Out[]` 
 
 C'est pourquoi, il nous arrivera parfois d'écrire, notamment lorsque l'expression est complexe et pour rendre explicite la valeur qui vient d'être affectée :
 
-```{code-cell}
+```{code-cell} ipython3
 a = 100; print(a)
 ```
 

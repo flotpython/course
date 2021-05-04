@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Instruction pass
 version: '3.0'
 ---
@@ -50,7 +55,7 @@ void foo() {}
 
 Comme en Python on n'a pas d'accolade pour délimiter les blocs de code, il existe une instruction `pass`, qui ne fait rien. À l'aide de cette instruction on peut à présent définir une fonction vide comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction Python qui ne fait rien
 def foo():
     pass
@@ -62,7 +67,7 @@ def foo():
 
 Pour prendre un second exemple un peu plus pratique, et pour anticiper un peu sur l'instruction `while` que nous verrons très bientôt, voici un exemple d'une boucle vide, c'est à dire sans corps, qui permet de "dépiler" dans une liste jusqu'à l'obtention d'une certaine valeur :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = list(range(10))
 print('avant', liste)
 while liste.pop() != 5:
@@ -80,14 +85,14 @@ On voit qu'ici encore l'instruction `pass` a toute son utilité.
 
 ### Un `if` sans `then`
 
-```{code-cell}
+```{code-cell} ipython3
 # on utilise dans ces exemples une condition fausse
 condition = False
 ```
 
 Imaginons qu'on parte d'un code hypothétique qui fasse ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # la version initiale
 if condition:
     print("non")
@@ -109,7 +114,7 @@ else:
 
 Évidemment ceci pourrait être récrit autrement en inversant la condition, mais parfois on s'efforce de limiter au maximum l'impact d'une modification sur le code. Dans ce genre de situation on préférera écrire plutôt :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut s'en sortir en ajoutant une instruction pass
 if condition:
 #    print "non"
@@ -124,11 +129,11 @@ else:
 
 Enfin, comme on vient de le voir dans la vidéo, on peut aussi utiliser `pass` pour définir une classe vide comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Foo:
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 foo = Foo()
 ```

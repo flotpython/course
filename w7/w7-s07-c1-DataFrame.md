@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: DataFrame
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 Une `DataFrame` est un tableau `numpy` à deux dimensions avec un index pour les lignes et un index pour les colonnes. Il y a de nombreuses manières de construire une `DataFrame`.
 
-```{code-cell}
+```{code-cell} ipython3
 # Regardons la construction d'une DataFrame
 import numpy as np
 import pandas as pd
@@ -56,40 +61,40 @@ print(stat)
 
 On remarque que `pandas` fait automatiquement l'alignement des index, lorsqu'une valeur n'est pas présente, elle est automatiquement remplacée par `NaN`. `Panda` va également broadcaster une valeur unique définissant une colonne sur toutes les lignes. Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 stat = pd.DataFrame({'age': age, 'height': height, 'city': 'Nice'})
 print(stat)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # On peut maintenant accéder aux index des lignes et des colonnes
 
 # l'index des lignes
 print(stat.index)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # l'index des colonnes
 print(stat.columns)
 ```
 
 Il y a de nombreuses manières d'accéder aux éléments de la `DataFrame`, certaines sont bonnes et d'autres à proscrire, commençons par prendre de bonnes habitudes. Comme il s'agit d'une structure à deux dimensions, il faut donner un indice de ligne et de colonne :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # Quel est l'âge de alice
 a = stat.loc['alice', 'age']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # a est un flottant
 type(a), a
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # Quel est la moyenne de tous les âges
@@ -98,14 +103,14 @@ m = c.mean()
 print(f"L'âge moyen est de {m:.1f} ans.")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # c est une Series
 type(c)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et m est un flottant
@@ -122,7 +127,7 @@ On peut déjà noter plusieurs choses intéressantes :
 
 Une autre manière de construire une `DataFrame` est de partir d'un `array` de `numpy`, et de spécifier les index pour les lignes et les colonnes avec les arguments `index` et `columns` :
 
-```{code-cell}
+```{code-cell} ipython3
 a = np.random.randint(1, 20, 9).reshape(3, 3)
 p = pd.DataFrame(a, index=['a', 'b', 'c'], columns=['x', 'y', 'z'])
 print(p)
@@ -138,19 +143,19 @@ En pratique, il est très fréquent que les données qu'on manipule soient stock
 
 À titre d'illustration écrivons la `DataFrame` `p` dans différents formats.
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivons notre DataFrame dans un fichier CSV
 p.to_csv('my_data.csv')
 !cat my_data.csv
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et dans un fichier JSON
 p.to_json('my_data.json')
 !cat my_data.json
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut maintenant recharger notre fichier
 # la conversion en DataFrame est automatique
 new_p = pd.read_json('my_data.json')
@@ -165,7 +170,7 @@ Pour la gestion des autres formats, comme il s'agit de quelque chose de très sp
 
 ### Manipulation d'une `DataFrame`
 
-```{code-cell}
+```{code-cell} ipython3
 # construisons maintenant une DataFrame jouet
 
 # voici une liste de prénoms
@@ -181,7 +186,7 @@ p = pd.DataFrame({'age': age, 'height': height, 'sex': sex})
 print(p)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et chargeons le jeux de données sur les pourboires de seaborn
 import seaborn as sns
 tips = sns.load_dataset('tips')
@@ -189,32 +194,32 @@ tips = sns.load_dataset('tips')
 
 `pandas` offre de nombreuses possibilités d'explorer les données. Attention, dans mes exemples je vais alterner entre le `DataFrame` `p` et le `DataFrame` `tips` suivant les besoins de l'explication.
 
-```{code-cell}
+```{code-cell} ipython3
 # afficher les premières lignes
 tips.head()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et les dernière lignes
 tips.tail()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # l'index des lignes
 p.index
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et l'index des colonnes
 p.columns
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et afficher uniquement les valeurs
 p.values
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # échanger lignes et colonnes
@@ -224,12 +229,12 @@ p.T
 
 Pour finir, il y a la méthodes `describe` qui permet d'obtenir des premières statistiques sur un `DataFrame`. `describe` permet de calculer des statistiques sur des type numériques, mais aussi sur des types chaînes de caractères.
 
-```{code-cell}
+```{code-cell} ipython3
 # par défaut describe ne prend en compte que les colonnes numériques
 p.describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais on peut le forcer à prendre en compte toutes les colonnes
 p.describe(include='all')
 ```
@@ -240,12 +245,12 @@ p.describe(include='all')
 
 On peut maintenant commencer à faire des requêtes sur les `DataFrames`. Les `DataFrame` supportent la notion de masque que l'on a vue pour les `ndarray` de `numpy` et pour les `Series`.
 
-```{code-cell}
+```{code-cell} ipython3
 # p.loc prend soit un label de ligne
 print(p.loc['sonia'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou alors un label de ligne ET de colonne
 print(p.loc['sonia', 'age'])
 ```
@@ -263,14 +268,14 @@ Je recommande de toujours utiliser la notation `.loc[lignes, colonnes]` pour év
 
 Regardons maintenant d'autres exemples plus sophistiqués :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un masque sur les femmes
 p.loc[:, 'sex'] == 'f'
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si bien que pour construire un tableau
@@ -278,25 +283,25 @@ p.loc[:, 'sex'] == 'f'
 p.loc[p.loc[:, 'sex'] == 'f', :]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si on veut ne garder uniquement
 # que les femmes de plus de 14 ans
 p.loc[(p.loc[:, 'sex'] == 'f') & (p.loc[:, 'age'] > 14), :]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # quelle est la moyenne de 'total_bill' pour les femmes
 addition_f = tips.loc[tips.loc[:, 'sex'] == 'Female', 'total_bill'].mean()
 print(f"addition moyenne des femmes : {addition_f:.2f}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # quelle est la note moyenne des hommes
 addition_h = tips.loc[tips.loc[:, 'sex'] == 'Male', 'total_bill'].mean()
 print(f"addition moyenne des hommes : {addition_h:.2f}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # qui laisse le plus grand pourcentage de pourboire :
 # les hommes ou les femmes ?
 
@@ -315,32 +320,32 @@ Nous avons vu une manière simple et non ambiguë de faire des requêtes sur les
 
 **Souvenez-vous, utilisez toujours la notation `.loc[lignes, colonnes]` sinon, soyez sûr de savoir ce qui est réellement calculé**.
 
-```{code-cell}
+```{code-cell} ipython3
 # commençons par la notation la plus classique
 p['sex']  # prend forcément un label de colonne
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais par contre, si on passe un slice, c'est forcément des lignes,
 # assez perturbant et source de confusion.
 p['alice': 'marc']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut même directement accéder à une colonne par son nom
 p.age
 ```
 
 Mais c'est **fortement déconseillé** parce que si un attribut de même nom existe sur une `DataFrame`, alors la priorité est donnée à l'attribut, et non à la colonne :
 
-```{code-cell}
+```{code-cell} ipython3
 # ajoutons une colonne qui a pour nom une méthode qui existe sur
 # les DataFrame
 p['mean'] = 1
 print(p)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # je peux bien accéder
@@ -348,19 +353,19 @@ print(p)
 p.sex
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais pas à la colonne mean
 p.mean
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # à nouveau, la seule méthode non ambiguë est d'utiliser .loc
 p.loc[:, 'mean']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # supprimons maintenant la colonne mean *en place* (par défaut,
 # drop retourne une nouvelle DataFrame)
 p.drop(columns='mean', inplace=True)
@@ -379,13 +384,13 @@ Pour aller plus loin, vous pouvez lire la documentation officielle :
 
 Ça n'est pas une surprise, les `Series` et `DataFrame` de `pandas` supportent les `ufunc` de `numpy`. Mais il y a une subtilité. Il est parfaitement légitime et correct d'appliquer une `ufunc` de `numpy` sur les éléments d'une `DataFrame` :
 
-```{code-cell}
+```{code-cell} ipython3
 d = pd.DataFrame(np.random.randint(
     1, 10, 9).reshape(3, 3), columns=list('abc'))
 print(d)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 np.log(d)
 ```
 
@@ -397,7 +402,7 @@ Par contre, si l'on a besoin d'alignement de labels, c'est le cas avec toutes le
 
 Pour avoir un alignement des labels, il faut utiliser les `ufunc` de `pandas`.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # prenons deux Series
@@ -406,7 +411,7 @@ s1 = pd.Series([10, 20, 30],
 print(s1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 #
@@ -415,7 +420,7 @@ s2 = pd.Series([12, 22, 32],
 print(s2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la ufunc numpy fait la somme
@@ -424,7 +429,7 @@ print(s2)
 np.add(s1, s2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la ufunc pandas va faire
@@ -433,14 +438,14 @@ np.add(s1, s2)
 s1.add(s2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # comme on l'a vu sur le complément précédent, les valeurs absentes sont
 # remplacées par NaN, mais on peut changer ce comportement lors de
 # l'appel de .add
 s1.add(s2, fill_value=0)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons un autre exemple sur des DataFrame
 # on affiche tout ça dans les cellules suivantes
 names = ['alice', 'bob', 'charle']
@@ -454,27 +459,27 @@ apples = pd.Series([8, 5], index=names[1:])
 fruits_feb = pd.DataFrame({'bananas': bananas, 'apples': apples})
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ce qui donne
 fruits_jan
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et
 fruits_feb
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons maintenant la somme des fruits mangés
 eaten_fruits = fruits_jan + fruits_feb
 print(eaten_fruits)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # On a bien un alignement des labels, mais il y a beaucoup de valeurs
 # manquantes. Corrigeons cela on remplaçant les valeurs manquantes par 0
 eaten_fruits = fruits_jan.add(fruits_feb, fill_value=0)
@@ -487,14 +492,14 @@ Notons que lorsqu'une valeur est absente dans toutes les `DataFrame`, `NaN` est 
 
 Un dernière subtilité à connaître lors de l'alignement des labels intervient lorsque vous faites une opération sur une `DataFrame` et une `Series`. `pandas` va considérer la `Series` comme une ligne et va la broadcaster sur les autres lignes. Par conséquent, l'index de la `Series` va être considéré comme des colonnes et aligné avec les colonnes de la `DataFrame`.
 
-```{code-cell}
+```{code-cell} ipython3
 dataframe = pd.DataFrame(
     np.random.randint(1, 10, size=(3, 3)),
     columns=list('abc'), index=list('xyz'))
 dataframe
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 series_row = pd.Series(
@@ -503,7 +508,7 @@ series_row = pd.Series(
 series_row
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 series_col = pd.Series(
@@ -512,7 +517,7 @@ series_col = pd.Series(
 series_col
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la Series est considérée comme une ligne et son index
 # s'aligne sur les colonnes de la DataFrame
 # la Series va être broadcastée
@@ -521,14 +526,14 @@ series_col
 dataframe + series_row
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # du coup si les labels ne correspondent pas,
 # le résultat sera le suivant
 
 dataframe + series_col
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut dans ce cas, changer le comportement par défaut en forçant
 # l'alignement de la Series suivant un autre axe avec l'argument axis
 
@@ -555,14 +560,14 @@ Nous allons maintenant parler de la vectorisation des opérations sur les chaîn
 
 Regardons quelques exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 # Créons une Series avec des noms ayant une capitalisation inconsistante
 # et une mauvaise gestion des espaces
 names = ['alice ', '  bOB', 'Marc', 'bill', 3, ' JULIE ', np.NaN]
 age = pd.Series(names)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # nettoyons maintenant ces données
 
 # on met en minuscule
@@ -573,7 +578,7 @@ a = a.str.strip()
 a
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # comme les méthodes vectorisées retournent un objet de même type, on
 # peut les chaîner comme ceci
 
@@ -584,13 +589,13 @@ a
 
 On peut également utiliser l'indexation des `str` de manière vectorisée :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(a.str[-1])
@@ -622,25 +627,25 @@ Une valeur manquante peut-être représentée avec `pandas` soit par `np.NaN` so
 
 Illustrons ces propriétés :
 
-```{code-cell}
+```{code-cell} ipython3
 # une Series d'entiers
 s = pd.Series([1, 2])
 s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on insère un NaN, la Series est alors convertie en float64
 s[0] = np.NaN
 s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on réinitialise
 s = pd.Series([1, 2])
 s
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et on insère None
 s[0] = None
 
@@ -660,7 +665,7 @@ On remarque que l'ajout d'alias pour les méthodes est de nouveau une source de 
 
 On remarque également qu'alors que `isnull()` et `notnull()` sont des méthodes simples, `dropna()` et `fillna()` impliquent l'utilisation de stratégies. Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 # créons une DataFrame avec quelques valeurs manquantes
 names = ['alice', 'bob', 'charles']
 bananas = pd.Series([6, 1], index=names[:-1])
@@ -669,61 +674,61 @@ fruits_feb = pd.DataFrame({'bananas': bananas, 'apples': apples})
 print(fruits_feb)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fruits_feb.isna()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fruits_feb.notna()
 ```
 
 Par défaut, `dropna()` va enlever toutes les lignes qui contiennent au moins une valeur manquante. Mais on peut changer ce comportement avec des arguments :
 
-```{code-cell}
+```{code-cell} ipython3
 p = pd.DataFrame([[1, 2, np.NaN], [3, np.NaN, np.NaN], [7, 5, np.NaN]])
 print(p)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # comportement par défaut, j'enlève toutes les lignes avec au moins
 # une valeur manquante; il ne reste rien !
 p.dropna()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant, je fais l'opération par colonne
 p.dropna(axis=1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je fais l'opération par colonne si toute la colonne est manquante
 p.dropna(axis=1, how='all')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je fais l'opération par ligne si au moins 2 valeurs sont manquantes
 p.dropna(thresh=2)
 ```
 
 Par défaut, `fillna()` remplace les valeurs manquantes avec un argument pas défaut. Mais on peut ici aussi changer ce comportement. Regardons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 print(p)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je remplace les valeurs manquantes par -1
 p.fillna(-1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je remplace les valeurs manquantes avec la valeur suivante sur la colonne
 # bfill est pour back fill, c'est-à-dire remplace en arrière à partir des
 # valeurs existantes
 p.fillna(method='bfill')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je remplace les valeurs manquantes avec la valeur précédente sur la ligne
 # ffill est pour forward fill, remplace en avant à partir des valeurs
 # existantes
@@ -732,11 +737,11 @@ p.fillna(method='ffill', axis=1)
 
 Regardez l'aide de ces méthodes pour aller plus loin.
 
-```{code-cell}
+```{code-cell} ipython3
 p.dropna?
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 p.fillna?
 ```
 
@@ -775,7 +780,7 @@ Comme tous types d'index, et parce qu'un `MultiIndex` est une sous classe d'`Ind
 
 Regardons tout de suite un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # construisons une DataFrame jouet
 
 # voici une liste de prénoms
@@ -791,21 +796,21 @@ p = pd.DataFrame({'age': age, 'height': height, 'sex': sex})
 print(p)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # unstack, en première approximation, permet de passer d'une DataFrame à
 # une Series avec un MultiIndex
 s = p.unstack()
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et voici donc l'index de cette Series
 s.index
 ```
 
 Il existe évidemment des moyens de créer directement un `MultiIndex` et ensuite de le définir comme index d'une `Series` ou comme index de ligne ou colonne d'une `DataFrame` :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut créer un MultiIndex à partir d'une liste de liste
 names = ['alice', 'alice', 'alice', 'bob', 'bob', 'bob']
 age = [2014, 2015, 2016, 2014, 2015, 2016]
@@ -813,7 +818,7 @@ s_list = pd.Series([40, 42, 45, 38, 40, 40], index=[names, age])
 print(s_list)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou à partir d'un dictionnaire de tuples
 s_tuple = pd.Series({('alice', 2014): 40,
                      ('alice', 2015): 42,
@@ -825,7 +830,7 @@ s_tuple = pd.Series({('alice', 2014): 40,
 print(s_tuple)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou avec la méthode from_product()
 name = ['alice', 'bob']
 year = [2014, 2015, 2016]
@@ -836,7 +841,7 @@ print(s)
 
 On peut même nommer les niveaux d'un `MultiIndex`.
 
-```{code-cell}
+```{code-cell} ipython3
 name = ['alice', 'bob']
 year = [2014, 2015, 2016]
 i = pd.MultiIndex.from_product([name, year], names=['name', 'year'])
@@ -844,7 +849,7 @@ s = pd.Series([40, 42, 45, 38, 40, 40], index=i)
 print(s)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut changer le nom des niveaux du MultiIndex
 s.index.names = ['NAMES', 'YEARS']
 print(s)
@@ -852,7 +857,7 @@ print(s)
 
 Créons maintenant une `DataFrame` jouet avec des `MultiIndex` pour étudier comment accéder aux éléments de la `DataFrame`.
 
-```{code-cell}
+```{code-cell} ipython3
 index = pd.MultiIndex.from_product([[2013, 2014],
                                     [1, 2, 3]],
                                    names=['year',
@@ -875,29 +880,29 @@ Il y a plusieurs manières d'accéder aux éléments, mais une seule que l'on re
 
 **utilisez la notation `.loc[ligne, colonne], .iloc[ligne, colonne]`**.
 
-```{code-cell}
+```{code-cell} ipython3
 # pression en 2013 pour Bob
 mecanics_data.loc[2013, 'Bob']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour accéder aux sous niveaux du MultiIndex, on utilise des tuples
 mecanics_data.loc[(2013, 2), ('Bob', 'avant')]
 ```
 
 Le slice sur le `MultiIndex` est un peu délicat. On peut utiliser la notation `:` si on veut slicer sur tous les éléments d'un `MultiIndex`, sans prendre en compte un niveau. Si on spécifie les niveaux, il faut utiliser un objet `slice` ou `pd.IndexSlice` :
 
-```{code-cell}
+```{code-cell} ipython3
 # slice(None) signifie tous les éléments du niveau
 print(mecanics_data.loc[slice((2013, 2), (2014, 1)), ('Sue', slice(None))])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut utiliser la notation : si on ne distingue par les niveaux
 print(mecanics_data.loc[(slice(None), slice(1, 2)), :])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut aussi utiliser pd.IndexSlice pour slicer avec une notation
 # un peu plus concise
 idx = pd.IndexSlice

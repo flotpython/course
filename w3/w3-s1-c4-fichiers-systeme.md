@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Fichiers syst\xE8mes"
 version: '3.0'
 ---
@@ -74,7 +79,7 @@ Les deux fichiers en question sont ouverts par le *shell*, et passés à `monpro
 
 L'interpréteur Python vous expose ces trois fichiers sous la forme d'attributs du module `sys` :
 
-```{code-cell}
+```{code-cell} ipython3
 import sys
 for channel in (sys.stdin, sys.stdout, sys.stderr):
     print(channel)
@@ -94,7 +99,7 @@ On n'a pas extrêmement souvent besoin d'utiliser ces variables en règle géné
 
 Par exemple, l'instruction `print` écrit dans `sys.stdout` (c'est-à-dire la sortie standard). Et comme `sys.stdout` est une variable (plus exactement `stdout` est un attribut dans le module référencé par la variable `sys`) et qu'elle référence un objet fichier, on peut lui faire référencer un autre objet fichier et ainsi rediriger depuis notre programme tous les sorties, qui sinon iraient sur le terminal, vers un fichier de notre choix :
 
-```{code-cell}
+```{code-cell} ipython3
 # ici je fais exprès de ne pas utiliser un `with`
 # car très souvent les deux redirections apparaissent
 # dans des fonctions différentes
@@ -117,7 +122,7 @@ autre_stdout.close()
 print('de nouveau sur le terminal')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et en effet, dans le fichier on a bien
 with open("ma_sortie.txt", encoding='utf-8') as check:
     print(check.read())

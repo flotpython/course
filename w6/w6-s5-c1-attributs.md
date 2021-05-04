@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Les attributs
 version: '3.0'
 ---
@@ -51,7 +56,7 @@ Pour accéder programmativement aux attributs d'un objet, on dispose des 3 fonct
 
 ##### Lire un attribut
 
-```{code-cell}
+```{code-cell} ipython3
 import math
 # nous savons lire un attribut comme ceci 
 # qui lit l'attribut de nom 'pi' dans le module math
@@ -60,13 +65,13 @@ math.pi
 
 La [fonction *built-in* `getattr`](https://docs.python.org/3/library/functions.html#getattr) permet de lire un attribut programmativement :
 
-```{code-cell}
+```{code-cell} ipython3
 # si on part d'une chaîne qui désigne le nom de l'attribut
 # la formule équivalente est alors
 getattr(math, 'pi')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut utiliser les attributs avec la plupart des objets
 # ici nous allons le faire sur une fonction
 def foo(): 
@@ -77,7 +82,7 @@ def foo():
 print(f"nom={foo.__name__}, docstring=`{foo.__doc__}`")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut préciser une valeur par défaut pour le cas où l'attribut
 # n'existe pas
 getattr(foo, "attribut_inexistant", 'valeur_par_defaut')
@@ -85,7 +90,7 @@ getattr(foo, "attribut_inexistant", 'valeur_par_defaut')
 
 ##### Écrire un attribut
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut ajouter un attribut arbitraire (toujours sur l'objet fonction)
 foo.hauteur = 100
 
@@ -94,7 +99,7 @@ foo.hauteur
 
 Comme pour la lecture on peut écrire un attribut programmativement avec la [fonction *built-in* `setattr`](https://docs.python.org/3/library/functions.html#setattr) :
 
-```{code-cell}
+```{code-cell} ipython3
 # écrire un attribut avec setattr
 setattr(foo, "largeur", 200)
 
@@ -109,14 +114,14 @@ foo.largeur
 
 La [fonction *built-in* `hasattr`](https://docs.python.org/3/library/functions.html#hasattr) permet de savoir si un objet possède ou pas un attribut :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour savoir si un attribut existe
 hasattr(math, 'pi')
 ```
 
 Ce qui peut aussi être retrouvé autrement, avec la [fonction *built-in* `vars`](https://docs.python.org/3/library/functions.html#vars) :
 
-```{code-cell}
+```{code-cell} ipython3
 vars(foo)
 ```
 
@@ -126,7 +131,7 @@ vars(foo)
 
 Il n'est pas possible d'ajouter des attributs sur les types de base, car ce sont des classes immuables :
 
-```{code-cell}
+```{code-cell} ipython3
 for builtin_type in (int, str, float, complex, tuple, dict, set, frozenset):
     obj = builtin_type()
     try: 

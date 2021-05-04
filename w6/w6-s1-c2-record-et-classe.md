@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Enregistrements et instances
 version: '3.0'
 ---
@@ -39,14 +44,14 @@ Nous reprenons ici la discussion commencée en semaine 3, où nous avions vu com
 
 Notre exemple était celui des personnes, et nous avions alors écrit quelque chose comme :
 
-```{code-cell}
+```{code-cell} ipython3
 pierre = {'nom': 'pierre', 'age': 25, 'email': 'pierre@foo.com'}
 print(pierre)
 ```
 
 Cette fois-ci nous allons implémenter la même abstraction, mais avec une classe `Personne` comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 class Personne:
     """Une personne possède un nom, un âge et une adresse e-mail"""
     
@@ -63,7 +68,7 @@ class Personne:
 
 Le code de cette classe devrait être limpide à présent ; voyons comment on l'utiliserait - en guise de rappel sur le passage d'arguments aux fonctions :
 
-```{code-cell}
+```{code-cell} ipython3
 personnes = [
 
     # on se fie à l'ordre des arguments dans le créateur
@@ -85,7 +90,7 @@ for personne in personnes:
 
 Nous pouvons appliquer exactement la même technique d'indexation qu'avec les dictionnaires :
 
-```{code-cell}
+```{code-cell} ipython3
 # on crée un index pour pouvoir rechercher efficacement
 # une personne par son nom
 index_par_nom = {personne.nom: personne for personne in personnes}
@@ -93,7 +98,7 @@ index_par_nom = {personne.nom: personne for personne in personnes}
 
 De façon à pouvoir facilement localiser une personne :
 
-```{code-cell}
+```{code-cell} ipython3
 pierre = index_par_nom['pierre']
 print(pierre)
 ```
@@ -104,7 +109,7 @@ print(pierre)
 
 Pour marquer l'anniversaire d'une personne, nous pourrions faire :
 
-```{code-cell}
+```{code-cell} ipython3
 pierre.age += 1
 pierre
 ```
@@ -131,7 +136,7 @@ Pour cela on tire simplement profit du fait que **les méthodes sont implément�
 
 Ainsi, on peut étendre l'objet `classe` lui-même dynamiquement :
 
-```{code-cell}
+```{code-cell} ipython3
 # pour une implémentation réelle voyez la bibliothèque smtplib
 # https://docs.python.org/3/library/smtplib.html
 
@@ -150,12 +155,12 @@ Ensuite, il suffit d'affecter la fonction ainsi définie à **l'attribut `sendma
 
 Vous voyez que c'est très simple, et à présent la classe a connaissance de cette méthode exactement comme si on l'avait définie dans la clause `class`, comme le montre l'aide :
 
-```{code-cell}
+```{code-cell} ipython3
 help(Personne)
 ```
 
 Et on peut à présent utiliser cette méthode :
 
-```{code-cell}
+```{code-cell} ipython3
 pierre.sendmail("Coucou", "Salut ça va ?")
 ```

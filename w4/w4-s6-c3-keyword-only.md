@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Arguments *keyword-only*
 version: '3.0'
 ---
@@ -42,32 +47,32 @@ Nous avons vu dans un précédent complément les 4 familles de paramètres qu'o
 
 Pour rappel :
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui combine les différents 
 # types de paramètres
 def foo(a, b=100, *args, **kwds):
     print(f"a={a}, b={b}, args={args}, kwds={kwds}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 foo(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 foo(1, 2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 foo(1, 2, 3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 foo(1, 2, 3, bar=1000)
@@ -109,7 +114,7 @@ Pour résumer, il est maintenant possible de déclarer des **paramètres nommés
 
 Voyons cela sur un exemple
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut déclarer un paramètre nommé **après** l'attrape-tout *args
 def bar(a, *args, b=100, **kwds):
         print(f"a={a}, b={b}, args={args}, kwds={kwds}")
@@ -117,21 +122,21 @@ def bar(a, *args, b=100, **kwds):
 
 L'effet de cette déclaration est que, si je veux passer un argument au paramètre `b`, **je dois le nommer**
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # je peux toujours faire ceci
 bar(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # mais si je fais ceci l'argument 2 va aller dans args
 bar(1, 2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour passer b=2, je **dois** nommer mon argument
 bar(1, b=2)
 ```

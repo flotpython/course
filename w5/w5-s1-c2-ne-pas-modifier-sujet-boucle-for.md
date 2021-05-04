@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Limite de la boucle for
 version: '3.0'
 ---
@@ -33,13 +38,13 @@ Pour ceux qui veulent suivre le cours au niveau basique, retenez seulement que d
 
 Ainsi par exemple il ne **faut pas faire** quelque chose comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # on veut enlever de l'ensemble toutes les chaînes 
 # qui ne contiennent pas 'bert'
 ensemble = {'marc', 'albert'}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # ceci semble une bonne idée mais ne fonctionne pas
@@ -56,14 +61,14 @@ for valeur in ensemble:
 
 Première remarque, votre premier réflexe pourrait être de penser à une compréhension d'ensemble :
 
-```{code-cell}
+```{code-cell} ipython3
 ensemble2 = {valeur for valeur in ensemble if 'bert' in valeur}
 ensemble2
 ```
 
 C'est sans doute la meilleure solution. Par contre, évidemment, on n'a pas modifié l'objet ensemble initial, on a créé un nouvel objet. En supposant que l'on veuille modifier l'objet initial, il nous faut faire la boucle sur une *shallow copy* de cet objet. Notez qu'ici, il ne s'agit d'économiser de la mémoire, puisque l'on fait une *shallow copy*.
 
-```{code-cell}
+```{code-cell} ipython3
 from copy import copy
 # on veut enlever de l'ensemble toutes les chaînes 
 # qui ne contiennent pas 'bert'
@@ -97,12 +102,12 @@ On ne doit pas modifier la **composition de l'objet en tant qu'itérable**, mais
 
 Ainsi cette construction par contre est tout à fait valide :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = [[1], [2], [3]]
 print('avant', liste)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 for sous_liste in liste:
     sous_liste.append(100)
 print('après', liste)

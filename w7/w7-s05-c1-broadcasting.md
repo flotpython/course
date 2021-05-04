@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Broadcasting
 version: '3.0'
 ---
@@ -23,7 +28,7 @@ version: '3.0'
 
 # Le *broadcasting*
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
@@ -33,7 +38,7 @@ import numpy as np
 
 Lorsque l'on a parlé de programmation vectorielle, on a vu que l'on pouvait écrire quelque chose comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 X = np.linspace(0, 2 * np.pi)
 Y = np.cos(X) + np.sin(X) + 2
 ```
@@ -60,7 +65,7 @@ En fait, le *broadcasting* est ce qui permet :
 
 Nous allons commencer par quelques exemples simples, avant de généraliser le mécanisme. Pour commencer, nous nous donnons un tableau de base :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -78,13 +83,13 @@ Pour commencer, je vais donc ajouter à mon tableau de base un scalaire :
 
 ### Broadcasting entre les dimensions `(3, 5)` et `(1,)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b = 3
@@ -97,7 +102,7 @@ print(b)
 
 Lorsque j'ajoute ces deux tableaux, c'est comme si j'avais ajouté à `a` la différence :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour élaborer c
@@ -105,7 +110,7 @@ c = a + b
 print(c)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # c'est comme si j'avais
@@ -131,7 +136,7 @@ Je précise que cette explication est du domaine du modèle pédagogique ; je n
 
 Voyons maintenant un cas un peu moins évident. Je peux ajouter à mon tableau de base une ligne, c'est-à-dire un tableau de taille `(5, )`. Voyons cela :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -140,14 +145,14 @@ slideshow:
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b = np.arange(1, 6)
 print(b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b.shape
@@ -161,7 +166,7 @@ b.shape
 
 Ici encore, je peux ajouter les deux termes :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # je peux ici encore
@@ -170,7 +175,7 @@ c = a + b
 print(c)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et c'est comme si j'avais
@@ -188,14 +193,14 @@ depuis la dimension `(5,)`
 
 vers la dimension `(3, 5)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # départ
 print(b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # arrivée
@@ -212,7 +217,7 @@ Vous commencez à mieux voir comment ça fonctionne ; s'il existe une direction
 
 Au lieu d'ajouter à `a` une ligne, on peut lui ajouter une colonne, pourvu qu'elle ait la même taille que les colonnes de `a` :
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -221,7 +226,7 @@ slideshow:
 print(a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 b = np.arange(1, 4).reshape(3, 1)
@@ -236,14 +241,14 @@ print(b)
 
 Voyons comment se passe le broadcasting dans ce cas-là :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 c = a + b
 print(c)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(c - a)
@@ -259,14 +264,14 @@ depuis la dimension `(3, 1)`
 
 vers la dimension `(3, 5)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # départ
 print(b)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # arrivée
@@ -281,14 +286,14 @@ print(c - a)
 
 Nous avons maintenant tous les éléments en main pour comprendre un exemple plus intéressant, où les deux tableaux ont des formes pas vraiment compatibles à première vue :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 col = np.arange(1, 4).reshape((3, 1))
 print(col)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -306,7 +311,7 @@ print(line)
 
 Grâce au broadcasting, on peut additionner ces deux tableaux pour obtenir ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 m = col + line
@@ -329,13 +334,13 @@ transformé la colonne `(3, 1)`
 
 en tableau `(3, 5)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(col)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(col + np.zeros(5, dtype=np.int_))
@@ -349,13 +354,13 @@ et transformé la ligne `(1, 5)`
 
 en tableau `(3, 5)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(line)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(line + np.zeros(3, dtype=np.int_).reshape((3, 1)))
@@ -440,34 +445,34 @@ Comme vous le voyez sur tous ces exemples :
 
 Comme c'est un cours de Python, plutôt que de formaliser ça sous une forme mathématique - je vous le laisse en exercice - je vais vous proposer plutôt une fonction Python qui détermine si deux tuples sont des `shape` compatibles de ce point de vue.
 
-```{code-cell}
+```{code-cell} ipython3
 # le module broadcasting n'est pas standard
 # c'est moi qui l'ai écrit pour illustrer le cours
 from broadcasting import compatible, compatible2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut dupliquer selon un axe
 compatible((15, 3, 5), (15, 1, 5))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou selon deux axes
 compatible((15, 3, 5), (5,))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # c'est bien clair que non
 compatible((2,), (3,))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on ne peut pas passer de 2 à 4

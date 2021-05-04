@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: classe Temperature
 version: '3.0'
 ---
@@ -45,14 +50,14 @@ Le système de correction automatique a besoin également que votre classe défi
 
 Pour simplifier cet aspect de l'exercice, on a choisi d'arrondir à `0°C = 273°K`, et de ne manipuler que des valeurs entières.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.cls_temperature import exo_temperature
 exo_temperature.example()
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 
 class Temperature:
@@ -66,36 +71,36 @@ class Temperature:
         return f"xxx"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # correction
 exo_temperature.correction(Temperature)
 ```
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # peut-être utile pour debugger ?
 K00 = Temperature()
 K0 = Temperature(kelvin=0)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 K0 == K00 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 C0  = Temperature(celsius=0)
 C00 = Temperature(kelvin=Temperature.K)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 C0 == C00
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 C0
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 C00
 ```

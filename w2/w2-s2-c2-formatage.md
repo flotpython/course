@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -56,18 +61,18 @@ On désigne par formatage les outils qui permettent d'obtenir une présentation 
 
 Nous avons jusqu'à maintenant presque toujours utilisé la fonction `print` pour afficher nos résultats. Comme on l'a vu, celle-ci réalise un formatage sommaire&nbsp;: elle insère un espace entre les valeurs qui lui sont passées.
 
-```{code-cell}
+```{code-cell} ipython3
 print(1, 'a', 12 + 4j)
 ```
 
 La seule subtilité notable concernant `print` est que, par défaut, elle ajoute un saut de ligne à la fin. Pour éviter ce comportement, on peut passer à la fonction un argument `end`, qui sera inséré *au lieu* du saut de ligne. Ainsi par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # une première ligne
 print("une", "seule", "ligne")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # une deuxième ligne en deux appels à print
 print("une", "autre", end=' ')
 print("ligne")
@@ -75,7 +80,7 @@ print("ligne")
 
 Il faut remarquer aussi que `print` est capable d'imprimer **n'importe quel objet**. Nous l'avons déjà fait avec les listes et les tuples, voici par exemple un module :
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut imprimer par exemple un objet 'module'
 import math
 
@@ -84,7 +89,7 @@ print('le module math est', math)
 
 En anticipant un peu, voici comment `print` présente les instances de classe (ne vous inquiétez pas, nous apprendrons dans une semaine ultérieure ce que sont les classes et les instances).
 
-```{code-cell}
+```{code-cell} ipython3
 # pour définir la classe Personne
 class Personne:
     pass
@@ -93,7 +98,7 @@ class Personne:
 personne = Personne()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # voilà comment s'affiche une instance de classe
 print(personne)
 ```
@@ -120,12 +125,12 @@ Je vous recommande tout de même de lire les sections à propos de `format` et d
 
 Mais définissons d'abord quelques données à afficher :
 
-```{code-cell}
+```{code-cell} ipython3
 # donnons-nous quelques variables
 prenom, nom, age = 'Jean', 'Dupont', 35
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mon premier f-string
 f"{prenom} {nom} a {age} ans"
 ```
@@ -142,12 +147,12 @@ Ensuite vous remarquez que les zones délimitées entre `{}` sont remplacées. L
 
 Ça veut dire, en clair, que je peux faire des calculs à l'intérieur des `{}`.
 
-```{code-cell}
+```{code-cell} ipython3
 # toutes les expressions sont autorisées à l'intérieur d'un {}
 f"dans 10 ans {prenom} aura {age + 10} ans"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut donc aussi mettre des appels de fonction
 notes = [12, 15, 19]
 f"nous avons pour l'instant {len(notes)} notes"
@@ -165,7 +170,7 @@ Comme vous le voyez, les *f-strings* fournissent une méthode très simple et ex
 
 Avant l'introduction des *f-strings*, la technique recommandée pour faire du formatage était d'utiliser la méthode `format` qui est définie sur les objets `str` et qui s'utilise comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 "{} {} a {} ans".format(prenom, nom, age)
 ```
 
@@ -175,13 +180,13 @@ Dans cet exemple le plus simple, les données sont affichées en lieu et place d
 
 Cela convient bien lorsqu'on a peu de données. Si par la suite on veut changer l'ordre par exemple des nom et prénom, on peut bien sûr échanger l'ordre des arguments passés à format, ou encore utiliser la **liaison par position**, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 "{1} {0} a {2} ans".format(prenom, nom, age)
 ```
 
 Dans la pratique toutefois, cette forme est assez peu utile, on lui préfère souvent la **liaison par nom** qui se présente comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 ("{le_prenom} {le_nom} a {l_age} ans"
    .format(le_nom=nom, le_prenom=prenom, l_age=age))
 ```
@@ -192,7 +197,7 @@ Dans la pratique toutefois, cette forme est assez peu utile, on lui préfère so
 
 Reprenons : dans ce premier exemple de liaison par nom, nous avons délibérément utilisé des noms différents pour les données externes et pour les noms apparaissant dans le format, pour bien illustrer comment la liaison est résolue, mais on peut aussi bien faire tout simplement :
 
-```{code-cell}
+```{code-cell} ipython3
 "{prenom} {nom} a {age} ans".format(nom=nom, prenom=prenom, age=age)
 ```
 
@@ -216,7 +221,7 @@ Voici qui conclut notre courte introduction à la méthode `format`.
 
 Le principe de l'opérateur `%` est le suivant. On élabore comme ci-dessus un "format" c'est-à-dire le patron de ce qui doit être rendu, auquel on passe des arguments pour "remplir" les trous. Voyons les exemples de tout à l'heure avec l'opérateur `%` :
 
-```{code-cell}
+```{code-cell} ipython3
 # l'ancienne façon de formater les chaînes avec %
 # est souvent moins lisible
 "%s %s a %s ans" % (prenom, nom, age)
@@ -224,7 +229,7 @@ Le principe de l'opérateur `%` est le suivant. On élabore comme ci-dessus un "
 
 On pouvait également avec cet opérateur recourir à un mécanisme de liaison par nommage, en passant par un dictionnaire. Pour anticiper un tout petit peu sur cette notion que nous verrons très bientôt, voici comment
 
-```{code-cell}
+```{code-cell} ipython3
 variables = {'le_nom': nom, 'le_prenom': prenom, 'l_age': age}
 "%(le_nom)s, %(le_prenom)s, %(l_age)s ans" % variables
 ```
@@ -250,11 +255,11 @@ C'est typiquement le cas avec les valeurs flottantes pour lesquelles la précisi
 
 Voici comment on obtient une valeur de pi arrondie :
 
-```{code-cell}
+```{code-cell} ipython3
 from math import pi
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # un f-string
 f"2pi avec seulement 2 chiffres apres la virgule {2*pi:.2f}"
 ```
@@ -269,7 +274,7 @@ Vous remarquez que la façon de construire un *format* est la même pour les *f-
 
 Pour forcer un petit entier à s'afficher sur 4 caractères, avec des `0` ajoutés au début si nécessaire :
 
-```{code-cell}
+```{code-cell} ipython3
 x = 15
 
 f"{x:04d}"
@@ -285,7 +290,7 @@ Ici on utilise le format `d` (toutes ces lettres `d`, `f`, `g` viennent des form
 
 Dans certains cas, on a besoin d'afficher des données en colonnes de largeur fixe, on utilise pour cela les formats `<` `^` et `>` pour afficher à gauche, au centre, ou à droite d'une zone de largeur fixe :
 
-```{code-cell}
+```{code-cell} ipython3
 # les données à afficher
 comptes = [
  ('Apollin', 'Dupont', 127),

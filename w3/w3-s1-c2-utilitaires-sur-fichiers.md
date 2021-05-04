@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Fichiers et utilitaires
 version: '3.0'
 ---
@@ -96,13 +101,13 @@ Ceci nous donne un prétexte pour une première application pratique des notions
 
 De même que le langage nous propose les types *builtin* `int` et `str`, le module `pathlib` nous expose **un type** (on dira plutôt **une classe**) qui s'appelle `Path`, que nous allons importer comme ceci:
 
-```{code-cell}
+```{code-cell} ipython3
 from pathlib import Path
 ```
 
 Nous allons faire tourner un petit scénario qui va créer un fichier:
 
-```{code-cell}
+```{code-cell} ipython3
 # le nom de notre fichier jouet 
 nom = 'fichier-temoin'
 ```
@@ -111,14 +116,14 @@ Pour commencer, nous allons vérifier si le fichier en question existe.
 
 Pour ça nous créons un **objet** qui est une **instance** de la classe `Path`, comme ceci:
 
-```{code-cell}
+```{code-cell} ipython3
 # on crée un objet de la classe Path, associé au nom de fichier
 path = Path(nom)
 ```
 
 Vous remarquez que c'est cohérent avec par exemple:
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # transformer un float en int
@@ -139,25 +144,25 @@ path.[taper la touche TAB]
 
 et le notebook vous montrera la liste des méthodes disponibles.
 
-```{code-cell}
+```{code-cell} ipython3
 # ajouter un . et utilisez la touche <Tabulation>
 path
 ```
 
 Ainsi par exemple on peut savoir si le fichier existe avec la méthode `exists()`
 
-```{code-cell}
+```{code-cell} ipython3
 # au départ le fichier n'existe pas
 path.exists()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si j'écris dedans je le crée
 with open(nom, 'w', encoding='utf-8') as output:
     output.write('0123456789\n')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et maintenant il existe
 path.exists()
 ```
@@ -168,7 +173,7 @@ path.exists()
 
 Voici quelques exemples qui montrent comment accéder aux métadonnées de ce fichier:
 
-```{code-cell}
+```{code-cell} ipython3
 # cette méthode retourne (en un seul appel système) les métadonnées agrégées
 path.stat()
 ```
@@ -177,20 +182,20 @@ Pour ceux que ça intéresse, l'objet retourné par cette méthode `stat` est un
 
 On accède aux différentes informations comme ceci:
 
-```{code-cell}
+```{code-cell} ipython3
 # la taille du fichier en octets est de 11 
 # car il faut compter un caractère "newline" en fin de ligne 
 path.stat().st_size
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la date de dernière modification, sous forme d'un nombre
 # c'est le nombre de secondes depuis le 1er Janvier 1970
 mtime = path.stat().st_mtime
 mtime
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # que je peux rendre lisible comme ceci
 # en anticipant sur le module datetime
 from datetime import datetime
@@ -198,7 +203,7 @@ mtime_datetime = datetime.fromtimestamp(mtime)
 mtime_datetime
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou encore, si je formatte pour n'obtenir que
 # l'heure et la minute
 f"{mtime_datetime:%H:%M}"
@@ -206,12 +211,12 @@ f"{mtime_datetime:%H:%M}"
 
 ##### Détruire un fichier
 
-```{code-cell}
+```{code-cell} ipython3
 # je peux maintenant détruire le fichier
 path.unlink()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou encore mieux, si je veux détruire 
 # seulement dans le cas où il existe je peux aussi faire
 try: 
@@ -220,12 +225,12 @@ except FileNotFoundError:
     print("no need to remove")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et maintenant il n'existe plus
 path.exists()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je peux aussi retrouver le nom du fichier comme ceci
 # attention ce n'est pas une méthode mais un attribut 
 # c'est pourquoi il n'y a pas de parenthèses
@@ -240,13 +245,13 @@ Maintenant je voudrais connaître la liste des fichiers de nom `*.json` dans le 
 
 La méthode la plus naturelle consiste à créer une instance de `Path` associée au directory lui-même:
 
-```{code-cell}
+```{code-cell} ipython3
 dirpath = Path('./data/')
 ```
 
 Sur cet objet la méthode `glob` nous retourne un itérable qui contient ce qu'on veut:
 
-```{code-cell}
+```{code-cell} ipython3
 # tous les fichiers *.json dans le répertoire data/
 for json in dirpath.glob("*.json"):
     print(json)
@@ -266,20 +271,20 @@ Voyez [la documentation complète ici](https://docs.python.org/3/library/pathlib
 
 Pour ceux qui sont déjà familiers avec les classes, j'en profite pour vous faire remarquer le type de notre objet path
 
-```{code-cell}
+```{code-cell} ipython3
 type(path)
 ```
 
 qui n'est pas `Path`, mais en fait une sous-classe de `Path` qui est - sur la plateforme du MOOC au moins, qui fonctionne sous linux - un objet de type `PosixPath`, qui est une sous-classe de `Path`, comme vous pouvez le voir:
 
-```{code-cell}
+```{code-cell} ipython3
 from pathlib import PosixPath
 issubclass(PosixPath, Path)
 ```
 
 Ce qui fait que mécaniquement, path est bien une instance de `Path`
 
-```{code-cell}
+```{code-cell} ipython3
 isinstance(path, Path)
 ```
 

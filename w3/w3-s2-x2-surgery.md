@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: 'exercice: unpacking'
 version: '3.0'
 ---
@@ -33,19 +38,19 @@ Cet exercice consiste à écrire une fonction `surgery`, qui prend en argument u
 * si la liste est de taille paire, on intervertit les deux premiers éléments de la liste ;
 * si elle est de taille impaire, on intervertit les deux derniers éléments.
 
-```{code-cell}
+```{code-cell} ipython3
 # voici quelques exemples de ce qui est attendu
 from corrections.exo_surgery import exo_surgery
 exo_surgery.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # écrivez votre code
 def surgery(liste):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour le vérifier, évaluez cette cellule
 exo_surgery.correction(surgery)
 ```

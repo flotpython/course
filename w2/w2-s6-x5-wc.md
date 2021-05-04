@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Comptage dans une cha\xEEne"
 version: '3.0'
 ---
@@ -45,7 +50,7 @@ L'exercice consiste à écrire une fonction nommée *wc* qui prendra en argument
 2. le nombre de mots (un mot étant séparé par des espaces) ;
 3. le nombre de caractères (on utilisera uniquement le jeu de caractères ASCII).
 
-```{code-cell}
+```{code-cell} ipython3
 # exemple
 from corrections.exo_wc import exo_wc
 exo_wc.example()
@@ -59,14 +64,14 @@ exo_wc.example()
 
 À vous de jouer :
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction à implémenter
 def wc(string):
     # remplacer pass par votre code
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: fragment

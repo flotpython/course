@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -107,16 +112,16 @@ Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environn
 %matplotlib notebook
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # l'attirail de notebooks interactifs
 from ipywidgets import interact, fixed, FloatSlider, Dropdown
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # les imports pour bokeh
 from bokeh.plotting import figure, show
 # dans la rubrique entrée-sortie, on trouve
@@ -126,7 +131,7 @@ from bokeh.plotting import figure, show
 from bokeh.io import push_notebook, output_notebook
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est cette déclaration qui remplace
 # si on veut la magic  '%matplotlib notebook'
 output_notebook()
@@ -134,7 +139,7 @@ output_notebook()
 
 *****
 
-```{code-cell}
+```{code-cell} ipython3
 # on crée un objet figure
 figure1 = figure(
     title="fonctions trigonométriques",
@@ -145,7 +150,7 @@ figure1 = figure(
 )
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on initialise la figure en créant
 # un objet courbe
 x = np.linspace(0, 2*np.pi, 2000)
@@ -153,7 +158,7 @@ y = np.sin(x)
 courbe_trigo = figure1.line(x, y, color="#2222aa", line_width=3)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction de mise à jour, qui sera connectée
 # à interact
 def update_trigo(function, frequency=1,
@@ -169,13 +174,13 @@ def update_trigo(function, frequency=1,
     push_notebook(handle=handle)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # au moment où on matérialise l'objet figure
 # on récupère une `handle` qui lui correspond
 handle1 = show(figure1, notebook_handle=True)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # maintenant on peut créer un interacteur
 interact(update_trigo, 
          # on peut définir les options sont des tuples (label, valeur)
@@ -203,7 +208,7 @@ En effet par construction, nous devons partager des données entre l'initialisat
 
 Voici une approche qui va réaliser exactement la même fonction, mais basée sur une classe; on va tirer profit de l'instance pour ranger proprement toutes les données.
 
-```{code-cell}
+```{code-cell} ipython3
 # première version d'une classe d'animation
 
 class Animation:
@@ -239,12 +244,12 @@ class Animation:
                 )
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 a1 = Animation()
 a1.display(np.sin, "fonctions trigonométriques")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 a1.interact()
 ```
 
@@ -276,7 +281,7 @@ On veut ici écrire un outil qui déplace et déforme une distribution de points
 
 ****
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: '-'
@@ -294,13 +299,13 @@ def uniform_distribution(N):
     return circle_x, circle_y
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # regardons ça rapidement,  - avec matplotlib
 # pour vérifier que la répartition est bien homogène
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 plt.figure(figsize=(4, 4))
 X, Y = uniform_distribution(2000)
 plt.scatter(X, Y, marker='.', s=1, color='red');
@@ -308,7 +313,7 @@ plt.scatter(X, Y, marker='.', s=1, color='red');
 
 #### un peu de variété
 
-```{code-cell}
+```{code-cell} ipython3
 # et aussi: pour que ce soit plus joli 
 # et surtout plus facile à suivre visuellement
 # je tire au hasard des couleurs
@@ -336,7 +341,7 @@ def enhanced_uniform_distribution(N):
     return x, y, colors, radii
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est ici qu'on commence à faire du bokeh
 
 # j'applique la technique qu'on vient de voir
@@ -400,14 +405,14 @@ class AnimatedDistribution:
                               step=.05, value=0.))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 dist = AnimatedDistribution(1000)
 dist.show()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour déformer / déplacer
@@ -476,18 +481,18 @@ Simplement pour finir, j'aimerais revenir sur notre classe `Animation`.
 
 On pourrait même considérer qu'une instance de notre classe `Animation` **est** une figure, et donc envisager de la faire hériter d'une classe `bokeh.figure`; sauf qu'en fait `bokeh.figure` n'est pas une classe mais une fonction (une *factory*, c'est-à-dire une fonction qui contruit des instances) :
 
-```{code-cell}
+```{code-cell} ipython3
 # l'objet bokeh.figure est une factory, est pas une classe
 # comme on le devine grâce aux minuscules
 type(figure)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la classe c'est celle-ci:
 type(figure())
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # qu'on peut importer comme ceci
 from bokeh.plotting import Figure
 

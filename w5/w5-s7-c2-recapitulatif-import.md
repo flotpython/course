@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "R\xE9capitulatif import"
 version: '3.0'
 ---
@@ -39,13 +44,13 @@ Nous allons récapituler les différentes formes d'importation, et introduire la
 
 L'`import` le plus simple consiste donc à uniquement mentionner le nom du module
 
-```{code-cell}
+```{code-cell} ipython3
 import un_deux
 ```
 
 Ce module se contente de définir deux fonctions de noms `un` et `deux`. Une fois l'import réalisé de cette façon, on peut accéder au contenu du module en utilisant un nom de variable complet :
 
-```{code-cell}
+```{code-cell} ipython3
 # la fonction elle-même
 print(un_deux.un)
 
@@ -54,12 +59,12 @@ un_deux.un()
 
 Mais bien sûr on n'a pas de cette façon défini de nouvelle variable `un` ; la seule nouvelle variable dans la portée courante est donc `un_deux` :
 
-```{code-cell}
+```{code-cell} ipython3
 # dans l'espace de nommage courant on peut accéder au module lui-même
 print(un_deux)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais pas à la variable `un`
 try:
     print(un)
@@ -73,20 +78,20 @@ except NameError:
 
 On peut également importer un ou plusieurs symboles spécifiques d'un module en faisant maintenant (avec un nouveau module du même tonneau) :
 
-```{code-cell}
+```{code-cell} ipython3
 from un_deux_trois import un, deux
 ```
 
 À présent nous avons deux nouvelles variables dans la portée locale :
 
-```{code-cell}
+```{code-cell} ipython3
 un()
 deux()
 ```
 
 Et cette fois, c'est le module lui-même qui n'est pas accessible :
 
-```{code-cell}
+```{code-cell} ipython3
 try:
     print(un_deux_trois)
 except NameError:
@@ -95,13 +100,13 @@ except NameError:
 
 Il est important de voir que la variable locale ainsi créée, un peu comme dans le cas d'un appel de fonction, est une **nouvelle variable** qui est initialisée avec l'objet du module. Ainsi si on importe le module **et** une variable du module comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 import un_deux_trois
 ```
 
 alors nous avons maintenant **deux variables différentes** qui désignent la fonction `un` dans le module :
 
-```{code-cell}
+```{code-cell} ipython3
 print(un_deux_trois.un)
 print(un)
 print("ce sont deux façons d'accéder au même objet", un is un_deux_trois.un)
@@ -109,7 +114,7 @@ print("ce sont deux façons d'accéder au même objet", un is un_deux_trois.un)
 
 En on peut modifier l'une **sans affecter** l'autre :
 
-```{code-cell}
+```{code-cell} ipython3
 # les deux variables sont différentes
 # un n'est pas un 'alias' vers un_deux_trois.un
 un = 1
@@ -145,13 +150,13 @@ Et :
 
 Ces deux formes sont pratiques pour éviter les conflits de nom.
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple
 import un_deux as mod12
 mod12.un()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from un_deux import deux as m12deux
 m12deux()
 ```
@@ -162,13 +167,13 @@ m12deux()
 
 La dernière forme d'`import` consiste à importer toutes les variables d'un module comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 from un_deux_trois_quatre import *
 ```
 
 Cette forme, pratique en apparence, va donc créer dans l'espace de nommage courant les variables
 
-```{code-cell}
+```{code-cell} ipython3
 un()
 deux()
 trois()
@@ -231,7 +236,7 @@ et notamment sa fonction `import_module` qui, cette fois, accepte en argument un
 
 Voici une illustration dans un cas simple. Nous allons importer le module `modtools` (qui fait partie de ce MOOC) de deux façons différentes et montrer que le résultat est le même :
 
-```{code-cell}
+```{code-cell} ipython3
 # on importe la fonction 'import_module' du module 'importlib'
 from importlib import import_module
 

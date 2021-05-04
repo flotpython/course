@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Prog. fonctionelle
 version: '3.0'
 ---
@@ -55,7 +60,7 @@ Pour information dans cet exercice :
  * `factorial` correspond à `math.factorial`
  * `fact` et `broken_fact` sont des fonctions implémentées par nos soins, la première est correcte alors que la seconde retourne 0 au lieu de 1 pour l'entrée 0.
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple
 from corrections.exo_compare_all import exo_compare_all
 exo_compare_all.example()
@@ -63,13 +68,13 @@ exo_compare_all.example()
 
 Ce qui, dit autrement, veut tout simplement dire que `fact` et `factorial` coïncident sur les entrées 0, 1 et 5, alors que `broken_fact` et `factorial` ne renvoient pas la même valeur avec l'entrée `0`.
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est à vous
 def compare_all(f, g, entrees):
     "<votre code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_compare_all.correction(compare_all)
 ```
@@ -100,17 +105,17 @@ Pour information, dans tout cet exercice :
  * `add` correspond à l'addition binaire `operator.add` ;
  * `plus` et `broken_plus` sont des additions binaires que nous avons écrites, l'une étant correcte et l'autre étant fausse lorsque le premier argument est nul.
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_compare_args import exo_compare_args
 exo_compare_args.example()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ATTENTION vous devez aussi définir les arguments de la fonction
 def compare_args(votre, signature):
     "<votre_code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 exo_compare_args.correction(compare_args)
 ```

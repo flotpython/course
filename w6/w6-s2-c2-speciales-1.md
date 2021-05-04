@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Surcharge op. (1)
 version: '3.0'
 ---
@@ -98,7 +103,7 @@ Pour cette dernière raison, on trouve dans la nature `__repr__` plutôt plus so
 
 La fonction `repr()` est utilisée massivement dans les informations de debugging comme les traces de pile lorsqu'une exception est levée. Elle est aussi utilisée lorsque vous affichez un objet sans passer par `print`, c'est-à-dire par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 class Foo: 
     def __repr__(self):
         return 'custom repr'
@@ -115,7 +120,7 @@ foo
 
 Voici deux exemples simples de classes ; dans le premier on n'a défini que `__repr__`, dans le second on a redéfini les deux méthodes :
 
-```{code-cell}
+```{code-cell} ipython3
 # une classe qui ne définit que __repr__
 class Point:
     "première version de Point - on ne définit que __repr__"
@@ -134,7 +139,7 @@ print("avec print", point)
 point
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la même chose mais où on redéfinit __str__ et __repr__
 class Point2:
     "seconde version de Point - on définit __repr__ et __str__"
@@ -211,7 +216,7 @@ Voici (encore) une nouvelle implémentation de la classe de matrices 2x2, qui il
  
  Cette dernière possibilité va nous permettre de simplifier le code de l'addition, comme on va le voir.
 
-```{code-cell}
+```{code-cell} ipython3
 # notre classe Matrix2 avec encore une autre implémentation
 class Matrix2:
 
@@ -256,7 +261,7 @@ class Matrix2:
 
 On peut à présent créer deux objets, les ajouter, et vérifier que la matrice nulle se comporte bien comme attendu :
 
-```{code-cell}
+```{code-cell} ipython3
 zero     = Matrix2 ([0,0,0,0])
 
 matrice1 = Matrix2 (1,2,3,4)
@@ -308,7 +313,7 @@ on ne s'attend pas du tout à ce que `matrice1` soit modifiée après cet appel.
 
 Le fait d'avoir défini l'addition nous permet par exemple de bénéficier de la fonction *built-in* `sum`. En effet le code de `sum` fait lui-même des additions, il n'y a donc aucune raison de ne pas pouvoir l'exécuter avec en entrée une liste de matrices puisque maintenant on sait les additionner, (mais on a dû toutefois passer à `sum` comme élément neutre `zero`) :
 
-```{code-cell}
+```{code-cell} ipython3
 sum([matrice1, matrice2, matrice1] , zero)
 ```
 
@@ -355,7 +360,7 @@ Il s'agit d'une astuce, destinée précisément à ce genre de situations, où o
 
 Voici donc comment on s'y prendrait. Pour éviter de reproduire tout le code de la classe, on va l'étendre à la volée.
 
-```{code-cell}
+```{code-cell} ipython3
 # remarquez que les opérandes sont apparemment inversés
 # dans le sens où pour evaluer 
 #     reel * matrice
@@ -370,10 +375,10 @@ def multiplication_scalaire(self, alpha):
 Matrix2.__rmul__ = multiplication_scalaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 matrice1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 12 * matrice1
 ```

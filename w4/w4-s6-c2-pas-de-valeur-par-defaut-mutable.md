@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Un pi\xE8ge courant"
 version: '3.0'
 ---
@@ -37,13 +42,13 @@ En Python il existe un piège dans lequel il est très facile de tomber. Aussi s
 
 Si vous avez besoin d'écrire une fonction qui prend en argument par défaut une liste ou un dictionnaire vide, voici comment faire
 
-```{code-cell}
+```{code-cell} ipython3
 # ne faites SURTOUT PAS ça
 def ne_faites_pas_ca(options={}):
     "faire quelque chose"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # mais plutôt comme ceci
 def mais_plutot_ceci(options=None):
     if options is None: 
@@ -65,7 +70,7 @@ Considérons le cas relativement simple d'une fonction qui calcule une valeur - 
 
 Et pour rendre la vie de l'appelant plus facile, on se dit qu'il peut être utile de faire en sorte que si l'appelant n'a pas de liste sous la main, on va créer pour lui une liste vide. Et pour ça on fait :
 
-```{code-cell}
+```{code-cell} ipython3
 import random
 
 # l'intention ici est que si l'appelant ne fournit pas 
@@ -77,13 +82,13 @@ def ajouter_un_aleatoire(resultats=[]):
 
 Si on appelle cette fonction une première fois, tout semble bien aller
 
-```{code-cell}
+```{code-cell} ipython3
 ajouter_un_aleatoire()
 ```
 
 Sauf que, si on appelle la fonction une deuxième fois, on a une surprise !
 
-```{code-cell}
+```{code-cell} ipython3
 ajouter_un_aleatoire()
 ```
 

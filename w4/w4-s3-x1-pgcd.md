@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: PGCD
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ Les deux paramètres sont supposés être des entiers positifs ou nuls (pas la p
 
 Dans le cas où un des deux paramètres est nul, le PGCD vaut l'autre paramètre. Ainsi par exemple:
 
-```{code-cell}
+```{code-cell} ipython3
 from corrections.exo_pgcd import exo_pgcd
 exo_pgcd.example()
 ```
@@ -52,13 +57,13 @@ def pgcd(a, b):
 
 Cependant, il vous est demandé ici d'utiliser une boucle `while`, qui est le sujet de la séquence, pour implémenter `pgcd`.
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
 def pgcd(a, b):
     "<votre code>"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour vérifier votre code
 exo_pgcd.correction(pgcd)
 ```

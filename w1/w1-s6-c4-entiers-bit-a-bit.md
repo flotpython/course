@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Op\xE9rations bitwise"
 version: '3.0'
 ---
@@ -41,7 +46,7 @@ Il est possible aussi de faire des opérations *bit à bit* sur les nombres enti
 
 Considérons par exemple deux entiers constants dans cet exercice
 
-```{code-cell}
+```{code-cell} ipython3
 x49 = 49
 y81 = 81
 ```
@@ -74,7 +79,7 @@ $32 + 16 + 1 =
 
 L'opération logique `&` va faire un *et* logique bit à bit entre les opérandes, ainsi
 
-```{code-cell}
+```{code-cell} ipython3
 x49 & y81
 ```
 
@@ -94,7 +99,7 @@ x49\ \&\ y81 & \rightarrow & (0,0,1,0,0,0,1) \rightarrow 16 + 1 \rightarrow 17
 
 De même, l'opérateur logique `|` fait simplement un *ou* logique, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 x49 | y81
 ```
 
@@ -114,7 +119,7 @@ x49\ |\ y81 & \rightarrow & (1,1,1,0,0,0,1) \rightarrow 64 + 32 + 16 + 1 \righta
 
 Enfin, on peut également faire la même opération à base de *ou* exclusif avec l'opérateur `^` :
 
-```{code-cell}
+```{code-cell} ipython3
 x49 ^ y81
 ```
 
@@ -128,7 +133,7 @@ Je vous laisse le soin de décortiquer le calcul à titre d'exercice (le *ou* ex
 
 Un décalage **à gauche** de, par exemple, 4 positions, revient à décaler tout le champ de bits de 4 cases à gauche (les 4 nouveaux bits insérés sont toujours des 0). C'est donc équivalent à une **multiplication** par $2^4 = 16$ :
 
-```{code-cell}
+```{code-cell} ipython3
 x49 << 4
 ```
 
@@ -141,7 +146,7 @@ x49\ <<\ 4 & \rightarrow & (0,1,1,0,0,0,1,0,0,0,0) \rightarrow 512 + 256 + 16 \r
 
 De la même manière, le décalage à **droite** de $n$ revient à une **division** par $2^n$ (plus précisément, le quotient de la division) :
 
-```{code-cell}
+```{code-cell} ipython3
 x49 >> 4
 ```
 
@@ -158,13 +163,13 @@ x49\ >>\ 4 & \rightarrow & (0,0,0,0,0,1,1) \rightarrow 2 + 1 \rightarrow 3
 
 On peut utiliser la fonction *built-in* `bin` pour calculer la représentation binaire d'un entier. Attention, la valeur de retour est une chaîne de caractères de type `str` :
 
-```{code-cell}
+```{code-cell} ipython3
 bin(x49)
 ```
 
 Dans l'autre sens, on peut aussi entrer un entier directement en base 2 comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 x49bis = 0b110001
 x49bis == x49
 ```

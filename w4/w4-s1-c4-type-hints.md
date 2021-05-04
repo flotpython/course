@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Type hints
 version: '3.0'
 ---
@@ -59,24 +64,24 @@ Cependant depuis la version 3.5, python supporte un mécanisme **totalement opti
 
 ##### typer une variable
 
-```{code-cell}
+```{code-cell} ipython3
 # pour typer une variable avec les type hints
 nb_items : int = 0
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 nb_items
 ```
 
 ##### typer les paramètres et le retour d'une fonction
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction factorielle avec des type hints
 def fact(n : int) -> int:
     return 1 if n <= 1 else n * fact(n-1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fact(12)
 ```
 
@@ -94,7 +99,7 @@ fact(12)
 
 Par contre ce qui est très très clairement annoncé également, c'est que ces informations de typage sont **totalement facultatives**, et que le langage les **ignore totalement**.
 
-```{code-cell}
+```{code-cell} ipython3
 # l'interpréteur ignore totalement ces informations
 def fake_fact(n : str) -> str:
     return 1 if n <= 1 else n * fake_fact(n-1)
@@ -136,11 +141,11 @@ L'ensemble des symboles que nous allons utiliser dans la suite de ce complément
 
 ##### exemples simples
 
-```{code-cell}
+```{code-cell} ipython3
 from typing import List
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui 
 # attend un paramètre qui soit une liste d'entiers,
 # et qui retourne une liste de chaînes
@@ -164,16 +169,16 @@ Les raisons pour cela sont de deux ordres :
 
 Pour bien voir cela, considérez l'exemple suivant :
 
-```{code-cell}
+```{code-cell} ipython3
 from typing import Iterable
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def lower_split(sep: str, inputs : Iterable[str]) -> str:
     return sep.join([x.lower() for x in inputs])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 lower_split('--', ('AB', 'CD', 'EF'))
 ```
 
@@ -187,7 +192,7 @@ On voit bien dans cet exemple que `Iterable` ne correspond pas à un type concre
 
 Voici un exemple tiré de la documentation du module `typing` qui illustre davantage de types construits à partir des types *builtin* du langage :
 
-```{code-cell}
+```{code-cell} ipython3
 from typing import Dict, Tuple, List
 
 ConnectionOptions = Dict[str, str]
@@ -207,7 +212,7 @@ def broadcast_message(
 
 J'en profite d'ailleurs (ça n'a rien a voir, mais...) pour vous signaler un objet python assez étrange :
 
-```{code-cell}
+```{code-cell} ipython3
 # L'objet ... existe bel et bien en Python
 el = ...
 el
@@ -223,7 +228,7 @@ qui sert principalement pour le slicing multidimensionnel de numpy. Mais ne nous
 
 Puisque c'est un mécanisme optionnel, vous pouvez tout à fait ne typer qu'une partie de vos variables et paramètres :
 
-```{code-cell}
+```{code-cell} ipython3
 # imaginez que vous ne typez pas n2, ni la valeur de retour
 
 # c'est équivalent de dire ceci
@@ -231,7 +236,7 @@ def partially_typed(n1: int, n2):
     return None
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou cela
 from typing import Any
 
@@ -245,7 +250,7 @@ def partially_typed(n1: int, n2: Any) -> Any:
 
 On peut facilement se définir des alias ; lorsque vous avez implémenté un système d'identifiants basé sur le type `int`, il est préférable de faire :
 
-```{code-cell}
+```{code-cell} ipython3
 from typing import NewType
 
 UserId = NewType('UserId', int)
@@ -255,7 +260,7 @@ user1_id : UserId = 0
 
 plutôt que ceci, qui est beaucoup moins parlant :
 
-```{code-cell}
+```{code-cell} ipython3
 user1_id : int = 0
 ```
 
@@ -273,7 +278,7 @@ Pour ceux qui connaissent déjà la notion de classe (les autres peuvent ignorer
 
 Grâce aux constructions `TypeVar` et `Generic`, il est possible de manipuler une notion de *variable de type*, que je vous montre sur un exemple tiré à nouveau de la documentation du module `typing` :
 
-```{code-cell}
+```{code-cell} ipython3
 from typing import TypeVar, Generic
 from logging import Logger
 

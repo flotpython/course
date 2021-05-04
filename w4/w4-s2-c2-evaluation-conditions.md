@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "\xC9valuation des tests"
 version: '3.0'
 ---
@@ -35,7 +40,7 @@ version: '3.0'
 
 On a vu dans la vidéo que l'instruction conditionnelle `if` permet d'implémenter simplement des branchements à plusieurs choix, comme dans cet exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 s = 'berlin'
 if 'a' in s:
     print('avec a')
@@ -83,19 +88,19 @@ Mais nous allons voir ci-dessous qu'il est relativement facile d'écrire des con
 
 Pour illustrer la notion d'**effet de bord**, nous revenons sur la méthode de liste `pop()` qui, on le rappelle, renvoie un élément de liste **après l'avoir effacé** de la liste.
 
-```{code-cell}
+```{code-cell} ipython3
 # on se donne une liste
 liste = ['premier', 'deuxieme', 'troisieme']
 print(f"liste={liste}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pop(0) renvoie le premier élément de la liste, et raccourcit la liste
 element = liste.pop(0)
 print(f"après pop(0), element={element} et liste={liste}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et ainsi de suite
 element = liste.pop(0)
 print(f"après pop(0), element={element} et liste={liste}")
@@ -107,12 +112,12 @@ print(f"après pop(0), element={element} et liste={liste}")
 
 Une fois ce rappel fait, voyons maintenant l'exemple suivant :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = list(range(5))
 print('liste en entree:', liste, 'de taille', len(liste))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 if liste.pop(0) <= 0:
     print('cas 1')
 elif liste.pop(0) <= 1:
@@ -130,12 +135,12 @@ Avec cette entrée, le premier test est vrai (car `pop(0)` renvoie 0), aussi on 
 
 Exécutons à présent le même code avec une entrée différente :
 
-```{code-cell}
+```{code-cell} ipython3
 liste = list(range(5, 10))
 print('en entree: liste=', liste, 'de taille', len(liste))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 if liste.pop(0) <= 0:
     print('cas 1')
 elif liste.pop(0) <= 1:
@@ -165,7 +170,7 @@ La logique que l'on vient de voir est celle qui s'applique aux différentes bran
 
 Pour illustrer cela, nous allons nous définir deux fonctions toutes simples qui renvoient `True` et `False` mais avec une impression de sorte qu'on voit lorsqu'elles sont exécutées :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def true():
@@ -173,7 +178,7 @@ def true():
     return True
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def false():
@@ -181,13 +186,13 @@ def false():
     return False
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 true()
 ```
 
 Ceci va nous permettre d'illustrer notre point, qui est que lorsque python évalue un `and` ou un `or`, il **n'évalue la deuxième condition que si c'est nécessaire**. Ainsi par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 false() and true()
@@ -201,7 +206,7 @@ Dans ce cas, python évalue la première partie du `and` - qui provoque l'impres
 
 De manière symétrique avec un `or` :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 true() or false()
@@ -215,6 +220,6 @@ true() or false()
 
 À titre d'exercice, essayez de dire combien d'impressions sont émises lorsqu'on évalue cette expression un peu plus compliquée :
 
-```{code-cell}
+```{code-cell} ipython3
 true() and (false() or true()) or (true () and false())
 ```

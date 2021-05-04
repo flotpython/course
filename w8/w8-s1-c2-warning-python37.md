@@ -6,8 +6,10 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -15,6 +17,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 livereveal:
   auto_select: code
   auto_select_fragment: true
@@ -97,7 +102,7 @@ nécessitait pas mal de circonlocutions.
 
 C'est-à-dire que pour faire fonctionner la coroutine :
 
-```{code-cell}
+```{code-cell} ipython3
 # un exemple de coroutine 
 import asyncio
 
@@ -137,7 +142,7 @@ asyncio.run(hello_world())
 Notez qu'avec IPython (et donc aussi dans les notebooks) c'est encore plus simple; en
 effet IPython s'est débrouillé pour autoriser la syntaxe suivante :
 
-```{code-cell}
+```{code-cell} ipython3
 # depuis ipython, ou dans un notebook, vous pouvez faire simplement
 
 await hello_world()
@@ -148,7 +153,7 @@ une **commodité** pour nous faciliter la vie, mais elle est **spécifique à IP
 va pas fonctionner tel quel dans un programme exécuté directement par l'interpréteur
 Python standard.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un code cassé
@@ -156,7 +161,7 @@ Python standard.
 !cat data/broken-await.py
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la preuve

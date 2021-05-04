@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Cl\xE9s immuables"
 version: '3.0'
 ---
@@ -81,39 +86,39 @@ Le point important ici, est qu'il **ne suffit pas**, pour une clé, d'être **de
 
 On peut le voir sur un exemple très simple ; donnons-nous donc un dictionnaire :
 
-```{code-cell}
+```{code-cell} ipython3
 d = {}
 ```
 
 Et commençons avec un objet de type immuable, un tuple d'entiers :
 
-```{code-cell}
+```{code-cell} ipython3
 bonne_cle = (1, 2)
 ```
 
 Cet objet est non seulement **de type immuable**, mais tous ses composants et sous-composants sont **immuables**, on peut donc l'utiliser comme clé dans le dictionnaire :
 
-```{code-cell}
+```{code-cell} ipython3
 d[bonne_cle] = "pas de probleme ici"
 print(d)
 ```
 
 Si à présent on essaie d'utiliser comme clé un tuple qui contient une liste :
 
-```{code-cell}
+```{code-cell} ipython3
 mauvaise_cle = (1, [1, 2])
 ```
 
 Il se trouve que cette clé, **bien que de type immuable**, peut être **indirectement modifiée** puisque :
 
-```{code-cell}
+```{code-cell} ipython3
 mauvaise_cle[1].append(3)
 print(mauvaise_cle)
 ```
 
 Et c'est pourquoi on ne peut pas utiliser cet objet comme clé dans le dictionnaire :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 # provoque une exception

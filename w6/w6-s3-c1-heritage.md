@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "H\xE9ritage"
 version: '3.0'
 ---
@@ -60,7 +65,7 @@ Une méthode héritée peut être rangée dans une de ces trois catégories :
 
 Commençons par illustrer tout ceci sur un petit exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 # Une classe mère
 class Fleur:
     def implicite(self):
@@ -84,20 +89,20 @@ class Rose(Fleur):
 
 On peut à présent créer une instance de Rose et appeler sur cette instance les trois méthodes.
 
-```{code-cell}
+```{code-cell} ipython3
 # fille est une instance de Rose
 fille = Rose()
 
 fille.implicite()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fille.redefinie()
 ```
 
 S'agissant des deux premières méthodes, le comportement qu'on observe est simplement la conséquence de l'algorithme de recherche d'attributs : `implicite` est trouvée dans la classe Fleur et `redefinie` est trouvée dans la classe Rose.
 
-```{code-cell}
+```{code-cell} ipython3
 fille.modifiee()
 ```
 
@@ -115,7 +120,7 @@ Fleur.modifiee(self)
 
 Signalons à ce sujet, pour être exhaustif, l'existence de la [fonction *built-in* `super()`](https://docs.python.org/3/library/functions.html#super) qui permet de réaliser la même chose sans nommer explicitement la classe mère, comme on le fait ici :
 
-```{code-cell}
+```{code-cell} ipython3
 # Une version allégée de la classe fille, qui utilise super()
 class Rose(Fleur):
     def modifiee(self):
@@ -123,7 +128,7 @@ class Rose(Fleur):
         print('Rose.modifiee apres Fleur')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 fille = Rose()
 
 fille.modifiee()
@@ -144,7 +149,7 @@ Dans le domaine de la conception orientée objet, on fait la différence entre d
 
 Voyons d'abord en quoi consiste la composition et pourquoi le résultat est voisin :
 
-```{code-cell}
+```{code-cell} ipython3
 # Une classe avec qui on n'aura pas de relation d'héritage
 class Tige:
     def implicite(self):
@@ -178,7 +183,7 @@ class Rose:
         print('Rose.modifiee apres Tige')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on obtient ici exactement le même comportement 
 # pour les trois sortes de méthodes
 fille = Rose()

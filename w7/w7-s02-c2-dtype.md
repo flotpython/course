@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: Type - dtype
 version: '3.0'
 ---
@@ -31,13 +36,13 @@ version: '3.0'
 
 Nous allons voir dans ce complément ce qu'il faut savoir sur le type d'un tableau `numpy`.
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 ```
 
 Dans ce complément nous allons rester en dimension 1 :
 
-```{code-cell}
+```{code-cell} ipython3
 a = np.array([1, 2, 4, 8])
 ```
 
@@ -47,7 +52,7 @@ a = np.array([1, 2, 4, 8])
 
 Comme on l'a vu dans la vidéo, les très bonnes performances que l'on peut obtenir en utilisant un tableau `numpy` sont liées au fait que le tableau est **homogène** : toutes les cellules du tableau **possèdent le même type** :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # pour accéder au type d'un tableau
@@ -56,7 +61,7 @@ a.dtype
 
 Vous voyez que dans notre cas, le système a choisi pour nous un type entier ; selon les entrées on peut obtenir :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si je mets au moins un flottant
@@ -64,7 +69,7 @@ f = np.array([1, 2, 4, 8.])
 f.dtype
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et avec un complexe
@@ -76,7 +81,7 @@ c.dtype
 
 Et on peut préciser le type que l'on veut si cette heuristique ne nous convient pas :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # je choisis explicitement mon dtype
@@ -90,13 +95,13 @@ c2.dtype
 
 Une fois que le type est déterminé, on s'expose à de possibles pertes de précision, comme d'habitude :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a, a.dtype
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # a est de type entier
@@ -117,7 +122,7 @@ Ce qu'il faut en retenir :
 * ces types ont diverses tailles pour vous permettre d'optimiser la mémoire réellement utilisée ;
 * ces types existent en tant que tels (hors de tableaux).
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un entier sur 1 seul octet, c'est possible !
@@ -126,14 +131,14 @@ np_1 = np.int8(1)
 py_1 = 1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # il y a bien égalité
 np_1 == py_1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # mais bien entendu ce ne sont pas les mêmes objets
@@ -142,7 +147,7 @@ np_1 is py_1
 
 Du coup, on peut commencer à faire de très substantielles économies de place ; imaginez que vous souhaitez manipuler une image d'un million de pixels en noir et blanc sur 256 niveaux de gris ; j'en profite pour vous montrer `np.zeros` (qui fait ce que vous pensez) :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pur Python
@@ -151,7 +156,7 @@ pure_py = [0 for i in range(10**6)]
 getsizeof(pure_py)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # numpy
@@ -161,25 +166,25 @@ getsizeof(num_py)
 
 Je vous signale enfin l'attribut `itemsize` qui vous permet d'obtenir la taille en octets occupée par chacune des cellules, et qui correspond donc en gros au nombre qui apparaît dans `dtype`, mais divisé par huit :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a.dtype
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a.itemsize
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 c.dtype
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 c.itemsize

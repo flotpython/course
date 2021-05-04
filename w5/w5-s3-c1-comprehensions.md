@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Compr\xE9hension de liste"
 version: '3.0'
 ---
@@ -41,7 +46,7 @@ Pour l'introduire en deux mots, disons que la compréhension de liste est à l'i
 
 Voyons tout de suite un exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 depart = (-5, -3, 0, 3, 5, 10)
 arrivee = [x**2 for x in depart]
 arrivee
@@ -57,7 +62,7 @@ Le résultat de cette expression est donc une liste, dont les éléments sont le
 
 ##### Digression
 
-```{code-cell}
+```{code-cell} ipython3
 # profitons de cette occasion pour voir 
 # comment tracer une courbe avec matplotlib
 %matplotlib inline
@@ -65,7 +70,7 @@ import matplotlib.pyplot as plt
 plt.ion()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si on met le départ et l'arrivée 
 # en abscisse et en ordonnée, on trace
 # une version tronquée de la courbe de f: x -> x**2
@@ -78,7 +83,7 @@ plt.plot(depart, arrivee);
 
 Il est possible également de ne prendre en compte que certains des éléments de la liste de départ, comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 [x**2 for x in depart if x%2 == 0]
 ```
 
@@ -96,11 +101,11 @@ qui cette fois ne contient que les carrés des éléments pairs de `depart`.
 
 On peut fabriquer une compréhension à partir de tout objet itérable, pas forcément une liste, mais le résultat est toujours une liste, comme on le voit sur ces quelques exemples :
 
-```{code-cell}
+```{code-cell} ipython3
 [ord(x) for x in 'abc']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 [chr(x) for x in (97, 98, 99)]
 ```
 
@@ -110,12 +115,12 @@ On peut fabriquer une compréhension à partir de tout objet itérable, pas forc
 
 On peut également construire par compréhension des dictionnaires et des ensembles :
 
-```{code-cell}
+```{code-cell} ipython3
 d = {x: ord(x) for x in 'abc'}
 d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 e = {x**2 for x in (97, 98, 99) if x %2 == 0}
 e
 ```

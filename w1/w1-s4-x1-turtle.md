@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "Dessiner un carr\xE9"
 version: '3.0'
 ---
@@ -43,14 +48,14 @@ Il utilise le module `turtle`, conçu précisément à des fins pédagogiques. P
 
 **Attention** également à sauver le programme téléchargé **sous un autre nom** que `turtle.py`,  car sinon vous allez empêcher Python de trouver le module standard `turtle` ; appelez-le par exemple `turtle_basic.py`.
 
-```{code-cell}
+```{code-cell} ipython3
 # on a besoin du module turtle
 import turtle
 ```
 
 On commence par définir une fonction qui dessine un carré de côté `length` :
 
-```{code-cell}
+```{code-cell} ipython3
 def square(length):
     "have the turtle draw a square of side <length>"
     for side in range(4):
@@ -60,13 +65,13 @@ def square(length):
 
 Maintenant on commence par initialiser la tortue :
 
-```{code-cell}
+```{code-cell} ipython3
 turtle.reset()
 ```
 
 On peut alors dessiner notre carré :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 square(200)
@@ -74,7 +79,7 @@ square(200)
 
 Et pour finir on attend que l'utilisateur clique dans la fenêtre de la tortue, et alors on termine :
 
-```{code-cell}
+```{code-cell} ipython3
 :latex:skip-eval: true
 
 turtle.exitonclick()

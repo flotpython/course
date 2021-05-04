@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "H\xE9ritage, typage"
 version: '3.0'
 ---
@@ -79,25 +84,25 @@ Dans un langage typé statiquement, pour pouvoir donner un type à cette constru
 
 En python, et c'est le point que nous voulons souligner dans ce complément, il n'existe pas dans le système python d'objet de type `type` qui matérialise l'ensemble des `iterable`s. Si on regarde les superclasses de nos types concrets itérables, on voit que leur seul ancêtre commun est la classe  `object` :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 str.__bases__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 list.__bases__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 tuple.__bases__
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 range.__bases__
@@ -143,23 +148,23 @@ On a déjà parlé en Semaine 4 de l'intérêt qu'il peut y avoir à tester le t
 
 C'est pourquoi, quand on a cherché à exposer au programmeur des propriétés comme "cet objet est-il iterable ?", on a choisi d'étendre *isinstance* au travers de [cette initiative](http://legacy.python.org/dev/peps/pep-3119/). C'est ainsi qu'on peut faire par exemple :
 
-```{code-cell}
+```{code-cell} ipython3
 from collections.abc import Iterable
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 isinstance('ab', Iterable)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 isinstance([1, 2], Iterable)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # comme on l'a vu, un objet qui a des méthodes
@@ -173,7 +178,7 @@ class Foo:
         return 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 foo = Foo()
@@ -186,11 +191,11 @@ L'implémentation du module `abc` donne l'**illusion** que `Iterable` est un obj
 
 Je signale pour finir, à propos de `isinstance` et du module `collections`, que la définition du symbole `Hashable` est à mon avis beaucoup moins convaincante que `Iterable` ; si vous vous souvenez qu'en Semaine 3, Séquence "les dictionnaires", on avait vu que les clés doivent être globalement immuables. C'est une caractéristique qui est assez difficile à écrire, et en tous cas ceci de mon point de vue ne remplit pas la fonction :
 
-```{code-cell}
+```{code-cell} ipython3
 from collections.abc import Hashable
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # un tuple qui contient une liste ne convient 
 # pas comme clé dans un dictionnaire
 # et pourtant
