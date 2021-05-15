@@ -86,13 +86,13 @@ Aussi ce qu'on va commencer par faire c'est d'installer tout notre code **dans u
 Concrètement ça va signifier se mettre dans un sous-dossier, mais surtout d'un point de vue des utilisateurs potentiels de la classe, ça veut dire qu'au lieu de faire juste :
 
 ```python
-    from machine import Machine
+from machine import Machine
 ```
 
 on va décider qu'à partir de maintenant il faut toujours faire
 
 ```python
-    from bidule.machine import Machine
+from bidule.machine import Machine
 ```
 
 et de cette façon tous les noms qui sont propres à notre code ne sont accessibles que via l'espace de noms `bidule`, et on évite les conflits avec d'autres bibliothèques.
@@ -134,13 +134,13 @@ Une fois que j'ai choisi mon nom de package, donc ici `bidule`, je dois :
 Donc je remplace les importations partout ; ce qui avant aurait été simplement
 
 ```python
-    from machine import Machine
+from machine import Machine
 ```
 
 devient
 
 ```python
-    from bidule.machine import Machine
+from bidule.machine import Machine
 ```
 
 +++
@@ -150,13 +150,13 @@ devient
 Lorsqu'un fichier a besoin d'en importer **dans le même package**, on a le choix ; par exemple ici, `machine.py` a besoin d'importer la fonction `helper` du fichier `helpers.py`, il peut faire
 
 ```python
-    from bidule.helpers import helper
+from bidule.helpers import helper
 ```
 
 mais aussi plus simplement avec un **import relatif** :
 
 ```python
-    from .helpers import helper
+from .helpers import helper
 ```
 
 remarquez le `.` dans `.helpers`, qui signifie *dans le même package que moi*.
@@ -410,15 +410,21 @@ Un usage particulièrement fréquent consiste à "remonter" au niveau du package
 
 Dans notre dépôt de démonstration, nous avons une classe `Machine` définie dans le module `bidule.machine`. Donc de l'extérieur pour me servir de cette classe je dois faire
 
-    from bidule.machine import Machine
+```python
+from bidule.machine import Machine
+```
 
 C'est très bien, mais dès que le contenu va grossir, je vais couper mon code en de plus en plus de modules. Ce n'est pas tellement aux utilisateur de devoir suivre ce genre de détails. Donc si je veux pouvoir changer mon découpage interne sans impacter les utilisateurs, je vais vouloir qu'on puisse faire plutôt, simplement
 
-    from bidule import Machine
+```python
+from bidule import Machine
+```
 
 pour y arriver il me suffit d'ajouter cette ligne dans le `__init__.py` du package `bidule` :
 
-    import Machine from .machine
+```python
+import Machine from .machine
+```
 
 qui du coup va définir le symbole `Machine` directement dans l'objet package.
 
