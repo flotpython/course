@@ -85,11 +85,15 @@ Aussi ce qu'on va commencer par faire c'est d'installer tout notre code **dans u
 
 Concrètement ça va signifier se mettre dans un sous-dossier, mais surtout d'un point de vue des utilisateurs potentiels de la classe, ça veut dire qu'au lieu de faire juste :
 
-```from machine import Machine```
+```python
+    from machine import Machine
+```
 
 on va décider qu'à partir de maintenant il faut toujours faire
 
-```from bidule.machine import Machine```
+```python
+    from bidule.machine import Machine
+```
 
 et de cette façon tous les noms qui sont propres à notre code ne sont accessibles que via l'espace de noms `bidule`, et on évite les conflits avec d'autres bibliothèques.
 
@@ -129,11 +133,15 @@ Une fois que j'ai choisi mon nom de package, donc ici `bidule`, je dois :
 
 Donc je remplace les importations partout ; ce qui avant aurait été simplement
 
+```python
     from machine import Machine
+```
 
 devient
 
+```python
     from bidule.machine import Machine
+```
 
 +++
 
@@ -141,11 +149,15 @@ devient
 
 Lorsqu'un fichier a besoin d'en importer **dans le même package**, on a le choix ; par exemple ici, `machine.py` a besoin d'importer la fonction `helper` du fichier `helpers.py`, il peut faire
 
+```python
     from bidule.helpers import helper
+```
 
 mais aussi plus simplement avec un **import relatif** :
 
+```python
     from .helpers import helper
+```
 
 remarquez le `.` dans `.helpers`, qui signifie *dans le même package que moi*.
 
