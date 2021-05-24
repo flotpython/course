@@ -13,6 +13,7 @@ kernelspec:
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Calculs flottants
 version: '3.0'
@@ -116,4 +117,4 @@ Tous ces documents sont en anglais :
 * un [tutoriel sur les nombres flottants](https://docs.python.org/3/tutorial/floatingpoint.html) ;
 * la [documentation sur la classe Fraction](https://docs.python.org/3/library/fractions.html) ;
 * la [documentation sur la classe Decimal](https://docs.python.org/3/library/decimal.html) ;
-* une [présentation plus fouillée sur l'encodage des flottants (en anglais)](http://www.oxfordmathcenter.com/drupal7/node/43) ; ce dernier document, très bien fait, ne dépend pas du langage Python mais illustre le standard IEE-754 sur des exemples concrets.
+* une [présentation plus fouillée sur l'encodage des flottants (en anglais)](http://mathcenter.oxford.emory.edu/site/cs170/ieee754/) ; ce dernier document, très bien fait, ne dépend pas du langage Python mais illustre le standard IEE-754 sur des exemples concrets.
