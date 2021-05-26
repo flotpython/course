@@ -6,10 +6,9 @@ def libelle(ligne):
     """
     n'oubliez pas votre docstring
     """
-    # on enlève les espaces et les tabulations
-    ligne = ligne.replace(' ', '').replace('\t','')
-    # on cherche les 3 champs
-    mots = ligne.split(',')
+    # on cherche les 3 champs après avoir nettoyé
+    # les éléments séparés par une virgule
+    mots = [mot.strip() for mot in ligne.split(',')]
     # si on n'a pas le bon nombre de champs
     # rappelez-vous que 'return' tout court
     # est équivalent à 'return None'
