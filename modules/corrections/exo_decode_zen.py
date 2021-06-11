@@ -51,6 +51,24 @@ def decode_zen_bis(this_module):
     return "".join(this_module.d.get(c, c) for c in this_module.s)
 # @END@
 
+# @BEG@ name=decode_zen more=ter
+# une dernière version utilisant les fonctions ad hoc
+# https://docs.python.org/3/library/stdtypes.html#str.translate
+# et https://docs.python.org/3/library/stdtypes.html#str.maketrans
+
+def decode_zen_ter(this_module):
+    """
+    cette version utilise les fonctions ad hoc de la classe str
+    """
+    # Le dictionnaire this_module.d n'est pas utilisable directement,
+    # il faut faire la transformation fournie par str.maketrans
+    # car la fonction translate attend comme clés des nombres
+    # représentant la valeur Unicode des caractères.
+    # Or this_module.d a comme clés les caractères à décoder
+    # et non leur valeur Unicode.
+    return this_module.s.translate(str.maketrans(this_module.d))
+# @END@
+
 
 import this
 
