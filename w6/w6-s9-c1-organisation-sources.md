@@ -109,9 +109,7 @@ C'est pourquoi je **recommande**, à ce stade, de s'assurer de prendre un nom qu
 
 +++
 
-Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Vous pouvez soit chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule), ou bien utiliser `pip` :
-
-    pip search bidule
+Donc pour s'assurer de cela, on va tout simplement demander à `pypi`, qui va jouer le rôle de *registrar*, et nous garantir l'exclusivité de ce nom. Je vous invite à chercher votre nom [directement dans le site pypi](https://pypi.org/search/?q=bidule) pour vous en assurer (à noter que `pip search bidule` n'est plus disponible depuis la ligne de commande)
 
 +++
 
