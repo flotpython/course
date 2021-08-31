@@ -19,6 +19,7 @@ kernelspec:
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -31,6 +32,7 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: Exos regexps
+orig_nbformat: 1
 version: '3.0'
 ---
 
@@ -76,7 +78,7 @@ Il s'agit donc de reconnaître toutes les chaînes qui commencent par une lettre
 
 ```{code-cell} ipython3
 # quelques exemples de résultat attendus
-from corrections.regexp_pythonid import exo_pythonid
+from modules.corrections.regexp_pythonid import exo_pythonid
 exo_pythonid.example()
 ```
 

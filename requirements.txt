@@ -10,3 +10,4 @@ chart-studio
 bokeh
 seaborn
 aiohttp
+nbautoeval
