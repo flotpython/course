@@ -160,4 +160,17 @@ except Exception as e:
     print(f"OOPS {e}")
 ```
 
-Avec `yield from`, on  peut indiquer que `divdivs` est une fonction génératrice, et qu'il faut évaluer `divs(..)` comme un générateur; ici l'interpréteur va empiler un second appel à `divdivs`, et énumérer tous les résultats que cette fonction va énumérer avec `yield`.
+Avec `yield from`, on peut indiquer que `divdivs` est une fonction génératrice, et qu’il faut évaluer `divs(..)` comme un générateur à utiliser comme tel; une fonction génératrice attend des `yield`, on indique qu’elle doit aussi chercher dans la sous-fonction `divs`.
+
+Tout ceci signifie, dit autrement, que l’appel
+
+```
+yield from divs(...)
+```
+
+est grosso-modo équivalent à
+
+```
+for truc in divs(...):
+   yield truc
+```
