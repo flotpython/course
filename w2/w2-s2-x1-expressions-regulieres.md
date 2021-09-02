@@ -76,7 +76,7 @@ Il s'agit donc de reconnaître toutes les chaînes qui commencent par une lettre
 
 ```{code-cell} ipython3
 # quelques exemples de résultat attendus
-from modules.corrections.regexp_pythonid import exo_pythonid
+from corrections.regexp_pythonid import exo_pythonid
 exo_pythonid.example()
 ```
 
