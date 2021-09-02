@@ -19,7 +19,6 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -32,7 +31,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: Exos regexps
-orig_nbformat: 1
 version: '3.0'
 ---
 
