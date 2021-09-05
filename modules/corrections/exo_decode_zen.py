@@ -8,7 +8,28 @@ from nbautoeval import Args, ExerciseFunction, MultilineRenderer
 # (*) dans l'attribut 's' une version encodée du manifeste
 # (*) dans l'attribut 'd' le code à utiliser pour décoder
 #
-# ce qui veut dire qu'en première approximation, on pourrait
+# Cet exercice est l'occasion de montrer les fonctions ad hoc
+# https://docs.python.org/3/library/stdtypes.html#str.translate
+# et https://docs.python.org/3/library/stdtypes.html#str.maketrans
+# qui permettent de résoudre très simplement ce problème.
+
+def decode_zen(this_module):
+    """
+    décode le zen de python à partir du module this
+    à l'aide des fonctions ad hoc de la classe str
+    """
+    # Le dictionnaire this_module.d n'est pas utilisable directement,
+    # il faut faire la transformation fournie par str.maketrans
+    # car la fonction translate attend comme clés des nombres
+    # représentant la valeur Unicode des caractères.
+    # Or this_module.d a comme clés les caractères à décoder
+    # et non leur valeur Unicode.
+    return this_module.s.translate(str.maketrans(this_module.d))
+# @END@
+
+
+# @BEG@ name=decode_zen more=bis
+# en première approximation, on pourrait
 # énumérer les caractères du manifeste en faisant
 # (this.d[c] for c in this.s)
 #
@@ -17,9 +38,10 @@ from nbautoeval import Args, ExerciseFunction, MultilineRenderer
 # laisser intacts les caractères de this.s qui ne sont pas
 # dans this.d
 
-def decode_zen(this_module):
+def decode_zen_bis(this_module):
     """
     décode le zen de python à partir du module this
+    méthode plus artisanale utilisant une expression génératrice
     """
     # la version encodée du manifeste
     encoded = this_module.s
@@ -33,7 +55,7 @@ def decode_zen(this_module):
 # @END@
 
 
-# @BEG@ name=decode_zen more=bis
+# @BEG@ name=decode_zen more=ter
 # une autre version un peu plus courte
 #
 # on utilise la méthode get d'un dictionnaire,
@@ -44,29 +66,11 @@ def decode_zen(this_module):
 # dict.get(key, default)
 # retourne dict[key] si elle est présente, et default sinon
 
-def decode_zen_bis(this_module):
+def decode_zen_ter(this_module):
     """
     une autre version, un peu plus courte
     """
     return "".join(this_module.d.get(c, c) for c in this_module.s)
-# @END@
-
-# @BEG@ name=decode_zen more=ter
-# une dernière version utilisant les fonctions ad hoc
-# https://docs.python.org/3/library/stdtypes.html#str.translate
-# et https://docs.python.org/3/library/stdtypes.html#str.maketrans
-
-def decode_zen_ter(this_module):
-    """
-    cette version utilise les fonctions ad hoc de la classe str
-    """
-    # Le dictionnaire this_module.d n'est pas utilisable directement,
-    # il faut faire la transformation fournie par str.maketrans
-    # car la fonction translate attend comme clés des nombres
-    # représentant la valeur Unicode des caractères.
-    # Or this_module.d a comme clés les caractères à décoder
-    # et non leur valeur Unicode.
-    return this_module.s.translate(str.maketrans(this_module.d))
 # @END@
 
 
