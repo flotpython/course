@@ -225,7 +225,7 @@ L1 = list(range(1000))
 L2 = list(range(1000))
 ```
 
-Vous remarquez surtout que `%timeit` exécute l'instuction un grand nombre de fois, c'est pour pouvoir faire une moyenne qui soit pertinente (on peut modifier ce nombre en passant des options à `timeit`, mais ne nous égarons pas…)
+Vous remarquez surtout que `%timeit` exécute l'instruction un grand nombre de fois, c'est pour pouvoir faire une moyenne qui soit pertinente (on peut modifier ce nombre en passant des options à `timeit`, mais ne nous égarons pas…)
 
 +++
 
