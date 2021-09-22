@@ -44,8 +44,8 @@ Outre les objets fichiers créés avec la fonction `open`, comme on l'a vu dans 
 
 Avant la version python-3.4, la librairie standard offrait une conjonction d'outils pour ce type de fonctionnalités:
 
-* le module `os.path`, pour faire des calculs sur les chemins et noms de fichiers [doc](https://docs.python.org/3/library/os.html),
-* le module `os` pour certaines fonctions complémentaires comme renommer ou détruire un fichier [doc](https://docs.python.org/3/library/os.path.html),
+* le module `os.path`, pour faire des calculs sur les chemins et noms de fichiers [doc](https://docs.python.org/3/library/os.path.html),
+* le module `os` pour certaines fonctions complémentaires comme renommer ou détruire un fichier [doc](https://docs.python.org/3/library/os.html),
 * et enfin le module `glob` pour la recherche de fichiers, par exemple pour trouver tous les fichiers en `*.txt` [doc](https://docs.python.org/3/library/glob.html).
 
 +++
