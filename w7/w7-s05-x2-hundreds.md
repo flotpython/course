@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: 'exercice: hundreds'
 version: '3.0'
@@ -75,8 +76,11 @@ exo_hundreds.correction(hundreds)
 
 +++
 
-* La première idée peut-être, consiste à faire comme en Fortran, avec deux boucles imbriquées; c'est facile à écrire, ça fonctionne, mais ce n'est pas très élégant;
-* vous pouvez aussi penser à utiliser du broadcasting:
-  * dans ce cas-là `np.indices()` peut vous être utile;
-  * vous pouvez aussi vous entrainer à fabriquer la souche des lignes et des colonnes à la main avec `np.arange()` en combinaison avec `np.newaxis`;
+* la première idée peut-être, consiste à faire deux boucles imbriquées  
+  c'est facile à écrire, ça fonctionne, mais ce n'est pas très élégant  
+  et surtout très inefficace, je vous invite à éviter cette approche  
+* vous pouvez aussi penser à utiliser du broadcasting  
+  en fabricant par exemple la souche des lignes et des colonnes  
+  à la main avec `np.arange()`
+* si vous regardez `np.indices()`, vous trouverez sans doute une inspiration
 * et sans doute d'autres auxquelles je n'ai pas pensé :)
