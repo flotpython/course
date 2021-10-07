@@ -83,7 +83,7 @@ Pour le voir comme une image avec un niveau de gris comme code de couleurs (noir
 
 ```{code-cell} ipython3
 # convertir en flottant pour imshow
-squares = squares.astype(np.float)
+squares = squares.astype(float)
 # afficher avec une colormap 'gray'
 plt.imshow(squares, cmap='gray');
 ```

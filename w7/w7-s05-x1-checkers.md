@@ -73,7 +73,7 @@ exo_checkers.correction(checkers)
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib inline
-plt.ion()
+plt.ion();
 ```
 
 L'exercice est terminé, mais si vous avez réussi et que vous voulez visualisez le résultat, voici comment vous pouvez aussi voir ce type de tableau :
@@ -90,7 +90,7 @@ slideshow:
   slide_type: fragment
 ---
 # convertir en flottant pour imshow
-checkerboard = checkerboard.astype(np.float)
+checkerboard = checkerboard.astype(float)
 # afficher avec une colormap 'gray' pour avoir du noir et blanc
 plt.imshow(checkerboard, cmap='gray');
 ```

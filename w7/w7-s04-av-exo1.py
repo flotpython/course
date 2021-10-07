@@ -107,7 +107,7 @@ np.sum(a, axis=1)
 
 # Imaginons, maintenant qu'au lieu d'avoir un tableau d'entier, j'ai un
 # tableau de float avec une valeur nan
-a = np.arange(1, 10, dtype=np.float).reshape(3, 3)
+a = np.arange(1, 10, dtype=float).reshape(3, 3)
 a[1, 1] = np.nan
 print(a)
 
