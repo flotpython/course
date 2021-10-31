@@ -11,6 +11,8 @@ FTP://username:hispass@www.google.com/
 ssh://missing.ending.slash
 gopher://unsupported.proto.col/
 http:///missing/hostname/
+http://:toto@www
+ftp://www:1:2/a/
 """.split()
 
 # @BEG@ name=url more=regexp
