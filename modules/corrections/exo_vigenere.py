@@ -29,8 +29,8 @@ def cesar(clear, key, encode=True):
     if key.isupper():
         okey += UPPER_TO_LOWER
 
-    # la variable offset est un entier entre 0 et 25 qui indique
-    # de combien on doit décaler; si vous référez qu tout premier
+    # la variable offset est un entier entre 1 et 26 qui indique
+    # de combien on doit décaler; dans le tout premier
     # exemple, avec une clé qui vaut 'C' offset va valoir 3
     offset = (okey - ord('a') + 1)
 
