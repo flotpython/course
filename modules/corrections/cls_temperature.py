@@ -26,14 +26,15 @@ class Temperature:
                  # **MUST BE NAMED**, and that one cannot call
                  # e.g. Temperature(10)
                  kelvin=None, celsius=None):
+        # in case no parameter is set
+        if kelvin is None and celsius is None:
+            kelvin = 0
+        # in case both are set
+        if kelvin is not None and celsius is not None:
+            raise ValueError("Temperature wants only one among kelvin and celsius")
         # our unique internal data is _kelvin
         # but even from the constructor we'll
         # access it **only through properties**
-        if kelvin is None and celsius is None:
-            # this calls _set_kelvin()
-            kelvin = 0
-        if kelvin is not None and celsius is not None:
-            raise ValueError("Temperature wants only one among kelvin and celsius")
         if kelvin is not None:
             # this calls _set_kelvin()
             self.kelvin = kelvin
