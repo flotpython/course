@@ -120,7 +120,7 @@ $ chmod +x fibonacci.py
 
 ```bash
 $ /le/chemin/jusqu/a/fibonacci.py 20
-fibonacci(20) = 10946
+fibonacci(20) = 6765
 ```
 
 +++
@@ -138,7 +138,7 @@ $ export PATH=/le/chemin/jusqu/a:$PATH
 ```bash
 $ cd /tmp
 $ fibonacci.py 20
-fibonacci(20) = 10946
+fibonacci(20) = 6765
 ```
 
 +++

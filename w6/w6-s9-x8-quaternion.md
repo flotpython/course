@@ -14,11 +14,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: classe Quaternion
 version: '3.0'
@@ -95,6 +96,11 @@ class Quaternion:
 ```
 
 ```{code-cell} ipython3
+# xxx remove me
+from corrections.cls_quaternion_v0 import Quaternion
+```
+
+```{code-cell} ipython3
 # correction
 exo_quaternion.correction(Quaternion)
 ```
@@ -130,4 +136,50 @@ J*K == 1j
 
 ```{code-cell} ipython3
 K*J == -1j
+```
+
+```{code-cell} ipython3
+Quaternion(1, 2, 3, 4) == (1+2j) + J * Quaternion(3-4j)
+```
+
+```{code-cell} ipython3
+
+```
+
+l'identité suivante (extraite de [cette vidéo de 3blue1brown](https://www.youtube.com/watch?v=d4EgbgTm0Bg))
+
+![](media/quaternion-multiply.png)
+
+```{code-cell} ipython3
+from corrections.cls_vector3d import Vector3D
+
+def split(q: Quaternion) -> tuple[float, Vector3D]:
+    w, x, y, z = q
+    return w, Vector3D(x, y, z)
+
+def check_identity(q1, q2):
+    # split the input
+    w1, v1 = split(q1)
+    w2, v2 = split(q2)
+    # split the product
+    wr, vr = split(q1*q2)
+
+    # the real part
+    real_compare = (w1*w2 - v1.scalar_product(v2) == wr)
+    
+    # imaginary part
+    imag_compare = (w1*v2 + w2*v1 + v1.cross_product(v2) == vr)
+
+    return real_compare and imag_compare
+```
+
+```{code-cell} ipython3
+from itertools import product
+
+ONE = Quaternion(1)
+Q1234 = Quaternion(1, 2, 3, 4)
+Q4321 = Quaternion(4, 3, 2, 1)
+
+for q1, q2 in product((ONE, I, J, K, Q1234, Q4321), repeat=2):
+    print(f"{q1=} {q2=} -> {check_identity(q1, q2)}")
 ```
