@@ -34,6 +34,7 @@ def read_set_bis(filename):
 read_set_inputs = [
     Args("data/setref1.txt"),
     Args("data/setref2.txt"),
+    Args("data/setref3.txt"),
 ]
 
 exo_read_set = ExerciseFunction(
