@@ -68,7 +68,10 @@ On se propose ici d'écrire une classe pour représenter les quaternions.
 * le système de correction automatique a besoin également que votre classe définisse son comportement vis-à-vis de `repr()` ; regardez les exemples pour voir la représentation choisie, et inspirez-vous de la fonction `number_str` comme suit :
 
 ```{code-cell} ipython3
-def number_str(x):
+# vous vous souvenez des type hints ?
+# sinon retournez voir la semaine 4 séquence 1
+
+def number_str(x: float) -> str:
     """
     la fonction utilisée dans Quaternion.__repr__ 
     pour la mise en forme des nombres
