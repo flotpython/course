@@ -125,7 +125,7 @@ fibonacci(20) = 6765
 
 +++
 
-Et donc vous pouvez aussi le déplacer dans un répertoire qui est dans votre variable `PATH`; de cette façon vous les rendez ainsi accessible à partir n'importe quel répertoire en faisant simplement :
+Et donc vous pouvez aussi le déplacer dans un répertoire qui est dans votre variable `PATH`; de cette façon vous les rendez ainsi accessible à partir de n'importe quel répertoire en faisant simplement :
 
 +++
 
