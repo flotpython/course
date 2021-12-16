@@ -9,11 +9,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Organiser les sources
 version: '3.0'
@@ -204,7 +205,7 @@ on va chercher du coup un module `bidule` à partir du répertoire du point d'en
 ### Le mauvais réflexe
 
 Du coup naturellement, on se dit, ça n'est pas grave, je vais tirer profit de la variable `PYTHONPATH`.
-Alors disons-le tout net : **Ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue.
+Alors disons-le tout net : **ce n'est pas une bonne idée**, ce n'est pas du tout pour ce genre de cas qu'elle a été prévue.
 
 Le fait de modifier une variable d'environnement est un processus tarabiscoté, même sans parler de Windows, et cette approche est une bonne façon de se tirer une balle dans le pied ; un jour ou l'autre la variable ne sera pas positionnée comme il faut, c'est sûr.
 
@@ -292,7 +293,7 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 
 
 * informatifs : `author`, `author_email`, `description`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;
-  une mention spéciale à propos de `description_long`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
+  une mention spéciale à propos de `long_description`, qu'en général on veut afficher à partir de `README.md`, d'où l'idiome fréquent :
 
   ```python
   setup(
