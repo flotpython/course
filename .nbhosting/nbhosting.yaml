@@ -1,0 +1,79 @@
+static-mappings:
+  - source: data
+    destination: data
+  - source: media
+    destination: media
+
+tracks:
+- name: "mooc"
+  id: mooc
+  description: "compléments du MOOC Python"
+  sections:
+  - name: '1. prise en mains'
+    notebooks:
+    - w1/w*-s*-[cx]*.md
+  - name: '2. types de base / syntaxe'
+    notebooks:
+    - w2/w*-s*-[cx]*.md
+  - name: '3. renforcements / références partagées'
+    notebooks:
+    - w3/w*-s*-[cx]*.md
+  - name: '4. fonctions / portée des variables'
+    notebooks:
+    - w4/w*-s*-[cx]*.md
+  - name: '5. itérations / importation'
+    notebooks:
+    - w5/w*-s*-[cx]*.md
+  - name: '6. classes'
+    notebooks:
+    - w6/w*-s*-[cx]*.md
+  - name: '7. écosystème data science'
+    notebooks:
+    - w7/w*-s*-[cx]*.md
+  - name: '8. programmation asynchrone'
+    notebooks:
+    - w8/w*-s*-[cx]*.md
+  - name: '9. sujets avancés'
+    notebooks:
+    - w9/w*-s*-[cx]*.md
+- name: "exos"
+  id: exos
+  description: "exercices extraits du MOOC Python"
+  sections:
+  - name: '1. prise en mains'
+    notebooks:
+    - w1/w*-s*-x*.md
+  - name: '2. types de base / syntaxe'
+    notebooks:
+    - w2/w*-s*-x*.md
+  - name: '3. renforcements / références partagées'
+    notebooks:
+    - w3/w*-s*-x*.md
+  - name: '4. fonctions / portée des variables'
+    notebooks:
+    - w4/w*-s*-x*.md
+  - name: '5. itérations / importation'
+    notebooks:
+    - w5/w*-s*-x*.md
+  - name: '6. classes'
+    notebooks:
+    - w6/w*-s*-x*.md
+  - name: '7. écosystème data science'
+    notebooks:
+    - w7/w*-s*-x*.md
+  - name: '8. programmation asynchrone'
+    notebooks:
+    - w8/w*-s*-x*.md
+  - name: '9. sujets avancés'
+    notebooks:
+    - w9/w*-s*-x*.md
+
+
+builds:
+  - id: handouts
+    name: format HTML
+    description: contenu statique et cherchable
+    directory: notebooks
+    script: |
+      pip install jupyter-book
+      jupyter-book build .
