@@ -30,7 +30,7 @@ Merci à Adrien Ollier d'avoir proposé cet exercice
 
 +++
 
-## exercice - niveau basique
+## exercice - niveau intermédiaire
 
 Le but de l'exercice est d'écrire la fonction `spreadsheet` 
 
