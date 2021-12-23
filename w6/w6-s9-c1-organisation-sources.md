@@ -354,16 +354,16 @@ Voici les différents codes; le détail de la classe elle-même n'est pas pertin
 Pour publier votre application sur PyPI, rien de plus simple :
 
 * il faut naturellement obtenir un login/password
-* avant de pouvoir utiliser le nom `bidule`, il faut l'enregistrer :
+* avant de pouvoir utiliser le nom `bidule`, il faut l'enregistrer :  
   `python setup.py register`
-* aussi il vous faudra installer `twine`
+* aussi il vous faudra installer `twine` :  
   `pip install twine`
 
 Ensuite à chaque version, une fois que les tests sont passés et tout :
 
-* préparer le packaging
+* préparer le packaging  
   `python setup.py sdist bdist_wheel`
-* pousser sur PyPI
+* pousser sur PyPI  
   `twine upload dist/*`
 
 Signalons enfin qu'il existe une infra PyPI "de test" sur `https://test.pypi.org` utile quand on ne veut pas polluer l'index officiel.
