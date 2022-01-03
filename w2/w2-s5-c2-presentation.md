@@ -144,7 +144,7 @@ show_module_html(pprint,
                  end="def pformat")
 ```
 
-La fonction `pprint` (ligne ~47) est une commodité (qui crée une instance de `PrettyPrinter`, sur lequel on envoie la méthode `pprint`).
+La fonction `pprint` (ligne ~46) est une commodité (qui crée une instance de `PrettyPrinter`, sur lequel on envoie la méthode `pprint`).
 
 Vous voyez ici qu'il n'est **pas nécessaire** d'insérer un *backslash* (`\`) à la fin des lignes 50 et 51, car il y a une parenthèse ouvrante qui n'est pas fermée à ce stade.
 
@@ -198,7 +198,7 @@ show_module_html(pprint,
                  lineno_width=3)
 ```
 
-Dans ce fragment au contraire, vous voyez en ligne 535 qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre en ligne 536.
+Dans ce fragment au contraire, vous voyez en ligne 562 qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre en ligne 563.
 
 +++
 
