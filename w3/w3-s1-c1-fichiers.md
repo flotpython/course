@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Les fichiers
 version: '3.0'
@@ -227,8 +228,9 @@ Lorsque ce n'est pas le comportement souhaité, on peut :
 +++
 
 Pour illustrer ce trait, nous allons :
-0. créer un fichier en mode texte, et y insérer du texte en UTF-8 ;
-0. relire le fichier en mode binaire, et retrouver le codage des différents caractères.
+
+1. créer un fichier en mode texte, et y insérer du texte en UTF-8 ;
+1. relire le fichier en mode binaire, et retrouver le codage des différents caractères.
 
 ```{code-cell} ipython3
 # phase 1 : on écrit un fichier avec du texte en UTF-8
