@@ -223,7 +223,7 @@ with open('foo.txt', encoding='utf-8') as strfile:
 Lorsque ce n'est pas le comportement souhaité, on peut :
 
 * ouvrir le fichier en mode *binaire* - pour cela on ajoute le caractère `b` au mode d'ouverture ;
-* et on peut alors interagir avec le fichier avec des objets de type `bytes`
+* et on peut alors interagir avec le fichier avec des objets de type `bytes`.
 
 +++
 
