@@ -126,7 +126,7 @@ L'exercice consite à trier la liste en place, selon le critère suivant :
 
 * on trie d'abord les gens selon leur prénom
 * en cas de prénoms identiques, on trie selon les entrées concernées selon le nom
-* en cas d'homonymes pour le nom et le prénom, on retient d'abord les gens qui n'ont pas de deuxième prénom, et on trie les autres selons leur deuxième prénom.
+* en cas d'homonymes pour le nom et le prénom, on retient d'abord les gens qui n'ont pas de deuxième prénom, et on trie les autres selon leur deuxième prénom.
 
 ```{code-cell} ipython3
 # voyons cela sur un premier exemple
