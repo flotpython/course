@@ -45,6 +45,17 @@ def tri_custom_ter(liste):
     return liste
 # @END@
 
+items0 = [
+    dict(n='Smith', p='Bob'),
+    dict(n='Smith', p='Charlie'),
+    dict(n='Smith', p='John'),
+    dict(n='Forbes', p='Bob'),
+    dict(n='Forbes', p='Charlie'),
+    dict(n='Forbes', p='John'),
+    dict(n='Forbes', p='Bob', p2='Arthur'),
+    dict(n='Forbes', p='Bob', p2='Daniel'),
+]
+
 items1 = [
     dict(n='Martin', p='Jean'),
     dict(n='Martin', p='Jeanne'),
@@ -199,10 +210,11 @@ inputs = [[{'n': 'Dupont', 'p': 'Laura', 'p2': 'Marie'},
   {'n': 'Dupont', 'p': 'Laura', 'p2': 'Marie'},
   {'n': 'Forbes', 'p': 'John'},
   {'n': 'Martin', 'p': 'Jean'},
-  {'n': 'Dupont', 'p': 'Alex', 'p2': 'Pierre'}]]
+  {'n': 'Dupont', 'p': 'Alex', 'p2': 'Pierre'}],
+]
 
 
-
+inputs.insert(0, items0)
 
 
 inputs_tri_custom = [
@@ -211,8 +223,8 @@ inputs_tri_custom = [
 
 exo_tri_custom = ExerciseFunction(
     tri_custom, inputs_tri_custom,
-    call_renderer=PPrintCallRenderer(width=24),
-    result_renderer=PPrintRenderer(width=30),
+    call_renderer=PPrintCallRenderer(width=40),
+    result_renderer=PPrintRenderer(width=40),
     font_size='small',
 )
 
