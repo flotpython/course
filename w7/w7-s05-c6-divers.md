@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Divers
 version: '3.0'
@@ -176,7 +177,7 @@ my_dtype = [
     # nom est un string de taille 15
     ('nom', '|S15'),
     # age est un entier
-    ('age', np.int)
+    ('age', int)
 ]
 
 # un tableau qui contient des cellules de ce type

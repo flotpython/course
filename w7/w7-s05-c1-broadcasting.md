@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Broadcasting
 version: '3.0'
@@ -343,7 +344,7 @@ print(col)
 ```{code-cell} ipython3
 :cell_style: split
 
-print(col + np.zeros(5, dtype=np.int_))
+print(col + np.zeros(5, dtype=np.int64))
 ```
 
 +++ {"cell_style": "split"}
@@ -363,7 +364,7 @@ print(line)
 ```{code-cell} ipython3
 :cell_style: split
 
-print(line + np.zeros(3, dtype=np.int_).reshape((3, 1)))
+print(line + np.zeros(3, dtype=np.int64).reshape((3, 1)))
 ```
 
 avant d'additionner terme à terme ces deux tableaux 3 x 5.
