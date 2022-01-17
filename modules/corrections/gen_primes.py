@@ -9,25 +9,29 @@ def primes():
     """
     enumerate prime numbers
     """
-    # the set of primes we have found so far
-    # so we avoid divisions by non-primes
-    cache_primes = set()
-
-    for n in itertools.count(2):
-        for i in range(2, int(math.sqrt(n))+1):
-            # no need to try to divide by non-primes
-            if i not in cache_primes:
-                continue
-            # not a prime, go to n+1
-            if n % i == 0:
+    # the primes we have found so far
+    previous = [2, 3]
+    yield 2
+    yield 3
+    # consider only odd numbers
+    for n in itertools.count(5, 2):
+        # deemed prime until we find a divisor
+        is_prime = True
+        # no need to go beyond this
+        root = math.sqrt(n)
+        # try only primes
+        for i in previous:
+            # above root, no need to go on
+            if i > root:
                 break
-        # remember that a 'for' statement
-        # can be attached an 'else' which
-        # gets executed when no 'break' statement has triggered
-        # in our case, we run this 'else' part when n is prime
-        else:
-            # n is prime, remember it for the rest of the enumeration
-            cache_primes.add(n)
+            # a divisor is found
+            # no need to go on either
+            if n % i == 0:
+                is_prime = False
+                break
+        # yield, and record in previous
+        if is_prime:
+            previous.append(n)
             yield n
 # @END@
 
@@ -145,8 +149,8 @@ def prime_th_primes():
     given that primes() emits 2, 3, 5
     then prime_th_primes() starts with 5 which has index 2 in that enumeration
     """
-    primes1 = primes()
-    primes2 = primes()
+    # optimizing a bit, don't compute primes twice
+    primes1, primes2 = itertools.tee(primes())
 
     # current will scan all prime numbers
     current = next(primes1)
@@ -168,8 +172,9 @@ def prime_th_primes_bis():
     as we do our own calls to next()
 
     """
-    primes1 = primes()
-    primes2 = primes()
+    # optimizing a bit, don't compute primes twice
+    primes1, primes2 = itertools.tee(primes())
+
     # this start with -1 because it's a number of times we need to do next()
     # and, as opposed with usual indexing that starts at 0
     # to get item at index 0 we need to do ONE next()

@@ -9,11 +9,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: 'exercice: nombres premiers'
 version: '3.0'
@@ -53,7 +54,7 @@ from corrections.gen_primes import exo_primes
 exo_primes.example()
 ```
 
-Le générateur ne s'arrête donc jamais, c'est un générateur infini comme `itertools.count()`. 
+Le générateur ne s'arrête donc jamais, c'est un générateur infini comme `itertools.count()`.
 Le système de correction automatique est capable d'extraire certaines parties du flux du générateur, avec une convention voisine de `range()` et/ou du *slicing*.
 
 Ainsi par exemple le deuxième jeu de test, sous-titré `1 → 5 / 2`, va retenir les éléments énumérés par le générateur aux itérations *1, 3 et 5* - en commençant bien sûr à compter à 0.
@@ -110,7 +111,7 @@ On veut à présent énumérer les carrés des nombres premiers
 
 ```{code-cell} ipython3
 from corrections.gen_primes import exo_prime_squares
-exo_prime_squares.example() 
+exo_prime_squares.example()
 ```
 
 ```{code-cell} ipython3
@@ -161,6 +162,20 @@ def prime_legos():
 exo_prime_legos.correction(prime_legos)
 ```
 
+##### zone de benchmarking
+
+un ordre de grandeur: pour le code suivant, ma solution prend environ 60ms  
+la cellule, qui fait le calcul 5 * 5 fois, prend environ 2s à afficher le résultat
+
+```{code-cell} ipython3
+%%timeit -n 5 -r 5
+
+N = 10_000
+
+P = prime_legos()
+for x in range(N): next(P)
+```
+
 ***
 ***
 ***
@@ -173,7 +188,7 @@ exo_prime_legos.correction(prime_legos)
 
 On vous demande d'implémenter un itérateur qui renvoie les $n$-ièmes nombres premiers, mais seulement pour $n$ premier.
 
-Ainsi comme `primes()` retourne la suite 
+Ainsi comme `primes()` retourne la suite
 
 | indice | premier |
 |--------|---------|
@@ -213,4 +228,18 @@ def prime_th_primes():
 ```{code-cell} ipython3
 # pour corriger votre code
 exo_prime_th_primes.correction(prime_th_primes)
+```
+
+##### zone de benchmarking
+
+un ordre de grandeur: pour le code suivant, ma solution prend environ 150ms  
+la cellule, qui fait le calcul 3 * 3 fois, prend environ 1.5s à afficher le résultat
+
+```{code-cell} ipython3
+%%timeit -n 3 -r 3
+
+N = 2_000
+
+P = prime_th_primes()
+for x in range(N): next(P)
 ```
