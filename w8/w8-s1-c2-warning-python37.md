@@ -193,6 +193,6 @@ Avec Python 3.8 et 3.9 il y a peu de changements concernant `asyncio`, ils sont 
 
 Pour conclure cet avertissement, ne vous formalisez pas si vous voyez dans le cours des
 pratiques qui sont dépassées. Les différences par rapport aux pratiques actuelles - même
-si on elles très visibles dans ce cours introductif - sont en réalité mineures au niveau
+si elles sont assez visibles dans ce cours introductif - sont en réalité mineures au niveau
 de ce qu'il est important de comprendre quand on aborde d'un oeil neuf ce nouveau
 paradigme de programmation.
