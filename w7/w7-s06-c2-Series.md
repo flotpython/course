@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Series
 version: '3.0'
@@ -367,12 +368,16 @@ La solution à tous ces problèmes est de dire explicitement ce que l'on veut fa
 Pour utiliser les labels il faut utiliser `s.loc[]` et pour utiliser les positions if faut utiliser `s.iloc[]` (le `i` est pour localisation implicite, c'est-à-dire la position). Regardons cela :
 
 ```{code-cell} ipython3
+# prenons un cas plus usuel, où les labels sont plutôt des chaines
+# notez que la logique est la même quel que soit le type de l'index
+
+s = pd.Series([1000, 2000, 3000, 4000], index=['deux', 'zero', 'un', 'quatre'])
 print(s)
 ```
 
 ```{code-cell} ipython3
 # accès au label
-print(s.loc[0])
+print(s.loc['zero'])
 ```
 
 ```{code-cell} ipython3
@@ -382,12 +387,12 @@ print(s.iloc[0])
 
 ```{code-cell} ipython3
 # slice sur les labels, ATTENTION, il inclut la borne de droite
-print(s.loc[2:0])
+print(s.loc['deux':'zero'])
 ```
 
 ```{code-cell} ipython3
 # slice sur les positions, ATTENTION, il exclut la borne de droite
-print(s.iloc[0:2])
+print(s.iloc[1:3])
 ```
 
 Pour allez plus loin, vous pouvez lire la documentation officielle :
