@@ -59,7 +59,7 @@ from itertools import chain
 # c'est à dire environ 2500 entrées, ce n'est pas grand chose
 
 # on commence par le cas où le texte et la clé sont minuscules
-# on rappelle que ord('A')=97
+# on rappelle que ord('a')=97
 # avec nos définitions, une clé implique un décalage
 # de (ord(k)-96), car une clé A signifie un décalage de 1
 # par contre pour faire les calculs modulo 26
