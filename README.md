@@ -24,7 +24,7 @@ It's primarily a django app, running below an ngingx reverse proxy server, and s
 
 ## How to run them
 
-Here is a link to a binder instance, that in principle should be ready for playing with these notebooks online: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/flotpython/course/master)
+Here is a link to a binder instance, that in principle should be ready for playing with these notebooks online: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/flotpython/course/main)
 
 Of course, you can also run them locally if you install jupyter locally.
 
