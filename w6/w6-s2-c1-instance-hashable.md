@@ -14,11 +14,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -212,7 +213,7 @@ class Point2(Point1):
     # du coup la fonction de hachage 
     # dépend aussi de x et de y
     def __hash__(self):
-        return (11 * self.x + self.y) // 16
+        return hash((self.x, self.y))
 ```
 
 On peut vérifier que cette fois les choses fonctionnent correctement :
@@ -314,8 +315,7 @@ t2 in s
 * d'abord inséré `t1` dans `s`, avec un indice de hachage calculé à partir de `10, 10`
 * pas inséré `t2` dans `s` parce qu'on a déterminé qu'il existait déjà.
 
-Après avoir modifié `t1` qui est le seul élément de `s`:
-À ce stade: 
+Après avoir modifié `t1` - qui est le seul élément de `s` à ce stade: 
 
 * lorsqu'on cherche `t1` dans `s`, on le fait avec un indice de hachage calculé à partir de `100, 10` et du coup on ne le trouve pas,
 * lorsqu'on cherche `t2` dans `s`, on utilise le bon indice de hachage, mais ensuite le seul élément qui pourrait faire l'affaire n'est pas égal à `t2`.

@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: "H\xE9riter des types *builtin* ?"
 version: '3.0'
@@ -222,7 +223,7 @@ class Point2(namedtuple('Point2', ['x', 'y'])):
     # du coup la fonction de hachage 
     # dépend aussi de x et de y
     def __hash__(self):
-        return (11 * self.x + self.y) // 16
+        return hash((self.x, self.y))
 ```
 
 Avec ceci en place on peut maintenant faire:

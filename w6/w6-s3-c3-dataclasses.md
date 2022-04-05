@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: dataclasses
 version: '3.0'
@@ -76,7 +77,7 @@ class Point:
         return self.x == other.x and self.y == other.y
 
     def __hash__(self):
-        return (11 * self.x + self.y) // 16
+        return hash((self.x, self.y))
 ```
 
 ```{code-cell} ipython3
