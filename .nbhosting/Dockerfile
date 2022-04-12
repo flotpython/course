@@ -16,6 +16,8 @@ RUN true \
  && pip install autograd \
     # Fourier \
  && pip install k3d \
+ && jupyter nbextension install --py --sys-prefix k3d \
+ && jupyter nbextension enable  --py --sys-prefix k3d \
     # section on pandas \
  && pip install seaborn \
     # w8 \
