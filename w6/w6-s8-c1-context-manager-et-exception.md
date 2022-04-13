@@ -93,7 +93,7 @@ Pour illustrer cela, écrivons une nouvelle version de `Timer` qui filtre, dison
 
 ```{code-cell} ipython3
 # une deuxième version de Timer
-# qui propage toutes les exceptions sauf 'OSError'
+# qui propage toutes les exceptions sauf 'ZeroDivisionError'
 
 class Timer2:
     def __enter__(self):
