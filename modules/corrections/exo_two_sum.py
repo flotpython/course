@@ -31,11 +31,10 @@ def two_sum_bis(liste, target):
     """
     for (i, item1), (j, item2) in product(
         enumerate(liste), enumerate(liste)):
-        for j, item2 in enumerate(liste):
-            if i >= j:
-                continue
-            if item1 + item2 == target:
-                return i, j
+        if i >= j:
+            continue
+        if item1 + item2 == target:
+            return i, j
 # @END@
 
 
@@ -46,11 +45,10 @@ def two_sum_ter(liste, target):
     """
     for (i, item1), (j, item2) in product(
         enumerate(liste), repeat=2):
-        for j, item2 in enumerate(liste):
-            if i >= j:
-                continue
-            if item1 + item2 == target:
-                return i, j
+        if i >= j:
+            continue
+        if item1 + item2 == target:
+            return i, j
 # @END@
 
 
@@ -61,6 +59,12 @@ inputs = [
     Args([0, 64, 1, 128, 4, 8, 16, 32, 2], 3),
     Args([0, 64, 1, 127, 4, 8, 16, 32, 2], 128),
 ]
+
+def two_sum_ko(liste, target):
+    for (i, item1), (j, item2) in product(
+        enumerate(liste), enumerate(liste)):
+        if item1 + item2 == target:
+            return i, j
 
 
 exo_two_sum = ExerciseFunction(
