@@ -38,7 +38,7 @@ tracks:
     - w9/w*-s*-[cx]*.md
 - name: "exos"
   id: exos
-  description: "exercices extraits du MOOC Python"
+  description: "exercices autocorrigés du MOOC Python"
   sections:
   - name: '1. prise en mains'
     notebooks:
