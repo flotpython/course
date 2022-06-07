@@ -244,7 +244,7 @@ Dans le cas général, il est possible de combiner les 4 formes d'arguments :
  * arguments "normaux", dits positionnels
  * arguments nommés, comme `nom=<valeur>`
  * forme `*args`
- * forme `**dargs`
+ * forme `**kwds`
  
 Vous pouvez [vous reporter à cette page](https://docs.python.org/3/reference/expressions.html#calls)
 pour une description détaillée de ce cas général.
