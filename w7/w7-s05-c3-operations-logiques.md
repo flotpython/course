@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: "Op\xE9rations logiques"
 version: '3.0'
@@ -190,15 +191,15 @@ except Exception as e:
     print(f"OOPS - {type(e)} - {e}")
 ```
 
++++ {"cell_style": "split"}
+
+on ne peut pas non plus faire `rayures.not()`, parce `not` est un mot clé
+
 ```{code-cell} ipython3
 :cell_style: split
 
-# on ne peut pas non plus faire
-#   rayures.not() 
-#   parce not est un mot clé
-# et on ne peut pas non plus faire
+# on a le choix entre utiliser
 #   rayures.logical_not() 
-#   et ça c'est plutôt un défaut
 
 anti_rayures = np.logical_not(rayures)
 plt.imshow(anti_rayures, 
@@ -208,10 +209,9 @@ plt.imshow(anti_rayures,
 ```{code-cell} ipython3
 :cell_style: split
 
-# lorsque vous avez de vrais 
-# booléens, vous pouvez
-# utiliser l'opérateur ~ 
+# ou encore l'opérateur ~ 
 # qui fait un not bitwise
+
 anti_rayures = ~rayures
 plt.imshow(anti_rayures,
            cmap='gray');
