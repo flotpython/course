@@ -94,13 +94,22 @@ async def c2():
     await asyncio.sleep(2)
     show_timer(&quot;&lt;&lt;&lt; c2&quot;)
 
-asyncio.ensure_future(c1())
+async def main():
+    # Il faut maintenant utiliser get_running_loop à la place de get_event_loop.
+    loop = asyncio.get_running_loop()
+    # On crée un objet future
+    fut = loop.create_future()
+    asyncio.ensure_future(c1())
+    await fut
 
 start_timer()
 
 # interrompre après 2s
 try:
-    asyncio.get_event_loop().run_forever()
+    # run dans un terminal, idle, ipython. dans un notebook remplacer par await main()
+    # asyncio.run() crée toujours une nouvelle boucle d'événements et la ferme à la fin.
+    # Elle doit être utilisée comme point d'entrée principal pour les programmes asynchrones, et ne doit idéalement être appelée qu'une seule fois.
+    asyncio.run(main())
 except KeyboardInterrupt:
     print(&quot;bye&quot;)
 </code></pre>
@@ -111,36 +120,42 @@ Pour interrompre la boucle &quot;sans fin&quot;, taper Ctl-c</p>
 <blockquote>
 <p>réinitialisation de la boucle</p>
 </blockquote>
-<pre><code>asyncio.set_event_loop(asyncio.new_event_loop())
+<!-- Plus necessaire asyncio.run() gére.
+<pre><code>asyncio.set_event_loop(asyncio.new_event_loop()) -->
 </code></pre>
 <blockquote>
 <p>Reprendre le fichier sous IDLE ou votre éditeur python
 et remplacer (après l'utilitaire) par</p>
 </blockquote>
-<pre><code>async def c1_stop():
+<pre><code>async def c1_stop(fut):
     show_timer(&quot;&gt;&gt;&gt; c1&quot;)
     await asyncio.sleep(1)
     show_timer(&quot;forking&quot;)
     # fork
-    asyncio.ensure_future(c2_stop())
+    asyncio.ensure_future(c2_stop(fut))
     await asyncio.sleep(1)
     show_timer(&quot;&lt;&lt;&lt; c1&quot;)
 
 # sera forkée par c1_stop() après une seconde
-async def c2_stop():
+async def c2_stop(fut):
     show_timer(&quot;&gt;&gt;&gt; c2&quot;)
     await asyncio.sleep(2)
     show_timer(&quot;&lt;&lt;&lt; c2&quot;)
-    # attention c'est une méthode bloquante
-    asyncio.get_event_loop().stop()    
+    # On set un résultat pour l'objet future afin de pouvoir quitter la boucle.
+    fut.set_result(&quot;End&quot;)    
 
-asyncio.ensure_future(c1_stop())
+async def main():
+    loop = asyncio.get_running_loop()
+    fut = loop.create_future()
+    asyncio.ensure_future(c1_stop(fut))
+    
+    print(await fut)
 
 start_timer()
 
 # s'arrête tout seul
 try:
-    asyncio.get_event_loop().run_forever()
+    asyncio.run(main())
 except KeyboardInterrupt:
     print(&quot;bye&quot;)
     
