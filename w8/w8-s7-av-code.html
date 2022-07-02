@@ -10,32 +10,32 @@
 <blockquote>
 <p>Prendre un nouveau fichier sous IDLE ou votre éditeur python</p>
 </blockquote>
-<pre><code>from asyncio import (
-    get_event_loop, ensure_future, Task )
+<pre><code>import asyncio
+#Task.all_tasks() et Task.current_task() remplacées par asyncio.all_tasks() et asyncio.current_task()
 
 async def foo():
     pass
 
-task = ensure_future(foo())
+async def main():
+    # On crée une task avec asyncio.create_task() On peut lui donner un nom (option)
+    task = asyncio.create_task(foo(), name=&quot;Foo&quot;)
+    print(&quot;La task Foo est en attente&quot;)
+    print(task)
+    print(&quot;---------&quot;)
+    print(f&quot;Task Foo terminée ? : {task.done()}&quot;) #La task est terminée ?
+    print(&quot;---------&quot;)
+    print(f&quot;Task en cours :\n{asyncio.current_task()}&quot;) # retourne la task en cours.
+    print(&quot;---------&quot;)
+    tasks = asyncio.all_tasks() # retourne un set de tasks non terminées.
+    print(f&quot;Set des tasks non terminées :\n{tasks}&quot;)
+    await task
+    print(&quot;---------&quot;)
+    print(f&quot;Task Foo terminée ? : {task.done()}&quot;) #La task est terminée ?
+    
+asyncio.run(main())
+
 </code></pre>
 <blockquote>
 <p>Faire Save As &quot;w8s7 Vidéo.py&quot; puis F5</p>
 </blockquote>
-<pre><code>task
-</code></pre>
-<blockquote>
-<p>Reprendre le fichier sous IDLE ou votre éditeur python</p>
-</blockquote>
-<pre><code># attention : retourne un set
-tasks = Task.all_tasks()
-</code></pre>
-<blockquote>
-<p>Faire Ctl-s puis F5</p>
-</blockquote>
-<pre><code>tasks
-task in tasks
-
-# et comme on n'est pas dans la  boucle
-print(task.current_task())
-</code></pre>
 </div>
