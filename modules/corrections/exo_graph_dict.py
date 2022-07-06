@@ -4,8 +4,6 @@ from nbautoeval import Args, ExerciseFunction, PPrintRenderer
 
 
 # @BEG@ name=graph_dict
-from collections import defaultdict
-
 def graph_dict(filename):
     """
     construit une stucture de données de graphe
@@ -34,6 +32,8 @@ def graph_dict(filename):
 
 
 # @BEG@ name=graph_dict more=bis
+from collections import defaultdict
+
 def graph_dict_bis(filename):
     """
     pareil mais en utilisant un defaultdict
