@@ -21,13 +21,13 @@ version: '3.0'
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
-<span>Thierry Parmentelat &amp; Arnaud Legout</span>
+<span>Thierry Parmentelat &amp; Arnaud Legout, Jean-Michel Heras</span>
 <span><img src="media/both-logos-small-alpha.png" /></span>
 </div>
 
 +++
 
-# Structural pattern matching `match case`
+# Instruction match (1/2)
 
 +++
 
@@ -79,6 +79,8 @@ def choix1(boisson):
 choix1(3)
 ```
 
+La même chose avec un `if`.
+
 ```{code-cell} ipython3
 def choix2(boisson):
     if boisson == 1:
@@ -114,6 +116,7 @@ On combine en un seul cas avec le ou '|', les cas dont la réponse est similaire
 
 ```{code-cell} ipython3
 def c_pas_faux(mot):
+    """Voir Kaamelott, épisode La botte secrète"""
     match mot:
         case "paradoxale"|"dichotomie":
             print("Ouais, c'est pas faux !")
@@ -181,7 +184,7 @@ def say(something):
 ```{code-cell} ipython3
 # la fonction say ne renvoie rien, result == None
 result = say("Hello")
-# 0 ne renvoie pas False et diffèrent 0 ne renvoie pas True
+# 0 ne renvoie pas False et diffèrent de 0 ne renvoie pas True
 bool_list = [True, False, None, 0, 1, bool(-10),bool(0), bool(1), result]
 
 for item in bool_list:
@@ -219,3 +222,82 @@ string_list = ['simple quotes', "double quotes", """triple quotes""", b"binary",
 for item in string_list:
     match_string(item)
 ```
+
+* Des tuples, des listes.
+
+```{code-cell} ipython3
+def odd_even(a, b):
+    match(bool(a%2), bool(b%2)):
+        case (False, False):
+            print("a pair, b pair")
+        case (False, True):
+            print("a pair, b impair")
+        case (True, True):
+            print("a impair, b impair")   
+        case (True, False):
+            print("a impair, b pair")
+        case _:
+            print("Pas évaluable")
+```
+
+```{code-cell} ipython3
+odd_even(1, 2)
+```
+
+```{code-cell} ipython3
+def action(player_input):
+    match(player_input.split()):
+        case ["go", "north"]: # ou ("go", "north")
+            print("ok")
+        case _:
+            print("commande inconnue")
+```
+
+```{code-cell} ipython3
+action("go north")
+```
+
+**Valider un terme avec une sous-séquence.**
+
++++
+
+Ici, `sucre` peut prendre n'importe quelle valeur.
+
+```{code-cell} ipython3
+def choix(boisson):
+    match boisson:
+        case(1, sucre):
+            print(f"Un café {sucre}.")
+        
+choix((1, "peu sucré"))
+```
+
+Là, on verifie que c'est bien ce qu'on attends avec `as`.
+
+```{code-cell} ipython3
+def choix(boisson):
+    match boisson:
+        # Valide uniquement si dans la séquence.
+        case (1, ("non sucré"|"peu sucré"|"sucré"|"très sucré") as sucre):
+            print(f"Un café {sucre}.")
+        # Peu importe les deux premiers éléments, il y en a plus de deux.
+        case (_, _, *args):
+            print("argument inconnu ou trop d'arguments.")
+        case _:
+            print("Autre cas")
+            
+choix((1, "peu sucré"))
+choix((1, "sucré", 8))
+choix((1))
+```
+
+### Pour en savoir plus
+
++++
+
+[PEP 634](https://peps.python.org/pep-0634/) specification
+[PEP 636](https://peps.python.org/pep-0636/) tutorial
+
++++
+
+Rendez-vous en semaine 6 pour une seconde partie.
