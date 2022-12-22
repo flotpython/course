@@ -1,12 +1,17 @@
-import sys
-import os
-import time
-import math
-
 """
 display the code for a module - or parts thereof
 not the nicest code ever, but it does the job
 """
+
+# pylint: disable=missing-function-docstring
+
+import sys
+import math
+import traceback
+from pathlib import Path
+
+from IPython.display import HTML
+
 
 # do not even try files that end with these suffixes
 excludes = [".so", ".pyc"]
@@ -26,7 +31,7 @@ def check_legit(module):
 
 
 def guess_lineno_width(filename):
-    with open(filename) as feed:
+    with open(filename, encoding="utf-8") as feed:
         nb_lines = sum(1 for x in feed)
     if nb_lines == 0:
         return 0
@@ -46,8 +51,8 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
     if not check_legit(module):
         print("Nice try")
         return
+    name = module.__name__
     try:
-        name = module.__name__
         # use .py instead of .pyc if that's what we get
         file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
@@ -58,7 +63,7 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
         showing = True if not beg else False
         if lineno_width is None:
             lineno_width = guess_lineno_width(file)
-        with open(file) as feed:
+        with open(file, encoding="utf-8") as feed:
             print(f"Fichier {file}")
             print(40 * "-")
             if not showing:
@@ -75,25 +80,15 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
                 if showing:
                     mark = line_mark(lineno, lineno_width)
                     print(mark + prefix + line, end='')
-    except AttributeError as e:
+    except AttributeError:
         print(f"show_module: Could not find module {module}")
-    except Exception as e:
+    except Exception:                            # pylint: disable=broad-except
         print(f"show_module: Could not show module {name}")
-        import traceback
         traceback.print_exc()
 
 
-# this was not too bad on a mac retina but still not right
-# with other environments
-#html_style = 'max_height=300px; font-size:11px; line-height:15px;'
-html_style = 'max_height=300px; font-size:x-small; line-height:15px;'
-
-html = ""
-
-from IPython.display import HTML
-# ceci est un ajout de derniere minute, aussi pour ne pas casser ce qui
-# marche je prefere copier-coller show_module
-
+# this was a last minute addition, so in order to avoid breaking
+# what works, it seems best to copy show_module
 
 def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
     """
@@ -101,34 +96,43 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
     if beg is provided, listing starts with the first matching line
     if end is provided, listing ends with the first matching line (excluded)
     """
-    global html
+
+    # this was not too bad on a mac retina but still not right
+    # with other environments
+    #html_style = 'max_height=300px; font-size:11px; line-height:15px;'
+    html_style = 'max_height=300px; font-size:x-small; line-height:15px;'
+
+
     html = f"<pre style='{html_style}'>"
 
     def htmlprint(*args):
-        global html
+        nonlocal html
         html += " ".join(args) + "\n"
 
     def htmlprint_nonl(*args):
-        global html
+        nonlocal html
         html += " ".join(args)
+
+    def html_finish():
+        return HTML(html + "</pre>")
 
     # check this is a module
     if type(module) is not type(sys):
         htmlprint(f"show_module: Unexpected input {module}\n")
-        return HTML(html + "</pre>")
+        return html_finish()
+    name = module.__name__
     try:
-        name = module.__name__
         # use .py instead of .pyc if that's what we get
         file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
                 htmlprint(f"Cannot display {file}, wrong type")
-                return HTML(html + "</pre>")
+                return html_finish()
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         if lineno_width is None:
             lineno_width = guess_lineno_width(file)
-        with open(file) as feed:
+        with open(file, encoding="utf-8") as feed:
             htmlprint(f"Fichier {file}")
             htmlprint(40 * "-")
             if not showing:
@@ -140,18 +144,17 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
                 # get out if in showing mode and end string is seen
                 if showing and end and line.find(end) >= 0:
                     htmlprint("<...>")
-                    return HTML(html + "</pre>")
+                    return html_finish()
                 # print this line if in showing mode
                 if showing:
                     mark = line_mark(lineno, lineno_width)
                     htmlprint_nonl(mark + prefix + line)
-    except AttributeError as e:
+    except AttributeError:
         htmlprint(f"show_module: Could not find module {module}")
-    except Exception as e:
+    except Exception:                            # pylint: disable=broad-except
         htmlprint(f"show_module: Could not show module {name}")
-        import traceback
         traceback.print_exc()
-    return HTML(html + "</pre>")
+    return html_finish()
 
 
 def find_on_disk(package, modname):
@@ -159,9 +162,8 @@ def find_on_disk(package, modname):
     Gory details of locating a .py file on the hard drive
     from a preloaded package (package_relatif) and a filename like 'loader1.py'
     """
-    from pathlib import Path
-    dir = Path(package.__file__).parent
-    modfile = dir / modname
+    folder = Path(package.__file__).parent
+    modfile = folder / modname
     if not modfile.exists():
         raise ValueError(f"Could not spot file for module {modname} "
                          f"in package {package}")
