@@ -41,7 +41,7 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
     """
     # check this is a module
     if type(module) is not type(sys):
-        print("show_module: Unexpected input {}".format(module))
+        print(f"show_module: Unexpected input {module}")
         return
     if not check_legit(module):
         print("Nice try")
@@ -52,14 +52,14 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
         file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
-                print("Cannot display {}, wrong type".format(file))
+                print(f"Cannot display {file}, wrong type")
                 return
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         if lineno_width is None:
             lineno_width = guess_lineno_width(file)
         with open(file) as feed:
-            print("Fichier {}".format(file))
+            print(f"Fichier {file}")
             print(40 * "-")
             if not showing:
                 print("<...>")
@@ -76,9 +76,9 @@ def show_module(module, beg=None, end=None, prefix='|', lineno_width=None):
                     mark = line_mark(lineno, lineno_width)
                     print(mark + prefix + line, end='')
     except AttributeError as e:
-        print("show_module: Could not find module {}".format(module))
+        print(f"show_module: Could not find module {module}")
     except Exception as e:
-        print("show_module: Could not show module {}".format(name))
+        print(f"show_module: Could not show module {name}")
         import traceback
         traceback.print_exc()
 
@@ -102,7 +102,7 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
     if end is provided, listing ends with the first matching line (excluded)
     """
     global html
-    html = "<pre style='{}'>".format(html_style)
+    html = f"<pre style='{html_style}'>"
 
     def htmlprint(*args):
         global html
@@ -114,8 +114,7 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
 
     # check this is a module
     if type(module) is not type(sys):
-        htmlprint("show_module: Unexpected input {}\n"
-                  .format(module))
+        htmlprint(f"show_module: Unexpected input {module}\n")
         return HTML(html + "</pre>")
     try:
         name = module.__name__
@@ -123,14 +122,14 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
         file = module.__file__.replace(".pyc", ".py")
         for exclude in excludes:
             if file.endswith(exclude):
-                htmlprint("Cannot display {}, wrong type".format(file))
+                htmlprint(f"Cannot display {file}, wrong type")
                 return HTML(html + "</pre>")
         # we start in showing mode unless beg was provided
         showing = True if not beg else False
         if lineno_width is None:
             lineno_width = guess_lineno_width(file)
         with open(file) as feed:
-            htmlprint("Fichier {}".format(file))
+            htmlprint(f"Fichier {file}")
             htmlprint(40 * "-")
             if not showing:
                 htmlprint("<...>")
@@ -147,9 +146,9 @@ def show_module_html(module, beg=None, end=None, prefix='|', lineno_width=None):
                     mark = line_mark(lineno, lineno_width)
                     htmlprint_nonl(mark + prefix + line)
     except AttributeError as e:
-        htmlprint("show_module: Could not find module {}".format(module))
+        htmlprint(f"show_module: Could not find module {module}")
     except Exception as e:
-        htmlprint("show_module: Could not show module {}".format(name))
+        htmlprint(f"show_module: Could not show module {name}")
         import traceback
         traceback.print_exc()
     return HTML(html + "</pre>")

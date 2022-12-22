@@ -10,7 +10,7 @@ def display_env(env):
     on affiche juste le nom et le type de chaque variable
     """
     for variable, valeur in sorted(env.items()):
-        print("{:>20} → {}".format(variable, type(valeur).__name__))
+        print(f"{variable:>20} → {type(valeur).__name__}")
 
 def temoin(x):
     "la fonction témoin"

@@ -46,10 +46,10 @@ def show_comptage(in_name, out_name, comptage, suffix):
     html += "<table>"
     html += "<tr><th>Entrée</th></tr>"
     for line in in_file.split("\n"):
-        html += "<tr><td>{}</td></tr>".format(line)
+        html += f"<tr><td>{line}</td></tr>"
     html += "<tr><th>Sortie</th></tr>"
     for line in out_file.split("\n"):
-        html += "<tr><td>{}</td></tr>".format(line)
+        html += f"<tr><td>{line}</td></tr>"
     html += "</table>"
     return HTML(html)
 

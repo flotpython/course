@@ -67,7 +67,7 @@
 ###         # alors on le prend
 ###         age = mots.pop(1)
 ###     # il ne reste plus qu'à formater
-###     return "N:>{}< P:>{}< A:>{}<".format(nom, prenom, age)
+###     return f"N:>{nom}< P:>{prenom}< A:>{age}<"
 ### # @END@
 ###
 ### inputs_affichage = [
