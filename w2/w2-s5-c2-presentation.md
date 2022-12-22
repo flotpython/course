@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: "Pr\xE9sentation du code"
 version: '3.0'
@@ -63,6 +64,8 @@ La fonction du module - le pretty printing - est évidemment accessoire ici, mai
  * vous pouvez regarder notamment la façon de couper les lignes pour respecter cette limite en largeur.
 
 ```{code-cell} ipython3
+:scrolled: true
+
 from modtools import show_module_html
 import pprint
 show_module_html(pprint)
@@ -198,7 +201,9 @@ show_module_html(pprint,
                  lineno_width=3)
 ```
 
-Dans ce fragment au contraire, vous voyez en ligne 562 qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre en ligne 563.
+Dans ce fragment au contraire, voyez la ligne commençant par  
+`if (issubclass(typ, list)...`  
+et remarquez qu'**il a fallu cette fois** insérer un *backslash* `\` comme caractère de continuation pour que l'instruction puisse se poursuivre sur la ligne suivante.
 
 +++
 
@@ -231,7 +236,7 @@ Je vous signale notamment:
 
 +++
 
-### Les deux-points ':'
+### Les deux-points `:`
 
 +++
 
