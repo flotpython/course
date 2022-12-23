@@ -141,28 +141,43 @@ Réciproquement, si vous essayez de taper du Python directement dans un terminal
 
 +++
 
-Avant l'arrivée de la version 3 de Python, les choses étaient simples, on exécutait un programme Python avec une seule commande `python`. Depuis 2014-2015, maintenant que les deux versions de Python coexistent, il est nécessaire d'adopter une convention qui permette d'installer les deux langages sous des noms qui sont non-ambigus.
+Avant l'arrivée de la version 3 de Python, les choses étaient simples, on
+exécutait un programme Python avec une seule commande `python`. Depuis
+2014-2015, les deux versions de Python ont coexisté, il est nécessaire d'adopter
+une convention qui permette d'installer les deux langages sous des noms qui sont
+non-ambigus
 
-C'est pourquoi actuellement, on trouve **le plus souvent** la convention suivante sous Linux et macOS :
+C'est pourquoi actuellement, on trouve **le plus souvent** la convention
+suivante sous Linux et macOS :
 
-* `python3` est pour exécuter les programmes en Python-3 ; du coup on trouve alors également les commandes comme `idle3` pour lancer IDLE, et par exemple `pip3` pour le gestionnaire de paquets (voir ci-dessous) ;
+* `python3` est pour exécuter les programmes en Python-3 ; du coup on trouve
+  alors également les commandes comme `idle3` pour lancer IDLE, et par exemple
+  `pip3` pour le gestionnaire de paquets (voir ci-dessous) ;
 
-* `python2` est pour exécuter les programmes en Python-2, avec typiquement `idle2` et `pip2` ;
+* `python2` est pour exécuter les programmes en Python-2  (il faut savoir par
+ailleurs que MacOS arrive avec un python2 préinstallé, car certaines parties de
+l'OS en ont besoin !; du coup sur cet OS on ne peut pas se débarrasser
+complètement de Python2)
 
-* enfin selon les systèmes, la commande `python` tout court est un alias pour `python2` ou `python3`. De plus en plus souvent, par défaut `python` désigne `python3`.
+* enfin selon les systèmes, la commande `python` tout court est un alias pour
+  `python2` ou `python3`. De plus en plus souvent bien entendu, `python` désigne
+  `python3`.
 
-à titre d'illustration, voici ce que j'obtiens sur mon mac :
+à titre d'illustration, voici ce que j'obtiens sur mon mac dans mon
+environnement de tous les jours (Déc 2022):
 
 ```bash
 $ python3 -V
-Python 3.6.2
+Python 3.11.0
 $ python2 -V
-Python 2.7.13
+Python 2.7.16
 $ python -V
-Python 3.6.2
+Python 3.11.0
 ```
 
-Sous Windows, vous avez un lanceur qui s'appelle `py`. Par défaut, il lance la version de Python la plus récente installée, mais vous pouvez spécifier une version spécifique de la manière suivante&nbsp;:
+Sous Windows, vous avez un lanceur qui s'appelle `py`. Par défaut, il lance la
+version de Python la plus récente installée, mais vous pouvez spécifier une
+version spécifique de la manière suivante&nbsp;:
 
 ```bash
 C:\> py -2.7
