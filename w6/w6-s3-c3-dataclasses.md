@@ -36,7 +36,7 @@ Python 3.7 apporte un nouveauté pour simplifier la définition de classes dites
 
 +++
 
-### Aperçu
+## Aperçu
 
 +++
 
@@ -46,24 +46,68 @@ Voici par exemple comment on pourrait définir une classe `Personne`:
 
 ```{code-cell} ipython3
 from dataclasses import dataclass
+```
 
+```{code-cell} ipython3
 @dataclass
 class Personne:
     nom: str
     age: int
     email: str = ""
+        
+Personne(nom='jean', age=12)        
 ```
 
-```{code-cell} ipython3
-personne = Personne(nom='jean', age=12)
-print(personne)
-```
-
-### Instances non mutables
+Comme vous le voyez, on n'a pas eu besoin d'implémenter une *dundle* `__repr__` pour obtenir une présentation déjà plus agréable que `<__main__.Personne at 0x10ac991e0>`
 
 +++
 
-Le décorateur `dataclass` accepte divers arguments pour choisir le comportement de certains aspects de la classe. Reportez-vous à la documentation pour une liste complète, mais voici un exemple qui utilise `frozen=True` et qui illustre la possibilité de créer des instances non mutables. Nous retrouvons ici le même scénario d'ensemble de points que nous avons déjà rencontré plusieurs fois :
+## Surcharge
+
++++
+
+On n'est pas obligé d'adopter toutes les *dundle* automatiques; par exemple je peux toujours définir mon propre  `repr()` comme d'habitude :
+
+```{code-cell} ipython3
+@dataclass
+class PrettyPersonne:
+    nom: str
+    age: int
+    email: str = ""
+    
+    def __repr__(self):
+        return f"{self.nom} <{self.email}>, {self.age} ans"
+
+PrettyPersonne(nom='alice', age=25, email='alice@example.com')
+```
+
+Une fois qu'on a dit ça, il me semble personnellement plus propre d'être explicite, et d'indiquer au décorateur 
+qu'on va se charger du repr; mais bon...
+
+```{code-cell} ipython3
+# on peut aussi être plus explicite
+@dataclass(repr=False)
+class PrettyPersonne:
+    nom: str
+    age: int
+    email: str = ""
+    
+    def __repr__(self):
+        return f"{self.nom} <{self.email}>, {self.age} ans"
+    
+PrettyPersonne(nom='alice', age=25, email='alice@example.com')    
+```
+
+## Instances non mutables
+
++++
+
+En fait ça va beaucoup plus loin que cela, la dataclasse se retrouve avec pas mal de dundle méthodes implémentées gratuitement pour nous.
+
+Nous reprenons ici le même scénario d'ensemble de points que nous avons déjà rencontré plusieurs fois; remarquez que la classe `Point` sait correctement **comparer** et **hasher** ses objets, et on va pouvoir les ranger dans un ensemble pour éliminer les doublons, sans avoir besoin de redéfinir les *dundle* `__eq__` et `__hash__` qu'il aurait fallu faire si on n'avait pas utilisé `dataclass` :
+
+Enfin on illustre ici le fait que décorateur `dataclass` accepte divers arguments pour choisir le comportement de certains aspects de la classe. Reportez-vous à la documentation pour une liste complète, mais voici un exemple qui utilise `frozen=True` qui nous permet de créer des **instances non mutables**. 
+
 
 ```{code-cell} ipython3
 from dataclasses import dataclass
@@ -72,12 +116,6 @@ from dataclasses import dataclass
 class Point:
     x: float
     y: float
-
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-
-    def __hash__(self):
-        return hash((self.x, self.y))
 ```
 
 ```{code-cell} ipython3
@@ -100,7 +138,15 @@ except Exception as e:
     print(f"OOPS {type(e)}")
 ```
 
-### Pour aller plus loin
+## Résumé
+
++++
+
+Donc bref, j'espère vous avoir convaincu que ce trait de `dataclass` permet d'éviter pas mal de code de type *boilerplate*, et comme chacun sait: *less code, fewer bugs*, donc n'hésitez pas à user et abuser de ce trait, d'autant qu'à présent la version 3.7 est vraiment acquise !
+
++++
+
+## Pour aller plus loin
 
 +++
 

@@ -27,12 +27,12 @@ extended = [ t for t in extended_full if t[0] in ids_extract ]
 abbreviated = [ t for t in abbreviated_full if t[0] in ids_extract ]
 
 def show():
-    print("extended_full has {} {}-entries".
-          format(len(extended_full), len(extended_full[0])))
-    print("abbreviated_full has {} {}-entries"
-          .format(len(abbreviated_full), len(abbreviated_full[0])))
-    print("extended has {} entries".format(len(extended)))
-    print("abbreviated has {} entries".format(len(abbreviated)))
+    ext_size = len(extended_full[0])
+    print(f"extended_full has {len(extended_full)} {ext_size}-entries")
+    abb_size = len(abbreviated_full[0])
+    print(f"abbreviated_full has {len(abbreviated_full)} {abb_size}-entries")
+    print(f"extended has {len(extended)} entries")
+    print(f"abbreviated has {len(abbreviated)} entries")
 
 #show()
 
@@ -41,9 +41,8 @@ def check(filename):
         extended = json.load(feed)
     ids = { t[0] for t in extended }
     full_ids = { (t[0], t[4]) for t in extended }
-    print("{} has {} entries - {} different ids and {} different (id, name) tuples"
-          .format(filename, len(extended),
-                  len(ids), len(full_ids)))
+    print(f"{filename} has {len(extended)} entries - "
+          f"{len(ids)} different ids and {len(full_ids)} different (id, name) tuples")
 
 #import glob
 #for input in glob.glob("data/marine*ext*json"):

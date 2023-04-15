@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Taxes
 version: '3.0'
@@ -59,10 +60,30 @@ from corrections.exo_taxes import exo_taxes
 exo_taxes.example()
 ```
 
-**Indices**
+**Indice**
 
-* évidemment on parle ici d'une fonction continue ;
-* aussi en termes de programmation, je vous encourage à séparer la définition des tranches de la fonction en elle-même.
+* évidemment on parle ici d'une fonction continue (enfin disons: elle serait continue si on ne faisait pas l'arrondi à l'entier inférieur); mais sur le dessin on ne doit pas voir de 'saut' à l'endroit des changements de taux.
+
++++
+
+**Consigne**
+
+* aussi en termes de programmation, je vous encourage à **bien séparer**
+  * la définition des tranches 
+  * de la fonction en elle-même
+
+on ne doit pas trouver de nombre 'en dur' dans le code de la fonction; c'est-à-dire pour être bien explicite il s'agit de ne pas écrire quelque chose comme
+  ```
+  if 0 <= income <= 11_500:
+     ...
+  ```
+  mais plutôt de définir par exemple
+  ```
+  # c'est juste un exemple, par forcément une bonne idée hein...
+  TICKS = (12_500, 50_000, 150_000)
+  RATES = (20, 40, 45)
+  ```
+  ou **tout autre structure de données** qui vous paraitra adaptée à décrire le barême, mais **extérieure** à la fonction proprement dite, pour qu'on puisse facilement réutiliser et/ou mettre à jour le code. 
 
 ```{code-cell} ipython3
 def taxes(income):

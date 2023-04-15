@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Conditions
 version: '3.0'
@@ -157,14 +158,15 @@ if (12 + 0j) == 12:
 
 Signalons à titre un peu anecdotique une syntaxe ancienne : historiquement et **seulement en Python 2** on pouvait aussi noter `<>` le test de non égalité. On trouve ceci dans du code ancien mais il faut éviter de l'utiliser :
 
-```{code-cell} ipython3
-%%python2
-# coding: utf-8
++++
 
-# l'ancienne forme de !=
+```python
+# l'ancienne forme de != en python2 s'écrivait
 if 12 <> 25:
     print("<> est obsolete et ne fonctionne qu'en python2")
 ```
+
++++
 
 ### Les opérateurs de comparaison
 

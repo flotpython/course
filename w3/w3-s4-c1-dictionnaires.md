@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Dictionnaires
 version: '3.0'
@@ -189,46 +190,26 @@ annuaire.update({'jean':25, 'eric':70})
 list(annuaire.items())
 ```
 
-### `collections.OrderedDict` : dictionnaire et ordre d'insertion
+### dictionnaire et ordre d'insertion
 
 +++
 
-**Attention** : un dictionnaire est **non ordonné !** Il ne se souvient pas de l'ordre dans lequel les éléments ont été insérés. C'était particulièrement visible dans les versions de Python jusque 3.5 :
+**Attention** : ce qui suit est valable ***pour les versions de Python-3.7 et supérieures***
+
+depuis cette version un dictionnaire est **ordonné**; cela signifie qu'il se souvient de l'ordre dans lequel les éléments ont été insérés, et c'est dans cet ordre que l'on itère sur le dictionnaire.
 
 ```{code-cell} ipython3
-%%python2
-# coding: utf-8
-
-# cette cellule utilise python-2.7 pour illustrer le fait
-# que les dictionnaires ne sont pas ordonnés
-
-d = {'c' : 3, 'b' : 1, 'a' : 2}
-for k, v in d.items():
-    print k, v
-```
-
-En réalité, et depuis la version 3.6 de Python, il se trouve qu'**incidemment** l'implémentation CPython (la plus répandue donc) a été modifiée, et maintenant on peut avoir l'**impression** que les dictionnaires sont ordonnés :
-
-```{code-cell} ipython3
-d = {'c' : 3, 'b' : 1, 'a' : 2}
+# quand on itère sur un dictionnaire, 
+# les clés sont parcourues dans l'ordre d'insertion
+d = {'a' : 1, 'b' : 2, 'c' : 3}
+d['d'] = 4
 for k, v in d.items():
     print(k, v)
 ```
 
-Il faut insister sur le fait qu'il s'agit d'un **détail d'implémentation**, et que vous ne devez pas écrire du code qui suppose que les dictionnaires sont ordonnés.
+Je vous signale à toutes fins utiles, dans [le module `collections`](https://docs.python.org/3/library/collections.html) la classe [`OrderedDict`](https://docs.python.org/3/library/collections.html#collections.OrderedDict), qui est une personnalisation (une sous-classe) du type `dict`, date de l'époque (jusque 3.7 donc) où le dictionnaire natif n'avait pas cette bonne propriété, et qui reste disponible pour des raisons de compatibilité ascendante.
 
 +++
-
-Si vous avez besoin de dictionnaires qui sont **garantis** ordonnés, voyez dans [le module `collections`](https://docs.python.org/3/library/collections.html) la classe [`OrderedDict`](https://docs.python.org/3/library/collections.html#collections.OrderedDict), qui est une personnalisation (une sous-classe) du type `dict`, qui cette fois possède cette bonne propriété :
-
-```{code-cell} ipython3
-from collections import OrderedDict
-d = OrderedDict()
-for i in ['a', 7, 3, 'x']:
-    d[i] = i
-for k, v in d.items():
-    print('OrderedDict', k, v)
-```
 
 ### `collections.defaultdict` : initialisation automatique
 
@@ -326,7 +307,7 @@ Pour bien appréhender les dictionnaires, il nous faut souligner certaines parti
 
 +++
 
-#### Ce sont des objets itérables
+### Ce sont des objets itérables
 
 +++
 
@@ -355,7 +336,7 @@ print('a' in keys)
 print('x' in keys)
 ```
 
-#### Mais **ce ne sont pas des listes**
+### Mais **ce ne sont pas des listes**
 
 ```{code-cell} ipython3
 isinstance(keys, list)
@@ -388,7 +369,7 @@ big_keys = big_dict.keys()
 big_lkeys = list(big_keys)
 ```
 
-#### En fait ce sont des *vues*
+### En fait ce sont des *vues*
 
 +++
 
@@ -415,11 +396,3 @@ for k in keys:
 ```
 
 Reportez vous à [la section sur les vues de dictionnaires](https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects) pour plus de détails.
-
-+++
-
-#### Python 2
-
-+++
-
-Ceci est naturellement en fort contraste avec tout ce qui se passait en Python 2, où l'on avait des méthodes distinctes, par exemple `keys()`, `iterkeys()` et `viewkeys()`, selon le type d'objets que l'on souhaitait construire.

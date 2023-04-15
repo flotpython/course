@@ -90,3 +90,4 @@ skel\.quiz
 
 modules/corrections/validation\.ipynb
 venv/
+.macnb

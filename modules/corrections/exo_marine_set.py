@@ -135,7 +135,7 @@ e_o_names, b_names, a_o_ids = diff(extended_full, abbreviated_full)
 names = set()
 for i in range(selection): names.add(e_o_names.pop())
 e_o = [ e for e in extended_full if e[4] in names ]
-#print("e_o has {} elts".format(len(e_o)))
+#print(f"e_o has {len(e_o)} elts")
 
 
 # find (selection?) entries in extended_full with the first name in b_n
@@ -148,12 +148,12 @@ for e in extended_full:
     if e[4] in names:
         b_e.append(e)
         ids.add(e[0])
-#print("b_e has {} elts".format(len(b_e)))
+#print(f"b_e has {len(b_e)} elts")
 
 
 # find (selection?) entries in abbreviated_full about the boats in b_e
 b_a = [ a for a in abbreviated_full if a[0] in ids ]
-#print("b_a has {} elts".format(len(b_a)))
+#print(f"b_a has {len(b_a)} elts")
 
 
 # find (selection) entries in abbreviated_full with the first id in a_o_i
@@ -161,7 +161,7 @@ ids = set()
 for i in range(selection):
     ids.add(a_o_ids.pop())
 a_o = [ a for a in abbreviated_full if a[0] in ids ]
-#print("a_o has {} elts".format(len(a_o)))
+#print(f"a_o has {len(a_o)} elts")
 
 extended = e_o + b_e
 abbreviated = b_a + a_o
@@ -207,17 +207,16 @@ def purify(filename):
         else:
             previous_id = hash_name_to_id[name]
             if id != previous_id:
-                print("Found duplicate {} and {} -> {}"
-                      .format(id, previous_id, name))
+                print(f"Found duplicate {id} and {previous_id} -> {name}")
                 duplicate_ids.add(id)
 
-    print("Input has {} entries".format(len(extended)))
-    print("Found {} duplicate ids".format(len(duplicate_ids)))
+    print(f"Input has {len(extended)} entries")
+    print(f"Found {len(duplicate_ids)} duplicate ids")
     purified = [ e for e in extended
                  if e[0] not in duplicate_ids ]
-    print("Purified has {} entries".format(len(purified)))
+    print(f"Purified has {len(purified)} entries")
 
     pure_filename = filename + ".pure"
     with open(pure_filename, 'w') as store:
         json.dump(purified, store)
-    print("Wrote {}".format(pure_filename))
+    print(f"Wrote {pure_filename}")

@@ -10,6 +10,15 @@ def aplatir(conteneurs):
 # @END@
 
 
+# @BEG@ name=aplatir more=bis
+from itertools import chain
+
+def aplatir_bis(conteneurs):
+    # une utilisation astucieuse de itertools.chain
+    return list(chain(*conteneurs))
+# @END@
+
+
 def aplatir_ko(conteneurs):
     return conteneurs
 

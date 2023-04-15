@@ -5,8 +5,6 @@ flotpython
 
 This git repo contains the material for the MOOC 'Python : des fondamentaux à l'utilisation du langage' running on www.fun-mooc.fr
 
-Both the python2 and python3 versions of that course are contained in this repo, although going back to python2 will require to travel back in time.
-
 The actual videos that make the MOOC are not managed in this repository, only the preparation notes.
 
 # Notebooks
