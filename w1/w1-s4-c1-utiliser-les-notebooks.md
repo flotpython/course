@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Notebooks Jupyter
@@ -34,14 +35,6 @@ nbhosting:
 Pour illustrer les vidéos du MOOC, nous avons choisi d'utiliser Jupyter pour vous rédiger les documents "mixtes" contenant du texte et du code Python, qu'on appelle des "notebooks", et dont le présent document est un exemple.
 
 Nous allons, dans la suite, utiliser du code Python, pourtant nous n'avons pas encore abordé le langage. Pas d'inquiétude, ce code est uniquement destiné à valider le fonctionnement des notebooks, et nous n'utilisons que des choses très simples.
-
-+++
-
-### Avertissement : réglages du navigateur
-
-+++
-
-Avant toute chose, pour un bon fonctionnement des notebooks, on rappelle qu'il est nécessaire d'avoir **autorisé** dans votre navigateur les **cookies** en provenance du site Internet **`nbhosting.inria.fr`**, qui héberge l'infrastructure qui héberge tous les notebooks.
 
 +++
 
