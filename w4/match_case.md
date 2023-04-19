@@ -21,13 +21,17 @@ version: '3.0'
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
-<span>Thierry Parmentelat &amp; Arnaud Legout, Jean-Michel Heras</span>
+<span>Thierry Parmentelat, Arnaud Legout &amp; Jean-Michel Heras</span>
 <span><img src="media/both-logos-small-alpha.png" /></span>
 </div>
 
 +++
 
-# Instruction match (1/2)
+# Instruction `match` / `case` (1/2)
+
++++
+
+Remerciements à Jean-Michel Heras pour cette contribution :)
 
 +++
 
@@ -37,11 +41,11 @@ version: '3.0'
 
 Une instruction switch/case ou match/case est une instruction qui évalue une expression par rapport à un cas et qui exécute ensuite du code. Il s'agit d'une méthode par laquelle les langages de programmation peuvent contrôler le déroulement du programme, en fonction de la satisfaction d'une ou plusieurs conditions.
 
-La version 3.10 de python introduit une nouvelle fonctionnalité permetant de contrôler plus facilement le flux de vos programmes en exécutant certaines parties du code si des conditions (ou cas) sont remplies.
+La version 3.10 de python introduit une nouvelle fonctionnalité permettant de contrôler plus facilement le flux de vos programmes, en exécutant certaines parties du code si des conditions (ou cas) sont remplies.
 
-Python va au-delà d'une simple instruction case et offre un contrôle flexible de la correspondance.
+Cette nouvelle instruction, connue sous le nom de `match/case`, va au-delà d'un simple branchement et offre un contrôle flexible de la correspondance.
 
-`match`, `case` ne sont pas des mots réservés du langage. Ils ne sont reconnus comme mots-clés que lorsqu'ils font partie d'une instruction match ou d'un bloc case. Ils peuvent être utilisés dans tous les autres contextes comme noms de variables ou d'arguments.
+`match`, `case` ne sont pas des mots réservés du langage. Ils ne sont reconnus comme mots-clés que lorsqu'ils font partie d'une instruction match ou d'un bloc case. Ils peuvent être utilisés dans tous les autres contextes comme noms de variables ou d'arguments (ce qui est heureux si vous avez du code qui utilise ces noms comme variables)
 
 +++
 
@@ -51,10 +55,10 @@ Python va au-delà d'une simple instruction case et offre un contrôle flexible 
 
 Le distributeur de boissons chaudes.
 
- * On commande une boisson en tapant le chiffre correspondant sur le pavé numérique de la machine.
- * Contrairement à un **swicth/case** classique, on ne met pas de **break** après chaque cas. De la même manière que le **if**, une fois qu'on a obtenu un résultat vrai, on sort de l'expression conditionnelle sans évaluer les autres conditions. On s'arrête dès qu'on peut. Pour optimiser le traitement, on met dans l'ordre des plus fréquentes demandes.
- * Si aucun des cas ne correspond, on utilise *l'attape-tout '_' l'underscore* pour evaluer ce cas.
- * Si on n'utilise pas '_' et qu'il n'y a pas de correspondance **match** ne fait rien.
+* On commande une boisson en tapant le chiffre correspondant sur le pavé numérique de la machine.
+* Contrairement à un **switch/case** classique (pensez: C/C++, ou JavaScript...), on ne met pas de **break** après chaque cas. De la même manière que le **if**, une fois qu'on a obtenu une branche (un `case`) qui convient, on sort de l'expression conditionnelle sans évaluer les autres conditions. On s'arrête dès qu'on peut. Pour optimiser le traitement, on met dans l'ordre des plus fréquentes demandes.
+* Si aucun des cas ne correspond, c'est *l'attape-tout '_' (underscore)* qui convient
+* Si on n'utilise pas '_' et qu'il n'y a pas de correspondance **match** ne fait rien
 
 ```{code-cell} ipython3
 def choix1(boisson):
@@ -138,19 +142,19 @@ c_pas_faux("python")
 +++
 
 * **Les nombres:**
-    * Entiers signés ou non: 4, -4, +4.
-    * Flottants signés ou non: 3.14, +1.2, -2.3
-    * Complexes: 2j, 2 + 3j, 2 - 3j *Attention, x+y ou x-y autorisé seulement pour les complexes !*
+  * Entiers signés ou non: 4, -4, +4.
+  * Flottants signés ou non: 3.14, +1.2, -2.3
+  * Complexes: 2j, 2 + 3j, 2 - 3j &nbsp;***(attention, x+y ou x-y autorisé seulement pour les complexes !)***
 
 ```{code-cell} ipython3
 def match_number(my_var):
     match my_var:
         case 8|-8:
-            print(type(my_var))
+            print("cas 1", type(my_var))
         case 3.14|-3.14:
-            print(type(my_var))
+            print("cas 2", type(my_var))
         case 2j|2+3j|2-3j:
-            print(type(my_var))
+            print("cas 3", type(my_var))
         case _:
             print("Pas un nombre")
 ```
@@ -168,24 +172,18 @@ for item in lit_list:
 def match_bool(my_var):
     match my_var:
         case True:
-            print(True)
+            print("cas 1", True)
         case False:
-            print(False)
+            print("cas 2", False)
         case None:
-            print(None)
+            print("cas 3", None)
         case _:
             print("Pas un booléen.")
-
-def say(something):
-    "Fonction qui ne renvoie rien"
-    print(something)
 ```
 
 ```{code-cell} ipython3
-# la fonction say ne renvoie rien, result == None
-result = say("Hello")
 # 0 ne renvoie pas False et diffèrent de 0 ne renvoie pas True
-bool_list = [True, False, None, 0, 1, bool(-10),bool(0), bool(1), result]
+bool_list = [True, False, None, 0, 1, bool(-10), bool(0), bool(1)]
 
 for item in bool_list:
     match_bool(item)
@@ -196,7 +194,7 @@ for item in bool_list:
     * Doubles quotes: "Un autre chaine"
     * Triples quotes: """Encore une""", '''ou celle la'''
     * Les raws strings: r"raw chaine"
-    * Les binarys strings: b'binary'
+    * Les binary strings: b'binary'
 
 *Les `fstrings` ne sont pas prises en charge.*
 
@@ -205,12 +203,16 @@ for item in bool_list:
 
 def match_string(my_var):
     match my_var:
-        case 'simple quotes'|"double quotes"|"""triple quotes""":
-            print(type(my_var))
+        case (
+             'simple quotes'
+            |"double quotes"
+            |"""triple quotes"""
+        ):
+            print("cas 1", type(my_var))
         case b"binary":
-            print(type(my_var))
+            print("cas 2", type(my_var))
         case r"raw string":
-            print(type(my_var))
+            print("cas 3", type(my_var))
         case _:
             print("autre")
 ```
@@ -218,7 +220,12 @@ def match_string(my_var):
 ```{code-cell} ipython3
 :cell_style: split
 
-string_list = ['simple quotes', "double quotes", """triple quotes""", b"binary", r"raw string"]
+string_list = ['simple quotes', 
+               "double quotes",
+               """triple quotes""",
+               b"binary",
+               r"raw string",
+              "other"]
 for item in string_list:
     match_string(item)
 ```
@@ -257,11 +264,13 @@ def action(player_input):
 action("go north")
 ```
 
-**Valider un terme avec une sous-séquence.**
+### *unpacking*
 
 +++
 
-Ici, `sucre` peut prendre n'importe quelle valeur.
+Là où ça devient franchement plus intéressant qu'un simple `switch` à la C++, c'est qu'on peut définir un `case` disons *partiel*
+
+par exemple ici on va accepter tous les tuples à deux éléments dont le premier est `1`; et lorsque c'est le cas, la variable `sucre` va nous permettre de désigner le deuxième élément:
 
 ```{code-cell} ipython3
 def choix(boisson):
@@ -272,7 +281,7 @@ def choix(boisson):
 choix((1, "peu sucré"))
 ```
 
-Là, on verifie que c'est bien ce qu'on attends avec `as`.
+Ou encore: on vérifie que c'est bien ce qu'on attend avec `as`.
 
 ```{code-cell} ipython3
 def choix(boisson):
