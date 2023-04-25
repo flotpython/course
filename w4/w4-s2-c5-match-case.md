@@ -304,6 +304,5 @@ choix((1))
 
 +++
 
-[PEP 634](https://peps.python.org/pep-0634/) specification
-[PEP 636](https://peps.python.org/pep-0636/) tutorial
-
+* [PEP 634](https://peps.python.org/pep-0634/) specification
+* [PEP 636](https://peps.python.org/pep-0636/) tutorial
