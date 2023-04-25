@@ -27,7 +27,7 @@ version: '3.0'
 
 +++
 
-# Instruction `match` / `case` (1/2)
+# Instruction `match` / `case`
 
 +++
 
@@ -307,6 +307,3 @@ choix((1))
 [PEP 634](https://peps.python.org/pep-0634/) specification
 [PEP 636](https://peps.python.org/pep-0636/) tutorial
 
-+++
-
-Rendez-vous en semaine 6 pour une seconde partie.
