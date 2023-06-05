@@ -74,7 +74,7 @@ exo_taxes.example()
 
 on ne doit pas trouver de nombre 'en dur' dans le code de la fonction; c'est-à-dire pour être bien explicite il s'agit de ne pas écrire quelque chose comme
   ```
-  if 0 <= income <= 11_500:
+  if 0 <= income <= 12_500:
      ...
   ```
   mais plutôt de définir par exemple
@@ -88,7 +88,7 @@ on ne doit pas trouver de nombre 'en dur' dans le code de la fonction; c'est-à-
 ```{code-cell} ipython3
 def taxes(income):
     # ce n'est pas la bonne réponse
-    return (income-11_500) * (20/100)
+    return (income-12_500) * (20/100)
 ```
 
 ```{code-cell} ipython3
