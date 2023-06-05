@@ -142,7 +142,10 @@ liste3 = ['spam', 'eggs']
 somme(liste1, liste2, liste3)
 ```
 
-Vous pouvez donc constater que `somme` peut fonctionner avec des objets de types différents. En fait, telle qu'elle est écrite, elle va fonctionner s'il est possible de faire `+` entre ses arguments. Ainsi, par exemple, on pourrait même faire :
+Vous pouvez donc constater que `somme` peut fonctionner avec des objets de types
+différents: on peut lui passer des nombres, ou lui passer des listes. En fait,
+telle qu'elle est écrite, elle va fonctionner s'il est possible de faire `+`
+entre ses arguments. Ainsi, par exemple, on pourrait même faire :
 
 ```{code-cell} ipython3
 # Python sait faire + entre deux chaînes de caractères
