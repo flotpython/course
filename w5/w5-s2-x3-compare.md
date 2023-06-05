@@ -14,7 +14,7 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Prog. fonctionelle
+notebookname: Prog. fonctionnelle
 version: '3.0'
 ---
 
