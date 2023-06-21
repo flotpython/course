@@ -32,7 +32,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: "M\xE9thodes de listes"
-version: '3.0'
 ---
 
 <div class="licence">

@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Pr\xE9cisions sur l'importation"
-version: '3.0'
 ---
 
 <div class="licence">

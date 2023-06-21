@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: matplotlib 3D
-version: '3.0'
 ---
 
 <div class="licence">

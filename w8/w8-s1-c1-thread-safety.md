@@ -17,7 +17,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: thread safety
-version: '3.0'
 ---
 
 <div class="licence">

@@ -33,7 +33,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: instances mutables
-version: '3.0'
 ---
 
 <div class="licence">

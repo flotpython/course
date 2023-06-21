@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Fusionner des donn\xE9es"
-version: '3.0'
 ---
 
 <div class="licence">

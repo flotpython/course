@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Les diff\xE9rentes copies"
-version: '3.0'
 ---
 
 <div class="licence">

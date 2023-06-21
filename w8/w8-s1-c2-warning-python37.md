@@ -31,7 +31,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: asyncio et Python-3.7
-version: '3.0'
 ---
 
 <div class="licence">

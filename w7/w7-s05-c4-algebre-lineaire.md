@@ -16,7 +16,6 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: "Alg\xE8bre lin\xE9aire"
-version: '3.0'
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}

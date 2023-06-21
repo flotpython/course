@@ -16,7 +16,6 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: "H\xE9riter des types *builtin* ?"
-version: '3.0'
 ---
 
 <div class="licence">

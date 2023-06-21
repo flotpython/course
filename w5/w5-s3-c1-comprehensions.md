@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Compr\xE9hension de liste"
-version: '3.0'
 ---
 
 <div class="licence">

@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Fichiers syst\xE8mes"
-version: '3.0'
 ---
 
 <div class="licence">

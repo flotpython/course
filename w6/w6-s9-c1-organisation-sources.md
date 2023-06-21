@@ -17,7 +17,6 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Organiser les sources
-version: '3.0'
 ---
 
 # Comment organiser les sources de votre projet Python

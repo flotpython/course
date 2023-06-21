@@ -22,7 +22,6 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: classe Quaternion
-version: '3.0'
 ---
 
 <div class="licence">

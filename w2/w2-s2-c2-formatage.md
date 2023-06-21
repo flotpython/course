@@ -32,7 +32,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: "Formatage de cha\xEEnes"
-version: '3.0'
 ---
 
 <div class="licence">

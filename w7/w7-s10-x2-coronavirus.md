@@ -16,7 +16,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: 'Exercice: coronavirus'
-version: '3.0'
 ---
 
 # Coronavirus

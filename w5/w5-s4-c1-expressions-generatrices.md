@@ -15,7 +15,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Exp. g\xE9n\xE9ratrices"
-version: '3.0'
 ---
 
 <div class="licence">

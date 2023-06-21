@@ -31,7 +31,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: "Outils p\xE9riph\xE9riques"
-version: '3.0'
 ---
 
 <div class="licence">

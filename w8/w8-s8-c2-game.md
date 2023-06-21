@@ -31,7 +31,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: Gestion de sous-process
-version: '3.0'
 ---
 
 <div class="licence">

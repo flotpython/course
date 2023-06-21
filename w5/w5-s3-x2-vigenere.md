@@ -21,7 +21,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
 notebookname: "Le code de Vigen\xE8re"
-version: '3.0'
 ---
 
 <div class="licence">

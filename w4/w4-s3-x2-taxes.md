@@ -16,7 +16,6 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: Taxes
-version: '3.0'
 ---
 
 <div class="licence">

@@ -31,7 +31,6 @@ livereveal:
   transition: fade
   width: 100%
 notebookname: Modules et chemins
-version: '3.0'
 ---
 
 <div class="licence">
