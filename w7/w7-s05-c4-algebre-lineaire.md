@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: "Alg\xE8bre lin\xE9aire"
+nbhosting:
+  title: "Alg\xE8bre lin\xE9aire"
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}

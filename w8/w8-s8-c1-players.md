@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: 'Un exemple: players'
+nbhosting:
+  title: 'Un exemple: players'
 ---
 
 <div class="licence">

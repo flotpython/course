@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Flottants extr\xEAmes"
+nbhosting:
+  title: "Flottants extr\xEAmes"
 ---
 
 <div class="licence">

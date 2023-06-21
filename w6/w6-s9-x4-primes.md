@@ -16,7 +16,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: 'exercice: nombres premiers'
+nbhosting:
+  title: 'exercice: nombres premiers'
 ---
 
 <div class="licence">

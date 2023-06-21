@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Surcharge op. (2)
+nbhosting:
+  title: Surcharge op. (2)
 ---
 
 <div class="licence">

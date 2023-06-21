@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Les boucles `for`
+nbhosting:
+  title: Les boucles `for`
 ---
 
 <div class="licence">

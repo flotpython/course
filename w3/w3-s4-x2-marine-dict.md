@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Fusionner des donn\xE9es"
+nbhosting:
+  title: "Fusionner des donn\xE9es"
 ---
 
 <div class="licence">

@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: "Pr\xE9sentation du code"
+nbhosting:
+  title: "Pr\xE9sentation du code"
 ---
 
 <div class="licence">

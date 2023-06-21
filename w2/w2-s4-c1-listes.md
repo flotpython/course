@@ -31,7 +31,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: "M\xE9thodes de listes"
+nbhosting:
+  title: "M\xE9thodes de listes"
 ---
 
 <div class="licence">

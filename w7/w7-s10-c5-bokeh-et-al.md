@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Autres librairies
+nbhosting:
+  title: Autres librairies
 ---
 
 <div class="licence">

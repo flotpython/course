@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Le scope builtin
+nbhosting:
+  title: Le scope builtin
 ---
 
 <div class="licence">

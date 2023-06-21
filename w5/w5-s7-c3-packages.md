@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: packages
+nbhosting:
+  title: packages
 ---
 
 <div class="licence">

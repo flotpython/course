@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: '#!/usr/bin/env python'
+nbhosting:
+  title: '#!/usr/bin/env python'
 ---
 
 <div class="licence">

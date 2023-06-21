@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Op\xE9rateur is"
+nbhosting:
+  title: "Op\xE9rateur is"
 ---
 
 <div class="licence">

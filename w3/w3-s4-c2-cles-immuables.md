@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Cl\xE9s immuables"
+nbhosting:
+  title: "Cl\xE9s immuables"
 ---
 
 <div class="licence">

@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Op\xE9rations bitwise"
+nbhosting:
+  title: "Op\xE9rations bitwise"
 ---
 
 <div class="licence">

@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: type-checking
+nbhosting:
+  title: type-checking
 ---
 
 <div class="licence">

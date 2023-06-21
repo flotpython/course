@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: 'App: Fourier (K3D + bokeh)'
+nbhosting:
+  title: 'App: Fourier (K3D + bokeh)'
 ---
 
 # Application à la transformée de Fourier

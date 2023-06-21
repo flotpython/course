@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: Divers
+nbhosting:
+  title: Divers
 ---
 
 <div class="licence">

@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: exo. classes
+nbhosting:
+  title: exo. classes
 ---
 
 <div class="licence">

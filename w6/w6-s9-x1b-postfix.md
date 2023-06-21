@@ -20,7 +20,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: calculette postfix
+nbhosting:
+  title: calculette postfix
 ---
 
 <div class="licence">

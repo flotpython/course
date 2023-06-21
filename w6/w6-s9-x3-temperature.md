@@ -20,7 +20,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: classe Temperature
+nbhosting:
+  title: classe Temperature
 ---
 
 <div class="licence">

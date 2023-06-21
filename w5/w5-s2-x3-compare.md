@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Prog. fonctionnelle
+nbhosting:
+  title: Prog. fonctionnelle
 ---
 
 <div class="licence">

@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Limite de la boucle for
+nbhosting:
+  title: Limite de la boucle for
 ---
 
 <div class="licence">

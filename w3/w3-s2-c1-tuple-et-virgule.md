@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Tuples
+nbhosting:
+  title: Tuples
 ---
 
 <div class="licence">

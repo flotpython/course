@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Comptage dans une cha\xEEne"
+nbhosting:
+  title: "Comptage dans une cha\xEEne"
 ---
 
 <div class="licence">

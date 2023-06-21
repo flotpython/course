@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: 'exercice: checkers'
+nbhosting:
+  title: 'exercice: checkers'
 ---
 
 <div class="licence">

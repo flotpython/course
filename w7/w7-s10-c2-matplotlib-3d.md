@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: matplotlib 3D
+nbhosting:
+  title: matplotlib 3D
 ---
 
 <div class="licence">

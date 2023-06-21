@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Usages avanc\xE9s de `import`"
+nbhosting:
+  title: "Usages avanc\xE9s de `import`"
 ---
 
 <div class="licence">

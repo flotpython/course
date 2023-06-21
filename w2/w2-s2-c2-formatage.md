@@ -31,7 +31,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: "Formatage de cha\xEEnes"
+nbhosting:
+  title: "Formatage de cha\xEEnes"
 ---
 
 <div class="licence">

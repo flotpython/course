@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: Les fichiers
+nbhosting:
+  title: Les fichiers
 ---
 
 <div class="licence">

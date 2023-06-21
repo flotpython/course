@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Passage d'arguments
+nbhosting:
+  title: Passage d'arguments
 ---
 
 <div class="licence">

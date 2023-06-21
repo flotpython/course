@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Cr\xE9ation de tableaux"
+nbhosting:
+  title: "Cr\xE9ation de tableaux"
 ---
 
 <div class="licence">

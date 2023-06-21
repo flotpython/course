@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Modules et chemins
+nbhosting:
+  title: Modules et chemins
 ---
 
 <div class="licence">

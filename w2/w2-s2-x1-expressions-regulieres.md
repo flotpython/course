@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Exos regexps
+nbhosting:
+  title: Exos regexps
 ---
 
 <div class="licence">

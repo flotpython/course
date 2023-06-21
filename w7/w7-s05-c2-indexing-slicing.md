@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Indexation et slices
+nbhosting:
+  title: Indexation et slices
 ---
 
 <div class="licence">

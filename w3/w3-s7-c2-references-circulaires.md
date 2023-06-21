@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "R\xE9f\xE9rences circulaires"
+nbhosting:
+  title: "R\xE9f\xE9rences circulaires"
 ---
 
 <div class="licence">

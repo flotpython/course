@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: variables de boucle
+nbhosting:
+  title: variables de boucle
 ---
 
 <div class="licence">

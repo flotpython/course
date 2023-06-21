@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Une calculette
+nbhosting:
+  title: Une calculette
 ---
 
 <div class="licence">

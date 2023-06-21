@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: La clause `import as`
+nbhosting:
+  title: La clause `import as`
 ---
 
 <div class="licence">

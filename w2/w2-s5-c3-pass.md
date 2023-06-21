@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Instruction pass
+nbhosting:
+  title: Instruction pass
 ---
 
 <div class="licence">

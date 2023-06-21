@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Gestion de sous-process
+nbhosting:
+  title: Gestion de sous-process
 ---
 
 <div class="licence">

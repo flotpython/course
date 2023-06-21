@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: "Outils p\xE9riph\xE9riques"
+nbhosting:
+  title: "Outils p\xE9riph\xE9riques"
 ---
 
 <div class="licence">

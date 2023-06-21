@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Versions de python
+nbhosting:
+  title: Versions de python
 ---
 
 <div class="licence">

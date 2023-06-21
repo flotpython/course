@@ -16,7 +16,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: thread safety
+nbhosting:
+  title: thread safety
 ---
 
 <div class="licence">

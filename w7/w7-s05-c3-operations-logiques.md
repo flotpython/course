@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: "Op\xE9rations logiques"
+nbhosting:
+  title: "Op\xE9rations logiques"
 ---
 
 <div class="licence">

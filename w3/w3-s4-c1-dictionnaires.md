@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: Dictionnaires
+nbhosting:
+  title: Dictionnaires
 ---
 
 <div class="licence">

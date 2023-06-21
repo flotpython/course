@@ -15,7 +15,8 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-notebookname: 'exercice: ensembles(1)'
+nbhosting:
+  title: 'exercice: ensembles(1)'
 ---
 
 <div class="licence">

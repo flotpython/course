@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Tri de listes (2)
+nbhosting:
+  title: Tri de listes (2)
 ---
 
 <div class="licence">

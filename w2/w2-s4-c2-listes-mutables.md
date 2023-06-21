@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Mutables / immuables
+nbhosting:
+  title: Mutables / immuables
 ---
 
 <div class="licence">

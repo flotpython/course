@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: yield from
+nbhosting:
+  title: yield from
 ---
 
 <div class="licence">

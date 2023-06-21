@@ -20,7 +20,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "Le code de Vigen\xE8re"
+nbhosting:
+  title: "Le code de Vigen\xE8re"
 ---
 
 <div class="licence">

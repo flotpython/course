@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: permutations
+nbhosting:
+  title: permutations
 ---
 
 <div class="licence">

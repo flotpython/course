@@ -32,7 +32,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Slicing
+nbhosting:
+  title: Slicing
 ---
 
 <div class="licence">

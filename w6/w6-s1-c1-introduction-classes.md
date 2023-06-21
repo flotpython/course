@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Intro. classes
+nbhosting:
+  title: Intro. classes
 ---
 
 <div class="licence">

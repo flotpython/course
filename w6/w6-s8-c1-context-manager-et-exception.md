@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: '*Context managers* et exceptions'
+nbhosting:
+  title: '*Context managers* et exceptions'
 ---
 
 <div class="licence">

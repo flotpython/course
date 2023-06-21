@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Data Science
+nbhosting:
+  title: Data Science
 ---
 
 <div class="licence">

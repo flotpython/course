@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: asyncio et Python-3.7
+nbhosting:
+  title: asyncio et Python-3.7
 ---
 
 <div class="licence">

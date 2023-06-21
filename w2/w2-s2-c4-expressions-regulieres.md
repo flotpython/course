@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: "Expressions r\xE9guli\xE8res"
+nbhosting:
+  title: "Expressions r\xE9guli\xE8res"
 ---
 
 <div class="licence">

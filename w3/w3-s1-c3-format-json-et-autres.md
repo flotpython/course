@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Formats JSON et autres
+nbhosting:
+  title: Formats JSON et autres
 ---
 
 <div class="licence">

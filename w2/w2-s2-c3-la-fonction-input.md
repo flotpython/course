@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: La fonction input
+nbhosting:
+  title: La fonction input
 ---
 
 <div class="licence">

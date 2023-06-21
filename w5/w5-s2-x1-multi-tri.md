@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: sort & reverse
+nbhosting:
+  title: sort & reverse
 ---
 
 <div class="licence">

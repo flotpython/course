@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: Animations interactives avec matplotlib
+nbhosting:
+  title: Animations interactives avec matplotlib
 ---
 
 <div class="licence">
