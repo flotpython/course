@@ -321,11 +321,10 @@ Et maintenant je peux lancer une session simple ; pour ne pas être noyé par l
 # nous allons juxtaposer 3 instances de players.py
 # et donc avoir 6 joueurs dans le jeu
 # La dernière instance se déroulera alors que les 2 premières sont terminées
-game = Game( [(0.5, 1), (1., 2), (6., 3])
+game = Game( [(0.5, 1), (1., 2), (6., 3)])
 ```
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
 :tags: [raises-exception]
 
 # si vous êtes dans un notebook

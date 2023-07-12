@@ -12,3 +12,4 @@ seaborn
 aiohttp
 nbautoeval
 k3d
+autograd

@@ -168,12 +168,16 @@ un ordre de grandeur: pour le code suivant, ma solution prend environ 60ms
 la cellule, qui fait le calcul 5 * 5 fois, prend environ 2s à afficher le résultat
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 %%timeit -n 5 -r 5
 
 N = 10_000
 
 P = prime_legos()
-for x in range(N): next(P)
+for x in range(N): 
+    next(P)
 ```
 
 ***

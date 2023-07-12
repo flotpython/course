@@ -25,6 +25,8 @@ nbhosting:
   title: classe Quaternion
 ---
 
++++ {"editable": true, "slideshow": {"slide_type": ""}, "tags": []}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
@@ -113,34 +115,58 @@ K = Quaternion(0, 0, 0, 1)
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 I*J == K
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 J*K == I
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 K*I == J
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 I*I == J*J == K*K == -1
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 J*K == 1j
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 K*J == -1j
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 Quaternion(1, 2, 3, 4) == (1+2j) + J * Quaternion(3-4j)
 ```
 
 ```{code-cell} ipython3
+---
+tags: [raises-exception]
+---
 ...
 ```
 

@@ -143,7 +143,7 @@ output_notebook()
 # on crée un objet figure
 figure1 = figure(
     title="fonctions trigonométriques",
-    plot_height=300, plot_width=600,
+    height=300, width=600,
     # c'est là notamment qu'on précise
     # l'intervalle en y
     y_range=(-5, 5),
@@ -218,7 +218,7 @@ class Animation:
                y_range=(-5, 5), height=300, width=600):
         self.figure = figure(
             title=title, y_range=y_range,
-            plot_height=height, plot_width=width)
+            height=height, width=width)
         self.x = np.linspace(0, 2*np.pi, 200)
         y = function(self.x)
         self.courbe = self.figure.line(self.x, y, color="#2222aa", line_width=3)
@@ -360,7 +360,7 @@ class AnimatedDistribution:
         # être passés en paramètre au constructeur
         self.figure = figure(
             title="distribution pseudo-uniforme",
-            plot_height=300, plot_width=300,
+            height=300, width=300,
             x_range=(-10, 10),
             y_range=(-10, 10),
         )
@@ -493,8 +493,11 @@ type(figure())
 ```
 
 ```{code-cell} ipython3
-# qu'on peut importer comme ceci
-from bokeh.plotting import Figure
+# qu'on pourrait importer comme ceci
+# from bokeh.plotting import figure 
+# mais pour ne pas écraser notre variable figure
+# nous allons plutôt faire
+from bokeh.plotting import figure as Figure
 
 type(figure()) is Figure
 ```

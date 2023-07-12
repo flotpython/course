@@ -50,8 +50,8 @@ Dans un langage traditionnel de bas niveau comme C ou C++, le programmeur est en
 
 Ce qui signifie que, sauf pour les valeurs stockées dans la pile, le programmeur est amené :
 
- * à réclamer de la mémoire au système d'exploitation en appelant explicitement `malloc` (C) ou `new` (C++) ;
- * et réciproquement à rendre cette mémoire au système d'exploitation lorsqu'elle n'est plus utilisée, en appelant `free` (C) ou `delete` (C++).
+* à réclamer de la mémoire au système d'exploitation en appelant explicitement `malloc` (C) ou `new` (C++) ;
+* et réciproquement à rendre cette mémoire au système d'exploitation lorsqu'elle n'est plus utilisée, en appelant `free` (C) ou `delete` (C++).
 
 +++
 
@@ -77,7 +77,17 @@ Pour anticiper un peu sur le cours des semaines suivantes, voici ce que vous pou
   * une référence vers son type - c'est le prix du typage dynamique ;
   * un compteur de références - le nombre d'autres valeurs (variables ou objets) qui pointent vers l'objet, cette information est notamment utilisée, précisément, par le *Garbage Collector* pour déterminer si la mémoire utilisée par un objet peut être libérée ou non.
 
-
 * un certain nombre de types prédéfinis et non mutables sont implémentés en Python comme des *singletons*, c'est-à-dire qu'un seul objet est créé et partagé, c'est le cas par exemple pour les petits entiers et les chaînes de caractères, on en reparlera ;
 
 * lorsqu'on implémente une classe, il est possible de lui conférer cette caractéristique de singleton, de manière à optimiser la mémoire nécessaire pour exécuter un programme.
+
+```{code-cell} ipython3
+# quand vous faites par exemple ceci
+
+print("hello world")
+
+# Python a alloué pour vous la mémoire nécessaire 
+# pour ranger l'objet chaine "Hello world"
+# et vous n'avez pas besoin de libérer cette mémoire vous-même
+# le garbage collector s'en occupera en temps utile
+```
