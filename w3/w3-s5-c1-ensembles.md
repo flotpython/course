@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Ensembles
@@ -232,7 +233,7 @@ A3 = set([0, 6, 3])
 print('A3', A3)
 ```
 
-N'oubliez pas que les ensembles, comme les dictionnaires, ne sont **pas ordonnés**.
+N'oubliez pas que les ensembles ne sont **pas ordonnés** (contrairement aux dictionnaires que, depuis Python-3.7, l'on parcourt dans l'ordre de création des clés)
 
 +++
 
