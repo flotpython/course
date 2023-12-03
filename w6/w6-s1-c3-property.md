@@ -259,20 +259,20 @@ class Temperature:
 Et voici ce qu'on peut en faire :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t = Temperature(celsius=0)
 t
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t.fahrenheit
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t.celsius += 100
 print(t)

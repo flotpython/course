@@ -70,7 +70,7 @@ if 0.1 + 0.2 - 0.3:
 De même, une chaîne vide, une liste vide, un tuple vide, sont considérés comme faux. Bref, vous voyez l'idée générale.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 if "": 
     print("ne passera pas par là")
@@ -81,7 +81,7 @@ if ():
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # assez logiquement, None aussi
 # est considéré comme faux
@@ -96,7 +96,7 @@ if None:
 Les tests les plus simples se font à l'aide des opérateurs d'égalité, qui fonctionnent sur presque tous les objets. L'opérateur `==` vérifie si deux objets ont la même valeur :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 bas = 12
 haut = 25.82
@@ -107,7 +107,7 @@ if bas == haut:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # non égalité ?
 if bas != haut:
@@ -128,19 +128,19 @@ if [1, 2] != (1, 2):
 Par contre, des `float`, des `int` et des `complex` peuvent être égaux entre eux :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 bas_reel = 12.
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(bas, bas_reel)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # le réel 12 et 
 # l'entier 12 sont égaux
@@ -149,7 +149,7 @@ if bas == bas_reel:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ditto pour int et complex
 if (12 + 0j) == 12:
@@ -175,7 +175,7 @@ if 12 <> 25:
 Sans grande surprise on peut aussi écrire
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 if bas <= haut:
     print('<=')
@@ -184,7 +184,7 @@ if bas < haut:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 if haut >= bas:
     print('>=')
@@ -195,14 +195,14 @@ if haut > bas:
 À titre de curiosité, on peut même écrire en un seul test une appartenance à un intervalle, ce qui donne un code plus lisible
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 x = (bas + haut) / 2
 print(x)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # deux tests en une expression
 if bas <= x <= haut:

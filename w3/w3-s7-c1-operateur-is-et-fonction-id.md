@@ -50,7 +50,7 @@ Nous allons illustrer la différence entre ces deux opérateurs.
 ##### Scénario 1
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # deux listes identiques
 a = [1, 2]
@@ -61,7 +61,7 @@ print('==', a == b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais ce ne sont pas les mêmes objets
 print('is', a is b)
@@ -70,7 +70,7 @@ print('is', a is b)
 ##### Scénario 2
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # par contre ici il n'y a qu'une liste
 a = [1, 2]
@@ -84,7 +84,7 @@ print('==', a == b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais elles désignent le même objet
 print('is', a is b)
@@ -118,12 +118,12 @@ a = b = [1, 2]
 
 La pratique usuelle est d'utiliser `is` lorsqu'on compare avec un objet qui est un singleton, comme typiquement `None`.
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Par exemple on préfèrera écrire :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 undef = None
 
@@ -131,12 +131,12 @@ if undef is None:
     print('indéfini')
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Plutôt que :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 if undef == None:
     print('indéfini')

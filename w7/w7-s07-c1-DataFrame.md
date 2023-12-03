@@ -81,21 +81,21 @@ print(stat.columns)
 Il y a de nombreuses manières d'accéder aux éléments de la `DataFrame`, certaines sont bonnes et d'autres à proscrire, commençons par prendre de bonnes habitudes. Comme il s'agit d'une structure à deux dimensions, il faut donner un indice de ligne et de colonne :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # Quel est l'âge de alice
 a = stat.loc['alice', 'age']
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # a est un flottant
 type(a), a
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # Quel est la moyenne de tous les âges
 c = stat.loc[:, 'age']
@@ -104,14 +104,14 @@ print(f"L'âge moyen est de {m:.1f} ans.")
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # c est une Series
 type(c)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et m est un flottant
 type(m)
@@ -269,14 +269,14 @@ Je recommande de toujours utiliser la notation `.loc[lignes, colonnes]` pour év
 Regardons maintenant d'autres exemples plus sophistiqués :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # un masque sur les femmes
 p.loc[:, 'sex'] == 'f'
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # si bien que pour construire un tableau
 # avec uniquement les femmes
@@ -346,7 +346,7 @@ print(p)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # je peux bien accéder
 # à la colonne sex
@@ -354,7 +354,7 @@ p.sex
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais pas à la colonne mean
 p.mean
@@ -403,7 +403,7 @@ Par contre, si l'on a besoin d'alignement de labels, c'est le cas avec toutes le
 Pour avoir un alignement des labels, il faut utiliser les `ufunc` de `pandas`.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # prenons deux Series
 s1 = pd.Series([10, 20, 30],
@@ -412,7 +412,7 @@ print(s1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 #
 s2 = pd.Series([12, 22, 32],
@@ -421,7 +421,7 @@ print(s2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la ufunc numpy fait la somme
 # des arrays sans prendre en compte
@@ -430,7 +430,7 @@ np.add(s1, s2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la ufunc pandas va faire
 # un alignement des labels
@@ -460,14 +460,14 @@ fruits_feb = pd.DataFrame({'bananas': bananas, 'apples': apples})
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ce qui donne
 fruits_jan
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et
 fruits_feb
@@ -500,7 +500,7 @@ dataframe
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 series_row = pd.Series(
     [100, 200, 300],
@@ -509,7 +509,7 @@ series_row
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 series_col = pd.Series(
     [400, 500, 600],
@@ -585,18 +585,18 @@ a
 [x for x in age.str.lower().str.strip()]
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 On peut également utiliser l'indexation des `str` de manière vectorisée :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(a.str[-1])
 ```

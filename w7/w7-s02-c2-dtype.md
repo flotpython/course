@@ -62,7 +62,7 @@ a.dtype
 Vous voyez que dans notre cas, le système a choisi pour nous un type entier ; selon les entrées on peut obtenir :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # si je mets au moins un flottant
 f = np.array([1, 2, 4, 8.])
@@ -70,7 +70,7 @@ f.dtype
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et avec un complexe
 c = np.array([1, 2, 4, 8j])
@@ -96,13 +96,13 @@ c2.dtype
 Une fois que le type est déterminé, on s'expose à de possibles pertes de précision, comme d'habitude :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 a, a.dtype
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # a est de type entier
 # je vais perdre le 0.14
@@ -123,7 +123,7 @@ Ce qu'il faut en retenir :
 * ces types existent en tant que tels (hors de tableaux).
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # un entier sur 1 seul octet, c'est possible !
 np_1 = np.int8(1)
@@ -132,7 +132,7 @@ py_1 = 1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # il y a bien égalité
 np_1 == py_1
@@ -148,7 +148,7 @@ np_1 is py_1
 Du coup, on peut commencer à faire de très substantielles économies de place ; imaginez que vous souhaitez manipuler une image d'un million de pixels en noir et blanc sur 256 niveaux de gris ; j'en profite pour vous montrer `np.zeros` (qui fait ce que vous pensez) :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pur Python
 from sys import getsizeof
@@ -157,7 +157,7 @@ getsizeof(pure_py)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # numpy
 num_py = np.zeros(10**6, dtype=np.int8)
@@ -167,25 +167,25 @@ getsizeof(num_py)
 Je vous signale enfin l'attribut `itemsize` qui vous permet d'obtenir la taille en octets occupée par chacune des cellules, et qui correspond donc en gros au nombre qui apparaît dans `dtype`, mais divisé par huit :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 a.dtype
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 a.itemsize
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 c.dtype
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 c.itemsize
 ```

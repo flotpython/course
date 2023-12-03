@@ -87,7 +87,7 @@ Bien, jusqu'ici c'est clair. Maintenant supposons que je veuille écrire une fon
 Première idée naïve pour faire cela, mais qui ne marche pas :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 def divdivs(n):
     for i in divs(n):
@@ -95,7 +95,7 @@ def divdivs(n):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 try:
     for i in divdivs(28):
@@ -115,7 +115,7 @@ Ce qui se passe ici, c'est que `divdivs` est perçue comme une fonction normale,
 Si on utilise juste `yield`, ça ne fait pas du tout ce qu'on veut :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 def divdivs(n):
     for i in divs(n):
@@ -123,7 +123,7 @@ def divdivs(n):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 try:
     for i in divdivs(28):
@@ -143,7 +143,7 @@ En effet, c'est logique, chaque `yield` dans `divdivs()` correspond à une itér
 La construction du langage qui permet de faire ceci s'appelle `yield from`;
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 def divdivs(n):
     for i in divs(n):
@@ -151,7 +151,7 @@ def divdivs(n):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 try:
     for i in divdivs(28):

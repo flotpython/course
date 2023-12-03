@@ -282,7 +282,7 @@ f(0.)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ordre 1
 f1 = grad(f)
@@ -290,7 +290,7 @@ f1(0.)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ordre 2
 f2 = grad(f1)

@@ -70,7 +70,7 @@ nan == nan
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pour tester si quelque chose est indéfini
 # utiliser cette fonction
@@ -81,7 +81,7 @@ isnan(nan)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # enfin pour info (on n'en a pas besoin ici)
 # les mêmes symboles sont dispos dans numpy 

@@ -105,20 +105,20 @@ TuplePoint = namedtuple('TuplePoint', ['x', 'y'])
 Et maintenant si je crée un objet :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p3 = TuplePoint(1, 2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # cet objet est un tuple
 isinstance(p3, tuple)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # auquel je peux accéder par index
 # comme un tuple
@@ -126,7 +126,7 @@ p3[0]
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais aussi par nom via un attribut
 p3.x
@@ -236,21 +236,21 @@ q1, q2, q3 = Point2(10, 10), Point2(10, 10), Point2(10, 10)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # deux objets distincts
 q1 is q2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais égaux
 q1 == q2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ne font qu'un dans un ensemble
 s = {q1, q2}
@@ -258,7 +258,7 @@ len(s)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et on peut les trouver
 # par le troisiéme

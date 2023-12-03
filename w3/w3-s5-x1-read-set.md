@@ -83,13 +83,13 @@ Pour cela `search_in_set` doit retourner une liste contenant, pour chaque ligne 
 Par exemple :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 !cat data/setref1.txt
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 !cat data/setsample1.txt
 ```

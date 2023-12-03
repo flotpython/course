@@ -141,7 +141,7 @@ def checks(candidate):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # plutôt que de faire ceci
 for item in candidates:
@@ -151,7 +151,7 @@ print('trouvé solution', item)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # il vaut mieux faire ceci
 solution = None
@@ -170,7 +170,7 @@ print('trouvé solution', solution)
 Au minimum, si vous utilisez la variable de boucle après la boucle, il est vivement conseillé de l'**initialiser** explicitement **avant** la boucle, pour vous prémunir contre les boucles vides, comme ceci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la fonction length de tout à l'heure
 def length1(l):
@@ -180,7 +180,7 @@ def length1(l):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une version plus robuste 
 def length2(l):
@@ -194,15 +194,15 @@ def length2(l):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
 :latex-skip-eval: true
+:tags: [gridwidth-1-2]
 
 # comme ci-dessus: UnboundLocalError
 length1([])
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 length2([])
 ```

@@ -106,7 +106,7 @@ def scan(liste, break_mode):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # sortie de la boucle sans break
 # on passe par else
@@ -114,7 +114,7 @@ scan(['a'], False)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # on sort de la boucle par le break
 scan(['a'], True)

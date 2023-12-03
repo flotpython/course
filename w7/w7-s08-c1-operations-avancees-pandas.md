@@ -61,13 +61,13 @@ s2 = pd.Series([32, 22, 29], index=['bill', 'alice', 'jo'])
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 s1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 s2
 ```
@@ -111,13 +111,13 @@ p2 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p2
 ```
@@ -136,13 +136,13 @@ p2 = pd.DataFrame(np.random.randint(1, 10, size=(2,2)),
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p2
 ```
@@ -212,13 +212,13 @@ df2 = pd.DataFrame({'employee': ['Lisa', 'Bob', 'Sue'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```
@@ -251,13 +251,13 @@ df2 = pd.DataFrame({'repas': ['SS', 'SSR'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```
@@ -276,13 +276,13 @@ df2 = pd.DataFrame({'repas': ['SS', 'SS', 'SSR'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```
@@ -303,13 +303,13 @@ df2 = pd.DataFrame({'employee': ['Lisa', 'Bob', 'Sue'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```
@@ -327,13 +327,13 @@ df2 = pd.DataFrame({'name': ['Lisa', 'Bob', 'Sue'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```
@@ -361,13 +361,13 @@ df2 = pd.DataFrame({'name': ['Eric', 'Bob', 'Marc'],
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df1
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 df2
 ```

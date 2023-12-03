@@ -101,7 +101,7 @@ Je rappelle par ailleurs l'existence en Python de deux fonctions qui peuvent êt
 * et `chr()` qui réalise l'opération inverse.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la fonction ord() retourne le codepoint
 # d'un caractère
@@ -109,7 +109,7 @@ ord('a')
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et réciproquement avec chr()
 chr(97)
@@ -118,14 +118,14 @@ chr(97)
 Une fois qu'on a dit ça, il est intéressant de constater que les caractères minuscules et majuscules auxquels nous nous intéressons sont, fort heureusement, contigus dans l'espace des codepoints.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 import string
 string.ascii_letters
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 string.ascii_lowercase
 ```
@@ -135,7 +135,7 @@ COLUMNS = 7
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 for index, char in enumerate(string.ascii_uppercase, 1):
     print(f"{char}→{ord(char):3d} ", end="")
@@ -144,7 +144,7 @@ for index, char in enumerate(string.ascii_uppercase, 1):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 for index, char in enumerate(string.ascii_lowercase, 1):
     print(f"{char}→{ord(char):3d} ", end="")
@@ -197,7 +197,7 @@ Cette première partie étant acquise, nous pouvons passer à l'amélioration de
 
 Donc pour calculer le chiffrement de `ce message` avec la clé `cle`, on va se souvenir que
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```
 clé     : C    
@@ -217,7 +217,7 @@ clair   : ABCDEFGHIJKLMNOPQRSTUVWXYZ
 chiffré : FGHIJKLMNOPQRSTUVWXYZABCDE
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 et du coup faire
 

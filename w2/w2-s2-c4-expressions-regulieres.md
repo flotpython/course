@@ -119,13 +119,13 @@ match is None
 Ici `match` est un objet, qui nous permet ensuite d'"extraire" les différentes parties, comme ceci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 match[1]
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 match[2]
 ```
@@ -213,13 +213,13 @@ Pour anticiper un peu, signalons que cette façon de créer un chaine en la pré
 On voit tout de suite l'intérêt sur un exemple :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print("sans raw-string\nun newline")
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(r"dans\nunraw-string")
 ```
@@ -455,7 +455,7 @@ Ces fonctions de commodité fonctionnent toutes sur le même principe&nbsp;:
 Donc à chaque fois qu'on utilise une fonction de commodité, on recompile la chaîne en automate, ce qui, dès qu'on a plus d'une chaîne à traiter, représente un surcoût.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # au lieu de faire comme ci-dessus:
 
@@ -466,7 +466,7 @@ for sample in samples:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # dans du vrai code on fera plutôt:
 
@@ -545,14 +545,14 @@ match.groupdict()
  On peut aussi accéder au **groupe 0** comme étant la partie de la chaîne de départ qui a effectivement été filtrée par l'expression régulière - qui en général est une sous-chaine de la chaîne de départ :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la sous-chaine filtrée
 match.group(0)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la chaine de départ
 sample
@@ -703,7 +703,7 @@ On a en effet bien le pattern `bc` dans la chaine en entrée, mais il n'est ni a
 Pour pouvoir faire des montages élaborés, il faut pouvoir parenthéser.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une parenthése dans une RE 
 # pour mettre en ligne:
@@ -713,7 +713,7 @@ Pour pouvoir faire des montages élaborés, il faut pouvoir parenthéser.
 regexp = "a(bc|de)f"
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 <img src="media/re-serie-parallele.png">
 

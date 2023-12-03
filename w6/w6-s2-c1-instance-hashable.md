@@ -84,7 +84,7 @@ class Point1:
 Avec ce code, les instances de `Point` sont mutables :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # deux instances 
 p1 = Point1(2, 2)
@@ -92,7 +92,7 @@ p2 = Point1(2, 3)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # objets mutables
 p1.y = 3
@@ -103,14 +103,14 @@ Mais par contre soyez attentifs, car il faut savoir que pour la classe `Point1`,
 Ce qui, dit autrement, signifie que deux objets qui sont distincts au sens de `id()` sont considérés comme différents, et donc peuvent coexister dans un ensemble (ou dans un dictionnaire) :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # nos deux objets se ressemblent
 p1, p2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais peuvent coexister 
 # dans un ensemble
@@ -122,13 +122,13 @@ len(s)
 Si on recherche un de ces deux objets on le trouve :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 p1 in s
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # mais pas un troisième
 # qui pourtant est "le même"
@@ -141,7 +141,7 @@ Cette possibilité de gérer des ensembles d'objets selon cette stratégie est t
 
 En pratique, lorsqu'un modèle de données définit une relation de type "1-n", je vous recommande d'envisager d'utiliser un ensemble plutôt qu'une liste.
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Par exemple envisagez :
 
@@ -154,7 +154,7 @@ class Zoo:
         self.animals = set()
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Plutôt que :
 
@@ -232,14 +232,14 @@ print(f"is → {q1 is q2} \n== → {q1 == q2}")
 Et un ensemble contenant les deux points n'en contient qu'un :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 s = {q1, q2}
 len(s)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 q3 = Point2(2, 3)
 q3 in s
@@ -248,7 +248,7 @@ q3 in s
 Comme les ensembles et les dictionnaires reposent sur le même mécanisme de table de hachage, on peut aussi indifféremment utiliser n'importe lequel de nos 3 points pour indexer un dictionnaire :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d = {}
 d[q1] = 1
@@ -256,7 +256,7 @@ d[q2]
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # les clés q1, q2 et q3 sont
 # les mêmes pour le dictionnaire
@@ -271,7 +271,7 @@ d
 Tout ceci semble très bien fonctionner; sauf qu'en fait, il y a une **grosse faille**, c'est que nos objets `Point2` sont **mutables**. Du coup on peut maintenant imaginer un scénario comme celui-ci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t1, t2 = Point2(10, 10), Point2(10, 10)
 s = {t1, t2}
@@ -279,7 +279,7 @@ s
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t1 in s, t2 in s
 ```
@@ -287,25 +287,25 @@ t1 in s, t2 in s
 Mais si maintenant je change un des deux objets:
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t1.x = 100
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 s
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t1 in s
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 t2 in s
 ```

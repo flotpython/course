@@ -406,20 +406,20 @@ class AnimatedDistribution:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 dist = AnimatedDistribution(1000)
 dist.show()
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pour déformer / déplacer
 dist.interact()
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 le point étant ici de montrer que toutes les modifications sont lisses, sans l'effet de *flickering* qu'on obtiendrait en redessinant toute l'image à chaque fois
 

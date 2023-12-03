@@ -220,14 +220,14 @@ La notion **la plus simple** de ces mécanismes est celle de **verrou** pour imp
 
 Nous allons remplacer ceci :
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```
 # thread A
 a = a + 1
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```
 # thread B
@@ -238,7 +238,7 @@ a = a + 1
 
 par ceci
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```
 # thread A
@@ -248,7 +248,7 @@ a = a + 1
 release_lock(lock)
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```
 # thread B

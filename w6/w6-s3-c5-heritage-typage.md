@@ -85,25 +85,25 @@ Dans un langage typé statiquement, pour pouvoir donner un type à cette constru
 En python, et c'est le point que nous voulons souligner dans ce complément, il n'existe pas dans le système python d'objet de type `type` qui matérialise l'ensemble des `iterable`s. Si on regarde les superclasses de nos types concrets itérables, on voit que leur seul ancêtre commun est la classe  `object` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 str.__bases__
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 list.__bases__
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 tuple.__bases__
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 range.__bases__
 ```
@@ -153,19 +153,19 @@ from collections.abc import Iterable
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 isinstance('ab', Iterable)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 isinstance([1, 2], Iterable)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # comme on l'a vu, un objet qui a des méthodes
 # __iter__() et __next__() 
@@ -179,7 +179,7 @@ class Foo:
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 foo = Foo()
 isinstance(foo, Iterable)

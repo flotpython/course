@@ -52,14 +52,14 @@ On peut faire des opérations logiques entre tableaux exactement comme on fait d
 On va partir de deux tableaux presque identiques. J'en profite pour vous signaler qu'on peut copier un tableau avec, tout simplement, `np.copy` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 a = np.arange(25).reshape(5, 5)
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b = np.copy(a)
 b[2, 2] = 1000
@@ -82,21 +82,21 @@ print(a == b)
 Si votre intention est de vérifier que les deux tableaux sont entièrement identiques, utilisez `np.all` - et non pas le *built-in* natif `all` de Python - qui va vérifier que tous les éléments du tableau sont vrais :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # oui
 np.all(a == a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # oui
 np.all(a == b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # oui
 # on peut faire aussi bien
@@ -107,7 +107,7 @@ np.all(a == b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # par contre : non !
 # ceci n'est pas conseillé
@@ -121,13 +121,13 @@ except Exception as e:
 C'est bien sûr la même chose pour `any` qui va vérifier qu'il y a au moins un élément vrai. Comme en Python natif, un nombre qui est nul est considéré comme faux :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 np.zeros(5).any()
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 np.ones(5).any()
 ```
@@ -165,7 +165,7 @@ plt.imshow(image, cmap='gray');
 Maintenant je peux créer un masque qui produise des rayures en diagonale, donc selon la valeur de `(i+j)`. Par exemple :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pour faire des rayures
 # de 6 pixels de large
@@ -174,7 +174,7 @@ plt.imshow(rayures, cmap='gray');
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # en fait c'est bien sûr
 # un tableau de booléens
@@ -191,12 +191,12 @@ except Exception as e:
     print(f"OOPS - {type(e)} - {e}")
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 on ne peut pas non plus faire `rayures.not()`, parce `not` est un mot clé
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # on a le choix entre utiliser
 #   rayures.logical_not() 
@@ -207,7 +207,7 @@ plt.imshow(anti_rayures,
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ou encore l'opérateur ~ 
 # qui fait un not bitwise
@@ -220,14 +220,14 @@ plt.imshow(anti_rayures,
 Maintenant je peux utiliser le masque `rayures` pour faire des choses sur l'image. Par exemple simplement :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pour effacer les rayures
 plt.imshow(image*rayures, cmap='gray');
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ou garder l'autre moitié
 plt.imshow(image*anti_rayures, cmap='gray');
@@ -260,14 +260,14 @@ np.isclose?
 Pour élaborer une image qui contient un grand cercle, je vais dire que la distance au centre (je rappelle que c'est le contenu de `image`) est suffisamment proche de $64^2$, ce que vaut `image` au milieu de chaque bord :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 big_circle = np.isclose(image, 64 **2, 10/100)
 plt.imshow(big_circle, cmap='gray');
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 small_circle = np.isclose(image, 32 **2, 10/100)
 plt.imshow(small_circle, cmap='gray');

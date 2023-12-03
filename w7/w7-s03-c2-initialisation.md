@@ -86,13 +86,13 @@ fours
 En guise de rappel, avec `arange` on peut créer des tableaux de valeurs espacées d'une valeur constante. Ça ressemble donc un peu au `range` de Python natif :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 np.arange(4)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 np.arange(1, 5)
 ```
@@ -116,7 +116,7 @@ plt.ion()
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 X = np.linspace(-3., +3.)
 Y = np.exp(X)
@@ -125,7 +125,7 @@ plt.plot(X, Y);
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # par défaut linspace crée 50 points
 # avec moins de points
@@ -149,13 +149,13 @@ ix, iy = np.indices((3, 5))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 ix
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 iy
 ```

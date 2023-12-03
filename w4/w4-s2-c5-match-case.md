@@ -199,7 +199,7 @@ for item in bool_list:
 *Les `fstrings` ne sont pas prises en charge.*
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 def match_string(my_var):
     match my_var:
@@ -218,7 +218,7 @@ def match_string(my_var):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 string_list = ['simple quotes', 
                "double quotes",

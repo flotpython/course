@@ -84,7 +84,7 @@ v2
 Et donc, ces deux tableaux sont deux vues vers la même zone de données ; ce qui fait qu'une modification sur l'un se répercute dans l'autre :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # je change un tableau
 d2[0][0] = 100
@@ -92,7 +92,7 @@ d2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ça se répercute dans l'autre
 v2
@@ -105,28 +105,28 @@ v2
 Signalons par commodité les attributs suivants, qui se dérivent de `shape` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # le nombre de dimensions
 d2.ndim
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # vrai pour tous les tableaux
 len(d2.shape) == d2.ndim
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # le nombre de cellules
 d2.size
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # vrai pour tous les tableaux
 # une façon compliquée de dire
@@ -231,25 +231,25 @@ cela vous donne l'impression que vous avez comme brique de base des tableaux qui
 Et souvenez-vous que vous pouvez toujours insérer un `1` n'importe où dans la forme, puisque ça ne modifie pas la taille qui est le produit des dimensions :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2.shape
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2.reshape(2, 1, 3)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2.reshape(2, 3, 1)
 ```
@@ -257,13 +257,13 @@ d2.reshape(2, 3, 1)
 Ou même :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2.reshape((1, 2, 3))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 d2.reshape((1, 1, 1, 1, 2, 3))
 ```

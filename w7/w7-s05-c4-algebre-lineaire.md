@@ -53,14 +53,14 @@ Un aspect important de l'utilisation de `numpy` consiste à manipuler des matric
 **Rappel** : On a déjà vu que `*` entre deux tableaux faisait une multiplication terme à terme.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 ligne = 1 + np.arange(3)
 print(ligne)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 colonne = 1 + np.arange(3).reshape(3, 1)
 print(colonne)
@@ -77,7 +77,7 @@ print(ligne * colonne)
 L'opération de produit matriciel s'appelle `np.dot` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m1 = np.array([[1, 1],
                [2, 2]])
@@ -85,7 +85,7 @@ print(m1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m2 = np.array([[10, 20],
                [30, 40]])
@@ -94,16 +94,16 @@ print(m2)
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: '-'
+tags: [gridwidth-1-2]
 ---
 # comme fonction
 np.dot(m1, m2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # comme méthode
 m1.dot(m2)
@@ -112,13 +112,13 @@ m1.dot(m2)
 Je vous signale aussi un opérateur spécifique, noté `@`, qui permet également de faire le produit matriciel.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m1 @ m2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m2 @ m1
 ```
@@ -142,14 +142,14 @@ for x, y in ( (10, 20), (10., 20.), ([10], [20]), ((10,), (20,))):
 Ici encore, vous pouvez utiliser `dot` qui va intelligemment transposer le second argument :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 v1 = np.array([1, 2, 3])
 print(v1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 v2 = np.array([4, 5, 6])
 print(v2)
@@ -157,15 +157,15 @@ print(v2)
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: '-'
+tags: [gridwidth-1-2]
 ---
 np.dot(v1, v2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 v1 @ v2
 ```
@@ -181,14 +181,14 @@ Vous pouvez accéder à une matrice transposée de deux façons :
 * soit sous la forme d'un attribut `m.T` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m = np.arange(4).reshape(2, 2)
 print(m)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(m.T)
 ```
@@ -196,13 +196,13 @@ print(m.T)
 * soit par la méthode `transpose()` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(m)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m.transpose()
 ```
@@ -233,14 +233,14 @@ print(M)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 D = np.diag(M)
 print(D)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 M2 = np.diag(D)
 print(M2)
@@ -253,7 +253,7 @@ print(M2)
 Avec la fonction `np.linalg.det` :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une isométrie
 M = np.array([[0, -1], [1, 0]])
@@ -261,7 +261,7 @@ print(M)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et donc
 np.linalg.det(M) == 1
@@ -283,14 +283,14 @@ values, vectors = np.linalg.eig(S)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pas de déformation
 values
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # les deux diagonales
 vectors
@@ -303,25 +303,25 @@ vectors
 Fabriquons-nous un système d'équations :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 x, y, z = 1, 2, 3
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 3*x + 2*y + z
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 2*x + 3*y +4*z
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 5*x + 2*y + 6*z
 ```
@@ -329,7 +329,7 @@ x, y, z = 1, 2, 3
 On peut le résoudre tout simplement comme ceci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 coefficients= np.array([
     [3, 2, 1],
@@ -339,7 +339,7 @@ coefficients= np.array([
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 constants = [
     10,

@@ -97,14 +97,14 @@ req.ok
 ### Les données sont indexées par pays
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # voici ce qu'on obtient
 type(decoded)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une clé
 list(decoded.keys())[0]
@@ -140,14 +140,14 @@ Ce que j'ai constaté, et je suppose qu'on peut plus ou moins compter sur cette 
 * tous les pays ont la même plage de temps - quitte à rajouter des enregistrements à 0, comme ci-dessus pour la France le 22 janvier
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 us_data = decoded['US']
 us_data[0]
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 us_data[-1]
 ```
@@ -157,14 +157,14 @@ len(france_data) == len(us_data)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # nombre de pays
 len(decoded)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # nombre de jours
 len(france_data)

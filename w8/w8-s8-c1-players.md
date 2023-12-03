@@ -120,7 +120,7 @@ La logique des deux joueurs est simplement juxtaposée, ou si on préfère super
 ![](media/players.png)
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # je peux lancer un sous-processus
 # depuis le notebook
@@ -129,7 +129,7 @@ La logique des deux joueurs est simplement juxtaposée, ou si on préfère super
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ou une autre configuration
 !data/players.py 2

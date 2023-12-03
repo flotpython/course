@@ -85,13 +85,13 @@ Pour commencer, je vais donc ajouter à mon tableau de base un scalaire :
 ### Broadcasting entre les dimensions `(3, 5)` et `(1,)`
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b = 3
 print(b)
@@ -104,7 +104,7 @@ print(b)
 Lorsque j'ajoute ces deux tableaux, c'est comme si j'avais ajouté à `a` la différence :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # pour élaborer c
 c = a + b
@@ -112,7 +112,7 @@ print(c)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # c'est comme si j'avais
 # ajouté à a ce terme-ci
@@ -139,22 +139,22 @@ Voyons maintenant un cas un peu moins évident. Je peux ajouter à mon tableau d
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: '-'
+tags: [gridwidth-1-2]
 ---
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b = np.arange(1, 6)
 print(b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b.shape
 ```
@@ -168,7 +168,7 @@ b.shape
 Ici encore, je peux ajouter les deux termes :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # je peux ici encore
 # ajouter les tableaux
@@ -177,7 +177,7 @@ print(c)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et c'est comme si j'avais
 # ajouté à a ce terme-ci
@@ -186,23 +186,23 @@ print(c - a)
 
 Avec le même point de vue que tout à l'heure, on peut se dire qu'on a d'abord transformé (broadcasté) le tableau `b` :
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 depuis la dimension `(5,)`
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 vers la dimension `(3, 5)`
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # départ
 print(b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # arrivée
 print(c - a)
@@ -220,15 +220,15 @@ Au lieu d'ajouter à `a` une ligne, on peut lui ajouter une colonne, pourvu qu'e
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: '-'
+tags: [gridwidth-1-2]
 ---
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b = np.arange(1, 4).reshape(3, 1)
 print(b)
@@ -243,37 +243,37 @@ print(b)
 Voyons comment se passe le broadcasting dans ce cas-là :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 c = a + b
 print(c)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(c - a)
 ```
 
 Vous voyez que tout se passe exactement de la même façon que lorsqu'on avait ajouté une simple ligne, on a cette fois "tiré" la colonne dans la direction des lignes, pour passer :
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 depuis la dimension `(3, 1)`
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 vers la dimension `(3, 5)`
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # départ
 print(b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # arrivée
 print(c - a)
@@ -288,7 +288,7 @@ print(c - a)
 Nous avons maintenant tous les éléments en main pour comprendre un exemple plus intéressant, où les deux tableaux ont des formes pas vraiment compatibles à première vue :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 col = np.arange(1, 4).reshape((3, 1))
 print(col)
@@ -296,9 +296,9 @@ print(col)
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: '-'
+tags: [gridwidth-1-2]
 ---
 line = 100 * np.arange(1, 6)
 print(line)
@@ -313,13 +313,13 @@ print(line)
 Grâce au broadcasting, on peut additionner ces deux tableaux pour obtenir ceci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 m = col + line
 print(m)
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Remarquez qu'ici les **deux** entrées ont été étirées pour atteindre une dimension commune.
 
@@ -327,42 +327,42 @@ Remarquez qu'ici les **deux** entrées ont été étirées pour atteindre une di
 
 Et donc pour illustrer le broadcasting dans ce cas, tout se passe comme si on avait :
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 transformé la colonne `(3, 1)`
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 en tableau `(3, 5)`
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(col)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(col + np.zeros(5, dtype=np.int64))
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 et transformé la ligne `(1, 5)`
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 en tableau `(3, 5)`
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(line)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(line + np.zeros(3, dtype=np.int64).reshape((3, 1)))
 ```
@@ -381,7 +381,7 @@ Pour savoir si deux tableaux peuvent être compatibles via *broadcasting*, il fa
 
 ### Exemples de dimensions compatibles
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```python
 A   15 x 3 x 5
@@ -389,7 +389,7 @@ B   15 x 1 x 5
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Cas de l'ajout d'un scalaire :
 ```python
@@ -398,7 +398,7 @@ B            1
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```python
 A   15 x 3 x 5
@@ -406,7 +406,7 @@ B        3 x 5
 A+B 15 x 3 x 5
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ```python
 A   15 x 3 x 5
@@ -418,7 +418,7 @@ A+B 15 x 3 x 5
 
 ### Exemples de dimensions **non compatibles**
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 Deux lignes de longueurs différentes :
 ```python
@@ -426,7 +426,7 @@ A  3
 B  4
 ```
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "-"}}
++++ {"slideshow": {"slide_type": "-"}, "tags": ["gridwidth-1-2"]}
 
 Un cas plus douteux :
 ```python
@@ -453,28 +453,28 @@ from broadcasting import compatible, compatible2
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # on peut dupliquer selon un axe
 compatible((15, 3, 5), (15, 1, 5))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # ou selon deux axes
 compatible((15, 3, 5), (5,))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # c'est bien clair que non
 compatible((2,), (3,))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # on ne peut pas passer de 2 à 4
 compatible((1, 2), (2, 4))

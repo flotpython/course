@@ -53,7 +53,7 @@ from enum import Enum
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 class Flavour(Enum):
     CHOCOLATE = 1
@@ -62,7 +62,7 @@ class Flavour(Enum):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 vanilla = Flavour.VANILLA
 ```
@@ -70,13 +70,13 @@ vanilla = Flavour.VANILLA
 Un premier avantage est que les représentations textuelles sont plus parlantes :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 str(vanilla)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 repr(vanilla)
 ```
@@ -84,14 +84,14 @@ repr(vanilla)
 Vous pouvez aussi retrouver une valeur par son nom :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 chocolate = Flavour['CHOCOLATE']
 chocolate
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 Flavour.CHOCOLATE
 ```
@@ -125,13 +125,13 @@ class HttpError(IntEnum):
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 code = HttpError.REDIRECT_TMP
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 code.is_redirect()
 ```

@@ -154,7 +154,7 @@ va pas fonctionner tel quel dans un programme exécuté directement par l'interp
 Python standard.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # un code cassé
 
@@ -162,7 +162,7 @@ Python standard.
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la preuve
 

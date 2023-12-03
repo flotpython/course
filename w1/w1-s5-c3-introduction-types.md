@@ -45,13 +45,13 @@ Nous avons vu dans la vidéo que chaque objet possède un type. On peut très si
 On l'utilise tout simplement comme ceci :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 type(1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 type('spam')
 ```
@@ -67,14 +67,14 @@ Cette fonction est assez peu utilisée par les programmeurs expérimentés, mais
 On a vu également que le type est attaché **à l'objet** et non à la variable.
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 x = 1
 type(x)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # la variable x peut référencer un objet de n'importe quel type
 

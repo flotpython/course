@@ -69,14 +69,14 @@ a = np.arange(3)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une vue
 v = a.view()
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # une slice
 s = a[:]
@@ -85,13 +85,13 @@ s = a[:]
 Les deux objets ne sont pas différentiables :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 v.base is a
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 s.base is a
 ```
@@ -248,13 +248,13 @@ print(b)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(np.hstack((a, b)))
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(np.vstack((a, b)))
 ```
@@ -262,14 +262,14 @@ print(np.vstack((a, b)))
 ### Assemblages : `np.concatenate` (3D et au delà)
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 a = np.ones((2, 3, 4))
 print(a)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 b = np.zeros((2, 3, 2))
 print(b)
@@ -316,14 +316,14 @@ complet = np.arange(24).reshape(4, 6); print(complet)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 h1, h2 = np.hsplit(complet, 2)
 print(h1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(h2)
 ```
@@ -338,14 +338,14 @@ print(complet)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 v1, v2 = np.vsplit(complet, 2)
 print(v1)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(v2)
 ```

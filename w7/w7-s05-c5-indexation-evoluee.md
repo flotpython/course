@@ -157,23 +157,23 @@ print(index)
 ![parts](media/index-parts.png)
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 B = A[index]
 print(B)
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ![result](media/index-result.png)
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 B[1, 2, 1]
 ```
 
-+++ {"cell_style": "split"}
++++ {"tags": ["gridwidth-1-2"]}
 
 ![result](media/index-detail.png)
 
@@ -195,16 +195,16 @@ Alors :
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: slide
+tags: [gridwidth-1-2]
 ---
 # l'entrée
 print(A.shape)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # l'index
 print(index.shape)
@@ -228,14 +228,14 @@ print(cubes)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 i2 = np.array([[2, 4], [8, 9]])
 print(i2)
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 print(cubes[i2])
 ```

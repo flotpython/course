@@ -128,14 +128,14 @@ La fonction `import_module` n'est pas d'un usage très courant, dans la pratique
 Maintenant que nous savons ce que fait `import_module`, on peut récrire les deux formes d'`import`  de cette façon :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # un import simple
 import math
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # peut se récrire
 math = import_module('math')
@@ -144,14 +144,14 @@ math = import_module('math')
 Et :
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # et un import from
 from pathlib import Path
 ```
 
 ```{code-cell} ipython3
-:cell_style: split
+:tags: [gridwidth-1-2]
 
 # est en gros équivalent à
 tmp = import_module('pathlib')
