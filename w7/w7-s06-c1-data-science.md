@@ -144,17 +144,18 @@ tips.describe()
 
 ```{code-cell} ipython3
 # prenons la moyenne par sexe
-tips.groupby('sex').mean()
+numeric_columns = tips.describe().columns
+tips.groupby('sex')[numeric_columns].mean()
 ```
 
 ```{code-cell} ipython3
 # et maintenant la moyenne par jour
-tips.groupby('day').mean()
+tips.groupby('day')[numeric_columns].mean()
 ```
 
 ```{code-cell} ipython3
 # et pour finir la moyenne par moment du repas
-tips.groupby('time').mean()
+tips.groupby('time')[numeric_columns].mean()
 ```
 
 Vous voyez qu'en quelques requêtes simples et intuitives (nous reviendrons bien sûr sur ces notions) on peut grâce à la notion d'index, obtenir des informations précieuses sur nos données. Vous voyez qu'en l'occurrence, travailler directement sur le tableau `numpy` aurait été beaucoup moins aisé.

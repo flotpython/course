@@ -543,12 +543,14 @@ Une subtilité de `aggregate` est que l'on peut passer soit un objet fonction, s
 ```{code-cell} ipython3
 # calculons la moyenne et la variance pour chaque groupe
 # et chaque colonne numérique
-tips.groupby('day').agg(['mean', 'std'])
+numeric_columns = tips.describe().columns
+
+tips.groupby('day')[numeric_columns].agg(['mean', 'std'])
 ```
 
 ```{code-cell} ipython3
 # de manière équivalente avec les objets fonctions
-tips.groupby('day').agg([np.mean, np.std])
+tips.groupby('day')[numeric_columns].agg([np.mean, np.std])
 ```
 
 ```{code-cell} ipython3
