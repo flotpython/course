@@ -88,7 +88,7 @@ J'ai défini une classe `Taylor`, je ne vous montre pas encore le code, je vais 
 <span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
 
 ```{code-cell} ipython3
-:hide_input: true
+:tags: [remove-input]
 
 # @BEG@ name=taylor
 class Taylor:
