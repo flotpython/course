@@ -83,7 +83,7 @@ on ne doit pas trouver de nombre 'en dur' dans le code de la fonction; c'est-à-
   TICKS = (12_500, 50_000, 150_000)
   RATES = (20, 40, 45)
   ```
-  ou **tout autre structure de données** qui vous paraitra adaptée à décrire le barême, mais **extérieure** à la fonction proprement dite, pour qu'on puisse facilement réutiliser et/ou mettre à jour le code. 
+  ou **tout autre structure de données** qui vous paraitra adaptée à décrire le barême, mais **extérieure** à la fonction proprement dite, pour qu'on puisse facilement réutiliser et/ou mettre à jour le code.
 
 ```{code-cell} ipython3
 def taxes(income):

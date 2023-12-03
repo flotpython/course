@@ -108,7 +108,6 @@ Nous reprenons ici le même scénario d'ensemble de points que nous avons déjà
 
 Enfin on illustre ici le fait que décorateur `dataclass` accepte divers arguments pour choisir le comportement de certains aspects de la classe. Reportez-vous à la documentation pour une liste complète, mais voici un exemple qui utilise `frozen=True` qui nous permet de créer des **instances non mutables**.
 
-
 ```{code-cell} ipython3
 from dataclasses import dataclass
 

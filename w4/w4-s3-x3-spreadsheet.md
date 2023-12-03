@@ -47,8 +47,6 @@ from corrections.exo_spreadsheet import exo_spreadsheet
 exo_spreadsheet.example()
 ```
 
-+++
-
 Pour vous aider, on rappelle l'existence des fonctions prédéfinies `chr()` et `ord()` qui permettent de passer des caractères Unicode à leur représentation numérique (*codepoint*) et vice-versa.
 
 +++
