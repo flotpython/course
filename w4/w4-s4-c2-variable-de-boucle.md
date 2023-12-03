@@ -107,7 +107,7 @@ length([1, 2, 3])
 Ça a l'air correct, sauf que :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # ceci provoque une UnboundLocalError
 length([])
@@ -195,7 +195,7 @@ def length2(l):
 
 ```{code-cell} ipython3
 :cell_style: split
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # comme ci-dessus: UnboundLocalError
 length1([])

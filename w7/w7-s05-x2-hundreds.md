@@ -59,8 +59,8 @@ exo_hundreds.example()
 ```
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: hundreds=exo_hundreds.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: hundreds=exo_hundreds.solution
+:latex-hidden-silent: true
 
 # à vous de jouer
 def hundreds(lines, columns, offset):

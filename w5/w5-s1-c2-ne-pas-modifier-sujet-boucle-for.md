@@ -45,7 +45,7 @@ ensemble = {'marc', 'albert'}
 ```
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # ceci semble une bonne idée mais ne fonctionne pas
 # provoque RuntimeError: Set changed size during iteration

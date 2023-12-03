@@ -119,7 +119,7 @@ print(mauvaise_cle)
 Et c'est pourquoi on ne peut pas utiliser cet objet comme clé dans le dictionnaire :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # provoque une exception
 d[mauvaise_cle] = 'on ne peut pas faire ceci'

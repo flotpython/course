@@ -135,7 +135,7 @@ message = "on peut mettre un caractère accentué dans une chaîne"
 
 * Enfin on peut aussi bien sûr mettre dans les commentaires n'importe quel caractère Unicode, et donc notamment des caractères accentués si on choisit malgré tout d'écrire le code en français.
 
-+++ {"latex:replace": ["cos(\u0398) \u27a8 \u2200x \u2208 \u222bf(t)dt\u2230", "cos(\u0398), \u2200x \u2208 \u222bf(t)dt"]}
++++ {"latex-replace": ["cos(\u0398) \u27a8 \u2200x \u2208 \u222bf(t)dt\u2230", "cos(\u0398), \u2200x \u2208 \u222bf(t)dt"]}
 
 ```python
 # on peut mettre un caractère accentué dans un commentaire
@@ -208,7 +208,7 @@ La syntaxe de la ligne `coding` est précisée dans [cette documentation](https:
 
 ### Le grand malentendu
 
-+++ {"latex:replace": [["\u00a4", "\\includegraphics{media/currency-sign.png}"], ["\u20ac", "\\euro"]]}
++++ {"latex-replace": [["\u00a4", "\\includegraphics{media/currency-sign.png}"], ["\u20ac", "\\euro"]]}
 
 Si je vous envoie un fichier contenant du français encodé avec, disons, [ISO/IEC 8859-15 - a.k.a. `Latin-9`](http://en.wikipedia.org/wiki/ISO/IEC_8859-15); vous pouvez voir dans la table qu'un caractère '€' va être matérialisé dans mon fichier par un octet '0xA4', soit 164.
 

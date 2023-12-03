@@ -67,7 +67,7 @@ chaine[3:6] == "def"
 1) Écrivez une slice pour obtenir "vwx" (n'hésitez pas à utiliser les indices négatifs) :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 chaine[ <votre_code> ] == "vwx"
 ```
@@ -75,7 +75,7 @@ chaine[ <votre_code> ] == "vwx"
 2) Une slice pour obtenir "wxyz" (avec une seule constante) :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 chaine[ <votre_code> ] == "wxyz"
 ```
@@ -83,7 +83,7 @@ chaine[ <votre_code> ] == "wxyz"
 3) Une slice pour obtenir "dfhjlnprtvxz" (avec deux constantes) :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 chaine[ <votre_code> ] == "dfhjlnprtvxz"
 ```
@@ -91,7 +91,7 @@ chaine[ <votre_code> ] == "dfhjlnprtvxz"
 4) Une slice pour obtenir "xurolifc" (avec deux constantes) :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 chaine[ <votre_code> ] == "xurolifc"
 ```
@@ -147,7 +147,7 @@ def inconnue(composite, connue):
 Une fois votre code évalué, vous pouvez évaluer la cellule suivante pour vérifier votre résultat.
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # correction
 exo_inconnue.correction(inconnue)

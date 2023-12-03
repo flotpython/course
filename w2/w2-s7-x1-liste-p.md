@@ -53,8 +53,8 @@ exo_liste_P.example()
 Écrivez votre code dans la cellule suivante (*On vous suggère d'écrire une fonction `P` qui implémente le polynôme mais ça n'est pas strictement indispensable, seul le résultat de `liste_P` compte*) :
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: liste_P = exo_liste_P.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: liste_P = exo_liste_P.solution
+:latex-hidden-silent: true
 
 def P(x):
     "<votre code>"
@@ -66,7 +66,7 @@ def liste_P(liste_x):
 Et vous pouvez le vérifier en évaluant cette cellule :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # pour vérifier votre code
 exo_liste_P.correction(liste_P)

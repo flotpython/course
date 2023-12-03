@@ -89,7 +89,7 @@ Certains d'entre vous auront évidemment remarqué que l'on aurait pu éviter de
 À présent, nous utilisons le module `argparse`, pour lui dire qu'on attend exactement un argument sur la ligne de commande, et qu'il doit être un entier. Ici encore, ne vous inquiétez pas si vous ne comprenez pas tout le code. L'objectif est de vous donner un morceau de code utilisable tout de suite, pour jouer avec votre interpréteur Python.
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: entier = 8
+:latex-hidden-code-instead: entier = 8
 
 # à nouveau : ceci n'est pas conçu pour être exécuté dans le notebook !
 parser = ArgumentParser()

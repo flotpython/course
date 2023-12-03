@@ -84,7 +84,7 @@ print(infini_2)
 ```
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # attention, ceci provoque une erreur à l'exécution
 # RecursionError: maximum recursion depth exceeded in comparison

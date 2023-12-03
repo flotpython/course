@@ -84,7 +84,7 @@ def fibonacci(n):
 Pour en faire un programme utilisable on va demander à l'utilisateur de rentrer un nombre&nbsp;; il faut le convertir en entier car `input` renvoie une chaîne de caractères :
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: entier = 12
+:latex-hidden-code-instead: entier = 12
 
 entier = int(input("Entrer un entier "))
 ```

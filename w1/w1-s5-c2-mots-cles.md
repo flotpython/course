@@ -51,7 +51,7 @@ else:
 À cause de la présence de cette instruction dans le langage, il n'est pas autorisé d'appeler une variable `if`.
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # interdit, if est un mot-clé
 if = 1

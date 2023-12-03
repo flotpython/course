@@ -72,7 +72,7 @@ turtle.reset()
 On peut alors dessiner notre carré :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 square(200)
 ```
@@ -80,7 +80,7 @@ square(200)
 Et pour finir on attend que l'utilisateur clique dans la fenêtre de la tortue, et alors on termine :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 turtle.exitonclick()
 ```

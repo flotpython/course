@@ -171,7 +171,7 @@ Toujours pour rappel, on peut également construire une compréhension imbriqué
 Pour mieux le voir, essayons de reprendre la logique de notre tout premier exemple, mais avec une forme de double compréhension *à plat* :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # ceci ne fonctionne pas
 # NameError: name 'j' is not defined
@@ -186,7 +186,7 @@ On obtient une erreur, l'interpréteur se plaint à propos de la variable `j` (c
 Ce qui se passe ici, c'est que, comme nous l'avons déjà mentionné en semaine 3, le code que nous avons écrit est en fait équivalent à :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # la version bavarde de cette imbrication à plat, à nouveau :
 # [ (i, j) for i in range(1, j + 1) for j in range(1, n + 1) ]

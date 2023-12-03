@@ -45,7 +45,7 @@ Occasionnellement, il peut être utile de poser une question à l'utilisateur.
 C'est le propos de la fonction `input`. Par exemple :
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: nom_ville = 'Paris'
+:latex-hidden-code-instead: nom_ville = 'Paris'
 
 nom_ville = input("Entrez le nom de la ville : ")
 ```
@@ -75,7 +75,7 @@ TypeError: must be str, not int
 Dans ce cas il faut appeler la fonction `int` pour convertir le résultat en un entier :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 int(input("Nombre de lignes ? ")) + 3
 ```

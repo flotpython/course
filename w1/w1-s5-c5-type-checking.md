@@ -155,7 +155,7 @@ somme('abc', 'def')
 Mais par contre on ne pourrait pas faire
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: "try:\n    somme(12, [1, 2, 3])\nexcept:\n    print('OOPS')"
+:latex-hidden-code-instead: "try:\n    somme(12, [1, 2, 3])\nexcept:\n    print('OOPS')"
 
 # ceci va déclencher une exception à l'exécution
 somme(12, [1, 2, 3])

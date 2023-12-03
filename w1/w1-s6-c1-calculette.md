@@ -184,7 +184,7 @@ Il est parfois nécessaire de convertir une donnée d'un type dans un autre.
 Par exemple on peut demander à l'utilisateur d'entrer une valeur au clavier grâce à la fonction `input`, comme ceci :
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: reponse = '25'
+:latex-hidden-code-instead: reponse = '25'
 
 reponse = input("quel est votre âge ? ")
 ```

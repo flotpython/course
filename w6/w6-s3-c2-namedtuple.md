@@ -290,7 +290,7 @@ Vous y remarquerez notamment :
 * et aussi un usage des `property` que l'on a rencontrés en début de semaine.
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # exécuter ceci pour voir le détail de ce que fait `namedtuple` 
 import sys

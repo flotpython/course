@@ -209,7 +209,7 @@ En effet, les deux blocs (après `if` et après `else`) sont des blocs distincts
 Par contre la construction ci-dessous n'est pas légale :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # ceci n'est pas correct et est rejeté par Python
 if 'a' in entree:

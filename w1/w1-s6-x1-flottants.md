@@ -95,7 +95,7 @@ Ce qui passe très bien car j'ai utilisé un `int` pour l'exposant. Dans ce prem
 Par contre, si j'essaie de faire le même calcul avec un exposant flottant, Python essaie cette fois de faire son calcul avec un flottant, et là on obtient une erreur :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 10**450.0
 ```
@@ -111,7 +111,7 @@ Quoi qu'il en soit, la limite pour les grands nombres se situe entre les deux va
 ```
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 10**310.
 ```

@@ -87,7 +87,7 @@ age_moyen_dept75 = 80
 avec la restriction toutefois que le premier caractère ne peut pas être un chiffre, cette affectation est donc refusée :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 75_age_moyen = 80 # erreur de syntaxe
 ```
@@ -115,7 +115,7 @@ __name__  # ne définissez pas vous-même de variables de ce genre
 Dans la plage des caractères ASCII, il n'est **pas possible** d'utiliser d'autres caractères que les caractères alphanumériques et le tiret bas. Notamment le tiret haut `-` est interprété comme l'opération de soustraction. Attention donc à cette erreur fréquente :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 age-moyen = 75  # erreur : en fait python l'interprète comme 'age - moyen = 75'
 ```
@@ -141,7 +141,7 @@ cos(θ)
 Tous les caractères Unicode ne sont pas permis - heureusement car cela serait source de confusion. Nous citons dans les références les documents qui précisent quels sont exactement les caractères autorisés.
 
 ```{code-cell} ipython3
-:latex:skip-cell: true
+:latex-skip-cell: true
 
 # ce caractère n'est pas autorisé, car il
 # est considéré comme un signe mathématique (produit)
@@ -149,7 +149,7 @@ Tous les caractères Unicode ne sont pas permis - heureusement car cela serait s
 ```
 
 ```{code-cell} ipython3
-:latex:skip-cell: true
+:latex-skip-cell: true
 
 # ce caractère est encore différent, c'est aussi
 # un pi grec mais pas le même, cette fois-ci

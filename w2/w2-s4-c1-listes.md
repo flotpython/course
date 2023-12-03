@@ -62,7 +62,7 @@ Voici quelques unes des méthodes disponibles sur le type `list`.
 Pour commencer, rappelons comment retrouver la liste des méthodes définies sur le type `list` :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 help(list)
 ```
@@ -343,7 +343,7 @@ list.pop?
 Dans un notebook vous avez aussi la complétion ; si vous tapez, dans une cellule de code, le début d'un mot connu dans l'environnement, vous voyez apparaître un dialogue avec les noms connus qui commencent par ce mot ici `li`; utilisez les flèches pour choisir, et 'Return' pour sélectionner.
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # placez votre curseur à la fin de la ligne après 'li'
 # et appuyez sur la touche 'Tab'

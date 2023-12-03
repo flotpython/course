@@ -80,8 +80,8 @@ Pour devancer les remarques sur le forum de discussion:
 * vous pouvez même vous donner comme objectif de le faire deux fois, avec et sans numpy :)
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: dice=exo_dice.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: dice=exo_dice.solution
+:latex-hidden-silent: true
 
 # à vous de jouer
 def dice(target, nb_dice=2, nb_sides=6):

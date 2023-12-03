@@ -104,8 +104,8 @@ show_result(extended, abbreviated, result)
 ### Votre code
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: diff = exo_diff.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: diff = exo_diff.solution
+:latex-hidden-silent: true
 
 def diff(extended, abbreviated):
     "<votre_code>"

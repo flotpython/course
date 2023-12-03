@@ -55,8 +55,8 @@ exo_checkers.example()
 ```
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: checkers=exo_checkers.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: checkers=exo_checkers.solution
+:latex-hidden-silent: true
 
 # à vous de jouer
 def checkers(size, corner_0_0=True):

@@ -136,7 +136,7 @@ x = (1,)
 Mais si on essaie d'écrire le même test sans les parenthèses :
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # ceci provoque une SyntaxError
 1, == x
@@ -206,7 +206,7 @@ tuple
 ```
 
 ```{code-cell} ipython3
-:latex:skip-eval: true
+:latex-skip-eval: true
 
 # si bien que maintenant on ne peut plus faire ceci
 # car à ce point, tuple ne désigne plus le type tuple

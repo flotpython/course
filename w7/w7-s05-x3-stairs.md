@@ -52,8 +52,8 @@ exo_stairs.example()
 ```
 
 ```{code-cell} ipython3
-:latex:hidden-code-instead: stairs=exo_stairs.solution
-:latex:hidden-silent: true
+:latex-hidden-code-instead: stairs=exo_stairs.solution
+:latex-hidden-silent: true
 
 # à vous de jouer
 def stairs(taille):
