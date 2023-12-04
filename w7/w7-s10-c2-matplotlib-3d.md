@@ -314,9 +314,13 @@ ax.plot_surface(x, y, z, color='b')
 plt.show()
 ```
 
++++ {"latex-skip-cell": true}
+
 `surface3d_demo3.py`
 
 ```{code-cell} ipython3
+:latex-skip-cell: true
+
 '''
 =========================
 3D surface (checkerboard)
@@ -333,6 +337,8 @@ import numpy as np
 ```
 
 ```{code-cell} ipython3
+:latex-skip-cell: true
+
 fig = plt.figure(figsize=(4, 4))
 ax = fig.add_subplot(111, projection='3d')
 
