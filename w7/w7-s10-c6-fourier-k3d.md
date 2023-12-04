@@ -41,7 +41,7 @@ Mais commençons par importer ce qui va nous servir.
 import numpy as np
 # mostly we use bokeh in here, but the first glimpse is made with mpl
 import matplotlib.pyplot as plt
-%matplotlib notebook
+%matplotlib ipympl
 ```
 
 ```{code-cell} ipython3

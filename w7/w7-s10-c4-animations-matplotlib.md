@@ -102,7 +102,9 @@ Cette version est inspirée du [tutorial matplotlib sur les animations](https://
 Mais avant tout choisissons ce mode de rendu :
 
 ```{code-cell} ipython3
-%matplotlib notebook
+# ça c'est pour choisir la sortie 'interactive'
+# nécessite un `pip install ipympl`
+%matplotlib ipympl
 ```
 
 Nous allons utiliser la fonction `animation.FuncAnimation`; celle-ci s'attend à recevoir en argument, principalement :

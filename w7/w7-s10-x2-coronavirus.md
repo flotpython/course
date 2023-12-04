@@ -35,7 +35,7 @@ Mais juste pour vous donner éventuellement des idées - voici des suggestions s
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
-%matplotlib notebook
+%matplotlib ipympl
 ```
 
 ## Le dashboard de Johns Hopkins

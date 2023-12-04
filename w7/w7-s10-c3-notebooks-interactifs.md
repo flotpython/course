@@ -105,8 +105,9 @@ import matplotlib.pyplot as plt
 Comme on l'a déjà vu plein de fois, la bonne façon de créer un graphique matplotlib c'est avec la formule magique suivante :
 
 ```{code-cell} ipython3
-# ça c'est pour choisir la sortie 'notebook' 
-%matplotlib notebook
+# ça c'est pour choisir la sortie 'interactive'
+# nécessite un `pip install ipympl`
+%matplotlib ipympl
 
 # et ça c'est pour dire 'interactive on'
 # pour éviter de devoir plt.show() tout le temps

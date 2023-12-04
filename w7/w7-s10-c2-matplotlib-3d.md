@@ -55,7 +55,7 @@ Dans ce notebook nous allons utiliser un mode de visualisation un peu plus élab
 # ce mode d'interaction va nous permettre de nous déplacer
 # dans l'espace pour voir les courbes en 3D
 # depuis plusieurs points de vue
-%matplotlib notebook
+%matplotlib ipympl
 ```
 
 Comme on va le voir très vite, avec ces réglages vous aurez la possibilité d'explorer interactivement les visualisations en 3D.
@@ -110,10 +110,10 @@ plt.show()
 Un autre point à remarquer est qu'avec le mode d'interaction que nous avons choisi :
 
 ```python
-%matplotlib notebook
+%matplotlib ipympl
 ```
 
-vous bénéficiez d'un mode d'interaction plus riche avec la figure. Par exemple, vous pouvez cliquer dans la figure en 3D, et vous déplacer pour changer de point de vue ; par exemple si vous sélectionnez l'outil `Pan/Zoom` (l'outil avec 4 flèches), vous pouvez arriver à voir ceci :
+vous bénéficiez d'un mode d'interaction plus riche avec la figure (nb: ça nécessite l'installation de `pip install ipympl`). Par exemple, vous pouvez cliquer dans la figure en 3D, et vous déplacer pour changer de point de vue ; par exemple si vous sélectionnez l'outil `Pan/Zoom` (l'outil avec 4 flèches), vous pouvez arriver à voir ceci :
 
 +++
 

@@ -109,7 +109,7 @@ Pour une présentation plus complète, je vous renvoie à [la documentation util
 Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environnement des notebooks pour créer une visualisation interactive. Vous remarquerez que dans le code qui suit, on n'a **pas eu besoin de mentionner** de *magic* ipython, comme lorsqu'on avait du faire dans le complément sur les notebooks interactifs :
 
 ```python
-%matplotlib notebook
+%matplotlib ipympl
 ```
 
 ```{code-cell} ipython3
@@ -133,7 +133,7 @@ from bokeh.io import push_notebook, output_notebook
 
 ```{code-cell} ipython3
 # c'est cette déclaration qui remplace
-# si on veut la magic  '%matplotlib notebook'
+# si on veut la magic  '%matplotlib ipympl'
 output_notebook()
 ```
 
