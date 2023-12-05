@@ -58,6 +58,7 @@ Ce code est relativement générique, vous pouvez visualiser l'approximation de 
 
 ```{code-cell} ipython3
 # to compute derivatives
+
 import autograd
 import autograd.numpy as np
 ```
@@ -191,7 +192,7 @@ sinus_animator = Taylor(np.sin, DOMAIN)
 
 +++
 
-Ensuite on crée un `ipywidget` qui va nous permettre de choisir le degré $n$; dans le cas de sinus, qui est impaire, les degrés intéressants sont impairs (vous pouvez vérifier que les coefficients de Taylor pairs sont nuls lorsque $f$ est impaire).
+Ensuite on crée un `ipywidget` qui va nous permettre de choisir le degré $n$; dans le cas de sinus, qui est impaire, les degrés intéressants sont impairs (les coefficients de Taylor pairs sont trivialement nuls lorsque $f$ est impaire).
 
 ```{code-cell} ipython3
 # the widget to select a degree
@@ -239,7 +240,7 @@ exp_widget = IntSlider(min=0, max=17,
    layout=Layout(width='100%'))
 
 ### ready to go
-exp_animator = Taylor(np.exp, np.linspace(-5, 10, 200))
+exp_animator = Taylor(np.exp, np.linspace(-2, 10, 200))
 exp_animator.display((-15_000, 25000))
 exp_animator.interact(exp_widget)
 ```

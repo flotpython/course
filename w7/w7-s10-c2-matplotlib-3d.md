@@ -364,7 +364,9 @@ surf = ax.plot_surface(X, Y, Z, facecolors=colors, linewidth=0)
 
 # Customize the z axis.
 ax.set_zlim(-1, 1)
-ax.w_zaxis.set_major_locator(LinearLocator(6))
+# 2023 Dec: this line breaks the script, although it's still
+# in matplotlib's examples; let's ignore it for now
+# ax.w_zaxis.set_major_locator(LinearLocator(6))
 
 plt.show()
 ```

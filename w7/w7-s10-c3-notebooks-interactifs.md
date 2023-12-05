@@ -58,21 +58,15 @@ Pour conclure cette série sur les outils de visualisation, nous allons voir que
 
 +++
 
-Pour exécuter ou créer un notebook depuis votre ordinateur, il vous faut installer Jupyter, ce que se fait bien sûr depuis le terminal :
+Pour exécuter ou créer un notebook depuis votre ordinateur, il vous faut installer Jupyter, ce qui se fait bien sûr depuis le terminal :
 ```bash
 pip install jupyter
 ```
 
-En 2020 il existe deux versions de l'interface Jupyter dites *classic* et *lab*, la seconde étant plus puissante en termes d'UI; pour installer le tout, faire plutôt
+En 2023 on recommande l'interface Jupyter dite *lab*:
 
+Pour le lancer, tapez dans le terminal:
 ```bash
-pip install jupyterlab
-```
-
-Pour lancer un serveur jupyter, faire selon le mode choisi
-```bash
-jupyter notebook
-# ou
 jupyter lab
 ```
 
@@ -108,23 +102,25 @@ Comme on l'a déjà vu plein de fois, la bonne façon de créer un graphique mat
 # ça c'est pour choisir la sortie 'interactive'
 # nécessite un `pip install ipympl`
 %matplotlib ipympl
-
-# et ça c'est pour dire 'interactive on'
-# pour éviter de devoir plt.show() tout le temps
-plt.ion()
 ```
 
-Avec ces réglages - enfin surtout le premier - il y a pas mal de possibilités qui sont très pratiques :
+**À noter**  
+* si vous voulez changer de *driver* de sortie pour matplotlib (c'est-à-dire si par exemple vous avez executé `%matplotlib inline` et qu'ensuite vous voulez changer et utiliser `%matplotlib ipympl`) il vous faudra alors *redémarrer votre kernel*
+* aussi, pour utiliser le driver *ipympl* il est nécessaire d'installer `pip install ipympl`
+
++++
+
+Avec le driver *ipympl*, il y a pas mal de possibilités qui sont très pratiques :
 
 * pour commencer on peut changer la taille de la courbe en cliquant sur le petit coin visible en bas à droite de la figure ![](media/matplotlib-resize.png)
 * les courbes apparaissent avec un barre d'outils en dessous; entraînez-vous à utiliser par exemple **l'outil de zoom**, pour agrandir et vous déplacer dans la courbe ![](media/matplotlib-navigate.png)
 
 +++
 
-À titre d'exercice, sur cette courbe le nombre d'or correspond à une des racines du polynôme, à vous de trouver sa valeur avec une précision de
+À titre d'exercice, sur cette courbe le nombre d'or correspond à une des racines du polynôme, à vous de trouver sa valeur avec une précision de $10^{-6}$
 
 ```{code-cell} ipython3
-plt.figure(figsize=(2, 2))
+plt.figure(figsize=(8, 3))
 X = np.linspace(-2, 2)
 ZERO = X * 0
 def golden(x):
@@ -134,10 +130,12 @@ plt.plot(X, ZERO);
 ```
 
 Voici à quoi je suis arrivé de mon côté (je ne dis pas que c'est forcément la méthode la plus rapide pour trouver le nombre d'or ;-):  
-Mais tous les outils de visualisation décents vons proposer des mécanismes analogues, soyez-y attentifs car ça fait parfois gagner beaucoup de temps.
+Mais tous les outils de visualisation décents vont proposer des mécanismes analogues, soyez-y attentifs car ça fait parfois gagner beaucoup de temps.
 
-
-<img src="media/matplotlib-zoomed.png" width=600px>
+```{image} media/matplotlib-zoomed.png
+:width: 600px
+:align: center
+```
 
 +++
 
@@ -160,21 +158,34 @@ je vous invite à le faire marcher localement à partir [de la version sur githu
 
 +++
 
-Pour refaire de notre coté quelque chose d'analogue, nous allons commencer par animer la fonction sinus, avec un bouton pour régler la fréquence. Pour cela nous allons utiliser la fonction `interact` ; à nouveau c'est un utilitaire qui fait partie de l'écosystème des notebooks, et plus précisément du module `ipywidgets` :
+Pour refaire de notre coté quelque chose d'analogue, nous allons commencer par animer la fonction sinus, avec un bouton pour régler la fréquence. Pour cela nous allons utiliser la fonction `interact`; c'est un utilitaire qui fait partie de l'écosystème des notebooks, et plus précisément du module `ipywidgets`
+
+**Avertissement**  
+pour cette partie sur les visualisation interactives, il est nécessaire de repasser en mode `%matplotib inline`  
+du coup, si vous avez bien lu la note ci-dessus, je vous invite à **redémarrer votre kernel avant de continuer**...  
+il est bien sûr possible de faire la même chose en mode `ipympl`, mais c'est plus complexe, et ça me semble mieux de commencer par faire simple :)
 
 ```{code-cell} ipython3
-# dans cette partie on a besoin de 
-# revenir dans un mode plus usuel
-%matplotlib inline
-```
+# pensez à redémarrer votre kernel avant d'attaquer cette cellule
 
-```{code-cell} ipython3
 from ipywidgets import interact
+
+import numpy as np
+import matplotlib.pyplot as plt
 ```
 
 +++ {"slideshow": {"slide_type": "-"}}
 
 Dans un premier temps, j'écris une fonction qui prend en paramètre la fréquence, et qui dessine la fonction sinus sur un intervalle fixe de 0. à $4\pi$ :
+
+```{code-cell} ipython3
+%matplotlib inline
+```
+
+```{code-cell} ipython3
+# je change aussi la taille des visualisations
+plt.rcParams["figure.figsize"] = (12, 4)
+```
 
 ```{code-cell} ipython3
 ---
@@ -199,14 +210,11 @@ sinus(1)
 sinus(0.5)
 ```
 
-Maintenant, plutôt que de tracer individuellement les courbes une à une, j'utilise `interact` qui va m'afficher une réglette pour changer le paramètre `freq`. Ça se présente comme ceci :
+Maintenant, plutôt que de tracer individuellement les courbes une à une, j'utilise `interact` qui va m'afficher **une réglette pour changer le paramètre `freq`**. Ça se présente comme ceci :
 
 ```{code-cell} ipython3
-# je change maintenant la taille des visualisations
-plt.rcParams["figure.figsize"] = (12, 4)
-```
+:tags: []
 
-```{code-cell} ipython3
 interact(sinus, freq=(0.5, 10., 0.25));
 ```
 
@@ -311,7 +319,7 @@ interact(sinus2, freq=fixed(1.),
 
 Il existe toute une famille de widgets, dont `FloatSlider` est l'exemple le plus courant, mais vous pouvez aussi :
 
-* créer des radio bouton pour entrer un paramètre booléen ;
+* créer un radio bouton pour entrer un paramètre booléen ;
 * ou une saisie de texte pour entre un paramètre de type `str` ;
 * ou une liste à choix multiples…
 
@@ -387,8 +395,8 @@ def sinus4(freq, phase, amplitude, domain):
     layout = go.Layout(
         yaxis = {'range' : [-10, 10]},
         title="Exemple de graphique interactif avec dashboard",
-        height=500,
-        width=500,
+        height=400,
+        width=750,
     )
     figure = go.Figure(data=data, layout=layout)
     pyoff.iplot(figure)
@@ -422,7 +430,7 @@ def my_dashboard():
                            value = 3.,
                            description = "amplitude",
                            layout = l_25)
-    w_domain = IntSlider(min=1, max=10, description="dom. n * π", layout=l_50)
+    w_domain = IntSlider(min=1, max=10, description="dom. n * π", value=2, layout=l_50)
 
     # make up a dashboard
     dashboard = VBox([HBox([w_amplitude, w_phase]),

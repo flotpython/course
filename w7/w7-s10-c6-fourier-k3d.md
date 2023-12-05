@@ -42,6 +42,8 @@ import numpy as np
 # mostly we use bokeh in here, but the first glimpse is made with mpl
 import matplotlib.pyplot as plt
 %matplotlib ipympl
+
+plt.rcParams["figure.figsize"] = [6, 2.5]
 ```
 
 ```{code-cell} ipython3
@@ -85,7 +87,7 @@ Pour un aperçu, on la plotte rapidement avec matplotlib
 
 ```{code-cell} ipython3
 def plot_functions(domain, title, *functions):
-    plt.figure(figsize=(4, 2))
+    plt.figure()
     for function in functions:
         plt.plot(domain, function(domain))
     # notice how to retrieve the function's docstring
@@ -375,6 +377,11 @@ a2d.interact(full_spectrum())
 On peut même zoomer autour des fréquences critiques :
 
 ```{code-cell} ipython3
+# ici on fait varier la fréquence 
+# sur un voisinage beaucoup + étroit autour de 0.5
+# ce qui permet un bien meilleure précision
+# observez comment le point rouge (la somme) se déplace
+
 a2d.interact(closeup_around(FUNDAMENTAL))
 ```
 
@@ -393,8 +400,9 @@ Par contre ce sont les vitesses de calcul qui vont commencer à nous limiter :
 
 ```{code-cell} ipython3
 # la discontinuité est plus forte qu'on ne pourrait le penser
-# mais pour le vois il faut augmenter le domaine
+# mais pour le voir il faut augmenter le domaine
 # et donc les calculs sont plus lents
+
 a2dzoom = FourierAnimator2D(my_periodic, FUNDAMENTAL, domain=500)
 a2dzoom.display()
 a2dzoom.interact(closeup_around(FUNDAMENTAL))
@@ -404,6 +412,6 @@ a2dzoom.interact(closeup_around(FUNDAMENTAL))
 
 Une vidéo de 3BlueBrown, sur le même sujet; bon ses animations sont autrement plus sophistiquées :-)
 
-mais ici au moins on les a faites nous-mêmes ;)
+mais ici on a la satisfaction de les avoir faites nous-mêmes ;)
 
-https://www.youtube.com/watch?v=spUNpyF58BY
+<https://www.youtube.com/watch?v=spUNpyF58BY>

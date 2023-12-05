@@ -71,6 +71,12 @@ from IPython.display import display as display_widget
 from ipywidgets import IntSlider
 ```
 
+```{code-cell} ipython3
+# la taille des figures par défaut
+
+plt.rcParams["figure.figsize"] = (6, 2.5)
+```
+
 ### La logique
 
 +++
@@ -126,7 +132,7 @@ from matplotlib import pyplot as plt
 from matplotlib import animation
 
 # on commence par créer une figure; 
-figure1 = plt.figure(figsize=(4, 2))
+figure1 = plt.figure()
 
 # en général pour une animation 
 # il est important de fixer les bornes en x et en y 
@@ -165,9 +171,7 @@ plt.show()
 
 ### Séparation calcul et affichage
 
-```{code-cell} ipython3
-plt.ion()
-```
++++
 
 On voit qu'on a appelé `FuncAnimation` avec `frames=50` et `interval=40` (ms); ce qui correspond donc à 25 images par seconde, soit une durée de deux secondes.
 
@@ -199,7 +203,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
-figure2 = plt.figure(figsize=(4, 2))
+figure2 = plt.figure()
 ax2 = plt.axes(xlim=(0, 2), ylim=(-1.5, 1.5))
 line2, = ax2.plot([], [], linewidth=2)
 
@@ -234,7 +238,9 @@ def display(frame):
 anim = animation.FuncAnimation(figure2,
                                func=display,
                                frames=compute(),
-                               interval=40, blit=True)
+                               interval=40, blit=True,
+                               # principalement pour éviter un warning
+                               cache_frame_data=False)
 plt.show()
 ```
 
@@ -260,7 +266,7 @@ from matplotlib import animation
 from IPython.display import display as display_widget
 from ipywidgets import IntSlider
 
-figure3 = plt.figure(figsize=(4, 2))
+figure3 = plt.figure()
 ax3 = plt.axes(xlim=(0, 2), ylim=(-1.5, 1.5))
 line3, = ax3.plot([], [], linewidth=2)
 
@@ -293,7 +299,9 @@ def display(frame):
 anim = animation.FuncAnimation(figure3,
                                func=display,
                                frames=compute(),
-                               interval=40, blit=True)
+                               interval=40, blit=True,
+                               # principalement pour éviter un warning
+                               cache_frame_data=False)
 
 display_widget(speed_slider)
 plt.show()

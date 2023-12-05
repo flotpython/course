@@ -106,11 +106,12 @@ Pour une présentation plus complète, je vous renvoie à [la documentation util
 
 +++
 
-Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environnement des notebooks pour créer une visualisation interactive. Vous remarquerez que dans le code qui suit, on n'a **pas eu besoin de mentionner** de *magic* ipython, comme lorsqu'on avait du faire dans le complément sur les notebooks interactifs :
-
-```python
-%matplotlib ipympl
-```
+Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environnement des notebooks pour créer une visualisation interactive. Vous remarquerez que dans le code qui suit:
+- on a installé pour Python la bibliothèque idoine
+  ```bash
+  pip install jupyter-bokeh
+  ```
+- on n'a **pas besoin** de choisir un *driver* pour matplotlib (genre `%matplotlib ipympl`); en fait bokeh est relativement indépendant de matplotlib..
 
 ```{code-cell} ipython3
 import numpy as np
@@ -183,7 +184,10 @@ handle1 = show(figure1, notebook_handle=True)
 ```{code-cell} ipython3
 # maintenant on peut créer un interacteur
 interact(update_trigo, 
-         # on peut définir les options sont des tuples (label, valeur)
+         # pour choisir la fonction on veut un dropdown 
+         # avec 3 options prédéfinies
+         # pour ça on définit les options 
+         # comme des tuples (label, valeur)
          # et ici nos valeurs sont des fonctions
          function=Dropdown(options =(("sinus", np.sin),
                                      ("cosinus", np.cos),
