@@ -122,7 +122,7 @@ class Polynomial:
                          count(1),
                          self.coefs[1:]
                         ))
-        return Polynomial(*derived_coefs)
+        return Polynomial(*reversed(list(derived_coefs)))
 # @END@
 
 
@@ -159,6 +159,12 @@ polynomial_scenarios = [
     ClassScenario(
         # init arguments
         Args(1, 2, 3),
+        ClassExpression('INSTANCE.derivative()'),
+        ClassExpression('INSTANCE.derivative()(10)'),
+    ),
+    ClassScenario(
+        # init arguments
+        Args(4, 3, 2, 1),
         ClassExpression('INSTANCE.derivative()'),
         ClassExpression('INSTANCE.derivative()(10)'),
     ),
