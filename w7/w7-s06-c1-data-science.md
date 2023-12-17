@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Data Science
@@ -144,18 +145,25 @@ tips.describe()
 
 ```{code-cell} ipython3
 # prenons la moyenne par sexe
-numeric_columns = tips.describe().columns
-tips.groupby('sex')[numeric_columns].mean()
+# 
+# observed=True      est un réglage qui ne nous concerne guère ici
+#                    mais que je mets pour éviter un Warning
+#                    émis depuis pandas-2.1.0
+# numeric_only=True  pareil, ça n'apporte pas grand-chose
+#                    mais depuis pandas-2.0.0 c'est nécessaire
+#                    sinon on obtient une erreur
+
+tips.groupby('sex', observed=True).mean(numeric_only=True)
 ```
 
 ```{code-cell} ipython3
 # et maintenant la moyenne par jour
-tips.groupby('day')[numeric_columns].mean()
+tips.groupby('day', observed=True).mean(numeric_only=True)
 ```
 
 ```{code-cell} ipython3
 # et pour finir la moyenne par moment du repas
-tips.groupby('time')[numeric_columns].mean()
+tips.groupby('time', observed=True).mean(numeric_only=True)
 ```
 
 Vous voyez qu'en quelques requêtes simples et intuitives (nous reviendrons bien sûr sur ces notions) on peut grâce à la notion d'index, obtenir des informations précieuses sur nos données. Vous voyez qu'en l'occurrence, travailler directement sur le tableau `numpy` aurait été beaucoup moins aisé.
