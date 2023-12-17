@@ -58,11 +58,10 @@ Notez bien également que le code Python est interprété **sur une machine dist
 
 En haut du notebook, vous avez une barre de menu (sur fond bleu clair), contenant :
 
-* un titre pour le notebook, avec un numéro de version ;
-* une barre de menus avec les entrées `File`, `Insert`, `Cell`, `Kernel`;
+* une barre de menus avec les entrées `File`, `Edit`, ...;
 * et une barre de boutons qui sont des raccourcis vers certains menus fréquemment utilisés. Si vous laissez votre souris au dessus d'un bouton, un petit texte apparaît, indiquant à quelle fonction correspond ce bouton.
 
-Nous avons vu dans la vidéo qu'un notebook est constitué d'une suite de cellules, soit textuelles, soit contenant du code. Les cellules de code sont facilement reconnaissables, elles sont précédées de `In [ ]:`. La cellule qui suit celle que vous êtes en train de lire est une cellule de code.
+Nous avons vu dans la vidéo qu'un notebook est constitué d'une suite de cellules, soit textuelles, soit contenant du code. Les cellules de code sont facilement reconnaissables, elles sont précédées de `[ ]:`. La cellule qui suit celle que vous êtes en train de lire est une cellule de code.
 
 Pour commencer, sélectionnez cette cellule de code avec votre souris, et appuyez dans la barre de menu - en haut du notebook, donc - sur celui en forme de flèche triangulaire vers la droite (Play) :
 <img src="media/notebook-eval-button.png">
@@ -84,9 +83,9 @@ La façon habituelle d'*exécuter* l'ensemble du notebook consiste :
 
 +++
 
-Lorsqu'une cellule de code a été évaluée, Jupyter ajoute sous la cellule `In` une cellule `Out` qui donne le résultat du fragment Python, soit ci-dessus 600.
+Lorsqu'une cellule de code a été évaluée, Jupyter ajoute sous la cellule de code une zone de sortie qui donne le résultat du fragment Python, soit ci-dessus 600.
 
-Jupyter ajoute également un nombre entre les crochets pour afficher, par exemple ci-dessus, `In [1]:`. Ce nombre vous permet de retrouver l'ordre dans lequel les cellules ont été évaluées.
+Jupyter ajoute également un nombre entre les crochets pour afficher, par exemple ci-dessus, `[1]:`. Ce nombre vous permet de retrouver l'ordre dans lequel les cellules ont été évaluées.
 
 +++
 
@@ -129,7 +128,7 @@ Si un peu plus loin dans le notebook on fait par exemple :
 del message
 ```
 
-qui rend le symbole `message` indéfini, alors bien sûr on ne peut plus évaluer la cellule qui fait `print` puisque la variable `message` n'est plus connue de l'interpréteur.
+qui rend le symbole `message` indéfini, alors bien sûr on ne peut plus évaluer la cellule qui fait `print` puisque la variable `message` n'est plus connue de l'interpréteur (essayez pour voir !)
 
 +++
 
@@ -137,7 +136,7 @@ qui rend le symbole `message` indéfini, alors bien sûr on ne peut plus évalue
 
 +++
 
-Si vous faites trop de modifications, ou perdez le fil de ce que vous avez évalué, il peut être utile de redémarrer votre interpréteur. Le menu *Kernel → Restart* vous permet de faire cela, un peu à la manière de IDLE qui repart d'un interpréteur vierge lorsque vous utilisez la fonction F5.
+Si vous faites trop de modifications, ou perdez le fil de ce que vous avez évalué, il peut être utile de redémarrer votre interpréteur. Le menu *Kernel → Restart Kernel...* vous permet de faire cela, un peu à la manière de IDLE qui repart d'un interpréteur vierge lorsque vous utilisez la fonction F5.
 
 +++
 
@@ -168,16 +167,26 @@ Attention, avec cette fonction vous restaurez **tout le notebook** et donc **vou
 
 +++
 
-### Télécharger au format Python
+### Télécharger les notebooks
 
 +++
 
-Vous pouvez télécharger un notebook au format Python sur votre ordinateur grâce au menu
-*File → Download as → Python*
+Vous pouvez télécharger un notebook au format Markdown sur votre ordinateur grâce au menu
+*File → Download*
+
+Ce fichier peut être ouvert comme un notebook localement sur votre ordinateur si vous avez installé la librairie `jupytext`, qui nous permet de gérer le contenu des notebooks dans un format textuel *git-friendly*
+
+```bash
+pip install jupytext
+```
 
 +++
 
-Les cellules de texte sont préservées dans le résultat sous forme de commentaires Python.
+Sachez que vous également télécharger tout le cours d'un coup si vous savez utiliser `git` pour *cloner* le dépôt du cours qui se trouve ici:
+
+<https://github.com/flotpython/course>
+
+et d'ailleurs n'hésitez pas à y poster des PRs si vous avez des améliorations à proposer, par exemple pour corriger des typos; mais on digresse..
 
 +++
 
