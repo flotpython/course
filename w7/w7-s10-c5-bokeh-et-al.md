@@ -107,7 +107,19 @@ Pour une présentation plus complète, je vous renvoie à [la documentation util
 
 +++
 
-Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environnement des notebooks pour créer une visualisation interactive. Vous remarquerez que dans le code qui suit:
+Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environnement des notebooks pour créer une visualisation interactive
+
++++
+
+***Note:*** depuis quelque temps, le code de ce notebook semble **ne plus fonctionner** lorsque exécuté dans le MOOC; pourtant de mon coté j'arrive à le faire tourner correctement sur mon ordi...  
+Je choisis donc de garder ce notebook; ce n'est rien d'autre qu'un prolongement de ceci
+https://docs.bokeh.org/en/latest/docs/user_guide/output/jupyter.html#working-in-notebooks,
+mais qui j'espère pourra de toutes façons vous donner des idées, et que vous devriez arriver à faire tourner sur votre ordi si vous observez les requirements suivants.
+
++++
+
+Pour faire fonctionner le code qui suit:
+
 - on a installé pour Python la bibliothèque idoine
   ```bash
   pip install jupyter-bokeh
