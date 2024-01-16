@@ -169,64 +169,47 @@ je vous invite à le faire marcher localement à partir [de la version sur githu
 
 +++
 
-Pour refaire de notre coté quelque chose d'analogue, nous allons commencer par animer la fonction sinus, avec un bouton pour régler la fréquence. Pour cela nous allons utiliser la fonction `interact`; c'est un utilitaire qui fait partie de l'écosystème des notebooks, et plus précisément du module `ipywidgets`
+Pour refaire de notre coté quelque chose d'analogue, nous allons écrire une sorte d'oscilloscope virtuel, c'est-à-dire animer la fonction sinus, avec un bouton pour régler la fréquence.  
+Pour cela nous allons utiliser la fonction `interact`; c'est un utilitaire qui fait partie de l'écosystème des notebooks, et plus précisément du module `ipywidgets`.
 
-**Avertissement**  
-pour cette partie sur les visualisation interactives, il est nécessaire de repasser en mode `%matplotib inline`  
-du coup, si vous avez bien lu la note ci-dessus, je vous invite à **redémarrer votre kernel avant de continuer**...  
-il est bien sûr possible de faire la même chose en mode `ipympl`, mais c'est plus complexe, et ça me semble mieux de commencer par faire simple :)
+**Note:**
+avec le mode `%matplotlib inline` le code est légèrement plus simple, mais pour rester cohérent, nous montrons ici comment faire ce genre de choses avec le mode `%matplotlib ipympl`
 
 ```{code-cell} ipython3
-# pensez à redémarrer votre kernel avant d'attaquer cette cellule
-
 from ipywidgets import interact
-
-import numpy as np
-import matplotlib.pyplot as plt
 ```
 
-+++ {"slideshow": {"slide_type": "-"}}
-
-Dans un premier temps, j'écris une fonction qui prend en paramètre la fréquence, et qui dessine la fonction sinus sur un intervalle fixe de 0. à $4\pi$ :
+Nous expliquerons tout cela un peu plus loin, mais voici comment on pourrait s'y prendre.
 
 ```{code-cell} ipython3
-%matplotlib inline
-```
+# créer une figure - et trouver les axes
+# on le fait une seule fois - et donc pas dans la fonction sinus 
+fig, ax = plt.subplots()
 
-```{code-cell} ipython3
-# je change aussi la taille des visualisations
-plt.rcParams["figure.figsize"] = (12, 4)
-```
-
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+# cette fonction va être appelée sans arrêt
+# son job est de nettoyer la courbe précédente
+# et d'afficher la nouvelle pour freq
 def sinus(freq):
+    # le domaine en X
     X = np.linspace(0., 4*np.pi, 200)
+    # les Y
     Y = np.sin(freq*X)
-    plt.plot(X, Y)
-```
 
-```{code-cell} ipython3
-:tags: [gridwidth-1-2]
+    # nettoyer la ligne précédente
+    for line in ax.lines:
+        line.remove()
+    # dessiner la courbe pour freq
+    # (on précise une couleur, sinon mpl en choisit 
+    # une au hasard à chaque fois, c'est vilain..)
+    ax.plot(X, Y, color='DarkBlue')
 
-sinus(1)
-```
-
-```{code-cell} ipython3
-:tags: [gridwidth-1-2]
-
-sinus(0.5)
-```
-
-Maintenant, plutôt que de tracer individuellement les courbes une à une, j'utilise `interact` qui va m'afficher **une réglette pour changer le paramètre `freq`**. Ça se présente comme ceci :
-
-```{code-cell} ipython3
-:tags: []
+# et maintenant le morceau de bravoure
+# on affiche un "slider" - une réglette - qui réappelle 'sinus' 
+# à chaque changement de la valeur de 'freq'
 
 interact(sinus, freq=(0.5, 10., 0.25));
+
+# voyez comment vous pouvez choisir 'freq' avec la réglette
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -235,12 +218,14 @@ interact(sinus, freq=(0.5, 10., 0.25));
 
 +++
 
-La fonction `interact` s'attend à recevoir :
+Le mécanisme général, c'est que la fonction `interact` s'attend à recevoir :
 
 * en premier argument : une fonction `f` ;
 * et ensuite autant d'arguments nommés supplémentaires que de paramètres attendus par `f`.
 
-Comme dans mon cas la fonction `sinus` attend un paramètre nommé `freq`, le deuxième argument de `interact` lui est passé aussi avec le nom `freq`.
+Comme dans mon cas la fonction `sinus` attend un paramètre nommé `freq`, le deuxième argument de `interact` lui est passé aussi avec le nom `freq`; c'est pourquoi à la fin on appelle:
+
+    interact(sinus, freq=...)
 
 +++
 
@@ -248,7 +233,7 @@ Comme dans mon cas la fonction `sinus` attend un paramètre nommé `freq`, le de
 
 +++
 
-Chacun des arguments à `interact` (en plus de la fonction) correspond à un objet de type `Slider` (dans la ménagerie de `ipywidget`). Ici en passant juste le tuple `(0.5, 10., 0.25)` j'utilise un raccourci pour dire que je veux pouvoir régler le paramètre `freq` sur une plage allant de `0.5` à `10` avec un pas de `0.25`.
+Chacun des arguments à `interact` - en plus de la fonction - correspond à un objet de type `Slider` (dans la ménagerie de `ipywidgets`). Ici en passant juste le tuple `(0.5, 10., 0.25)` j'utilise un raccourci pour dire que je veux pouvoir régler le paramètre `freq` sur une plage allant de `0.5` à `10` avec un pas de `0.25`.
 
 +++
 
@@ -260,6 +245,11 @@ from ipywidgets import FloatSlider
 
 ```{code-cell} ipython3
 # exactement équivalent à la version ci-dessus
+
+# je recrée une nouvelle figure, sinon la réglette
+# irait modifier .. la figure ci-dessus
+fig, ax = plt.subplots()
+
 interact(sinus, freq=FloatSlider(min=0.5, max=10., step=0.25));
 ```
 
@@ -269,6 +259,8 @@ Mais en utilisant la forme bavarde, je peux choisir davantage d'options, comme n
 * mettre `value=1.` pour choisir la valeur initiale :
 
 ```{code-cell} ipython3
+fig, ax = plt.subplots()
+
 # exactement équivalent à la version ci-dessus
 # sauf qu'on ne redessine que lorsque la réglette
 # est relâchée
@@ -281,24 +273,26 @@ interact(sinus, freq=FloatSlider(min=0.5, max=10.,
 
 +++
 
-Voyons tout de suite un exemple avec deux paramètres, je vais écrire maintenant une fonction qui me permet de changer aussi la phase :
+Voyons tout de suite un exemple avec deux paramètres, je vais écrire maintenant une fonction qui me permet de changer aussi la phase.  
+Et donc maintenant:
+
+- la fonction prend 2 paramètres - c'est pourquoi je l'appelle `sinus2`
+- et je passe à `interact` un troisième paramètre, qui est la réglette pour choisir le second paramètre `phase`
 
 ```{code-cell} ipython3
+fig, ax = plt.subplots()
+
 def sinus2(freq, phase):
     X = np.linspace(0., 4*np.pi, 200)
     Y = np.sin(freq*(X+phase))
-    plt.plot(X, Y)
-```
+    
+    for line in ax.lines:
+        line.remove()
+    ax.plot(X, Y, color='DarkGreen')
 
-Et donc maintenant je passe à `interact` un troisième paramètre :
-
-```{code-cell} ipython3
-interact(sinus2,
-         freq=FloatSlider(min=0.5, max=10., step=0.5,
-                          continuous_update=False),
-         phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6, 
-                           continuous_update=False),
-        );
+interact(sinus2, 
+         freq=FloatSlider(min=0.5, max=10., step=0.5),
+         phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6));
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -307,28 +301,31 @@ interact(sinus2,
 
 +++
 
-Si j'ai une fonction qui prend plus de paramètres que je ne veux montrer de réglettes, je peux fixer un des paramètres  par exemple comme ceci :
+Si j'ai une fonction qui prend plus de paramètres que je ne veux montrer de réglettes, je peux fixer un des paramètres en utilisant l'utilitaire `fixed`; c'est comme si on créait une réglette avec une valeur fixe, du coup on n'a même pas besoin de montrer cette réglette.
+
+Pour illustrer ce point on va utiliser `sinus2` et reproduire le comportement qu'on avait avec `sinus`:
 
 ```{code-cell} ipython3
 from ipywidgets import fixed
 ```
 
 ```{code-cell} ipython3
-# avec une fonction à deux argument,
-# je peux en fixer un, et n'avoir qu'une réglette
-# pour fixer celui qui est libre
-interact(sinus2, freq=fixed(1.),
-         phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6),
-        );
+fig, ax = plt.subplots()
+
+interact(sinus2, 
+         # le premier paramètre de sinus2 est toujours 1
+         freq=fixed(1),
+         # et on peut régler le second paramètre uniquement
+         phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6));
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Widgets
+### Widgets
 
 +++
 
-Il existe toute une famille de widgets, dont `FloatSlider` est l'exemple le plus courant, mais vous pouvez aussi :
+Sachez qu'il existe toute une famille de widgets, dont `FloatSlider` est l'exemple le plus courant, mais vous pouvez aussi :
 
 * créer un radio bouton pour entrer un paramètre booléen ;
 * ou une saisie de texte pour entre un paramètre de type `str` ;
@@ -345,6 +342,7 @@ slideshow:
 ---
 # de même qu'un tuple était ci-dessus un raccourci pour un FloatSlider
 # une liste ou un dictionnaire est transformé(e) en un Dropdown
+fig, ax = plt.subplots()
 interact(sinus, freq={'rapide': 10., 'moyenne': 1., 'lente': 0.1});
 ```
 
@@ -354,111 +352,23 @@ Voyez la [liste complète des widgets ici](http://ipywidgets.readthedocs.io/en/l
 
 +++
 
-### Dashboards
+### Forme avec décorateur
 
-+++
-
-Lorsqu'on a besoin de faire une interface un peu plus soignée, on peut créer sa propre disposition de boutons et autres réglages.
-
-+++
-
-Voici un exemple de dashboard, uniquement pour vous donner une meilleure idée, qui pour changer agit sur une visualisation réalisée avec plot.ly plutôt que matplotlib :
+Signalons enfin, et pour finir, qu'il est possible également d'utiliser `interact` comme un décorateur, qui donne une forme un tout petit peu plus concise; voici comment on récrirait alors notre tout premier exemple:
 
 ```{code-cell} ipython3
-import plotly
-plotly.__version__
-```
+fig, ax = plt.subplots()
 
-```{code-cell} ipython3
-# on importe la bibliothèque plot.ly
-import chart_studio.plotly as py
-import plotly.graph_objs as go
-```
+@interact(freq=(0.5, 10., 0.25))
+def sinus(freq):
+    X = np.linspace(0., 4*np.pi, 200)
+    Y = np.sin(freq*X)
 
-```{code-cell} ipython3
-# il est impératif d'utiliser plot.ly en mode 'offline' 
-# pour in mode interactif, 
-# car sinon les affichages sont beaucoup trop lents
-import plotly.offline as pyoff
-
-pyoff.init_notebook_mode()
-```
-
-```{code-cell} ipython3
-# les widgets pour construire le tableau de bord
-from ipywidgets import (interactive_output,
-                        IntSlider, Dropdown, Layout, HBox, VBox, Text)
-from IPython.display import display
-```
-
-```{code-cell} ipython3
-# une fonction sinus à 4 réglages
-# qu'on réalise pour changer avec plot.ly
-# et non pas avec matplotlib
-def sinus4(freq, phase, amplitude, domain):
-
-    X = np.linspace(0., domain*np.pi, 500)
-    Y = amplitude * np.sin(freq*(X+phase))
-
-    data = [ go.Scatter(x=X, y=Y, mode='lines', name='sinus') ]
-    # je fixe l'amplitude à 10 pour que les animations
-    # soient plus parlantes
-    layout = go.Layout(
-        yaxis = {'range' : [-10, 10]},
-        title="Exemple de graphique interactif avec dashboard",
-        height=400,
-        width=750,
-    )
-    figure = go.Figure(data=data, layout=layout)
-    pyoff.iplot(figure)
-```
-
-```{code-cell} ipython3
-:cell_style: center
-
-def my_dashboard():
-    """
-    create and display a dashboard
-    return a dictionary name->widget suitable for interactive_output
-    """
-    # dashboard pieces as widgets
-    l_75 = Layout(width='75%')
-    l_50 = Layout(width='50%')
-    l_25 = Layout(width='25%')
-
-    w_freq = Dropdown(options=list(range(1, 10)),
-                      value = 1,
-                      description = "fréquence",
-                      layout=l_50)
-    w_phase = FloatSlider(min=0., max = 2*np.pi, step=np.pi/12,
-                          description="phase",
-                          value=0., layout=l_75)
-    w_amplitude = Dropdown(options={"micro" : .1,
-                                    "mini" : .5,
-                                    "normal" : 1.,
-                                    "grand" : 3.,
-                                    "énorme" : 10.},
-                           value = 3.,
-                           description = "amplitude",
-                           layout = l_25)
-    w_domain = IntSlider(min=1, max=10, description="dom. n * π", value=2, layout=l_50)
-
-    # make up a dashboard
-    dashboard = VBox([HBox([w_amplitude, w_phase]),
-                      HBox([w_domain, w_freq]),
-                     ])
-    display(dashboard)
-    return dict(freq=w_freq, phase=w_phase,
-                amplitude=w_amplitude, domain=w_domain)
-```
-
-*****
-Avec tout ceci en place on peut montrer un dialogue interactif pour changer tous les paramètres de sinus4.
-
-```{code-cell} ipython3
-# interactively call sinus4
-# attention il reste un bug:
-# au tout début rien ne s'affiche,
-# il faut faire bouger au moins un réglage
-interactive_output(sinus4, my_dashboard())
+    # nettoyer la ligne précédente
+    for line in ax.lines:
+        line.remove()
+    # dessiner la courbe pour freq
+    # (on précise une couleur, sinon mpl en choisit 
+    # une au hasard à chaque fois, c'est vilain..)
+    ax.plot(X, Y, color='DarkBlue')
 ```
