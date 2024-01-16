@@ -33,6 +33,7 @@ RUN true \
  && pip install plotly chart-studio  \
     # for the notebook on bokeh \
  && pip install bokeh jupyter-bokeh \
+ && pip install jupyter-server-proxy \
     # for Taylor \
  && pip install autograd \
     # for Fourier \

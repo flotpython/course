@@ -14,11 +14,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -110,6 +111,10 @@ Nous allons rapidement illustrer ici comment `bokeh` s'interface avec l'environn
 - on a installé pour Python la bibliothèque idoine
   ```bash
   pip install jupyter-bokeh
+  ```
+- ainsi que [les dépendances décrites ici](https://docs.bokeh.org/en/latest/docs/user_guide/output/jupyter.html#required-dependencies)
+  ```bash
+  pip install jupyter-server-proxy
   ```
 - on n'a **pas besoin** de choisir un *driver* pour matplotlib (genre `%matplotlib ipympl`); en fait bokeh est relativement indépendant de matplotlib..
 
