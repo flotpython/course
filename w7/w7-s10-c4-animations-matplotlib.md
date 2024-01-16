@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Animations interactives avec matplotlib
@@ -216,9 +217,9 @@ speed = 1
 # la logique du calcul est conçue comme un générateur
 def compute():
     offset = 0.
-    # nous sommes dans un générateur, il n'y a pas 
-    # de contrindication à tourner indéfiniment
-    while True:
+    # on reproduit la même logique qui ci-dessus:
+    # une durée fixe de 2s, c'est-à-dire 50 frames
+    for _ in range(50):
         offset += speed / 100
         x = np.linspace(0, 2, 1000)
         y = np.sin(2 * np.pi * (x - offset))
@@ -237,16 +238,12 @@ def display(frame):
 
 anim = animation.FuncAnimation(figure2,
                                func=display,
-                               frames=compute(),
+                               frames=compute(), repeat=False,
                                interval=40, blit=True,
                                # principalement pour éviter un warning
                                cache_frame_data=False)
 plt.show()
 ```
-
-Cette fois l'animation ne se termine jamais, mais dans le notebook vous pouvez cliquer le bouton bleu en haut à droite de la figure pour la faire cesser.
-
-+++
 
 ### Avec interactivité
 
@@ -276,8 +273,7 @@ speed_slider = IntSlider(min=1, max=10, value=3,
 
 def compute():
     offset = 0.
-    # nous sommes dans un générateur, il n'y a pas 
-    # de contrindication à tourner indéfiniment
+    # cette fois on laisse tourner indéfiniment
     while True:
         # on accède à la vitesse via le widget
         offset += speed_slider.value / 100

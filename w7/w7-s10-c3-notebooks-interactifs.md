@@ -14,11 +14,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -105,15 +106,28 @@ Comme on l'a déjà vu plein de fois, la bonne façon de créer un graphique mat
 ```
 
 **À noter**  
-* si vous voulez changer de *driver* de sortie pour matplotlib (c'est-à-dire si par exemple vous avez executé `%matplotlib inline` et qu'ensuite vous voulez changer et utiliser `%matplotlib ipympl`) il vous faudra alors *redémarrer votre kernel*
+* il y a eu pas mal de changements dans cette zone de l'écosystème, notamment en 2023 avec la déprécation du notebook dit "classic"
+  du coup le code de ce notebook est assez fragile, n'hésitez pas à chercher de votre coté sur google si vous rencontrez des soucis
+* si vous voulez **changer de *driver*** de sortie pour matplotlib  
+  (c'est-à-dire si par exemple vous avez executé `%matplotlib inline` et qu'ensuite vous voulez changer et utiliser `%matplotlib ipympl`)  
+  il vous faudra alors ***redémarrer votre kernel***
 * aussi, pour utiliser le driver *ipympl* il est nécessaire d'installer `pip install ipympl`
 
 +++
 
 Avec le driver *ipympl*, il y a pas mal de possibilités qui sont très pratiques :
 
-* pour commencer on peut changer la taille de la courbe en cliquant sur le petit coin visible en bas à droite de la figure ![](media/matplotlib-resize.png)
-* les courbes apparaissent avec un barre d'outils en dessous; entraînez-vous à utiliser par exemple **l'outil de zoom**, pour agrandir et vous déplacer dans la courbe ![](media/matplotlib-navigate.png)
++++
+
+* pour commencer on peut changer la taille de la courbe en cliquant sur le petit coin visible en bas à droite de la figure
+
+![](media/matplotlib-resize.png)
+
++++
+
+* les courbes apparaissent avec un barre d'outils en dessous; entraînez-vous à utiliser par exemple **l'outil de zoom**, pour agrandir et vous déplacer dans la courbe
+
+![](media/matplotlib-navigate.png)
 
 +++
 
@@ -129,13 +143,10 @@ plt.plot(X, golden(X));
 plt.plot(X, ZERO);
 ```
 
-Voici à quoi je suis arrivé de mon côté (je ne dis pas que c'est forcément la méthode la plus rapide pour trouver le nombre d'or ;-):  
+Voici à quoi je suis arrivé de mon côté (je ne dis pas que c'est forcément la méthode la plus rapide pour trouver le nombre d'or ;-).  
 Mais tous les outils de visualisation décents vont proposer des mécanismes analogues, soyez-y attentifs car ça fait parfois gagner beaucoup de temps.
 
-```{image} media/matplotlib-zoomed.png
-:width: 600px
-:align: center
-```
+![](media/matplotlib-zoomed.png)
 
 +++
 
@@ -145,7 +156,7 @@ Mais tous les outils de visualisation décents vont proposer des mécanismes ana
 
 Je vous signale enfin un [exemple de notebook publié par la célèbre revue *Nature*](http://www.nature.com/news/ipython-interactive-demo-7.21492), qui pourra vous donner une idée de ce qu'il est possible de faire avec un notebook interactif. Interactif dans le sens où on peut faire varier les paramètres d'une expérience et voir l'impact du changement se refléter immédiatement sur la visualisation.
 
-Comme il n'est malheureusement plus actif en ligne semble-t-il, 
+**Mise à jour**: comme il n'est **malheureusement plus actif** en ligne semble-t-il, 
 je vous invite à le faire marcher localement à partir [de la version sur github ici](https://github.com/jupyter/nature-demo).
 
 +++
