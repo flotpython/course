@@ -32,7 +32,7 @@ livereveal:
   transition: fade
   width: 100%
 nbhosting:
-  title: Notebooks interactifs
+  title: Un dashboard
 ---
 
 <div class="licence">
