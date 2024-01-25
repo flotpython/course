@@ -46,7 +46,7 @@ Sur les systèmes de type UNIX, la commande [wc](http://pubs.opengroup.org/onlin
 
 L'exercice consiste à écrire une fonction nommée *wc* qui prendra en argument une chaîne de caractères et retournera une liste contenant trois éléments :
 
-1. le nombre de lignes (plus précisément le nombre de retours à la ligne) ;
+1. le nombre de retours à la ligne (qui donne une indication sur le nombre de lignes) ;
 2. le nombre de mots (un mot étant séparé par des espaces) ;
 3. le nombre de caractères (on utilisera uniquement le jeu de caractères ASCII).
 
