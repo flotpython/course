@@ -20,6 +20,8 @@ FROM nbhosting/scipy-notebook
 RUN true \
     # the crux of the matter
  && pip install jupyterlab-nbhosting \
+    # take advantage of myst, esp. admonitions
+ && pip install jupyterlab-myst \
     # formerly known as splitcell, used a lot \
  && pip install jupyterlab-gridwidth \
     # used only once to hide one code cell in taylor \
