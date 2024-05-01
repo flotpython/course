@@ -4,7 +4,7 @@
 # <style>div.title-slide {    width: 100%;    display: flex;    flex-direction: row;            /* default value; can be omitted */    flex-wrap: nowrap;              /* default value; can be omitted */    justify-content: space-between;}</style><div class="title-slide">
 # <span style="float:left;">Licence CC BY-NC-ND</span>
 # <span>Thierry Parmentelat &amp; Arnaud Legout</span>
-# <span><img src="media/both-logos-small-alpha.png" style="display:inline" /></span>
+# <span>Inria - UCA</span>
 # </div>
 
 # # La suite de Fibonacci

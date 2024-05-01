@@ -11,7 +11,11 @@ kernelspec:
   name: python3
 ---
 
-<span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">Thierry Parmentelat &amp; Arnaud Legout&nbsp;<img src="media/both-logos-small-alpha.png" style="display:inline"></span><br/>
+<div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat &amp; Arnaud Legout</span>
+<span>Inria - UCA</span>
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
