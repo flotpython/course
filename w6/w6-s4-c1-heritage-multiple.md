@@ -190,7 +190,10 @@ instance = Class()
 
 qui donne en version dessinée, avec deux points rouges pour représenter les deux définitions de la méthode `attribut` :
 
-<img src="media/heritage-multiple01.png" height="40">
+```{image} media/heritage-multiple01.png
+:align: center
+:height: 40
+```
 
 +++
 
@@ -296,7 +299,9 @@ A.mro()
 
 Voici enfin un exemple de hiérarchie pour laquelle on ne **peut pas trouver d'ordre** qui respecte les bonnes propriétés que l'on a vues tout à l'heure, et qui pour cette raison sera **rejetée par l'interpréteur python**. D'abord en version dessinée :
 
-<img src="media/heritage-multiple02.png">
+```{image} media/heritage-multiple02.png
+:align: center
+```
 
 ```{code-cell} ipython3
 # puis en version code

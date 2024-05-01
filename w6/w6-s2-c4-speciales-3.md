@@ -83,7 +83,9 @@ Naturellement ceci est une API extrêmement simplifiée. Le point que nous voulo
 
 Pour ces raisons il est naturel de concevoir une classe `RPCProxy` dans laquelle on va rassembler à la fois ces données et cette logique, pour soulager toute l'application de ces détails, comme on l'a illustré ci-dessous :
 
-<img src="media/rpcproxy.png">
+```{image} media/rpcproxy.png
+:align: center
+```
 
 +++
 

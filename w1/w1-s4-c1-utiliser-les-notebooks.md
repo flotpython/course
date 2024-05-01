@@ -64,7 +64,10 @@ En haut du notebook, vous avez une barre de menu (sur fond bleu clair), contenan
 Nous avons vu dans la vidéo qu'un notebook est constitué d'une suite de cellules, soit textuelles, soit contenant du code. Les cellules de code sont facilement reconnaissables, elles sont précédées de `[ ]:`. La cellule qui suit celle que vous êtes en train de lire est une cellule de code.
 
 Pour commencer, sélectionnez cette cellule de code avec votre souris, et appuyez dans la barre de menu - en haut du notebook, donc - sur celui en forme de flèche triangulaire vers la droite (Play) :
-<img src="media/notebook-eval-button.png">
+
+```{image} media/notebook-eval-button.png
+:align: center
+```
 
 ```{code-cell} ipython3
 20 * 30

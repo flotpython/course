@@ -83,7 +83,10 @@ Les données générées dans ces deux fichiers sont triées dans l'ordre alphab
 
 Voici à quoi ressemble le fichier KML obtenu avec les données que nous fournissons, une fois ouvert sous Google Earth :
 
-<img src="media/ships-in-earth.png">
+```{image} media/ships-in-earth.png
+:align: center
+:width: 750px
+```
 
 +++
 

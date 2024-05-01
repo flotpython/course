@@ -435,7 +435,9 @@ Avant d'apprendre à écrire une expression régulière, disons quelques mots du
 
 Comme vous le savez peut-être, une expression régulière décrite sous forme de chaîne, comme par exemple `"\w*[am]\W"`, peut être traduite dans un **automate fini** qui permet de faire le filtrage avec une chaîne. C'est ce qui explique le *workflow* que nous avons résumé dans cette figure.
 
-<img src="media/re-workflow.png">
+```{image} media/re-workflow.png
+:align: center
+```
 
 +++
 
@@ -715,7 +717,9 @@ regexp = "a(bc|de)f"
 
 +++ {"tags": ["gridwidth-1-2"]}
 
-<img src="media/re-serie-parallele.png">
+```{image} media/re-serie-parallele.png
+:align: center
+```
 
 ```{code-cell} ipython3
 :cell_style: center
