@@ -1,0 +1,87 @@
+format: jb-book
+root: README
+parts:
+- caption: un petit jeu
+  chapters:
+  - glob: mines/1-[0-9]*-nb
+- caption: types de base
+  chapters:
+  - glob: 2-[0-9]*-nb
+- caption: syntaxe & instructions
+  chapters:
+  - glob: 3-[0-9]*-nb
+- caption: classes
+  chapters:
+  - glob: 4-[0-9]*-nb
+- caption: fonctions
+  chapters:
+  - glob: 5-[0-9]*-nb
+- caption: divers
+  chapters:
+  # skip numpy
+  - glob: 7-[0-24-9]*-nb
+
+- caption: exos chap. 1
+  chapters:
+  # - file: w1/w1-s4-x1-turtle.md
+  - file: w1/w1-s6-x1-flottants.md
+- caption: exos chap. 2
+  chapters:
+  - file: w2/w2-s2-x1-expressions-regulieres.md
+  - file: w2/w2-s6-x1-label.md
+  - file: w2/w2-s6-x2-inconnue.md
+  - file: w2/w2-s6-x3-laccess.md
+  - file: w2/w2-s6-x4-if-et-def.md
+  - file: w2/w2-s6-x5-wc.md
+  - file: w2/w2-s7-x1-liste-p.md
+  - file: w2/w2-s7-x2-carre.md
+- caption: exos chap. 3
+  chapters:
+  - file: w3/w3-s2-x1-comptage.md
+  - file: w3/w3-s2-x2-surgery.md
+  - file: w3/w3-s4-x1-graph-dict.md
+  - file: w3/w3-s4-x2-marine-dict.md
+  - file: w3/w3-s5-x1-read-set.md
+  - file: w3/w3-s5-x2-marine-set.md
+  - file: w3/w3-s8-x1-fifo.md
+- caption: exos chap. 4
+  chapters:
+  - file: w4/w4-s2-x1-dispatch.md
+  - file: w4/w4-s2-x2-libelle.md
+  - file: w4/w4-s3-x1-pgcd.md
+  - file: w4/w4-s3-x2-taxes.md
+  - file: w4/w4-s3-x3-spreadsheet.md
+  - file: w4/w4-s3-x4-power.md
+  - file: w4/w4-s6-x1-passage-arguments.md
+- caption: exos chap. 5
+  chapters:
+  - file: w5/w5-s2-x1-multi-tri.md
+  - file: w5/w5-s2-x2-doubler-premier.md
+  - file: w5/w5-s2-x3-compare.md
+  - file: w5/w5-s3-x1-comprehensions.md
+  - file: w5/w5-s3-x2-vigenere.md
+  - file: w5/w5-s4-x1-produit-scalaire.md
+  - file: w5/w5-s7-x1-decode-zen.md
+- caption: exos chap. 6
+  chapters:
+  - file: w6/w6-s8-x1-classes-merger.md
+  - file: w6/w6-s9-x1-exos-en-vrac.md
+  - file: w6/w6-s9-x1b-postfix.md
+  - file: w6/w6-s9-x2-polynomial.md
+  - file: w6/w6-s9-x3-temperature.md
+  - file: w6/w6-s9-x4-primes.md
+  - file: w6/w6-s9-x5-redirector.md
+  - file: w6/w6-s9-x6-treescanner.md
+  - file: w6/w6-s9-x7-roman.md
+  - file: w6/w6-s9-x8-quaternion.md
+- caption: exos chap. 7
+  chapters:
+  - file: w7/w7-s05-x1-checkers.md
+  - file: w7/w7-s05-x2-hundreds.md
+  - file: w7/w7-s05-x3-stairs.md
+  - file: w7/w7-s05-x4-dice.md
+  - file: w7/w7-s05-x5-matdiag.md
+  - file: w7/w7-s05-x6-xixj.md
+  - file: w7/w7-s05-x7-npsearch.md
+  - file: w7/w7-s10-x1-taylor.md
+  - file: w7/w7-s10-x2-coronavirus.md
