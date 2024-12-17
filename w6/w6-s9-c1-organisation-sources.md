@@ -35,10 +35,7 @@ Où on va voir que :
 Vous trouverez dans le dépôt git ici: <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
 ````
 
-```{code-cell} ipython3
-from IPython.display import HTML
-HTML(filename="_static/style.html")
-```
++++
 
 ## Complément - niveau intermédiaire
 
