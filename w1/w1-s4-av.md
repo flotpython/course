@@ -77,7 +77,7 @@ cette version 'enseignants' avec le menu ***File -> Reset to Origin***
 
 ------------
 Je vous signale aussi la possibilité de télécharger le contenu du
-notebook au format python, ***File -> Download as -> python***
+notebook au format python, ***File -> Save and Export Notebook as -> Executable Script***
 
 Et aussi, qui peut être pratique pour échanger entre vous, la
 possibilité de créer un snapshot en lecture seule ***File -> Share
