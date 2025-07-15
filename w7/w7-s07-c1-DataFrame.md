@@ -1,18 +1,15 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: DataFrame
@@ -563,7 +560,7 @@ Regardons quelques exemples :
 ```{code-cell} ipython3
 # Créons une Series avec des noms ayant une capitalisation inconsistante
 # et une mauvaise gestion des espaces
-names = ['alice ', '  bOB', 'Marc', 'bill', 3, ' JULIE ', np.NaN]
+names = ['alice ', '  bOB', 'Marc', 'bill', 3, ' JULIE ', np.nan]
 age = pd.Series(names)
 ```
 
@@ -617,9 +614,9 @@ Nous avons vu que des opérations sur les `DataFrame` pouvaient générer des va
 
 Avant de voir ces différentes possibilités, définissons cette notion de valeur manquante.
 
-Une valeur manquante peut-être représentée avec `pandas` soit par `np.NaN` soit par l'objet Python `None`.
+Une valeur manquante peut-être représentée avec `pandas` soit par `np.nan` soit par l'objet Python `None`.
 
-- `np.NaN` est un objet de type `float`, par conséquent il ne peut apparaître que dans un array de `float` ou un array d'`object`. Notons que `np.NaN` apparaît avec `pandas` comme simplement `NaN` et que dans la suite on utilise de manière indifférente les deux notations, par contre, dans du code, il faut obligatoirement utiliser `np.NaN` ;
+- `np.nan` est un objet de type `float`, par conséquent il ne peut apparaître que dans un array de `float` ou un array d'`object`. Notons que `np.nan` apparaît avec `pandas` comme simplement `NaN` et que dans la suite on utilise de manière indifférente les deux notations, par contre, dans du code, il faut obligatoirement utiliser `np.nan` ;
   - si on ajoute un `NaN` dans un array d'entier, ils seront convertis en `float64` ;
   - si on ajoute un `NaN` dans un array de booléens, ils seront convertis en `object` ;
 - `NaN` est contaminant, toute opération avec un `NaN` a pour résultat `NaN` ;
@@ -635,7 +632,7 @@ s
 
 ```{code-cell} ipython3
 # on insère un NaN, la Series est alors convertie en float64
-s[0] = np.NaN
+s[0] = np.nan
 s
 ```
 
@@ -685,7 +682,7 @@ fruits_feb.notna()
 Par défaut, `dropna()` va enlever toutes les lignes qui contiennent au moins une valeur manquante. Mais on peut changer ce comportement avec des arguments :
 
 ```{code-cell} ipython3
-p = pd.DataFrame([[1, 2, np.NaN], [3, np.NaN, np.NaN], [7, 5, np.NaN]])
+p = pd.DataFrame([[1, 2, np.nan], [3, np.nan, np.nan], [7, 5, np.nan]])
 print(p)
 ```
 
