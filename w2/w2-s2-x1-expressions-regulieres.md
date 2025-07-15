@@ -6,19 +6,16 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -186,6 +183,8 @@ re.match("(?i)abc","ABC").group(0)
 ```
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 # les flags comme (?i) doivent apparaître
 # en premier dans la regexp
 re.match("abc(?i)","ABC").group(0)
