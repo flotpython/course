@@ -1,18 +1,15 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Installer Python
@@ -335,3 +332,12 @@ Sachez aussi, si par ailleurs vous utilisez un gestionnaire de paquets comme `rp
 Sachez qu'il existe beaucoup de distributions alternatives qui incluent Python ; parmi elles, la plus populaire est sans aucun doute [Anaconda](https://www.anaconda.com/), qui contient un grand nombre de bibliothèques de calcul scientifique, et également d'ailleurs Jupyter pour travailler nativement sur des notebooks au format `.ipynb`.
 
 Anaconda vient avec son propre gestionnaire de paquets pour l'installation de bibliothèques supplémentaires qui s'appelle `conda`.
+
+**Mise à jour 2025**:  
+Sachez qu'anaconda a récemment (2023?) adopté une nouvelle politique de
+licences, et que désormais la version gratuite est limitée à un usage personnel
+et éducatif. Si vous envisagez d'utiliser Anaconda dans un cadre professionnel,
+il vous faudra souscrire une licence commerciale.  
+Nous vous invitons à consulter la [page de
+prix](https://www.anaconda.com/pricing) et les autres informations du site
+anaconda pour plus de détails.
