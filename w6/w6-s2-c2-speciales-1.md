@@ -1,18 +1,15 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Surcharge op. (1)
@@ -191,14 +188,27 @@ Ce genre de *protocole*, qui cherche d'abord une méthode (`__bool__`), puis une
 
 On peut également redéfinir les opérateurs arithmétiques et logiques. Dans l'exemple qui suit, nous allons l'illustrer sur l'addition de matrices. On rappelle pour mémoire que :
 
-$\left( \begin{array}{cc} a_{11} & a_{12} \\
-a_{21} & a_{22}\end{array} \right) 
+$
+\left(
+    \begin{array}{cc}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{array}
+\right)
 +
-\left( \begin{array}{cc} b_{11} & b_{12} \\
-b_{21} & b_{22}\end{array} \right) 
-= 
-\left( \begin{array}{cc} a_{11}+b_{11} & a_{12}+b_{12} \\
-a_{21}+b_{21} & a_{22}+b_{22}\end{array} \right)$
+\left(
+    \begin{array}{cc}
+        b_{11} & b_{12} \\
+        b_{21} & b_{22}
+    \end{array}
+\right)
+= \left(
+    \begin{array}{cc}
+        a_{11}+b_{11} & a_{12}+b_{12} \\
+        a_{21}+b_{21} & a_{22}+b_{22}
+    \end{array}
+\right)
+$
 
 +++
 
