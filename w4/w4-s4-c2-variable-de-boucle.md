@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: variables de boucle
@@ -108,6 +109,7 @@ length([1, 2, 3])
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # ceci provoque une UnboundLocalError
 length([])
@@ -195,7 +197,7 @@ def length2(l):
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
-:tags: [gridwidth-1-2]
+:tags: [gridwidth-1-2, raises-exception]
 
 # comme ci-dessus: UnboundLocalError
 length1([])

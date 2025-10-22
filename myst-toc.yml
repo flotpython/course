@@ -54,9 +54,9 @@ project:
     - title: semaine 3
       children:
         - pattern: w3/w3-s*.md
-    # - title: semaine 4
-    #   children:
-    #     - pattern: w4/w4-s*.md
+    - title: semaine 4
+      children:
+        - pattern: w4/w4-s*.md
     # - title: semaine 5
     #   children:
     #     - pattern: w5/w5-s*.md
