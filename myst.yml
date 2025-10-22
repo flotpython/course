@@ -25,6 +25,19 @@ project:
     # this is too aggressive, and remove things like <module ...>
     # that we sometimes want to show
     output_matplotlib_strings: warn
+  exports:
+    - format: pdf
+      template: arxiv_two_column
+      output: exports/mooc-tex.pdf
+    - format: typst
+      template: https://github.com/myst-templates/plain_typst_book.git
+      output: exports/mooc-typst.pdf
+      cover: media/logo-python.svg
+      logo: media/logo-python.svg
+      logo_text: "MOOC Python"
+      logo_width: 10
+      ToC_depth: 3
+
 
 site:
   #template: book-theme
