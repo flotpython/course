@@ -22,7 +22,7 @@ project:
   date: 2025-10-22
   # bibliography: []
   settings:
-    # this is too aggressive, and remove things like <module ...> 
+    # this is too aggressive, and remove things like <module ...>
     # that we sometimes want to show
     output_matplotlib_strings: warn
 

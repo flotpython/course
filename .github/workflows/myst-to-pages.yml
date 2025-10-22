@@ -1,0 +1,65 @@
+# NOTE THAT in addition to this file, you need to check on github.com
+# - enable github pages (select deploy from a branch)
+# - go to the Settings -> Environments tab
+#   then select the 'github-pages' environment
+#   and make sure the branch of interest (here main) is allowed in the 'Branch protection rules' area
+
+name: Deploy MyST to GitHub Pages
+
+on:
+  # Allows manual trigger
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+
+# the following sets permissions of the GITHUB_TOKEN
+# to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+
+# this is no longer needed as we serve from info-mines.paris
+# required for MyST
+# env:
+#   # `BASE_URL` determines the website is served from, including CSS & JS assets
+#   # You may need to change this to `BASE_URL: ''`
+#   BASE_URL: /${{ github.event.repository.name }}
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
+      - name: Install requirements.txt
+        run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
+      - name: Build HTML Assets
+        run: (cd notebooks; myst build --execute --html)
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './notebooks/_build/html'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
