@@ -27,9 +27,30 @@ project:
         - file: w1/w1-s6-c3-precision-flottants.md
         - file: w1/w1-s6-c4-entiers-bit-a-bit.md
         - file: w1/w1-s6-x1-flottants.md
-    # - title: semaine 2
-    #   children:
-    #     - pattern: w2/w2-s*.md
+    - title: semaine 2
+      children:
+          - file: w2/w2-s1-c1-accents.md
+          - file: w2/w2-s2-c1-outils-chaines.md
+          - file: w2/w2-s2-c2-formatage.md
+          # uses input()
+          # - file: w2/w2-s2-c3-la-fonction-input.md
+          - file: w2/w2-s2-c4-expressions-regulieres.md
+          - file: w2/w2-s2-x1-expressions-regulieres.md
+          - file: w2/w2-s3-c1-slices.md
+          - file: w2/w2-s4-c1-listes.md
+          - file: w2/w2-s4-c2-listes-mutables.md
+          - file: w2/w2-s4-c3-tris-de-liste-1.md
+          - file: w2/w2-s5-c1-indentations.md
+          - file: w2/w2-s5-c2-presentation.md
+          - file: w2/w2-s5-c3-pass.md
+          - file: w2/w2-s6-c1-valeur-de-retour.md
+          - file: w2/w2-s6-x1-label.md
+          - file: w2/w2-s6-x2-inconnue.md
+          - file: w2/w2-s6-x3-laccess.md
+          - file: w2/w2-s6-x4-if-et-def.md
+          - file: w2/w2-s6-x5-wc.md
+          - file: w2/w2-s7-x1-liste-p.md
+          - file: w2/w2-s7-x2-carre.md
     # - title: semaine 3
     #   children:
     #     - pattern: w3/w3-s*.md

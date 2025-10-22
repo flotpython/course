@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "S\xE9quences"
@@ -68,6 +69,7 @@ chaine[3:6] == "def"
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 chaine[ <votre_code> ] == "vwx"
 ```
@@ -76,6 +78,7 @@ chaine[ <votre_code> ] == "vwx"
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 chaine[ <votre_code> ] == "wxyz"
 ```
@@ -84,6 +87,7 @@ chaine[ <votre_code> ] == "wxyz"
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 chaine[ <votre_code> ] == "dfhjlnprtvxz"
 ```
@@ -92,6 +96,7 @@ chaine[ <votre_code> ] == "dfhjlnprtvxz"
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 chaine[ <votre_code> ] == "xurolifc"
 ```

@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "exercice: compr\xE9hensions(1)"
@@ -97,11 +98,9 @@ Y = liste_P(X)
 ```
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 # on n'a plus qu'à dessiner
 plt.plot(X, Y)
 plt.show()
-```
-
-```{code-cell} ipython3
-
 ```

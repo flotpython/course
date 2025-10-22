@@ -14,11 +14,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -344,6 +345,7 @@ Dans un notebook vous avez aussi la complétion ; si vous tapez, dans une cellu
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # placez votre curseur à la fin de la ligne après 'li'
 # et appuyez sur la touche 'Tab'
