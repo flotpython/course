@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Rappels
@@ -172,6 +173,7 @@ Pour mieux le voir, essayons de reprendre la logique de notre tout premier exemp
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # ceci ne fonctionne pas
 # NameError: name 'j' is not defined
@@ -187,6 +189,7 @@ Ce qui se passe ici, c'est que, comme nous l'avons déjà mentionné en semaine 
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # la version bavarde de cette imbrication à plat, à nouveau :
 # [ (i, j) for i in range(1, j + 1) for j in range(1, n + 1) ]

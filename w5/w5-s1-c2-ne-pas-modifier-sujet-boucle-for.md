@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Limite de la boucle for
@@ -46,6 +47,7 @@ ensemble = {'marc', 'albert'}
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # ceci semble une bonne idée mais ne fonctionne pas
 # provoque RuntimeError: Set changed size during iteration
