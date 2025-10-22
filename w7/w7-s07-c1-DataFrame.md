@@ -15,15 +15,15 @@ nbhosting:
   title: DataFrame
 ---
 
+# `DataFrame` de `pandas`
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# `DataFrame` de `pandas`
 
 +++
 

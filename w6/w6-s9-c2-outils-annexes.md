@@ -31,15 +31,15 @@ nbhosting:
   title: "Outils p\xE9riph\xE9riques"
 ---
 
+# Outils périphériques
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Outils périphériques
 
 +++
 

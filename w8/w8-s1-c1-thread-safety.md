@@ -1,11 +1,7 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   cell_metadata_json: true
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -20,15 +16,15 @@ nbhosting:
   title: thread safety
 ---
 
+# Pourquoi les *threads* c'est délicat ?
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Pourquoi les *threads* c'est délicat ?
 
 +++
 
@@ -125,6 +121,7 @@ Il se trouve qu'en pratique cette opération se décompose en réalité en 3 op�
 +++
 
 On voit sur cette figure la logique des trois opérations 
+
 * dans un premier temps on va chercher la valeur de la variable `a` qu'on range disons dans un registre - ou un cache;
 * on réalise l'incrémentation de cette valeur dans le registre
 * puis on recopie le résultat dans la case mémoire originelle, qui correspond à la variable `a` 

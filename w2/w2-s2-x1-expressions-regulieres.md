@@ -31,15 +31,15 @@ nbhosting:
   title: Exos regexps
 ---
 
+# Expressions régulières
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Expressions régulières
 
 +++
 

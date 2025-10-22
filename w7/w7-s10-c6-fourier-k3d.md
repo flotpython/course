@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -192,6 +188,7 @@ Pour un $\phi$ donné, il s'agit donc de calculer l'intégrale sur $\mathbb{R}$ 
 $F_{\phi}(t) = f(t)e^{2i\pi\phi t}$
 
 On va commencer par représenter cette courbe en 3D :
+
 * sur l'axe des x, on représente le temps $t$
 * et sur les axes y et z, on représente les partie réelle et imaginaire de $F_{\phi}(t)$
 
@@ -276,6 +273,7 @@ a3d.interact(full_spectrum())
 +++
 
 Rappelez-vous que :
+
 * on commence par fixer $\phi$;  
   et $\phi$ correspond à la vitesse de rotation de la courbe de $f$ autour de l'axe y=z=0
 

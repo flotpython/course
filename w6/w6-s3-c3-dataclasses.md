@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,20 +15,20 @@ nbhosting:
   title: dataclasses
 ---
 
-<div class="licence">
-<span>Licence CC BY-NC-ND</span>
-<span>Thierry Parmentelat &amp; Arnaud Legout</span>
-<span>Inria - UCA</span>
-</div>
-
-+++
-
 # `dataclasses`
 
 
 ***Nouveauté de la version 3.7***
 
 Python 3.7 apporte un nouveauté pour simplifier la définition de classes dites "de données" ; ce type de classes s'applique pour des objets qui sont essentiellement un assemblage de quelques champs de données.
+
++++
+
+<div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat &amp; Arnaud Legout</span>
+<span>Inria - UCA</span>
+</div>
 
 +++
 

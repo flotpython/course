@@ -6,10 +6,6 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -35,15 +31,15 @@ nbhosting:
   title: Autres librairies
 ---
 
+# Autres bibliothèques de visualisation
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Autres bibliothèques de visualisation
 
 +++
 
@@ -282,7 +278,7 @@ Je vous recommande cette pratique car, à nouveau, cela permet d'éviter les var
 
 *****
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Exemple : distribution uniforme
 
@@ -303,10 +299,6 @@ On veut ici écrire un outil qui déplace et déforme une distribution de points
 ****
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 # petit utilitaire pour calculer la distribution
 # uniforme de départ
 def uniform_distribution(N):

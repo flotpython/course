@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -18,6 +14,10 @@ nbhosting:
   title: Indexation et slices
 ---
 
+# Index et slices
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
@@ -26,17 +26,9 @@ nbhosting:
 
 +++
 
-# Index et slices
-
-+++
-
 ## Complément - niveau basique
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -86,10 +78,6 @@ a5[1, 2]
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # naturellement on peut affecter une case
 # individuellement
 a5[2][1] = 221
@@ -109,8 +97,6 @@ print(a5)
 a5[4] = 400
 print(a5)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 # Slicing
 
@@ -171,8 +157,6 @@ a8[:, 1::4] = 0
 print(a8)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Du coup, le slicing peut servir à extraire des blocs :
 
 ```{code-cell} ipython3
@@ -187,10 +171,6 @@ print(a8[5:8, 2:5])
 On peut utiliser également le symbole spécial `np.newaxis` en conjonction avec un slice pour "décaler" les dimensions :
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 X = np.arange(1, 7)
 print(X)
 ```

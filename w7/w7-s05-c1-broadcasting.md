@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,15 +15,15 @@ nbhosting:
   title: Broadcasting
 ---
 
+# Le *broadcasting*
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Le *broadcasting*
 
 ```{code-cell} ipython3
 import numpy as np
@@ -35,7 +31,7 @@ import numpy as np
 
 ## Complément - niveau intermédiaire
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Lorsque l'on a parlé de programmation vectorielle, on a vu que l'on pouvait écrire quelque chose comme ceci :
 
@@ -43,8 +39,6 @@ Lorsque l'on a parlé de programmation vectorielle, on a vu que l'on pouvait éc
 X = np.linspace(0, 2 * np.pi)
 Y = np.cos(X) + np.sin(X) + 2
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 Je vous fais remarquer que dans cette dernière ligne on combine :
 
@@ -58,7 +52,7 @@ En fait, le *broadcasting* est ce qui permet :
 * d'unifier le sens de ces deux opérations ;
 * de donner du sens à des cas plus généraux, où on fait des opérations entre des tableaux qui ont des *tailles différentes*, mais assez semblables pour que l'on puisse tout de même les combiner.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Exemples en 2D
 
@@ -67,11 +61,8 @@ En fait, le *broadcasting* est ce qui permet :
 Nous allons commencer par quelques exemples simples, avant de généraliser le mécanisme. Pour commencer, nous nous donnons un tableau de base :
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: '-'
----
+:cell_style: center
+
 a = 100 * np.ones((3, 5), dtype=np.int32)
 print(a)
 ```
@@ -80,7 +71,7 @@ Je vais illustrer le broadcasting avec l'opération `+`, mais bien entendu ce m�
 
 Pour commencer, je vais donc ajouter à mon tableau de base un scalaire :
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Broadcasting entre les dimensions `(3, 5)` et `(1,)`
 
@@ -129,7 +120,7 @@ Et c'est ce tableau, qui est maintenant de la même taille que `a`, qui est ajou
 
 Je précise que cette explication est du domaine du modèle pédagogique ; je ne dis pas que l'implémentation va réellement allouer un second tableau, bien évidemment on peut optimiser pour éviter cette construction inutile.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Broadcasting `(3, 5)` et `(5,)`
 
@@ -138,11 +129,8 @@ Je précise que cette explication est du domaine du modèle pédagogique ; je n
 Voyons maintenant un cas un peu moins évident. Je peux ajouter à mon tableau de base une ligne, c'est-à-dire un tableau de taille `(5, )`. Voyons cela :
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 print(a)
 ```
 
@@ -210,7 +198,7 @@ print(c - a)
 
 Vous commencez à mieux voir comment ça fonctionne ; s'il existe une direction dans laquelle on peut "tirer" les données pour faire coincider les formes, on peut faire du broadcasting. Et ça marche dans toutes les directions, comme on va le voir tout de suite.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Broadcasting `(3, 5)` et `(3, 1)`
 
@@ -219,11 +207,8 @@ Vous commencez à mieux voir comment ça fonctionne ; s'il existe une direction
 Au lieu d'ajouter à `a` une ligne, on peut lui ajouter une colonne, pourvu qu'elle ait la même taille que les colonnes de `a` :
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 print(a)
 ```
 
@@ -279,8 +264,6 @@ print(b)
 print(c - a)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Broadcasting `(3, 1)` et `(1, 5)`
 
 +++
@@ -295,11 +278,8 @@ print(col)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 line = 100 * np.arange(1, 6)
 print(line)
 ```
@@ -369,15 +349,15 @@ print(line + np.zeros(3, dtype=np.int64).reshape((3, 1)))
 
 avant d'additionner terme à terme ces deux tableaux 3 x 5.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## En dimensions supérieures
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Pour savoir si deux tableaux peuvent être compatibles via *broadcasting*, il faut comparer leurs formes. Je commence par vous donner des exemples. Ici encore quand on mentionne l'addition, cela vaut pour n'importe quel opérateur binaire.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Exemples de dimensions compatibles
 
@@ -414,7 +394,7 @@ B        3 x 1
 A+B 15 x 3 x 5
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Exemples de dimensions **non compatibles**
 
@@ -426,7 +406,7 @@ A  3
 B  4
 ```
 
-+++ {"slideshow": {"slide_type": "-"}, "tags": ["gridwidth-1-2"]}
++++ {"tags": ["gridwidth-1-2"]}
 
 Un cas plus douteux :
 ```python

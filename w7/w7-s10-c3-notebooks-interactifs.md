@@ -6,10 +6,6 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -35,15 +31,15 @@ nbhosting:
   title: Notebooks interactifs
 ---
 
+# Notebooks interactifs
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Notebooks interactifs
 
 +++
 
@@ -106,11 +102,14 @@ Comme on l'a déjà vu plein de fois, la bonne façon de créer un graphique mat
 ```
 
 **À noter**  
+
 * il y a eu pas mal de changements dans cette zone de l'écosystème, notamment en 2023 avec la déprécation du notebook dit "classic"
   du coup le code de ce notebook est assez fragile, n'hésitez pas à chercher de votre coté sur google si vous rencontrez des soucis
+
 * si vous voulez **changer de *driver*** de sortie pour matplotlib  
   (c'est-à-dire si par exemple vous avez executé `%matplotlib inline` et qu'ensuite vous voulez changer et utiliser `%matplotlib ipympl`)  
   il vous faudra alors ***redémarrer votre kernel***
+
 * aussi, pour utiliser le driver *ipympl* il est nécessaire d'installer `pip install ipympl`
 
 +++
@@ -212,8 +211,6 @@ interact(sinus, freq=(0.5, 10., 0.25));
 # voyez comment vous pouvez choisir 'freq' avec la réglette
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Mécanisme d'`interact`
 
 +++
@@ -295,8 +292,6 @@ interact(sinus2,
          phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6));
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Bouche-trou : `fixed`
 
 +++
@@ -319,8 +314,6 @@ interact(sinus2,
          phase=FloatSlider(min=0., max=2*np.pi, step=np.pi/6));
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Widgets
 
 +++
@@ -336,17 +329,11 @@ Bref, vous pouvez créer une mini interface-utilisateur avec des objets graphiqu
 Voyez [les détails complets sur `readthedocs.io`](http://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html)
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # de même qu'un tuple était ci-dessus un raccourci pour un FloatSlider
 # une liste ou un dictionnaire est transformé(e) en un Dropdown
 fig, ax = plt.subplots()
 interact(sinus, freq={'rapide': 10., 'moyenne': 1., 'lente': 0.1});
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 Voyez la [liste complète des widgets ici](http://ipywidgets.readthedocs.io/en/latest/examples/Widget%20List.html).
 

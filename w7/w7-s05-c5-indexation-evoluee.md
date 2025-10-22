@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -18,15 +14,15 @@ nbhosting:
   title: "Indexation \xE9volu\xE9e"
 ---
 
+# Indexation évoluée
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Indexation évoluée
 
 +++
 
@@ -98,7 +94,7 @@ On peut aussi indexer un tableau A … par un tableau ! Pour que cela ait un se
 * le tableau d'index doit contenir des entiers ;
 * ces derniers doivent être tous plus petits que la première dimension de A.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Le cas simple : l'entrée et l'index sont de dimension 1.
 
@@ -122,8 +118,6 @@ lis = [1, 7, 2]
 print(cubes[lis])
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 #### De manière générale
 
 +++
@@ -135,21 +129,15 @@ Dans le cas général, le résultat de `A[index]` :
 * qui peut donc être un tableau si `A` est de dimension > 1
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: '-'
----
+:cell_style: center
+
 A = np.array([[0, 'zero'], [1, 'un'], [2, 'deux'], [3, 'trois']])
 print(A)
 ```
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: '-'
----
+:cell_style: center
+
 index = np.array([[1, 0, 2], [3, 2, 3]])
 print(index)
 ```
@@ -177,7 +165,7 @@ B[1, 2, 1]
 
 ![result](media/index-detail.png)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Et donc si :
 
@@ -194,11 +182,8 @@ Alors :
  Ce que l'on vérifie ici :
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 # l'entrée
 print(A.shape)
 ```
@@ -214,8 +199,6 @@ print(index.shape)
 # le résultat
 print(A[index].shape)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 #### Cas particulier : entrée de dimension 1,  `index` de dim. > 1
 
@@ -239,8 +222,6 @@ print(i2)
 
 print(cubes[i2])
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 #### Application au codage des couleurs dans une image
 
@@ -274,10 +255,6 @@ palette = np.array([
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 plt.imshow(palette[image]);
 ```
 
@@ -290,8 +267,6 @@ image.shape
 ```{code-cell} ipython3
 palette[image].shape
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### Indexation multiple (par tuple)
 
@@ -309,10 +284,6 @@ Ainsi, lorsque `index1` et `index2` ont la même forme :
 * qui peut donc être un tableau si `A` est de dimension > 2.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # un tableau à indexer
 ix, iy = np.indices((4, 3))
 A = 10 * ix + iy
@@ -327,8 +298,6 @@ index2 = [[2, 0], [0, 2]]  # doivent être < 3
 print(A[index1, index2])
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Et donc si :
 
 * `index1` et `index2` sont de dimension `(i, j, k)`
@@ -340,7 +309,7 @@ Alors :
 * il faut alors que les éléments  de `index1` soient dans `[0 .. a[`
 * et les éléments de `index2` dans `[0 .. b[`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Application à la recherche de maxima
 
@@ -381,8 +350,6 @@ print(maxima)
 # et ils correspondent à ces instants-ci
 times[max_indices]
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### Indexation par un tableau de booléens
 

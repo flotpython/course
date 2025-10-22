@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,17 +15,15 @@ nbhosting:
   title: "Alg\xE8bre lin\xE9aire"
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
+# Algèbre linéaire
+
++++
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Algèbre linéaire
 
 +++
 
@@ -44,7 +38,7 @@ plt.ion()
 
 Un aspect important de l'utilisation de `numpy` consiste à manipuler des matrices et vecteurs. Voici une rapide introduction à ces fonctionnalités.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Produit matriciel - `np.dot`
 
@@ -93,11 +87,8 @@ print(m2)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 # comme fonction
 np.dot(m1, m2)
 ```
@@ -133,8 +124,6 @@ for x, y in ( (10, 20), (10., 20.), ([10], [20]), ((10,), (20,))):
         print(f"OOPS - {type(e)} - {e}")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Produit scalaire - `np.dot` ou `@`
 
 +++
@@ -156,11 +145,8 @@ print(v2)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 np.dot(v1, v2)
 ```
 
@@ -224,10 +210,6 @@ Avec `np.diag`, vous pouvez dans les deux sens :
 * construire une matrice à partir de sa diagonale.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 M = np.arange(4) + 10 * np.arange(4)[:, np.newaxis]
 print(M)
 ```

@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -137,6 +133,7 @@ france_data[-1]
 +++
 
 Ce que j'ai constaté, et je suppose qu'on peut plus ou moins compter sur cette bonne propriété, c'est que
+
 * pour chaque pays on trouve un enregistrement par jour
 * tous les pays ont la même plage de temps - quitte à rajouter des enregistrements à 0, comme ci-dessus pour la France le 22 janvier
 
@@ -176,11 +173,13 @@ len(france_data)
 +++
 
 Vous pourriez interpréter ces données pour créer un dashbord dans lequel on peut choisir :
+
 * la donnée à laquelle on s'intéresse (*confirmed*, *deaths* ou *recovered*)
 * le pays auquel on s'intéresse (idéalement dans une liste triée)
 * la période (en version simple: les *n* derniers jours)
 
 et en fonction, afficher deux courbes qui montrent sur cette période
+
 * la donnée brute (une fonction croissante donc)
 * sa dérivée (la différence avec le jour précédent)
 

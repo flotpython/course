@@ -3,13 +3,15 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.1
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
 ---
+
+# écueils classiques
+
++++
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
@@ -17,23 +19,13 @@ kernelspec:
 <span>Inria - UCA</span>
 </div>
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-# écueils classiques
-
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
 import asyncio
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## écueil n°1 :  fonction coroutine *vs* coroutine
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # une fonction coroutine
@@ -42,7 +34,7 @@ async def foo(delay):
     print("foo")
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # renvoie un objet coroutine
@@ -51,12 +43,9 @@ async def foo(delay):
 foo(4)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 # c'est exactement comme 
 # une fonction génératrice
 def squares(scope):
@@ -65,7 +54,7 @@ def squares(scope):
         yield i**2 
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # qui retourne un
@@ -74,30 +63,25 @@ def squares(scope):
 squares(4)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### tous les scénarios
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 def synchro():
     pass
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 async def asynchro():
     pass
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 def foo(): 
     synchro()        # 1 # OK
     asynchro()       # 2 # ** ATTENTION **
@@ -105,12 +89,9 @@ def foo():
     await asynchro   # 4 # SyntaxError
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 async def afoo():
     synchro()        # 5 # OK
     await asynchro() # 6 # OK
@@ -118,26 +99,22 @@ async def afoo():
     await synchro()  # 8 # ** ATTENTION **
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### cas n°2
 
 +++ {"cell_style": "split"}
 
 * une fonction appelle une coroutine sans `await`
-* ➠ avertissement 
+* ➠ avertissement
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 !cat calls2.py
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 !python calls2.py 
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### cas n°7
 
@@ -146,54 +123,42 @@ async def afoo():
 * une coroutine appelle une autre coroutine sans `await`
 * idem : avertissement
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # avec until_complete
 !cat calls7.py
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: center
-:slideshow: {}
 
 !python calls7.py
 ```
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ### cas n°8
 
-```{code-cell} ipython3
+```{code-cell}
 async def asynchro():
     await synchro()
 ```
-
-+++ {"slideshow": {"slide_type": "-"}}
 
 * ***peut*** être légitime - si `synchro()` retourne un awaitable
 
 * mais en général, c'est suspect !
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
 import inspect
 inspect.isawaitable(synchro())
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## écueil n°2 : code trop bloquant
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 async def countdown(n, period):
     while n >= 0:
         print('.', end='', flush=True)
@@ -201,7 +166,7 @@ async def countdown(n, period):
         n -= 1
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 import time
@@ -212,18 +177,16 @@ async def compute(n, period):
         print('x', end='', flush=True)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 from asynchelpers import reset_loop
 reset_loop()
 asyncio.get_event_loop().run_until_complete(
     asyncio.gather(countdown(10, .05), compute(10, .05)))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### faites respirer votre code
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 async def countdown(n, period):
@@ -233,7 +196,7 @@ async def countdown(n, period):
         n -= 1
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 import time
@@ -246,33 +209,28 @@ async def compute(n, period):
         await asyncio.sleep(0)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 reset_loop()
 asyncio.get_event_loop().run_until_complete(
     asyncio.gather(countdown(10, .05), compute(10, .05)))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-# écueil n°3 
+# écueil n°3
 
 +++ {"cell_style": "split"}
 
 * exceptions non lues
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
-:slideshow: {}
 
 !cat raise.py
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # interrompre avec ii
 !python raise.py
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 # bonnes pratiques de développement
 
@@ -283,7 +241,7 @@ asyncio.get_event_loop().run_until_complete(
 
 * notamment variable d'environnement `PYTHONASYNCIODEBUG`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # résumé
 
@@ -294,7 +252,7 @@ asyncio.get_event_loop().run_until_complete(
 * lire les exceptions une fois la boucle terminée
 * penser à activer le mode debug en cas de souci
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # conclusion
 
@@ -303,6 +261,7 @@ asyncio.get_event_loop().run_until_complete(
 * (`async def` et `await`) + `asyncio`
 
   = une interface de programmation unifiée pour
+
   * les accès réseau
   * les processus externes
   * objets utilitaires asynchrones
@@ -314,40 +273,37 @@ asyncio.get_event_loop().run_until_complete(
   * très gros potentiel
   * évolutions à prévoir
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ************ Suppléments
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # quel type de fonction ?
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
-:slideshow: {}
 
 from inspect import iscoroutinefunction
 iscoroutinefunction(synchro)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 iscoroutinefunction(asynchro)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
-
 ##### attention toutefois
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # une vraie fonction qui renvoie un awaitable
 iscoroutinefunction(asyncio.gather)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # ditto

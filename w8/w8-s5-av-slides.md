@@ -3,13 +3,15 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.1
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
 ---
+
+# coroutines et awaitables
+
++++
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
@@ -17,19 +19,15 @@ kernelspec:
 <span>Inria - UCA</span>
 </div>
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-# coroutines et awaitables
-
 +++
 
 ### *my first loop*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # protocole awaitable
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 | instruction | classe d'objets   | protocole               | exemple              | 
 |------------:|------------------:|------------------------:|---------------------:|
@@ -38,28 +36,22 @@ kernelspec:
 |   `dict[x]` | hashables         | `__hash__`              | *builtins* immuables |
 |   `await`   |   awaitables      | `__await__`             | objet coroutine      |
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # `__await__` renvoie un itérateur
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: '-'
----
+```{code-cell}
+:cell_style: split
+
 class Awaitable():
     def __await__(self):
         print("in awaitable")
         yield "yielded"
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 # il nous faut 
 # au moins une coroutine
 # pour pouvoir faire await
@@ -67,35 +59,24 @@ async def main():
     await Awaitable()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 # l'objet coroutine
 coro = main()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 coro.send(None)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
+# un peu moins simple
 
-# un peu moins simple 
+```{code-cell}
+:cell_style: split
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
 # itérateur à deux coups 
 class Awaitable2():
     def __await__(self):
@@ -106,7 +87,7 @@ class Awaitable2():
         return "returned"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # boilerplate
@@ -114,36 +95,26 @@ async def main():
     return await Awaitable2()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # l'objet coroutine
 coro = main()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 coro.send(None)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 coro.send(None)
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
 try:
     coro.send(None)
 except Exception as e:
@@ -151,55 +122,47 @@ except Exception as e:
     print('OOPS', type(e), e.value)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # plusieurs travaux en même temps
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 coro1 = main()
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 coro2 = main()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
-coro1.send(None)
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-coro2.send(None)
-```
-
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 coro1.send(None)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 coro2.send(None)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
+coro1.send(None)
+```
+
+```{code-cell}
+:cell_style: split
+
+coro2.send(None)
+```
+
+```{code-cell}
+:cell_style: split
+
 try:
     coro1.send(None)
 except Exception as e:
@@ -207,12 +170,9 @@ except Exception as e:
     print('OOPS', type(e), e.value)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 try:
     coro2.send(None)
 except Exception as e:
@@ -220,16 +180,11 @@ except Exception as e:
     print('OOPS', type(e), e.value)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # pile, await et yield
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 class w1:
 
     def __init__(self, marker):
@@ -242,12 +197,9 @@ class w1:
         return 1
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 async def w2():
     return await w1('first') + await w1('second')
 
@@ -260,26 +212,19 @@ async def w4():
 coro = w4()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
-coro.send(None)
-```
-
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 coro.send(None)
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
+coro.send(None)
+```
+
+```{code-cell}
 try:
     coro.send(None)
 except Exception as e:
@@ -287,20 +232,15 @@ except Exception as e:
     print('OOPS', type(e), e.value)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # [animation](single-stack/index.html)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # dans les deux sens
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+```{code-cell}
+:cell_style: split
+
 class BothWays():
     def __await__(self):
         print("step1")
@@ -312,16 +252,15 @@ class BothWays():
         return "returned"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 # boilerplate
 async def main():
     return await BothWays()
-
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 
@@ -329,54 +268,45 @@ async def main():
 coro = main()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 # La première fois il FAUT envoyer None
 coro.send(None)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
 
 coro.send("message")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # communication boucle - awaitable
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 ![both ways](w8-s5-av-fig1.png)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # conclusion
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### protocole awaitable
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "fragment"}}
++++ {"cell_style": "split"}
 
 ### méthode `send()`
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "fragment"}}
++++ {"cell_style": "split"}
 
-### liée aux `yield` 
+### liée aux `yield`
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### communication bi-directionnelle
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### ~~`import asyncio`~~

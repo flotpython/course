@@ -16,10 +16,6 @@ nbhosting:
   title: Organiser les sources
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat & Arnaud Legout
-
-+++
-
 # Comment organiser les sources de votre projet Python
 
 Où on va voir que :
@@ -34,6 +30,10 @@ Où on va voir que :
 
 Vous trouverez dans le dépôt git ici: <https://github.com/flotpython/bidule> un microscopique petit projet qui illustre notre propos.
 ````
+
++++
+
+Licence CC BY-NC-ND, Thierry Parmentelat & Arnaud Legout
 
 +++
 
@@ -288,6 +288,7 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
       "numpy",
   ]
   ```
+
 * informatifs : `description`, `readme`, `license`, `authors`, `keywords`, `url`, `license`,  pour affichage sur PyPI ;
   voyez le package `bidule` sur github pour un exemple;
   notamment le champ `description` est un résumé en une ligne, alors que `readme` vaut généralement `README.md`, fichier dans lequel on décrit le module plus en détails
@@ -396,6 +397,7 @@ Pour y parvenir, on peut - par exemple - procéder comme ceci:
 
   __version__ = importlib.metadata.version("bidule")
   ```
+
 * et pour exposer l'attribut `__version__` directement dans le package, comme on vient de le voir, on ajoute dans `bidule/__init__.py` la ligne
   ```python
   from .version import __version__

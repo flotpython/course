@@ -31,15 +31,15 @@ nbhosting:
   title: "Expressions r\xE9guli\xE8res"
 ---
 
+# Expressions régulières et le module `re`
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Expressions régulières et le module `re`
 
 +++
 

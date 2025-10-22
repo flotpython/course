@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,15 +15,15 @@ nbhosting:
   title: 'exercice: hundreds'
 ---
 
+# Exercice - niveau intermédiaire
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Exercice - niveau intermédiaire
 
 +++
 
@@ -47,10 +43,6 @@ Le résultat doit être un tableau de taille `lines` x `columns`, composé d'ent
 $$result[i, j] = 100 * i + 10 * j + offset$$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
 import numpy as np
 from corrections.exo_hundreds import exo_hundreds
 
@@ -79,8 +71,10 @@ exo_hundreds.correction(hundreds)
 * la première idée peut-être, consiste à faire deux boucles imbriquées  
   c'est facile à écrire, ça fonctionne, mais ce n'est pas très élégant  
   et surtout très inefficace, je vous invite à éviter cette approche  
+
 * vous pouvez aussi penser à utiliser du broadcasting  
   en fabricant par exemple la souche des lignes et des colonnes  
   à la main avec `np.arange()`
+
 * si vous regardez `np.indices()`, vous trouverez sans doute une inspiration
 * et sans doute d'autres auxquelles je n'ai pas pensé :)

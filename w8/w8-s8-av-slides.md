@@ -3,13 +3,15 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.1
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
 ---
+
+# la librairie `asyncio`
+
++++
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
@@ -17,61 +19,47 @@ kernelspec:
 <span>Inria - UCA</span>
 </div>
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-# la librairie `asyncio`
-
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 * boucle d'événements
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 * synchronisation: `Queue`, `Lock` et `Semaphore`
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 * interaction avec les processus:
   * package `asyncio.subprocess`
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 * `Transport` et `Protocol` 
 * `Streams`
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```{code-cell}
 import asyncio
 
 from asynchelpers import start_timer, show_timer
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # synchronisation avec une queue
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 asyncio.Queue?
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
-:slideshow: {}
 
 queue = asyncio.Queue(maxsize=1)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 async def producer(queue):
     count = 1
     while True:
@@ -80,12 +68,9 @@ async def producer(queue):
         await asyncio.sleep(1)
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 async def consumer(queue):
     while True:
         received = await queue.get()
@@ -93,21 +78,13 @@ async def consumer(queue):
         
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
 # on ajoute les coroutines dans la boucle
 asyncio.ensure_future(producer(queue))
 asyncio.ensure_future(consumer(queue))
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```{code-cell}
 start_timer()
 
 # interrompre avec la touche 'i' 
@@ -119,26 +96,21 @@ except KeyboardInterrupt as e:
     print("bye")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 # limiter le parallèlisme avec `Queue`
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: fragment
----
+```{code-cell}
+:cell_style: split
+
 asyncio.set_event_loop(asyncio.new_event_loop())
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 window = asyncio.Queue(maxsize = 4)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 async def job(i):
     # prendre un jeton dans la queue
     await window.put(None)
@@ -152,12 +124,9 @@ async def job(i):
     await window.get()
 ```
 
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+```{code-cell}
+:cell_style: split
+
 for i in range(8):
     asyncio.ensure_future(job(i))
 
@@ -168,7 +137,7 @@ except:
     print('bye')
 ```
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "-"}}
++++ {"cell_style": "split"}
 
 ### Séquencement des jobs
 
@@ -180,7 +149,7 @@ except:
 | 3-4 |        |       |       |       |       | `*`   |       | `*`   |
 | 4-5 |        |       |       |       |       |       |       | `*`   |
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # valeur ajoutée
 
@@ -193,18 +162,18 @@ except:
   
     `Transport`, `Protocol`, `Stream`
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "fragment"}}
++++ {"cell_style": "split"}
 
 * tire profit de l'OS
   * *signal()* : interruptions
   * *select()* : événements liés aux entrée-sorties
   * ...
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # usage
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "fragment"}}
++++ {"cell_style": "split"}
 
 * commencer avec les librairies de haut niveau
   * HTTP (`aoihttp`) 

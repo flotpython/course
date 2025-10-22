@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -18,15 +14,15 @@ nbhosting:
   title: "Usages avanc\xE9s de `import`"
 ---
 
+# Usages avancés de `import`
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Usages avancés de `import`
 
 +++
 
@@ -353,6 +349,7 @@ S'agissant des tests :
 
 * la technique qu'on a vue rapidement - de tester si `__name__` vaut `"__main__"` - est extrêmement basique et limitée.
 Le mieux est de ne pas l'utiliser en fait, en dehors de micro-maquettes.
+
 * en pratique on écrit les tests dans un répertoire séparé - souvent appelé `tests` - et en tirant profit de la librairie `unittest`.
 * du coup les tests sont toujours exécutés avec une phrase comme
 

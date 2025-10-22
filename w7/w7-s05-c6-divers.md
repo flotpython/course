@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,15 +15,15 @@ nbhosting:
   title: Divers
 ---
 
+# Divers
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Divers
 
 +++
 
@@ -42,7 +38,7 @@ plt.ion()
 
 Pour finir notre introduction à `numpy`, nous allons survoler à très grande vitesse quelques traits plus annexes mais qui peuvent être utiles. Je vous laisse approfondir de votre côté les parties qui vous intéressent.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # Utilisation de la mémoire
 
@@ -165,7 +161,7 @@ En fait, on peut aussi se définir des types structurés, c'est-à-dire que chaq
 
 Pour cela, on peut se définir un `dtype` élaboré, qui va nous permettre de définir la structure de chacun de ces enregistrements.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Exemple
 
@@ -206,11 +202,9 @@ Rien ne m'empêcherait de créer des tableaux de ce genre en dimensions supérie
 classe.reshape((2, 2))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Comment définir `dtype` ?
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 Il existe une grande variété de moyens pour se définir son propre `dtype`.
 
@@ -226,16 +220,13 @@ Pour la définition de types structurés, [voir la documentation complète ici](
 
 Enfin, toujours sans transition, et plus anecdotique : jusqu'ici nous avons vu des fonctions qui préservent la taille. Le *stacking* permet de créer un tableau plus grand en (juxta/super)posant plusieurs tableaux. Voici rapidement quelques fonctions qui permettent de faire des tableaux plus petits ou plus grands.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Assemblages : `hstack` et `vstack` (tableaux 2D)
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: '-'
----
+:cell_style: center
+
 a = np.arange(1, 7).reshape(2, 3)
 print(a)
 ```
@@ -279,14 +270,12 @@ print(b)
 print(np.concatenate((a, b), axis = 2))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Pour conclure :
 
 * `hstack` et `vstack` utiles sur des tableaux 2D ;
 * au-delà, préférez `concatenate` qui a une sémantique plus claire.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Répétitions : `np.tile`
 
@@ -302,8 +291,6 @@ print(motif)
 ```{code-cell} ipython3
 print(np.tile(motif, (2, 3)))
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### Découpage : `np.split`
 
@@ -329,10 +316,6 @@ print(h2)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 complet = np.arange(24).reshape(4, 6)
 print(complet)
 ```

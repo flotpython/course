@@ -15,15 +15,15 @@ nbhosting:
   title: Surcharge op. (1)
 ---
 
+# Surcharge d'opérateurs (1)
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Surcharge d'opérateurs (1)
 
 +++
 

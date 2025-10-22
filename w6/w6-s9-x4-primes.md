@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -20,15 +16,15 @@ nbhosting:
   title: 'exercice: nombres premiers'
 ---
 
+# Exercice - niveau avancé
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 <span>Inria - UCA</span>
 </div>
-
-+++
-
-# Exercice - niveau avancé
 
 +++
 
@@ -139,6 +135,7 @@ On vous demande d'écrire un itérateur qui énumère des couples :
 
 * en première position, on veut trouver les nombres premiers, mais avec un décalage :  
   les **cinq premiers tuples** contiennent `1`, puis le sixième contient 2, et à partir de là les nombres premiers ;
+
 * en deuxième position, les carrés des nombres premiers, sans décalage :
 
 +++
