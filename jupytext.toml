@@ -1,0 +1,3 @@
+cell_metadata_filter = """all,-hidden,-heading_collapsed,-run_control,-trusted,-editable,-slideshow"""
+# use the jupytext config exclusively for exclusions
+notebook_metadata_filter = """all, -jupytext.cell_metadata_filter, -jupytext.notebook_metadata_filter, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,-language_info.version, -language_info.codemirror_mode,-language_info.file_extension, -language_info.mimetype, -toc, -rise, -version"""
