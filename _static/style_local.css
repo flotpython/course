@@ -1,1 +1,14 @@
-/* no longer need a local style */
+/* left-hand sidebar is crowdy */
+
+nav[aria-label="Table of Contents"] {
+
+    div[data-state="open"] {
+        a {
+            margin: 0px;
+            font-size: small;
+        }
+    }
+    div[data-state="closed"] {
+    }
+
+}
