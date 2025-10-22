@@ -181,7 +181,20 @@ Il est parfois nécessaire de convertir une donnée d'un type dans un autre.
 Par exemple on peut demander à l'utilisateur d'entrer une valeur au clavier grâce à la fonction `input`, comme ceci :
 
 ```{code-cell} ipython3
+:tags: []
+
+# à nouveau ceci n'est pas indispensable mais
+# pour la production du PDF il nous faut ruser un peu...
+
+reponse = "12"
+```
+
+```{code-cell} ipython3
 :latex-hidden-code-instead: reponse = '25'
+:tags: [skip-execution]
+
+# et à nouveau ceci n'est pas exécuté pendant 
+# la production du PDF parce que c'est bloquant
 
 reponse = input("quel est votre âge ? ")
 ```

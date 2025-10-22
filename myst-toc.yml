@@ -11,8 +11,7 @@ project:
         - file: w1/w1-s2-c2-lecture.md
         - file: w1/w1-s4-c1-utiliser-les-notebooks.md
         - file: w1/w1-s4-c2-interpreteur-et-notebooks.md
-        # uses input()
-        # - file: w1/w1-s4-c3-fibonacci-prompt.md
+        - file: w1/w1-s4-c3-fibonacci-prompt.md
         - file: w1/w1-s4-c4-fibonacci.md
         - file: w1/w1-s4-c5-shebang.md
         - file: w1/w1-s4-x1-turtle.md
@@ -21,8 +20,7 @@ project:
         - file: w1/w1-s5-c3-introduction-types.md
         - file: w1/w1-s5-c4-garbage-collector.md
         - file: w1/w1-s5-c5-type-checking.md
-        # uses input()
-        # - file: w1/w1-s6-c1-calculette.md
+        - file: w1/w1-s6-c1-calculette.md
         - file: w1/w1-s6-c2-affectation-operateurs.md
         - file: w1/w1-s6-c3-precision-flottants.md
         - file: w1/w1-s6-c4-entiers-bit-a-bit.md
@@ -32,8 +30,7 @@ project:
           - file: w2/w2-s1-c1-accents.md
           - file: w2/w2-s2-c1-outils-chaines.md
           - file: w2/w2-s2-c2-formatage.md
-          # uses input()
-          # - file: w2/w2-s2-c3-la-fonction-input.md
+          - file: w2/w2-s2-c3-la-fonction-input.md
           - file: w2/w2-s2-c4-expressions-regulieres.md
           - file: w2/w2-s2-x1-expressions-regulieres.md
           - file: w2/w2-s3-c1-slices.md

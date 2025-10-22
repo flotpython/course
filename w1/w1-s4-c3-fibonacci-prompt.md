@@ -4,11 +4,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Fibonacci
@@ -80,7 +81,19 @@ def fibonacci(n):
 Pour en faire un programme utilisable on va demander à l'utilisateur de rentrer un nombre&nbsp;; il faut le convertir en entier car `input` renvoie une chaîne de caractères :
 
 ```{code-cell} ipython3
+# ici j'initialise 'entier' - ce n'est pas vraiment nécessaire
+# mais j'ai besoin de le faire pour des raisons sordides
+# liées à la génération du PDF...
+
+entier = 10
+```
+
+```{code-cell} ipython3
 :latex-hidden-code-instead: entier = 12
+:tags: [skip-execution]
+
+# on s'arrange pour ne pas exécuter ceci dans le contexte 
+# de la production du PDF car ça bloquerait indéfiniment..
 
 entier = int(input("Entrer un entier "))
 ```

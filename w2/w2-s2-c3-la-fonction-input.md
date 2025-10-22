@@ -4,11 +4,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: La fonction input
@@ -32,6 +33,16 @@ nbhosting:
 
 Occasionnellement, il peut être utile de poser une question à l'utilisateur.
 
+```{admonition} Note à propos de la production de PDF
+:class: dropdown
+
+lorsqu'on produit une version PDF (ou html d'ailleurs) de ce complément, on le notebook est exécuté par une tâche automatique pour pouvoir afficher les résultats de chaque cellule  
+du coup si on ne fait rien de particulier les cellules qui font appel à `input()` bloquent puisque personne n'est là pour entrer une réponse à la question  
+c'est pourquoi on se livre à une petite gymnastique qui consiste à
+- ajouter avant l'appel à `input()` une initialisation
+- et à "sauter" l'exécution de la cellule qui fait vraiment le `input()` lors des taches automatiques
+```
+
 +++
 
 ### La fonction `input`
@@ -41,7 +52,18 @@ Occasionnellement, il peut être utile de poser une question à l'utilisateur.
 C'est le propos de la fonction `input`. Par exemple :
 
 ```{code-cell} ipython3
+# à nouveau ceci n'est pas indispensable mais
+# pour la production du PDF il nous faut ruser un peu...
+
+nom_ville = "Nancy"
+```
+
+```{code-cell} ipython3
 :latex-hidden-code-instead: nom_ville = 'Paris'
+:tags: [skip-execution]
+
+# et à nouveau ceci n'est pas exécuté pendant 
+# la production du PDF parce que c'est bloquant
 
 nom_ville = input("Entrez le nom de la ville : ")
 ```
@@ -72,6 +94,7 @@ Dans ce cas il faut appeler la fonction `int` pour convertir le résultat en un 
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [skip-execution]
 
 int(input("Nombre de lignes ? ")) + 3
 ```
