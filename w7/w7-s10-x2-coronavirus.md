@@ -9,11 +9,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: 'Exercice: coronavirus'
@@ -233,96 +234,20 @@ df1.plot();
 
 ## Exercice 2: idem mais à partir d'un autre jeu de données
 
-+++
-
 Je vous signale une autre source de données, dans ce repo git <https://github.com/owid/covid-19-data/tree/master/public/data>; les données cette fois-ci sont au format excel, et publiées à cette adresse
 
 ```{code-cell} ipython3
 alt_url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 ```
 
-Dans ces cas-là il faut avoir le réflexe d'utiliser pandas; voici un aperçu (ayez de la patience pour le chargement)
+```{admonition} mise à jour oct. 2025
+:class: danger
 
-```{code-cell} ipython3
-import pandas as pd
-
-df = pd.read_csv(alt_url)
+il semble que cette URL est à présent inaccessible
+je supprime donc le deuxième exercice de ce notebook
 ```
-
-```{code-cell} ipython3
-df.head(2)
-```
-
-### Un sujet possible (#2)
 
 +++
-
-Le sujet à la base est le même bien entendu, essayer de visualiser ces données sous une forme où on y perçoit quelque chose :)
-
-Les données sont bien entendu beaucoup plus riches, *a contrario* cela va demander davantage de mise en forme avant de pouvoir visualiser quoi que ce soit.
-
-Je vous propose ce second point de vue si vous souhaitez vous entraîner avec `pandas`, puisqu'ici on a déjà une dataframe (ce qui ne veut pas dire qu'on ne peut pas traiter le premier exercice en utilisant `pandas`).
-
-+++
-
-### Explorons un peu
-
-+++
-
-Voici quelques éléments sur la stucture de ces données :
-
-```{code-cell} ipython3
-# beaucoup plus de détails
-df.columns
-```
-
-```{code-cell} ipython3
-# la colonne iso_code représente le pays :
-df.iso_code.unique()[:5]
-```
-
-```{code-cell} ipython3
-# rien que sur la france, on a ce nombre d'enregistrements
-df_france = df[df.iso_code == 'FRA']
-len(df_france)
-```
-
-```{code-cell} ipython3
-# manifestement c'est un par jour
-df_france.head(2)
-```
-
-```{code-cell} ipython3
-df_france.tail(2)
-```
-
-Pour afficher, disons les décès par jour en France depuis le début de la pandémie, on pourrait faire :
-
-```{code-cell} ipython3
-df_france.plot(x='date', y='new_deaths');
-```
-
-```{code-cell} ipython3
-# n'hésitez pas à installer des packages
-# supplémentaires au besoin
-!pip install plotly-express
-```
-
-```{code-cell} ipython3
-# plusieurs courbes en une
-# avec plotly express, pour changer un peu
-import plotly.express as px
-
-selection = ['USA', 'FRA']
-
-start = '2020-03-15'
-date_start = start
-#date_start = pd.to_datetime(start)
-sel = df[(df.iso_code.isin(selection)) & (df.date > date_start)]
-fig1 = px.line(sel, x="date", y="total_deaths_per_million", color="location")
-fig1.update_layout(height= 800, title_text="Décès Covid, cumulés (par million d'habitants)")
-fig1.show()
-```
 
 ## Comment partager ?
 

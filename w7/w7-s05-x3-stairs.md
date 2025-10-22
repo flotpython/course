@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: 'exercice: stairs'
@@ -82,6 +83,8 @@ squares = stairs(100)
 Pour le voir comme une image avec un niveau de gris comme code de couleurs (noir = 0, blanc = maximum = 201 dans notre cas) :
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 # convertir en flottant pour imshow
 squares = squares.astype(float)
 # afficher avec une colormap 'gray'

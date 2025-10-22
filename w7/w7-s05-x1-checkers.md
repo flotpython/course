@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: 'exercice: checkers'
@@ -88,6 +89,7 @@ Pour le voir comme une image:
 ---
 slideshow:
   slide_type: fragment
+tags: [raises-exception]
 ---
 # convertir en flottant pour imshow
 checkerboard = checkerboard.astype(float)

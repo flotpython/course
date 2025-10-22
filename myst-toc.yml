@@ -63,6 +63,36 @@ project:
     - title: semaine 6
       children:
         - pattern: w6/w6-s*.md
-    # - title: semaine 7
-    #   children:
-    #     - pattern: w7/w7-s*.md
+    - title: semaine 7
+      children:
+        - file: w7/w7-s01-c1-installation.md
+        - file: w7/w7-s02-c1-dimension1.md
+        - file: w7/w7-s02-c2-dtype.md
+        - file: w7/w7-s03-c1-shape.md
+        - file: w7/w7-s03-c2-initialisation.md
+        - file: w7/w7-s05-c1-broadcasting.md
+        - file: w7/w7-s05-c2-indexing-slicing.md
+        - file: w7/w7-s05-c3-operations-logiques.md
+        - file: w7/w7-s05-c4-algebre-lineaire.md
+        - file: w7/w7-s05-c5-indexation-evoluee.md
+        - file: w7/w7-s05-c6-divers.md
+        - file: w7/w7-s05-x1-checkers.md
+        - file: w7/w7-s05-x2-hundreds.md
+        - file: w7/w7-s05-x3-stairs.md
+        - file: w7/w7-s05-x4-dice.md
+        - file: w7/w7-s05-x5-matdiag.md
+        - file: w7/w7-s05-x6-xixj.md
+        - file: w7/w7-s05-x7-npsearch.md
+        - file: w7/w7-s06-c1-data-science.md
+        - file: w7/w7-s06-c2-Series.md
+        - file: w7/w7-s07-c1-DataFrame.md
+        - file: w7/w7-s09-c1-TimeSeries.md
+        - file: w7/w7-s10-c1-matplotlib-2d.md
+        - file: w7/w7-s10-c2-matplotlib-3d.md
+        - file: w7/w7-s10-c3-notebooks-interactifs.md
+        - file: w7/w7-s10-c3-zz-plotly-dashboard.md
+        - file: w7/w7-s10-c4-animations-matplotlib.md
+        - file: w7/w7-s10-c5-bokeh-et-al.md
+        - file: w7/w7-s10-c6-fourier-k3d.md
+        - file: w7/w7-s10-x1-taylor.md
+        - file: w7/w7-s10-x2-coronavirus.md
