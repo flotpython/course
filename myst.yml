@@ -1,0 +1,48 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: MOOC Python
+  # I suspect the intention was maybe to use this for the title tooltip ?
+  # in any case as of now 2024 june the title is used for the tooltip too (a bit silly)
+  # and I can't see where this is used
+  description: "des fondamentaux aux concepts avancés du langage"
+  # this one causes additional buttons to be shown
+  # in the upper right area (close to the github button)
+  license: CC-BY-NC-SA-4.0
+  # inserted under the title
+  authors:
+    - Thierry Parmentelat & Arnaud Legout
+  github: https://github.com/flotpython/course
+  keywords:
+    - Python
+    - Langage
+    - Informatique
+    - UCA
+    - Inria
+  date: 2025-10-22
+  # bibliography: []
+  settings:
+    # this is too aggressive, and remove things like <module ...> 
+    # that we sometimes want to show
+    output_matplotlib_strings: warn
+
+site:
+  #template: book-theme
+  template: https://github.com/flotpython/myst-theme/releases/download/custom/book.zip
+  # used in the tab name
+  title: MOOC Python
+  # this would be for the horizontal header bar - not used here (yet)
+  # nav: []
+  # actions:
+  #   - title: Learn More
+  #     url: https://mystmd.org/guide
+  domains: []
+  options:
+    favicon: media/flotpython-favicon.svg.ico
+    logo: media/logo-python.svg
+    # very visible in the header
+    logo_text: "MOOC Python"
+    style: "_static/style.css"
+
+extends:
+  - myst-toc.yml

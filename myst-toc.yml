@@ -1,0 +1,27 @@
+version: 1
+
+project:
+  toc:
+
+    - file: README.md
+    - title: semaine 1
+      children:
+        - pattern: w1/w1-s*.md
+    - title: semaine 2
+      children:
+        - pattern: w2/w2-s*.md
+    - title: semaine 3
+      children:
+        - pattern: w3/w3-s*.md
+    - title: semaine 4
+      children:
+        - pattern: w4/w4-s*.md
+    - title: semaine 5
+      children:
+        - pattern: w5/w5-s*.md
+    - title: semaine 6
+      children:
+        - pattern: w6/w6-s*.md
+    - title: semaine 7
+      children:
+        - pattern: w7/w7-s*.md
