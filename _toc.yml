@@ -1,25 +1,25 @@
 format: jb-book
 root: README
 parts:
-- caption: un petit jeu
-  chapters:
-  - glob: mines/1-[0-9]*-nb
-- caption: types de base
-  chapters:
-  - glob: 2-[0-9]*-nb
-- caption: syntaxe & instructions
-  chapters:
-  - glob: 3-[0-9]*-nb
-- caption: classes
-  chapters:
-  - glob: 4-[0-9]*-nb
-- caption: fonctions
-  chapters:
-  - glob: 5-[0-9]*-nb
-- caption: divers
-  chapters:
-  # skip numpy
-  - glob: 7-[0-24-9]*-nb
+# - caption: un petit jeu
+#   chapters:
+#   - glob: mines/1-[0-9]*-nb
+# - caption: types de base
+#   chapters:
+#   - glob: 2-[0-9]*-nb
+# - caption: syntaxe & instructions
+#   chapters:
+#   - glob: 3-[0-9]*-nb
+# - caption: classes
+#   chapters:
+#   - glob: 4-[0-9]*-nb
+# - caption: fonctions
+#   chapters:
+#   - glob: 5-[0-9]*-nb
+# - caption: divers
+#   chapters:
+#   # skip numpy
+#   - glob: 7-[0-24-9]*-nb
 
 - caption: exos chap. 1
   chapters:
