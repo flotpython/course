@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Tuples
@@ -137,6 +138,7 @@ Mais si on essaie d'écrire le même test sans les parenthèses :
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # ceci provoque une SyntaxError
 1, == x
@@ -207,6 +209,7 @@ tuple
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # si bien que maintenant on ne peut plus faire ceci
 # car à ce point, tuple ne désigne plus le type tuple

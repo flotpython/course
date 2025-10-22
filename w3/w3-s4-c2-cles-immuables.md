@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "Cl\xE9s immuables"
@@ -120,6 +121,7 @@ Et c'est pourquoi on ne peut pas utiliser cet objet comme clé dans le dictionna
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # provoque une exception
 d[mauvaise_cle] = 'on ne peut pas faire ceci'

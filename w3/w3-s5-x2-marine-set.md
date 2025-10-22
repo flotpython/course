@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: 'exercice: ensembles(2)'
@@ -140,6 +141,8 @@ with open("data/marine-e2-abb.json", encoding="utf-8") as feed:
 ```
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 # le résultat de votre fonction sur des données plus vastes
 # attention, show_result fait des hypothèses sur le type de votre résultat
 # aussi si vous essayez d'exécuter ceci avec comme fonction diff

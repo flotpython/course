@@ -51,9 +51,9 @@ project:
           - file: w2/w2-s6-x5-wc.md
           - file: w2/w2-s7-x1-liste-p.md
           - file: w2/w2-s7-x2-carre.md
-    # - title: semaine 3
-    #   children:
-    #     - pattern: w3/w3-s*.md
+    - title: semaine 3
+      children:
+        - pattern: w3/w3-s*.md
     # - title: semaine 4
     #   children:
     #     - pattern: w4/w4-s*.md

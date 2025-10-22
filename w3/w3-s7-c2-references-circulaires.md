@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "R\xE9f\xE9rences circulaires"
@@ -85,6 +86,7 @@ print(infini_2)
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # attention, ceci provoque une erreur à l'exécution
 # RecursionError: maximum recursion depth exceeded in comparison
