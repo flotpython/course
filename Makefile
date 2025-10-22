@@ -1,1 +1,1 @@
-include Makefile.book
+include Makefile.book2

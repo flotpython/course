@@ -1,0 +1,12 @@
+# in development, use myst start
+
+book:
+	npx myst build --execute --html
+
+book-dev:
+	npx myst start --execute
+
+book-clean:
+	rm -rf _build
+
+.PHONY: book book-dev book-clean
