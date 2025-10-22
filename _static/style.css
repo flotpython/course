@@ -329,3 +329,11 @@ nav[aria-label="Table of Contents"] {
     }
 
 }
+
+#skip-to-frontmatter {
+    margin-bottom: 0.3em;
+}
+.licence {
+    margin-bottom: 1.5em;
+    text-align: right;
+}
