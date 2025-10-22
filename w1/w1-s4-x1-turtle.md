@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "Dessiner un carr\xE9"
@@ -77,12 +78,22 @@ On peut alors dessiner notre carré :
 square(200)
 ```
 
-Et pour finir on attend que l'utilisateur clique dans la fenêtre de la tortue, et alors on termine :
+Et pour finir on attend que l'utilisateur clique dans la fenêtre de la tortue, et alors on termine  
+en réalité on a juste besoin de faire
+```{code} python
+turtle.exitonclick()
+```
+
+toutefois je vais écrire un code un poil plus compliqué parce que sinon, au moment de la production du PDF, on va essayer de lancer ceci depuis le notebook, et ça va tout coincer ;(
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
 
-turtle.exitonclick()
+try:
+    __IPYTHON__
+    print("on est dans un notebook, on ne fait rien")
+except NameError:
+    turtle.exitonclick()
 ```
 
 ## Exercice - niveau avancé

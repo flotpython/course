@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "Flottants extr\xEAmes"
@@ -96,6 +97,7 @@ Par contre, si j'essaie de faire le même calcul avec un exposant flottant, Pyth
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 10**450.0
 ```
@@ -107,11 +109,14 @@ On peut d'ailleurs remarquer que le comportement ici n'est pas extrêmement coh�
 Quoi qu'il en soit, la limite pour les grands nombres se situe entre les deux valeurs $10^{300}$ et $10^{310}$. On vous demande à nouveau d'estimer comme ci-dessus une valeur approchée du plus grand nombre qu'il soit possible de représenter comme un flottant.
 
 ```{code-cell} ipython3
+:tags: []
+
 10**300.
 ```
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 10**310.
 ```

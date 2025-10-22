@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: type-checking
@@ -156,6 +157,7 @@ Mais par contre on ne pourrait pas faire
 
 ```{code-cell} ipython3
 :latex-hidden-code-instead: "try:\n    somme(12, [1, 2, 3])\nexcept:\n    print('OOPS')"
+:tags: [raises-exception]
 
 # ceci va déclencher une exception à l'exécution
 somme(12, [1, 2, 3])

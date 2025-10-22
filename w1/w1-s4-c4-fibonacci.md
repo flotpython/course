@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Fibonacci (suite)
@@ -90,6 +91,7 @@ Certains d'entre vous auront évidemment remarqué que l'on aurait pu éviter de
 
 ```{code-cell} ipython3
 :latex-hidden-code-instead: entier = 8
+:tags: [raises-exception]
 
 # à nouveau : ceci n'est pas conçu pour être exécuté dans le notebook !
 parser = ArgumentParser()
@@ -102,6 +104,8 @@ entier = input_args.entier
 Nous pouvons à présent afficher le résultat :
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 print(f"fibonacci({entier}) = {fibonacci(entier)}")
 ```
 

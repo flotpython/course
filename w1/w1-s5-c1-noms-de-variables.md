@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: Noms de variables
@@ -88,6 +89,7 @@ avec la restriction toutefois que le premier caractère ne peut pas être un chi
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 75_age_moyen = 80 # erreur de syntaxe
 ```
@@ -116,6 +118,7 @@ Dans la plage des caractères ASCII, il n'est **pas possible** d'utiliser d'autr
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 age-moyen = 75  # erreur : en fait python l'interprète comme 'age - moyen = 75'
 ```
@@ -142,6 +145,7 @@ Tous les caractères Unicode ne sont pas permis - heureusement car cela serait s
 
 ```{code-cell} ipython3
 :latex-skip-cell: true
+:tags: [raises-exception]
 
 # ce caractère n'est pas autorisé, car il
 # est considéré comme un signe mathématique (produit)
@@ -150,6 +154,7 @@ Tous les caractères Unicode ne sont pas permis - heureusement car cela serait s
 
 ```{code-cell} ipython3
 :latex-skip-cell: true
+:tags: [raises-exception]
 
 # ce caractère est encore différent, c'est aussi
 # un pi grec mais pas le même, cette fois-ci

@@ -6,22 +6,42 @@ project:
     - file: README.md
     - title: semaine 1
       children:
-        - pattern: w1/w1-s*.md
-    - title: semaine 2
-      children:
-        - pattern: w2/w2-s*.md
-    - title: semaine 3
-      children:
-        - pattern: w3/w3-s*.md
-    - title: semaine 4
-      children:
-        - pattern: w4/w4-s*.md
-    - title: semaine 5
-      children:
-        - pattern: w5/w5-s*.md
-    - title: semaine 6
-      children:
-        - pattern: w6/w6-s*.md
-    - title: semaine 7
-      children:
-        - pattern: w7/w7-s*.md
+        - file: w1/w1-s1-c1-versions-python.md
+        - file: w1/w1-s2-c1-installer-python.md
+        - file: w1/w1-s2-c2-lecture.md
+        - file: w1/w1-s4-c1-utiliser-les-notebooks.md
+        - file: w1/w1-s4-c2-interpreteur-et-notebooks.md
+        # uses input()
+        # - file: w1/w1-s4-c3-fibonacci-prompt.md
+        - file: w1/w1-s4-c4-fibonacci.md
+        - file: w1/w1-s4-c5-shebang.md
+        - file: w1/w1-s4-x1-turtle.md
+        - file: w1/w1-s5-c1-noms-de-variables.md
+        - file: w1/w1-s5-c2-mots-cles.md
+        - file: w1/w1-s5-c3-introduction-types.md
+        - file: w1/w1-s5-c4-garbage-collector.md
+        - file: w1/w1-s5-c5-type-checking.md
+        # uses input()
+        # - file: w1/w1-s6-c1-calculette.md
+        - file: w1/w1-s6-c2-affectation-operateurs.md
+        - file: w1/w1-s6-c3-precision-flottants.md
+        - file: w1/w1-s6-c4-entiers-bit-a-bit.md
+        - file: w1/w1-s6-x1-flottants.md
+    # - title: semaine 2
+    #   children:
+    #     - pattern: w2/w2-s*.md
+    # - title: semaine 3
+    #   children:
+    #     - pattern: w3/w3-s*.md
+    # - title: semaine 4
+    #   children:
+    #     - pattern: w4/w4-s*.md
+    # - title: semaine 5
+    #   children:
+    #     - pattern: w5/w5-s*.md
+    # - title: semaine 6
+    #   children:
+    #     - pattern: w6/w6-s*.md
+    # - title: semaine 7
+    #   children:
+    #     - pattern: w7/w7-s*.md

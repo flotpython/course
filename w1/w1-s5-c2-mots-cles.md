@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
   title: "Les mots-cl\xE9s"
@@ -30,7 +31,7 @@ nbhosting:
 
 +++
 
-### Mots réservés
+## Mots réservés
 
 +++
 
@@ -41,6 +42,8 @@ Il existe en Python certains mots spéciaux, qu'on appelle des mots-clés, ou *k
 C'est le cas par exemple pour l'instruction `if`, que nous verrons prochainement, qui permet bien entendu d'exécuter tel ou tel code selon le résultat d'un test.
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 variable = 15
 if variable <= 10:
     print("en dessous de la moyenne")
@@ -52,12 +55,13 @@ else:
 
 ```{code-cell} ipython3
 :latex-skip-eval: true
+:tags: [raises-exception]
 
 # interdit, if est un mot-clé
 if = 1
 ```
 
-### Liste complète
+## Liste complète
 
 +++
 
@@ -89,7 +93,7 @@ Cette fonctionnalité, dite de *coloration syntaxique*, permet d'identifier d'un
 
 +++
 
-### Pour en savoir plus
+## Pour en savoir plus
 
 +++
 
