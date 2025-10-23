@@ -49,7 +49,8 @@ jobs:
       - name: Install requirements.txt
         run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
       - name: Build HTML Assets
-        run: (cd notebooks; myst build --execute --html)
+        # run: (cd notebooks; myst build --execute --html)
+        run: myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
