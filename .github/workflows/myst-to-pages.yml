@@ -50,7 +50,7 @@ jobs:
         run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
       - name: Build HTML Assets
         # run: (cd notebooks; myst build --execute --html)
-        run: myst build --execute --html
+        run: export PYTHONPATH=$(pwd)/modules; myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
