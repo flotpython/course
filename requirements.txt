@@ -4,6 +4,7 @@ jupyterlab-gridwidth
 jupyterlab-hidecell
 jupytext
 
+ipympl
 ipywidgets
 ipythontutor
 nbautoeval
