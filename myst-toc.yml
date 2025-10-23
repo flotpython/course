@@ -14,7 +14,8 @@ project:
         - file: w1/w1-s4-c3-fibonacci-prompt.md
         - file: w1/w1-s4-c4-fibonacci.md
         - file: w1/w1-s4-c5-shebang.md
-        - file: w1/w1-s4-x1-turtle.md
+        # seems to still cause problems with the build
+        # - file: w1/w1-s4-x1-turtle.md
         - file: w1/w1-s5-c1-noms-de-variables.md
         - file: w1/w1-s5-c2-mots-cles.md
         - file: w1/w1-s5-c3-introduction-types.md
