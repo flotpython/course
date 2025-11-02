@@ -31,6 +31,8 @@ import sys
 
 import time
 
+import platform
+
 
 #################### la version séquentielle
 import requests
@@ -45,6 +47,9 @@ def sequential(urls):
 import asyncio
 import aiohttp
 
+if platform.system()=='Windows':
+    """Solve RuntimeError: Event loop is closed in Windows"""
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 # la première version, qui imprime simplement la fin de chaque url
 async def fetch(url):
@@ -71,6 +76,16 @@ async def fetch2(url, i):
     # par rapport à la première variante mais ce n'est pas important
     return url
 
+# runner
+async def run_fetch(args, urls):
+    # sans option on utilise juste fetch
+    if (not args.details):
+        print(f"Running simple mode (fetch) on {len(urls)} URLs")
+        await asyncio.gather(*(fetch(url) for url in urls))
+
+    else:
+        print(f"Running detail mode (fetch2) on {len(urls)} URLs")
+        await asyncio.gather(*(fetch2(url, i) for i, url in enumerate(urls)))
 
 ####################
 # pour utiliser ce code directement depuis un terminal
@@ -99,7 +114,7 @@ def main():
     args = parser.parse_args()
     urls = args.urls
 
-    loop = asyncio.get_event_loop()
+    #loop = asyncio.get_event_loop()
 
     # mode séquentiel
     if args.sequential:
@@ -111,16 +126,9 @@ def main():
     # mode asynchrone
     else:
 
-        # sans option on utilise juste fetch
-        if (not args.details):
-            print(f"Running simple mode (fetch) on {len(urls)} URLs")
-            jobs = (fetch(url) for url in urls)
-        else:
-            print(f"Running detail mode (fetch2) on {len(urls)} URLs")
-            jobs = (fetch2(url, i) for i, url in enumerate(urls))
         # il n'y a plus qu'à
-        beg = time.time()
-        loop.run_until_complete(asyncio.gather(*jobs))
+        beg = time.time()     
+        asyncio.run(run_fetch(args, urls))
         print(f"duration = {time.time()-beg}s")
 
 
