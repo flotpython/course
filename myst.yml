@@ -37,7 +37,8 @@ project:
       logo_text: "MOOC Python"
       logo_width: 10
       ToC_depth: 3
-
+  jupyter:
+    lite: true
 
 site:
   #template: book-theme
