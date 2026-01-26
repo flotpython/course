@@ -39,7 +39,7 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     container:
-      image: localhost/python-nodejs
+      image: python-nodejs:latest
     # if needed globally
     # env:
     #   var: value
