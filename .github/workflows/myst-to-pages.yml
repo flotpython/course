@@ -40,6 +40,7 @@ jobs:
     runs-on: self-hosted
     container:
       image: python-nodejs:latest
+      options: --pull never
     # if needed globally
     # env:
     #   var: value
