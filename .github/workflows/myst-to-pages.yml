@@ -39,35 +39,30 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     container:
-      image: ubuntu:latest
+      image: localhost/python-nodejs
+    # if needed globally
+    # env:
+    #   var: value
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-      # required by setup-python
-      - name: setup lsb-release
+      - name: "Python venv & requirements.txt"
         run: |
-          apt-get update
-          apt-get install -y lsb-release
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.14'
-          cache: 'pip'
-      - name: "Python requirements.txt"
-        run: |
+          python3 -m venv venv
+          source venv/bin/activate
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
-      - name: Setup nodejs
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
       - name: Install MyST Markdown
         run: |
-          npm install -g mystmd
+          source venv/bin/activate
+          npm install mystmd
       - name: Build HTML Assets
-        # run: (cd notebooks; myst build --execute --html)
-        run: export PYTHONPATH=$(pwd)/modules; myst build --execute --html
+        # working-directory: notebooks/
+        env:
+          PYTHONPATH: $(pwd)/modules
+        run: |
+          npx myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
