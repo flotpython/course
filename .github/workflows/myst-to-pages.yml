@@ -44,6 +44,8 @@ jobs:
     # env:
     #   var: value
     steps:
+      - name: Display uid
+        run: id
       - name: Checkout repository
         uses: actions/checkout@v5
       - name: "Python venv & requirements.txt"
