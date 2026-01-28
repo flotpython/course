@@ -10,11 +10,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 livereveal:
   auto_select: code
@@ -119,8 +120,9 @@ qui signifie de lancer, un délai de `time` secondes après le début du program
 ```{code-cell} ipython3
 class Scheduler:
 
-    def __init__(self, script):
-
+    def __init__(self, script, fut):
+        #objet future
+        self.fut = fut
         # on trie le script par ordre chronologique
         self.script = list(script)
         self.script.sort(key = lambda time_predef : time_predef[0])
@@ -143,7 +145,7 @@ class Scheduler:
         """
         # pour le mode avec clavier (pas fonctionnel dans le notebook)
         # on arme une callback sur stdin
-        asyncio.get_event_loop().add_reader(
+        asyncio.get_running_loop().add_reader(
             # il nous faut un file descriptor, pas un objet Python
             sys.stdin.fileno(),
             # la callback
@@ -213,7 +215,8 @@ class Scheduler:
         # Plus de processus en cours d'execution ET tous les processus executés
         if self.running == 0 and self.finished == self.to_be_run:
             print("no process left - bye")
-            asyncio.get_event_loop().stop()
+            # On set l'objet future à done pour quitter la boucle
+            self.fut.set_result("end")
         # sinon on retourne le code de retour
         return retcod
 
@@ -277,11 +280,13 @@ class Scheduler:
 ```{code-cell} ipython3
 class Clock:
 
-    def __init__(self):
+    def __init__(self, fut):
         self.clock_seconds = 0
+        self.fut = fut
 
     async def run(self):
-        while True:
+        # On regarde si l'objet future est done sinon Clock toune inndéfiniment.
+        while not self.fut.done():
             print(f"clock = {self.clock_seconds:04d}s")
             await asyncio.sleep(1)
             self.clock_seconds += 1
@@ -295,17 +300,18 @@ class Game:
     def __init__(self, script):
         self.script = script
 
-    def mainloop(self):
-        loop = asyncio.get_event_loop()
+    async def mainloop(self):
+        loop = asyncio.get_running_loop()
+        fut = loop.create_future()
 
         # on met ensemble une clock et un scheduler
-        clock = Clock()
-        scheduler = Scheduler(self.script)
+        clock = Clock(fut)
+        scheduler = Scheduler(self.script, fut)
 
         # et on fait tourner le tout
         asyncio.ensure_future(clock.run())
         asyncio.ensure_future(scheduler.run())
-        loop.run_forever()
+        await fut
 ```
 
 Et maintenant je peux lancer une session simple ; pour ne pas être noyé par les sorties on va se contenter de lancer :
@@ -324,10 +330,8 @@ game = Game( [(0.5, 1), (1., 2), (6., 3)])
 :tags: [raises-exception]
 
 # si vous êtes dans un notebook
-# cette exécution fonctionne, mais pour de sombres raisons
-# liées à des évolutions de IPython, le kernel va mourir
-# à la fin; ce n'est pas important..
-game.mainloop()
+
+await game.mainloop()
 ```
 
 ### Conclusion
@@ -346,7 +350,7 @@ Actuellement on peut trouver des bibliothèques au dessus de `asyncio` pour mani
 
 Si vous voulez exécuter ce code localement sur votre machine :
 
-Tout d'abord sachez que je n'ai pas du tout essayé ceci sur un OS Windows - et d'ailleurs ça m'intéresserait assez de savoir si ça fonctionne ou pas.
+Ne fonctionne pas sur OS Windows - Certaines fonctionnalités non implémentées.[Platform support python 3.10](https://docs.python.org/3/library/asyncio-platforms.html)
 
 Cela étant dit, il vous suffit alors de télécharger le présent notebook au format Python. Vous aurez aussi besoin :
 
