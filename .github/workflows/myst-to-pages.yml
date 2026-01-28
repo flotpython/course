@@ -63,6 +63,7 @@ jobs:
         env:
           PYTHONPATH: $(pwd)/modules
         run: |
+          source venv/bin/activate
           npx myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v5
