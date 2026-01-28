@@ -3,6 +3,8 @@
 # - go to the Settings -> Environments tab
 #   then select the 'github-pages' environment
 #   and make sure the branch of interest (here main) is allowed in the 'Branch protection rules' area
+# - also for using a self-hosted runner, make sure you have set it up properly
+#   github.com/$ORGA -> Settings -> Actions -> Runner groups -> Default Group -> Allow public repositories
 
 name: Deploy MyST to GitHub Pages
 
@@ -26,12 +28,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
-# this is no longer needed as we serve from info-mines.paris
-# required for MyST
+# this is no longer needed as we serve from hostnames
+# in our own domain info-mines.paris
 # env:
-#   # `BASE_URL` determines the website is served from, including CSS & JS assets
-#   # You may need to change this to `BASE_URL: ''`
 #   BASE_URL: /${{ github.event.repository.name }}
 
 
@@ -40,9 +39,7 @@ jobs:
     runs-on: self-hosted
     container:
       image: dockerhub.pl.sophia.inria.fr/python-nodejs:latest
-    # if needed globally
-    # env:
-    #   var: value
+    # this is so we can use source
     defaults:
       run:
         shell: bash
