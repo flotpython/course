@@ -43,6 +43,9 @@ jobs:
     # if needed globally
     # env:
     #   var: value
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
