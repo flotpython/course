@@ -39,8 +39,7 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     container:
-      image: python-nodejs:latest
-      options: --pull never
+      image: dockerhub.pl.sophia.inria.fr/python-nodejs:latest
     # if needed globally
     # env:
     #   var: value
