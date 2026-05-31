@@ -267,5 +267,9 @@ Pour un aperçu plus complet, je vous invite à parcourir ce document <https://t
 * la documentation officielle sur [le module typing](https://docs.python.org/3/library/typing.html) ;
 * le [mypy cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html), référence pratique sur la syntaxe ;
 * la documentation communautaire [typing.readthedocs.io](https://typing.readthedocs.io/) ;
+
+et les PEPs
 * le [PEP-484](https://peps.python.org/pep-0484/) sur le typage des paramètres et retours de fonctions, implémenté dans Python 3.5 ;
 * le [PEP-526](https://peps.python.org/pep-0526/) sur le typage des variables, implémenté dans Python 3.6.
+* le [PEP-585](https://peps.python.org/pep-0585/) sur l'utilisation de `list[str]` depuis la 3.9
+* le [PEP-604](https://peps.python.org/pep-0604/) sur le `X | Y` depuis la 3.10
