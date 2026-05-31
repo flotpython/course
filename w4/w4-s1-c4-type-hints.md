@@ -4,12 +4,13 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  display_name: Python 3 (ipykernel)
+  language: python
 language_info:
   name: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: Type hints
 ---
@@ -27,6 +28,15 @@ nbhosting:
 +++
 
 ## Complément - niveau intermédiaire
+
+```{admonition} Avertissement
+:class: danger
+
+le système de *type hints* a **beaucoup évolué** depuis la rédaction de cet article.  
+Nous nous sommes efforcés de le mettre à jour, mais n'hésitez pas à approfondir le sujet dans d'autres sources si nécessaire..
+
+une référence possible pour cela: <https://typing.python.org/>
+```
 
 +++
 
@@ -123,53 +133,32 @@ On peut penser que cet usage va se répandre avec le temps, peut-être / sans do
 
 +++
 
-Maintenant que nous en avons bien vu la finalité, voyons un très bref aperçu des possibilités offertes pour la construction des types dans ce contexte de *type hints*. N'hésitez pas à vous reporter à la documentation officielle [du module `typing`](https://docs.python.org/3/library/typing.html) pour un exposé plus exhaustif.
+Maintenant que nous en avons bien vu la finalité, voyons un très bref aperçu des possibilités offertes pour la construction des types dans ce contexte de *type hints*. À nouveau n'hésitez pas à creuser le sujet par ailleurs.
 
 +++
 
-##### le module `typing`
-
-+++
-
-L'ensemble des symboles que nous allons utiliser dans la suite de ce complément provient du module `typing`
-
-+++
-
-##### exemples simples
-
-```{code-cell} ipython3
-from typing import List
-```
+#### exemple simple
 
 ```{code-cell} ipython3
 # une fonction qui 
 # attend un paramètre qui soit une liste d'entiers,
 # et qui retourne une liste de chaînes
-def foo(x: List[int]) -> List[str]:
+def foo(x: list[int]) -> list[str]:
     pass    
 ```
 
-##### avertissement : `list` vs `List`
-
-+++
-
-Remarquez bien dans l'exemple ci-dessus que nous avons utilisé `typing.List` plutôt que le type *built-in* `list`, alors que l'on a pu par contre utiliser `int` et `str`.
-
-Les raisons pour cela sont de deux ordres :
-
-* tout d'abord, si je devais utiliser `list` pour construire un type comme *liste d'entiers*, il me faudrait écrire quelque chose comme `list(int)` ou encore `list[int]`, et cela serait source de confusion car ceci a déjà une signification dans le langage ;
-
-* de manière plus profonde, il faut distinguer entre `list` qui est un type concret (un objet qui sert à construire des instances), de `List` qui dans ce contexte doit plus être vu comme un type abstrait.
-
-+++
-
-Pour bien voir cela, considérez l'exemple suivant :
+#### un peu plus complexe
 
 ```{code-cell} ipython3
-from typing import Iterable
+from collections.abc import Iterable
 ```
 
 ```{code-cell} ipython3
+# attend
+# - une chaine comme séparateur
+# - un itérable de chaines en entrée
+# retourne
+# -> une chaine
 def lower_split(sep: str, inputs : Iterable[str]) -> str:
     return sep.join([x.lower() for x in inputs])
 ```
@@ -178,47 +167,12 @@ def lower_split(sep: str, inputs : Iterable[str]) -> str:
 lower_split('--', ('AB', 'CD', 'EF'))
 ```
 
-On voit bien dans cet exemple que `Iterable` ne correspond pas à un type concret particulier, c'est un type abstrait dans le sens du *duck typing*.
+On voit bien dans cet exemple que `Iterable` ne correspond pas à un type concret particulier, c'est un type abstrait dans le sens du *duck typing*.  
+Ce code pourra fonctionner dès lors qu'on peut faire un `for` sur `inputs`
 
 +++
 
-##### un exemple plus complet
-
-+++
-
-Voici un exemple tiré de la documentation du module `typing` qui illustre davantage de types construits à partir des types *builtin* du langage :
-
-```{code-cell} ipython3
-from typing import Dict, Tuple, List
-
-ConnectionOptions = Dict[str, str]
-Address = Tuple[str, int]
-Server = Tuple[Address, ConnectionOptions]
-
-def broadcast_message(message: str, servers: List[Server]) -> None:
-    ...
-
-# The static type checker will treat the previous type signature as
-# being exactly equivalent to this one.
-def broadcast_message(
-        message: str,
-        servers: List[Tuple[Tuple[str, int], Dict[str, str]]]) -> None:
-    ...
-```
-
-J'en profite d'ailleurs (ça n'a rien a voir, mais...) pour vous signaler un objet python assez étrange :
-
-```{code-cell} ipython3
-# L'objet ... existe bel et bien en Python
-el = ...
-el
-```
-
-qui sert principalement pour le slicing multidimensionnel de numpy. Mais ne nous égarons pas...
-
-+++
-
-##### typage partiel
+#### typage partiel et `Any`
 
 +++
 
@@ -240,73 +194,78 @@ def partially_typed(n1: int, n2: Any) -> Any:
     return None
 ```
 
-##### alias
+:::{admonition} `collections.abc` *vs* `typing`
+:class: warning
+l'historique des *type hints* est assez tortueuse; on aurait pu espérer n'avoir qu'un module à utiliser, mais ce n'est malheureusement pas le cas; aussi on doit importer:
+- `collections.abc` pour les types abstraits (genre `Iterable` ci-dessus)
+- `typing` pour les constructeurs de type comme ici `Any` ou `Final`...
+:::
+
++++
+
+#### constantes et `Final`
+
++++
+
+Pour indiquer qu'une variable est constante, on peut utiliser `Final`
+
+```{code-cell} ipython3
+from typing import Final
+
+# cette variable est constante et désigne un tuple de deux entiers
+
+SCREEN_SIZE: Final[tuple[int, int]] = 100, 100
+```
+
+#### alias
 
 +++
 
 On peut facilement se définir des alias ; lorsque vous avez implémenté un système d'identifiants basé sur le type `int`, il est préférable de faire :
 
 ```{code-cell} ipython3
-from typing import NewType
+# depuis la 3.12
 
-UserId = NewType('UserId', int)
+type Vector = tuple[float, float]
 
-user1_id : UserId = 0
+v : Vector = 1., 1.
 ```
 
-plutôt que ceci, qui est beaucoup moins parlant :
+#### unions
+
+on peut construire un type "A ou B" avec l'opérateur `|`
 
 ```{code-cell} ipython3
-user1_id : int = 0
+type ListOrTuple = list[int] | tuple[int]
+
+l : ListOrTuple = [1, 2]
+t : ListOrTuple = 1, 2
 ```
 
-## Complément - niveau avancé
-
-+++
-
-##### `Generic`
-
-+++
-
-Pour ceux qui connaissent déjà la notion de classe (les autres peuvent ignorer la fin de ce complément) :
-
-+++
-
-Grâce aux constructions `TypeVar` et `Generic`, il est possible de manipuler une notion de *variable de type*, que je vous montre sur un exemple tiré à nouveau de la documentation du module `typing` :
+#### valeurs optionnelles
 
 ```{code-cell} ipython3
-from typing import TypeVar, Generic
-from logging import Logger
+# soit un entier, soit None
 
-T = TypeVar('T')
+from typing import Optional
 
-class LoggedVar(Generic[T]):
-    def __init__(self, value: T, name: str, logger: Logger) -> None:
-        self.name = name
-        self.logger = logger
-        self.value = value
+type MaybeInteger = Optional[int]
 
-    def set(self, new: T) -> None:
-        self.log('Set ' + repr(self.value))
-        self.value = new
-
-    def get(self) -> T:
-        self.log('Get ' + repr(self.value))
-        return self.value
-
-    def log(self, message: str) -> None:
-        self.logger.info('%s: %s', self.name, message)
+i: MaybeInteger = 1
+n: MaybeInteger = None
 ```
 
-qui vous donne je l'espère une idée de ce qu'il est possible de faire, et jusqu'où on peut aller avec les *type hints*. Si vous êtes intéressé par cette fonctionnalité, je vous invite [à poursuivre la lecture ici](https://docs.python.org/3/library/typing.html#user-defined-generic-types).
+#### plus d'exemples
+
++++
+
+Pour un aperçu plus complet, je vous invite à parcourir ce document <https://typing.python.org/en/latest/guides/libraries.html#best-practices-for-inlined-types>
 
 +++
 
 ### Pour en savoir plus
-
-* la documentation officielle sur [le module typing](https://docs.python.org/3/library/typing.html) ;
-* la page d'accueil [de l'outil mypy](http://mypy-lang.org/).
-
-
-* le [PEP-525](https://www.python.org/dev/peps/pep-0484/) sur le typage des paramètres et retours de fonctions, implémenté dans python-3.5 ;
-* le [PEP-526](https://www.python.org/dev/peps/pep-0526/) sur le typage des variables, implémenté dans 3.6.
+* la documentation officielle sur [le module typing](https://docs.python.org/3/library/typing.html) ;
+* le [mypy cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html), référence pratique sur la syntaxe ;
+* la documentation communautaire [typing.readthedocs.io](https://typing.readthedocs.io/) ;
+* le [PEP-484](https://peps.python.org/pep-0484/) sur le typage des paramètres et retours de fonctions, implémenté dans Python 3.5 ;
+* le [PEP-526](https://peps.python.org/pep-0526/) sur le typage des variables, implémenté dans Python 3.6.
