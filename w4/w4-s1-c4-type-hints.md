@@ -35,7 +35,7 @@ nbhosting:
 le système de *type hints* a **beaucoup évolué** depuis la rédaction de cet article.  
 Nous nous sommes efforcés de le mettre à jour, mais n'hésitez pas à approfondir le sujet dans d'autres sources si nécessaire..
 
-une référence possible pour cela: <https://typing.python.org/>
+voyez pour cela les références en fin de notebook
 ```
 
 +++
