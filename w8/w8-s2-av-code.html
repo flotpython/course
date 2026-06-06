@@ -3,8 +3,18 @@
     font-size: 11px;
 }
 </style>
+
 <h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
 <b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
+</h3>
+<hr />
+<!-- Version Python 3.10 -->
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>La vidéo a été tournée avec la 3.6, le cours a été mis à jour pour 3.10.
+Il est préférable d'utiliser les fonctions asyncio de haut niveau, telles qu'asyncio.run().
+Le référencement de l'objet boucle ou l'appel de ses méthodes s'adresse principalement aux auteurs de code,
+de bibliothèques et de frameworks de niveau inférieur, qui ont besoin d'un contrôle plus fin du comportement de la boucle d'événement.
+</i></b>
 </h3>
 <hr />
 <blockquote>
@@ -23,6 +33,15 @@ async def morceaux(message):
     
     print(message, &quot;fin&quot;)
     return f'{message} par morceaux'
+
+<!-- add coroutines -->
+async def main():
+    L = await asyncio.gather(
+        morceaux("run 1"),
+        morceaux("run 2"),
+    )
+    print(L)
+
 </code></pre>
 <blockquote>
 <p>Faire Save As &quot;w8s2 Vidéo.py&quot; puis F5</p>
@@ -31,13 +50,9 @@ async def morceaux(message):
 
 morceaux(&quot;run&quot;)
 
-loop = asyncio.get_event_loop()
+asyncio.run(morceaux(&quot;run&quot;))
 
-loop.run_until_complete(morceaux(&quot;run&quot;))
-
-loop.run_until_complete(
-    asyncio.gather(morceaux(&quot;run1&quot;),
-                   morceaux(&quot;run2&quot;)))
+asyncio.run(main())
 </code></pre>
 <blockquote>
 <p>Reprendre sous IDLE le fichier python et ajouter</p>
@@ -58,14 +73,18 @@ async def famine(message):
     
     print(message, &quot;fin&quot;)
     return f'{message} par famine'
+
+async def main():
+    L = await asyncio.gather(
+        famine("run 1"),
+        famine("run 2"),
+    )
+    print(L)
 </code></pre>
 <blockquote>
 <p>Faire Ctl-s puis F5</p>
 </blockquote>
-<pre><code>loop = asyncio.get_event_loop()
-
-loop.run_until_complete(
-    asyncio.gather(famine(&quot;run1&quot;),
-                   famine(&quot;run2&quot;)))
+<pre><code>
+asyncio.run(main())
 </code></pre>
 </div>

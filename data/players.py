@@ -74,9 +74,8 @@ def main():
     args = parser.parse_args()
     players = predefined[args.groupnb]
 
-    loop = asyncio.get_event_loop()
     try:
-        loop.run_until_complete(players.run())
+        asyncio.run((players.run()))
         sys.exit(0)
     except Exception as e:
         print(f"EMERGENCY {type(e)}, {e}")

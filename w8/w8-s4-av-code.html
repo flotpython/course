@@ -7,6 +7,15 @@
 <b><i>bloc-note pour copier/coller le code de la vidéo</i></b>
 </h3>
 <hr />
+<!-- Version Python 3.10 -->
+<h3 style="border: 1px solid #66b; border-radius: 5px; padding: 10px; background-color: #eee;">
+<b><i>La vidéo a été tournée avec la 3.6, le cours a été mis à jour pour 3.10.
+Il est préférable d'utiliser les fonctions asyncio de haut niveau, telles qu'asyncio.run().
+Le référencement de l'objet boucle ou l'appel de ses méthodes s'adresse principalement aux auteurs de code,
+de bibliothèques et de frameworks de niveau inférieur, qui ont besoin d'un contrôle plus fin du comportement de la boucle d'événement.
+</i></b>
+</h3>
+<hr />
 <blockquote>
 <p>Prendre un notebook ou un éditeur python</p>
 </blockquote>
@@ -34,6 +43,11 @@ print(f&quot;duration = {time.time() - beg}s&quot;)
 <pre><code>import asyncio
 import aiohttp
 import time
+import platform
+
+if platform.system()=='Windows':
+    """Solve RuntimeError: Event loop is closed in Windows"""
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 urls = [&quot;https://www.irs.gov/pub/irs-pdf/f1040.pdf&quot;,
 		&quot;https://www.irs.gov/pub/irs-pdf/f1040es.pdf&quot;,
@@ -57,10 +71,9 @@ async def fetch_urls():
 <blockquote>
 <p>Faire Ctl-s puis F5</p>
 </blockquote>
-<pre><code>loop = asyncio.get_event_loop()
-
+<pre><code>
 beg = time.time()
-loop.run_until_complete(fetch_urls())
+asyncio.run(fetch_urls())
 print(f&quot;duration = {time.time() - beg}s&quot;)
 </code></pre>
 <blockquote>
@@ -74,9 +87,9 @@ print(f&quot;duration = {time.time() - beg}s&quot;)
                 print(f&quot;{i}&quot;, end=&quot;&quot;)
     return url
 
+async def run_fetch2():
+    await asyncio.gather(*(fetch2(url, i) for i, url in enumerate(urls)))
 
-asyncio.get_event_loop().run_until_complete(
-    asyncio.gather(*(fetch2(url, i) for i, url in enumerate(urls)))
-)
+asyncio.run(run_fetch2())
 </code></pre>
 </div>
