@@ -135,32 +135,6 @@ Vous remarquez ici qu'alors que `values` et `index` sont des attributs de la `Se
 Avant d'aller plus loin, il faut faire attention à la gestion du type des objets contenus dans notre `Series` (on aura le même problème avec les `DataFrame`). Alors qu'un `ndarray` de `numpy` a un type qui ne change pas, une `Series` peut implicitement changer le type de ses valeurs lors d'opérations d'affectations.
 
 ```{code-cell} ipython3
-# créons une Series et regardons le type de ses valeurs
-s = pd.Series({k:v**2 for k, v in zip('abcdefghij', range(10))})
-print(s.values.dtype)
-```
-
-```{code-cell} ipython3
-# On a déjà vu que l'on ne pouvait pas modifier lors d'une affectation le
-# type d'un ndarray numpy
-
-try:
-    s.values[2] = 'spam'
-except ValueError as e:
-    print(f"On ne peut pas affecter une str à un ndarray de int64:\n{e}")
-```
-
-```{code-cell} ipython3
-# Par contre, on peut le faire sur une Series
-s['c'] = 'spam'
-
-# et maintenant le type des valeurs de la Series a changé
-print(s.values.dtype)
-```
-
-C'est un point extrêment important puisque toutes les opérations vectorisées vont avoir leur performance impactée et le résultat obtenu peut même être faux. Regardons cela :
-
-```{code-cell} ipython3
 s = pd.Series(range(10_000))
 print(s.values.dtype)
 ```
@@ -271,7 +245,6 @@ L'opération de slicing sur les `Series` est une source fréquente d'erreur qui 
 
 * on peut slicer sur les labels des index, mais aussi sur la position (l'indice) d'un élément dans la `Series` ;
 * les opérations de slices sur les positions et les labels se comportent différemment, [un slice sur les positions exclut la borne de droite (comme tous les slices en Python), mais un slice sur un label inclut la borne de droite](http://pandas.pydata.org/pandas-docs/stable/gotchas.html#endpoints-are-inclusive) ;
-* il peut y avoir ambiguïté entre un label et la position d'un élément lorsque le label est un entier.
 
 Nous allons détailler chacun de ces cas, mais sachez qu'il existe une solution qui évite toute ambiguïté, c'est d'utiliser les interfaces `loc` et `iloc` que nous verrons un peu plus loin.
 
