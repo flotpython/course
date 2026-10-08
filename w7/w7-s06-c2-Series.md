@@ -182,7 +182,7 @@ print(s)
 
 ```{code-cell} ipython3
 # seulement si j'additionne, les entiers sont additionnés,
-# mais les chaînes de caractères concaténées.
+# mais les chaînes de caractères concaténées !
 print(s+s)
 ```
 
@@ -260,7 +260,7 @@ print(s)
 print(s['alice'])
 
 # mais aussi par la position d'alice dans l'index
-print(s[0])
+print(s.iloc[0])
 ```
 
 ```{code-cell} ipython3
