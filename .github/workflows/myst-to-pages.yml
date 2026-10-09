@@ -68,7 +68,7 @@ jobs:
         run: |
           source venv/bin/activate
           # cd notebooks
-          npx myst build --html --execute --execute-parallel 4
+          npx myst build --html --execute --execute-parallel 1
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
