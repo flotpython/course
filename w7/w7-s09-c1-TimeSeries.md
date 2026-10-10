@@ -48,7 +48,8 @@ except ValueError as e:
 
 ```{code-cell} ipython3
 # retourne l'input en cas d'erreur
-pd.to_datetime(date, errors='ignore')
+# attention cette option n'existe plus en pandas v3 !
+# pd.to_datetime(date, errors='ignore')
 ```
 
 ```{code-cell} ipython3
