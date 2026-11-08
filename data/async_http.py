@@ -99,7 +99,10 @@ def main():
     args = parser.parse_args()
     urls = args.urls
 
-    loop = asyncio.get_event_loop()
+    # avec une version récente de Python >= 3.14
+    # on ne peut plus utiliser get_event_loop()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
     # mode séquentiel
     if args.sequential:

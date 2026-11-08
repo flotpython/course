@@ -36,6 +36,15 @@ Pour des raisons techniques, il ne nous est pas possible de mettre en ligne un n
 
 C'est pourquoi, si vous êtes intéressés à reproduire vous-même les expériences de la vidéo - à savoir, aller chercher plusieurs URLs de manière séquentielle ou en parallèle - [vous pouvez télécharger le code fourni dans ce lien](data/async_http.py).
 
+```{admonition} et pour une version plus récente ?
+
+le lien ci-dessus s'efforce de rester le plus possible proche de la vidéo  
+toutefois depuis le tournage il y a eu pas mal de changements dans `asyncio`,
+et notamment l'idée de faire référence explicitement à une boucle d'événements est devenue essentiellement obsolète...
+
+c'est pourquoi [vous trouverez dans ce lien](data/async_http_v2.py) une version plus moderne de ce même script, qui utilise `asyncio.run()`
+```
+
 +++
 
 Il s'agit d'un simple script, qui reprend les 3 approches de la vidéo :
